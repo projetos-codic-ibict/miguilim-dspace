@@ -1,0 +1,17 @@
+/.idea/
+*.iml
+/target/
+/dspace/modules/oai/overlays/
+/dspace-solr/overlays/
+/dspace/modules/solr/overlays/
+/dspace-solr/overlays/
+/docker/postgres/dump.zip
+/dspace/modules/additions/target/
+/dspace/modules/jspui/target/
+/dspace/modules/oai/target/
+/dspace/modules/solr/target/
+/dspace/target/
+target/
+overlays/
+/dspace-jspui/node_modules/
+/dspace-jspui/src/main/webapp/node_modules/
