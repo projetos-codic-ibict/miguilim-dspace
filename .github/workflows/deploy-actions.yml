@@ -17,7 +17,7 @@ jobs:
           password: ${{ secrets.PASSWORD_SSH }}
           script: |
             cd git && rm -rf miguilim-dspace
-            mkdir miguilin-dspace && cd miguilin-dspace
-            git clone http://${{ secrets.USERNAME_GIT }}:${{ secrets.PASSWORD_GIT }}@${{ secrets.REPOSITORY }} .
+            mkdir miguilim-dspace && cd miguilim-dspace
+            git clone http://${{ secrets.USERNAME_GIT }}:${{ secrets.PASSWORD_GIT }}@github.com/${{ secrets.REPOSITORY }} .
             sh docker/dspace/build-dspace.sh
             
