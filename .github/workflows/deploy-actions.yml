@@ -13,11 +13,11 @@ jobs:
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          password: ${{ secrets.PASSWORD }}
+          username: ${{ secrets.USERNAME_SSH }}
+          password: ${{ secrets.PASSWORD_SSH }}
           script: |
             cd git && rm -rf miguilim-dspace
             mkdir miguilin-dspace && cd miguilin-dspace
-            git clone ${{ secrets.REPOSITORY }} .
+            git clone http://${{ secrets.USERNAME_GIT }}:${{ secrets.PASSWORD_GIT }}@${{ secrets.REPOSITORY }} .
             sh docker/dspace/build-dspace.sh
             
