@@ -1,0 +1,23 @@
+name: Deploy DSpace
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executing Remote SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          script: |
+            cd git && rm -rf miguilim-dspace
+            mkdir miguilin-dspace && cd miguilin-dspace
+            git clone ${{ secrets.REPOSITORY }} .
+            sh docker/dspace/build-dspace.sh
+            
