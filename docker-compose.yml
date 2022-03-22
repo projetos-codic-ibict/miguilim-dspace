@@ -2,7 +2,6 @@ version: "3.3"
 
 services:
 
-
   postgres:
 
     build:
@@ -40,7 +39,6 @@ services:
     - installfolder:/dspace
     networks:
       - nw_miguilim
-
 
 networks:
   nw_miguilim:
