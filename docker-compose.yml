@@ -18,8 +18,8 @@ services:
     - nw_miguilim
 
   dspace:
-    depends_on:
-      - postgres
+    #depends_on:
+    #  - postgres
     build:
       context: .
       dockerfile: Dockerfile
