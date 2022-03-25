@@ -2,7 +2,6 @@ version: "3.3"
 
 services:
 
-
   postgres:
 
     build:
@@ -19,8 +18,8 @@ services:
     - nw_miguilim
 
   dspace:
-    depends_on:
-      - postgres
+    #depends_on:
+    #  - postgres
     build:
       context: .
       dockerfile: Dockerfile
@@ -40,7 +39,6 @@ services:
     - installfolder:/dspace
     networks:
       - nw_miguilim
-
 
 networks:
   nw_miguilim:

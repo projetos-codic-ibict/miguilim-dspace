@@ -1,5 +1,5 @@
 FROM openjdk:8u111-jdk
-MAINTAINER Márcio Gurgel <marcio.rga@gmail.com>
+LABEL maintainer="Márcio Gurgel <marcio.rga@gmail.com>"
 
 EXPOSE 8080
 
