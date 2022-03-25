@@ -97,10 +97,37 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
-		        <ref bean="searchFilterContentInOriginalBundle"/>
+				<ref bean="searchFilterSituation" />
+				<ref bean="searchFilterStartyear" />
+				<ref bean="searchFilterLanguage" />
+				<ref bean="searchFilterCNPq" />
+				<ref bean="searchFilterPublisherName" />
+				<ref bean="searchFilterSubordinate" />
+				<ref bean="searchFilterPublisher" />
+				<ref bean="searchFilterPublisherLegalnature" />
+				<ref bean="searchFilterEditor" />
+				<ref bean="searchFilterPeriodicity" />
+				<ref bean="searchFilterMonthofpublication" />
+				<ref bean="searchFilterPeerreview" />
+				<ref bean="searchFilterReviewersPeriodicityOfPublication" />
+				<ref bean="searchFilterPeerreviewExternality" />
+				<ref bean="searchFilterPeerreViewDocuments" />
+				<ref bean="searchFilterSealColor" />
+				<ref bean="searchFilterAccess" />
+				<ref bean="searchFilterEmbargedTime" />
+				<ref bean="searchFilterCreativecommons" />
+				<ref bean="searchFilterPublicationFees" />
+				<ref bean="searchFilterSubmissionFees" />
+				<ref bean="searchFilterApc" />
+				<ref bean="searchFilterCodeofethics" />
+				<ref bean="searchFilterReferenceGuidelines" />
+				<ref bean="searchFilterDigitalPreservation" />
+				<ref bean="searchFilterResearchData" />
+				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisClassification" />
+				<ref bean="searchFilterInformationServices" />
+				<ref bean="searchFilterJournalsPortalUri" />
+				<ref bean="searchFilterOasisbr" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -108,13 +135,72 @@
         <!--The search filters which can be used on the discovery search page-->
         <property name="searchFilters">
             <list>
-                <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
-		        <ref bean="searchFilterContentInOriginalBundle"/>
-                <ref bean="searchFilterFileNameInOriginalBundle" />
-                <ref bean="searchFilterFileDescriptionInOriginalBundle" />
+				<ref bean="searchFilterAbstract" />
+				<ref bean="searchFilterTitle" />
+				<ref bean="searchFilterTitleAbbreviated" />
+				<ref bean="searchFilterTitleProper" />
+				<ref bean="searchFilterTitleOther" />
+				<ref bean="searchFilterTitlePrevious" />
+				<ref bean="searchFilterTitleLater" />
+				<ref bean="searchFilterIssn" />
+				<ref bean="searchFilterIssnl" />
+				<ref bean="searchFilterSituation" />
+				<ref bean="searchFilterStartyear" />
+				<ref bean="searchFilterEndyear" />
+				<ref bean="searchFilterUrl" />
+				<ref bean="searchFilterInteroperabilityProtocol" />
+				<ref bean="searchFilterPersistentIdentifier" />
+				<ref bean="searchFilterLanguage" />
+				<ref bean="searchFilterCNPq" />
+				<ref bean="searchFilterPublisherName" />
+				<ref bean="searchFilterSubordinate" />
+				<ref bean="searchFilterPublisher" />
+				<ref bean="searchFilterPublisherLegalnature" />
+				<ref bean="searchFilterEditor" />
+				<ref bean="searchFilterIdentifierEditor" />
+				<ref bean="searchFilterEmail" />
+				<ref bean="searchFilterCep" />
+				<ref bean="searchFilterState" />
+				<ref bean="searchFilterCity" />
+				<ref bean="searchFilterNeighborhood" />
+				<ref bean="searchFilterStreet" />
+				<ref bean="searchFilterBuilding" />
+				<ref bean="searchFilterPhone" />
+				<ref bean="searchFilterModalityOfPublication" />
+				<ref bean="searchFilterPeriodicity" />
+				<ref bean="searchFilterMonthofpublication" />
+				<ref bean="searchFilterEditorialBoardPeriodicity" />
+				<ref bean="searchFilterEditorialBoardMonthofPublication" />
+				<ref bean="searchFilterPeerreview" />
+				<ref bean="searchFilterReviewerspublication" />
+				<ref bean="searchFilterReviewerStypeOfPublication" />
+				<ref bean="searchFilterReviewersPeriodicityOfPublication" />
+				<ref bean="searchFilterPeerreviewExternality" />
+				<ref bean="searchFilterPeerreViewDocuments" />
+				<ref bean="searchFilterPublishinGresponsable" />
+				<ref bean="searchFilterPrePrintSubmission" />
+				<ref bean="searchFilterPrePrint" />
+				<ref bean="searchFilterAuthorPostPrint" />
+				<ref bean="searchFilterJournalPostPrint" />
+				<ref bean="searchFilterSealColor" />
+				<ref bean="searchFilterTime" />
+				<ref bean="searchFilterAccess" />
+				<ref bean="searchFilterEmbargedTime" />
+				<ref bean="searchFilterCreativecommons" />
+				<ref bean="searchFilterPublicationFees" />
+				<ref bean="searchFilterSubmissionFees" />
+				<ref bean="searchFilterApc" />
+				<ref bean="searchFilterCodeofethics" />
+				<ref bean="searchFilterReferenceGuidelines" />
+				<ref bean="searchFilterPlagiarismDetection" />
+				<ref bean="searchFilterDigitalPreservation" />
+				<ref bean="searchFilterResearchData" />
+				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisClassification" />
+				<ref bean="searchFilterSocialNetworks" />
+				<ref bean="searchFilterInformationServices" />
+				<ref bean="searchFilterJournalsPortalUri" />
+				<ref bean="searchFilterOasisbr" />
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -125,8 +211,7 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
-                        <ref bean="sortDateIssued" />
+						<ref bean="sortDateAccessioned" />
                     </list>
                 </property>
             </bean>
@@ -188,6 +273,8 @@
                         <value>dc.title</value>
                         <value>dc.contributor.author</value>
                         <value>dc.creator</value>
+						<value>dc.contributor.advisor1</value>
+						<value>dc.contributor.advisor2</value>
                         <value>dc.subject</value>
                     </list>
                 </property>
@@ -209,10 +296,22 @@
         <!--Which sidebar facets are to be displayed (same as defaultConfiguration above)-->
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
-		        <ref bean="searchFilterContentInOriginalBundle"/>
+				<ref bean="searchFilterPublisherName" />
+				<ref bean="searchFilterCNPq" />
+				<ref bean="searchFilterPeerreview" />
+				<ref bean="searchFilterCreativecommons" />
+				<ref bean="searchFilterAccess" />
+				<ref bean="searchFilterQualisClassification" />
+				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterPublicationFees" />
+				<ref bean="searchFilterResearchData" />
+				<ref bean="searchFilterSealColor" />
+				<ref bean="searchFilterLanguage" />
+				<ref bean="searchFilterModalityOfPublication" />
+				<ref bean="searchFilterPeerreViewDocuments" />
+				<ref bean="searchFilterReferenceGuidelines" />
+				<ref bean="searchFilterCodeofethics" />
+				<ref bean="searchFilterInformationServices" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -220,13 +319,72 @@
         <!--The search filters which can be used on the discovery search page (same as defaultConfiguration above)-->
         <property name="searchFilters">
             <list>
-                <ref bean="searchFilterTitle" />
-                <ref bean="searchFilterAuthor" />
-                <ref bean="searchFilterSubject" />
-                <ref bean="searchFilterIssued" />
-		        <ref bean="searchFilterContentInOriginalBundle"/>
-                <ref bean="searchFilterFileNameInOriginalBundle" />
-                <ref bean="searchFilterFileDescriptionInOriginalBundle" />
+				<ref bean="searchFilterAbstract" />
+				<ref bean="searchFilterTitle" />
+				<ref bean="searchFilterTitleAbbreviated" />
+				<ref bean="searchFilterTitleProper" />
+				<ref bean="searchFilterTitleOther" />
+				<ref bean="searchFilterTitlePrevious" />
+				<ref bean="searchFilterTitleLater" />
+				<ref bean="searchFilterIssn" />
+				<ref bean="searchFilterIssnl" />
+				<ref bean="searchFilterSituation" />
+				<ref bean="searchFilterStartyear" />
+				<ref bean="searchFilterEndyear" />
+				<ref bean="searchFilterUrl" />
+				<ref bean="searchFilterInteroperabilityProtocol" />
+				<ref bean="searchFilterPersistentIdentifier" />
+				<ref bean="searchFilterLanguage" />
+				<ref bean="searchFilterCNPq" />
+				<ref bean="searchFilterPublisherName" />
+				<ref bean="searchFilterSubordinate" />
+				<ref bean="searchFilterPublisher" />
+				<ref bean="searchFilterPublisherLegalnature" />
+				<ref bean="searchFilterEditor" />
+				<ref bean="searchFilterIdentifierEditor" />
+				<ref bean="searchFilterEmail" />
+				<ref bean="searchFilterCep" />
+				<ref bean="searchFilterState" />
+				<ref bean="searchFilterCity" />
+				<ref bean="searchFilterNeighborhood" />
+				<ref bean="searchFilterStreet" />
+				<ref bean="searchFilterBuilding" />
+				<ref bean="searchFilterPhone" />
+				<ref bean="searchFilterModalityOfPublication" />
+				<ref bean="searchFilterPeriodicity" />
+				<ref bean="searchFilterMonthofpublication" />
+				<ref bean="searchFilterEditorialBoardPeriodicity" />
+				<ref bean="searchFilterEditorialBoardMonthofPublication" />
+				<ref bean="searchFilterPeerreview" />
+				<ref bean="searchFilterReviewerspublication" />
+				<ref bean="searchFilterReviewerStypeOfPublication" />
+				<ref bean="searchFilterReviewersPeriodicityOfPublication" />
+				<ref bean="searchFilterPeerreviewExternality" />
+				<ref bean="searchFilterPeerreViewDocuments" />
+				<ref bean="searchFilterPublishinGresponsable" />
+				<ref bean="searchFilterPrePrintSubmission" />
+				<ref bean="searchFilterPrePrint" />
+				<ref bean="searchFilterAuthorPostPrint" />
+				<ref bean="searchFilterJournalPostPrint" />
+				<ref bean="searchFilterSealColor" />
+				<ref bean="searchFilterTime" />
+				<ref bean="searchFilterAccess" />
+				<ref bean="searchFilterEmbargedTime" />
+				<ref bean="searchFilterCreativecommons" />
+				<ref bean="searchFilterPublicationFees" />
+				<ref bean="searchFilterSubmissionFees" />
+				<ref bean="searchFilterApc" />
+				<ref bean="searchFilterCodeofethics" />
+				<ref bean="searchFilterReferenceGuidelines" />
+				<ref bean="searchFilterPlagiarismDetection" />
+				<ref bean="searchFilterDigitalPreservation" />
+				<ref bean="searchFilterResearchData" />
+				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisClassification" />
+				<ref bean="searchFilterSocialNetworks" />				
+				<ref bean="searchFilterInformationServices" />
+				<ref bean="searchFilterJournalsPortalUri" />
+				<ref bean="searchFilterOasisbr" />
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -237,8 +395,7 @@
                 <property name="defaultSortOrder" value="desc"/>
                 <property name="sortFields">
                     <list>
-                        <ref bean="sortTitle" />
-                        <ref bean="sortDateIssued" />
+						<ref bean="sortDateAccessioned" />
                     </list>
                 </property>
             </bean>
@@ -292,7 +449,7 @@
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
         <property name="tagCloudFacets">
             <list>
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
             </list>
         </property>
     </bean>
@@ -304,7 +461,7 @@
         <!-- List of tagclouds to appear, one for every search filter, one after the other -->
         <property name="tagCloudFacets">
             <list>
-                <ref bean="searchFilterSubject" />
+                <!--<ref bean="searchFilterSubject" />-->
             </list>
         </property>
     </bean>
@@ -377,64 +534,800 @@
     </bean>
     
     <!--Search filter configuration beans-->
-    <bean id="searchFilterTitle" class="org.dspace.discovery.configuration.DiscoverySearchFilter">
+    
+	<bean id="searchFilterAbstract" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="abstract"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.abstract</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterTitle" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="title"/>
         <property name="metadataFields">
             <list>
                 <value>dc.title</value>
             </list>
         </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
-
-    <bean id="searchFilterAuthor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="author"/>
+	
+	<bean id="searchFilterTitleAbbreviated" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="abbreviated"/>
         <property name="metadataFields">
             <list>
-                <value>dc.contributor.author</value>
-                <value>dc.creator</value>
+                <value>dc.title.abbreviated</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+		<property name="facetLimit" value="10"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
-
-    <bean id="searchFilterSubject" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
-        <property name="indexFieldName" value="subject"/>
+	
+	<bean id="searchFilterTitleProper" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="proper"/>
         <property name="metadataFields">
             <list>
-                <value>dc.subject.*</value>
+                <value>dc.title.proper</value>
             </list>
         </property>
-        <property name="facetLimit" value="10"/>
+		<property name="facetLimit" value="10"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
-        <property name="splitter" value="::"/>
     </bean>
-
-    <bean id="searchFilterIssued" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="dateIssued"/>
+	
+	<bean id="searchFilterTitleOther" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="other"/>
         <property name="metadataFields">
             <list>
-                <value>dc.date.issued</value>
+                <value>dc.title.other</value>
             </list>
         </property>
-        <property name="type" value="date"/>
+		<property name="facetLimit" value="10"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
-    
-    <bean id="searchFilterContentInOriginalBundle" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="has_content_in_original_bundle"/>
+	
+	<bean id="searchFilterTitlePrevious" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="previous"/>
         <property name="metadataFields">
-            <list/>
+            <list>
+                <value>dc.title.previous</value>
+            </list>
         </property>
-        <property name="facetLimit" value="2"/>
-        <property name="type" value="standard"/>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterTitleLater" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="later"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.title.later</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterIssn" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="issn"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.issn</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterIssnl" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="issnl"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.issnl</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterSituation" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="situation"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.situation</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterStartyear" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="startyear"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.startyear</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEndyear" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="endyear"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.endyear</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterUrl" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="url"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.url</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterInteroperabilityProtocol" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="interoperabilityprotocol"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.interoperabilityprotocol</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPersistentIdentifier" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="persistentidentifier"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.persistentidentifier</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterLanguage" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="language"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.language</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterCNPq" class="org.dspace.discovery.configuration.HierarchicalSidebarFacetConfiguration">
+		<property name="indexFieldName" value="cnpq"/>
+		<property name="metadataFields">
+			<list>
+				<value>dc.subject.cnpq</value>
+			</list>
+		</property>
+		<property name="facetLimit" value="10"/>
+		<property name="sortOrderSidebar" value="COUNT"/>
+		<property name="sortOrderFilterPage" value="COUNT"/>
+		<property name="splitter" value="::"/>
+	</bean>
+	
+	<bean id="searchFilterPublisherName" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="name"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.publisher.name</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterSubordinate" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="subordinate"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.publisher.subordinate</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPublisher" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="publisher"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.publisher</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPublisherLegalnature" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="legalnature"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.publisher.legalnature</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEditor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="editor"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.editor</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterIdentifierEditor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="identifiereditor"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.editor</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEmail" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="email"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.email</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterCep" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="cep"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.cep</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterState" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="state"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.state</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterCity" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="city"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.city</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterNeighborhood" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="neighborhood"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.neighborhood</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterStreet" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="street"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.street</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterBuilding" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="building"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.building</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPhone" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="phone"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.phone</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterModalityOfPublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="modalityofpublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.modalityofpublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPeriodicity" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="periodicity"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.periodicity</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterMonthofpublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="monthofpublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.monthofpublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEditorialBoardPeriodicity" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="editorialboardperiodicity"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.editorialboardperiodicity</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEditorialBoardMonthofPublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="editorialboardmonthofpublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.editorialboardmonthofpublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPeerreview" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="peerreview"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.peerreview</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterReviewerspublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="reviewerspublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.reviewerspublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterReviewerStypeOfPublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="reviewerstypeofpublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.reviewerstypeofpublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterReviewersPeriodicityOfPublication" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="reviewersperiodicityofpublication"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.reviewersperiodicityofpublication</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPeerreviewExternality" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="peerreviewexternality"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.peerreviewexternality</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPeerreViewDocuments" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="peerreviewdocuments"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.peerreviewdocuments</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPublishinGresponsable" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="publishingresponsable"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.contributor.publishingresponsable</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPrePrintSubmission" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="preprintsubmission"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.preprintsubmission</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPrePrint" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="preprint"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.preprint</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterAuthorPostPrint" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="authorpostprint"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.authorpostprint</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterJournalPostPrint" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="journalpostprint"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.journalpostprint</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterSealColor" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="sealcolor"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.sealcolor</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterTime" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="time"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.time</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterAccess" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="access"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.access</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterEmbargedTime" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="embargedtime"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.embargedtime</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterCreativecommons" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="commons"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.creativecommons</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPublicationFees" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="publicationfees"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.publicationfees</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterSubmissionFees" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="submissionfees"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.submissionfees</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterApc" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="apc"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.apc</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterCodeofethics" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="codeofethics"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.codeofethics</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterReferenceGuidelines" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="referenceguidelines"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.referenceguidelines</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterPlagiarismDetection" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="plagiarismdetection"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.plagiarismdetection</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterDigitalPreservation" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="digitalpreservation"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.digitalpreservation</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
+	<bean id="searchFilterResearchData" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="researchdata"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.rights.researchdata</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterQualisArea" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="qualisarea"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.qualisarea</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterQualisClassification" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="qualisclassification"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.qualisclassification</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterSocialNetworks" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="socialnetworks"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.socialnetworks</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterInformationServices" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="informationservices"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.relation.informationservices</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterJournalsPortalUri" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="journalsportaluri"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.journalsportaluri</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+	
+	<bean id="searchFilterOasisbr" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="oasisbr"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.relation.oasisbr</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+		
     <bean id="searchFilterFileNameInOriginalBundle" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="original_bundle_filenames"/>
         <property name="metadataFields">
@@ -450,13 +1343,35 @@
     </bean>
 
     <!--Sort properties-->
-    <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
-        <property name="metadataField" value="dc.title"/>
+	
+	<bean id="sortDateAccessioned" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.date.accessioned"/>
+        <property name="type" value="date"/>
     </bean>
-
-    <bean id="sortDateIssued" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+	
+	<bean id="sortDateIssued" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
         <property name="metadataField" value="dc.date.issued"/>
         <property name="type" value="date"/>
     </bean>
-    
+	
+    <bean id="sortTitle" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.title"/>
+    </bean>
+	
+	<bean id="sortAuthor" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.author"/>
+    </bean>
+	
+	<bean id="sortAdvisor" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.advisor"/>
+    </bean>
+	
+	<bean id="sortProgram" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.publisher.program"/>
+    </bean>
+	
+	<bean id="sortType" class="org.dspace.discovery.configuration.DiscoverySortFieldConfiguration">
+        <property name="metadataField" value="dc.type"/>
+    </bean>
+	
 </beans>
