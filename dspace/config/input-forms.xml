@@ -95,6 +95,7 @@ Campos que necessitam ser adicionados ao esquema dublin core padrão do DSpace
    <form name="revistas">
     <page number="1">
 
+
   <field>
   <dc-schema>dc</dc-schema>
   <dc-element>description</dc-element>
