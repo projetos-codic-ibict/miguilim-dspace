@@ -1,5 +1,5 @@
 FROM postgres:11
-MAINTAINER Márcio Gurgel <marcio.rga@gmail.com>
+LABEL maintainer="Márcio Gurgel <marcio.rga@gmail.com>"
 
 EXPOSE 5432
 
