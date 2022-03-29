@@ -2,7 +2,26 @@ version: "3.5"
 
 services:
 
+  postgres:
+    build:
+      context: docker/postgres
+      dockerfile: Dockerfile
+    image:
+      mrgurgel/postgres_miguilim
+    container_name: bd_miguilim
+    ports:
+      - "127.0.0.1:5006:5432"
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - TZ=America/Sao_Paulo
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - nw_miguilim
+
   dspace:
+    depends_on:
+      - postgres
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,23 +32,29 @@ services:
       - CONFIG_FILE=docker.cfg
       - DEV_MODE=true
       - CONTEXT_NAME=miguilim
+      - DB_PASSWORD=${DB_PASSWORD}
     container_name: dspace_miguilim
     ports:
-    - "7006:8080"
+    - "127.0.0.1:7006:8080"
     tty: true
     volumes:
     - mavenrepo:/root/.m2/repository
     - installfolder:/dspace
+    - thirdpardsoftware:/opt
     networks:
       - nw_miguilim
 
+
 networks:
   nw_miguilim:
-    name: miguilin-dspace_nw_miguilim
     driver: bridge
 
 volumes:
   mavenrepo:
     driver: local
   installfolder:
+    driver: local
+  dbdata:
+    driver: local
+  thirdpardsoftware:
     driver: local
