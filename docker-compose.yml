@@ -52,14 +52,14 @@ networks:
 
 volumes:
   mavenrepo:
-    name: mavenrepo
+    name: miguilim-mavenrepo
     driver: local
   installfolder:
-    name: installfolder
+    name: miguilim-installfolder
     driver: local
   dbdata:
-    name: dbdata
+    name: miguilim-dbdata
     driver: local
   thirdpardsoftware:
-    name: thirdpardsoftware
+    name: miguilim-thirdpardsoftware
     driver: local
