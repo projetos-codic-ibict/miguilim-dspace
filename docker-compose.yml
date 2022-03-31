@@ -47,14 +47,19 @@ services:
 
 networks:
   nw_miguilim:
+    name: nw_miguilim
     driver: bridge
 
 volumes:
   mavenrepo:
+    name: mavenrepo
     driver: local
   installfolder:
+    name: installfolder
     driver: local
   dbdata:
+    name: dbdata
     driver: local
   thirdpardsoftware:
+    name: thirdpardsoftware
     driver: local
