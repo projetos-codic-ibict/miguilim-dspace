@@ -16,3 +16,4 @@ overlays/
 /dspace-jspui/node_modules/
 /dspace-jspui/src/main/webapp/node_modules/
 /dspace/config/local.cfg
+/dspace/config/local.cfg
