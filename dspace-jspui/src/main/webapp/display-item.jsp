@@ -73,7 +73,7 @@
     // get the handle if the item has one yet
     String handle = item.getHandle();
     Context context = UIUtil.obtainContext(request);
-    
+
     // get the doi if the item has one
     String doi = (String) request.getAttribute("doi");
     // get the preferred identifier (as URL)
@@ -92,7 +92,7 @@
  	{
 		title = "Workspace Item";
 	}
-	else 
+	else
 	{
 		List<MetadataValue> titleValue = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc", "title", null, Item.ANY);
 		if (titleValue.size() != 0)
@@ -104,19 +104,19 @@
 			title = "Item " + handle;
 		}
 	}
-    
+
     Boolean versioningEnabledBool = (Boolean)request.getAttribute("versioning.enabled");
     boolean versioningEnabled = (versioningEnabledBool!=null && versioningEnabledBool.booleanValue());
     Boolean hasVersionButtonBool = (Boolean)request.getAttribute("versioning.hasversionbutton");
     Boolean hasVersionHistoryBool = (Boolean)request.getAttribute("versioning.hasversionhistory");
     boolean hasVersionButton = (hasVersionButtonBool!=null && hasVersionButtonBool.booleanValue());
     boolean hasVersionHistory = (hasVersionHistoryBool!=null && hasVersionHistoryBool.booleanValue());
-    
+
     Boolean newversionavailableBool = (Boolean)request.getAttribute("versioning.newversionavailable");
     boolean newVersionAvailable = (newversionavailableBool!=null && newversionavailableBool.booleanValue());
     Boolean showVersionWorkflowAvailableBool = (Boolean)request.getAttribute("versioning.showversionwfavailable");
     boolean showVersionWorkflowAvailable = (showVersionWorkflowAvailableBool!=null && showVersionWorkflowAvailableBool.booleanValue());
-    
+
     VersionHistoryService versionHistoryService = VersionServiceFactory.getInstance().getVersionHistoryService();
     VersionHistory history = (VersionHistory)request.getAttribute("versioning.history");
     List<Version> historyVersions = (List<Version>)request.getAttribute("versioning.historyversions");
@@ -128,7 +128,7 @@
     {
 %>
 
-		<%		
+		<%
 		if (newVersionAvailable)
 		   {
 		%>
@@ -138,18 +138,18 @@
 		<%
 		    }
 		%>
-		
-		<%		
+
+		<%
 		if (showVersionWorkflowAvailable)
 		   {
 		%>
-		<div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.workflow_version_head"/></b>		
+		<div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.workflow_version_head"/></b>
 		<fmt:message key="jsp.version.notice.workflow_version_help"/>
 		</div>
 		<%
 		    }
 		%>
-		
+
 
                 <%-- <strong>Please use this identifier to cite or link to this item:
                 <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
@@ -181,18 +181,18 @@
                     <input type="hidden" name="handle" value="<%= item.getHandle() %>" />
                     <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
                 </form>
-					<% if(hasVersionButton) { %>       
+					<% if(hasVersionButton) { %>
                 	<form method="get" action="<%= request.getContextPath() %>/tools/version">
-                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />                    
+                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />
                     	<input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
                 	</form>
-                	<% } %> 
-                	<% if(hasVersionHistory) { %>			                
+                	<% } %>
+                	<% if(hasVersionHistory) { %>
                 	<form method="get" action="<%= request.getContextPath() %>/tools/history">
                     	<input type="hidden" name="itemID" value="<%= item.getID() %>" />
                     	<input type="hidden" name="versionID" value="<%= versionHistoryService.getVersion(context, history, item)!=null?versionHistoryService.getVersion(context, history, item).getID():null %>" />
                     	<input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
-                	</form>         	         	
+                	</form>
 					<% } %>
              </div>
           </div>
@@ -318,30 +318,30 @@
                 .getBooleanProperty("versioning", "item.history.view.admin");
         boolean item_history_include_submitter = ConfigurationManager
                 .getBooleanProperty("versioning", "item.history.include.submitter", false);
-        if(!item_history_view_admin || admin_button) {         
+        if(!item_history_view_admin || admin_button) {
 %>
 	<div id="versionHistory" class="panel panel-info">
 	<div class="panel-heading"><fmt:message key="jsp.version.history.head2" /></div>
-	
+
 	<table class="table panel-body">
 		<tr>
 			<th id="tt1" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column1"/></th>
-			<th 			
+			<th
 				id="tt2" class="oddRowOddCol"><fmt:message key="jsp.version.history.column2"/></th>
             <%-- Add Information about submitter only for admins or if item.history.include.submitter is true --%>
             <% if (item_history_include_submitter || admin_button) { %>
-    			<th 
+    			<th
 	    			 id="tt3" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column3"/></th>
             <% } %>
-			<th 
-				
+			<th
+
 				id="tt4" class="oddRowOddCol"><fmt:message key="jsp.version.history.column4"/></th>
-			<th 
+			<th
 				 id="tt5" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column5"/> </th>
 		</tr>
-		
-		<% for(Version versRow : historyVersions) {  
-		
+
+		<% for(Version versRow : historyVersions) {
+
 			EPerson versRowPerson = versRow.getEPerson();
 			String[] identifierPath = UIUtil.getItemIdentifier(UIUtil.obtainContext(request), versRow.getItem());
                         String url = identifierPath[0];
@@ -352,15 +352,15 @@
                         } else {
                             identifier = identifierPath[3];
                         }
-		%>	
-		<tr>			
+		%>
+		<tr>
 			<td headers="tt1" class="oddRowEvenCol"><%= versRow.getVersionNumber() %></td>
 			<td headers="tt2" class="oddRowOddCol"><a href="<%= url %>"><%= identifier %></a><%= item.getID()==versRow.getItem().getID()?"<span class=\"glyphicon glyphicon-asterisk\"></span>":""%></td>
 
-                        <% if(admin_button) { %> 
+                        <% if(admin_button) { %>
                             <td headers="tt3" class="oddRowEvenCol"><a
                                href="mailto:<%= versRowPerson.getEmail() %>"><%=versRowPerson.getFullName() %></a> </td>
-                        <% } 
+                        <% }
                         else if(item_history_include_submitter) { %>
                             <td headers="tt3" class="oddRowEvenCol"> <%=versRowPerson.getFullName() %> </td>
                         <% }%>
@@ -392,6 +392,6 @@
 %>
     <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.copyright"/></p>
 <%
-    } 
-%>    
+    }
+%>
 </dspace:layout>
