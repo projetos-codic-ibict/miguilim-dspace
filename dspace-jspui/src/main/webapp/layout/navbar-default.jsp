@@ -140,7 +140,6 @@
         </li>
 
         <li class="<%= currentPage.endsWith("/perguntas-frequentes")? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/perguntas-frequentes.jsp"><fmt:message key="jsp.layout.navbar.miguilim.frequentquestions"/></a></li>
-        <li class="<%= currentPage.endsWith("/password-login")? "active" : "" %>"><a href="<%= request.getContextPath() %>/password-login"> <fmt:message key="jsp.layout.navbar-default.register"/></a></li>
         <li class="<%= currentPage.endsWith("/feedback")? "active" : "" %>"><a href="<%= request.getContextPath() %>/feedback"> <fmt:message key="jsp.layout.navbar-default.feedback"/></a></li>
 
     </ul>

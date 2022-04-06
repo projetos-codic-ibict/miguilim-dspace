@@ -129,17 +129,6 @@
 </header>
 
 <main id="content" role="main">
-<div class="container banner">
-    <div class="row">
-        <div class="col-md-9 brand">
-            <h1><fmt:message key="jsp.layout.header-default.brand.heading" /></h1>
-            <fmt:message key="jsp.layout.header-default.brand.description" /> 
-        </div>
-        <div class="col-md-3"><img class="pull-right" src="<%= request.getContextPath() %>/image/logo.gif" alt="DSpace logo" />
-        </div>
-    </div>
-</div>
-<br/>
                 <%-- Location bar --%>
 <%
     if (locbar)

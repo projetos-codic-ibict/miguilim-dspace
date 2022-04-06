@@ -42,8 +42,15 @@
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
+<%@ page import="org.dspace.content.service.CollectionService" %>
+<%@page import="org.dspace.handle.HandleServiceImpl" %>
+<%@ page import="org.dspace.handle.factory.HandleServiceFactory" %>
+<%@ page import="org.dspace.handle.service.HandleService" %>
 
-<%
+
+<%! public static final String REVISTAS = "123456789/2";
+	public static final String PORTAL_DE_PERIODICOS = "123456789/2669";
+%><%
     List<Community> communities = (List<Community>) request.getAttribute("communities");
 
     Locale sessionLocale = UIUtil.getSessionLocale(request);
@@ -69,13 +76,14 @@
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
+	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
+
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-	<div class="jumbotron">
-        <%= topNews %>
-	</div>
+	Total de periódicos (label temporário): <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %> <br/>
+	Total de revistas (label temporário): <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
 
 <div class="row">
 <%
