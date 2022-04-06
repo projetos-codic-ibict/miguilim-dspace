@@ -209,7 +209,7 @@
 
   <servlet>
     <servlet-name>edit-item</servlet-name>
-    <servlet-class>org.dspace.app.webui.servlet.admin.EditItemServlet</servlet-class>
+    <servlet-class>org.dspace.app.webui.servlet.admin.CustomEditItemServlet</servlet-class>
   </servlet>
   
   <servlet>
