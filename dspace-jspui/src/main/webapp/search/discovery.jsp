@@ -64,6 +64,7 @@
 <%@ page import="org.dspace.sort.SortOption" %>
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.util.Set" %>
+<%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
 <%
 	// Get the attributes
 	DSpaceObject scope = (DSpaceObject) request.getAttribute("scope" );
@@ -110,7 +111,7 @@
 	int rpp          = qArgs.getMaxResults();
 	int etAl         = ((Integer) request.getAttribute("etal")).intValue();
 
-	String[] options = new String[]{"equals","contains","authority","notequals","notcontains","notauthority"};
+	String[] options = new String[]{"contains", "equals","authority","notequals","notcontains","notauthority"};
 
 	// Admin user or not
 	Boolean admin_b = (Boolean)request.getAttribute("admin_button");
@@ -166,198 +167,179 @@
 
 	<%-- <h1>Search Results</h1> --%>
 
-	<h1><fmt:message key="jsp.search.title"/></h1>
+	<h2><fmt:message key="jsp.search.title"/></h2>
 
-	<div class="discovery-search-form panel panel-default">
+	<div class="discovery-search-form">
+
+
 			<%-- Controls for a repeat search --%>
-		<div class="container-fluid">
-			<div class="discovery-query panel-heading">
-				<form action="simple-search" method="get">
-					<label for="tlcomunidade">
-						Buscar por
-					</label>
-					<select name="comunidade" id="tlcomunidade" class="espGlobalBorder form-control">
-
-						<%
-							if (scope == null)
-							{
-								// Scope of the search was all of DSpace.  The scope control will list
-								// "all of DSpace" and the communities.
-						%>
-							<%-- <option selected value="/">All of DSpace</option> --%>
-						<option selected="selected" value="/"><!--<fmt:message key="jsp.general.genericScope"/>-->Todo o repositório</option>
-						<%  }
-						else
-						{
-						%>
-						<%
-
-						%>
-						<option value="/"><!--<fmt:message key="jsp.general.genericScope"/>-->Todo o Diretório</option>
-
-
-						<%  }
-						%>
-
-					</select>
-					<br>
-					<label for="tlocation">
-						Buscar nas coleções
-					</label>
-
-					<select name="location" id="tlocation" class="espGlobalBorder form-control">
-
-						<%
-							for (DSpaceObject dso : scopes)
-							{
-						%>
-						<option value="<%= dso.getHandle() %>" <%=dso.getHandle().equals(searchScope)?"selected=\"selected\"":"" %>>
-							<%= dso.getName() %>
-						</option>
-
-
-						<%
-							}
-						%>
-					</select>
-					<br/>
-
-					<script>
-						$(document).ready(function() {
-							$('#tlocation').children('option[value="123456789/1"]').hide();
-							$('select option:contains("Miguilim")').text('Todas as coleções');
-						});
-					</script>
-
-
-					<label for="query"><fmt:message key="jsp.search.results.searchfor"/></label>
-					<input class="espGlobalBorder form-control" type="text" size="" id="query" name="query" value="<%= (query==null ? "" : Utils.addEntities(query)) %>"/>
-					<input type="submit" id="main-query-submit" class="btn-customizado" value="<fmt:message key="jsp.general.go"/>" />
-					<% if (StringUtils.isNotBlank(spellCheckQuery)) {%>
-					<p class="lead"><fmt:message key="jsp.search.didyoumean"><fmt:param><a id="spellCheckQuery" data-spell="<%= Utils.addEntities(spellCheckQuery) %>" href="#"><%= spellCheckQuery %></a></fmt:param></fmt:message></p>
-					<% } %>
-					<input type="hidden" value="<%= rpp %>" name="rpp" />
-					<input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
-					<input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
-					<% if (appliedFilters.size() > 0 ) { %>
-					<div class="discovery-search-appliedFilters">
-						<span><fmt:message key="jsp.search.filter.applied" /></span>
-						<%
-							int idx = 1;
-							for (String[] filter : appliedFilters)
-							{
-								boolean found = false;
-						%>
-						<select id="filter_field_<%=idx %>" class="espGlobalBorder form-control" name="filter_field_<%=idx %>">
-							<%
-								for (DiscoverySearchFilter searchFilter : availableFilters)
-								{
-									String fkey = "jsp.search.filter." + Escape.uriParam(searchFilter.getIndexFieldName());
-							%><option value="<%= Utils.addEntities(searchFilter.getIndexFieldName()) %>"<%
-							if (searchFilter.getIndexFieldName().equals(filter[0]))
-							{
-						%> selected="selected"<%
-								found = true;
-							}
-						%>><fmt:message key="<%= fkey %>"/></option><%
-							}
-							if (!found)
-							{
-								String fkey = "jsp.search.filter." + Escape.uriParam(filter[0]);
-						%><option value="<%= Utils.addEntities(filter[0]) %>" selected="selected"><fmt:message key="<%= fkey %>"/></option><%
-							}
-						%>
-						</select>
-						<select id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" class="espGlobal form-control">
-							<%
-								for (String opt : options)
-								{
-									String fkey = "jsp.search.filter.op." + Escape.uriParam(opt);
-							%><option value="<%= Utils.addEntities(opt) %>"<%= opt.equals(filter[1])?" selected=\"selected\"":"" %>><fmt:message key="<%= fkey %>"/></option><%
-							}
-						%>
-						</select>
-						<input type="text" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" size="" disabled class="espGlobal form-control" />
-						<input class="btn btn-default" type="submit" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>" value="X" />
-						<br/>
-						<%
-								idx++;
-							}
-						%>
-					</div>
-					<% } %>
-					<!--<a class="btn btn-default" href="<%= request.getContextPath()+"/simple-search" %>"><fmt:message key="jsp.search.general.new-search" /></a>-->
-				</form>
-			</div>
-		</div><!--Fim container fluid-->
-		<% if (availableFilters.size() > 0) { %>
-		<div class="discovery-search-filters panel-body">
-			<!--<h5><fmt:message key="jsp.search.filter.heading" /></h5>-->
-			<p class="discovery-search-filters-hint"></p>
+		<div class="discovery-query well">
 			<form action="simple-search" method="get">
 
-				<!--<input type="" value="<%-- Utils.addEntities(searchScope) --%>" name="location" />--><fmt:message key="jsp.search.filter.hint" />
-				<input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
+				<input type="hidden" value="<%= rpp %>" name="rpp" />
+				<input type="hidden" value="<%= sortedBy %>" name="sort_by" />
+				<input type="hidden" value="<%= order %>" name="order" />
+
+				<!-- Primeira linha -->
+				<label for="tlocation">
+					<b><fmt:message key="jsp.search.results.searchin"/></b>
+				</label><br/>
+
+				<select name="location" id="tlocation" class="form-control-new" style="width: 20%;">
+					<%
+						if (scope == null)
+						{
+							// Scope of the search was all of DSpace.  The scope control will list
+							// "all of DSpace" and the communities.
+					%>
+						<%-- <option selected value="/">All of DSpace</option> --%>
+					<option selected="selected" value="/"><fmt:message key="jsp.general.genericScope"/></option>
+					<%  }
+					else
+					{
+					%>
+					<option value="/"><fmt:message key="jsp.general.genericScope"/></option>
+					<%  }
+						for (DSpaceObject dso : scopes)
+						{
+					%>
+					<option value="<%= dso.getHandle() %>" <%=dso.getHandle().equals(searchScope)?"selected=\"selected\"":"" %>>
+						<%= dso.getName() %></option>
+					<%
+						}
+					%>
+				</select>
+
+				<label for="query"><fmt:message key="jsp.search.results.searchfor"/></label>
+				<input type="text" class="form-control-new" size="50" id="query" name="query" value="<%= (query==null ? "" : StringEscapeUtils.escapeHtml(query)) %>" style="width: 62%;"/>
+
+				<button class="btn btn-primary search-button pull-right" type="submit"><span class="glyphicon glyphicon-search"></span></button>
+
+
+				<% if (StringUtils.isNotBlank(spellCheckQuery)) {%>
+				<br/>
+				<p class="lead white-font"><fmt:message key="jsp.search.didyoumean"><fmt:param><a class="white-font" id="spellCheckQuery"
+																								  data-spell="<%= Utils.addEntities(spellCheckQuery) %>"
+																								  href="#"><%= spellCheckQuery %>
+				</a></fmt:param></fmt:message></p>
+				<% } %>
+
+
+				<% if (appliedFilters.size() > 0 ) { %>
+				<div class="discovery-search-appliedFilters">
+					<label><b><fmt:message key="jsp.search.filter.applied" /></b></label><br/>
+					<%
+						int idx = 1;
+						for (String[] filter : appliedFilters)
+						{
+							boolean found = false;
+					%>
+
+					<select id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" style="width: 20%;" class="form-control-new">
+						<%
+							for (DiscoverySearchFilter searchFilter : availableFilters)
+							{
+								String fkey = "jsp.search.filter."+searchFilter.getIndexFieldName();
+						%><option value="<%= searchFilter.getIndexFieldName() %>"<%
+						if (filter[0].equals(searchFilter.getIndexFieldName()))
+						{
+					%> selected="selected"<%
+							found = true;
+						}
+					%>><fmt:message key="<%= fkey %>"/></option><%
+						}
+						if (!found)
+						{
+							String fkey = "jsp.search.filter."+filter[0];
+					%><option value="<%= filter[0] %>" selected="selected"><fmt:message key="<%= fkey %>"/></option><%
+						}
+					%>
+					</select>
+					<select id="filter_type_<%=idx %>" name="filter_type_<%=idx %>"  style="width: 20%;" class="form-control-new">
+						<%
+							for (String opt : options)
+							{
+								String fkey = "jsp.search.filter.op."+opt;
+						%><option value="<%= opt %>"<%= opt.equals(filter[1])?" selected=\"selected\"":"" %>><fmt:message key="<%= fkey %>"/></option><%
+						}
+					%>
+					</select>
+					<input type="text" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= StringEscapeUtils.escapeHtml(filter[2]) %>" style="width: 45%;" class="form-control-new"/>
+					<input class="btn btn-default pull-right" type="submit" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>" value="X" />
+					<br/>
+					<%
+							idx++;
+						}
+					%>
+				</div>
+				<% } %>
+
+			</form>
+			<% if (availableFilters.size() > 0) { %>
+
+			<form action="simple-search" method="get">
+				<label ><strong><fmt:message key="jsp.search.filter.heading" /></strong></label><br/>
+				<input type="hidden" value="<%= StringEscapeUtils.escapeHtml(searchScope) %>" name="location" />
+				<input type="hidden" value="<%= StringEscapeUtils.escapeHtml(query) %>" name="query" />
 				<% if (appliedFilterQueries.size() > 0 ) {
 					int idx = 1;
 					for (String[] filter : appliedFilters)
 					{
 						boolean found = false;
 				%>
-				<input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= Utils.addEntities(filter[0]) %>" />
-				<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= Utils.addEntities(filter[1]) %>" />
-				<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" />
+				<input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= filter[0] %>" />
+				<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= filter[1] %>" />
+				<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= StringEscapeUtils.escapeHtml(filter[2]) %>" />
 				<%
 							idx++;
 						}
 					} %>
-				<select id="filtername" name="filtername" class="espGlobalBorder form-control">
+				<select id="filtername" name="filtername" class="form-control-new" style="width: 20%">
 					<%
 						for (DiscoverySearchFilter searchFilter : availableFilters)
 						{
-							String fkey = "jsp.search.filter." + Escape.uriParam(searchFilter.getIndexFieldName());
-					%><option value="<%= Utils.addEntities(searchFilter.getIndexFieldName()) %>"><fmt:message key="<%= fkey %>"/></option><%
+							String fkey = "jsp.search.filter."+searchFilter.getIndexFieldName();
+					%><option value="<%= searchFilter.getIndexFieldName() %>"><fmt:message key="<%= fkey %>"/></option><%
 					}
 				%>
 				</select>
-				<select id="filtertype" name="filtertype" class="form-control">
+				<select id="filtertype" name="filtertype" class="form-control-new" style="width: 20%">
 					<%
 						for (String opt : options)
 						{
-							String fkey = "jsp.search.filter.op." + Escape.uriParam(opt);
-					%><option value="<%= Utils.addEntities(opt) %>"><fmt:message key="<%= fkey %>"/></option><%
+							String fkey = "jsp.search.filter.op."+opt;
+					%><option value="<%= opt %>"><fmt:message key="<%= fkey %>"/></option><%
 					}
 				%>
 				</select>
-				<input class="espGlobalBorder form-control" type="text" id="filterquery" name="filterquery" size="" required="required" />
+				<input type="text" id="filterquery" name="filterquery" size="45" class="form-control-new" style="width: 45%"/>
 				<input type="hidden" value="<%= rpp %>" name="rpp" />
-				<input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
-				<input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
-				<!--<input class="btn btn-default" type="submit" value="<fmt:message key="jsp.search.filter.add"/>" onclick="return validateFilters()" />-->
-				<input class="btn-customizado" type="submit" value="<fmt:message key="jsp.search.filter.add"/>" onclick="return validateFilters()" />
+				<input type="hidden" value="<%= sortedBy %>" name="sort_by" />
+				<input type="hidden" value="<%= order %>" name="order" />
+				<input class="btn btn-default pull-right" type="submit" value="<fmt:message key="jsp.search.filter.add"/>" />
 			</form>
 		</div>
 		<% } %>
 			<%-- Include a component for modifying sort by, order, results per page, and et-al limit --%>
-		<div class="discovery-pagination-controls panel-footer">
+		<div class="discovery-pagination-controls">
 			<form action="simple-search" method="get">
-				<input type="hidden" value="<%= Utils.addEntities(searchScope) %>" name="location" />
-				<input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
+				<input type="hidden" value="<%= StringEscapeUtils.escapeHtml(searchScope) %>" name="location" />
+				<input type="hidden" value="<%= StringEscapeUtils.escapeHtml(query) %>" name="query" />
 				<% if (appliedFilterQueries.size() > 0 ) {
 					int idx = 1;
 					for (String[] filter : appliedFilters)
 					{
 						boolean found = false;
 				%>
-				<input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= Utils.addEntities(filter[0]) %>" />
-				<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= Utils.addEntities(filter[1]) %>" />
-				<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" />
+				<input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= filter[0] %>" />
+				<input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= filter[1] %>" />
+				<input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= StringEscapeUtils.escapeHtml(filter[2]) %>" />
 				<%
 							idx++;
 						}
 					} %>
 				<label for="rpp"><fmt:message key="search.results.perpage"/></label>
-				<select name="rpp" id="rpp" class="espGlobalBorder form-control">
+				<select name="rpp" class="input-border-no-paddings">
 					<%
 						for (int i = 5; i <= 100 ; i += 5)
 						{
@@ -368,83 +350,86 @@
 						}
 					%>
 				</select>
-				<!--&nbsp;|&nbsp;-->
 				<%
 					if (sortOptions.size() > 0)
 					{
 				%>
-				<label for="sort_by"></label><br><fmt:message key="search.results.sort-by"/>
-				<select name="sort_by" id="sort_by" class="espGlobalBorder form-control">
+				<label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
+				<select name="sort_by" class="input-border-no-paddings">
 					<option value="score"><fmt:message key="search.sort-by.relevance"/></option>
 					<%
 						for (String sortBy : sortOptions)
 						{
 							String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
-							String mKey = "search.sort-by." + Utils.addEntities(sortBy);
-					%> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
+							String mKey = "search.sort-by." + sortBy;
+					%> <option value="<%= sortBy %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
 					}
 				%>
 				</select>
-
-
 				<%
 					}
 				%>
-				<label for="order"></label><br><fmt:message key="search.results.order"/>
-				<select name="order" id="order" class="espGlobalBorder form-control">
+				<label for="order"><fmt:message key="search.results.order"/></label>
+				<select name="order" class="input-border-no-paddings">
 					<option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
 					<option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
 				</select>
-				<label for="etal"></label><br><!--<fmt:message key="search.results.etal" />-->
-				<!--<select name="etal" id="etal">-->
-				<%
-					String unlimitedSelect = "";
-					if (etAl < 1)
-					{
-						unlimitedSelect = "selected=\"selected\"";
-					}
-				%>
-				<!--<option value="0" <%= unlimitedSelect %>><fmt:message key="browse.full.etal.unlimited"/></option>-->
-				<%
-               boolean insertedCurrent = false;
-               for (int i = 0; i <= 50 ; i += 5)
-               {
-                   // for the first one, we want 1 author, not 0
-                   if (i == 0)
-                   {
-                       String sel = (i + 1 == etAl ? "selected=\"selected\"" : "");
-                       %><!--<option value="1" <%= sel %>>1</option>--><%
-                   }
-
-                   // if the current i is greated than that configured by the user,
-                   // insert the one specified in the right place in the list
-                   if (i > etAl && !insertedCurrent && etAl > 1)
-                   {
-                       %><!--<option value="<%-- etAl --%>" selected="selected"><%-- etAl --%></option>--><%
-					insertedCurrent = true;
-				}
-
-				// determine if the current not-special case is selected
-				String selected = (i == etAl ? "selected=\"selected\"" : "");
-
-				// do this for all other cases than the first and the current
-				if (i != 0 && i != etAl)
-				{
-			%>
-				<!--<option value="<%-- i --%>" <%-- selected --%>><%-- i --%></option>-->
-				<%
+				<label for="etal"><fmt:message key="search.results.etal" /></label>
+				<select name="etal" class="input-border-no-paddings">
+					<%
+						String unlimitedSelect = "";
+						if (etAl < 1)
+						{
+							unlimitedSelect = "selected=\"selected\"";
 						}
+					%>
+					<option value="0" <%= unlimitedSelect %>><fmt:message key="browse.full.etal.unlimited"/></option>
+					<%
+						boolean insertedCurrent = false;
+						for (int i = 0; i <= 50 ; i += 5)
+						{
+							// for the first one, we want 1 author, not 0
+							if (i == 0)
+							{
+								String sel = (i + 1 == etAl ? "selected=\"selected\"" : "");
+					%><option value="1" <%= sel %>>1</option><%
 					}
+
+					// if the current i is greated than that configured by the user,
+					// insert the one specified in the right place in the list
+					if (i > etAl && !insertedCurrent && etAl > 1)
+					{
+				%><option value="<%= etAl %>" selected="selected"><%= etAl %></option><%
+						insertedCurrent = true;
+					}
+
+					// determine if the current not-special case is selected
+					String selected = (i == etAl ? "selected=\"selected\"" : "");
+
+					// do this for all other cases than the first and the current
+					if (i != 0 && i != etAl)
+					{
 				%>
-				<!--</select>-->
-				<input class="btn-atualizar-exportar" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
+					<option value="<%= i %>" <%= selected %>><%= i %></option>
+					<%
+							}
+						}
+					%>
+				</select>
+				<button class="btn btn-default" type="submit" name="submit_search"  title="<fmt:message key="search.update" />" >
+					<span class="glyphicon glyphicon-refresh"></span>
+				</button>
 
 				<%
 					if (admin_button)
 					{
-				%><input type="submit" class="btn-atualizar-exportar" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
-				}
-			%>
+				%>
+				<button type="submit" class="btn btn-default" name="submit_export_metadata" title="<fmt:message key="jsp.general.metadataexport.button"/>" >
+					<span class="glyphicon glyphicon-export"></span>
+				</button>
+				<%
+					}
+				%>
 			</form>
 		</div>
 	</div>
@@ -511,7 +496,7 @@
 					qResults.getStart()+qResults.getMaxResults():qResults.getTotalSearchResults();
 		%>
 			<%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-		<div class="results-pag"><fmt:message key="jsp.search.results.results">
+		<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
 			<fmt:param><%=qResults.getStart()+1%></fmt:param>
 			<fmt:param><%=lastHint%></fmt:param>
 			<fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
@@ -574,7 +559,6 @@
 		</ul>
 		<!-- give a content to the div -->
 	</div>
-
 	<div class="discovery-result-results">
 		<% if (communities.size() > 0 ) { %>
 		<div class="panel panel-info">
@@ -597,19 +581,18 @@
 		</div>
 		<% } %>
 	</div>
-
 	<%-- if the result page is enought long... --%>
-	<% if ((communities.size() + collections.size() + items.size()) >= 5) {%>
+	<% if ((communities.size() + collections.size() + items.size()) > 10) {%>
 	<%-- show again the navigation info/links --%>
-	<div class="discovery-result-pagination row-customizado">
+	<div class="discovery-result-pagination row container">
 			<%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-		<div class="result-results-bottom"><fmt:message key="jsp.search.results.results">
+		<div class="alert alert-info"><fmt:message key="jsp.search.results.results">
 			<fmt:param><%=qResults.getStart()+1%></fmt:param>
 			<fmt:param><%=lastHint%></fmt:param>
 			<fmt:param><%=qResults.getTotalSearchResults()%></fmt:param>
 			<fmt:param><%=(float) qResults.getSearchTime() / 1000 %></fmt:param>
 		</fmt:message></div>
-		<ul class="pagination pull-right posicao-topo">
+		<ul class="pagination pull-right">
 			<%
 				if (pageFirst != pageCurrent)
 				{
@@ -705,7 +688,7 @@
 			if (brefine) {
 		%>
 
-		<h1 class="facets"><fmt:message key="jsp.search.facet.refine" /></h1>
+		<h3 class="facets"><fmt:message key="jsp.search.facet.refine" /></h3>
 		<div id="facets" class="facetsBox">
 
 			<%
@@ -723,8 +706,8 @@
 
 					String fkey = "jsp.search.facet.refine."+f;
 			%><div id="facet_<%= f %>" class="panel panel-success">
-			<div class="panel-heading facet-panel clickable-panel"><fmt:message key="<%= fkey %>" /><span class="glyphicon glyphicon-plus pull-right"></span></div>
-			<ul class="list-group hideFacets"><%
+			<div class="panel-heading"><fmt:message key="<%= fkey %>" /></div>
+			<ul class="list-group"><%
 				int idx = 1;
 				int currFp = UIUtil.getIntParameter(request, f+"_page");
 				if (currFp < 0)
@@ -735,7 +718,7 @@
 				{
 					if (idx != limit && !appliedFilterQueries.contains(f+"::"+fvalue.getFilterType()+"::"+fvalue.getAsFilterQuery()))
 					{
-			%><li class="list-group-item"><span class="badge"><%= fvalue.getCount() %></span> <a class="fcorpretoGlobal fontFaceta" href="<%= request.getContextPath()
+			%><li class="list-group-item"><span class="badge"><%= fvalue.getCount() %></span> <a href="<%= request.getContextPath()
                 + (!searchScope.equals("")?"/handle/"+searchScope:"")
                 + "/simple-search?query="
                 + URLEncoder.encode(query,"UTF-8")
@@ -793,7 +776,5 @@
 
 		</div>
 		<% } %>
-		<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/clickable-facet.js"></script>
-
 	</dspace:sidebar>
 </dspace:layout>
