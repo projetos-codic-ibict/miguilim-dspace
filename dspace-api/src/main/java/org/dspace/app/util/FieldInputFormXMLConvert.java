@@ -20,6 +20,7 @@ public class FieldInputFormXMLConvert {
     static final String FORM_DEF_FILE = "input-forms.xml";
 
     static public List<FieldInputForm> getListOfFieldInputForm(String collectionName) {
+        System.out.println("CollectionName: " + collectionName);
         try {
             String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
                     + File.separator + "config" + File.separator + FORM_DEF_FILE;
