@@ -392,57 +392,85 @@
         <%
             MetadataAuthorityService mam = ContentAuthorityServiceFactory.getInstance().getMetadataAuthorityService();
             ChoiceAuthorityService cam = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
-            List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
             String row = "even";
             String collectionName = item.getOwningCollection().getName();
+            List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
             List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(collectionName);
             FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
             Map<String, Integer> dcCounter = new HashMap<String, Integer>();
+
+            for (FieldInputForm field : fieldInputFormList) {
+                fieldInputFormUtils.getFieldFromMetadataByKeys(field.getSchema(), field.getElement(), field.getQualifier());
+            }
+
+            for (MetadataValue field : metadataValueList) {
+                fieldInputFormUtils.getFieldFromXMLByKeys(field.getMetadataField().getMetadataSchema().getName(),
+                        field.getMetadataField().getElement(), field.getMetadataField().getQualifier());
+            }
+            fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
         %>
 
             <%--        by Jesiel--%>
 
         <c:forEach items="<%= metadataValueList %>" var="fieldInputForm" varStatus="loop">
             <%
-                MetadataValue metadata  = ((MetadataValue) pageContext.getAttribute("fieldInputForm"));
+                MetadataValue metadata = ((MetadataValue) pageContext.getAttribute("fieldInputForm"));
                 FieldInputForm xmlField = fieldInputFormUtils.getFieldFromXMLByKeys(metadata.getMetadataField().getMetadataSchema().getName(),
                         metadata.getMetadataField().getElement(), metadata.getMetadataField().getQualifier());
 
                 String sequenceNumber = "0";
                 String key = "";
 //                if (metadata != null) {
-                    // Keep a count of the number of values of each element+qualifier
-                    // key is "element" or "element_qualifier" (String)
-                    // values are Integers - number of values that element/qualifier so far
-                    key = metadata.getMetadataField().toString();
+                // Keep a count of the number of values of each element+qualifier
+                // key is "element" or "element_qualifier" (String)
+                // values are Integers - number of values that element/qualifier so far
+                key = metadata.getMetadataField().toString();
 
-                    Integer count = dcCounter.get(key);
-                    if (count == null) {
-                        count = 0;
-                    }
+                Integer count = dcCounter.get(key);
+                if (count == null) {
+                    count = 0;
+                }
 
-                    // Increment counter in map
-                    dcCounter.put(key, count + 1);
+                // Increment counter in map
+                dcCounter.put(key, count + 1);
 
-                    // We will use two digits to represent the counter number in the parameter names.
-                    // This means a string sort can be used to put things in the correct order even
-                    // if there are >= 10 values for a particular element/qualifier.  Increase this to
-                    // 3 digits if there are ever >= 100 for a single element/qualifer! :)
-                    sequenceNumber = String.valueOf(count);
+                // We will use two digits to represent the counter number in the parameter names.
+                // This means a string sort can be used to put things in the correct order even
+                // if there are >= 10 values for a particular element/qualifier.  Increase this to
+                // 3 digits if there are ever >= 100 for a single element/qualifer! :)
+                sequenceNumber = String.valueOf(count);
 
-                    while (sequenceNumber.length() < 2) {
-                        sequenceNumber = "0" + sequenceNumber;
-                    }
+                while (sequenceNumber.length() < 2) {
+                    sequenceNumber = "0" + sequenceNumber;
+                }
 //                }
             %>
             <c:set var="currentField" scope="session" value="<%=xmlField%>"/>
+            <c:set var="metadataValue" scope="session" value="<%=metadata.getValue().trim()%>"/>
+<%--            <p><%= cam.isChoicesConfigured(key) %>--%>
+            </p>
             <c:choose>
                 <c:when test="${currentField != null && currentField.simpleInputType != null}">
                     <div class="form-group">
-                        <label for="value_<%= key %>_<%= sequenceNumber %>"> <%= xmlField.getLabel() %> </label>
+                        <label for="value_<%= key %>_<%= sequenceNumber %>">
+                            ${currentField.label}
+                        </label>
                         <input class="form-control" id="value_<%= key %>_<%= sequenceNumber %>" type="text"
-                               name="value_<%= key %>_<%= sequenceNumber %>" value="<%= metadata.getValue().trim() %>"
+                               name="value_<%= key %>_<%= sequenceNumber %>" value="${metadataValue}"
                         />
+                    </div>
+                </c:when>
+                <c:when test="${currentField != null && currentField.complextInputType != null}">
+                    <div class="form-group">
+                        <label for="value_<%= key %>_<%= sequenceNumber %>">
+                                ${currentField.label}
+                        </label>
+                        <select class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"
+                                name="value_<%= key %>_<%= sequenceNumber %>">
+                            <c:forEach items="${currentField.complextInputType.entrySet()}" var="option">
+                                <option ${metadataValue.equalsIgnoreCase(option.value) ? 'selected' : ''} value="${option.value}">${option.key} </option>
+                            </c:forEach>
+                        </select>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -454,132 +482,132 @@
                                 ${fieldInputForm.metadataField.qualifier}
                         </label>
                         <textarea id="value_<%= key %>_<%= sequenceNumber %>" class="form-control"
-                                 name="value_<%= key %>_<%= sequenceNumber %>"
-                                  rows="3"><%= metadata.getValue().trim() %></textarea>
+                                  name="value_<%= key %>_<%= sequenceNumber %>"
+                                  rows="3">${metadataValue}</textarea>
                     </div>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
 
-<%--        <div class="table-responsive">--%>
-<%--            <table class="table" summary="Edit item withdrawn table">--%>
-<%--                <tr>--%>
-<%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
-<%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
+            <%--        <div class="table-responsive">--%>
+            <%--            <table class="table" summary="Edit item withdrawn table">--%>
+            <%--                <tr>--%>
+            <%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
+            <%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
 
-<%--                    <th id="t0" class="oddRowOddCol"><strong><fmt:message--%>
-<%--                            key="jsp.tools.edit-item-form.elem0"/></strong></th>--%>
-<%--                    <th id="t1" class="oddRowEvenCol"><strong><fmt:message--%>
-<%--                            key="jsp.tools.edit-item-form.elem1"/></strong></th>--%>
-<%--                    <th id="t2" class="oddRowOddCol"><strong><fmt:message--%>
-<%--                            key="jsp.tools.edit-item-form.elem2"/></strong></th>--%>
-<%--                    <th id="t3" class="oddRowEvenCol"><strong><fmt:message--%>
-<%--                            key="jsp.tools.edit-item-form.elem3"/></strong></th>--%>
-<%--                    <th id="t4" class="oddRowOddCol"><strong><fmt:message--%>
-<%--                            key="jsp.tools.edit-item-form.elem4"/></strong></th>--%>
-<%--                    <th id="t5" class="oddRowEvenCol">&nbsp;</th>--%>
-<%--                </tr>--%>
+            <%--                    <th id="t0" class="oddRowOddCol"><strong><fmt:message--%>
+            <%--                            key="jsp.tools.edit-item-form.elem0"/></strong></th>--%>
+            <%--                    <th id="t1" class="oddRowEvenCol"><strong><fmt:message--%>
+            <%--                            key="jsp.tools.edit-item-form.elem1"/></strong></th>--%>
+            <%--                    <th id="t2" class="oddRowOddCol"><strong><fmt:message--%>
+            <%--                            key="jsp.tools.edit-item-form.elem2"/></strong></th>--%>
+            <%--                    <th id="t3" class="oddRowEvenCol"><strong><fmt:message--%>
+            <%--                            key="jsp.tools.edit-item-form.elem3"/></strong></th>--%>
+            <%--                    <th id="t4" class="oddRowOddCol"><strong><fmt:message--%>
+            <%--                            key="jsp.tools.edit-item-form.elem4"/></strong></th>--%>
+            <%--                    <th id="t5" class="oddRowEvenCol">&nbsp;</th>--%>
+            <%--                </tr>--%>
 
-<%--                <%--%>
-<%--                    // Keep a count of the number of values of each element+qualifier--%>
-<%--                    // key is "element" or "element_qualifier" (String)--%>
-<%--                    // values are Integers - number of values that element/qualifier so far--%>
-<%--                    dcCounter = new HashMap<String, Integer>();--%>
+            <%--                <%--%>
+            <%--                    // Keep a count of the number of values of each element+qualifier--%>
+            <%--                    // key is "element" or "element_qualifier" (String)--%>
+            <%--                    // values are Integers - number of values that element/qualifier so far--%>
+            <%--                    dcCounter = new HashMap<String, Integer>();--%>
 
-<%--                    for (int i = 0; i < metadataValueList.size(); i++) {--%>
-<%--                        // Find out how many values with this element/qualifier we've found--%>
+            <%--                    for (int i = 0; i < metadataValueList.size(); i++) {--%>
+            <%--                        // Find out how many values with this element/qualifier we've found--%>
 
-<%--                        String key = metadataValueList.get(i).getMetadataField().toString();--%>
+            <%--                        String key = metadataValueList.get(i).getMetadataField().toString();--%>
 
-<%--                        Integer count = dcCounter.get(key);--%>
-<%--                        if (count == null) {--%>
-<%--                            count = new Integer(0);--%>
-<%--                        }--%>
+            <%--                        Integer count = dcCounter.get(key);--%>
+            <%--                        if (count == null) {--%>
+            <%--                            count = new Integer(0);--%>
+            <%--                        }--%>
 
-<%--                        // Increment counter in map--%>
-<%--                        dcCounter.put(key, new Integer(count.intValue() + 1));--%>
+            <%--                        // Increment counter in map--%>
+            <%--                        dcCounter.put(key, new Integer(count.intValue() + 1));--%>
 
-<%--                        // We will use two digits to represent the counter number in the parameter names.--%>
-<%--                        // This means a string sort can be used to put things in the correct order even--%>
-<%--                        // if there are >= 10 values for a particular element/qualifier.  Increase this to--%>
-<%--                        // 3 digits if there are ever >= 100 for a single element/qualifer! :)--%>
-<%--                         String sequenceNumber = count.toString();--%>
+            <%--                        // We will use two digits to represent the counter number in the parameter names.--%>
+            <%--                        // This means a string sort can be used to put things in the correct order even--%>
+            <%--                        // if there are >= 10 values for a particular element/qualifier.  Increase this to--%>
+            <%--                        // 3 digits if there are ever >= 100 for a single element/qualifer! :)--%>
+            <%--                         String sequenceNumber = count.toString();--%>
 
-<%--                        while (sequenceNumber.length() < 2) {--%>
-<%--                            sequenceNumber = "0" + sequenceNumber;--%>
-<%--                        }--%>
-<%--                %>--%>
+            <%--                        while (sequenceNumber.length() < 2) {--%>
+            <%--                            sequenceNumber = "0" + sequenceNumber;--%>
+            <%--                        }--%>
+            <%--                %>--%>
 
-<%--                <tr>--%>
-<%--                    <td headers="t0"--%>
-<%--                        class="<%= row %>RowOddCol"><%=metadataValueList.get(i).getMetadataField().getMetadataSchema().getName() %>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t1"--%>
-<%--                        class="<%= row %>RowEvenCol"><%= metadataValueList.get(i).getMetadataField().getElement() %>&nbsp;&nbsp;--%>
-<%--                    </td>--%>
-<%--                    <td headers="t2"--%>
-<%--                        class="<%= row %>RowOddCol"><%= (metadataValueList.get(i).getMetadataField().getQualifier() == null ? "" : metadataValueList.get(i).getMetadataField().getQualifier()) %>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t3" class="<%= row %>RowEvenCol">--%>
-<%--                        <%--%>
-<%--                            if (cam.isChoicesConfigured(key)) {--%>
-<%--                        %>--%>
-<%--                        <%=--%>
-<%--                        doAuthority(mam, cam, pageContext, request.getContextPath(), key, sequenceNumber,--%>
-<%--                                metadataValueList.get(i), collection).toString()--%>
-<%--                        %>--%>
-<%--                        <% } else { %>--%>
-<%--                        <textarea class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"--%>
-<%--                                  name="value_<%= key %>_<%= sequenceNumber %>" rows="3"--%>
-<%--                                  cols="50"><%= metadataValueList.get(i).getValue() %></textarea>--%>
-<%--                        <% } %>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t4" class="<%= row %>RowOddCol">--%>
-<%--                        <input class="form-control" type="text" name="language_<%= key %>_<%= sequenceNumber %>"--%>
-<%--                               value="<%= (metadataValueList.get(i).getLanguage() == null ? "" : metadataValueList.get(i).getLanguage().trim()) %>"--%>
-<%--                               size="5"/>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t5" class="<%= row %>RowEvenCol">--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit_remove_<%= key %>_<%= sequenceNumber %>" value="Remove" /> &ndash;%&gt;--%>
-<%--                        <button class="btn btn-danger" name="submit_remove_<%= key %>_<%= sequenceNumber %>"--%>
-<%--                                value="<fmt:message key="jsp.tools.general.remove"/>">--%>
-<%--                            <span class="glyphicon glyphicon-trash"></span>--%>
-<%--                        </button>--%>
-<%--                    </td>--%>
-<%--                </tr>--%>
-<%--                <% row = (row.equals("odd") ? "even" : "odd");--%>
-<%--                } %>--%>
+            <%--                <tr>--%>
+            <%--                    <td headers="t0"--%>
+            <%--                        class="<%= row %>RowOddCol"><%=metadataValueList.get(i).getMetadataField().getMetadataSchema().getName() %>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t1"--%>
+            <%--                        class="<%= row %>RowEvenCol"><%= metadataValueList.get(i).getMetadataField().getElement() %>&nbsp;&nbsp;--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t2"--%>
+            <%--                        class="<%= row %>RowOddCol"><%= (metadataValueList.get(i).getMetadataField().getQualifier() == null ? "" : metadataValueList.get(i).getMetadataField().getQualifier()) %>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t3" class="<%= row %>RowEvenCol">--%>
+            <%--                        <%--%>
+            <%--                            if (cam.isChoicesConfigured(key)) {--%>
+            <%--                        %>--%>
+            <%--                        <%=--%>
+            <%--                        doAuthority(mam, cam, pageContext, request.getContextPath(), key, sequenceNumber,--%>
+            <%--                                metadataValueList.get(i), collection).toString()--%>
+            <%--                        %>--%>
+            <%--                        <% } else { %>--%>
+            <%--                        <textarea class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"--%>
+            <%--                                  name="value_<%= key %>_<%= sequenceNumber %>" rows="3"--%>
+            <%--                                  cols="50"><%= metadataValueList.get(i).getValue() %></textarea>--%>
+            <%--                        <% } %>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t4" class="<%= row %>RowOddCol">--%>
+            <%--                        <input class="form-control" type="text" name="language_<%= key %>_<%= sequenceNumber %>"--%>
+            <%--                               value="<%= (metadataValueList.get(i).getLanguage() == null ? "" : metadataValueList.get(i).getLanguage().trim()) %>"--%>
+            <%--                               size="5"/>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t5" class="<%= row %>RowEvenCol">--%>
+            <%--                            &lt;%&ndash; <input type="submit" name="submit_remove_<%= key %>_<%= sequenceNumber %>" value="Remove" /> &ndash;%&gt;--%>
+            <%--                        <button class="btn btn-danger" name="submit_remove_<%= key %>_<%= sequenceNumber %>"--%>
+            <%--                                value="<fmt:message key="jsp.tools.general.remove"/>">--%>
+            <%--                            <span class="glyphicon glyphicon-trash"></span>--%>
+            <%--                        </button>--%>
+            <%--                    </td>--%>
+            <%--                </tr>--%>
+            <%--                <% row = (row.equals("odd") ? "even" : "odd");--%>
+            <%--                } %>--%>
 
-<%--                <tr>--%>
+            <%--                <tr>--%>
 
-<%--                    <td headers="t1" colspan="3" class="<%= row %>RowEvenCol">--%>
-<%--                        <select class="form-control" name="addfield_dctype">--%>
-<%--                            <% for (int i = 0; i < dcTypes.size(); i++) {--%>
-<%--                                Integer fieldID = new Integer(dcTypes.get(i).getID());--%>
-<%--                                String displayName = (String) metadataFields.get(fieldID);--%>
-<%--                            %>--%>
-<%--                            <option value="<%= fieldID.intValue() %>"><%= displayName %>--%>
-<%--                            </option>--%>
-<%--                            <% } %>--%>
-<%--                        </select>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t3" class="<%= row %>RowOddCol">--%>
-<%--                        <textarea class="form-control" name="addfield_value" rows="3" cols="50"></textarea>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t4" class="<%= row %>RowEvenCol">--%>
-<%--                        <input class="form-control" type="text" name="addfield_language" size="5"/>--%>
-<%--                    </td>--%>
-<%--                    <td headers="t5" class="<%= row %>RowOddCol">--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit_addfield" value="Add"> &ndash;%&gt;--%>
-<%--                        <button class="btn btn-default" name="submit_addfield"--%>
-<%--                                value="<fmt:message key="jsp.tools.general.add"/>">--%>
-<%--                            <span class="glyphicon glyphicon-plus"></span>--%>
-<%--                        </button>--%>
-<%--                    </td>--%>
-<%--                </tr>--%>
-<%--            </table>--%>
+            <%--                    <td headers="t1" colspan="3" class="<%= row %>RowEvenCol">--%>
+            <%--                        <select class="form-control" name="addfield_dctype">--%>
+            <%--                            <% for (int i = 0; i < dcTypes.size(); i++) {--%>
+            <%--                                Integer fieldID = new Integer(dcTypes.get(i).getID());--%>
+            <%--                                String displayName = (String) metadataFields.get(fieldID);--%>
+            <%--                            %>--%>
+            <%--                            <option value="<%= fieldID.intValue() %>"><%= displayName %>--%>
+            <%--                            </option>--%>
+            <%--                            <% } %>--%>
+            <%--                        </select>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t3" class="<%= row %>RowOddCol">--%>
+            <%--                        <textarea class="form-control" name="addfield_value" rows="3" cols="50"></textarea>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t4" class="<%= row %>RowEvenCol">--%>
+            <%--                        <input class="form-control" type="text" name="addfield_language" size="5"/>--%>
+            <%--                    </td>--%>
+            <%--                    <td headers="t5" class="<%= row %>RowOddCol">--%>
+            <%--                            &lt;%&ndash; <input type="submit" name="submit_addfield" value="Add"> &ndash;%&gt;--%>
+            <%--                        <button class="btn btn-default" name="submit_addfield"--%>
+            <%--                                value="<fmt:message key="jsp.tools.general.add"/>">--%>
+            <%--                            <span class="glyphicon glyphicon-plus"></span>--%>
+            <%--                        </button>--%>
+            <%--                    </td>--%>
+            <%--                </tr>--%>
+            <%--            </table>--%>
 
-<%--        </div>--%>
+            <%--        </div>--%>
 
         <br/>
 
