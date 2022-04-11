@@ -17,13 +17,13 @@ import java.util.List;
 import java.util.Map;
 
 public class FieldInputFormXMLConvert {
-    static final String FORM_DEF_FILE = "input-forms.xml";
+    static final String XML_FORM_FILE_NAME = "input-forms.xml";
+    public static final String CONFIG_DIRECTORY = "config";
 
     static public List<FieldInputForm> getListOfFieldInputForm(String collectionName) {
-        System.out.println("CollectionName: " + collectionName);
         try {
             String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
-                    + File.separator + "config" + File.separator + FORM_DEF_FILE;
+                    + File.separator + CONFIG_DIRECTORY + File.separator + XML_FORM_FILE_NAME;
             File xmlFile = new File(xmlPath);
             String xml = new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
             JSONObject xmlJSONObj = XML.toJSONObject(xml);
@@ -51,7 +51,7 @@ public class FieldInputFormXMLConvert {
                                     FieldInputForm field = mapper.readValue(fields.get(k).toString(), FieldInputForm.class);
                                     field.setSimpleVocabulary(fields.get(k).get("vocabulary") != null ? fields.get(k).get("vocabulary").asText() : null);
                                     if (fields.get(k).get("input-type").isContainerNode()) {
-                                        field.setComplextInputType(getValues(valuePairs,
+                                        field.setComplextInputType(getMapFromValuesPairs(valuePairs,
                                                 fields.get(k).get("input-type").get("value-pairs-name").asText()));
                                     } else {
                                         field.setSimpleInputType(fields.get(k).get("input-type").asText());
@@ -74,7 +74,7 @@ public class FieldInputFormXMLConvert {
         return null;
     }
 
-    private static Map<String, String> getValues(JsonNode valuePairs, String valuePairsName) {
+    private static Map<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
         Map<String, String> values = new HashMap<>();
         for (JsonNode node : valuePairs) {
             if (node.get("value-pairs-name").asText().equalsIgnoreCase(valuePairsName)) {

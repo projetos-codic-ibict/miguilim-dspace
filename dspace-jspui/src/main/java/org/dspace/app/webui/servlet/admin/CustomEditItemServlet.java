@@ -656,7 +656,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 
         // Sort the list
         Collections.sort(sortedParamNames);
-        System.out.println("sortedParamNames: " + sortedParamNames);
+
         for (String p : sortedParamNames)
         {
             if (p.startsWith("value"))
@@ -720,8 +720,6 @@ public class CustomEditItemServlet extends DSpaceServlet
 
                 // Get the value
                 String value = request.getParameter(p).trim();
-
-                System.out.println(p + ": " + value);
 
                 // If remove button pressed for this value, we don't add it
                 // back to the item. We also don't add empty values
