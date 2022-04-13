@@ -5,6 +5,7 @@ $blue-link: #292A89;
 $blue: #0D7AD6;
 $green-light: #2FE6DE;
 $disabled:#9A9A9A;
+$gray-dark:#6A6A6A;
 $board-field:#E8E8E8;
 $white-lightest: #FFFFFF;
 $red-lght: #E12229;
@@ -176,10 +177,11 @@ $linkfont-family: 'Open Sans', sans-serif;
 //card 
 .card-tit {
 	font-family: $linkfont-family;
-	font-weight: 800;
-	font-size:2rem;
-	line-height:3rem;
+	font-weight: 700;
+	font-size:1.6rem;
+	line-height:1.6rem;
 	letter-spacing: 0.5px;	
+    margin: 0 0 4px 0;
 }
 
 .accordion {

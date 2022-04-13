@@ -247,11 +247,155 @@ body {
 	color:$disabled;
 }
 
+//container
+.content-news {
+	position: relative;
+	max-width: 720px;
+	margin: 0 auto;
+	.arrow {
+		position: absolute;
+		top: 50%;
+		margin-top: -22px;
+		background: $white-lightest;
+		border-radius: 50px;
+		border: 1px solid $board-field;
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		&:hover {
+			@extend .card-sombra;
+		}		
+	}
+	.left {
+		left:-28px;
+	}
+	.right {
+		right:-28px;
+		transform: rotate(180deg);
+	}	
+	.card {
+		border: 1px solid $board-field;
+		background:$white-lightest;
+		border-radius: 8px;
+		padding: 24px 40px;
+		h4 {
+			font-size: 0.875rem;
+			color:$gray-dark;
+		}
+		h2 {
+			font-size: 2rem;
+			font-weight: 600;
+			line-height: 2.5rem;
+		}
+		p {
+			font-size: 1.5rem;
+			font-weight: 300;
+		}
+	}
+}
+
+//card
+.container-cards {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+	.card {
+		border-radius: 8px;
+		background:$white-lightest;
+		padding:24px;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		border:1px solid $board-field;		
+		transition: all .2s ease-out;
+		cursor: pointer;
+		.text {
+			h2 {
+				@extend .card-tit;
+			}
+			p {
+				color:$gray-dark;
+				span {
+					color:$bluecolor;
+				}
+			}
+		}
+		.icon {
+			background:$yellow;
+			border-radius: 100px;
+			width: 56px;
+			height: 56px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 16px;			
+		}
+		&:hover {
+			@extend .card-sombra;
+		}
+	}
+}
+
+.group-brands {
+	.col {
+		h3 {
+			font-size:1rem;
+			color: $black;
+			margin-bottom: 24px;
+		}
+	}
+}
+
+.brand-space {
+	margin: 80px 0;
+	.col:first-child {
+		margin-right:100px;
+	}
+	.col:last-child {
+		img {
+			margin-right: 80px;
+		}
+	} 
+}
+
 @media (max-width: 400px) {
+	.content-news {
+		margin:80px auto 0 auto;
+		.left {
+			left:-13px;
+		}
+		.right {
+			right:-13px;
+		}			
+	}
+	.d-flex {
+		flex-wrap: wrap-reverse;
+		align-items: center;
+		justify-content: center;		
+		.col {
+			h1 {
+				font-size: 4rem;
+			}
+		}
+	}
+	.brand-space {
+		margin: 20px 0 0px 0;
+	}
+	.container-cards {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 16px;
+	}	
 	.link-search {
 		display: none;
 	}
 	.search-home {
-		bottom: -51px;	
+		bottom: -60px;	
+	}
+	.section-footer {
+		padding: 24px;
 	}
 }
