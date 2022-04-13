@@ -85,9 +85,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="25"
-                                                                         src="<%= request.getContextPath() %>/image/dspace-logo-only.png"
-                                                                         alt="DSpace logo"/></a>
+    <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="45"
+                                                                         src="<%= request.getContextPath() %>/image/logo-ibict.png"
+                                                                         alt="Logo IBICT"/></a>
 </div>
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
@@ -157,8 +157,7 @@
                         for (int i = supportedLocales.length - 1; i >= 0; i--) {
                     %>
                     <li>
-                        <a onclick="javascript:document.repost.locale.value='<%=supportedLocales[i].toString()%>';
-                                document.repost.submit();"
+                        <a
                            href="<%= currentPage %>?locale=<%=supportedLocales[i].toString()%>">
                             <%= supportedLocales[i].getDisplayLanguage(supportedLocales[i])%>
                         </a>
@@ -224,23 +223,5 @@
             </li>
         </ul>
 
-        <%-- Search Box --%>
-        <form method="get" action="<%= request.getContextPath() %>/simple-search" class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" class="form-control"
-                       placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery"
-                       size="25"/>
-            </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-            <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
-            <%
-                        if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
-                        {
-            %>
-                          <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
-            <%
-                        }
-            %> --%>
-        </form>
     </div>
 </nav>
