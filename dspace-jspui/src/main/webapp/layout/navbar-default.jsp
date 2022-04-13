@@ -223,23 +223,5 @@
             </li>
         </ul>
 
-        <%-- Search Box --%>
-        <form method="get" action="<%= request.getContextPath() %>/simple-search" class="navbar-form navbar-right">
-            <div class="form-group">
-                <input type="text" class="form-control"
-                       placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>" name="query" id="tequery"
-                       size="25"/>
-            </div>
-            <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span></button>
-            <%--               <br/><a href="<%= request.getContextPath() %>/advanced-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
-            <%
-                        if (ConfigurationManager.getBooleanProperty("webui.controlledvocabulary.enable"))
-                        {
-            %>
-                          <br/><a href="<%= request.getContextPath() %>/subject-search"><fmt:message key="jsp.layout.navbar-default.subjectsearch"/></a>
-            <%
-                        }
-            %> --%>
-        </form>
     </div>
 </nav>
