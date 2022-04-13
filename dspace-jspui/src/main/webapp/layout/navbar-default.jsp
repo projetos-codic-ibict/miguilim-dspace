@@ -157,8 +157,7 @@
                         for (int i = supportedLocales.length - 1; i >= 0; i--) {
                     %>
                     <li>
-                        <a onclick="javascript:document.repost.locale.value='<%=supportedLocales[i].toString()%>';
-                                document.repost.submit();"
+                        <a
                            href="<%= currentPage %>?locale=<%=supportedLocales[i].toString()%>">
                             <%= supportedLocales[i].getDisplayLanguage(supportedLocales[i])%>
                         </a>
