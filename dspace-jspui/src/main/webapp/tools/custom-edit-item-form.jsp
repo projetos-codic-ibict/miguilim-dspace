@@ -399,24 +399,15 @@
             FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
             Map<String, Integer> dcCounter = new HashMap<String, Integer>();
 
-            for (FieldInputForm field : fieldInputFormList) {
-                fieldInputFormUtils.getFieldFromMetadataByKeys(field.getSchema(), field.getElement(), field.getQualifier());
-            }
-
-            for (MetadataValue field : metadataValueList) {
-                fieldInputFormUtils.getFieldFromXMLByKeys(field.getMetadataField().getMetadataSchema().getName(),
-                        field.getMetadataField().getElement(), field.getMetadataField().getQualifier());
-            }
-            fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
         %>
 
             <%--        by Jesiel--%>
 
-        <c:forEach items="<%= metadataValueList %>" var="fieldInputForm" varStatus="loop">
+        <c:forEach items="<%= fieldInputFormList %>" var="fieldInputForm" varStatus="loop">
             <%
-                MetadataValue metadata = ((MetadataValue) pageContext.getAttribute("fieldInputForm"));
-                FieldInputForm xmlField = fieldInputFormUtils.getFieldFromXMLByKeys(metadata.getMetadataField().getMetadataSchema().getName(),
-                        metadata.getMetadataField().getElement(), metadata.getMetadataField().getQualifier());
+                FieldInputForm xmlField = ((FieldInputForm) pageContext.getAttribute("fieldInputForm"));
+                MetadataValue  metadata = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
+                        xmlField.getElement(), xmlField.getQualifier());
 
                 String sequenceNumber = "0";
                 String key = "";
@@ -424,6 +415,7 @@
                 // Keep a count of the number of values of each element+qualifier
                 // key is "element" or "element_qualifier" (String)
                 // values are Integers - number of values that element/qualifier so far
+                if(metadata != null) {
                 key = metadata.getMetadataField().toString();
 
                 Integer count = dcCounter.get(key);
@@ -445,29 +437,31 @@
                 }
 //                }
             %>
-            <c:set var="currentField" scope="session" value="<%=xmlField%>"/>
-            <c:set var="metadataValue" scope="session" value="<%=metadata.getValue().trim()%>"/>
-<%--            <p><%= cam.isChoicesConfigured(key) %>--%>
-            </p>
+            <c:set var="metadataValue" scope="session" value="<%= metadata.getValue().trim() %>"/>
+
             <c:choose>
-                <c:when test="${currentField != null && currentField.simpleInputType != null}">
+                <c:when test="${fieldInputForm != null && fieldInputForm.simpleInputType != null}">
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
-                            ${currentField.label}
+                            ${fieldInputForm.label}
                         </label>
+                        <br/>
+                        <span>${fieldInputForm.hint}</span>
                         <input class="form-control" id="value_<%= key %>_<%= sequenceNumber %>" type="text"
                                name="value_<%= key %>_<%= sequenceNumber %>" value="${metadataValue}"
                         />
                     </div>
                 </c:when>
-                <c:when test="${currentField != null && currentField.complextInputType != null}">
+                <c:when test="${fieldInputForm != null && fieldInputForm.complextInputType != null}">
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
-                                ${currentField.label}
+                                ${fieldInputForm.label}
                         </label>
+                        <br/>
+                        <span>${fieldInputForm.hint}</span>
                         <select class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"
                                 name="value_<%= key %>_<%= sequenceNumber %>">
-                            <c:forEach items="${currentField.complextInputType.entrySet()}" var="option">
+                            <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
                                 <option ${metadataValue.equalsIgnoreCase(option.value) ? 'selected' : ''} value="${option.value}">${option.key} </option>
                             </c:forEach>
                         </select>
@@ -476,17 +470,17 @@
                 <c:otherwise>
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
-                            <%= xmlField != null ? xmlField.getLabel() : "No Label -> " %>
-                                ${fieldInputForm.metadataField.metadataSchema.name}
-                                ${fieldInputForm.metadataField.element}
-                                ${fieldInputForm.metadataField.qualifier}
+                           ${fieldInputForm.label}
                         </label>
+                        <br/>
+                        <span>${fieldInputForm.hint}</span>
                         <textarea id="value_<%= key %>_<%= sequenceNumber %>" class="form-control"
                                   name="value_<%= key %>_<%= sequenceNumber %>"
                                   rows="3">${metadataValue}</textarea>
                     </div>
                 </c:otherwise>
             </c:choose>
+           <% } %>
         </c:forEach>
 
             <%--        <div class="table-responsive">--%>

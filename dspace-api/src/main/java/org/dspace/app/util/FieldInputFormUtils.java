@@ -8,11 +8,8 @@ import java.util.function.Predicate;
 public class FieldInputFormUtils {
     List<FieldInputForm> fieldInputFormList;
     List<MetadataValue> metadataValueList;
-    private int countXMLNotFound;
-    private int countMetadataNotFound;
 
     public FieldInputFormUtils(List<FieldInputForm> fieldInputFormList, List<MetadataValue> metadataValueList) {
-        System.out.println("<<<<<<<<<<<<<<<< FieldInputFormUtils >>>>>>>>>>>>>>>>>");
         System.out.println("fieldInputFormList size: "+ fieldInputFormList.size());
         System.out.println("metadataValueList size: "+ metadataValueList.size());
         this.fieldInputFormList = fieldInputFormList;
@@ -31,8 +28,6 @@ public class FieldInputFormUtils {
         Predicate<FieldInputForm> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
         FieldInputForm fieldInputForm =  this.fieldInputFormList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
         if(fieldInputForm == null){
-            countXMLNotFound++;
-            System.out.println("####### "+countXMLNotFound+" Field not found in XML #######");
             System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
         }
         return fieldInputForm;
@@ -50,8 +45,6 @@ public class FieldInputFormUtils {
         Predicate<MetadataValue> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
         MetadataValue fieldInputForm =  this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
         if(fieldInputForm == null){
-            countMetadataNotFound++;
-            System.out.println("####### "+countMetadataNotFound+" Field not found in Metadata #######");
             System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
         }
         return fieldInputForm;
