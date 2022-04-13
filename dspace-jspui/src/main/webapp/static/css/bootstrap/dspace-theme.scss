@@ -142,3 +142,10 @@ body {
 	}
 	padding: 24px 0 16px 0;
 }
+
+// header 
+.navbar {
+	background: $background;
+	border-bottom: 1px solid $white-line-second;
+	box-shadow: none;
+}
