@@ -5,6 +5,205 @@
  *
  * http://www.dspace.org/license/
  */
+.menu {
+  font-family: "Open Sans", sans-serif;
+}
+
+.menu-active {
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.125rem;
+  letter-spacing: 0.5px;
+}
+
+.menu-inative {
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.125rem;
+  letter-spacing: 0.5px;
+}
+
+.link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.title-section {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.footer-adress {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.placeholder {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 16px;
+}
+
+.bt-title {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.number-valor {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.number-text {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.subhead {
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 48px;
+  letter-spacing: 0.5px;
+}
+
+.tabs-link {
+  font-family: "Open Sans", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+.tit-form {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+.paragraph-tit {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0px;
+}
+
+.paragraph-tex {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+}
+
+.news {
+  font-family: "Open Sans", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.news-tit {
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+.news-text {
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+
+.news-eye {
+  font-weight: 700;
+  font-size: 0.875rem;
+  line-height: 2rem;
+}
+
+.table-row {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.table-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0px;
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
+.table-item-title {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0px;
+  font-size: 1.25rem;
+  line-height: 1rem;
+}
+
+.card-tit {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 3rem;
+  letter-spacing: 0.5px;
+}
+
+.accordion {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.accordion-number {
+  font-size: 0.6875rem;
+  line-height: 1rem;
+}
+
+.accordion-item {
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+
+.accordion-title {
+  font-size: 1rem;
+  line-height: 1rem;
+  letter-spacing: 0px;
+}
+
+.table-line {
+  -webkit-box-shadow: 0, -1, 0, 0 #ebebeb;
+          box-shadow: 0, -1, 0, 0 #ebebeb;
+}
+
+.card-sombra {
+  -webkit-box-shadow: 0, 0, 74, 0 rbga(0, 0, 0, 0.16);
+          box-shadow: 0, 0, 74, 0 rbga(0, 0, 0, 0.16);
+}
+
 .banner img {
   background-color: #FFFFFF;
   padding: 15px;
@@ -191,63 +390,38 @@ span.batchimport-error-caused {
   word-wrap: break-word;
 }
 
+html {
+  font-size: 100%;
+}
+
 body {
-  background: black !important;
-  color: #47a447 !important;
-  border: 1px solid red;
+  background: #FAFAFA;
+  -webkit-box-sizing: initial;
+          box-sizing: initial;
 }
 
-.blue {
-  color: #071D41;
+.section-footer {
+  background-color: #FFFFFF;
+  border-top: 1px solid #EBEBEB;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
+  padding: 24px 0 16px 0;
 }
 
-.blue-link {
-  color: #292A89;
-}
-
-.blue-bt {
-  color: #0D7AD6;
-}
-
-.greeen-light {
-  color: #2FE6DE;
-}
-
-.disabled {
+.section-footer p {
   color: #9A9A9A;
-}
-
-.border-field {
-  color: #E8E8E8;
-}
-
-.white-lightest {
-  color: #FFFFFF;
-}
-
-.red-light {
-  color: #E12229;
-}
-
-.yellow {
-  color: #FFD100;
-}
-
-.black {
-  color: #04132A;
-}
-
-.dark-blue {
-  color: #04132A;
-}
-
-.table-line {
-  -webkit-box-shadow: 0, -1, 0, 0 #ebebeb;
-          box-shadow: 0, -1, 0, 0 #ebebeb;
-}
-
-.card-sombra {
-  -webkit-box-shadow: 0, 0, 74, 0 rbga(0, 0, 0, 0.16);
-          box-shadow: 0, 0, 74, 0 rbga(0, 0, 0, 0.16);
+  text-align: center;
 }
 /*# sourceMappingURL=dspace-theme.css.map */

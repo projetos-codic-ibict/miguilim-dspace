@@ -1,0 +1,212 @@
+
+// colors
+$bluecolor:#071D41;
+$blue-link: #292A89;
+$blue: #0D7AD6;
+$green-light: #2FE6DE;
+$disaed:#9A9A9A;
+$bord-field:#E8E8E8;
+$white-lightest: #FFFFFF;
+$red-lght: #E12229;
+$yellow: #FFD100;
+$black: #04132A;
+$dark-blue:#04132A;
+$background:#FAFAFA;
+$white-line:#EBEBEB;
+
+//text-style
+$linkfont-family: 'Open Sans', sans-serif;
+
+
+
+.menu {
+	font-family: $linkfont-family;
+	&-active {		
+		font-size:0.75rem;
+		font-weight: 800;
+		line-height: 1.125rem;
+		letter-spacing: 0.5px;
+	}
+	&-inative {
+		font-size:0.75rem;
+		font-weight: 800;
+		line-height: 1.125rem;
+		letter-spacing: 0.5px;
+	}
+}
+.link {
+	font-family: $linkfont-family;
+	font-size:0.75rem;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+.title-section {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 700;
+	line-height: 16px;
+}
+
+.footer-adress {
+	font-family: $linkfont-family;
+	font-size:0.75rem;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0.5px;
+}
+
+.placeholder {
+	font-family: $linkfont-family;
+	font-size:0.875rem;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+.bt-title {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0.5px;
+}
+
+.number-valor {
+	font-family: $linkfont-family;
+	font-size:2rem;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: 0.5px;
+}
+
+.number-text {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 600;
+	line-height: 24px;
+	letter-spacing: 0.5px;
+}
+
+.subhead {
+	font-family: $linkfont-family;
+	font-size:2rem;
+	font-weight: 700;
+	line-height: 48px;
+	letter-spacing: 0.5px;
+}
+
+.tabs-link {
+	font-family: $linkfont-family;
+	font-size:0.875rem;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0px;
+}
+
+.tit-form {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0px;	
+}
+
+.paragraph-tit {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 600;
+	line-height: 16px;
+	letter-spacing: 0px;	
+}
+
+.paragraph-tex {
+	font-family: $linkfont-family;
+	font-size:1rem;
+	font-weight: 400;
+	line-height: 24px;
+	letter-spacing: 0.5px;	
+}
+
+//news 
+.news {
+	font-family: $linkfont-family;
+	letter-spacing: 0.5px;	
+	&-tit {
+		font-weight: 400;
+		font-size:2rem;
+		line-height: 3rem;
+	}
+	&-text {
+		font-weight: 400;
+		font-size:1rem;
+		line-height: 2rem;
+	}
+	&-eye {
+		font-weight: 700;
+		font-size: 0.875rem;
+		line-height: 2rem;		
+	}
+}
+
+.table {
+	&-row {
+		font-family: $linkfont-family;
+		font-weight: 400;
+		letter-spacing: 0px;
+		font-size:1rem;
+		line-height:1rem;	
+	}
+	&-title {
+		font-family: $linkfont-family;
+		font-weight: 600;
+		letter-spacing: 0px;
+		font-size:1rem;
+		line-height:1rem;	
+	}
+	&-item-title {
+		font-family: $linkfont-family;
+		font-weight: 800;
+		letter-spacing: 0px;
+		font-size:1.25rem;
+		line-height:1rem;	
+	}
+}
+
+//card 
+.card-tit {
+	font-family: $linkfont-family;
+	font-weight: 800;
+	font-size:2rem;
+	line-height:3rem;
+	letter-spacing: 0.5px;	
+}
+
+.accordion {
+	font-family: $linkfont-family;
+	font-weight: 700;
+	letter-spacing: 0.5px;
+	&-number {
+		font-size:0.6875rem;
+		line-height:1rem;
+	}
+	&-item {
+		font-size:1rem;
+		line-height:1rem;
+		letter-spacing: 0px;	
+	}
+	&-title {
+		font-size:1rem;
+		line-height:1rem;
+		letter-spacing: 0px;	
+	}
+}
+
+
+//shadows
+.table-line {
+	box-shadow: 0,-1,0,0 (rgba(235,235,235,1));
+}
+
+.card-sombra {
+	box-shadow:0,0,74,0 (rbga(0,0,0,.16));
+}

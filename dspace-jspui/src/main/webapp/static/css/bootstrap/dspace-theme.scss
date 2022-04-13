@@ -5,6 +5,9 @@
  *
  * http://www.dspace.org/license/
  */
+
+ @import 'variables';
+
 .banner img {background-color: #FFFFFF;padding:15px;margin:20px;}
 .brand {padding-top: 30px;}
 .brand h4 {color: #999999}
@@ -113,61 +116,29 @@ span.batchimport-error-caused {
 	word-wrap:        break-word;
 }
 
+
+// news definitions
+html {
+	font-size: 100%;
+}
+
 body {
-	background: black!important;
-	color: #47a447!important;
-	border: 1px solid red;
+	background: $background;
+	box-sizing: initial;
 }
 
-// colors
-.blue {
-	color:#071D41;
-}
-
-.blue-link {
-	color: #292A89;
-}
-
-.blue-bt {
-	color: #0D7AD6;
-}
-.greeen-light {
-	color: #2FE6DE;
-}
-
-.disabled {
-	color: #9A9A9A;
-}
-.border-field {
-	color:#E8E8E8;
-}
-.white-lightest {
-	color: #FFFFFF;
-}
-
-.red-light {
-	color: #E12229;
-}
-
-.yellow {
-	color: #FFD100;
-}
-.black {
-	color: #04132A;
-}
-.dark-blue {
-	color: #04132A;
-}
-
-
-//text-style
-
-
-//shadows
-.table-line {
-	box-shadow: 0,-1,0,0 (rgba(235,235,235,1));
-}
-
-.card-sombra {
-	box-shadow:0,0,74,0 (rbga(0,0,0,.16));
+//footer
+.section-footer {
+	background-color: $white-lightest;
+	border-top: 1px solid $white-line;
+    display: flex;
+    justify-content: center;
+	flex-direction: column;
+    align-items: center;	
+	gap: 16px;
+	p {
+		color:$disaed;
+		text-align: center;
+	}
+	padding: 24px 0 16px 0;
 }
