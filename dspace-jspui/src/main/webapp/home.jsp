@@ -82,9 +82,35 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-	Total de periódicos (label temporário): <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %> <br/>
-	Total de revistas (label temporário): <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
+<!-- detalhe globo -->
+<div class="content-home">
+	<div class="d-flex a-center">
+		<div class="col">
+			<h1>Miguilim</h1>
+			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
+			<div class="total">
+				<p><span> <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %></span>Total de periódicos</p>
+				<p class="line"></p>
+				<p><span> <%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %></span>Total de revistas</p>
+			</div>
+		</div>
+		<div class="col globe">
+			<img class="globe" src="image/globe.svg">
+		</div>
+	</div>
 
+	<!-- buscar -->
+	<div class="search-home">
+		<form class="form-home">
+			<a class="link-search" href="#">Busca Avançada</a>
+			<input type="text" id="lname" name="lastname" class="field-search" placeholder="Pesquisa por revistas ou portais">
+			<input type="submit" class="button-main" value="Buscar">
+		</form>
+	</div>
+</div>
+
+
+<!--
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
@@ -124,8 +150,8 @@ if (submissions != null && submissions.count() > 0)
 	    }
 	%>
           </h3>
-          
-		  <!-- Wrapper for slides -->
+		-->
+		  <!-- Wrapper for slides
 		  <div class="carousel-inner">
 		    <%
 		    boolean first = true;
@@ -152,9 +178,9 @@ if (submissions != null && submissions.count() > 0)
 				first = false;
 		     }
 		%>
-		  </div>
+		  </div> -->
 
-		  <!-- Controls -->
+		  <!-- Controls 
 		  <a class="left carousel-control" href="#recent-submissions-carousel" data-slide="prev">
 		    <span class="icon-prev"></span>
 		  </a>
@@ -172,10 +198,15 @@ if (submissions != null && submissions.count() > 0)
 <%
 }
 %>
+-->
+<!-- 
 <div class="col-md-4">
     <%= sideNews %>
 </div>
 </div>
+*/
+-->
+<!--
 <div class="container row">
 <%
 if (communities != null && communities.size() != 0)
@@ -234,4 +265,5 @@ if (communities != null && communities.size() != 0)
 </div>
 	
 </div>
+-->
 </dspace:layout>

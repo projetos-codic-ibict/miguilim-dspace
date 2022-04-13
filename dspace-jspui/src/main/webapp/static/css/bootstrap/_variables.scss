@@ -4,8 +4,8 @@ $bluecolor:#071D41;
 $blue-link: #292A89;
 $blue: #0D7AD6;
 $green-light: #2FE6DE;
-$disaed:#9A9A9A;
-$bord-field:#E8E8E8;
+$disabled:#9A9A9A;
+$board-field:#E8E8E8;
 $white-lightest: #FFFFFF;
 $red-lght: #E12229;
 $yellow: #FFD100;
@@ -13,6 +13,7 @@ $black: #04132A;
 $dark-blue:#04132A;
 $background:#FAFAFA;
 $white-line:#EBEBEB;
+$white-line-second:#F2F2F2;
 
 //text-style
 $linkfont-family: 'Open Sans', sans-serif;
@@ -208,5 +209,6 @@ $linkfont-family: 'Open Sans', sans-serif;
 }
 
 .card-sombra {
-	box-shadow:0,0,74,0 (rbga(0,0,0,.16));
+    box-shadow: 0px 0px 74px 0px rgba(0, 0, 0, 0.16);
+
 }

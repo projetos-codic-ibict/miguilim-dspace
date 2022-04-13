@@ -126,6 +126,9 @@ body {
 	background: $background;
 	box-sizing: initial;
 }
+.content-home {
+	position: relative;
+}
 
 //footer
 .section-footer {
@@ -137,7 +140,7 @@ body {
     align-items: center;	
 	gap: 16px;
 	p {
-		color:$disaed;
+		color:$disabled;
 		text-align: center;
 	}
 	padding: 24px 0 16px 0;
@@ -148,4 +151,107 @@ body {
 	background: $background;
 	border-bottom: 1px solid $white-line-second;
 	box-shadow: none;
+}
+
+.d-flex {
+	display: flex;
+	.col{
+		align-items: center;
+		justify-content: center;
+		h1 {
+			text-transform: uppercase;
+			font-size:5rem;
+			font-weight: 700;
+			color:$bluecolor;
+			margin-bottom: 0;
+		}
+		h2 {
+			font-size:1.5rem;
+			color:$black;
+			margin: 16px 0 40px 0;
+		}
+	}
+}
+.a-center {
+	align-items: center;
+}
+
+.total {
+	@extend .d-flex;
+	//justify-content: space-between;
+	gap:24px;
+	p {
+		font-size: 12px;
+    	line-height: 32px;
+		color: $disabled;
+	}
+	span {
+		display: block;
+		font-weight: 700;
+		@extend .number-valor;
+		font-size: 2.5rem;
+		color: $bluecolor;
+	}
+	.line {
+		width: 1px;
+    	height: 44px;
+    	background:$bluecolor;
+	}
+}
+
+.globe {
+	display: flex;
+	width: 80%;
+}
+
+// search 
+.search-home {
+	position: absolute;
+	bottom: 32px;
+	background:$white-lightest;
+	border-radius:8px;
+	height: 56px;
+	width: 100%;
+	@extend .card-sombra;
+	padding: 8px;
+	.field-search {
+		height: 40px;
+		width: 100%;
+		outline: none;
+		border: 1px solid $board-field;
+		border-radius:8px;
+		padding:0 0 0 16px;
+	}
+}
+
+.form-home {
+	display: flex;
+	gap: 8px;
+}
+
+.button-main {
+	padding:0 24px;
+	border: none;
+	background-color:$bluecolor;
+	color:$white-lightest;
+	border-radius: 8px;
+}
+.link-search {
+	position: absolute;
+    top: 18px;
+    right: 126px;
+	text-decoration: underline;
+}
+
+::placeholder  {
+	color:$disabled;
+}
+
+@media (max-width: 400px) {
+	.link-search {
+		display: none;
+	}
+	.search-home {
+		bottom: -51px;	
+	}
 }
