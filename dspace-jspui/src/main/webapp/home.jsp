@@ -95,7 +95,7 @@
 			</div>
 		</div>
 		<div class="col globe">
-			<img class="globe" src="image/globe.svg">
+			<img class="globe" src="<%= request.getContextPath() %>/image/globe.png">
 		</div>
 	</div>
 
