@@ -85,9 +85,9 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="25"
-                                                                         src="<%= request.getContextPath() %>/image/dspace-logo-only.png"
-                                                                         alt="DSpace logo"/></a>
+    <a class="navbar-brand" href="<%= request.getContextPath() %>/"><img height="45"
+                                                                         src="<%= request.getContextPath() %>/image/logo-ibict.png"
+                                                                         alt="Logo IBICT"/></a>
 </div>
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">

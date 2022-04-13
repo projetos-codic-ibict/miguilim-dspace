@@ -122,6 +122,7 @@
     List<Version> historyVersions = (List<Version>)request.getAttribute("versioning.historyversions");
 %>
 
+
 <dspace:layout title="<%= title %>">
 <%
     if (handle != null)

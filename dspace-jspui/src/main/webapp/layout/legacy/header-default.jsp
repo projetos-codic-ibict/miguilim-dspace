@@ -106,7 +106,7 @@
         <%-- HACK: width, border, cellspacing, cellpadding: for non-CSS compliant Netscape, Mozilla browsers --%>
         <table class="pageBanner" width="100%" border="0" cellpadding="0" cellspacing="0">
 
-            <%-- DSpace logo --%>
+            <%-- Logo IBICT --%>
             <tr>
                 <td>
                     <a href="<%= request.getContextPath() %>/"><img src="<%= request.getContextPath() %>/image/dspace-blue.gif" alt="<fmt:message key="jsp.layout.header-default.alt"/>" width="198" height="79" border="0"/></a></td>
