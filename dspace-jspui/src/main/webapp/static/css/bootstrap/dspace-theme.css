@@ -916,9 +916,22 @@ hr {
 }
 
 @media (max-width: 620px) {
+  .button-main-outline {
+    width: 100%;
+  }
   .search-main {
     display: -ms-grid;
     display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+  .search-filter {
+    -ms-grid-column: 1;
+        grid-column-start: 1;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+  }
+  .grid-colsecond {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
   }
