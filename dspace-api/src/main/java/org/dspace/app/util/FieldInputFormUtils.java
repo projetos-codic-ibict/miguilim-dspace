@@ -10,8 +10,8 @@ public class FieldInputFormUtils {
     List<MetadataValue> metadataValueList;
 
     public FieldInputFormUtils(List<FieldInputForm> fieldInputFormList, List<MetadataValue> metadataValueList) {
-        System.out.println("fieldInputFormList size: "+ fieldInputFormList.size());
-        System.out.println("metadataValueList size: "+ metadataValueList.size());
+//        System.out.println("fieldInputFormList size: "+ fieldInputFormList.size());
+//        System.out.println("metadataValueList size: "+ metadataValueList.size());
         this.fieldInputFormList = fieldInputFormList;
         this.metadataValueList = metadataValueList;
     }
@@ -28,7 +28,7 @@ public class FieldInputFormUtils {
         Predicate<FieldInputForm> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
         FieldInputForm fieldInputForm =  this.fieldInputFormList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
         if(fieldInputForm == null){
-            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
+//            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
         }
         return fieldInputForm;
     }
@@ -45,7 +45,7 @@ public class FieldInputFormUtils {
         Predicate<MetadataValue> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
         MetadataValue fieldInputForm =  this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
         if(fieldInputForm == null){
-            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
+//            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
         }
         return fieldInputForm;
     }

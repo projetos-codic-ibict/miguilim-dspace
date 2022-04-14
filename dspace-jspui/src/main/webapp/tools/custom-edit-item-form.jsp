@@ -27,6 +27,7 @@
 <%@ page import="org.dspace.app.util.FieldInputForm" %>
 <%@ page import="org.dspace.app.util.FieldInputFormXMLConvert" %>
 <%@ page import="org.dspace.app.util.FieldInputFormUtils" %>
+<%@ page import="org.dspace.app.util.VocabularyConverter" %>
 
 <%
     Item item = (Item) request.getAttribute("item");
@@ -96,89 +97,6 @@
     if (collections.size() > 0)
         collection = collections.get(0);
 %>
-<%!
-    StringBuffer doAuthority(MetadataAuthorityService mam, ChoiceAuthorityService cam,
-                             PageContext pageContext,
-                             String contextPath, String fieldName, String idx,
-                             MetadataValue dcv, Collection collection) {
-        StringBuffer sb = new StringBuffer();
-        if (cam.isChoicesConfigured(fieldName)) {
-            boolean authority = mam.isAuthorityControlled(fieldName);
-            boolean required = authority && mam.isAuthorityRequired(fieldName);
-
-            String fieldNameIdx = "value_" + fieldName + "_" + idx;
-            String authorityName = "choice_" + fieldName + "_authority_" + idx;
-            String confidenceName = "choice_" + fieldName + "_confidence_" + idx;
-
-            // put up a SELECT element containing all choices
-            if ("select".equals(cam.getPresentation(fieldName))) {
-                sb.append("<select class=\"form-control\" id=\"").append(fieldNameIdx)
-                        .append("\" name=\"").append(fieldNameIdx)
-                        .append("\" size=\"1\">");
-                Choices cs = cam.getMatches(fieldName, dcv.getValue(), collection, 0, 0, null);
-                if (cs.defaultSelected < 0)
-                    sb.append("<option value=\"").append(dcv.getValue()).append("\" selected>")
-                            .append(dcv.getValue()).append("</option>\n");
-
-                for (int i = 0; i < cs.values.length; ++i) {
-                    sb.append("<option value=\"").append(cs.values[i].value).append("\"")
-                            .append(i == cs.defaultSelected ? " selected>" : ">")
-                            .append(cs.values[i].label).append("</option>\n");
-                }
-                sb.append("</select>\n");
-            }
-
-            // use lookup for any other presentation style (i.e "select")
-            else {
-                String confidenceIndicator = "indicator_" + confidenceName;
-                sb.append("<textarea class=\"form-control\" id=\"").append(fieldNameIdx).append("\" name=\"").append(fieldNameIdx)
-                        .append("\" rows=\"3\" cols=\"50\">")
-                        .append(dcv.getValue()).append("</textarea>\n<br/>\n");
-
-                if (authority) {
-                    String confidenceSymbol = Choices.getConfidenceText(dcv.getConfidence()).toLowerCase();
-                    sb.append("<span class=\"col-md-1\">")
-                            .append("<img id=\"" + confidenceIndicator + "\"  title=\"")
-                            .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.authority.confidence.description." + confidenceSymbol))
-                            .append("\" class=\"ds-authority-confidence cf-" + confidenceSymbol)
-                            .append("\" src=\"").append(contextPath).append("/image/confidence/invisible.gif\" />")
-                            .append("</span>");
-                    sb.append("<span class=\"col-md-5\">")
-                            .append("<input class=\"form-control\" type=\"text\" readonly value=\"")
-                            .append(dcv.getAuthority() != null ? dcv.getAuthority() : "")
-                            .append("\" id=\"").append(authorityName)
-                            .append("\" onChange=\"javascript: return DSpaceAuthorityOnChange(this, '")
-                            .append(confidenceName).append("','").append(confidenceIndicator)
-                            .append("');\" name=\"").append(authorityName).append("\" class=\"ds-authority-value ds-authority-visible \"/>")
-                            .append("<input type=\"image\" class=\"ds-authority-lock is-locked \" ")
-                            .append(" src=\"").append(contextPath).append("/image/confidence/invisible.gif\" ")
-                            .append(" onClick=\"javascript: return DSpaceToggleAuthorityLock(this, '").append(authorityName).append("');\" ")
-                            .append(" title=\"")
-                            .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.edit-item-form.unlock"))
-                            .append("\" >")
-                            .append("<input type=\"hidden\" value=\"").append(confidenceSymbol).append("\" id=\"").append(confidenceName)
-                            .append("\" name=\"").append(confidenceName)
-                            .append("\" class=\"ds-authority-confidence-input\"/>")
-                            .append("</span>");
-                }
-
-                sb.append("<span class=\"col-md-1\">")
-                        .append("<button class=\"form-control\" name=\"").append(fieldNameIdx).append("_lookup\" ")
-                        .append("onclick=\"javascript: return DSpaceChoiceLookup('")
-                        .append(contextPath).append("/tools/lookup.jsp','")
-                        .append(fieldName).append("','edit_metadata','")
-                        .append(fieldNameIdx).append("','").append(authorityName).append("','")
-                        .append(confidenceIndicator).append("','")
-                        .append(String.valueOf(collection.getID())).append("',")
-                        .append("false").append(",false);\"")
-                        .append(" title=\"")
-                        .append(LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.lookup.lookup"))
-                        .append("\"><span class=\"glyphicon glyphicon-search\"></span></button></span>");
-            }
-        }
-        return sb;
-    }
-%>
 
 <c:set var="dspace.layout.head.last" scope="request">
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>
@@ -186,6 +104,8 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css" />
 </c:set>
 
 <dspace:layout style="submission" titlekey="jsp.tools.edit-item-form.title"
@@ -440,6 +360,32 @@
             <c:set var="metadataValue" scope="session" value="<%= metadata.getValue().trim() %>"/>
 
             <c:choose>
+                <c:when test="${fieldInputForm != null && fieldInputForm.simpleVocabulary != null}">
+                    <%
+                        VocabularyConverter vocabularyConverter = new VocabularyConverter();
+                        System.out.println("xmlField.getSimpleVocabulary() " + xmlField.getSimpleVocabulary());
+                        List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                        System.out.println("vocabularies "+ vocabularies);
+                    %>
+                    <div class="form-group">
+                        <label for="value_<%= key %>_<%= sequenceNumber %>">
+                                ${fieldInputForm.label}
+                        </label>
+                        <br/>
+                        <span>${fieldInputForm.hint}</span>
+                        <select class="" multiple id="value_<%= key %>_<%= sequenceNumber %>"
+                                name="value_<%= key %>_<%= sequenceNumber %>">
+                            <c:forEach items="<%= vocabularies %>" var="option">
+                                <option ${metadataValue.equalsIgnoreCase(option) ? 'selected' : ''} value="${option}">${option} </option>
+                            </c:forEach>
+                        </select>
+                    </div>
+                    <script>
+                        new SlimSelect({
+                            select: "#value_<%= key %>_<%= sequenceNumber %>"
+                        })
+                    </script>
+                </c:when>
                 <c:when test="${fieldInputForm != null && fieldInputForm.simpleInputType != null}">
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
@@ -483,302 +429,19 @@
            <% } %>
         </c:forEach>
 
-            <%--        <div class="table-responsive">--%>
-            <%--            <table class="table" summary="Edit item withdrawn table">--%>
-            <%--                <tr>--%>
-            <%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
-            <%--                        &lt;%&ndash; <th class="oddYYY¥¥RowEvenCol"><strong>Language</strong></th> &ndash;%&gt;--%>
-
-            <%--                    <th id="t0" class="oddRowOddCol"><strong><fmt:message--%>
-            <%--                            key="jsp.tools.edit-item-form.elem0"/></strong></th>--%>
-            <%--                    <th id="t1" class="oddRowEvenCol"><strong><fmt:message--%>
-            <%--                            key="jsp.tools.edit-item-form.elem1"/></strong></th>--%>
-            <%--                    <th id="t2" class="oddRowOddCol"><strong><fmt:message--%>
-            <%--                            key="jsp.tools.edit-item-form.elem2"/></strong></th>--%>
-            <%--                    <th id="t3" class="oddRowEvenCol"><strong><fmt:message--%>
-            <%--                            key="jsp.tools.edit-item-form.elem3"/></strong></th>--%>
-            <%--                    <th id="t4" class="oddRowOddCol"><strong><fmt:message--%>
-            <%--                            key="jsp.tools.edit-item-form.elem4"/></strong></th>--%>
-            <%--                    <th id="t5" class="oddRowEvenCol">&nbsp;</th>--%>
-            <%--                </tr>--%>
-
-            <%--                <%--%>
-            <%--                    // Keep a count of the number of values of each element+qualifier--%>
-            <%--                    // key is "element" or "element_qualifier" (String)--%>
-            <%--                    // values are Integers - number of values that element/qualifier so far--%>
-            <%--                    dcCounter = new HashMap<String, Integer>();--%>
-
-            <%--                    for (int i = 0; i < metadataValueList.size(); i++) {--%>
-            <%--                        // Find out how many values with this element/qualifier we've found--%>
-
-            <%--                        String key = metadataValueList.get(i).getMetadataField().toString();--%>
-
-            <%--                        Integer count = dcCounter.get(key);--%>
-            <%--                        if (count == null) {--%>
-            <%--                            count = new Integer(0);--%>
-            <%--                        }--%>
-
-            <%--                        // Increment counter in map--%>
-            <%--                        dcCounter.put(key, new Integer(count.intValue() + 1));--%>
-
-            <%--                        // We will use two digits to represent the counter number in the parameter names.--%>
-            <%--                        // This means a string sort can be used to put things in the correct order even--%>
-            <%--                        // if there are >= 10 values for a particular element/qualifier.  Increase this to--%>
-            <%--                        // 3 digits if there are ever >= 100 for a single element/qualifer! :)--%>
-            <%--                         String sequenceNumber = count.toString();--%>
-
-            <%--                        while (sequenceNumber.length() < 2) {--%>
-            <%--                            sequenceNumber = "0" + sequenceNumber;--%>
-            <%--                        }--%>
-            <%--                %>--%>
-
-            <%--                <tr>--%>
-            <%--                    <td headers="t0"--%>
-            <%--                        class="<%= row %>RowOddCol"><%=metadataValueList.get(i).getMetadataField().getMetadataSchema().getName() %>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t1"--%>
-            <%--                        class="<%= row %>RowEvenCol"><%= metadataValueList.get(i).getMetadataField().getElement() %>&nbsp;&nbsp;--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t2"--%>
-            <%--                        class="<%= row %>RowOddCol"><%= (metadataValueList.get(i).getMetadataField().getQualifier() == null ? "" : metadataValueList.get(i).getMetadataField().getQualifier()) %>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t3" class="<%= row %>RowEvenCol">--%>
-            <%--                        <%--%>
-            <%--                            if (cam.isChoicesConfigured(key)) {--%>
-            <%--                        %>--%>
-            <%--                        <%=--%>
-            <%--                        doAuthority(mam, cam, pageContext, request.getContextPath(), key, sequenceNumber,--%>
-            <%--                                metadataValueList.get(i), collection).toString()--%>
-            <%--                        %>--%>
-            <%--                        <% } else { %>--%>
-            <%--                        <textarea class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"--%>
-            <%--                                  name="value_<%= key %>_<%= sequenceNumber %>" rows="3"--%>
-            <%--                                  cols="50"><%= metadataValueList.get(i).getValue() %></textarea>--%>
-            <%--                        <% } %>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t4" class="<%= row %>RowOddCol">--%>
-            <%--                        <input class="form-control" type="text" name="language_<%= key %>_<%= sequenceNumber %>"--%>
-            <%--                               value="<%= (metadataValueList.get(i).getLanguage() == null ? "" : metadataValueList.get(i).getLanguage().trim()) %>"--%>
-            <%--                               size="5"/>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t5" class="<%= row %>RowEvenCol">--%>
-            <%--                            &lt;%&ndash; <input type="submit" name="submit_remove_<%= key %>_<%= sequenceNumber %>" value="Remove" /> &ndash;%&gt;--%>
-            <%--                        <button class="btn btn-danger" name="submit_remove_<%= key %>_<%= sequenceNumber %>"--%>
-            <%--                                value="<fmt:message key="jsp.tools.general.remove"/>">--%>
-            <%--                            <span class="glyphicon glyphicon-trash"></span>--%>
-            <%--                        </button>--%>
-            <%--                    </td>--%>
-            <%--                </tr>--%>
-            <%--                <% row = (row.equals("odd") ? "even" : "odd");--%>
-            <%--                } %>--%>
-
-            <%--                <tr>--%>
-
-            <%--                    <td headers="t1" colspan="3" class="<%= row %>RowEvenCol">--%>
-            <%--                        <select class="form-control" name="addfield_dctype">--%>
-            <%--                            <% for (int i = 0; i < dcTypes.size(); i++) {--%>
-            <%--                                Integer fieldID = new Integer(dcTypes.get(i).getID());--%>
-            <%--                                String displayName = (String) metadataFields.get(fieldID);--%>
-            <%--                            %>--%>
-            <%--                            <option value="<%= fieldID.intValue() %>"><%= displayName %>--%>
-            <%--                            </option>--%>
-            <%--                            <% } %>--%>
-            <%--                        </select>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t3" class="<%= row %>RowOddCol">--%>
-            <%--                        <textarea class="form-control" name="addfield_value" rows="3" cols="50"></textarea>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t4" class="<%= row %>RowEvenCol">--%>
-            <%--                        <input class="form-control" type="text" name="addfield_language" size="5"/>--%>
-            <%--                    </td>--%>
-            <%--                    <td headers="t5" class="<%= row %>RowOddCol">--%>
-            <%--                            &lt;%&ndash; <input type="submit" name="submit_addfield" value="Add"> &ndash;%&gt;--%>
-            <%--                        <button class="btn btn-default" name="submit_addfield"--%>
-            <%--                                value="<fmt:message key="jsp.tools.general.add"/>">--%>
-            <%--                            <span class="glyphicon glyphicon-plus"></span>--%>
-            <%--                        </button>--%>
-            <%--                    </td>--%>
-            <%--                </tr>--%>
-            <%--            </table>--%>
-
-            <%--        </div>--%>
-
         <br/>
 
-            <%-- <h2>Bitstreams</h2> --%>
-        <h2><fmt:message key="jsp.tools.edit-item-form.heading"/></h2>
-
-            <%-- <p>Note that if the "user format description" field isn't empty, the format will
-            always be set to "Unknown", so clear the user format description before changing the
-            format field.</p> --%>
-        <p class="alert alert-warning"><fmt:message key="jsp.tools.edit-item-form.note3"/></p>
-        <div class="table-responsive">
-            <table id="bitstream-edit-form-table" class="table" summary="Bitstream data table">
-                <tr>
-                        <%-- <th class="oddRowEvenCol"><strong>Primary<br>Bitstream</strong></th>
-                              <th class="oddRowOddCol"><strong>Name</strong></th>
-                              <th class="oddRowEvenCol"><strong>Source</strong></th>
-                              <th class="oddRowOddCol"><strong>Description</strong></th>
-                              <th class="oddRowEvenCol"><strong>Format</strong></th>
-                              <th class="oddRowOddCol"><strong>User&nbsp;Format&nbsp;Description</strong></th> --%>
-                    <th id="t10" class="oddRowEvenCol">&nbsp;</th>
-                    <th id="t11" class="oddRowOddCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem5"/></strong></th>
-                    <th id="t12" class="oddRowEvenCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem7"/></strong></th>
-                    <th id="t13" class="oddRowOddCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem8"/></strong></th>
-                    <th id="t14" class="oddRowEvenCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem9"/></strong></th>
-                    <th id="t15" class="oddRowOddCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem10"/></strong></th>
-                    <th id="t16" class="oddRowEvenCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem11"/></strong></th>
-                    <th id="t17" class="oddRowOddCol"><strong><fmt:message
-                            key="jsp.tools.edit-item-form.elem12"/></strong></th>
-                    <th id="t18" class="oddRowEvenCol">&nbsp;</th>
-                </tr>
-                <%
-                    List<Bundle> bundles = item.getBundles();
-                    row = "even";
-
-                    for (int i = 0; i < bundles.size(); i++) {
-                        List<Bitstream> bitstreams = bundles.get(i).getBitstreams();
-                        for (int j = 0; j < bitstreams.size(); j++) {
-                            ArrayList<UUID> bitstreamIdOrder = new ArrayList<UUID>();
-                            for (Bitstream bitstream : bitstreams) {
-                                bitstreamIdOrder.add(bitstream.getID());
-                            }
-
-                            // Parameter names will include the bundle and bitstream ID
-                            // e.g. "bitstream_14_18_desc" is the description of bitstream 18 in bundle 14
-                            Bitstream bitstream = bitstreams.get(j);
-                            String key = bundles.get(i).getID() + "_" + (bitstream).getID();
-                            BitstreamFormat bf = (bitstream).getFormat(UIUtil.obtainContext(request));
-                %>
-                <tr id="<%="row_" + bundles.get(i).getName() + "_" + bitstream.getID()%>">
-                    <td headers="t10" class="<%= row %>RowEvenCol" align="center">
-                            <%-- <a target="_blank" href="<%= request.getContextPath() %>/retrieve/<%= bitstream.getID() %>">View</a>&nbsp;<input type="submit" name="submit_delete_bitstream_<%= key %>" value="Remove"> --%>
-                        <a class="btn btn-info" target="_blank"
-                           href="<%= request.getContextPath() %>/retrieve/<%= bitstream.getID() %>"><fmt:message
-                                key="jsp.tools.general.view"/></a>&nbsp;
-                    </td>
-                    <% if (bundles.get(i).getName().equals("ORIGINAL")) { %>
-                    <td headers="t11" class="<%= row %>RowEvenCol" align="center">
-                       <span class="form-control">
-                       <input type="radio" name="<%= bundles.get(i).getID() %>_primary_bitstream_id"
-                              value="<%= bitstream.getID() %>"
-                               <% if (bitstream.equals(bundles.get(i).getPrimaryBitstream())) { %>
-                              checked="<%="checked" %>"
-                               <% } %> /></span>
-                    </td>
-                    <% } else { %>
-                    <td headers="t11"></td>
-                    <% } %>
-                    <td headers="t12" class="<%= row %>RowOddCol">
-                        <input class="form-control" type="text" name="bitstream_name_<%= key %>"
-                               value="<%= ((bitstream).getName() == null ? "" : Utils.addEntities(bitstream.getName())) %>"/>
-                    </td>
-                    <td headers="t13" class="<%= row %>RowEvenCol">
-                        <input class="form-control" type="text" name="bitstream_source_<%= key %>"
-                               value="<%= ((bitstream).getSource() == null ? "" : bitstream.getSource()) %>"/>
-                    </td>
-                    <td headers="t14" class="<%= row %>RowOddCol">
-                        <input class="form-control" type="text" name="bitstream_description_<%= key %>"
-                               value="<%= ((bitstream).getDescription() == null ? "" : Utils.addEntities(bitstream.getDescription())) %>"/>
-                    </td>
-                    <td headers="t15" class="<%= row %>RowEvenCol">
-                        <input class="form-control" type="text" name="bitstream_format_id_<%= key %>"
-                               value="<%= bf.getID() %>" size="4"/> (<%= Utils.addEntities(bf.getShortDescription()) %>)
-                    </td>
-                    <td headers="t16" class="<%= row %>RowOddCol">
-                        <input class="form-control" type="text" name="bitstream_user_format_description_<%= key %>"
-                               value="<%= ((bitstream).getUserFormatDescription() == null ? "" : Utils.addEntities(bitstream.getUserFormatDescription())) %>"/>
-                    </td>
-                    <%
-                        if (bundles.get(i).getName().equals("ORIGINAL") && breOrderBitstreams) {
-                            //This strings are only used in case the user has javascript disabled
-                            String upButtonValue = null;
-                            String downButtonValue = null;
-                            if (0 != j) {
-                                ArrayList<UUID> temp = (ArrayList<UUID>) bitstreamIdOrder.clone();
-                                //We don't have the first button, so create a value where the current bitstreamId moves one up
-                                UUID tempInt = temp.get(j);
-                                temp.set(j, temp.get(j - 1));
-                                temp.set(j - 1, tempInt);
-                                upButtonValue = StringUtils.join(temp.toArray(new UUID[temp.size()]), ",");
-                            }
-                            if (j < (bitstreams.size() - 1)) {
-                                //We don't have the first button, so create a value where the current bitstreamId moves one up
-                                ArrayList<UUID> temp = (ArrayList<UUID>) bitstreamIdOrder.clone();
-                                UUID tempInt = temp.get(j);
-                                temp.set(j, temp.get(j + 1));
-                                temp.set(j + 1, tempInt);
-                                downButtonValue = StringUtils.join(temp.toArray(new UUID[temp.size()]), ",");
-                            }
-
-
-                    %>
-                    <td headers="t17" class="<%= row %>RowEvenCol">
-                        <input type="hidden" value="<%=j+1%>" name="order_<%=bitstream.getID()%>">
-                        <input type="hidden" value="<%=upButtonValue%>"
-                               name="<%=bundles.get(i).getID()%>_<%=bitstream.getID()%>_up_value">
-                        <input type="hidden" value="<%=downButtonValue%>"
-                               name="<%=bundles.get(i).getID()%>_<%=bitstream.getID()%>_down_value">
-                        <div>
-                            <button class="btn btn-default" name="submit_order_<%=key%>_up"
-                                    value="<fmt:message key="jsp.tools.edit-item-form.move-up"/> " <%=j == 0 ? "disabled=\"disabled\"" : ""%>>
-                                <span class="glyphicon glyphicon-arrow-up"></span>
-                            </button>
-                        </div>
-                        <div>
-                            <button class="btn btn-default" name="submit_order_<%=key%>_down"
-                                    value="<fmt:message key="jsp.tools.edit-item-form.move-down"/> " <%=j == (bitstreams.size() - 1) ? "disabled=\"disabled\"" : ""%>>
-                                <span class="glyphicon glyphicon-arrow-down"></span>
-                            </button>
-                        </div>
-                    </td>
-
-                    <%
-                    } else {
-                    %>
-                    <td>
-                        <%=j + 1%>
-                    </td>
-                    <%
-                        }
-                    %>
-                    <td headers="t18" class="<%= row %>RowEvenCol">
-
-                        <% if (bRemoveBits) { %>
-                        <button class="btn btn-danger" name="submit_delete_bitstream_<%= key %>"
-                                value="<fmt:message key="jsp.tools.general.remove"/>">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                        <% } %>
-                    </td>
-                </tr>
-                <%
-                            row = (row.equals("odd") ? "even" : "odd");
-                        }
-                    }
-                %>
-            </table>
-        </div>
-
-
-            <%-- <p align="center"><input type="submit" name="submit_addbitstream" value="Add Bitstream"></p> --%>
         <div class="btn-group col-md-12">
             <%
                 if (bCreateBits) {
             %>
-            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"
-                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>
+<%--            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"--%>
+<%--                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>--%>
             <% }
                 if (breOrderBitstreams) {
             %>
-            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"
-                   name="submit_update_order" style="visibility: hidden;">
+<%--            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"--%>
+<%--                   name="submit_update_order" style="visibility: hidden;">--%>
             <%
                 }
 

@@ -49,7 +49,11 @@ public class FieldInputFormXMLConvert {
                                 try {
                                     ObjectMapper mapper = new ObjectMapper();
                                     FieldInputForm field = mapper.readValue(fields.get(k).toString(), FieldInputForm.class);
-                                    field.setSimpleVocabulary(fields.get(k).get("vocabulary") != null ? fields.get(k).get("vocabulary").asText() : null);
+                                    if(fields.get(k).get("vocabulary") != null ){
+                                        field.setSimpleVocabulary(fields.get(k).get("vocabulary").isContainerNode() ?
+                                                fields.get(k).get("vocabulary").get("content").asText() : fields.get(k).get("vocabulary").asText());
+
+                                    }
                                     if (fields.get(k).get("input-type").isContainerNode()) {
                                         field.setComplextInputType(getMapFromValuesPairs(valuePairs,
                                                 fields.get(k).get("input-type").get("value-pairs-name").asText()));
