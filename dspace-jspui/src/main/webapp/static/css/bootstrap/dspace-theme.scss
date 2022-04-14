@@ -228,13 +228,26 @@ body {
 	display: flex;
 	gap: 8px;
 }
-
+hr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 0;
+    border-top: 1px solid #eee;
+}
 .button-main {
 	padding:0 24px;
 	border: none;
 	background-color:$bluecolor;
 	color:$white-lightest;
 	border-radius: 8px;
+}
+.button-main-outline {
+	padding:0 24px;
+	border: 2px solid $dark-blue;;
+	background-color:$white-lightest;
+	color:$dark-blue;
+	border-radius: 8px;
+	height: 40px;
 }
 .link-search {
 	position: absolute;
@@ -397,5 +410,155 @@ body {
 	}
 	.section-footer {
 		padding: 24px;
+	}
+}
+.simple-search{
+	margin-top: 16px!important;	
+}
+.grid-col {
+	margin-top: 24px;
+	display: grid;
+    grid-template-columns: 1fr 4fr 100px;
+    gap: 8px;	
+}
+
+.grid-colsecond {
+	margin-top: 32px;
+	display: grid;
+    grid-template-columns:140px 140px 1fr 77px;
+    gap: 8px;	
+}
+.content-search {
+	background:$white-line-second;
+}
+.w100 {
+	width: 100%;
+}
+.search-main {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	height: 100px;
+	.search-facet {
+		padding: 40px 32px;
+		border-right: 1px solid $white-line;
+		h3 {
+			@extend .title-section;
+			margin-bottom: 24px;
+		}
+		.accordion {
+			&-body {
+				border-radius:4px;
+				border:1px solid $white-line;
+				margin-bottom:8px;
+			} // body
+			&-header {
+				padding: 16px;
+				height: 48px;
+				border-radius:4px 4px 0 0;
+				color:$white-lightest;
+				display: flex;
+				align-items: center;
+				background-color: $dark-blue;
+				
+				cursor: pointer;
+				span {
+					color:$dark-blue;
+					font-family: $linkfont-family;
+					font-weight: 600;
+					letter-spacing: 0px;
+					font-size:1rem;
+					line-height:1rem;
+					color:$white-lightest;
+				}
+				h3 {
+					color:$white-lightest;
+					text-decoration: none;
+				}
+			} // header
+			&-content {
+				list-style: none;
+				padding: 0;
+				li {
+					border-bottom: 1px solid $white-line-second;
+					padding:12px 0 ;
+					text-indent: 16px;
+					display: flex;
+					justify-content: space-between;
+					a {
+						color: $dark-blue;
+						&:last-child {
+							margin-right: 16px;
+						}
+					}
+					&:last-child {
+						border: none;
+						padding-bottom: 4px;
+						.inative {
+							opacity: 0.1;
+						}
+						.pagination {
+							margin: 0;
+							&:first-child {
+								background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADHSURBVHgB1VLLDYJAEH2zGLlo2AIkoQNjB1CBlKClWYEluHZgB2zixZvc/CWMIwlEYBMDnnjJZuZt9r2ZyQ4wOkzDOPXDJKu4Qk9wAS0hGmzQxt8Gk/aF1rG+zWnPYPs8m20vg1I8IyNpoDz8FH+gOmJCQB4nd2usS0BKrSWYmleJv0hOwpaSHokoc4kL5rSs6vGqKlB3QIRr/VL+ynWIsfsWNzpAFGu/oAMYml4ywsU9QmekBhtg0twDa/KH4kRsc0yxwSjwBrs+TUg4JMIaAAAAAElFTkSuQmCC");
+								background-repeat: no-repeat;
+								background-position-x: left;
+								background-position-y: center;
+								padding-left: 8px;
+								margin-left: 16px;
+							}
+							&:last-child {
+								//margin-right: 16px;
+								background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAQCAYAAADwMZRfAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAB2SURBVHgBzZDhCYAgEEYPaYBGaJNGqFHaIJugVmgyG8EmsO/gBAvsh2b14IE/9B0e0R/poaEEVHCuYUMJKHqA1yO8rzE3skIdC3l4sQ4ON3e03DmFquBs4QRn2MEtErIS2+FyjfhJ/LilgvA3nAz7JsCY3EB5DmiAFQc7ncaYAAAAAElFTkSuQmCC");
+								background-repeat: no-repeat;
+								background-position-x: right;
+								background-position-y: center;
+								padding-right: 24px;
+								margin-right: 16px;
+							}
+						}
+					}
+				}				
+			} // content
+		}
+	}
+	.search-element {
+		background: $white-lightest;
+		border-radius:8px;
+		border:1px solid $white-line-second;
+		padding: 24px 16px;
+		.simple-search {
+			display: flex;
+			gap: 8px;
+		}
+		.field-s {
+			height: 40px;
+			outline: none;
+			border: 1px solid #E8E8E8;
+			border-radius: 8px;
+			padding: 0 0 0 16px;			
+		}
+		.button-main {
+			height: 40px;
+		}
+	}
+	.number-a {
+		display: block;
+		background: $yellow;	
+		padding: 0 16px 0 0px;
+		border-radius: 50px;			
+	}
+	.accordion-header.collapsed {
+		background: none;
+		span {
+			color:$dark-blue;
+		}
+		
+	}		
+	.search-filter {
+		background:$white-line-second;
+		padding: 40px 32px;
+		h3 {
+			@extend .title-section;
+		}		
 	}
 }
