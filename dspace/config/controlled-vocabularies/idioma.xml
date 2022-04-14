@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<isComposedBy>
+		<node label="Alemão" id="00001"></node>
+		<node label="Árabe" id="00002"></node>
+		<node label="Chinês" id="00003"></node>
+		<node label="Espanhol" id="00004"></node>
+		<node label="Francês" id="00005"></node>
+		<node label="Grego" id="00006"></node>
+		<node label="Hindi" id="00007"></node>
+		<node label="Holandês" id="00008"></node>
+		<node label="Inglês" id="00009"></node>
+		<node label="Italiano" id="00010"></node>
+		<node label="Japonês" id="00011"></node>
+		<node label="Latim" id="00012"></node>
+		<node label="Macro-jê" id="00013"></node>
+		<node label="Polonês" id="00014"></node>
+		<node label="Português" id="00015"></node>
+		<node label="Russo" id="00016"></node>
+		<node label="Tupi" id="00017"></node>
+	</isComposedBy>

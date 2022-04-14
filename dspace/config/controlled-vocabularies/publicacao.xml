@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Avaliador (es)" id="00001"></node>
+	<node label="Editor científico" id="00002"></node>
+	<node label="Editor responsável" id="00003"></node>
+	<node label="Editor de seção" id="00004"></node>
+	<node label="Editor executivo" id="00005"></node>
+</isComposedBy>

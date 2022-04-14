@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Academia.edu" id="00001"></node>
+	<node label="Facebook" id="00002"></node>
+	<node label="Instagram" id="00003"></node>
+	<node label="LinkedIn" id="00004"></node>
+	<node label="ResearchGate" id="00005"></node>
+	<node label="Twitter" id="00006"></node>
+	<node label="Youtube" id="00007"></node>
+</isComposedBy>

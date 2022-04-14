@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Artigo original" id="00001"></node>
+	<node label="Artigo de revisão" id="00002"></node>
+	<node label="Artigo de conferência" id="00003"></node>
+	<node label="Artigo de iniciação científica" id="00004"></node>
+	<node label="Dados de pesquisa" id="00005"></node>
+	<node label="Ensaio" id="00006"></node>
+	<node label="Entrevista" id="00007"></node>
+	<node label="Resenha" id="00008"></node>
+	<node label="Dossiê" id="00009"></node>
+	<node label="Tradução" id="00010"></node>
+	<node label="Relato de experiência" id="00011"></node>
+</isComposedBy>

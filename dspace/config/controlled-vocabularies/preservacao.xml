@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Ainda não adota política" id="00001"></node>
+	<node label="LOCKSS" id="00002"></node>
+	<node label="CLOCKSS" id="00003"></node>
+	<node label="Portico" id="00004"></node>
+	<node label="PKP PN" id="00005"></node>
+	<node label="Archivematica" id="00006"></node>
+</isComposedBy>
+
+	

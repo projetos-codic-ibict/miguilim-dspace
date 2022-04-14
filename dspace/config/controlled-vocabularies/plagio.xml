@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Ephorus" id="00001"></node>
+	<node label="Farejador de plágio" id="00002"></node>
+	<node label="Glatt" id="00003"></node>
+	<node label="iThenticate" id="00004"></node>
+	<node label="Plagiarism" id="00004"></node>
+	<node label="Plagius" id="00004"></node>
+	<node label="Similarity check" id="00004"></node>
+	<node label="Turnitin" id="00004"></node>
+	<node label="Write check" id="00004"></node>
+</isComposedBy>

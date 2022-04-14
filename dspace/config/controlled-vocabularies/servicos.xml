@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<isComposedBy>
+	<node label="Abstracts in Anthropology" id="00001"></node>
+	<node label="Abstracts on Hygiene and Communicable Diseases" id="00002"></node>
+	<node label="Abstracts on Tropical Agriculture" id="00003"></node>
+	<node label="Academic ONE File" id="00004"></node>
+	<node label="Academic Research Library" id="00006"></node>
+	<node label="Academic Search Complete" id="00007"></node>
+	<node label="Actualidad Iberoamericana" id="00008"></node>
+	<node label="Agricola" id="00009"></node>
+	<node label="Agrindex" id="00010"></node>
+	<node label="Agris" id="00011"></node>
+	<node label="Agrobase" id="00012"></node>
+	<node label="Agris" id="00013"></node>
+	<node label="America, History and Life" id="00014"></node>
+	<node label="Animal Breeding Abstracts" id="00015"></node>
+	<node label="Animal Production" id="00016"></node>
+	<node label="Anthropological Index Online" id="00017"></node>
+	<node label="Art Full Text" id="00018"></node>
+	<node label="Art Index" id="00019"></node>
+	<node label="Arts and Humanities Citation Index" id="00020"></node>
+	<node label="ASFA (Aquatic Sciences and Fisheries Abstracts)" id="00021"></node>
+	<node label="BASE (Bielefeld Academic Search Engine)" id="00022"></node>
+	<node label="BIBLAT. Bibliografía Latinoamericana" id="00023"></node>
+	<node label="Bibliografia Brasileira de Educação" id="00024"></node>
+	<node label="Bibliografia Brasileira de Odontologia" id="00025"></node>
+	<node label="Bibliographic Index" id="00026"></node>
+	<node label="Bibliographie Linguistique" id="00027"></node>
+	<node label="Bibliography of Agriculture" id="00028"></node>
+	<node label="Biblioteca Virtual de CLACSO" id="00029"></node>
+	<node label="Bio-Control News and Information" id="00030"></node>
+	<node label="Biological Abstracts" id="00031"></node>
+	<node label="Biosis Previews" id="00032"></node>
+	<node label="Biotechnology Citation Index" id="00033"></node>
+	<node label="BRAPCI (Base de Dados Referenciais de Artigos de Periódicos em Ciência da Informação)" id="00034"></node>
+	<node label="Business Periodicals Index" id="00035"></node>
+	<node label="Business Source Complete" id="00036"></node>
+	<node label="BVS (Biblioteca Virtual en Salud)" id="00037"></node>
+	<node label="CAB Abstracts" id="00038"></node>
+	<node label="CAB Health" id="00039"></node>
+	<node label="CABS (Current Awareness in Biological Sciences)" id="00040"></node>
+	<node label="Chemical Abstracts" id="00041"></node>
+	<node label="CINHAL Full Text" id="00042"></node>
+	<node label="Clase (Citas Latinoamericanas en Ciencias Sociales y Humanidades)" id="00043"></node>
+	<node label="CLI (Current Law Index)" id="00044"></node>
+	<node label="Communication and Mass Media Complete" id="00045"></node>
+	<node label="Compendex" id="00046"></node>
+	<node label="CubaCiencias" id="00047"></node>
+	<node label="CUIDEN" id="00048"></node>
+	<node label="Current Contents" id="00049"></node>
+	<node label="Current Contents: Agriculture, Biology and Environmental Sciences" id="00050"></node>
+	<node label="Current Contents: Arts and Humanities" id="00051"></node>
+	<node label="Current Contents: Life Sciences" id="00052"></node>
+	<node label="Current Contents: Physical, Chemical and Earth Sciences" id="00053"></node>
+	<node label="Current Contents: Social and Behavioral Sciences" id="00054"></node>
+	<node label="Current Work in the History of Medicine" id="00055"></node>
+	<node label="Dairy Science Abstracts" id="00056"></node>
+	<node label="DARE Data Bank" id="00057"></node>
+	<node label="Diadorim" id="00058"></node>
+	<node label="DIALNET" id="00059"></node>
+	<node label="DOAJ (Directory of Open Access Journals)" id="00060"></node>
+	<node label="e-Journal" id="00061"></node>
+	<node label="EconLit" id="00062"></node>
+	<node label="Edubase - Base Nacional de Educação" id="00063"></node>
+	<node label="Education Index" id="00064"></node>
+	<node label="Educational Research Abstracts" id="00065"></node>
+	<node label="Educational Research Abstracts ERA" id="00066"></node>
+	<node label="EMBASE Excerpta Medica" id="00067"></node>
+	<node label="Engineering Index" id="00068"></node>
+	<node label="Entomology Abstracts" id="00069"></node>
+	<node label="ERIC (Education Resources Information Center)" id="00070"></node>
+	<node label="ERIH (European Reference Index for the Humanities)" id="00071"></node>
+	<node label="EZB Electronic Journals Library" id="00072"></node>
+	<node label="Field Crop Abstracts" id="00073"></node>
+	<node label="Food Science and Technology Abstracts" id="00074"></node>
+	<node label="Forestry Abstracts" id="00075"></node>
+	<node label="Francis" id="00076"></node>
+	<node label="Free Medical Journals" id="00077"></node>
+	<node label="Fuente Académica" id="00078"></node>
+	<node label="Gas Abstracts" id="00079"></node>
+	<node label="Genetics Abstracts" id="00080"></node>
+	<node label="GeoBase" id="00081"></node>
+	<node label="GeoDados" id="00082"></node>
+	<node label="Geographical Abstracts: Human Geography" id="00083"></node>
+	<node label="Geographical Abstracts: Physical Geography" id="00084"></node>
+	<node label="GeoRef" id="00085"></node>
+	<node label="Google Scholar" id="00086"></node>
+	<node label="HAPI (Hispanic American Periodicals Index)" id="00087"></node>
+	<node label="Helminthological Abstracts" id="00088"></node>
+	<node label="Herbage Abstracts" id="00089"></node>
+	<node label="HISA (Base Bibliográfica em História da Saúde Pública na América Latina e Caribe)" id="00090"></node>
+	<node label="Historical Abstracts" id="00091"></node>
+	<node label="Horticultural Abstracts" id="00092"></node>
+	<node label="Humanities Index" id="00093"></node>
+	<node label="IBR (Internationale Bibliographie der Rezensionen Wissenschaftlicher Literatur)" id="00094"></node>
+	<node label="IBZ (International Bibliography of Periodical Literature on the Humanities and Social Sciences)" id="00095"></node>
+	<node label="Imbiomed" id="00096"></node>
+	<node label="IMLA (Index Medicus Latino-Americano)" id="00097"></node>
+	<node label="Index Copernicus International" id="00098"></node>
+	<node label="Index Medicus" id="00099"></node>
+	<node label="Index Veterinarius" id="00100"></node>
+	<node label="IndexPsi (Base de Dados de Psicologia)" id="00101"></node>
+	<node label="Infobila (Información y Bibliotecología Latinoamericanas)" id="00102"></node>
+	<node label="Information Science Abstracts" id="00103"></node>
+	<node label="Informe Académicos" id="00104"></node>
+	<node label="INIS Atomindex (International Nuclear Information System)" id="00105"></node>
+	<node label="INSPEC (The Institution of Electrical Engineers)" id="00106"></node>
+	<node label="International Bibliography of the Social Sciences" id="00107"></node>
+	<node label="International Political Science Abstracts" id="00108"></node>
+	<node label="IPA (International Pharmaceutical Abstracts)" id="00109"></node>
+	<node label="Iresie (Indice de Revistas de Educación Superior e Investigación Educativa)" id="00110"></node>
+	<node label="ISTA (Information Science and Technology Abstracts)" id="00111"></node>
+	<node label="JEL (Journal of Economic Literature)" id="00112"></node>
+	<node label="JSTOR" id="00113"></node>
+	<node label="LA Referencia" id="00114"></node>
+	<node label="LAMJOL (Latin American Journals Online)" id="00115"></node>
+	<node label="Latin American Periodicals Table of Contents" id="00116"></node>
+	<node label="Latindex-Catálogo" id="00117"></node>
+	<node label="Latindex-Catálogo 2.0" id="00118"></node>
+	<node label="Latindex-Directorio" id="00119"></node>
+	<node label="Library Literature Full Text" id="00120"></node>
+	<node label="LILACS (Literatura Latino-Americana e do Caribe em Ciências da Saúde)" id="00121"></node>
+	<node label="Linguistics Abstracts" id="00122"></node>
+	<node label="Linguistics and Language Behavior Abstracts" id="00123"></node>
+	<node label="LISA (Library and Information Science Abstracts)" id="00124"></node>
+	<node label="LISTA Full Text " id="00125"></node>
+	<node label="Mathematical Reviews" id="00126"></node>
+	<node label="Medline" id="00127"></node>
+	<node label="Meteorological and Geoastrophysical Abstracts" id="00128"></node>
+	<node label="MIAR (Information Matrix for the Analysis of Journals)" id="00129"></node>
+	<node label="Microbiological Abstracts" id="00130"></node>
+	<node label="Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras)" id="00131"></node>
+	<node label="MLA International Bibliography" id="00132"></node>
+	<node label="Neuroscience Citation Index" id="00133"></node>
+	<node label="Nutrition Abstracts and Reviews. Serie A: Human and Experimental" id="00134"></node>
+	<node label="Nutrition Abstracts and Reviews. Serie B: Livestock and Feeding" id="00135"></node>
+	<node label="Oasisbr (Portal Brasileiro de Publicações Científicas em Acesso Aberto)" id="00136"></node>
+	<node label="OEI-CREDI" id="00137"></node>
+	<node label="Open Science Directory" id="00138"></node>
+	<node label="PAIS International (Public Affairs Information Service)" id="00139"></node>
+	<node label="Pascal" id="00140"></node>
+	<node label="Pepsic" id="00141"></node>
+	<node label="Periódica (Indice de Revistas Latinoamericanas en Ciencias)" id="00142"></node>
+	<node label="Periodicals Index Online" id="00143"></node>
+	<node label="Philosophers Index" id="00144"></node>
+	<node label="Plant Breeding Abstracts" id="00145"></node>
+	<node label="Political Science Abstracts" id="00146"></node>
+	<node label="Portal de Periódicos CAPES" id="00147"></node>
+	<node label="Poultry Abstracts" id="00148"></node>
+	<node label="ProQuest Natural Science Journals" id="00149"></node>
+	<node label="Protozoological Abstracts" id="00150"></node>
+	<node label="PSICODOC" id="00151"></node>
+	<node label="PsycINFO" id="00152"></node>
+	<node label="PubMed" id="00153"></node>
+	<node label="Qualis-Periódicos" id="00154"></node>
+	<node label="RCAAP (Repositórios Científicos de Acesso Aberto de Portugal)" id="00155"></node>
+	<node label="Redalyc" id="00156"></node>
+	<node label="REDIB (Red Iberoamericana de Innovación y Conocimiento Científico)" id="00157"></node>
+	<node label="Referativnyi Zhurnal" id="00158"></node>
+	<node label="Religious and Theological Abstracts" id="00159"></node>
+	<node label="Repidisca" id="00160"></node>
+	<node label="Review of Agricultural Entomology" id="00161"></node>
+	<node label="Review of Medical and Veterinary Entomology" id="00162"></node>
+	<node label="Review of Medical and Veterinary Mycology" id="00163"></node>
+	<node label="Review of Plant Pathology" id="00164"></node>
+	<node label="Rice Abstracts" id="00165"></node>
+	<node label="RILM Abstracts of Music Literature" id="00166"></node>
+	<node label="ROAD (Directory of Open Access scholarly Resources)" id="00167"></node>
+	<node label="Rural Development Abstracts" id="00168"></node>
+	<node label="Scielo (Scientific Electronic Library Online)" id="00169"></node>
+	<node label="Science Citation Index" id="00170"></node>
+	<node label="Science Citation Index Expanded" id="00171"></node>
+	<node label="Science Direct Elsevier" id="00172"></node>
+	<node label="Scopus" id="00173"></node>
+	<node label="Sherpa/Romeo" id="00174"></node>
+	<node label="Sistema Eletrônico de Revistas da UFPR" id="00175"></node>
+	<node label="Social Planning/Policy and Development Abstracts" id="00176"></node>
+	<node label="Social Sciences Citation Index" id="00177"></node>
+	<node label="Social Sciences Index" id="00178"></node>
+	<node label="SocIndex with Full Text" id="00179"></node>
+	<node label="Sociological Abstracts" id="00180"></node>
+	<node label="SportDiscus" id="00181"></node>
+	<node label="Sumários.org" id="00182"></node>
+	<node label="Toxicology Abstracts" id="00183"></node>
+	<node label="Tropag and Rural" id="00184"></node>
+	<node label="Tropical Diseases Bulletin" id="00185"></node>
+	<node label="Ulrichs" id="00186"></node>
+	<node label="Veterinary Bulletin" id="00187"></node>
+	<node label="Veterinary Science" id="00188"></node>
+	<node label="Virology Abstracts" id="00189"></node>
+	<node label="Water Pollution Abstracts" id="00190"></node>
+	<node label="Water Resources Abstracts" id="00191"></node>
+	<node label="Web of Science" id="00191"></node>
+	<node label="Weed Abstracts" id="00192"></node>
+	<node label="Zoological Record" id="00193"></node>
+</isComposedBy>
