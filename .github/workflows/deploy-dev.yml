@@ -1,4 +1,4 @@
-name: Deploy DSpace
+name: Deploy Legrug
 
 on:
   push:
