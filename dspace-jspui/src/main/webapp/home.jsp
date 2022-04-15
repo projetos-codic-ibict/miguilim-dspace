@@ -77,10 +77,11 @@
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
 	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
+	Map<String, List<FacetResult>> facetsRoot = (Map<String, List<FacetResult>>) request.getAttribute("discovery.fresults");
 
 %>
 
-<dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
+<dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
 <!-- detalhe globo -->
 <div class="content-home">
@@ -130,7 +131,8 @@
 
 <!-- cards -->
 <div class="container-cards">
-	<div class="card">
+
+	<div onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+sociais+aplicadas&filtername=cnpq&filtertype=equals'" class="card">
 		<div class="icon">
 			<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M4.87675 3.5C4.11644 3.5 3.50008 4.11635 3.50008 4.87666V23.1233C3.50008 23.8836 4.11644 24.5 4.87675 24.5H23.1234C23.8837 24.5 24.5001 23.8836 24.5001 23.1233V4.87666C24.5001 4.11635 23.8837 3.5 23.1234 3.5H4.87675ZM1.16675 4.87666C1.16675 2.82769 2.82777 1.16666 4.87675 1.16666H23.1234C25.1724 1.16666 26.8334 2.82769 26.8334 4.87666V23.1233C26.8334 25.1723 25.1724 26.8333 23.1234 26.8333H4.87675C2.82777 26.8333 1.16675 25.1723 1.16675 23.1233V4.87666Z" fill="#04132A"/>
@@ -141,14 +143,16 @@
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M1.16675 19.8333C1.16675 19.189 1.68908 18.6667 2.33341 18.6667H8.16675C8.81108 18.6667 9.33342 19.189 9.33342 19.8333C9.33342 20.4777 8.81108 21 8.16675 21H2.33341C1.68908 21 1.16675 20.4777 1.16675 19.8333Z" fill="#04132A"/>
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M18.6667 19.8333C18.6667 19.189 19.1891 18.6667 19.8334 18.6667H25.6667C26.3111 18.6667 26.8334 19.189 26.8334 19.8333C26.8334 20.4777 26.3111 21 25.6667 21H19.8334C19.1891 21 18.6667 20.4777 18.6667 19.8333Z" fill="#04132A"/>
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M18.6667 8.16667C18.6667 7.52233 19.1891 7 19.8334 7H25.6667C26.3111 7 26.8334 7.52233 26.8334 8.16667C26.8334 8.811 26.3111 9.33333 25.6667 9.33333H19.8334C19.1891 9.33333 18.6667 8.811 18.6667 8.16667Z" fill="#04132A"/>
-			</svg>		
+			</svg>
 		</div>
 		<div class="text">
 			<h2>Ciências sociais aplicadas</h2>
-			<p><span>2620</span> | Revistas</p>
-		</div>		
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências sociais aplicadas")).findFirst().get().getCount() %></span> | Revistas</p>
+		</div>
 	</div>
-	<div class="card">
+
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+biológicas&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M9.58924 37.5999C9.06124 37.5999 8.51724 37.4559 8.05324 37.1999C7.57324 36.9439 7.17324 36.5599 6.88524 36.0959C6.59724 35.6319 6.43724 35.0879 6.40524 34.5439C6.37324 33.9999 6.50124 33.4559 6.74124 32.9599L15.0132 16.4159V3.9999C15.0132 3.1199 15.7332 2.3999 16.6132 2.3999C17.4932 2.3999 18.2132 3.1199 18.2132 3.9999V16.7999C18.2132 17.0559 18.1492 17.2959 18.0372 17.5199L9.58924 34.3999H30.0212L21.5732 17.5199C21.4612 17.2959 21.4132 17.0559 21.4132 16.7999V3.9999C21.4132 3.1199 22.1332 2.3999 23.0132 2.3999C23.8932 2.3999 24.6132 3.1199 24.6132 3.9999V16.4159L32.8852 32.9599C33.1252 33.4399 33.2372 33.9839 33.2212 34.5279C33.1892 35.0879 33.0292 35.6159 32.7412 36.0799C32.4532 36.5439 32.0372 36.9439 31.5572 37.1999C31.0932 37.4719 30.5172 37.5999 30.0052 37.5999H9.60524C9.58924 37.5999 9.58924 37.5999 9.58924 37.5999Z" fill="#04132A"/>
@@ -158,10 +162,11 @@
 		</div>
 		<div class="text">
 			<h2>Ciências Biológicas</h2>
-			<p><span>2620</span> | Revistas</p>
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências biológicas")).findFirst().get().getCount() %></span> | Revistas</p>
 		</div>		
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Engenharias&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M1.62706 13.3272C1.96463 12.9896 2.42246 12.8 2.89985 12.8H19.0999C19.5772 12.8 20.0351 12.9896 20.3726 13.3272C20.7102 13.6648 20.8999 14.1226 20.8999 14.6V16.4C20.8999 16.8774 20.7102 17.3352 20.3726 17.6728C20.0351 18.0104 19.5772 18.2 19.0999 18.2H2.89985C2.42247 18.2 1.96463 18.0104 1.62706 17.6728C1.2895 17.3352 1.09985 16.8774 1.09985 16.4V14.6C1.09985 14.1226 1.2895 13.6648 1.62706 13.3272ZM19.0999 14.6L2.89985 14.6V16.4L19.0999 16.4V14.6Z" fill="#04132A"/>
@@ -172,10 +177,12 @@
 		</div>
 		<div class="text">
 			<h2>Engenharias</h2>
-			<p><span>2620</span> | Revistas</p>
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Engenharias")).findFirst().get().getCount() %></span> | Revistas</p>
+
 		</div>		
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+agrárias&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M7 23.3333C7 22.689 7.52233 22.1667 8.16667 22.1667H19.8333C20.4777 22.1667 21 22.689 21 23.3333C21 23.9777 20.4777 24.5 19.8333 24.5H8.16667C7.52233 24.5 7 23.9777 7 23.3333Z" fill="#04132A"/>
@@ -186,10 +193,11 @@
 		</div>
 		<div class="text">
 			<h2>Ciências agrárias</h2>
-			<p><span>2620</span> | Revistas</p>
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências agrárias")).findFirst().get().getCount() %></span> | Revistas</p>
 		</div>		
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Linguística%2C+letras+e+artes&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M7.96875 22.125C7.49633 22.125 7.04327 22.3127 6.70922 22.6467C6.37517 22.9808 6.1875 23.4338 6.1875 23.9063C6.1875 24.5621 5.65584 25.0938 5 25.0938C4.34416 25.0938 3.8125 24.5621 3.8125 23.9063C3.8125 22.804 4.25039 21.7468 5.02984 20.9673C5.80929 20.1879 6.86644 19.75 7.96875 19.75H24C24.6558 19.75 25.1875 20.2817 25.1875 20.9375C25.1875 21.5933 24.6558 22.125 24 22.125H7.96875Z" fill="#04132A"/>
@@ -198,10 +206,11 @@
 		</div>
 		<div class="text">
 			<h2>Linguística, letras e artes</h2>
-			<p><span>2620</span> | Revistas</p>
-		</div>		
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Linguística, letras e artes")).findFirst().get().getCount() %></span> | Revistas</p>
+		</div>
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+da+saúde&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="29" height="30" viewBox="0 0 29 30" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M6.12907 3.69624C7.05286 3.31266 8.04329 3.1152 9.04356 3.1152C10.0438 3.1152 11.0343 3.31266 11.958 3.69624C12.8818 4.07983 13.7208 4.642 14.4269 5.35053L14.4308 5.35449L14.5001 5.42469L14.5694 5.3545L14.5734 5.35053C15.2794 4.642 16.1184 4.07983 17.0422 3.69624C17.966 3.31266 18.9564 3.1152 19.9567 3.1152C20.957 3.1152 21.9474 3.31266 22.8712 3.69624C23.7947 4.0797 24.6334 4.64162 25.3393 5.3498C28.3615 8.3728 28.4287 13.3712 24.8476 17.0194L24.8398 17.0272L15.3398 26.5272C15.1171 26.7499 14.8151 26.875 14.5001 26.875C14.1852 26.875 13.8831 26.7499 13.6604 26.5272L4.15264 17.0194C0.5715 13.3712 0.638737 8.3728 3.66096 5.34979C4.36687 4.64161 5.2056 4.0797 6.12907 3.69624ZM9.04356 5.4902C8.35588 5.4902 7.67496 5.62595 7.03985 5.88967C6.40474 6.15338 5.82794 6.53988 5.34252 7.02699L5.34106 7.02845C3.32989 9.03961 3.08795 12.541 5.84386 15.3519L14.5001 24.0081L23.1564 15.3519C25.9123 12.541 25.6704 9.03962 23.6592 7.02845L23.6577 7.02699C23.1723 6.53988 22.5955 6.15338 21.9604 5.88967C21.3253 5.62595 20.6444 5.4902 19.9567 5.4902C19.269 5.4902 18.5881 5.62595 17.953 5.88967C17.3187 6.15304 16.7426 6.53886 16.2576 7.02507C16.2569 7.02571 16.2563 7.02635 16.2556 7.02699L15.3452 7.94926C15.1221 8.17528 14.8177 8.30251 14.5001 8.30251C14.1825 8.30251 13.8782 8.17528 13.655 7.94926L12.7446 7.02699C12.744 7.02635 12.7433 7.02571 12.7427 7.02507C12.2577 6.53886 11.6815 6.15304 11.0473 5.88967C10.4122 5.62595 9.73124 5.4902 9.04356 5.4902Z" fill="#04132A"/>
@@ -209,10 +218,11 @@
 		</div>
 		<div class="text">
 			<h2>Ciências da saúde</h2>
-			<p><span>2620</span> | Revistas</p>
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências da saúde")).findFirst().get().getCount() %></span> | Revistas</p>
 		</div>		
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Multidisciplinar&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M11.5651 4.32485C11.8388 4.188 12.1609 4.188 12.4347 4.32485L22.1381 9.17655C22.2616 9.23513 22.3709 9.31899 22.4591 9.42146C22.6057 9.59169 22.6943 9.81327 22.6943 10.0555V15.8889C22.6943 16.4258 22.259 16.8611 21.7221 16.8611C21.1851 16.8611 20.7499 16.4258 20.7499 15.8889V11.6286L12.4347 15.7862C12.1609 15.9231 11.8388 15.9231 11.5651 15.7862L1.84285 10.9251C1.51348 10.7604 1.30542 10.4238 1.30542 10.0555C1.30542 9.6873 1.51348 9.35065 1.84285 9.18597L11.5651 4.32485ZM19.5481 10.0555L11.9999 6.28141L4.4516 10.0555L11.9999 13.8297L19.5481 10.0555Z" fill="#04132A"/>
@@ -221,10 +231,11 @@
 		</div>
 		<div class="text">
 			<h2>Multidisciplinar</h2>
-			<p><span>2620</span> | Revistas</p>
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Multidisciplinar")).findFirst().get().getCount() %></span> | Revistas</p>
 		</div>		
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+exatas+e+da+terra&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M16.7499 15.8C16.4979 15.8 16.2563 15.9001 16.0782 16.0783C15.9 16.2564 15.7999 16.4981 15.7999 16.75V20.55C15.7999 21.0747 15.3746 21.5 14.8499 21.5C14.3252 21.5 13.8999 21.0747 13.8999 20.55V16.75C13.8999 15.9941 14.2002 15.2692 14.7346 14.7348C15.2691 14.2003 15.994 13.9 16.7499 13.9H20.5499C21.0746 13.9 21.4999 14.3253 21.4999 14.85C21.4999 15.3747 21.0746 15.8 20.5499 15.8H16.7499Z" fill="#04132A"/>
@@ -235,10 +246,11 @@
 		</div>
 		<div class="text">
 			<h2>Ciências exatas e da terra</h2>
-			<p><span>2620</span> | Revistas</p>
-		</div>		
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências exatas e da terra")).findFirst().get().getCount() %></span> | Revistas</p>
+		</div>
 	</div>
-	<div class="card">
+	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+humanas&filtername=cnpq&filtertype=equals'" >
 		<div class="icon">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path fill-rule="evenodd" clip-rule="evenodd" d="M10.021 5.07292C10.021 3.97985 10.9071 3.09375 12.0002 3.09375C13.0932 3.09375 13.9793 3.97985 13.9793 5.07292C13.9793 6.16598 13.0932 7.05208 12.0002 7.05208C10.9071 7.05208 10.021 6.16598 10.021 5.07292Z" fill="#04132A"/>
@@ -249,29 +261,30 @@
 		</div>
 		<div class="text">
 			<h2>Ciências humanas</h2>
-			<p><span>2620</span> | Revistas</p>
-		</div>		
+			<p><span><%= facetsRoot.get("cnpq").stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase("Ciências humanas")).findFirst().get().getCount() %></span> | Revistas</p>
+		</div>
 	</div>				
 </div>
 
-<!-- brands -->
-<div class="group-brands">
-	<div class="d-flex brand-space">
-		<div class="col">
-			<h3>Conheça o parceiro do Miguilim</h3>
-			<img src="image/manuelzao.png" alt="logo do projeto manuelzao">
-		</div>
-		<div class="col">
-			<h3>Conheça também</h3>
-			<img src="image/diadorim.png" alt="logo do projeto diadorim">
-			<img src="image/OASISBR.png" alt="logo do projeto OASISBR">
-			<img src="image/latindex.png" alt="logo do projeto latindex">
-			<img src="image/scielo.png" alt="logo do projeto latindex">
-			<img src="image/la.png" alt="logo do projeto latindex">
-			<img src="image/rcaap.png" alt="logo do projeto latindex">
+	<!-- brands -->
+	<div class="group-brands">
+		<div class="d-flex brand-space">
+			<div class="col">
+				<h3>Conheça o parceiro do Miguilim</h3>
+				<img src="image/manuelzao.png" alt="logo do projeto manuelzao">
+			</div>
+			<div class="col">
+				<h3>Conheça também</h3>
+				<img src="image/diadorim.png" alt="logo do projeto diadorim">
+				<img src="image/OASISBR.png" alt="logo do projeto OASISBR">
+				<img src="image/latindex.png" alt="logo do projeto latindex">
+				<img src="image/scielo.png" alt="logo do projeto latindex">
+				<img src="image/la.png" alt="logo do projeto latindex">
+				<img src="image/rcaap.png" alt="logo do projeto latindex">
+			</div>
 		</div>
 	</div>
-</div>
 
 <!--
 <div class="row">
@@ -362,73 +375,16 @@ if (submissions != null && submissions.count() > 0)
 }
 %>
 -->
-<!-- 
-<div class="col-md-4">
-    <%= sideNews %>
-</div>
-</div>
-*/
--->
-<!--
-<div class="container row">
-<%
-if (communities != null && communities.size() != 0)
-{
-%>
-	<div class="col-md-4">		
-               <h3><fmt:message key="jsp.home.com1"/></h3>
-                <p><fmt:message key="jsp.home.com2"/></p>
-				<div class="list-group">
-<%
-	boolean showLogos = configurationService.getBooleanProperty("jspui.home-page.logos", true);
-    for (Community com : communities)
-    {
-%><div class="list-group-item row">
-<%  
-		Bitstream logo = com.getLogo();
-		if (showLogos && logo != null) { %>
-	<div class="col-md-3">
-        <img alt="Logo" class="img-responsive" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" /> 
-	</div>
-	<div class="col-md-9">
-<% } else { %>
-	<div class="col-md-12">
-<% }  %>		
-		<h4 class="list-group-item-heading"><a href="<%= request.getContextPath() %>/handle/<%= com.getHandle() %>"><%= com.getName() %></a>
-<%
-        if (configurationService.getBooleanProperty("webui.strengths.show"))
-        {
-%>
-		<span class="badge pull-right"><%= ic.getCount(com) %></span>
-<%
-        }
 
-%>
-		</h4>
-		<p><%= communityService.getMetadata(com, "short_description") %></p>
-    </div>
-</div>                            
-<%
-    }
-%>
-	</div>
-	</div>
-<%
-}
-%>
-	<%
-    	int discovery_panel_cols = 8;
-    	int discovery_facet_cols = 4;
-    %>
-	<%@ include file="discovery/static-sidebar-facet.jsp" %>
-</div>
+
+
 
 <div class="row">
 	<%@ include file="discovery/static-tagcloud-facet.jsp" %>
 </div>
 	
 </div>
--->
+
 </dspace:layout>
 
 <!-- página de busca -->
@@ -441,12 +397,12 @@ if (communities != null && communities.size() != 0)
 				<span>Situação</span>
 			</div>
 			<div class="collapse" id="collapseone">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination inative" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination inative" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
 		</div>
 
 		<div class="accordion-body">
@@ -454,104 +410,104 @@ if (communities != null && communities.size() != 0)
 				<span>Idioma da publicação</span>
 			</div>
 			<div class="collapse" id="collapseTwo">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
 
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseThree" role="button" aria-expanded="false" aria-controls="collapseThree">
 				<span>Áreas de conhecimento</span>
 			</div>
 			<div class="collapse" id="collapseThree">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
 		</div>
-		
+
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseFour" role="button" aria-expanded="false" aria-controls="collapseFour">
 				<span>Instituição Editora</span>
 			</div>
 			<div class="collapse" id="collapseFour">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
 
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseFive" role="button" aria-expanded="false" aria-controls="collapseFive">
 				<span>Organismo subordinado</span>
 			</div>
 			<div class="collapse" id="collapseFive">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>	
-		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseSix" role="button" aria-expanded="false" aria-controls="collapseSix">
 				<span>Natureza jurídica da insituição</span>
 			</div>
 			<div class="collapse" id="collapseSix">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>	
-		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseSeven" role="button" aria-expanded="false" aria-controls="collapseSeven">
 				<span>Editor responsável</span>
 			</div>
 			<div class="collapse" id="collapseSeven">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>	
-		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseEight" role="button" aria-expanded="false" aria-controls="collapseEight">
 				<span>Períodicidade do fascíclo</span>
 			</div>
 			<div class="collapse" id="collapseEight">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>	
-		
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
+
 		<div class="accordion-body">
 			<div class="accordion-header collapsed"  data-toggle="collapse" href="#collapseNine" role="button" aria-expanded="false" aria-controls="collapseNine">
 				<span>Mês da publicação do facíclo</span>
 			</div>
 			<div class="collapse" id="collapseNine">
-					<ul class="accordion-content">
-						<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
-						<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
-						<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
-					</ul>
-			</div>		
-		</div>			
+				<ul class="accordion-content">
+					<li><a href="#">Dados</a><a class="number-a" href="#">1244</a></li>
+					<li><a href="#">Virgente</a><a class="number-a" href="#">3</a></li>
+					<li><a class="pagination" href="#">Anterior</a><a class="pagination"  href="#">Próxima</a></li>
+				</ul>
+			</div>
+		</div>
 
 	</div>
 
@@ -567,28 +523,28 @@ if (communities != null && communities.size() != 0)
 					<input type="hidden" class="field-search" value="10" name="rpp">
 					<input type="hidden" value="score" name="sort_by">
 					<input type="hidden" class="field-search" value="desc" name="order">
-	
+
 					<!-- Primeira linha -->
 					<div class="grid-col">
-					<div>
-						<select name="location" id="tlocation" class="field-s w100">
-							<option selected="selected" value="/">All of DSpace</option>
-							<option value="123456789/1">
-								Miguilim</option>
-						</select>
+						<div>
+							<select name="location" id="tlocation" class="field-s w100">
+								<option selected="selected" value="/">All of DSpace</option>
+								<option value="123456789/1">
+									Miguilim</option>
+							</select>
+						</div>
+						<div>
+							<!--label for="query">for</label-->
+							<input type="text" class="field-s w100"  id="query" name="query" class="field-s"  placeholder="Escolha por" >
+						</div>
+						<div>
+							<button type="submit" class="button-main">Buscar</button>
+						</div>
 					</div>
-					<div>
-						<!--label for="query">for</label-->
-						<input type="text" class="field-s w100"  id="query" name="query" class="field-s"  placeholder="Escolha por" >
-					</div>
-					<div>
-						<button type="submit" class="button-main">Buscar</button>
-					</div>
-				</div>
 					<br>
 					<!--p class="lead white-font">Did you mean: <b><i><a class="white-font" id="spellCheckQuery" data-spell="sds" href="#"-->
 					</a></i></b></p>
-	
+
 				</form>
 				<hr>
 
@@ -597,36 +553,36 @@ if (communities != null && communities.size() != 0)
 					<input type="hidden" class="field-search" value="10" name="rpp">
 					<input type="hidden" value="score" name="sort_by">
 					<input type="hidden" class="field-search" value="desc" name="order">
-	
+
 					<!-- Primeira linha -->
 					<div class="grid-colsecond">
-					<div>
-						<select name="location" id="tlocation" class="field-s w100">
-							<option selected="selected" value="/">All of DSpace</option>
-							<option value="123456789/1">
-								Miguilim</option>
-						</select>
-					</div>
-					<div>
-						<select name="location" id="tlocation" class="field-s w100">
-							<option selected="selected" value="/">All of DSpace</option>
-							<option value="123456789/1">
-								Miguilim</option>
-						</select>
-					</div>
-					<div>
-						<input type="text" class="field-s w100"  id="query" name="query" class="field-s"  placeholder="Escolha por" >
-					</div>
-					<div>
-						<button type="submit" class="button-main-outline">Add</button>
-					</div>
+						<div>
+							<select name="location" id="tlocation" class="field-s w100">
+								<option selected="selected" value="/">All of DSpace</option>
+								<option value="123456789/1">
+									Miguilim</option>
+							</select>
+						</div>
+						<div>
+							<select name="location" id="tlocation" class="field-s w100">
+								<option selected="selected" value="/">All of DSpace</option>
+								<option value="123456789/1">
+									Miguilim</option>
+							</select>
+						</div>
+						<div>
+							<input type="text" class="field-s w100"  id="query" name="query" class="field-s"  placeholder="Escolha por" >
+						</div>
+						<div>
+							<button type="submit" class="button-main-outline">Add</button>
+						</div>
 					</div>
 					<!--p class="lead white-font">Did you mean: <b><i><a class="white-font" id="spellCheckQuery" data-spell="sds" href="#"-->
 					</a></i></b></p>
-	
+
 				</form>
-				
-			</div>		
-		</div>			
+
+			</div>
+		</div>
 	</div>
 </div>
