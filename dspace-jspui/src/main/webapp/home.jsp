@@ -102,9 +102,9 @@
 
 	<!-- buscar -->
 	<div class="search-home">
-		<form class="form-home">
-			<a class="link-search" href="#">Busca Avançada</a>
-			<input type="text" id="lname" name="lastname" class="field-search" placeholder="Pesquisa por revistas ou portais">
+		<form method="get" action="<%= request.getContextPath() %>/simple-search" class="form-home">
+			<a class="link-search" href="<%= request.getContextPath() %>/simple-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
+			<input type="text" name="query" id="tequery"  class="field-search" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>">
 			<input type="submit" class="button-main" value="Buscar">
 		</form>
 	</div>
@@ -272,21 +272,21 @@
 		<div class="d-flex brand-space">
 			<div class="col">
 				<h3>Conheça o parceiro do Miguilim</h3>
-				<img src="image/manuelzao.png" alt="logo do projeto manuelzao">
+				<a href="https://manuelzao.ibict.br" target="_blank"><img src="image/manuelzao.png" alt="logo do projeto manuelzao"></a>
 			</div>
 			<div class="col">
 				<h3>Conheça também</h3>
-				<img src="image/diadorim.png" alt="logo do projeto diadorim">
-				<img src="image/OASISBR.png" alt="logo do projeto OASISBR">
-				<img src="image/latindex.png" alt="logo do projeto latindex">
-				<img src="image/scielo.png" alt="logo do projeto latindex">
-				<img src="image/la.png" alt="logo do projeto latindex">
-				<img src="image/rcaap.png" alt="logo do projeto latindex">
+				<a href="https://diadorim.ibict.br/" target="_blank"><img src="image/diadorim.png" alt="logo do projeto diadorim"></a>
+				<a href="https://oasisbr.ibict.br/vufind/" target="_blank"><img src="image/OASISBR.png" alt="logo do projeto OASISBR"></a>
+				<a href="https://www.latindex.org/latindex/" target="_blank"><img src="image/latindex.png" alt="logo do projeto latindex"></a>
+				<a href="https://scielo.org/" target="_blank"><img src="image/scielo.png" alt="logo do projeto latindex"></a>
+				<a href="https://www.lareferencia.info/pt/" target="_blank"><img src="image/la.png" alt="logo do projeto latindex"></a>
+				<a href="https://www.rcaap.pt/" target="_blank"><img src="image/rcaap.png" alt="logo do projeto latindex"></a>
 			</div>
 		</div>
 	</div>
 
-<!--
+
 <div class="row">
 <%
 if (submissions != null && submissions.count() > 0)
@@ -326,8 +326,7 @@ if (submissions != null && submissions.count() > 0)
 	    }
 	%>
           </h3>
-		-->
-		  <!-- Wrapper for slides
+
 		  <div class="carousel-inner">
 		    <%
 		    boolean first = true;
@@ -356,7 +355,6 @@ if (submissions != null && submissions.count() > 0)
 		%>
 		  </div> -->
 
-		  <!-- Controls 
 		  <a class="left carousel-control" href="#recent-submissions-carousel" data-slide="prev">
 		    <span class="icon-prev"></span>
 		  </a>
@@ -374,7 +372,6 @@ if (submissions != null && submissions.count() > 0)
 <%
 }
 %>
--->
 
 
 
