@@ -25,6 +25,18 @@ public class FieldInputForm {
     private String simpleInputType;
     private Map<String, String> complextInputType;
 
+    public String getKey() {
+        String separator = "_";
+        if (qualifier == null || qualifier.isEmpty())
+        {
+            return this.schema + separator + element;
+        }
+        else
+        {
+            return this.schema + separator + element + separator + qualifier;
+        }
+    }
+
     public String getSchema() {
         return schema;
     }

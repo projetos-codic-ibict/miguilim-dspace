@@ -330,13 +330,10 @@
                         xmlField.getElement(), xmlField.getQualifier());
 
                 String sequenceNumber = "0";
-                String key = "";
-//                if (metadata != null) {
                 // Keep a count of the number of values of each element+qualifier
                 // key is "element" or "element_qualifier" (String)
                 // values are Integers - number of values that element/qualifier so far
-                if(metadata != null) {
-                key = metadata.getMetadataField().toString();
+                String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
 
                 Integer count = dcCounter.get(key);
                 if (count == null) {
@@ -357,7 +354,7 @@
                 }
 //                }
             %>
-            <c:set var="metadataValue" scope="session" value="<%= metadata.getValue().trim() %>"/>
+            <c:set var="metadataValue" scope="session" value="<%= metadata != null ? metadata.getValue().trim() : null  %>"/>
 
             <c:choose>
                 <c:when test="${fieldInputForm != null && fieldInputForm.simpleVocabulary != null}">
@@ -376,7 +373,7 @@
                         <select class="" multiple id="value_<%= key %>_<%= sequenceNumber %>"
                                 name="value_<%= key %>_<%= sequenceNumber %>">
                             <c:forEach items="<%= vocabularies %>" var="option">
-                                <option ${metadataValue.equalsIgnoreCase(option) ? 'selected' : ''} value="${option}">${option} </option>
+                                <option ${option.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option}">${option} </option>
                             </c:forEach>
                         </select>
                     </div>
@@ -408,7 +405,7 @@
                         <select class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"
                                 name="value_<%= key %>_<%= sequenceNumber %>">
                             <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
-                                <option ${metadataValue.equalsIgnoreCase(option.value) ? 'selected' : ''} value="${option.value}">${option.key} </option>
+                                <option ${option.value.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option.value}">${option.key} </option>
                             </c:forEach>
                         </select>
                     </div>
@@ -426,7 +423,6 @@
                     </div>
                 </c:otherwise>
             </c:choose>
-           <% } %>
         </c:forEach>
 
         <br/>

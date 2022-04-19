@@ -27,7 +27,7 @@
                     <input-type>textarea</input-type>
                     <hint>Descreva o escopo, foco ou objetivo da revista
                         de maneira sucinta.</hint>
-                    <required>CAMPO OBRIGATÓRIO:Informe a
+                    <required>CAMPO OBRIGATÓRIO: Informe a
                         Descrição.
                     </required>
                 </field>
@@ -178,7 +178,7 @@
                         essa informação pode ser verificada no link: &lt;a href="https://portal.issn.org/"
                         target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
                     </hint>
-                    <required>CAMPO OBRIGATÓRIO:Informe o ano de
+                    <required>CAMPO OBRIGATÓRIO: Informe o ano de
                         publicação.
                     </required>
                 </field>
