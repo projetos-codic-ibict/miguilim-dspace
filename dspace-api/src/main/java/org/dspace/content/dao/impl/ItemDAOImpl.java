@@ -31,6 +31,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * Hibernate implementation of the Database Access Object interface class for the Item object.
@@ -42,11 +43,19 @@ import java.util.UUID;
 public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDAO
 {
     private static final Logger log = Logger.getLogger(ItemDAOImpl.class);
+    public static String RANDOM_QUERY = "SELECT cast(item.uuid as varchar) " +
+            " FROM item " +
+            " WHERE in_archive = true " +
+            "  AND withdrawn IS FALSE " +
+            " OFFSET floor(random() * (SELECT count(*) FROM item WHERE in_archive = true AND withdrawn IS FALSE)) LIMIT 10;";
+
 
     protected ItemDAOImpl()
     {
         super();
     }
+
+
 
     @Override
     public Iterator<Item> findAll(Context context, boolean archived) throws SQLException {
@@ -296,5 +305,18 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
         query.setParameter("in_archive", includeArchived);
         query.setParameter("withdrawn", includeWithdrawn);
         return count(query); 
+    }
+
+    @Override
+    public List<Item> findRandom(Context context) {
+        try {
+            List<UUID> randomUuids = (List<UUID>) getHibernateSession(context)
+                    .createSQLQuery(RANDOM_QUERY).list().stream().map(id -> UUID.fromString(id.toString()))
+                        .collect(Collectors.toList());
+            return createQuery(context, "from Item item where item.id in (:randomUuids)").setParameterList("randomUuids", randomUuids).list();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

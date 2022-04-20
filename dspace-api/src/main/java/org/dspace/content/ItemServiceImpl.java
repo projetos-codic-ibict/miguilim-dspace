@@ -953,6 +953,11 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
 		return workspaceItemService.findByItem(context, item) != null
 				|| workflowItemService.findByItem(context, item) != null;
     }
+
+    @Override
+    public List<Item> findRandom(Context context) {
+        return itemDAO.findRandom(context);
+    }
     
     /*
     With every finished submission a bunch of resource policy entries with have null value for the dspace_object column are generated in the database.
