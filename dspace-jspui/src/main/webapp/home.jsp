@@ -112,17 +112,43 @@
 
 <!-- random news -->
 <div class="content-news">
-	<a href="#" class="arrow left">
+	<a href="#" class="arrow left" id="carousel-left">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 5.29289C16.0976 5.68342 16.0976 6.31658 15.7071 6.70711L10.4142 12L15.7071 17.2929C16.0976 17.6834 16.0976 18.3166 15.7071 18.7071C15.3166 19.0976 14.6834 19.0976 14.2929 18.7071L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L14.2929 5.29289C14.6834 4.90237 15.3166 4.90237 15.7071 5.29289Z" fill="#6A6A6A"/>
 		</svg>
 	</a>
 	<div class="card">
 		<h4>Destaque randômico</h4>
-		<h2>Portal de períodicos da Universidade de Tuitui do Paraná (UTP)</h2>
-		<p>Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet.</p>
+
+		<%
+			boolean first = true;
+			int iteratorRecent = 0;
+			for (Item item : submissions.getRecentSubmissions())
+			{
+				iteratorRecent++;
+				String displayTitle = itemService.getMetadataFirstValue(item, "dc", "title", null, Item.ANY);
+				if (displayTitle == null)
+				{
+					displayTitle = "Untitled";
+				}
+				String publisher = itemService.getMetadataFirstValue(item, "dc", "publisher", "name", Item.ANY);
+				if (publisher == null)
+				{
+					publisher = "";
+				}
+		%>
+
+		<div onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
+			<h2><%= displayTitle %></h2>
+			<p><%= publisher %></p>
+		</div>
+
+		<%
+			}
+		%>
+
 	</div>
-	<a href="#" class="arrow right">
+	<a href="#" class="arrow right" id="carousel-right">
 		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 		<path fill-rule="evenodd" clip-rule="evenodd" d="M15.7071 5.29289C16.0976 5.68342 16.0976 6.31658 15.7071 6.70711L10.4142 12L15.7071 17.2929C16.0976 17.6834 16.0976 18.3166 15.7071 18.7071C15.3166 19.0976 14.6834 19.0976 14.2929 18.7071L8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L14.2929 5.29289C14.6834 4.90237 15.3166 4.90237 15.7071 5.29289Z" fill="#6A6A6A"/>
 		</svg>
@@ -287,91 +313,6 @@
 	</div>
 
 
-<div class="row">
-<%
-if (submissions != null && submissions.count() > 0)
-{
-%>
-        <div class="col-md-8">
-        <div class="panel panel-primary">        
-        <div id="recent-submissions-carousel" class="panel-heading carousel slide">
-          <h3><fmt:message key="jsp.collection-home.recentsub"/>
-              <%
-    if(feedEnabled)
-    {
-	    	String[] fmts = feedData.substring(feedData.indexOf(':')+1).split(",");
-	    	String icon = null;
-	    	int width = 0;
-	    	for (int j = 0; j < fmts.length; j++)
-	    	{
-	    		if ("rss_1.0".equals(fmts[j]))
-	    		{
-	    		   icon = "rss1.gif";
-	    		   width = 80;
-	    		}
-	    		else if ("rss_2.0".equals(fmts[j]))
-	    		{
-	    		   icon = "rss2.gif";
-	    		   width = 80;
-	    		}
-	    		else
-	    	    {
-	    	       icon = "rss.gif";
-	    	       width = 36;
-	    	    }
-	%>
-	    <a href="<%= request.getContextPath() %>/feed/<%= fmts[j] %>/site"><img src="<%= request.getContextPath() %>/image/<%= icon %>" alt="RSS Feed" width="<%= width %>" height="15" style="margin: 3px 0 3px" /></a>
-	<%
-	    	}
-	    }
-	%>
-          </h3>
-
-		  <div class="carousel-inner">
-		    <%
-		    boolean first = true;
-		    for (Item item : submissions.getRecentSubmissions())
-		    {
-		        String displayTitle = itemService.getMetadataFirstValue(item, "dc", "title", null, Item.ANY);
-		        if (displayTitle == null)
-		        {
-		        	displayTitle = "Untitled";
-		        }
-		        String displayAbstract = itemService.getMetadataFirstValue(item, "dc", "description", "abstract", Item.ANY);
-		        if (displayAbstract == null)
-		        {
-		            displayAbstract = "";
-		        }
-		%>
-		    <div style="padding-bottom: 50px; min-height: 200px;" class="item <%= first?"active":""%>">
-		      <div style="padding-left: 80px; padding-right: 80px; display: inline-block;"><%= Utils.addEntities(StringUtils.abbreviate(displayTitle, 400)) %> 
-		      	<a href="<%= request.getContextPath() %>/handle/<%=item.getHandle() %>" class="btn btn-success">See</a>
-                        <p><%= Utils.addEntities(StringUtils.abbreviate(displayAbstract, 500)) %></p>
-		      </div>
-		    </div>
-		<%
-				first = false;
-		     }
-		%>
-		  </div> -->
-
-		  <a class="left carousel-control" href="#recent-submissions-carousel" data-slide="prev">
-		    <span class="icon-prev"></span>
-		  </a>
-		  <a class="right carousel-control" href="#recent-submissions-carousel" data-slide="next">
-		    <span class="icon-next"></span>
-		  </a>
-
-          <ol class="carousel-indicators">
-		    <li data-target="#recent-submissions-carousel" data-slide-to="0" class="active"></li>
-		    <% for (int i = 1; i < submissions.count(); i++){ %>
-		    <li data-target="#recent-submissions-carousel" data-slide-to="<%= i %>"></li>
-		    <% } %>
-	      </ol>
-     </div></div></div>
-<%
-}
-%>
 
 
 
@@ -384,5 +325,41 @@ if (submissions != null && submissions.count() > 0)
 
 </dspace:layout>
 
+<style>
+	.d-hide {
+		display: none;
+	}
+</style>
+
+
+<script>
+	function findSelected() {
+		let selectedIndex = 1;
+		document.querySelectorAll("div[carousel]").forEach(element => {
+			if (!element.classList.contains("d-hide")) {
+				selectedIndex = parseInt(element.getAttribute("carousel"));
+			}
+		});
+		return selectedIndex;
+	}
+	document.querySelectorAll('[id*="carousel"]').forEach(element => {
+		element.addEventListener("click", function(){
+			let selected = findSelected();
+			let next = selected + 1;
+
+			if(this.getAttribute("id") == "carousel-left") {
+				next = selected - 1;
+			}
+
+			if(next > 0 && next <= 10) {
+				document.querySelector("div[carousel='" + selected + "']").classList.add("d-hide");
+				document.querySelector("div[carousel='" + next + "']").classList.remove("d-hide");
+			}
+
+		});
+	});
+
+
+</script>
 
 <jsp:include page="htmls.jsp"></jsp:include>
