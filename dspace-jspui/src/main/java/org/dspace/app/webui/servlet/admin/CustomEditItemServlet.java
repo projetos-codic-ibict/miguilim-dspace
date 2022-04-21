@@ -188,6 +188,8 @@ public class CustomEditItemServlet extends DSpaceServlet
     {
         // First, see if we have a multipart request (uploading a new bitstream)
         String contentType = request.getContentType();
+        Item item = itemService.find(context, UIUtil.getUUIDParameter(request,
+                "item_id"));
 
         if ((contentType != null)
                 && (contentType.indexOf("multipart/form-data") != -1))
@@ -204,7 +206,7 @@ public class CustomEditItemServlet extends DSpaceServlet
          */
         if (request.getParameter("submit_cancel") != null)
         {
-            JSPManager.showJSP(request, response, "/tools/get-item-id.jsp");
+            response.sendRedirect(request.getContextPath() + "/handle/" + item.getHandle());
 
             return;
         }
@@ -215,11 +217,11 @@ public class CustomEditItemServlet extends DSpaceServlet
          */
         int action = UIUtil.getIntParameter(request, "action");
 
-        Item item = itemService.find(context, UIUtil.getUUIDParameter(request,
-                "item_id"));
+
 
         if (request.getParameter("submit_cancel_cc") != null)
         {
+
             showEditForm(context, request, response, item);
 
             return;
@@ -425,7 +427,6 @@ public class CustomEditItemServlet extends DSpaceServlet
 				}
 			}
             showEditForm(context, request, response, item);
-            context.complete();
 
             break;
 
@@ -635,6 +636,8 @@ public class CustomEditItemServlet extends DSpaceServlet
             IOException, SQLException, AuthorizeException
     {
         String button = UIUtil.getSubmitButton(request, "submit");
+
+        System.out.println("processUpdateItem: " + button);
         /*
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
@@ -917,13 +920,11 @@ public class CustomEditItemServlet extends DSpaceServlet
                 }
             }
 
-            // Show edit page again
-            showEditForm(context, request, response, item);
+            response.sendRedirect(request.getContextPath() + "/handle/" + item.getHandle());
         }
         else
         {
-            // Show edit page again
-            showEditForm(context, request, response, item);
+            response.sendRedirect(request.getContextPath() + "/handle/" + item.getHandle());
         }
 
         // Complete transaction

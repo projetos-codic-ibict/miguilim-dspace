@@ -105,6 +105,7 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css" />
 </c:set>
 
@@ -365,9 +366,7 @@
                 <c:when test="${fieldInputForm != null && fieldInputForm.simpleVocabulary != null}">
                     <%
                         VocabularyConverter vocabularyConverter = new VocabularyConverter();
-                        System.out.println("xmlField.getSimpleVocabulary() " + xmlField.getSimpleVocabulary());
                         List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
-                        System.out.println("vocabularies "+ vocabularies);
                     %>
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
@@ -467,8 +466,9 @@
             <input class="btn btn-primary pull-right col-md-3" type="submit" name="submit"
                    value="<fmt:message key="jsp.tools.general.update"/>"/>
                 <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
-            <input class="btn btn-default pull-right col-md-3" type="submit" name="submit_cancel"
-                   value="<fmt:message key="jsp.tools.general.cancel"/>"/>
+            <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="btn btn-default pull-right col-md-3">
+                <fmt:message key="jsp.tools.general.cancel"/>
+            </a>
         </div>
     </form>
 </dspace:layout>
