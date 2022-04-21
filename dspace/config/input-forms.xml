@@ -251,7 +251,7 @@
                     <repeatable>true</repeatable>
                     <label>Idioma de publicação:
                     </label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Selecione o (s) idioma (s) aceito (s) pela revista para submissão de
                         documentos. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta".
                         Caso as opções listadas não se adequem à realidade da
@@ -275,7 +275,7 @@
                     <repeatable>true</repeatable>
                     <label>Áreas do conhecimento:
                     </label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>&lt;br&gt;Selecione as principais áreas do conhecimento em
                         que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a
                         resposta de acordo com as opções descritas na aba "Opções de
@@ -693,7 +693,7 @@
                     <repeatable>true</repeatable>
                     <label>Documentos avaliados:
                     </label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Indique as seções ou tipos de documentos publicados pela revista que
                         passam pela avaliação por pares. Exemplos: Artigo original, Artigo de revisão, Dados de
                         pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.
@@ -713,7 +713,7 @@
                     <dc-qualifier>publishingresponsable</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Responsável pela decisão de publicação:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Indique a instância responsável pela decisão final de publicar ou
                         não o (s) documento (s) depois que passam pelo processo de avaliação por pares. Exemplos:
                         Avaliador (es), Editor responsável, Editor de seção, Editor
@@ -978,7 +978,7 @@
                     <dc-qualifier>codeofethics</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Código de ética:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Informe a qual (is) Código (s) de ética ou recomendações
                         internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas na aba
                         "Opções de
@@ -995,7 +995,7 @@
                     <dc-qualifier>referenceguidelines</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Padrão de normalização bibliográfica:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Indique o padrão de normalização bibliográfica adotado pela revista.
                         Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções
                         listadas não se adequem à realidade da revista,
@@ -1012,7 +1012,7 @@
                     <dc-qualifier>plagiarismdetection</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Plataforma de detecção de plágio:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Indique o (s) software (s) ou plataforma (s) utilizado (s) para a
                         detecção de plágio. Indique a resposta de acordo com as opções descritas na aba "Opções de
                         resposta". Caso as opções listadas não se adequem à
@@ -1030,7 +1030,7 @@
                     <dc-qualifier>digitalpreservation</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Estratégia de preservação digital:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>Indique a estratégia de preservação digital adotada pela revista.
                         Indique a resposta de acordo com as opções descritas na aba
                         "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a
@@ -1109,7 +1109,7 @@
                     <dc-qualifier>socialnetworks</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Redes sociais:</label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>A revista deve indicar o nome da (s) rede (s) social (is) em que
                         está presente. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta".
                         Caso as opções listadas não se adequem à realidade da
@@ -1126,7 +1126,7 @@
                     <repeatable>true</repeatable>
                     <label>Serviços de informação:
                     </label>
-                    <input-type>textarea</input-type>
+                    <input-type>onebox</input-type>
                     <hint>&lt;br&gt;A revista deve indicar os serviços de informação
                         em que está presente. Como serviços de informação consideram-se bases de dados, índices,
                         indexadores, diretórios e etc. Indique a resposta de acordo
