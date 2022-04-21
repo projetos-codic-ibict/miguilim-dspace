@@ -15,11 +15,10 @@ import java.util.List;
 public class VocabularyConverter {
     public static final String CONFIG_DIRECTORY = "config";
     public static final String VOCABULARY_DIRECTORY = "controlled-vocabularies";
-    private List<String> vocabularies = new ArrayList<>();
+    private final List<String> vocabularies = new ArrayList<>();
     private String vocabulary = "CNPQ";
 
     public List<String> getListOfVocabularies(String vocabularyName) {
-        System.out.println("vocabularyName: " + vocabularyName);
         try {
             String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
                     + File.separator + CONFIG_DIRECTORY + File.separator + VOCABULARY_DIRECTORY + File.separator + vocabularyName + ".xml";

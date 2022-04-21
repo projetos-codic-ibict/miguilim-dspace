@@ -10,8 +10,6 @@ public class FieldInputFormUtils {
     List<MetadataValue> metadataValueList;
 
     public FieldInputFormUtils(List<FieldInputForm> fieldInputFormList, List<MetadataValue> metadataValueList) {
-//        System.out.println("fieldInputFormList size: "+ fieldInputFormList.size());
-//        System.out.println("metadataValueList size: "+ metadataValueList.size());
         this.fieldInputFormList = fieldInputFormList;
         this.metadataValueList = metadataValueList;
     }
@@ -26,11 +24,7 @@ public class FieldInputFormUtils {
                 ((f.getQualifier() == null || f.getQualifier().isEmpty())
                         && (qualifier == null || qualifier.isEmpty()));
         Predicate<FieldInputForm> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
-        FieldInputForm fieldInputForm =  this.fieldInputFormList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
-        if(fieldInputForm == null){
-//            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
-        }
-        return fieldInputForm;
+        return this.fieldInputFormList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
     }
 
     public MetadataValue getFieldFromMetadataByKeys(String schema, String element, String qualifier) {
@@ -43,10 +37,6 @@ public class FieldInputFormUtils {
                 ((f.getMetadataField().getQualifier() == null || f.getMetadataField().getQualifier().isEmpty())
                         && (qualifier == null || qualifier.isEmpty()));
         Predicate<MetadataValue> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
-        MetadataValue fieldInputForm =  this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
-        if(fieldInputForm == null){
-//            System.out.println("schema :"+schema+", element: "+ element +", qualifier: "+qualifier+";");
-        }
-        return fieldInputForm;
+        return this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
     }
 }
