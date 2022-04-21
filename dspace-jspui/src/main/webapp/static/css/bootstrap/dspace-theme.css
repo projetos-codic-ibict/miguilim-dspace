@@ -5,7 +5,7 @@
  *
  * http://www.dspace.org/license/
  */
- .menu {
+.menu {
   font-family: "Open Sans", sans-serif;
 }
 
@@ -915,7 +915,111 @@ hr {
   padding: 40px 32px;
 }
 
-@media (max-width: 620px) {
+.pagination-number {
+  width: 100%;
+}
+
+.pagination-number .field-s {
+  height: 40px;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  padding: 0 0 0 8px;
+}
+
+.pagination-number-itens {
+  margin-top: 24px;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+  color: #04132A;
+}
+
+.pagination-number-itens .results {
+  padding-right: 32px;
+}
+
+.pagination-number-itens .first-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+}
+
+.pagination-number-itens .first-pagination .color-svg {
+  fill: #04132A;
+  -webkit-transform: scale(-1, 1) translateY(1px);
+          transform: scale(-1, 1) translateY(1px);
+  margin-right: 4px;
+}
+
+.pagination-number-itens .first-pagination:hover .color-svg {
+  fill: #FFFFFF;
+}
+
+.pagination-number-itens .last-pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 40px;
+}
+
+.pagination-number-itens .last-pagination .color-svg {
+  fill: #04132A;
+  -webkit-transform: translateY(1px);
+          transform: translateY(1px);
+  margin-left: 4px;
+}
+
+.pagination-number-itens .last-pagination:hover .color-svg {
+  fill: #FFFFFF;
+}
+
+.pagination-number-itens a {
+  color: #04132A;
+  border: 2px solid #04132A;
+  border-style: inset;
+  border-radius: 8px;
+  padding: 10px 16px;
+  text-decoration: none;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  border-style: inset;
+}
+
+.pagination-number-itens a:hover {
+  background-color: #04132A;
+  color: #FFFFFF;
+}
+
+.pagination-number-itens:last-child {
+  margin-right: 8px;
+}
+
+.d-hide {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .container-cards {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
   .button-main-outline {
     width: 100%;
   }
@@ -937,7 +1041,7 @@ hr {
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 920px) {
   .content-news {
     margin: 80px auto 0 auto;
   }
