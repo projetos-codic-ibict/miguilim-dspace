@@ -29,7 +29,7 @@
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
 
 
-<link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
+<link rel="shortcut icon" href="<%= request.getContextPath() %>/image/favicon.png" type="image/x-icon"/>
 <link type="text/css" rel="stylesheet" href="<%= request.getContextPath() %>/styles.css"/>
 
 <style type="text/css">

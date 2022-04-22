@@ -50,7 +50,7 @@
         <meta name="Generator" content="<%= generator %>" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/styles.css" type="text/css" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/print.css" media="print" type="text/css" />
-        <link rel="shortcut icon" href="<%= request.getContextPath() %>/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="<%= request.getContextPath() %>/image/favicon.png" type="image/x-icon"/>
         <link rel="stylesheet" href="<%= request.getContextPath() %>/css/discovery.css" type="text/css" />
         <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.min.css" type="text/css" />
 <%
