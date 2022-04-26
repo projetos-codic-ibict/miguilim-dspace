@@ -819,7 +819,7 @@ hr {
 .search-main .search-facet .accordion-content li {
   border-bottom: 1px solid #F2F2F2;
   padding: 12px 0;
-  text-indent: 16px;
+  margin-left: 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -896,8 +896,11 @@ hr {
 .search-main .number-a {
   display: block;
   background: #FFD100;
-  padding: 0 16px 0 0px;
+  padding: 0 8px 0 8px;
   border-radius: 50px;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
 }
 
 .search-main .accordion-header.collapsed {
@@ -1083,5 +1086,13 @@ hr {
   .section-footer {
     padding: 24px;
   }
+}
+
+.edit-help {
+  font-size: 1rem;
+  vertical-align: top;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1px 3px;
 }
 /*# sourceMappingURL=dspace-theme.css.map */
