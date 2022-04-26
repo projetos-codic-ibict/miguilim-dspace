@@ -819,7 +819,7 @@ hr {
 .search-main .search-facet .accordion-content li {
   border-bottom: 1px solid #F2F2F2;
   padding: 12px 0;
-  margin-left: 16px;
+  margin: 0 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -854,8 +854,8 @@ hr {
   background-repeat: no-repeat;
   background-position-x: left;
   background-position-y: center;
-  padding-left: 8px;
-  margin-left: 16px;
+  padding-left: 24px;
+  margin-left: 0px;
 }
 
 .search-main .search-facet .accordion-content li:last-child .pagination:last-child {
@@ -864,7 +864,7 @@ hr {
   background-position-x: right;
   background-position-y: center;
   padding-right: 24px;
-  margin-right: 16px;
+  margin-right: 0px;
 }
 
 .search-main .search-element {
