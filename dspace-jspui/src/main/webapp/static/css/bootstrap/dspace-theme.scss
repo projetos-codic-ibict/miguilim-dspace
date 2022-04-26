@@ -578,6 +578,7 @@ hr {
 		color:$dark-blue;	
 		.results {
 			padding-right: 32px;
+
 		}
 		
 		.first-pagination {
@@ -702,4 +703,12 @@ hr {
 	border: 1px solid #ccc;
 	border-radius: 10px;
 	padding: 1px 3px;
+}
+
+
+
+@media (max-width: 320px) {
+	.pagination-number{
+		display: none;
+	}
 }
