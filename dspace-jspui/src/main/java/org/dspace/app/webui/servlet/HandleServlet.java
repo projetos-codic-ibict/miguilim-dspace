@@ -187,14 +187,30 @@ public class HandleServlet extends DSpaceServlet
             // and firing a usage event for the DSO we're reporting for
             return;
 
-        } else if ("/display-statistics.jsp".equals(extraPathInfo))
+        } 
+        else if ("/display-statistics.jsp".equals(extraPathInfo))
         {
             request.getRequestDispatcher(extraPathInfo).forward(request, response);
             // If we don't return here, we keep processing and end up
             // throwing a NPE when checking community authorization
             // and firing a usage event for the DSO we're reporting for
             return;
-        } else if ("/browse".equals((extraPathInfo)) || StringUtils.startsWith(extraPathInfo, "/browse?")) {
+        } 
+        else if("/termometro".equals(extraPathInfo))
+        {
+            log.info(LogManager.getHeader(context, "termometro", "handle=" + handle + ", path=" + extraPathInfo));
+            request.setAttribute("handle", handle);
+
+            RequestDispatcher dispatch = getServletContext().getNamedDispatcher("termometro");
+            dispatch.forward(request, response);
+            return;
+        } 
+        else if ("/display-termometro.jsp".equals(extraPathInfo))
+        {
+            request.getRequestDispatcher(extraPathInfo).forward(request, response);
+            return;
+        }
+        else if ("/browse".equals((extraPathInfo)) || StringUtils.startsWith(extraPathInfo, "/browse?")) {
         	// Add the location if we got a community or collection
         	if (dso instanceof Community)
         	{

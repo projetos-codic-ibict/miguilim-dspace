@@ -463,6 +463,11 @@
       <servlet-class>org.dspace.app.webui.servlet.SearchResultLogServlet</servlet-class>
   </servlet>
 
+  <servlet>
+    <servlet-name>termometro</servlet-name>
+    <servlet-class>org.dspace.app.webui.servlet.TermometroServlet</servlet-class>
+  </servlet>
+
   <!-- shibbolized dspace -->
   <servlet>
     <servlet-name>shibboleth-login</servlet-name>
@@ -829,6 +834,11 @@
   <servlet-mapping>
     <servlet-name>request-item</servlet-name>
     <url-pattern>/request-item</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>termometro</servlet-name>
+    <url-pattern>/termometro</url-pattern>
   </servlet-mapping>
   
   <!-- Icon MIME type -->

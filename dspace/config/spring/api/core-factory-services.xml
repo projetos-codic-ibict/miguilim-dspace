@@ -47,6 +47,6 @@
     <!--Configurable workflow services, uncomment to enable-->
     <!--<bean id="workflowServiceFactory" class="org.dspace.xmlworkflow.factory.XmlWorkflowServiceFactoryImpl"/>-->
 
-
+    <bean id="termometroServiceFactory" class="org.dspace.termometro.factory.TermometroServiceFactoryImpl"/>
 
 </beans>

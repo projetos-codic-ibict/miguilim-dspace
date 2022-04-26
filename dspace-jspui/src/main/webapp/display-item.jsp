@@ -292,7 +292,13 @@
 <%
         }
 %>
-    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics"><fmt:message key="jsp.display-item.display-statistics"/></a>
+    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics">
+        <fmt:message key="jsp.display-item.display-statistics"/>
+    </a>
+
+    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/termometro">
+        <fmt:message key="jsp.display-item.termometro"/>
+    </a>
 
     <%-- SFX Link --%>
 <%

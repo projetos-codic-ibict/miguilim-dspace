@@ -1,0 +1,177 @@
+{   
+  "dc_identifier_interoperabilityprotocol": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_identifier_persistentidentifier": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_identifier_publisher": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_identifier_editor": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_description_codeofethics": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_description_referenceguidelines": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_description_plagiarismdetection": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "default": 2
+    }
+  },
+  "dc_description_socialnetworks": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "1": 1,
+      "2": 2,
+      "default": 2
+    }
+  },
+  "dc_relation_informationservices": {
+    "tipoAvaliacao": 1,
+    "pontuacao": {
+      "1": 1,
+      "2": 2,
+      "default": 2
+    }
+  },
+  "dc_description_modalityofpublication": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Tradicional": 0,
+      "Ahead of print": 1,
+      "Fluxo contínuo": 2
+    }
+  },
+  "dc_description_peerreview": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Avaliação aberta": 2,
+      "Avaliação duplo-cega": 0,
+      "Avaliação simples-cega": 0
+    }
+  },
+  "dc_description_reviewerspublication": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A revista publica somente o nome de avaliadores que participaram da avaliação de documentos aprovados para a publicação": 1,
+      "A revista publica o nome de todos os avaliadores que participaram da avaliação de documentos por determinado período": 2,
+      "A revista somente publica avaliadores que concordam com a publicação do seu nome": 1,
+      "A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores": 0,
+      "A revista não publica nem revela o nome dos avaliadores": 0
+    }
+  },
+  "dc_description_reviewerstypeofpublication": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações": 2,
+      "A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis": 1,
+      "A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores": 2,
+      "A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores": 0,
+      "A revista não publica, nem revela o nome dos avaliadores": 0
+    }
+  },
+  "dc_description_peerreviewexternality": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista": 0,
+      "A avaliação por pares é realizada por pesquisadores da instituiçao que edita a revista e por pesquisadores que são externos à instituição que edita a revista": 1,
+      "A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista": 2
+    }
+  },
+  "dc_rights_preprintsubmission": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A revista aceita a submissão de preprints que já se encontram armazenados em outras plataformas": 2,
+      "A revista não aceita a submissão de preprints que já se encontram armazenados em outras plataformas": 0
+    }
+  },
+  "dc_rights_sealcolor": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Amarela: permite o armazenamento e acesso das versões preprint dos documentos em repositórios institucionais/digitais": 1,
+      "Azul: permite o armazenamento e acesso das versões pós-print dos documentos em repositórios institucionais/digitais": 1,
+      "Branca: apresenta restrições para o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais": 0,
+      "Verde: permite o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais": 2
+    }
+  },
+  "dc_rights_time": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Imediatamente após a aceitação do documento": 2,
+      "Imediatamente após a publicação do documento": 2,
+      "Após finalizado o período de embargo": 1,
+      "Não permite o armazenamento": 0
+    }
+  },
+  "dc_rights_access": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Acesso aberto imediato": 2,
+      "Acesso aberto após período de embargo": 1,
+      "Acesso restrito": 0,
+      "Acesso híbrido": 1
+    }
+  },
+  "dc_rights_creativecommons": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY).": 2,
+      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-SA).": 2,
+      "Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND).": 1,
+      "Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC).": 1,
+      "Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-NC-SA).": 1,
+      "Permite redistribuição não comercial, desde que seja atribuído o. crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND).": 0
+    }
+  },
+  "dc_description_publicationfees": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A revista cobra taxa de submissão de artigos": 0,
+      "A revista cobra taxa de processamento de artigos (APC)": 0,
+      "A revista cobra taxa de submissão e de processamento de artigos": 0,
+      "A revista não cobra nenhuma taxa de publicação": 2
+    }
+  },
+  "dc_description_digitalpreservation": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "LOCKSS": 2,
+      "CLOCKSS": 2,
+      "APortico": 2,
+      "PKP PN": 2,
+      "Archivematica": 2,
+      "'other'": 2
+    }
+  },
+  "dc_rights_researchdata": {
+    "tipoAvaliacao": 2,
+    "pontuacao": {
+      "A revista exige que os autores publiquem os dados que deram origem à pesquisa em repositórios e/ou revistas de dados": 2,
+      "A revista publica os dados que deram origem à pesquisa na própria revista": 0,
+      "A revista não exige que os autores publiquem os dados que deram origem à pesquisa": 0
+    }
+  }
+}

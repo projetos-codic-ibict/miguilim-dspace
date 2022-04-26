@@ -118,4 +118,6 @@
     <bean class="org.dspace.xmlworkflow.WorkflowRequirementsServiceImpl"/>
     <bean class="org.dspace.xmlworkflow.XmlWorkflowFactoryImpl"/>-->
 
+    <bean id="termometroService" class="org.dspace.termometro.TermometroServiceImpl" />
+
 </beans>
