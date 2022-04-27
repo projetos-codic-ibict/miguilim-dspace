@@ -70,16 +70,20 @@ public class CalculadoraTermometro {
                         .ofNullable(escalaPontuacao.getPontuacao().get(chavePontuacao))
                         .orElseGet(() -> escalaPontuacao.getPontuacao().get(CHAVE_PONTUACAO_DEFAULT));
 
+                    LOGGER.info(valorPontuacao + " PONTOS PARA " + regra.getKey());
                     pontuacaoTotalDoItem += valorPontuacao;
                 }
                 else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
                     for(String chavePontuacao : valoresDoMetadado) 
                     {
                         String chaveFormatada = chavePontuacao.replaceAll("\"", "");
+                        LOGGER.info("chaveFormatada: " + chaveFormatada);
+
                         Integer valorPontuacao = Optional
                             .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
                             .orElseGet(() -> 0);
-                       
+                        
+                        LOGGER.info(valorPontuacao + " PONTOS PARA " + regra.getKey());
                         pontuacaoTotalDoItem += valorPontuacao;
                     }
                 }
