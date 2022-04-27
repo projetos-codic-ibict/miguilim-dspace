@@ -429,7 +429,7 @@
 
         
 
-        <div class="btn-group col-md-12">
+        <div class="btn-group">
             <%
                 if (bCreateBits) {
             %>
