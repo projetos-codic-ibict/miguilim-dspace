@@ -86,7 +86,7 @@
   "dc_description_reviewerstypeofpublication": {
     "tipoAvaliacao": 2,
     "pontuacao": {
-      "A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações": 2,
+      "A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações": 2,
       "A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis": 1,
       "A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores": 2,
       "A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores": 0,
@@ -138,12 +138,12 @@
   "dc_rights_creativecommons": {
     "tipoAvaliacao": 2,
     "pontuacao": {
-      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY).": 2,
-      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-SA).": 2,
-      "Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND).": 1,
-      "Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC).": 1,
-      "Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-NC-SA).": 1,
-      "Permite redistribuição não comercial, desde que seja atribuído o. crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND).": 0
+      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)": 2,
+      "Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-SA)": 2,
+      "Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)": 1,
+      "Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC)": 1,
+      "Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma licença da obra original (CC BY-NC-SA)": 1,
+      "Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND)": 0
     }
   },
   "dc_description_publicationfees": {
@@ -156,8 +156,9 @@
     }
   },
   "dc_description_digitalpreservation": {
-    "tipoAvaliacao": 2,
+    "tipoAvaliacao": 3,
     "pontuacao": {
+      "Ainda não adota política": 0,
       "LOCKSS": 2,
       "CLOCKSS": 2,
       "APortico": 2,

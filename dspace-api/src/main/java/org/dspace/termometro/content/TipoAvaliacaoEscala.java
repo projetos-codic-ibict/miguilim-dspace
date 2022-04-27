@@ -9,7 +9,8 @@ package org.dspace.termometro.content;
 
 public enum TipoAvaliacaoEscala {
     TEXTUAL(1),
-    SELECAO(2);
+    SELECAO(2),
+    MULTIPLA_ESCOLHA(3);
 
     private final Integer codigo;
 
