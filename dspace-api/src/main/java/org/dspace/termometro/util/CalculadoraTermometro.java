@@ -58,7 +58,6 @@ public class CalculadoraTermometro {
         for (Map.Entry<String, EscalaPontuacaoTermometro> regra : REGRAS_PARA_PONTUACAO.entrySet()) 
         {
             List<String> valoresDoMetadado = metadadosDoItem.get(regra.getKey());
-            LOGGER.info(valoresDoMetadado.size() + " VALORES DE METADADOS ENCONTRADOS");
 
             if(valoresDoMetadado != null) 
             {
