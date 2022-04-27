@@ -76,8 +76,12 @@ public class CalculadoraTermometro {
                 else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
                     for(String chavePontuacao : valoresDoMetadado) 
                     {
-                        String chaveFormatada = chavePontuacao.replaceAll("\"", "");
                         LOGGER.info("chavePontuacao: [" + chavePontuacao + "], " + chavePontuacao.length());
+                        
+                        String chaveFormatada = chavePontuacao
+                            .replaceAll("\"", "")
+                            .replaceAll("\n", "");
+                            
                         LOGGER.info("chaveFormatada: [" + chaveFormatada + "], " + chaveFormatada.length());
 
                         Integer valorPontuacao = Optional
