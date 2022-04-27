@@ -116,7 +116,7 @@
                parentlink="<%= link %>"
                nocache="true">
 
-
+<div class="title-edit">
     <%-- <h1>Edit Item</h1> --%>
     <h1><fmt:message key="jsp.tools.edit-item-form.title"/>
     <span class="edit-help">
@@ -130,10 +130,11 @@
     You are responsible for entering the data in the correct format.
     If you are not sure what the format is, please do NOT make changes.</strong></p> --%>
 <%--    <p class="alert alert-danger"><strong><fmt:message key="jsp.tools.edit-item-form.note"/></strong></p>--%>
-    <p class="pull-right">
-        <fmt:message key="jsp.tools.edit-item-form.modified"/>
+    <p>
+        <strong><fmt:message key="jsp.tools.edit-item-form.modified"/></strong>
         <dspace:date date="<%= new DCDate(item.getLastModified()) %>"/>
-    </p><br><br>
+    </p>
+    </div>
 <%--    <div class="row">--%>
 <%--        <div class="col-md-9">--%>
 <%--            <div class="panel panel-primary">--%>
@@ -167,7 +168,7 @@
 <%--                            </td>--%>
 <%--                            <td>--%>
 <%--                                <% for (int i = 0; i < collections.size(); i++) { %> <%= collections.get(i).getName() %>--%>
-<%--                                <br/> <% } %>--%>
+<%--                                <% } %>--%>
 <%--                            </td>--%>
 <%--                        </tr>--%>
 <%--                        <tr>--%>
@@ -371,15 +372,14 @@
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
                                 ${fieldInputForm.label}
-                        </label>
-                        <br/>
-                        <span>${fieldInputForm.hint}</span>
+                        </label>                       
                         <select ${fieldInputForm.required != null ? 'required' : ''} class="" multiple id="value_<%= key %>_<%= sequenceNumber %>"
                                 name="value_<%= key %>_<%= sequenceNumber %>">
                             <c:forEach items="<%= vocabularies %>" var="option">
                                 <option ${option.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option}">${option} </option>
                             </c:forEach>
                         </select>
+                        <span>${fieldInputForm.hint}</span>
                     </div>
                     <script>
                         new SlimSelect({
@@ -391,27 +391,25 @@
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
                             ${fieldInputForm.label}
-                        </label>
-                        <br/>
-                        <span>${fieldInputForm.hint}</span>
+                        </label>                                              
                         <input ${fieldInputForm.required != null ? 'required' : ''} class="form-control" id="value_<%= key %>_<%= sequenceNumber %>" type="text"
                                name="value_<%= key %>_<%= sequenceNumber %>" value="${metadataValue}"
                         />
+                        <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:when>
                 <c:when test="${fieldInputForm != null && fieldInputForm.complextInputType != null}">
                     <div class="form-group">
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
                                 ${fieldInputForm.label}
-                        </label>
-                        <br/>
-                        <span>${fieldInputForm.hint}</span>
+                        </label>                                                
                         <select ${fieldInputForm.required != null ? 'required' : ''} class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"
                                 name="value_<%= key %>_<%= sequenceNumber %>">
                             <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
                                 <option ${option.value.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option.value}">${option.key} </option>
                             </c:forEach>
                         </select>
+                        <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -419,19 +417,19 @@
                         <label for="value_<%= key %>_<%= sequenceNumber %>">
                            ${fieldInputForm.label}
                         </label>
-                        <br/>
-                        <span>${fieldInputForm.hint}</span>
+                                                
                         <textarea ${fieldInputForm.required != null ? 'required' : ''} id="value_<%= key %>_<%= sequenceNumber %>" class="form-control"
                                   name="value_<%= key %>_<%= sequenceNumber %>"
                                   rows="3">${metadataValue}</textarea>
+                                  <span>${fieldInputForm.hint}</span>                                  
                     </div>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
 
-        <br/>
+        
 
-        <div class="btn-group col-md-12">
+        <div class="btn-group">
             <%
                 if (bCreateBits) {
             %>
@@ -463,10 +461,10 @@
             <input type="hidden" name="action" value="<%= EditItemServlet.UPDATE_ITEM %>"/>
 
                 <%-- <input type="submit" name="submit" value="Update" /> --%>
-            <input class="btn btn-primary pull-right col-md-3" type="submit" name="submit"
+            <input class="button-main" type="submit" name="submit"
                    value="<fmt:message key="jsp.tools.general.update"/>"/>
                 <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
-            <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="btn btn-default pull-right col-md-3">
+            <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="button-main-outline">
                 <fmt:message key="jsp.tools.general.cancel"/>
             </a>
         </div>
