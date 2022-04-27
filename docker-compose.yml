@@ -10,7 +10,7 @@ services:
       mrgurgel/postgres_miguilim
     container_name: bd_miguilim
     ports:
-      - "5006:5432"
+      - "127.0.0.1:5006:5432"
     environment:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - TZ=America/Sao_Paulo

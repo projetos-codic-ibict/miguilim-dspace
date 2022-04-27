@@ -98,7 +98,7 @@ public class CalculadoraTermometro {
         LOGGER.info("PONTUACAO_MAXIMA_POSSIVEL: " + PONTUACAO_MAXIMA_POSSIVEL);
         LOGGER.info("PONTUACAO_FINAL: " + pontuacaoFinal);
 
-        return String.valueOf(pontuacaoFinal);
+        return String.valueOf(pontuacaoTotalDoItem);
     }
 
     private static Map<String, List<String>> obterMetadadosDoItem(DSpaceObject dso) {
