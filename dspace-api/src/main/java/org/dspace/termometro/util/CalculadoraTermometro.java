@@ -80,8 +80,9 @@ public class CalculadoraTermometro {
                         
                         String chaveFormatada = chavePontuacao
                             .replaceAll("\"", "")
-                            .replaceAll("\n", "");
-                            
+                            .replaceAll("\n", "")
+                            .replaceAll("\t", "");
+
                         LOGGER.info("chaveFormatada: [" + chaveFormatada + "], " + chaveFormatada.length());
 
                         Integer valorPontuacao = Optional
