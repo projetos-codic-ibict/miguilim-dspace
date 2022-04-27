@@ -77,7 +77,8 @@ public class CalculadoraTermometro {
                     for(String chavePontuacao : valoresDoMetadado) 
                     {
                         String chaveFormatada = chavePontuacao.replaceAll("\"", "");
-                        LOGGER.info("chaveFormatada: " + chaveFormatada);
+                        LOGGER.info("chavePontuacao: [" + chavePontuacao + "], " + chavePontuacao.length());
+                        LOGGER.info("chaveFormatada: [" + chaveFormatada + "], " + chaveFormatada.length());
 
                         Integer valorPontuacao = Optional
                             .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
