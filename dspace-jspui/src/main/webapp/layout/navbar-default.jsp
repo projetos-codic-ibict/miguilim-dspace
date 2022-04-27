@@ -92,7 +92,7 @@
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
         <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a
-                href="<%= request.getContextPath() %>/"><span class="glyphicon glyphicon-home"></span> <fmt:message
+                href="<%= request.getContextPath() %>/"><fmt:message
                 key="jsp.layout.navbar-default.home"/></a></li>
 
         <li class="dropdown">

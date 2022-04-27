@@ -703,6 +703,74 @@ hr {
 }
 //end internal
 
+//cards-results
+.results-cards {
+	margin: 32px 0;
+	.cards {
+		background-color: $white-lightest;
+		border-radius:8px;
+		padding: 24px 40px;
+		font-family: $linkfont-family;
+		margin-bottom: 8px;
+		border: 1px solid $board-field;
+		h2 {
+			border-top: 1px solid $board-field;
+			border-bottom: 1px solid $board-field;
+			padding: 8px 0;
+			color: $gray-dark;
+			font-size: 14px;
+			font-style: italic;
+			letter-spacing: 0.5px;
+			margin: 8px 0;
+		}
+		h3 {
+			@extend .subhead;
+		}
+		p {
+			@extend .bt-title;
+			color: $gray-dark;
+			font-weight: 500;
+			line-height: 130%;
+		}
+		.group-footer {		
+			border-top: 1px solid $board-field;
+			padding-top: 16px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			.kind {
+				display: flex;
+				align-items: center;	
+				span {
+					font-weight: 800;
+					margin-left: 4px;
+				}		
+				strong {
+					margin-right: 4px;
+				}					
+			}
+			.info {
+				display: flex;
+				gap: 16px;
+				align-items: center;
+			}
+			.line {
+				width: 1px;
+				height: 8px;
+				background-color: $dark-blue;
+			}
+			.bt {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.button-main {
+					height: 40px;
+				}
+			}
+		}
+	}
+}
+//end cards-results
 
 //mediua queries
 @media (max-width: 920px) {
@@ -738,6 +806,11 @@ body.undernavigation {
 }
 
 @media (max-width: 920px) {
+	.kind {
+		strong {
+			display: none;
+		}
+	}
 	.content-news {
 		margin:80px auto 0 auto;
 		.left {

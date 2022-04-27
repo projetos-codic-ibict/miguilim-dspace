@@ -52,7 +52,7 @@
   line-height: 16px;
 }
 
-.bt-title {
+.bt-title, .results-cards .cards p {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
@@ -76,7 +76,7 @@
   letter-spacing: 0.5px;
 }
 
-.subhead {
+.subhead, .results-cards .cards h3 {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 700;
@@ -1112,6 +1112,100 @@ hr {
   letter-spacing: 0.5px;
 }
 
+.results-cards {
+  margin: 32px 0;
+}
+
+.results-cards .cards {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 24px 40px;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 8px;
+  border: 1px solid #E8E8E8;
+}
+
+.results-cards .cards h2 {
+  border-top: 1px solid #E8E8E8;
+  border-bottom: 1px solid #E8E8E8;
+  padding: 8px 0;
+  color: #6A6A6A;
+  font-size: 14px;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  margin: 8px 0;
+}
+
+.results-cards .cards p {
+  color: #6A6A6A;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.results-cards .cards .group-footer {
+  border-top: 1px solid #E8E8E8;
+  padding-top: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results-cards .cards .group-footer .kind {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results-cards .cards .group-footer .kind span {
+  font-weight: 800;
+  margin-left: 4px;
+}
+
+.results-cards .cards .group-footer .kind strong {
+  margin-right: 4px;
+}
+
+.results-cards .cards .group-footer .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results-cards .cards .group-footer .line {
+  width: 1px;
+  height: 8px;
+  background-color: #04132A;
+}
+
+.results-cards .cards .group-footer .bt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.results-cards .cards .group-footer .bt .button-main {
+  height: 40px;
+}
+
 @media (max-width: 920px) {
   .title-edit {
     -webkit-box-orient: vertical;
@@ -1152,6 +1246,9 @@ body.undernavigation {
 }
 
 @media (max-width: 920px) {
+  .kind strong {
+    display: none;
+  }
   .content-news {
     margin: 80px auto 0 auto;
   }
