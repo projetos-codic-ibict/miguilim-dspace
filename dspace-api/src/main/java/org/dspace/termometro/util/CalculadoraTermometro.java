@@ -78,11 +78,7 @@ public class CalculadoraTermometro {
                     {
                         LOGGER.info("chavePontuacao: [" + chavePontuacao + "], " + chavePontuacao.length());
                         
-                        String chaveFormatada = chavePontuacao
-                            .replaceAll(" ", "")    
-                            .replaceAll("\"", "")
-                            .replaceAll("\n", "")
-                            .replaceAll("\t", "");
+                        String chaveFormatada = chavePontuacao.replaceAll("\\s{2,}", " ");
 
                         LOGGER.info("chaveFormatada: [" + chaveFormatada + "], " + chaveFormatada.length());
 
