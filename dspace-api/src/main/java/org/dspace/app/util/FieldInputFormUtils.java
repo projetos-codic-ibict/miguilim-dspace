@@ -4,6 +4,7 @@ import org.dspace.content.MetadataValue;
 
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class FieldInputFormUtils {
     List<FieldInputForm> fieldInputFormList;
@@ -27,7 +28,7 @@ public class FieldInputFormUtils {
         return this.fieldInputFormList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
     }
 
-    public MetadataValue getFieldFromMetadataByKeys(String schema, String element, String qualifier) {
+    public List<MetadataValue> getFieldFromMetadataByKeys(String schema, String element, String qualifier) {
         Predicate<MetadataValue> schemaIsEquals = f -> f.getMetadataField().getMetadataSchema().getName().equals(schema);
         Predicate<MetadataValue> elementIsEquals = f -> f.getMetadataField().getElement().equals(element);
         Predicate<MetadataValue> qualifierIsEquals = f -> (f.getMetadataField().getQualifier() != null
@@ -37,6 +38,6 @@ public class FieldInputFormUtils {
                 ((f.getMetadataField().getQualifier() == null || f.getMetadataField().getQualifier().isEmpty())
                         && (qualifier == null || qualifier.isEmpty()));
         Predicate<MetadataValue> isSchemaElementQualifierEquals = schemaIsEquals.and(elementIsEquals).and(qualifierIsEquals);
-        return this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).findAny().orElse(null);
+        return this.metadataValueList.stream().filter(isSchemaElementQualifierEquals).collect(Collectors.toList());
     }
 }

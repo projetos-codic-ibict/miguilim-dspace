@@ -106,7 +106,8 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css" />
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
 </c:set>
 
 <dspace:layout style="submission" titlekey="jsp.tools.edit-item-form.title"
@@ -116,192 +117,192 @@
                parentlink="<%= link %>"
                nocache="true">
 
-<div class="title-edit">
-    <%-- <h1>Edit Item</h1> --%>
-    <h1><fmt:message key="jsp.tools.edit-item-form.title"/>
-    <span class="edit-help">
+    <div class="title-edit">
+            <%-- <h1>Edit Item</h1> --%>
+        <h1><fmt:message key="jsp.tools.edit-item-form.title"/>
+            <span class="edit-help">
           <dspace:popup
                   page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\") + \"#editmetadata\"%>"><fmt:message
                   key="jsp.morehelp"/></dspace:popup>
     </span>
-    </h1>
+        </h1>
 
-    <%-- <p><strong>PLEASE NOTE: These changes are not validated in any way.
-    You are responsible for entering the data in the correct format.
-    If you are not sure what the format is, please do NOT make changes.</strong></p> --%>
-<%--    <p class="alert alert-danger"><strong><fmt:message key="jsp.tools.edit-item-form.note"/></strong></p>--%>
-    <p>
-        <strong><fmt:message key="jsp.tools.edit-item-form.modified"/></strong>
-        <dspace:date date="<%= new DCDate(item.getLastModified()) %>"/>
-    </p>
+            <%-- <p><strong>PLEASE NOTE: These changes are not validated in any way.
+            You are responsible for entering the data in the correct format.
+            If you are not sure what the format is, please do NOT make changes.</strong></p> --%>
+            <%--    <p class="alert alert-danger"><strong><fmt:message key="jsp.tools.edit-item-form.note"/></strong></p>--%>
+        <p>
+            <strong><fmt:message key="jsp.tools.edit-item-form.modified"/></strong>
+            <dspace:date date="<%= new DCDate(item.getLastModified()) %>"/>
+        </p>
     </div>
-<%--    <div class="row">--%>
-<%--        <div class="col-md-9">--%>
-<%--            <div class="panel panel-primary">--%>
-<%--                <div class="panel-heading"><fmt:message key="jsp.tools.edit-item-form.details"/></div>--%>
+    <%--    <div class="row">--%>
+    <%--        <div class="col-md-9">--%>
+    <%--            <div class="panel panel-primary">--%>
+    <%--                <div class="panel-heading"><fmt:message key="jsp.tools.edit-item-form.details"/></div>--%>
 
-<%--                <div class="panel-body">--%>
-<%--                    <table class="table">--%>
-<%--                        <tr>--%>
-<%--                            <td><fmt:message key="jsp.tools.edit-item-form.itemID"/>--%>
-<%--                            </td>--%>
-<%--                            <td><%= item.getID() %>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
+    <%--                <div class="panel-body">--%>
+    <%--                    <table class="table">--%>
+    <%--                        <tr>--%>
+    <%--                            <td><fmt:message key="jsp.tools.edit-item-form.itemID"/>--%>
+    <%--                            </td>--%>
+    <%--                            <td><%= item.getID() %>--%>
+    <%--                            </td>--%>
+    <%--                        </tr>--%>
 
-<%--                        <tr>--%>
-<%--                            <td><fmt:message key="jsp.tools.edit-item-form.handle"/>--%>
-<%--                            </td>--%>
-<%--                            <td><%= (handle == null ? "None" : handle) %>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                            <td><fmt:message key="jsp.tools.edit-item-form.modified"/>--%>
-<%--                            </td>--%>
-<%--                            <td><dspace:date--%>
-<%--                                    date="<%= new DCDate(item.getLastModified()) %>"/>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                            &lt;%&ndash; <td class="submitFormLabel">In Collections:</td> &ndash;%&gt;--%>
-<%--                        <tr>--%>
-<%--                            <td><fmt:message key="jsp.tools.edit-item-form.collections"/>--%>
-<%--                            </td>--%>
-<%--                            <td>--%>
-<%--                                <% for (int i = 0; i < collections.size(); i++) { %> <%= collections.get(i).getName() %>--%>
-<%--                                <% } %>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                        <tr>--%>
-<%--                                &lt;%&ndash; <td class="submitFormLabel">Item page:</td> &ndash;%&gt;--%>
-<%--                            <td><fmt:message key="jsp.tools.edit-item-form.itempage"/>--%>
-<%--                            </td>--%>
-<%--                            <td>--%>
-<%--                                <% if (handle == null) { %> <em><fmt:message--%>
-<%--                                    key="jsp.tools.edit-item-form.na"/>--%>
-<%--                            </em> <% } else {--%>
-<%--                                String url = ConfigurationManager.getProperty("dspace.url") + "/handle/" + handle; %>--%>
-<%--                                <a target="_blank" href="<%= url %>"><%= url %>--%>
-<%--                                </a> <% } %>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-<%--                    </table>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
+    <%--                        <tr>--%>
+    <%--                            <td><fmt:message key="jsp.tools.edit-item-form.handle"/>--%>
+    <%--                            </td>--%>
+    <%--                            <td><%= (handle == null ? "None" : handle) %>--%>
+    <%--                            </td>--%>
+    <%--                        </tr>--%>
+    <%--                        <tr>--%>
+    <%--                            <td><fmt:message key="jsp.tools.edit-item-form.modified"/>--%>
+    <%--                            </td>--%>
+    <%--                            <td><dspace:date--%>
+    <%--                                    date="<%= new DCDate(item.getLastModified()) %>"/>--%>
+    <%--                            </td>--%>
+    <%--                        </tr>--%>
+    <%--                            &lt;%&ndash; <td class="submitFormLabel">In Collections:</td> &ndash;%&gt;--%>
+    <%--                        <tr>--%>
+    <%--                            <td><fmt:message key="jsp.tools.edit-item-form.collections"/>--%>
+    <%--                            </td>--%>
+    <%--                            <td>--%>
+    <%--                                <% for (int i = 0; i < collections.size(); i++) { %> <%= collections.get(i).getName() %>--%>
+    <%--                                <% } %>--%>
+    <%--                            </td>--%>
+    <%--                        </tr>--%>
+    <%--                        <tr>--%>
+    <%--                                &lt;%&ndash; <td class="submitFormLabel">Item page:</td> &ndash;%&gt;--%>
+    <%--                            <td><fmt:message key="jsp.tools.edit-item-form.itempage"/>--%>
+    <%--                            </td>--%>
+    <%--                            <td>--%>
+    <%--                                <% if (handle == null) { %> <em><fmt:message--%>
+    <%--                                    key="jsp.tools.edit-item-form.na"/>--%>
+    <%--                            </em> <% } else {--%>
+    <%--                                String url = ConfigurationManager.getProperty("dspace.url") + "/handle/" + handle; %>--%>
+    <%--                                <a target="_blank" href="<%= url %>"><%= url %>--%>
+    <%--                                </a> <% } %>--%>
+    <%--                            </td>--%>
+    <%--                        </tr>--%>
+    <%--                    </table>--%>
+    <%--                </div>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
 
-<%--        <div class="col-md-3">--%>
-<%--            <div class="panel panel-default">--%>
-<%--                <div class="panel-heading"><fmt:message key="jsp.actiontools"/></div>--%>
-<%--                <div class="panel-body">--%>
-<%--                    <%--%>
-<%--                        if (!item.isWithdrawn() && bWithdraw) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_WITHDRAW %>"/>--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit" value="Withdraw..."> &ndash;%&gt;--%>
-<%--                        <input class="btn btn-warning col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.withdraw-w-confirm.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                    } else if (item.isWithdrawn() && bReinstate) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.REINSTATE %>"/>--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit" value="Reinstate"> &ndash;%&gt;--%>
-<%--                        <input class="btn btn-warning col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.reinstate.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
-<%--                    <%--%>
-<%--                        if (bDelete) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_DELETE %>"/>--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit" value="Delete (Expunge)..."> &ndash;%&gt;--%>
-<%--                        <input class="btn btn-danger col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.delete-w-confirm.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
-<%--                    <%--%>
-<%--                        if (isItemAdmin) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_MOVE_ITEM %>"/>--%>
-<%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.move-item.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
-<%--                    <%--%>
-<%--                        if (item.isDiscoverable() && bPrivating) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_PRIVATING %>"/>--%>
-<%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.privating-w-confirm.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                    } else if (!item.isDiscoverable() && bPublicize) {--%>
-<%--                    %>--%>
-<%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input type="hidden" name="action" value="<%= EditItemServlet.PUBLICIZE %>"/>--%>
-<%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.publicize.button"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
+    <%--        <div class="col-md-3">--%>
+    <%--            <div class="panel panel-default">--%>
+    <%--                <div class="panel-heading"><fmt:message key="jsp.actiontools"/></div>--%>
+    <%--                <div class="panel-body">--%>
+    <%--                    <%--%>
+    <%--                        if (!item.isWithdrawn() && bWithdraw) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_WITHDRAW %>"/>--%>
+    <%--                            &lt;%&ndash; <input type="submit" name="submit" value="Withdraw..."> &ndash;%&gt;--%>
+    <%--                        <input class="btn btn-warning col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.withdraw-w-confirm.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                    } else if (item.isWithdrawn() && bReinstate) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.REINSTATE %>"/>--%>
+    <%--                            &lt;%&ndash; <input type="submit" name="submit" value="Reinstate"> &ndash;%&gt;--%>
+    <%--                        <input class="btn btn-warning col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.reinstate.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
+    <%--                    <%--%>
+    <%--                        if (bDelete) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_DELETE %>"/>--%>
+    <%--                            &lt;%&ndash; <input type="submit" name="submit" value="Delete (Expunge)..."> &ndash;%&gt;--%>
+    <%--                        <input class="btn btn-danger col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.delete-w-confirm.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
+    <%--                    <%--%>
+    <%--                        if (isItemAdmin) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_MOVE_ITEM %>"/>--%>
+    <%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.move-item.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
+    <%--                    <%--%>
+    <%--                        if (item.isDiscoverable() && bPrivating) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.START_PRIVATING %>"/>--%>
+    <%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.privating-w-confirm.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                    } else if (!item.isDiscoverable() && bPublicize) {--%>
+    <%--                    %>--%>
+    <%--                    <form method="post" action="<%= request.getContextPath() %>/tools/edit-item">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input type="hidden" name="action" value="<%= EditItemServlet.PUBLICIZE %>"/>--%>
+    <%--                        <input class="btn btn-default col-md-12" type="submit" name="submit"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.publicize.button"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
 
-<%--                    <%--%>
-<%--                        if (bPolicy) {--%>
-<%--                    %>--%>
-<%--                        &lt;%&ndash; ===========================================================--%>
-<%--                         Edit item's policies--%>
-<%--                         =========================================================== &ndash;%&gt;--%>
-<%--                    <form method="post"--%>
-<%--                          action="<%= request.getContextPath() %>/tools/authorize">--%>
-<%--                        <input type="hidden" name="handle"--%>
-<%--                               value="<%= ConfigurationManager.getProperty("handle.prefix") %>"/>--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                            &lt;%&ndash; <input type="submit" name="submit_item_select" value="Edit..."> &ndash;%&gt;--%>
-<%--                        <input class="btn btn-default col-md-12" type="submit"--%>
-<%--                               name="submit_item_select"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.item" />"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
-<%--                    <%--%>
-<%--                        if (isItemAdmin) {--%>
-<%--                    %>--%>
-<%--                        &lt;%&ndash; ===========================================================--%>
-<%--                             Curate Item--%>
-<%--                             =========================================================== &ndash;%&gt;--%>
-<%--                    <form method="post"--%>
-<%--                          action="<%= request.getContextPath() %>/tools/curate">--%>
-<%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
-<%--                        <input class="btn btn-default col-md-12" type="submit"--%>
-<%--                               name="submit_item_select"--%>
-<%--                               value="<fmt:message key="jsp.tools.edit-item-form.form.button.curate"/>"/>--%>
-<%--                    </form>--%>
-<%--                    <%--%>
-<%--                        }--%>
-<%--                    %>--%>
-<%--                </div>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-<%--    </div>--%>
+    <%--                    <%--%>
+    <%--                        if (bPolicy) {--%>
+    <%--                    %>--%>
+    <%--                        &lt;%&ndash; ===========================================================--%>
+    <%--                         Edit item's policies--%>
+    <%--                         =========================================================== &ndash;%&gt;--%>
+    <%--                    <form method="post"--%>
+    <%--                          action="<%= request.getContextPath() %>/tools/authorize">--%>
+    <%--                        <input type="hidden" name="handle"--%>
+    <%--                               value="<%= ConfigurationManager.getProperty("handle.prefix") %>"/>--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                            &lt;%&ndash; <input type="submit" name="submit_item_select" value="Edit..."> &ndash;%&gt;--%>
+    <%--                        <input class="btn btn-default col-md-12" type="submit"--%>
+    <%--                               name="submit_item_select"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.item" />"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
+    <%--                    <%--%>
+    <%--                        if (isItemAdmin) {--%>
+    <%--                    %>--%>
+    <%--                        &lt;%&ndash; ===========================================================--%>
+    <%--                             Curate Item--%>
+    <%--                             =========================================================== &ndash;%&gt;--%>
+    <%--                    <form method="post"--%>
+    <%--                          action="<%= request.getContextPath() %>/tools/curate">--%>
+    <%--                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>--%>
+    <%--                        <input class="btn btn-default col-md-12" type="submit"--%>
+    <%--                               name="submit_item_select"--%>
+    <%--                               value="<fmt:message key="jsp.tools.edit-item-form.form.button.curate"/>"/>--%>
+    <%--                    </form>--%>
+    <%--                    <%--%>
+    <%--                        }--%>
+    <%--                    %>--%>
+    <%--                </div>--%>
+    <%--            </div>--%>
+    <%--        </div>--%>
+    <%--    </div>--%>
 
 
     <%
@@ -333,35 +334,16 @@
         <c:forEach items="<%= fieldInputFormList %>" var="fieldInputForm" varStatus="loop">
             <%
                 FieldInputForm xmlField = ((FieldInputForm) pageContext.getAttribute("fieldInputForm"));
-                MetadataValue  metadata = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
+                List<MetadataValue> metadataValues = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
                         xmlField.getElement(), xmlField.getQualifier());
 
-                String sequenceNumber = "0";
-                // Keep a count of the number of values of each element+qualifier
-                // key is "element" or "element_qualifier" (String)
-                // values are Integers - number of values that element/qualifier so far
+                MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
                 String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
 
-                Integer count = dcCounter.get(key);
-                if (count == null) {
-                    count = 0;
-                }
 
-                // Increment counter in map
-                dcCounter.put(key, count + 1);
-
-                // We will use two digits to represent the counter number in the parameter names.
-                // This means a string sort can be used to put things in the correct order even
-                // if there are >= 10 values for a particular element/qualifier.  Increase this to
-                // 3 digits if there are ever >= 100 for a single element/qualifer! :)
-                sequenceNumber = String.valueOf(count);
-
-                while (sequenceNumber.length() < 2) {
-                    sequenceNumber = "0" + sequenceNumber;
-                }
-//                }
+//                String sequenceNumber = getSequenceNumber(dcCounter, key);
             %>
-            <c:set var="metadataValue" scope="session" value="<%= metadata != null ? metadata.getValue().trim() : null  %>"/>
+            <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
             <c:choose>
                 <c:when test="${fieldInputForm != null && fieldInputForm.simpleVocabulary != null}">
@@ -369,77 +351,116 @@
                         VocabularyConverter vocabularyConverter = new VocabularyConverter();
                         List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
                     %>
+                    <c:set var="metadataValue" scope="session" value="<%= metadata != null ? metadata.getValue().trim() : null  %>"/>
                     <div class="form-group">
-                        <label for="value_<%= key %>_<%= sequenceNumber %>">
+                        <label for="<%= key %>">
                                 ${fieldInputForm.label}
-                        </label>                       
-                        <select ${fieldInputForm.required != null ? 'required' : ''} class="" multiple id="value_<%= key %>_<%= sequenceNumber %>"
-                                name="value_<%= key %>_<%= sequenceNumber %>">
-                            <c:forEach items="<%= vocabularies %>" var="option">
-                                <option ${option.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option}">${option} </option>
-                            </c:forEach>
-                        </select>
+                        </label>
+                            <select class="multi" ${fieldInputForm.required != null ? 'required' : ''} multiple
+                                                                                         id="<%= key %>"
+                                                                                         name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                <c:forEach items="<%= vocabularies %>" var="option">
+                                    <option ${option.equalsIgnoreCase(metadataValue) ? 'selected' : ''}
+                                            value="${option}">${option} </option>
+                                </c:forEach>
+                            </select>
                         <span>${fieldInputForm.hint}</span>
                     </div>
                     <script>
                         new SlimSelect({
-                            select: "#value_<%= key %>_<%= sequenceNumber %>"
+                            select: "#<%= key %>",
+                            // addable: function (value) {
+                            //     return value;
+                            // }
                         })
                     </script>
                 </c:when>
                 <c:when test="${fieldInputForm != null && fieldInputForm.simpleInputType != null}">
                     <div class="form-group">
-                        <label for="value_<%= key %>_<%= sequenceNumber %>">
-                            ${fieldInputForm.label}
-                        </label>                                              
-                        <input ${fieldInputForm.required != null ? 'required' : ''} class="form-control" id="value_<%= key %>_<%= sequenceNumber %>" type="text"
-                               name="value_<%= key %>_<%= sequenceNumber %>" value="${metadataValue}"
-                        />
+                        <label for="<%= key %>">
+                                ${fieldInputForm.label}
+                        </label>
+                        <div>
+<%--                            <c:if test="<%= metadataValues.size() == 0 %>">--%>
+<%--                                --%>
+<%--                            </c:if>--%>
+                        <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                            <input ${fieldInputForm.required != null ? 'required' : ''}
+                                    class="form-control" id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" type="text"
+                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                    value="${metadataValue.value}"
+                            />
+                            <c:if test="${values.count > 1}">
+                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                            </c:if>
+                        </c:forEach>
+                        </div>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                        </c:if>
                         <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:when>
                 <c:when test="${fieldInputForm != null && fieldInputForm.complextInputType != null}">
                     <div class="form-group">
-                        <label for="value_<%= key %>_<%= sequenceNumber %>">
+                        <label for="<%= key %>">
                                 ${fieldInputForm.label}
-                        </label>                                                
-                        <select ${fieldInputForm.required != null ? 'required' : ''} class="form-control" id="value_<%= key %>_<%= sequenceNumber %>"
-                                name="value_<%= key %>_<%= sequenceNumber %>">
-                            <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
-                                <option ${option.value.equalsIgnoreCase(metadataValue) ? 'selected' : ''} value="${option.value}">${option.key} </option>
-                            </c:forEach>
-                        </select>
+                        </label>
+                        <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                            <select ${fieldInputForm.required != null ? 'required' : ''}
+                                    class="form-control"
+                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
+                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
+                                    <option ${option.value.equalsIgnoreCase(metadataValue.value) ? 'selected' : ''}
+                                            value="${option.value}">${option.key} </option>
+                                </c:forEach>
+                            </select>
+                            <c:if test="${values.count > 1}">
+                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                        </c:if>
                         <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:when>
                 <c:otherwise>
                     <div class="form-group">
-                        <label for="value_<%= key %>_<%= sequenceNumber %>">
-                           ${fieldInputForm.label}
+                        <label for="<%= key %>">
+                                ${fieldInputForm.label}
                         </label>
-                                                
-                        <textarea ${fieldInputForm.required != null ? 'required' : ''} id="value_<%= key %>_<%= sequenceNumber %>" class="form-control"
-                                  name="value_<%= key %>_<%= sequenceNumber %>"
-                                  rows="3">${metadataValue}</textarea>
-                                  <span>${fieldInputForm.hint}</span>                                  
+                        <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                        <textarea ${fieldInputForm.required != null ? 'required' : ''}
+                                id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" class="form-control"
+                                name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                rows="3">${metadataValue.value}</textarea>
+                            <c:if test="${values.count > 1}">
+                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                            </c:if>
+                        </c:forEach>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                        </c:if>
+                        <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:otherwise>
             </c:choose>
         </c:forEach>
 
-        
 
         <div class="btn-group">
             <%
                 if (bCreateBits) {
             %>
-<%--            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"--%>
-<%--                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>--%>
+                <%--            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"--%>
+                <%--                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>--%>
             <% }
                 if (breOrderBitstreams) {
             %>
-<%--            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"--%>
-<%--                   name="submit_update_order" style="visibility: hidden;">--%>
+                <%--            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"--%>
+                <%--                   name="submit_update_order" style="visibility: hidden;">--%>
             <%
                 }
 
@@ -470,3 +491,20 @@
         </div>
     </form>
 </dspace:layout>
+<%!
+    private String getSequenceNumber(Map<String, Integer> dcCounter, String key) {
+        String sequenceNumber = "0";
+        Integer count = dcCounter.get(key);
+        if (count == null) {
+            count = 0;
+        }
+        dcCounter.put(key, count + 1);
+
+        sequenceNumber = String.valueOf(count);
+
+        while (sequenceNumber.length() < 2) {
+            sequenceNumber = "0" + sequenceNumber;
+        }
+        return sequenceNumber;
+    }
+%>

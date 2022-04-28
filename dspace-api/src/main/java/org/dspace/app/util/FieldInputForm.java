@@ -13,7 +13,7 @@ public class FieldInputForm {
     @JsonProperty("dc-qualifier")
     private String qualifier;
     @JsonProperty("repeatable")
-    private String repeatable;
+    private boolean repeatable;
     @JsonProperty("label")
     private String label;
     @JsonProperty("hint")
@@ -61,11 +61,11 @@ public class FieldInputForm {
         this.qualifier = qualifier;
     }
 
-    public String getRepeatable() {
+    public boolean getRepeatable() {
         return repeatable;
     }
 
-    public void setRepeatable(String repeatable) {
+    public void setRepeatable(boolean repeatable) {
         this.repeatable = repeatable;
     }
 
