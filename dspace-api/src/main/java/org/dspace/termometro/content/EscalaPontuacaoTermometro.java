@@ -13,6 +13,7 @@ public class EscalaPontuacaoTermometro implements java.io.Serializable
 {
     private Integer tipoAvaliacao;
     private Map<String, Integer> pontuacao;
+    private Integer limitePontuacao;
 
     public Integer getTipoAvaliacao()
     {
@@ -32,6 +33,16 @@ public class EscalaPontuacaoTermometro implements java.io.Serializable
     public void setPontuacao(final Map<String, Integer>  pontuacao)
     {
         this.pontuacao = pontuacao;
+    }
+
+    public Integer getLimitePontuacao()
+    {
+        return this.limitePontuacao;
+    }
+    
+    public void setLimitePontuacao(final Integer limitePontuacao)
+    {
+        this.limitePontuacao = limitePontuacao;
     }
 }
 

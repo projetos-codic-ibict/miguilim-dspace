@@ -7,8 +7,10 @@
  */
 package org.dspace.termometro.util;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -17,8 +19,6 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.base.Charsets;
-import com.google.common.io.Resources;
 
 import org.apache.log4j.Logger;
 import org.dspace.content.DSpaceObject;
@@ -26,6 +26,7 @@ import org.dspace.content.Item;
 import org.dspace.content.MetadataValue;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
+import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.termometro.content.EscalaPontuacaoTermometro;
 import org.dspace.termometro.content.TipoAvaliacaoEscala;
 
@@ -61,7 +62,6 @@ public class CalculadoraTermometro {
 
             if(valoresDoMetadado != null) 
             {
-                LOGGER.info("CALCULANDO METADADO: " + regra.getKey());
                 EscalaPontuacaoTermometro escalaPontuacao = (EscalaPontuacaoTermometro) regra.getValue();
 
                 if(escalaPontuacao.getTipoAvaliacao() == TipoAvaliacaoEscala.TEXTUAL.getCodigo()) {
@@ -70,23 +70,18 @@ public class CalculadoraTermometro {
                         .ofNullable(escalaPontuacao.getPontuacao().get(chavePontuacao))
                         .orElseGet(() -> escalaPontuacao.getPontuacao().get(CHAVE_PONTUACAO_DEFAULT));
 
-                    LOGGER.info(valorPontuacao + " PONTOS PARA " + regra.getKey());
+                    LOGGER.info(valorPontuacao + " pontos calculados para o metadado " + regra.getKey());
                     pontuacaoTotalDoItem += valorPontuacao;
                 }
                 else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
                     for(String chavePontuacao : valoresDoMetadado) 
                     {
-                        LOGGER.info("chavePontuacao: [" + chavePontuacao + "], " + chavePontuacao.length());
-                        
                         String chaveFormatada = chavePontuacao.replaceAll("\\s{2,}", " ");
-
-                        LOGGER.info("chaveFormatada: [" + chaveFormatada + "], " + chaveFormatada.length());
-
                         Integer valorPontuacao = Optional
                             .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
                             .orElseGet(() -> 0);
                         
-                        LOGGER.info(valorPontuacao + " PONTOS PARA " + regra.getKey());
+                        LOGGER.info(valorPontuacao + " pontos calculados para o metadado " + regra.getKey());
                         pontuacaoTotalDoItem += valorPontuacao;
                     }
                 }
@@ -118,9 +113,7 @@ public class CalculadoraTermometro {
     }
 
     private static Map<String, EscalaPontuacaoTermometro> carregarRegrasPontuacao() throws IOException {
-        URL url = Resources.getResource("/termometro/pontuacao-termometro-mapping.json");
-        String jsonRegras = Resources.toString(url, Charsets.UTF_8);
-
+        String jsonRegras = obterArquivoRegras();
         return new ObjectMapper().readValue(jsonRegras, new TypeReference<Map<String, EscalaPontuacaoTermometro>>(){});
     }
 
@@ -131,11 +124,11 @@ public class CalculadoraTermometro {
         {
             EscalaPontuacaoTermometro escalaPontuacao = (EscalaPontuacaoTermometro) regra.getValue();
            
-            if(escalaPontuacao.getTipoAvaliacao() == TipoAvaliacaoEscala.MULTIPLA_ESCOLHA.getCodigo()) {
-                valorPontuacaoMaxima += escalaPontuacao.getPontuacao()
-                    .values()
-                    .stream()
-                    .reduce(0, Integer::sum);
+            if(escalaPontuacao.getTipoAvaliacao() == TipoAvaliacaoEscala.MULTIPLA_ESCOLHA.getCodigo()) 
+            {
+                valorPontuacaoMaxima += Optional
+                    .ofNullable(escalaPontuacao.getLimitePontuacao())
+                    .orElseGet(() -> escalaPontuacao.getPontuacao().values().stream().reduce(0, Integer::sum));
             }
             else
             {
@@ -144,6 +137,17 @@ public class CalculadoraTermometro {
         }
 
         return valorPontuacaoMaxima;
+    }
+
+    private static String obterArquivoRegras() throws IOException {
+        String PONTUACAO_JSON_FILE = "pontuacao-termometro-mapping.json";
+        String CONFIG_DIRECTORY = "config";
+    
+        String jsonPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
+                + File.separator + CONFIG_DIRECTORY + File.separator + PONTUACAO_JSON_FILE;
+        File xmlFile = new File(jsonPath);
+
+        return new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
     }
 
 }
