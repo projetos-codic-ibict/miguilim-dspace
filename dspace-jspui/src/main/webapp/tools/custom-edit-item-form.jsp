@@ -346,7 +346,7 @@
             <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
             <c:choose>
-                <c:when test="${fieldInputForm != null && fieldInputForm.simpleVocabulary != null}">
+                <c:when test="${fieldInputForm.simpleVocabulary != null}">
                     <%
                         VocabularyConverter vocabularyConverter = new VocabularyConverter();
                         List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
@@ -369,39 +369,35 @@
                     <script>
                         new SlimSelect({
                             select: "#<%= key %>",
-                            // addable: function (value) {
-                            //     return value;
-                            // }
+                            <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
+                            addable: function (value) {
+                                return value;
+                            }
+                            <% } %>
                         })
                     </script>
                 </c:when>
-                <c:when test="${fieldInputForm != null && fieldInputForm.simpleInputType != null}">
+                <c:when test="${fieldInputForm.simpleInputType != null && fieldInputForm.simpleInputType.equals('textarea')}">
                     <div class="form-group">
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
-                        <div>
-<%--                            <c:if test="<%= metadataValues.size() == 0 %>">--%>
-<%--                                --%>
-<%--                            </c:if>--%>
                         <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                            <input ${fieldInputForm.required != null ? 'required' : ''}
-                                    class="form-control" id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" type="text"
-                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
-                                    value="${metadataValue.value}"
-                            />
+                        <textarea ${fieldInputForm.required != null ? 'required' : ''}
+                                id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" class="form-control"
+                                name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                rows="3">${metadataValue.value}</textarea>
                             <c:if test="${values.count > 1}">
                                 <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
                             </c:if>
                         </c:forEach>
-                        </div>
                         <c:if test="${fieldInputForm.repeatable}">
                             <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
                         </c:if>
                         <span>${fieldInputForm.hint}</span>
                     </div>
                 </c:when>
-                <c:when test="${fieldInputForm != null && fieldInputForm.complextInputType != null}">
+                <c:when test="${fieldInputForm.complextInputType != null}">
                     <div class="form-group">
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
@@ -431,15 +427,21 @@
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
-                        <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                        <textarea ${fieldInputForm.required != null ? 'required' : ''}
-                                id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" class="form-control"
-                                name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
-                                rows="3">${metadataValue.value}</textarea>
-                            <c:if test="${values.count > 1}">
-                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
-                            </c:if>
-                        </c:forEach>
+                        <div>
+                                <%--                            <c:if test="<%= metadataValues.size() == 0 %>">--%>
+                                <%--                                --%>
+                                <%--                            </c:if>--%>
+                            <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                                <input ${fieldInputForm.required != null ? 'required' : ''}
+                                        class="form-control" id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" type="text"
+                                        name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                        value="${metadataValue.value}"
+                                />
+                                <c:if test="${values.count > 1}">
+                                    <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                                </c:if>
+                            </c:forEach>
+                        </div>
                         <c:if test="${fieldInputForm.repeatable}">
                             <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
                         </c:if>
