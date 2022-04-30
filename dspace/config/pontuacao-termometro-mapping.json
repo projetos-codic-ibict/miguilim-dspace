@@ -84,14 +84,15 @@
     }
   },
   "dc_description_reviewerstypeofpublication": {
-    "tipoAvaliacao": 2,
+    "tipoAvaliacao": 3,
     "pontuacao": {
-      "A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações": 2,
+      "A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações": 1,
       "A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis": 1,
       "A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores": 2,
       "A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores": 0,
       "A revista não publica, nem revela o nome dos avaliadores": 0
-    }
+    },
+    "limitePontuacao": 2
   },
   "dc_description_peerreviewexternality": {
     "tipoAvaliacao": 2,
@@ -121,8 +122,8 @@
     "tipoAvaliacao": 2,
     "pontuacao": {
       "Imediatamente após a aceitação do documento": 2,
-      "Imediatamente após a publicação do documento": 2,
-      "Após finalizado o período de embargo": 1,
+      "Imediatamente após a publicação do documento": 1,
+      "Após finalizado o período de embargo": 0,
       "Não permite o armazenamento": 0
     }
   },
@@ -156,23 +157,18 @@
     }
   },
   "dc_description_digitalpreservation": {
-    "tipoAvaliacao": 3,
+    "tipoAvaliacao": 1,
     "pontuacao": {
-      "Ainda não adota política": 0,
-      "LOCKSS": 2,
-      "CLOCKSS": 2,
-      "APortico": 2,
-      "PKP PN": 2,
-      "Archivematica": 2,
-      "'other'": 2
+      "default": 2
     }
   },
   "dc_rights_researchdata": {
-    "tipoAvaliacao": 2,
+    "tipoAvaliacao": 3,
     "pontuacao": {
       "A revista exige que os autores publiquem os dados que deram origem à pesquisa em repositórios e/ou revistas de dados": 2,
-      "A revista publica os dados que deram origem à pesquisa na própria revista": 0,
+      "A revista publica os dados que deram origem à pesquisa na própria revista": 1,
       "A revista não exige que os autores publiquem os dados que deram origem à pesquisa": 0
-    }
+    },
+    "limitePontuacao": 2
   }
 }
