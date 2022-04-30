@@ -21,9 +21,13 @@ function addElement(id){
     }
     lastElement.id = id+count;
     lastElement.name = 'value_'+id+'_'+getSequence(count);
-    element.parentElement.appendChild(lastElement);
-    const html = `<button type="button" onclick="removeElement('${id+count}', event)" class="btn btn-danger pull-right">Remover</button>`
-    element.parentElement.innerHTML = element.parentElement.innerHTML + html;
+    const div = document.createElement('div');
+    div.appendChild(lastElement);
+    const html = `<button type="button" onclick="removeElement('${id+count}', event)" class="btn btn-danger pull-right">
+        <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+    </button>`
+    div.innerHTML = div.innerHTML + html;
+    element.parentElement.parentElement.appendChild(div);
 }
 
 function getSequence(num){

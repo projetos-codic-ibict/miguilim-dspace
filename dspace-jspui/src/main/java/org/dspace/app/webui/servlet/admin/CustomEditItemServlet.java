@@ -722,17 +722,18 @@ public class CustomEditItemServlet extends DSpaceServlet
                                  Choices.CF_NOVALUE : Choices.getConfidenceValue(sconfidence);
 
                 // Get the value
-                String value = request.getParameter(p).trim();
-
-                // If remove button pressed for this value, we don't add it
-                // back to the item. We also don't add empty values
-                // (if no authority is specified).
-                if (!((value.equals("") && authority == null) || button.equals("submit_remove_" + key
-                        + "_" + sequenceNumber)))
-                {
-                    // Value is empty, or remove button for this wasn't pressed
-                    itemService.addMetadata(context, item, schema, element, qualifier, language, value,
-                            authority, confidence);
+                String[] parameterValues = request.getParameterValues(p);
+                for (String value: parameterValues) {
+                    value = value.trim();
+                    // If remove button pressed for this value, we don't add it
+                    // back to the item. We also don't add empty values
+                    // (if no authority is specified).
+                    if (!((value.equals("") && authority == null) || button.equals("submit_remove_" + key
+                            + "_" + sequenceNumber))) {
+                        // Value is empty, or remove button for this wasn't pressed
+                        itemService.addMetadata(context, item, schema, element, qualifier, language, value,
+                                authority, confidence);
+                    }
                 }
             }
             else if (p.startsWith("bitstream_name"))

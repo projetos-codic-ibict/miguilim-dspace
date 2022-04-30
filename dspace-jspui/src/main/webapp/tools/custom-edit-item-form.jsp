@@ -108,6 +108,7 @@
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/edit-form.css" type="text/css"/>
 </c:set>
 
 <dspace:layout style="submission" titlekey="jsp.tools.edit-item-form.title"
@@ -340,8 +341,6 @@
                 MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
                 String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
 
-
-//                String sequenceNumber = getSequenceNumber(dcCounter, key);
             %>
             <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
@@ -351,29 +350,31 @@
                         VocabularyConverter vocabularyConverter = new VocabularyConverter();
                         List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
                     %>
-                    <c:set var="metadataValue" scope="session" value="<%= metadata != null ? metadata.getValue().trim() : null  %>"/>
+                    <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
                     <div class="form-group">
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
-                            <select class="multi" ${fieldInputForm.required != null ? 'required' : ''} multiple
-                                                                                         id="<%= key %>"
-                                                                                         name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                        <p>${metadataValuesVar}</p>
+                            <select class="multi" ${fieldInputForm.required != null ? 'required' : ''}
+                                    id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
+                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
                                 <c:forEach items="<%= vocabularies %>" var="option">
-                                    <option ${option.equalsIgnoreCase(metadataValue) ? 'selected' : ''}
+                                    <% String optionString = (String) pageContext.getAttribute("option"); %>
+                                    <option <%=isContains(metadataValues, optionString) ? "selected" : ""%>
                                             value="${option}">${option} </option>
                                 </c:forEach>
                             </select>
-                        <span>${fieldInputForm.hint}</span>
+                        <p>${fieldInputForm.hint}</p>
                     </div>
                     <script>
                         new SlimSelect({
                             select: "#<%= key %>",
-                            <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
-                            addable: function (value) {
-                                return value;
-                            }
-                            <% } %>
+<%--                            <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>--%>
+<%--                            addable: function (value) {--%>
+<%--                                return value;--%>
+<%--                            }--%>
+<%--                            <% } %>--%>
                         })
                     </script>
                 </c:when>
@@ -382,19 +383,25 @@
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
+                        <div class="input-group-fields">
                         <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                        <textarea ${fieldInputForm.required != null ? 'required' : ''}
+                        <div>
+                            <textarea ${fieldInputForm.required != null ? 'required' : ''}
                                 id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" class="form-control"
                                 name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                 rows="3">${metadataValue.value}</textarea>
                             <c:if test="${values.count > 1}">
-                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                </button>
                             </c:if>
+                           </div>
                         </c:forEach>
+                        </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo campo</button>
                         </c:if>
-                        <span>${fieldInputForm.hint}</span>
+                        <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
                 <c:when test="${fieldInputForm.complextInputType != null}">
@@ -402,7 +409,9 @@
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
+                        <div class="input-group-fields">
                         <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                        <div>
                             <select ${fieldInputForm.required != null ? 'required' : ''}
                                     class="form-control"
                                     id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
@@ -413,13 +422,17 @@
                                 </c:forEach>
                             </select>
                             <c:if test="${values.count > 1}">
-                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                                <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                </button>
                             </c:if>
+                        </div>
                         </c:forEach>
+                        </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo campo</button>
                         </c:if>
-                        <span>${fieldInputForm.hint}</span>
+                        <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
                 <c:otherwise>
@@ -427,25 +440,29 @@
                         <label for="<%= key %>">
                                 ${fieldInputForm.label}
                         </label>
-                        <div>
+                        <div class="input-group-fields">
                                 <%--                            <c:if test="<%= metadataValues.size() == 0 %>">--%>
                                 <%--                                --%>
                                 <%--                            </c:if>--%>
                             <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                                    <div>
                                 <input ${fieldInputForm.required != null ? 'required' : ''}
                                         class="form-control" id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}" type="text"
                                         name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                         value="${metadataValue.value}"
                                 />
                                 <c:if test="${values.count > 1}">
-                                    <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger pull-right">Remover</button>
+                                    <button type="button" onclick="removeElement('${keyValue.concat(values.index)}', event)" class="btn btn-danger">
+                                        <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                    </button>
                                 </c:if>
+                                    </div>
                             </c:forEach>
                         </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default pull-right">Novo campo</button>
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo campo</button>
                         </c:if>
-                        <span>${fieldInputForm.hint}</span>
+                        <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:otherwise>
             </c:choose>
@@ -494,6 +511,10 @@
     </form>
 </dspace:layout>
 <%!
+    private boolean isContains(List<MetadataValue> metadataValues, String value) {
+        return metadataValues.stream().filter(m -> m.getValue().trim().equalsIgnoreCase(value)).findAny().orElse(null) != null;
+    }
+
     private String getSequenceNumber(Map<String, Integer> dcCounter, String key) {
         String sequenceNumber = "0";
         Integer count = dcCounter.get(key);
