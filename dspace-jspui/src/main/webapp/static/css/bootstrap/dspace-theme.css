@@ -1117,6 +1117,17 @@ hr {
   text-decoration: none;
 }
 
+.navbar-nav li a {
+  text-shadow: none !important;
+  color: #04132A !important;
+}
+
+b.caret {
+  color: #04132A !important;
+  border-top-color: #04132A !important;
+  border-bottom-color: #04132A !important;
+}
+
 .ss-value {
   background-color: #04132A !important;
 }

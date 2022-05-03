@@ -709,6 +709,21 @@ hr {
 	}
 }
 
+.navbar-nav {
+	li {
+		a {
+	text-shadow: none!important;
+	color: $dark-blue!important;
+		}
+	}
+}
+
+b.caret {
+	color: $dark-blue!important;
+	border-top-color:$dark-blue!important;
+	border-bottom-color:$dark-blue!important;
+}
+
 .ss-value {
 	background-color: $dark-blue!important;
 	.ss-value-text {
