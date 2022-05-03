@@ -220,8 +220,18 @@ body {
 		outline: none;
 		border: 1px solid $board-field;
 		border-radius:8px;
-		padding:0 0 0 16px;
+		outline: none;
+		border-radius: 8px;
+		padding: 0 16px 0 16px;
+		// letter-spacing:0.5px;
+		// background-repeat: no-repeat;
+		// background-position:right 8px center;
+		// background-size:24px;		
 	}
+}
+
+input.field-s {
+	background-image: none!important;
 }
 
 .form-home {
@@ -521,12 +531,25 @@ hr {
 			display: flex;
 			gap: 8px;
 		}
+		select {
+			appearance: none; 
+			box-shadow: none;
+		}
+		
 		.field-s {
 			height: 40px;
+			width: 100%;
 			outline: none;
-			border: 1px solid #E8E8E8;
+			border: 1px solid $board-field;
+			border-radius:8px;
+			outline: none;
 			border-radius: 8px;
-			padding: 0 0 0 16px;			
+			padding: 0 16px 0 16px;
+			letter-spacing:0.5px;
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==");  
+			background-repeat: no-repeat;
+			background-position:right 8px center;
+			background-size:24px;			
 		}
 		.button-main {
 			height: 40px;
