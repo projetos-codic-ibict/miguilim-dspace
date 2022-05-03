@@ -716,7 +716,7 @@ hr {
 	color: $dark-blue!important;
 		}
 	}
-}
+}t
 
 b.caret {
 	color: $dark-blue!important;
@@ -731,6 +731,28 @@ b.caret {
 		letter-spacing: 0.5px;
 	}
 }
+
+.open {	
+	color: $white-lightest!important;
+	.dropdown-toggle {
+		color: $white-lightest!important;
+		.caret {
+			transform: rotateX(180deg);
+		}
+	}		
+}
+
+.dropdown-menu {
+	transition: all .2s ease-out;
+	li {
+		a:hover {
+			background-color:$dark-blue;
+			background-image: none;
+			color: $white-lightest!important;
+		}
+	}
+}
+
 //end internal
 
 //menu

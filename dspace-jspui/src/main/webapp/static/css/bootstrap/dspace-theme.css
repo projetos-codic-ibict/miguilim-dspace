@@ -1122,7 +1122,7 @@ hr {
   color: #04132A !important;
 }
 
-b.caret {
+t b.caret {
   color: #04132A !important;
   border-top-color: #04132A !important;
   border-bottom-color: #04132A !important;
@@ -1135,6 +1135,30 @@ b.caret {
 .ss-value .ss-value-text {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 0.5px;
+}
+
+.open {
+  color: #FFFFFF !important;
+}
+
+.open .dropdown-toggle {
+  color: #FFFFFF !important;
+}
+
+.open .dropdown-toggle .caret {
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+}
+
+.dropdown-menu {
+  -webkit-transition: all .2s ease-out;
+  transition: all .2s ease-out;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #04132A;
+  background-image: none;
+  color: #FFFFFF !important;
 }
 
 .navbar-nav {
