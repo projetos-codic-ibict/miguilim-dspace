@@ -1061,6 +1061,20 @@ hr {
   margin-bottom: 8px;
 }
 
+.form-group span {
+  color: #6A6A6A;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.ss-value .ss-value-text, .ss-value .ss-value-delete {
+  color: #FFFFFF;
+}
+
+.content-news .arrow {
+  cursor: pointer;
+}
+
 .btn-group {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1110,6 +1124,59 @@ hr {
 .ss-value .ss-value-text {
   font-family: "Open Sans", sans-serif;
   letter-spacing: 0.5px;
+}
+
+.navbar-nav {
+  margin: 12px 0 0 0;
+}
+
+.navbar-nav li a {
+  color: #04132A;
+}
+
+.caret {
+  color: #04132A;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-top: 4px;
+}
+
+.navbar-nav.navbar-right:last-child .caret {
+  color: #04132A;
+}
+
+.navbar-header .navbar-toggle {
+  background-color: #04132A;
+  -webkit-transform: translateY(10px);
+          transform: translateY(10px);
+}
+
+.navbar-header .navbar-toggle span {
+  background-color: #FFFFFF;
+}
+
+.media-list {
+  background-color: #FFFFFF;
+}
+
+.media {
+  background-color: #04132A;
+}
+
+.well {
+  background-color: #FFFFFF;
+  background-image: none;
+  border-radius: 8px;
+}
+
+.media-body {
+  background-color: #FFFFFF;
+  color: #04132A;
+}
+
+.media-body .media-heading .media-heading {
+  color: #04132A;
 }
 
 .results-cards {
@@ -1204,10 +1271,6 @@ hr {
 
 .results-cards .cards .group-footer .bt .button-main {
   height: 40px;
-}
-
-.navbar-nav li {
-  color: #04132A;
 }
 
 @media (max-width: 920px) {
