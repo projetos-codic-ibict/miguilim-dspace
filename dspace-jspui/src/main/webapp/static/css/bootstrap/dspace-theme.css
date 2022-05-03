@@ -718,8 +718,8 @@ hr {
   margin-top: 24px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 4fr 100px;
-      grid-template-columns: 1fr 4fr 100px;
+  -ms-grid-columns: 1fr 4fr 93px;
+      grid-template-columns: 1fr 4fr 93px;
   gap: 8px;
 }
 
