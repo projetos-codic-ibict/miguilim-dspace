@@ -772,6 +772,13 @@ hr {
 }
 //end cards-results
 
+//menu
+.navbar-nav {
+	li {
+		color: $dark-blue;
+	}
+}
+
 //mediua queries
 @media (max-width: 920px) {
 	.title-edit {

@@ -1206,6 +1206,10 @@ hr {
   height: 40px;
 }
 
+.navbar-nav li {
+  color: #04132A;
+}
+
 @media (max-width: 920px) {
   .title-edit {
     -webkit-box-orient: vertical;
