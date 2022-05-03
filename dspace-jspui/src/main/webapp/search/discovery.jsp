@@ -328,7 +328,7 @@
                         <input type="hidden" value="<%= order %>" name="order"/>
 
                         <!-- Primeira linha -->
-                        <div class="grid-col">
+                        <div class="grid-col-3 space-double">
                             <div>
                                 <select name="location" id="tlocation" class="field-s w100">
                                         <%
@@ -375,7 +375,7 @@
                                             {
                                                 boolean found = false;
                                             %>
-                                            <div class="grid-colsecond">
+                                            <div class="grid-col-2">
                                                 <div>
                                                     <select id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" class="field-s w100">
                                                         <%
@@ -415,7 +415,7 @@
                                                     </select>
                                                 </div>
 
-                                                <div>
+                                                <div class="space-b">
                                                     <input type="text" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>"
                                                            value="<%= StringEscapeUtils.escapeHtml(filter[2]) %>" class="field-s w100"/>
                                                 </div>
@@ -465,7 +465,7 @@
                                 }
                             } %>
                         <!-- Primeira linha -->
-                        <div class="grid-colsecond">
+                        <div class="grid-col-2b">
                             <div>
                                 <select id="filtername" name="filtername" class="field-s w100">
                                     <%

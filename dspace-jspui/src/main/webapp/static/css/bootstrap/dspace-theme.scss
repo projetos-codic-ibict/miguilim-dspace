@@ -394,6 +394,58 @@ hr {
     grid-template-columns: 1fr 4fr 100px;
     gap: 8px;	
 }
+.grid-col-3 {
+	display: grid;
+	gap:8px;
+	grid-template-columns: 1fr 3fr auto;
+}
+
+.grid-col-2{
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 140px 140px 1fr 68px;
+    gap: 8px;
+}
+.grid-col-2b {
+	margin-top: 16px;
+	display: grid;
+    grid-template-columns: 140px 140px 1fr 76px;
+	gap: 8px;
+}
+.space-b {
+	margin-bottom: 4px;
+}
+.space-double {
+	margin-top: 16px;
+}
+
+//table
+.panel-heading{
+	background: $dark-blue!important;
+	color: $white-lightest!important;
+}
+
+.table tbody>tr>th {
+	border-bottom: 1px solid $board-field!important;
+}
+.table tbody>tr>td>a , .table tbody>tr>td>em>a {
+	color:$blue-link!important;
+}
+.panel-info {
+	border:none!important;
+}
+
+.breadcrumb {
+	background: none;
+    box-shadow: none;
+    text-shadow: none;
+	display: none;
+	li {
+		a {
+			color: $dark-blue!important;
+		}
+	}
+}
 
 .grid-colsecond {
 	margin-top: 32px;
