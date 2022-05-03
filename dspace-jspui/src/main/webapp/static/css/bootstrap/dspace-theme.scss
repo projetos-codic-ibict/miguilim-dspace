@@ -753,6 +753,15 @@ b.caret {
 	}
 }
 
+.open {
+	.dropdown-toggle {
+		background-color: $dark-blue!important;
+	}
+	:active {
+		background-color: $dark-blue;
+	}
+}
+
 //end internal
 
 //menu

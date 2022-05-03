@@ -1161,6 +1161,14 @@ t b.caret {
   color: #FFFFFF !important;
 }
 
+.open .dropdown-toggle {
+  background-color: #04132A !important;
+}
+
+.open :active {
+  background-color: #04132A;
+}
+
 .navbar-nav {
   margin: 12px 0 0 0;
 }
