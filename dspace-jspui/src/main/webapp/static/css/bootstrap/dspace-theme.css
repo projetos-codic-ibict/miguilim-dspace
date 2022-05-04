@@ -1104,12 +1104,12 @@ hr {
 }
 
 .edit-metadata {
-  max-width: 720px;
+  /*max-width: 720px;*/
   margin: 0 auto;
 }
 
 .title-edit {
-  max-width: 720px;
+  /*max-width: 720px;*/
   margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1147,7 +1147,7 @@ hr {
 }
 
 .form-group span {
-  color: #6A6A6A;
+  /*color: #6A6A6A;*/
   font-size: 12px;
   line-height: 14px;
 }
