@@ -384,6 +384,15 @@ hr {
 	} 
 }
 
+.alert-detail {
+	width: 100%;
+	height: auto;
+	position: absolute;
+	bottom: 0;
+}
+
+
+
 .navbar-inverse {
 	border-top: none!important;
 }
@@ -817,7 +826,10 @@ b.caret {
 		.caret {
 			transform: rotateX(180deg);
 		}
-	}		
+	}	
+	&:active {
+		background-color: $white-lightest!important;
+	}	
 }
 
 .dropdown-menu {
@@ -829,6 +841,9 @@ b.caret {
 			color: $white-lightest!important;
 		}
 	}
+	&:visited {
+		background-color: $white-lightest!important;
+	}	
 }
 
 .open {
@@ -838,6 +853,11 @@ b.caret {
 	:active {
 		background-color: $dark-blue;
 	}
+}
+
+.open:active , .dropdown-menu {
+    background-color:$white-lightest!important;
+	background:$white-lightest!important;
 }
 
 //end internal

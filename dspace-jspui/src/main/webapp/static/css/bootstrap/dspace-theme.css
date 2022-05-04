@@ -710,6 +710,17 @@ hr {
   margin-right: 80px;
 }
 
+.alert-detail {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+}
+
+.navbar-inverse {
+  border-top: none !important;
+}
+
 .simple-search {
   margin-top: 16px !important;
 }
@@ -1235,6 +1246,10 @@ t b.caret {
           transform: rotateX(180deg);
 }
 
+.open:active {
+  background-color: #FFFFFF !important;
+}
+
 .dropdown-menu {
   -webkit-transition: all .2s ease-out;
   transition: all .2s ease-out;
@@ -1246,12 +1261,21 @@ t b.caret {
   color: #FFFFFF !important;
 }
 
+.dropdown-menu:visited {
+  background-color: #FFFFFF !important;
+}
+
 .open .dropdown-toggle {
   background-color: #04132A !important;
 }
 
 .open :active {
   background-color: #04132A;
+}
+
+.open:active, .dropdown-menu {
+  background-color: #FFFFFF !important;
+  background: #FFFFFF !important;
 }
 
 .navbar-nav {
