@@ -1156,8 +1156,8 @@ hr {
 }
 
 .form-group span {
-  font-size: 12px;
-  line-height: 14px;
+  /*font-size: 12px;*/
+  /*line-height: 14px;*/
 }
 
 .ss-value .ss-value-text, .ss-value .ss-value-delete {
