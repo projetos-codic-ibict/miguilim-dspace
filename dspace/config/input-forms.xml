@@ -250,10 +250,7 @@
                     <label>Idioma de publicação:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Selecione o (s) idioma (s) aceito (s) pela revista para submissão de
-                        documentos. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta".
-                        Caso as opções listadas não se adequem à realidade da
-                        revista, indique a resposta manualmente na caixa de texto.
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o idioma
                         da revista.
@@ -274,11 +271,7 @@
                     <label>Áreas do conhecimento:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>&lt;br&gt;Selecione as principais áreas do conhecimento em
-                        que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a
-                        resposta de acordo com as opções descritas na aba "Opções de
-                        resposta". Solicita-se que sejam selecionadas somente as áreas de conhecimento em que a revista
-                        dá mais ênfase em suas publicações, não sendo aconselhável adicionar mais do que cinco entradas.
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Selecione a(s)
                         área(s) de conhecimento correspondente(s), de acordo com tabela do CNPq. 
@@ -692,12 +685,7 @@
                     <label>Documentos avaliados:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Indique as seções ou tipos de documentos publicados pela revista que
-                        passam pela avaliação por pares. Exemplos: Artigo original, Artigo de revisão, Dados de
-                        pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.
-                        Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções
-                        listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de
-                        texto.
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Indique as seções
                         ou os tipos de documentos publicados pela revista que passam por avaliação por pares.
@@ -712,12 +700,7 @@
                     <repeatable>false</repeatable>
                     <label>Responsável pela decisão de publicação:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a instância responsável pela decisão final de publicar ou
-                        não o (s) documento (s) depois que passam pelo processo de avaliação por pares. Exemplos:
-                        Avaliador (es), Editor responsável, Editor de seção, Editor
-                        executivo. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta".
-                        Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na
-                        caixa de texto. 
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Indique a
                         instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que
@@ -977,11 +960,7 @@
                     <repeatable>false</repeatable>
                     <label>Código de ética:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe a qual (is) Código (s) de ética ou recomendações
-                        internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas na aba
-                        "Opções de
-                        resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta
-                        manualmente na caixa de texto. Exemplos: COPE, ICJME, BOAI etc.
+                    <hint>
                     </hint>
                     <required></required>
                     <vocabulary>codigo</vocabulary>
@@ -994,11 +973,7 @@
                     <repeatable>false</repeatable>
                     <label>Padrão de normalização bibliográfica:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o padrão de normalização bibliográfica adotado pela revista.
-                        Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções
-                        listadas não se adequem à realidade da revista,
-                        indique a resposta manualmente na caixa de texto. Caso a revista adote um Padrão de normalização
-                        bibliográfica próprio deixe a questão em branco.
+                    <hint>
                     </hint>
                     <required></required>
                     <vocabulary>normalizacao</vocabulary>
@@ -1011,12 +986,7 @@
                     <repeatable>true</repeatable>
                     <label>Plataforma de detecção de plágio:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o (s) software (s) ou plataforma (s) utilizado (s) para a
-                        detecção de plágio. Indique a resposta de acordo com as opções descritas na aba "Opções de
-                        resposta". Caso as opções listadas não se adequem à
-                        realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos de softwares :
-                        Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate, Plagiarism.org, Plagius,
-                        Turnitin, WriteCheck, Similarity check.
+                    <hint>
                     </hint>
                     <required></required>
                     <vocabulary>plagio</vocabulary>
@@ -1029,12 +999,7 @@
                     <repeatable>true</repeatable>
                     <label>Estratégia de preservação digital:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a estratégia de preservação digital adotada pela revista.
-                        Indique a resposta de acordo com as opções descritas na aba
-                        "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a
-                        resposta manualmente na caixa de texto. Exemplos: Lockss, CLockss,
-                        Pórtico, Archivematica. Caso a revista ainda não adote uma política de preservação indique a
-                        opção "Ainda não adota política".
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe a
                         estratégia de preservação digital adotada pela revista.
@@ -1108,10 +1073,7 @@
                     <repeatable>true</repeatable>
                     <label>Redes sociais:</label>
                     <input-type>onebox</input-type>
-                    <hint>A revista deve indicar o nome da (s) rede (s) social (is) em que
-                        está presente. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta".
-                        Caso as opções listadas não se adequem à realidade da
-                        revista, indique a resposta manualmente na caixa de texto. 
+                    <hint>
                     </hint>
                     <required></required>
                     <vocabulary>redes</vocabulary>
@@ -1125,14 +1087,7 @@
                     <label>Serviços de informação:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>&lt;br&gt;A revista deve indicar os serviços de informação
-                        em que está presente. Como serviços de informação consideram-se bases de dados, índices,
-                        indexadores, diretórios e etc. Indique a resposta de acordo
-                        com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à
-                        realidade da revista, indique a resposta manualmente na caixa de texto. Caso a revista não faça
-                        parte de nenhum serviço de informação indique apenas o
-                        Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras). Exemplos: Oasisbr, SciELO,
-                        Redalyc, Latindex, Diadorim, Web of Science, Scopus, Sumários.org etc. 
+                    <hint>
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Selecione o
                         serviço de informação.
