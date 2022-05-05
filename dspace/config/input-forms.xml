@@ -27,9 +27,7 @@
                     <input-type>textarea</input-type>
                     <hint>Descreva o escopo, foco ou objetivo da revista
                         de maneira sucinta.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe a
-                        Descrição.
-                    </required>
+                    <required>Descreva o escopo, foco ou objetivo da revista de maneira sucinta.</required>
                 </field>
 
                 <field>
@@ -296,13 +294,13 @@
                     <label>Instituição editora:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o nome completo e por extenso da instituição responsável
-                        pela edição da revista . A responsabilidade pela edição da revista deverá levar em
-                        consideração o nível hierárquico mais alto de afiliação. Por exemplo, uma universidade, e não
-                        seus departamentos, faculdades ou institutos. Todos esses organismos subordinados podem ser
-                        descritos no campo "Organismo
-                        subordinado". Caso a revista não possua instituição responsável pela edição, indique “Publicação
-                        independente”. Exemplo de preenchimento: Universidade de Brasília (UnB).
+                    <hint>Informe o nome completo, por extenso, da instituição responsável pela edição da revista,
+                        seguido pela sigla entre parênteses. A responsabilidade pela edição da revista deverá
+                        levar em consideração o nível hierárquico de afiliação mais alto. Por exemplo,
+                        uma universidade, e não seus departamentos, faculdades ou institutos.
+                        Todos esses organismos subordinados podem ser descritos no campo "Organismo subordinado".
+                        Caso a revista não possua instituição responsável pela edição, indique “Publicação independente”.
+                        Exemplo de preenchimento: Universidade de Brasília (UnB).
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o nome da
                         Instituição Editora
@@ -317,10 +315,11 @@
                     <label>Organismo subordinado:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o nome completo e por extenso do organismo subordinado à
-                        instituição editora que atua diretamente na publicação da revista. Considere como
-                        organismos subordinados: departamentos, faculdades, coordenações, institutos etc. Exemplo de
-                        preenchimento: Programa de Pós-Graduação em História (PPGHIS).
+                    <hint>"Informe o nome completo, por extenso, do organismo subordinado à instituição
+                        editora que atua diretamente na publicação da revista,
+                        seguido pela sigla entre parênteses. Considere como organismos subordinados:
+                        departamentos, faculdades, coordenações, institutos etc. Exemplo de preenchimento:
+                        Programa de Pós-Graduação em História (PPGHIS).".
                     </hint>
                     <required></required>
                 </field>
@@ -332,10 +331,10 @@
                     <repeatable>true</repeatable>
                     <label>Identificador da instituição editora:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a URL do cadastro da instituição editora em plataformas que
-                        geram um identificador único para instituição, como as plataformas GRID, ISNI e CADI por
-                        exemplo. Os endereços das plataformas GRID, ISNI e CADI são
-                        respectivamente: &lt;a href="https://www.grid.ac/" target="_blank"&gt;http://www.grid.ac/&lt;/a&gt;,
+                    <hint>Indique a URL do cadastro da instituição editora em plataformas que geram um identificador único para instituição,
+                        como as plataformas GRID, ROR, ISNI e CADI por exemplo. Os endereços das plataformas indicadas são respectivamente:
+                        &lt;a href="https://www.grid.ac/" target="_blank"&gt;http://www.grid.ac/&lt;/a&gt;,
+                        &lt;a href="https://ror.org/" target="_blank"&gt;https://ror.org/&lt;/a&gt;,
                         &lt;a href="http://www.isni.org/" target="_blank"&gt;https://www.isni.org/&lt;/a&gt; e &lt;a
                         href="http://di.cnpq.br/di/cadi/consultaInst.do" target="_blank"&gt;http://di.cnpq.br/di/cadi/consultaInst.do&lt;/a&gt;
                         
@@ -674,12 +673,11 @@
                     <repeatable>false</repeatable>
                     <label>Externalidade da avaliação por pares:</label>
                     <input-type value-pairs-name="common_description_peerreviewexternality">dropdown</input-type>
-                    <hint>Indique se a avaliação por pares adotada pela revista considera
-                        agentes externos, internos ou ambos.
-                        &lt;br&gt;Opções de resposta:&lt;br&gt;1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição
-                        que edita a revista.&lt;br&gt;2. A avaliação por pares é realizada por pesquisadores da instituiçao que edita a
-                        revista e por pesquisadores que são externos à instituição que edita a revista.&lt;br&gt;3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são
-                        externos à instituição que edita a revista.&lt;br&gt;
+                    <hint>Indique se a avaliação por pares adotada pela revista considera agentes externos, internos ou ambos.                                                                                              Opções de resposta:
+                        &lt;br&gt;1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista.
+                        &lt;br&gt;2. A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista.
+                        &lt;br&gt;3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista.
+
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Indique a
                         avaliação por pares adotada pela revista.
@@ -1942,27 +1940,21 @@
 
         <value-pairs value-pairs-name="common_description_peerreviewexternality" dc-term="common_description_peerreviewexternality">
             <pair>
-                <displayed-value>1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição
-                    que edita a revista
+                <displayed-value>1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista.
                 </displayed-value>
-                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que
-                    edita a revista
+                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>2. A avaliação por pares é realizada por pesquisadores da instituiçao que edita a
-                    revista e por pesquisadores que são externos à instituição que edita a revista
+                <displayed-value>2. A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista
                 </displayed-value>
-                <stored-value>A avaliação por pares é realizada por pesquisadores da instituiçao que edita a revista e
-                    por pesquisadores que são externos à instituição que edita a revista
+                <stored-value>A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são
-                    externos à instituição que edita a revista
+                <displayed-value>3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista
                 </displayed-value>
-                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à
-                    instituição que edita a revista
+                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista
                 </stored-value>
             </pair>
         </value-pairs>
@@ -2183,8 +2175,8 @@
                 <stored-value>A revista cobra taxa de submissão e de processamento de artigos</stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista não cobra nenhuma taxa de publicação</displayed-value>
-                <stored-value>A revista não cobra nenhuma taxa de publicação</stored-value>
+                <displayed-value>A revista não cobra qualquer taxa de publicação</displayed-value>
+                <stored-value>A revista não cobra qualquer taxa de publicação</stored-value>
             </pair>
         </value-pairs>
 
