@@ -119,7 +119,7 @@
                nocache="true">
 
     <div class="title-edit">
-            <%-- <h1>Edit Item</h1> --%>
+            <%-- <h1>Edit Item </h1> --%>
         <h1><fmt:message key="jsp.tools.edit-item-form.title"/>
             <span class="edit-help">
           <dspace:popup
@@ -141,7 +141,7 @@
     </div>
     <% if (isAdmin) {%>
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-9"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
             <div class="panel panel-primary">
                 <div class="panel-heading"><fmt:message key="jsp.tools.edit-item-form.details"/></div>
 
