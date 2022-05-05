@@ -356,10 +356,9 @@
                     <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
                     <div class="form-group">
                         <label for="<%= key %>">
-                                ${fieldInputForm.label}
+                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                         </label>
-                        <p>${metadataValuesVar}</p>
-                        <select class="multi" ${fieldInputForm.required != null ? 'required' : ''}
+                        <select class="multi" ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                 id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
                                 name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
                             <c:forEach items="<%= vocabularies %>" var="option">
@@ -383,30 +382,41 @@
                 </c:when>
                 <c:when test="${fieldInputForm.simpleInputType != null && fieldInputForm.simpleInputType.equals('textarea')}">
                     <div class="form-group">
-                        <label for="<%= key %>">
-                                ${fieldInputForm.label}
+                        <label for="${keyValue}">
+                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                         </label>
                         <div class="input-group-fields">
+                            <c:if test="<%= metadataValues.size() == 0 %>">
+                                <div>
+                                  <textarea ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                          id="${keyValue}"
+                                          class="form-control"
+                                          name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                          rows="3"></textarea>
+                                </div>
+                            </c:if>
                             <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
                                 <div>
-                            <textarea ${fieldInputForm.required != null ? 'required' : ''}
-                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
-                                    class="form-control"
-                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
-                                    rows="3">${metadataValue.value}</textarea>
+                                    <textarea ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                            id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
+                                            class="form-control"
+                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                            rows="3">${metadataValue.value}</textarea>
                                     <c:if test="${values.count > 1}">
                                         <button type="button"
                                                 onclick="removeElement('${keyValue.concat(values.index)}', event)"
                                                 class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
                                         </button>
                                     </c:if>
                                 </div>
                             </c:forEach>
                         </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo
-                                campo
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
                             </button>
                         </c:if>
                         <p>${fieldInputForm.hint}</p>
@@ -415,12 +425,24 @@
                 <c:when test="${fieldInputForm.complextInputType != null}">
                     <div class="form-group">
                         <label for="<%= key %>">
-                                ${fieldInputForm.label}
+                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                         </label>
                         <div class="input-group-fields">
+                            <c:if test="<%= metadataValues.size() == 0 %>">
+                                <div>
+                                    <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                            class="form-control"
+                                            id="${keyValue}"
+                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                        <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
+                                            <option value="${option.value}">${option.key} </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </c:if>
                             <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
                                 <div>
-                                    <select ${fieldInputForm.required != null ? 'required' : ''}
+                                    <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                             class="form-control"
                                             id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                             name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
@@ -433,15 +455,17 @@
                                         <button type="button"
                                                 onclick="removeElement('${keyValue.concat(values.index)}', event)"
                                                 class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                            <span class="glyphicon glyphicon-trash"></span>&nbsp
+                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
                                         </button>
                                     </c:if>
                                 </div>
                             </c:forEach>
                         </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo
-                                campo
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
                             </button>
                         </c:if>
                         <p>${fieldInputForm.hint}</p>
@@ -449,16 +473,24 @@
                 </c:when>
                 <c:otherwise>
                     <div class="form-group">
-                        <label for="<%= key %>">
-                                ${fieldInputForm.label}
+                        <label for="${keyValue}">
+                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                         </label>
                         <div class="input-group-fields">
-                                <%--                            <c:if test="<%= metadataValues.size() == 0 %>">--%>
-                                <%--                                --%>
-                                <%--                            </c:if>--%>
+                            <c:if test="<%= metadataValues.size() == 0 %>">
+                                <div>
+                                    <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                            class="form-control"
+                                            id="${keyValue}"
+                                            type="text"
+                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                            value=""
+                                    />
+                                </div>
+                            </c:if>
                             <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
                                 <div>
-                                    <input ${fieldInputForm.required != null ? 'required' : ''}
+                                    <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                             class="form-control"
                                             id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                             type="text"
@@ -469,15 +501,17 @@
                                         <button type="button"
                                                 onclick="removeElement('${keyValue.concat(values.index)}', event)"
                                                 class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;Excluir
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
                                         </button>
                                     </c:if>
                                 </div>
                             </c:forEach>
                         </div>
                         <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">Novo
-                                campo
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
                             </button>
                         </c:if>
                         <p>${fieldInputForm.hint}</p>
