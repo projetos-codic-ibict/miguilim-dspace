@@ -21,15 +21,15 @@ function replaceValidationUI( form ) {
 
         // Remove any existing messages
         for ( let i = 0; i < errorMessages.length; i++ ) {
-            errorMessages[ i ].parentNode.parentNode.removeChild( errorMessages[ i ] );
+            errorMessages[ i ].parentNode.removeChild( errorMessages[ i ] );
         }
 
         for ( let i = 0; i < invalidFields.length; i++ ) {
             parent = invalidFields[ i ].parentNode.parentNode;
             label = form.querySelector( "label[for=" + invalidFields[ i ].id + "]" );
             const fieldName = label.innerHTML.replace(':', '');
-            parent.insertAdjacentHTML( "beforeend", "<div class='alert alert-danger'>" +
-               'CAMPO OBRIGATÓRIO' + ': ' + fieldName.trim() + ', ' + invalidFields[ i ].validationMessage +
+            parent.insertAdjacentHTML( "beforeend", "<div class='alert alert-danger error-message'>" +
+               'CAMPO OBRIGATÓRIO' + ': ' + fieldName.replace('*', '').trim() + ', ' + invalidFields[ i ].validationMessage +
                 "</div>" );
         }
 

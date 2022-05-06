@@ -358,6 +358,7 @@
                         <label for="<%= key %>">
                                 ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                         </label>
+                        <div>
                         <select class="multi" ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                 id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
                                 name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
@@ -367,6 +368,7 @@
                                         value="${option}">${option} </option>
                             </c:forEach>
                         </select>
+                        </div>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                     <script>
