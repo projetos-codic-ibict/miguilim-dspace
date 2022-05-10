@@ -65,7 +65,13 @@
 <%@ page import="java.util.Enumeration" %>
 <%@ page import="java.util.Set" %>
 <%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
+<%@ page import="org.dspace.content.service.ItemService"%>
+<%@ page import="org.dspace.content.factory.ContentServiceFactory"%>
+<%@ page import="org.dspace.content.DCDate"%>
+
 <%
+    
+
     // Get the attributes
     DSpaceObject scope = (DSpaceObject) request.getAttribute("scope");
     String searchScope = scope != null ? scope.getHandle() : "";
@@ -118,6 +124,11 @@
     List<Community> communities = (List<Community>) request.getAttribute("communities");
     List<Collection> collections = (List<Collection>) request.getAttribute("collections");
 
+    ItemService itemService = ContentServiceFactory.getInstance().getItemService();
+    HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
+
+    final String REVISTAS = "123456789/2";
+	final String PORTAL_DE_PERIODICOS = "123456789/2669";
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
@@ -202,6 +213,7 @@
             if (brefine)
             {
         %>
+        
         <div class="search-facet">
             <h3><fmt:message key="jsp.search.facet.refine"/></h3>
 
@@ -223,9 +235,8 @@
 
                 <div class="accordion-header collapsed" data-toggle="collapse" href="#facet_<%= f %>" role="button" aria-expanded="false" aria-controls="facet_<%= f %>">
                     <span><fmt:message key="<%= fkey %>"/></span>
-                </div> <!-- acordion header -->
+                </div> 
                 <div class="collapse" id="facet_<%= f %>">
-
                     <ul class="accordion-content">
                         <%
                             int idx = 1;
@@ -235,7 +246,8 @@
                             }
                             for (FacetResult fvalue : facet)
                             {
-                                if (idx != limit && !appliedFilterQueries.contains(f + "::" + fvalue.getFilterType() + "::" + fvalue.getAsFilterQuery())) {
+                                if (idx != limit && !appliedFilterQueries.contains(f + "::" + fvalue.getFilterType() + "::" + fvalue.getAsFilterQuery())) 
+                                {
                         %>
                         <li>
                             <a href="<%= request.getContextPath()
@@ -263,7 +275,8 @@
                                     break;
                                 }
                             }
-                            if (currFp > 0 || idx == limit) {
+                            if (currFp > 0 || idx == limit) 
+                            {
                         %>
                         <li class="list-group-item"><span style="visibility: hidden;">.</span>
                             <% if (currFp > 0) { %>
@@ -294,33 +307,33 @@
                                                                                     + "&amp;"+f+"_page="+(currFp+1) %>">
                                 <span class="pull-right"><fmt:message key="jsp.search.facet.refine.next"/></span>
                             </a>
-                            <%
+                        <%
                                 }
-                            %>
+                        %>
                         </li>
                         <%
                             }
                         %>
                     </ul>
-                </div> <!-- div colapse -->
-
-            </div> <!-- accordion-body -->
+                </div>
+            </div>
 
             <%
                 }
-            %> <!-- loop facet -->
-
-        </div> <!-- search facet -->
-        <% } %>
+            %>
+                
+        </div>
+   
+        <%  } %>
 
         <div class="search-filter">
             <h3>Filtro para busca</h3>
             <div class="search-element searchfilter">
-                <div class="accordion-header" data-toggle="collapse" href="#searchAccordion" role="button"
-                     aria-expanded="true" aria-controls="searchAccordion">
+                <div class="accordion-header collapsed" data-toggle="collapse" href="#searchAccordion" role="button"
+                     aria-expanded="false" aria-controls="searchAccordion">
                     <span><fmt:message key="jsp.search.results.searchin"></fmt:message></span>
                 </div>
-                <div id="searchAccordion">
+                <div class="collapse" id="searchAccordion">
                     <form action="simple-search" method="get">
 
                         <input type="hidden" value="<%= rpp %>" name="rpp"/>
@@ -516,12 +529,83 @@
 
             </div>
 
-            <br/><br/><br/>
-            <% if (items.size() > 0) { %>
-            <div class="panel panel-info">
-                <div class="panel-heading"><fmt:message key="jsp.search.results.itemhits"/></div>
-                <dspace:itemlist items="<%= items %>" authorLimit="<%= etAl %>"/>
+            <% 
+                if (items.size() > 0) 
+                { 
+            %>
+            <div class="results-cards">
+                <%
+                for (Item item : items) 
+                {
+                    String titulo = itemService.getMetadataFirstValue(item, "dc", "title", null, Item.ANY);
+                    if (titulo == null)
+				    {
+					    titulo = "Untitled";
+				    }
 
+                    String subtitulo = itemService.getMetadataFirstValue(item, "dc", "title", "other", Item.ANY);
+                    if (subtitulo == null)
+				    {
+					    subtitulo = "";
+				    }
+
+				    String editora = itemService.getMetadataFirstValue(item, "dc", "publisher", "name", Item.ANY);
+				    if (editora == null)
+				    {
+					    editora = "";
+				    }
+
+                    DCDate dataPublicacao = new DCDate(itemService.getMetadataFirstValue(item, "dc", "date", "available", Item.ANY));
+                    String dataPublicacaoFormatada = UIUtil.displayDate(dataPublicacao, false, false, hrq);
+				    if (dataPublicacaoFormatada == null)
+				    {
+					    dataPublicacaoFormatada = "";
+				    }
+
+                    String uri = itemService.getMetadataFirstValue(item, "dc", "identifier", "uri", Item.ANY);
+                    String handleCollection = item.getCollections().get(0).getHandle();
+                %>
+
+                <div class="cards">
+                    <h3 onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'" ><%= titulo %></h3>
+                    <h2><%= editora %></h2>
+                    <p><%= subtitulo %></p>
+                    <div class="group-footer">
+                        <div class="info">
+                            <div class="kind">
+                                <%
+                                    if(handleCollection.equals(REVISTAS)) 
+                                    {
+                                %>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 18C6.10218 18 5.72064 18.158 5.43934 18.4393C5.15804 18.7206 5 19.1022 5 19.5C5 20.0523 4.55228 20.5 4 20.5C3.44772 20.5 3 20.0523 3 19.5C3 18.5717 3.36875 17.6815 4.02513 17.0251C4.6815 16.3687 5.57174 16 6.5 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H6.5Z" fill="#071D41"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 3C6.10218 3 5.72064 3.15804 5.43934 3.43934C5.15804 3.72064 5 4.10218 5 4.5V19.5C5 19.8978 5.15804 20.2794 5.43934 20.5607C5.72064 20.842 6.10218 21 6.5 21H19V3H6.5ZM6.5 1H20C20.5523 1 21 1.44772 21 2V22C21 22.5523 20.5523 23 20 23H6.5C5.57174 23 4.6815 22.6313 4.02513 21.9749C3.36875 21.3185 3 20.4283 3 19.5V4.5C3 3.57174 3.36875 2.6815 4.02513 2.02513C4.6815 1.36875 5.57174 1 6.5 1Z" fill="#071D41"/>
+                                </svg>
+                                <span>Revista</span>
+                                <%
+                                    } 
+                                    else if(handleCollection.equals(PORTAL_DE_PERIODICOS)) 
+                                    {
+                                %>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.614 21C3.284 21 2.944 20.91 2.654 20.75C2.354 20.59 2.104 20.35 1.924 20.06C1.744 19.77 1.644 19.43 1.624 19.09C1.604 18.75 1.684 18.41 1.834 18.1L3.004 15.76V7C3.004 6.2 3.314 5.45 3.884 4.88C4.454 4.31 5.204 4 6.004 4H18.004C18.804 4 19.564 4.31 20.124 4.88C20.694 5.44 21.004 6.2 21.004 7V15.76L22.174 18.1C22.324 18.4 22.404 18.74 22.384 19.08C22.364 19.43 22.264 19.76 22.084 20.05C21.904 20.34 21.644 20.59 21.344 20.75C21.054 20.92 20.714 21 20.374 21H3.624C3.614 21 3.614 21 3.614 21ZM4.614 17L3.614 19H20.384L19.384 17H4.614ZM5.004 15H19.004V7C19.004 6.73 18.904 6.48 18.714 6.29C18.524 6.1 18.264 6 18.004 6H6.004C5.734 6 5.484 6.11 5.294 6.29C5.104 6.48 5.004 6.74 5.004 7V15Z" fill="#071D41"/>
+                                </svg>
+                                <span>Portal</span>
+                                <%
+                                    }
+                                %>
+                            </div>
+                            <div class="line"></div>
+                            <div class="kind"><strong>Publicada em:</strong> <%= dataPublicacaoFormatada %></div>
+                        </div>	
+                        <div class="bt">
+                            <button onclick="location.href = '<%= uri %>'" type="submit" class="button-main">Acessar</button>
+                        </div>
+                    </div>
+                </div>
+                <%
+                }
+                %>
 
                 <%
                     if (error) {
@@ -665,22 +749,6 @@
             <% } %>
         </div>
 
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </dspace:layout>
