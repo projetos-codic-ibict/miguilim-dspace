@@ -752,7 +752,7 @@ hr {
 }
 
 .grid-col-2b {
-  margin-top: 16px;
+  margin-top: 24px;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 140px 140px 1fr 76px;
@@ -823,6 +823,9 @@ hr {
   width: 100%;
   background-position-x: right;
   background-position-y: center;
+  padding-right: 24px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .searchfilter .accordion-header span {
@@ -832,6 +835,9 @@ hr {
   background-repeat: no-repeat;
   background-position-x: right;
   background-position-y: center;
+  padding-right: 24px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .search-main {
@@ -884,6 +890,9 @@ hr {
   background-repeat: no-repeat;
   background-position: right center;
   width: 100%;
+  padding-right: 24px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .search-main .search-facet .accordion-header h3 {
@@ -899,7 +908,7 @@ hr {
 .search-main .search-facet .accordion-content li {
   border-bottom: 1px solid #F2F2F2;
   padding: 12px 0;
-  margin: 0 16px;
+  margin: 0 0 0 16px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1153,11 +1162,6 @@ hr {
 
 .form-group .ss-multi-selected, .form-group .form-control {
   margin-bottom: 8px;
-}
-
-.form-group span {
-  /*font-size: 12px;*/
-  /*line-height: 14px;*/
 }
 
 .ss-value .ss-value-text, .ss-value .ss-value-delete {

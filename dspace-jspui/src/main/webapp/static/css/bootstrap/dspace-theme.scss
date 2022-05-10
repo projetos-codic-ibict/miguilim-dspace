@@ -419,7 +419,7 @@ hr {
     gap: 8px;
 }
 .grid-col-2b {
-	margin-top: 16px;
+	margin-top: 24px;
 	display: grid;
     grid-template-columns: 140px 140px 1fr 76px;
 	gap: 8px;
@@ -480,6 +480,9 @@ hr {
 		width: 100%;
 		background-position-x: right;
 		background-position-y: center;
+		padding-right:24px;
+		overflow-wrap: break-word;
+		word-wrap: break-word;
 	}
 	}
 	.accordion-header {
@@ -489,7 +492,10 @@ hr {
 			width: 100%;
 			background-repeat: no-repeat;
 			background-position-x: right;
-			background-position-y: center;			
+			background-position-y: center;		
+			padding-right:24px;
+			overflow-wrap: break-word;
+			word-wrap: break-word;	
 		}
 	}
 }
@@ -533,6 +539,9 @@ hr {
 					background-repeat: no-repeat;
 					background-position: right center;
 					width:100%;
+					padding-right:24px;
+					overflow-wrap: break-word;
+					word-wrap: break-word;					
 				}
 				h3 {
 					color:$white-lightest;
@@ -546,7 +555,7 @@ hr {
 					border-bottom: 1px solid $white-line-second;
 					padding:12px 0 ;
 					//text-indent: 16px;
-					margin:0 16px;
+					margin:0 0 0 16px;
 					display: flex;
 					justify-content: space-between;
 					a {
