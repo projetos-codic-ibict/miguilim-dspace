@@ -417,13 +417,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
-                            <c:if test="${fieldInputForm.repeatable}">
-                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                                </button>
-                            </c:if>
                         </div>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                            </button>
+                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
@@ -466,13 +466,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
-                            <c:if test="${fieldInputForm.repeatable}">
-                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                                </button>
-                            </c:if>
                         </div>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                            </button>
+                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
@@ -512,13 +512,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
-                            <c:if test="${fieldInputForm.repeatable}">
-                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-plus"></span>
-                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                                </button>
-                            </c:if>
                         </div>
+                        <c:if test="${fieldInputForm.repeatable}">
+                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                <span class="glyphicon glyphicon-plus"></span>
+                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                            </button>
+                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:otherwise>
