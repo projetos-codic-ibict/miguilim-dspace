@@ -1,6 +1,14 @@
+.input-group-fields{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: 5px;
+}
+
 .input-group-fields div{
     display: flex;
     column-gap: 5px;
     justify-content: space-between;
     align-items: flex-start;
+    width: 100%;
 }

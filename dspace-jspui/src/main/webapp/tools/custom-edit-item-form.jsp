@@ -318,6 +318,9 @@
     <%
         }
     %>
+
+    <p class="alert alert-default"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
+
     <form id="edit_metadata" name="edit_metadata" class="edit-metadata" method="post"
           action="<%= request.getContextPath() %>/tools/edit-item">
 
@@ -374,11 +377,11 @@
                     <script>
                         new SlimSelect({
                             select: "#<%= key %>",
-                            <%--                            <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>--%>
-                            <%--                            addable: function (value) {--%>
-                            <%--                                return value;--%>
-                            <%--                            }--%>
-                            <%--                            <% } %>--%>
+                                <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
+                                addable: function (value) {
+                                    return value;
+                                }
+                                <% } %>
                         })
                     </script>
                 </c:when>
@@ -414,13 +417,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
+                            <c:if test="${fieldInputForm.repeatable}">
+                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                </button>
+                            </c:if>
                         </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
@@ -463,13 +466,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
+                            <c:if test="${fieldInputForm.repeatable}">
+                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                </button>
+                            </c:if>
                         </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:when>
@@ -509,13 +512,13 @@
                                     </c:if>
                                 </div>
                             </c:forEach>
+                            <c:if test="${fieldInputForm.repeatable}">
+                                <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                </button>
+                            </c:if>
                         </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
                         <p>${fieldInputForm.hint}</p>
                     </div>
                 </c:otherwise>

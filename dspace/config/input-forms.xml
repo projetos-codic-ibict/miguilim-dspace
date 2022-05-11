@@ -25,8 +25,7 @@
                     <repeatable>false</repeatable>
                     <label>Descrição:</label>
                     <input-type>textarea</input-type>
-                    <hint>Descreva o escopo, foco ou objetivo da revista
-                        de maneira sucinta.</hint>
+                    <hint>Descreva o escopo, foco ou objetivo da revista de maneira sucinta.</hint>
                     <required>Descreva o escopo, foco ou objetivo da revista de maneira sucinta.</required>
                 </field>
 
@@ -378,9 +377,7 @@
                         href="http://lattes.cnpq.br/" target="_blank"&gt;http://lattes.cnpq.br/&lt;/a&gt; e &lt;a
                         href="https://orcid.org/" target="_blank"&gt;https://orcid.org/&lt;/a&gt;
                     </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o nome do
-                        editor-responsável.
-                    </required>
+                    <required></required>
                 </field>
 
                 <field>
@@ -1168,7 +1165,7 @@
                         pelo portal de periódicos . A responsabilidade deverá levar em consideração o nível hierárquico
                         mais alto de afiliação. Por exemplo, uma universidade, e
                         não seus departamentos, faculdades ou institutos. Todos esses organismos subordinados podem ser
-                        descritos no campo "Organismo subordinado". Exemplo de preenchimento: Universidade de Brasília
+                        descritos no campo Organismo subordinado. Exemplo de preenchimento: Universidade de Brasília
                         (UnB).
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o nome da
