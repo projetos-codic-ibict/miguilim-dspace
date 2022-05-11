@@ -62,7 +62,7 @@ public class TermometroServlet extends DSpaceServlet
         String pontuacaoTermometro = termometroService.calcularPontuacaoDoItem(dso);
         request.setAttribute(ATRIBUTO_PONTUACAO, pontuacaoTermometro);
 
-        JSPManager.showJSP(request, response, "display-termometro.jsp");
+        JSPManager.showJSP(request, response, "/item-pages/display-termometro.jsp");
     }
 
 }

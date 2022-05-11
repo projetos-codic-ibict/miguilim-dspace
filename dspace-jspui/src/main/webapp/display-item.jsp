@@ -54,6 +54,8 @@
 <%@page import="org.dspace.handle.factory.HandleServiceFactory" %>
 <%@page import="org.dspace.versioning.service.VersionHistoryService" %>
 <%@page import="org.dspace.versioning.factory.VersionServiceFactory" %>
+<%@ page import="org.dspace.termometro.service.TermometroService" %>
+<%@ page import="org.dspace.termometro.factory.TermometroServiceFactory" %>
 
 <%
     // Attributes
@@ -120,91 +122,67 @@
     VersionHistoryService versionHistoryService = VersionServiceFactory.getInstance().getVersionHistoryService();
     VersionHistory history = (VersionHistory)request.getAttribute("versioning.history");
     List<Version> historyVersions = (List<Version>)request.getAttribute("versioning.historyversions");
-%>
 
+    TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
+    String pontuacaoTermometro = termometroService.calcularPontuacaoDoItem(item);
+
+%>
 
 <dspace:layout title="<%= title %>">
-<%
-    if (handle != null)
-    {
-%>
 
-		<%
-		if (newVersionAvailable)
-		   {
-		%>
-		<div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.new_version_head"/></b>
-		<fmt:message key="jsp.version.notice.new_version_help"/> <a href="<%= latestVersionIdentifier %>"><%= latestVersionIdentifier %></a>
-		</div>
-		<%
-		    }
-		%>
-
-		<%
-		if (showVersionWorkflowAvailable)
-		   {
-		%>
-		<div class="alert alert-warning"><b><fmt:message key="jsp.version.notice.workflow_version_head"/></b>
-		<fmt:message key="jsp.version.notice.workflow_version_help"/>
-		</div>
-		<%
-		    }
-		%>
+<div class="search-main">
 
 
-                <%-- <strong>Please use this identifier to cite or link to this item:
-                <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
-                <div class="well"><fmt:message key="jsp.display-item.identifier"/>
-                <code><%= preferredIdentifier %></code></div>
-<%
-        if (admin_button)  // admin edit button
-        { %>
-        <dspace:sidebar>
-            <div class="panel panel-warning">
-            	<div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
-            	<div class="panel-body">
-                <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <%--<input type="submit" name="submit" value="Edit...">--%>
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.item"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/mydspace">
-                    <input type="hidden" name="item_id" value="<%= item.getID() %>" />
-                    <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.migrateitem"/>" />
-                </form>
-                <form method="post" action="<%= request.getContextPath() %>/dspace-admin/metadataexport">
-                    <input type="hidden" name="handle" value="<%= item.getHandle() %>" />
-                    <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
-                </form>
-					<% if(hasVersionButton) { %>
-                	<form method="get" action="<%= request.getContextPath() %>/tools/version">
-                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />
-                    	<input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
-                	</form>
-                	<% } %>
-                	<% if(hasVersionHistory) { %>
-                	<form method="get" action="<%= request.getContextPath() %>/tools/history">
-                    	<input type="hidden" name="itemID" value="<%= item.getID() %>" />
-                    	<input type="hidden" name="versionID" value="<%= versionHistoryService.getVersion(context, history, item)!=null?versionHistoryService.getVersion(context, history, item).getID():null %>" />
-                    	<input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
-                	</form>
-					<% } %>
-             </div>
-          </div>
-        </dspace:sidebar>
-<%      } %>
+        <%
+            if (admin_button)  // admin edit button
+            { %>
+                <div class="search-facet">
+                <div class="panel panel-warning">
+                <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
+                <div class="panel-body">
+                    <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
+                        <input type="hidden" name="item_id" value="<%= item.getID() %>" />
+                        <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
+                    </form>
+                    <form method="post" action="<%= request.getContextPath() %>/mydspace">
+                        <input type="hidden" name="item_id" value="<%= item.getID() %>" />
+                        <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>" />
+                        <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.item"/>" />
+                    </form>
+                    <form method="post" action="<%= request.getContextPath() %>/mydspace">
+                        <input type="hidden" name="item_id" value="<%= item.getID() %>" />
+                        <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE %>" />
+                        <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.mydspace.request.export.migrateitem"/>" />
+                    </form>
+                    <form method="post" action="<%= request.getContextPath() %>/dspace-admin/metadataexport">
+                        <input type="hidden" name="handle" value="<%= item.getHandle() %>" />
+                        <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
+                    </form>
+                    <% if(hasVersionButton) { %>
+                    <form method="get" action="<%= request.getContextPath() %>/tools/version">
+                        <input type="hidden" name="itemID" value="<%= item.getID() %>" />
+                        <input class="btn btn-default col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.button"/>" />
+                    </form>
+                    <% } %>
+                    <% if(hasVersionHistory) { %>
+                    <form method="get" action="<%= request.getContextPath() %>/tools/history">
+                        <input type="hidden" name="itemID" value="<%= item.getID() %>" />
+                        <input type="hidden" name="versionID" value="<%= versionHistoryService.getVersion(context, history, item)!=null?versionHistoryService.getVersion(context, history, item).getID():null %>" />
+                        <input class="btn btn-info col-md-12" type="submit" name="submit" value="<fmt:message key="jsp.general.version.history.button"/>" />
+                    </form>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+        <%
+            }
+        %>
 
-<%
-        // submitter create new version button
-        if (submitter_button && hasVersionButton) {
-%>
-        <dspace:sidebar>
+        <%
+            // submitter create new version button
+            if (submitter_button && hasVersionButton) {
+        %>
+        <div class="search-facet">
             <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.submittertools"/></div>
                 <div class="panel-body">
@@ -214,191 +192,178 @@
                     </form>
                 </div>
             </div>
-        </dspace:sidebar>
-<%
-        }
-    }
+        </div>
+        <%
+            }
+        %>
 
-    String displayStyle = (displayAll ? "full" : "");
-%>
-    <dspace:item-preview item="<%= item %>" />
-    <dspace:item item="<%= item %>" collections="<%= collections %>" style="<%= displayStyle %>" />
-<div class="container row">
-<%
-    String locationLink = request.getContextPath() + "/handle/" + handle;
+    <div class="search-filter">
 
-    if (displayAll)
-    {
-%>
-<%
-        if (workspace_id != null)
-        {
-%>
-    <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/view-workspaceitem">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>" />
-        <input class="btn btn-default" type="submit" name="submit_simple" value="<fmt:message key="jsp.display-item.text1"/>" />
-    </form>
-<%
-        }
-        else
-        {
-%>
-    <a class="btn btn-default" href="<%=locationLink %>?mode=simple">
-        <fmt:message key="jsp.display-item.text1"/>
-    </a>
-<%
-        }
-%>
-<%
-    }
-    else
-    {
-%>
-<%
-        if (workspace_id != null)
-        {
-%>
-    <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/view-workspaceitem">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>" />
-        <input class="btn btn-default" type="submit" name="submit_full" value="<fmt:message key="jsp.display-item.text2"/>" />
-    </form>
-<%
-        }
-        else
-        {
-%>
-    <a class="btn btn-default" href="<%=locationLink %>?mode=full">
-        <fmt:message key="jsp.display-item.text2"/>
-    </a>
-<%
-        }
-    }
 
-    if (workspace_id != null)
-    {
-%>
-   <form class="col-md-2" method="post" action="<%= request.getContextPath() %>/workspace">
-        <input type="hidden" name="workspace_id" value="<%= workspace_id.intValue() %>"/>
-        <input class="btn btn-primary" type="submit" name="submit_open" value="<fmt:message key="jsp.display-item.back_to_workspace"/>"/>
-    </form>
-<%
-    } else {
+        <%-- <strong>Please use this identifier to cite or link to this item:
+        <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
+        <div class="well"><fmt:message key="jsp.display-item.identifier"/>
+            <code><%= preferredIdentifier %></code></div>
 
-		if (suggestLink)
-        {
-%>
-    <a class="btn btn-success" href="<%= request.getContextPath() %>/suggest?handle=<%= handle %>" target="new_window">
-       <fmt:message key="jsp.display-item.suggest"/></a>
-<%
-        }
-%>
-    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/statistics">
-        <fmt:message key="jsp.display-item.display-statistics"/>
-    </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item active">
+                <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message key="webui.displayitem.tab.itemdata"></fmt:message> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"  destiny="#formulario"><fmt:message key="webui.displayitem.tab.requestchange"></fmt:message> </a>
+            </li>
+        </ul>
 
-    <a class="statisticsLink  btn btn-primary" href="<%= request.getContextPath() %>/handle/<%= handle %>/termometro">
-        <fmt:message key="jsp.display-item.termometro"/>
-    </a>
+        <div id="item-data" tabcontent>
 
-    <%-- SFX Link --%>
-<%
-    if (ConfigurationManager.getProperty("sfx.server.url") != null)
-    {
-        String sfximage = ConfigurationManager.getProperty("sfx.server.image_url");
-        if (sfximage == null)
-        {
-            sfximage = request.getContextPath() + "/image/sfx-link.gif";
-        }
-%>
-        <a class="btn btn-default" href="<dspace:sfxlink item="<%= item %>"/>" /><img src="<%= sfximage %>" border="0" alt="SFX Query" /></a>
-<%
-    }
-    }
-%>
+            <% String displayStyle = (displayAll ? "full" : ""); %>
+
+
+            <dspace:item-preview item="<%= item %>" />
+            <dspace:item item="<%= item %>" collections="<%= collections %>" style="<%= displayStyle %>" />
+
+
+        </div>
+
+        <div id="termometro" tabcontent>
+            <h2>Termômetro</h2>
+
+            <div class="header-termometro">
+                <p>
+                    <fmt:message key="termometro.display.title"/>
+                </p>
+            </div>
+            <div class="container" id="div-termometro">
+                <canvas height=180 id="canvas-termometro" width=340></canvas>
+                <p>
+                <div id="preview-textfield"></div>
+                </p>
+            </div>
+
+
+
+        </div>
+
+        <div id="formulario" tabcontent class="d-hide">
+            <iframe width="800" height="2000" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSfi63n2szjUZo2f_K_9OXh-L71Q8nY1xAULe-d5T082nIO2tQ/viewform">
+            </iframe>
+        </div>
+
+    </div>
 </div>
-<br/>
-    <%-- Versioning table --%>
-<%
-    if (versioningEnabled && hasVersionHistory)
-    {
-        boolean item_history_view_admin = ConfigurationManager
-                .getBooleanProperty("versioning", "item.history.view.admin");
-        boolean item_history_include_submitter = ConfigurationManager
-                .getBooleanProperty("versioning", "item.history.include.submitter", false);
-        if(!item_history_view_admin || admin_button) {
-%>
-	<div id="versionHistory" class="panel panel-info">
-	<div class="panel-heading"><fmt:message key="jsp.version.history.head2" /></div>
 
-	<table class="table panel-body">
-		<tr>
-			<th id="tt1" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column1"/></th>
-			<th
-				id="tt2" class="oddRowOddCol"><fmt:message key="jsp.version.history.column2"/></th>
-            <%-- Add Information about submitter only for admins or if item.history.include.submitter is true --%>
-            <% if (item_history_include_submitter || admin_button) { %>
-    			<th
-	    			 id="tt3" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column3"/></th>
-            <% } %>
-			<th
 
-				id="tt4" class="oddRowOddCol"><fmt:message key="jsp.version.history.column4"/></th>
-			<th
-				 id="tt5" class="oddRowEvenCol"><fmt:message key="jsp.version.history.column5"/> </th>
-		</tr>
 
-		<% for(Version versRow : historyVersions) {
 
-			EPerson versRowPerson = versRow.getEPerson();
-			String[] identifierPath = UIUtil.getItemIdentifier(UIUtil.obtainContext(request), versRow.getItem());
-                        String url = identifierPath[0];
-                        String identifier;
-                        if (ConfigurationManager.getBooleanProperty("webui.identifier.strip-prefixes", true))
-                        {
-                            identifier = identifierPath[2];
-                        } else {
-                            identifier = identifierPath[3];
-                        }
-		%>
-		<tr>
-			<td headers="tt1" class="oddRowEvenCol"><%= versRow.getVersionNumber() %></td>
-			<td headers="tt2" class="oddRowOddCol"><a href="<%= url %>"><%= identifier %></a><%= item.getID()==versRow.getItem().getID()?"<span class=\"glyphicon glyphicon-asterisk\"></span>":""%></td>
 
-                        <% if(admin_button) { %>
-                            <td headers="tt3" class="oddRowEvenCol"><a
-                               href="mailto:<%= versRowPerson.getEmail() %>"><%=versRowPerson.getFullName() %></a> </td>
-                        <% }
-                        else if(item_history_include_submitter) { %>
-                            <td headers="tt3" class="oddRowEvenCol"> <%=versRowPerson.getFullName() %> </td>
-                        <% }%>
-			<td headers="tt4" class="oddRowOddCol"><%= versRow.getVersionDate() %></td>
-			<td headers="tt5" class="oddRowEvenCol"><%= versRow.getSummary() %></td>
-		</tr>
-		<% } %>
-	</table>
-	<div class="panel-footer"><fmt:message key="jsp.version.history.legend"/></div>
-	</div>
-<%
-        }
+
+<style id="style-termometro">
+
+    .header-termometro {
+        text-align: center;
+        margin-top: 50px;
     }
-%>
-<br/>
-    <%-- Create Commons Link --%>
-<%
-    if (cc_url != null)
-    {
-%>
-    <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.text3"/> <a href="<%= cc_url %>"><fmt:message key="jsp.display-item.license"/></a>
-    <a href="<%= cc_url %>"><img src="<%= request.getContextPath() %>/image/cc-somerights.gif" border="0" alt="Creative Commons" style="margin-top: -5px;" class="pull-right"/></a>
-    </p>
-    <!--
-    <%= cc_rdf %>
-    -->
-<%
-    } else {
-%>
-    <p class="submitFormHelp alert alert-info"><fmt:message key="jsp.display-item.copyright"/></p>
-<%
+
+    .header-termometro p {
+        color: #9e1822;
     }
-%>
+
+    #div-termometro {
+        background: rgba(200, 200, 200, 0.99);
+        position: relative;
+        color: #fff;
+        width: 380px;
+        height: 300px;
+        margin-bottom: 50px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        clear: both;
+        padding: 0 15px;
+    }
+
+    #canvas-termometro {
+        width: 380px;
+        top: 40px;
+        right: 16px;
+        position: relative;
+    }
+
+    #preview-textfield {
+        position: relative;
+        padding-top: 20px;
+        top: 1px;
+        left: 0;
+        right: 0;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+        color: black;
+        font-family: 'Amaranth', sans-serif;
+    }
+
+</style>
+<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/gauge/gauge.js"> </script>
+<script type="text/javascript">
+    initGauge();
+    function initGauge() {
+        termometro = new Gauge(document.getElementById("canvas-termometro"));
+        var opts = {
+            angle: 0,
+            lineWidth: 0.4,
+            radiusScale: 1,
+
+            staticLabels: {
+                font: "18px sans-serif",
+                labels: [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100],
+                fractionDigits: 0
+            },
+
+            renderTicks: {
+                divisions: 100,
+                divWidth: 0.5,
+                divLength: 0.1,
+                divColor: '#333333',
+                subDivisions: 1,
+                subLength: 0.5,
+                subWidth: 0.6,
+                subColor: '#363030'
+            },
+            limitMax: true,
+            limitMin: false,
+            highDpiSupport: true
+        };
+        termometro.setOptions(opts);
+        termometro.minValue = 0;
+        termometro.maxValue = 100;
+        termometro.animationSpeed = 10;
+        termometro.set(<%= pontuacaoTermometro %>);
+        termometro.setTextField(document.getElementById("preview-textfield"));
+    }
+
+    document.querySelector("#termometro").classList.add("d-hide");
+</script>
+
+<script>
+
+    document.querySelectorAll("a[destiny]").forEach(element => {
+
+        element.addEventListener("click", function(){
+
+            document.querySelectorAll("div[tabcontent]").forEach(element => {
+                element.classList.add("d-hide");
+            });
+
+            document.querySelectorAll("li[class='nav-item active']").forEach(element => {
+                element.classList.remove("active");
+            });
+            document.querySelector(this.getAttribute("destiny")).classList.remove("d-hide");
+            this.parentElement.classList.add("active");
+        })
+    });
+
+</script>
 </dspace:layout>
