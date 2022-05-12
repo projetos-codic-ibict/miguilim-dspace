@@ -48,5 +48,4 @@ document.addEventListener("DOMContentLoaded",  () => {
     for (let i = 0; i < forms.length; i++) {
         replaceValidationUI(forms[i]);
     }
-    jQuery('[data-toggle="popover"]').popover();
 })

@@ -106,6 +106,7 @@
     <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/edit-form.css" type="text/css"/>
