@@ -421,7 +421,7 @@ hr {
 .grid-col-2b {
 	margin-top: 24px;
 	display: grid;
-    grid-template-columns: 140px 140px 1fr 76px;
+    grid-template-columns: auto auto auto auto;
 	gap: 8px;
 }
 .space-b {
@@ -883,8 +883,10 @@ b.caret {
 .caret {
 	color: $dark-blue;
 }
+.navbar-right {
+	margin: 6px 8px 0 8px;
+}
 .navbar-nav.navbar-right:last-child {
-	margin-top: 4px;
 	.caret {
 		color: $dark-blue;
 	}
