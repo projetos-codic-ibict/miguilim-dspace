@@ -312,7 +312,7 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
-            <p class="alert alert-default"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
+            <p class="alert alert-info"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
 
             <form id="edit_metadata" name="edit_metadata" class="edit-metadata" method="post"
                   action="<%= request.getContextPath() %>/tools/edit-item">
