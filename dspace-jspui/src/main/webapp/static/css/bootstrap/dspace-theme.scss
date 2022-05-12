@@ -653,6 +653,14 @@ hr {
 	}
 }
 
+
+.nav-pills>li.active>a {
+	color: $dark-blue!important;
+    border-bottom: 2px solid $dark-blue!important;
+    border-radius: 0!important;
+	background: none!important;
+}
+
 //pagination 
 .pagination-number {
 	width: 100%;

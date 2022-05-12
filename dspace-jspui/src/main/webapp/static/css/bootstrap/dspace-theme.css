@@ -1023,6 +1023,13 @@ hr {
   padding: 40px 32px;
 }
 
+.nav-pills > li.active > a {
+  color: #04132A !important;
+  border-bottom: 2px solid #04132A !important;
+  border-radius: 0 !important;
+  background: none !important;
+}
+
 .pagination-number {
   width: 100%;
 }
