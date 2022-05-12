@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-<div class="espacamento"> 
+<div class="espacamento minus-space"> 
 <h2><strong class="titulo-medio">Miguilim</strong></h2>
 
     <p>O Diretório das revistas científicas eletrônicas brasileiras - Miguilim é uma iniciativa do <a href="http://www.ibict.br/" target="_blank"> Instituto Brasileiro de Informação
