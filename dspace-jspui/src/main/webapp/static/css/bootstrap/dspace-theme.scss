@@ -421,7 +421,7 @@ hr {
 .grid-col-2b {
 	margin-top: 24px;
 	display: grid;
-    grid-template-columns: 140px 140px 1fr 76px;
+    grid-template-columns: auto auto auto auto;
 	gap: 8px;
 }
 .space-b {
@@ -651,6 +651,19 @@ hr {
 			@extend .title-section;
 		}		
 	}
+}
+
+
+.nav-pills>li.active>a {
+	color: $dark-blue!important;
+    border-bottom: 2px solid $dark-blue!important;
+    border-radius: 0!important;
+	background: none!important;
+}
+
+.minus-space {
+	margin: 0 auto;
+	max-width: 550px;
 }
 
 //pagination 
@@ -883,8 +896,10 @@ b.caret {
 .caret {
 	color: $dark-blue;
 }
+.navbar-right {
+	margin: 6px 8px 0 8px;
+}
 .navbar-nav.navbar-right:last-child {
-	margin-top: 4px;
 	.caret {
 		color: $dark-blue;
 	}
