@@ -2,7 +2,7 @@
 
 <!-- página de busca -->
 <div class="search-main">
-	<div class="search-facet">
+	<div class="search-content">
 		<h3>Busca facetada</h3>
 
 		<div class="accordion-body">
