@@ -99,13 +99,14 @@
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>
+    <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>--%>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>
     <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/edit-form.css" type="text/css"/>
@@ -121,11 +122,11 @@
     <div class="title-edit">
             <%-- <h1>Edit Item </h1> --%>
         <h1><fmt:message key="jsp.tools.edit-item-form.title"/>
-            <span class="edit-help">
-          <dspace:popup
-                  page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\") + \"#editmetadata\"%>"><fmt:message
-                  key="jsp.morehelp"/></dspace:popup>
-    </span>
+                <%--            <span class="edit-help">--%>
+                <%--          <dspace:popup--%>
+                <%--                  page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\") + \"#editmetadata\"%>"><fmt:message--%>
+                <%--                  key="jsp.morehelp"/></dspace:popup>--%>
+                <%--    </span>--%>
         </h1>
 
             <%-- <p><strong>PLEASE NOTE: These changes are not validated in any way.
@@ -141,59 +142,6 @@
     </div>
     <% if (isAdmin) {%>
     <div class="row">
-        <div class="col-md-9"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <div class="panel panel-primary">
-                <div class="panel-heading"><fmt:message key="jsp.tools.edit-item-form.details"/></div>
-
-                <div class="panel-body">
-                    <table class="table">
-                        <tr>
-                            <td><fmt:message key="jsp.tools.edit-item-form.itemID"/>
-                            </td>
-                            <td><%= item.getID() %>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td><fmt:message key="jsp.tools.edit-item-form.handle"/>
-                            </td>
-                            <td><%= (handle == null ? "None" : handle) %>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><fmt:message key="jsp.tools.edit-item-form.modified"/>
-                            </td>
-                            <td><dspace:date
-                                    date="<%= new DCDate(item.getLastModified()) %>"/>
-                            </td>
-                        </tr>
-                            <%-- <td class="submitFormLabel">In Collections:</td> --%>
-                        <tr>
-                            <td><fmt:message key="jsp.tools.edit-item-form.collections"/>
-                            </td>
-                            <td>
-                                <% for (int i = 0; i < collections.size(); i++) { %> <%= collections.get(i).getName() %>
-                                <% } %>
-                            </td>
-                        </tr>
-                        <tr>
-                                <%-- <td class="submitFormLabel">Item page:</td> --%>
-                            <td><fmt:message key="jsp.tools.edit-item-form.itempage"/>
-                            </td>
-                            <td>
-                                <% if (handle == null) { %> <em><fmt:message
-                                    key="jsp.tools.edit-item-form.na"/>
-                            </em> <% } else {
-                                String url = ConfigurationManager.getProperty("dspace.url") + "/handle/" + handle; %>
-                                <a target="_blank" href="<%= url %>"><%= url %>
-                                </a> <% } %>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading"><fmt:message key="jsp.actiontools"/></div>
@@ -306,266 +254,343 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-9">
+            <div class="panel panel-primary">
+                <div class="panel-heading"><fmt:message key="jsp.tools.edit-item-form.details"/></div>
+
+                <div class="panel-body">
+                    <table class="table">
+                        <tr>
+                            <td><fmt:message key="jsp.tools.edit-item-form.itemID"/>
+                            </td>
+                            <td><%= item.getID() %>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td><fmt:message key="jsp.tools.edit-item-form.handle"/>
+                            </td>
+                            <td><%= (handle == null ? "None" : handle) %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><fmt:message key="jsp.tools.edit-item-form.modified"/>
+                            </td>
+                            <td><dspace:date
+                                    date="<%= new DCDate(item.getLastModified()) %>"/>
+                            </td>
+                        </tr>
+                            <%-- <td class="submitFormLabel">In Collections:</td> --%>
+                        <tr>
+                            <td><fmt:message key="jsp.tools.edit-item-form.collections"/>
+                            </td>
+                            <td>
+                                <% for (int i = 0; i < collections.size(); i++) { %> <%= collections.get(i).getName() %>
+                                <% } %>
+                            </td>
+                        </tr>
+                        <tr>
+                                <%-- <td class="submitFormLabel">Item page:</td> --%>
+                            <td><fmt:message key="jsp.tools.edit-item-form.itempage"/>
+                            </td>
+                            <td>
+                                <% if (handle == null) { %> <em><fmt:message
+                                    key="jsp.tools.edit-item-form.na"/>
+                            </em> <% } else {
+                                String url = ConfigurationManager.getProperty("dspace.url") + "/handle/" + handle; %>
+                                <a target="_blank" href="<%= url %>"><%= url %>
+                                </a> <% } %>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
     <% } %>
 
-    <%
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-9">
+            <p class="alert alert-info"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
 
-        if (item.isWithdrawn()) {
-    %>
-    <%-- <p align="center"><strong>This item was withdrawn from DSpace</strong></p> --%>
-    <p class="alert alert-warning"><fmt:message key="jsp.tools.edit-item-form.msg"/></p>
-    <%
-        }
-    %>
+            <form id="edit_metadata" name="edit_metadata" class="edit-metadata" method="post"
+                  action="<%= request.getContextPath() %>/tools/edit-item">
 
-    <p class="alert alert-default"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
+                <%
+                    MetadataAuthorityService mam = ContentAuthorityServiceFactory.getInstance().getMetadataAuthorityService();
+                    ChoiceAuthorityService cam = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
+                    String row = "even";
+                    String collectionName = item.getOwningCollection().getName();
+                    List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+                    List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(collectionName);
+                    FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
+                    Map<String, Integer> dcCounter = new HashMap<String, Integer>();
 
-    <form id="edit_metadata" name="edit_metadata" class="edit-metadata" method="post"
-          action="<%= request.getContextPath() %>/tools/edit-item">
+                %>
 
-        <%
-            MetadataAuthorityService mam = ContentAuthorityServiceFactory.getInstance().getMetadataAuthorityService();
-            ChoiceAuthorityService cam = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
-            String row = "even";
-            String collectionName = item.getOwningCollection().getName();
-            List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
-            List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(collectionName);
-            FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
-            Map<String, Integer> dcCounter = new HashMap<String, Integer>();
+                    <%--        by Jesiel--%>
 
-        %>
-
-            <%--        by Jesiel--%>
-
-        <c:forEach items="<%= fieldInputFormList %>" var="fieldInputForm" varStatus="loop">
-            <%
-                FieldInputForm xmlField = ((FieldInputForm) pageContext.getAttribute("fieldInputForm"));
-                List<MetadataValue> metadataValues = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
-                        xmlField.getElement(), xmlField.getQualifier());
-
-                MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
-                String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
-
-            %>
-            <c:set var="keyValue" scope="session" value="<%= key  %>"/>
-
-            <c:choose>
-                <c:when test="${fieldInputForm.simpleVocabulary != null}">
+                <c:forEach items="<%= fieldInputFormList %>" var="fieldInputForm" varStatus="loop">
                     <%
-                        VocabularyConverter vocabularyConverter = new VocabularyConverter();
-                        List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                        FieldInputForm xmlField = ((FieldInputForm) pageContext.getAttribute("fieldInputForm"));
+                        List<MetadataValue> metadataValues = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
+                                xmlField.getElement(), xmlField.getQualifier());
+
+                        MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
+                        String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
+
                     %>
-                    <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
-                    <div class="form-group">
-                        <label for="<%= key %>">
-                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
-                        </label>
-                        <div>
-                        <select class="multi" ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
-                                name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
-                            <c:forEach items="<%= vocabularies %>" var="option">
-                                <% String optionString = (String) pageContext.getAttribute("option"); %>
-                                <option <%=isContains(metadataValues, optionString) ? "selected" : ""%>
-                                        value="${option}">${option} </option>
-                            </c:forEach>
-                        </select>
-                        </div>
-                        <p>${fieldInputForm.hint}</p>
-                    </div>
-                    <script>
-                        new SlimSelect({
-                            select: "#<%= key %>",
-                                <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
-                                addable: function (value) {
-                                    return value;
-                                }
-                                <% } %>
-                        })
-                    </script>
-                </c:when>
-                <c:when test="${fieldInputForm.simpleInputType != null && fieldInputForm.simpleInputType.equals('textarea')}">
-                    <div class="form-group">
-                        <label for="${keyValue}">
-                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
-                        </label>
-                        <div class="input-group-fields">
-                            <c:if test="<%= metadataValues.size() == 0 %>">
+                    <c:set var="keyValue" scope="session" value="<%= key  %>"/>
+
+                    <c:choose>
+                        <c:when test="${fieldInputForm.simpleVocabulary != null && fieldInputForm.repeatable}">
+                            <%
+                                VocabularyConverter vocabularyConverter = new VocabularyConverter();
+                                List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                            %>
+                            <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
+                            <div class="form-group">
+                                <label for="<%= key %>">
+                                        ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
+                                </label>
+                                <c:if test="${fieldInputForm.hint != null && !fieldInputForm.hint.isEmpty()}">
+                                    <a data-container="body" role="button"
+                                       data-toggle="popover" data-placement="top"
+                                       data-html="true" data-trigger="focus" tabindex="0"
+                                       data-content='${fieldInputForm.hint}'>
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                    </a>
+                                </c:if>
                                 <div>
+                                    <select class="multi" ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                            id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
+                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                        <c:forEach items="<%= vocabularies %>" var="option">
+                                            <% String optionString = (String) pageContext.getAttribute("option"); %>
+                                            <option <%=isContains(metadataValues, optionString) ? "selected" : ""%>
+                                                    value="${option}">${option} </option>
+                                        </c:forEach>
+                                    </select>
+                                </div>
+                            </div>
+                            <script>
+                                new SlimSelect({
+                                    select: "#<%= key %>",
+                                    <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
+                                    addable: function (value) {
+                                        return value;
+                                    }
+                                    <% } %>
+                                })
+                            </script>
+                        </c:when>
+                        <c:when test="${fieldInputForm.simpleInputType != null && fieldInputForm.simpleInputType.equals('textarea')}">
+                            <div class="form-group">
+                                <label for="${keyValue}">
+                                        ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
+                                </label>
+                                <c:if test="${fieldInputForm.hint != null && !fieldInputForm.hint.isEmpty()}">
+                                    <a data-container="body" role="button"
+                                       data-toggle="popover" data-placement="top"
+                                       data-html="true" data-trigger="focus" tabindex="0"
+                                       data-content='${fieldInputForm.hint}'>
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                    </a>
+                                </c:if>
+                                <div class="input-group-fields">
+                                    <c:if test="<%= metadataValues.size() == 0 %>">
+                                        <div>
                                   <textarea ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                           id="${keyValue}"
                                           class="form-control"
                                           name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                           rows="3"></textarea>
-                                </div>
-                            </c:if>
-                            <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                                <div>
+                                        </div>
+                                    </c:if>
+                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                                        <div>
                                     <textarea ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                             id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                             class="form-control"
                                             name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                             rows="3">${metadataValue.value}</textarea>
-                                    <c:if test="${values.count > 1}">
-                                        <button type="button"
-                                                onclick="removeElement('${keyValue.concat(values.index)}', event)"
-                                                class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
-                                        </button>
+                                            <c:if test="${values.count > 1}">
+                                                <button type="button"
+                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
+                                                        class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
+                                                </button>
+                                            </c:if>
+                                        </div>
+                                    </c:forEach>
+                                </div>
+                                <c:if test="${fieldInputForm.repeatable}">
+                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                    </button>
+                                </c:if>
+                            </div>
+                        </c:when>
+                        <c:when test="${fieldInputForm.complextInputType != null}">
+                            <div class="form-group">
+                                <label for="<%= key %>">
+                                        ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
+                                </label>
+                                <c:if test="${fieldInputForm.hint != null && !fieldInputForm.hint.isEmpty()}">
+                                    <a data-container="body" role="button"
+                                       data-toggle="popover" data-placement="top"
+                                       data-html="true" data-trigger="focus" tabindex="0"
+                                       data-content='${fieldInputForm.hint}'>
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                    </a>
+                                </c:if>
+                                <div class="input-group-fields">
+                                    <c:if test="<%= metadataValues.size() == 0 %>">
+                                        <div>
+                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                                    class="form-control"
+                                                    id="${keyValue}"
+                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
+                                                           var="option">
+                                                    <option value="${option.value}">${option.key} </option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
                                     </c:if>
+                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                                        <div>
+                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                                    class="form-control"
+                                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
+                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
+                                                           var="option">
+                                                    <option ${option.value.equalsIgnoreCase(metadataValue.value) ? 'selected' : ''}
+                                                            value="${option.value}">${option.key} </option>
+                                                </c:forEach>
+                                            </select>
+                                            <c:if test="${values.count > 1}">
+                                                <button type="button"
+                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
+                                                        class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>&nbsp
+                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
+                                                </button>
+                                            </c:if>
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                            </c:forEach>
-                        </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
-                        <p>${fieldInputForm.hint}</p>
-                    </div>
-                </c:when>
-                <c:when test="${fieldInputForm.complextInputType != null}">
-                    <div class="form-group">
-                        <label for="<%= key %>">
-                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
-                        </label>
-                        <div class="input-group-fields">
-                            <c:if test="<%= metadataValues.size() == 0 %>">
-                                <div>
-                                    <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                            class="form-control"
-                                            id="${keyValue}"
-                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
-                                        <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
-                                            <option value="${option.value}">${option.key} </option>
-                                        </c:forEach>
-                                    </select>
-                                </div>
-                            </c:if>
-                            <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                                <div>
-                                    <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                            class="form-control"
-                                            id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
-                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
-                                        <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
-                                            <option ${option.value.equalsIgnoreCase(metadataValue.value) ? 'selected' : ''}
-                                                    value="${option.value}">${option.key} </option>
-                                        </c:forEach>
-                                    </select>
-                                    <c:if test="${values.count > 1}">
-                                        <button type="button"
-                                                onclick="removeElement('${keyValue.concat(values.index)}', event)"
-                                                class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>&nbsp
-                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
-                                        </button>
+                                <c:if test="${fieldInputForm.repeatable}">
+                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                    </button>
+                                </c:if>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <div class="form-group">
+                                <label for="${keyValue}">
+                                        ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
+                                </label>
+                                <c:if test="${fieldInputForm.hint != null && !fieldInputForm.hint.isEmpty()}">
+                                    <a data-container="body" role="button"
+                                       data-toggle="popover" data-placement="top"
+                                       data-html="true" data-trigger="focus" tabindex="0"
+                                       data-content='${fieldInputForm.hint}'>
+                                        <span class="glyphicon glyphicon-question-sign"></span>
+                                    </a>
+                                </c:if>
+                                <div class="input-group-fields">
+                                    <c:if test="<%= metadataValues.size() == 0 %>">
+                                        <div>
+                                            <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                                    class="form-control"
+                                                    id="${keyValue}"
+                                                    type="text"
+                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                                    value=""
+                                            />
+                                        </div>
                                     </c:if>
+                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
+                                        <div>
+                                            <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                                    class="form-control"
+                                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
+                                                    type="text"
+                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
+                                                    value="${metadataValue.value}"
+                                            />
+                                            <c:if test="${values.count > 1}">
+                                                <button type="button"
+                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
+                                                        class="btn btn-danger">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
+                                                </button>
+                                            </c:if>
+                                        </div>
+                                    </c:forEach>
                                 </div>
-                            </c:forEach>
-                        </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
-                        <p>${fieldInputForm.hint}</p>
-                    </div>
-                </c:when>
-                <c:otherwise>
-                    <div class="form-group">
-                        <label for="${keyValue}">
-                                ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
-                        </label>
-                        <div class="input-group-fields">
-                            <c:if test="<%= metadataValues.size() == 0 %>">
-                                <div>
-                                    <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                            class="form-control"
-                                            id="${keyValue}"
-                                            type="text"
-                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
-                                            value=""
-                                    />
-                                </div>
-                            </c:if>
-                            <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                                <div>
-                                    <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                            class="form-control"
-                                            id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
-                                            type="text"
-                                            name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
-                                            value="${metadataValue.value}"
-                                    />
-                                    <c:if test="${values.count > 1}">
-                                        <button type="button"
-                                                onclick="removeElement('${keyValue.concat(values.index)}', event)"
-                                                class="btn btn-danger">
-                                            <span class="glyphicon glyphicon-trash"></span>
-                                            <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
-                                        </button>
-                                    </c:if>
-                                </div>
-                            </c:forEach>
-                        </div>
-                        <c:if test="${fieldInputForm.repeatable}">
-                            <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                <span class="glyphicon glyphicon-plus"></span>
-                                <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                            </button>
-                        </c:if>
-                        <p>${fieldInputForm.hint}</p>
-                    </div>
-                </c:otherwise>
-            </c:choose>
-        </c:forEach>
+                                <c:if test="${fieldInputForm.repeatable}">
+                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
+                                    </button>
+                                </c:if>
+                            </div>
+                        </c:otherwise>
+                    </c:choose>
+                </c:forEach>
+
+                <div class="btn-group">
+                    <%
+                        if (bCreateBits) {
+                    %>
+                        <%--            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"--%>
+                        <%--                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>--%>
+                    <% }
+                        if (breOrderBitstreams) {
+                    %>
+                        <%--            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"--%>
+                        <%--                   name="submit_update_order" style="visibility: hidden;">--%>
+                    <%
+                        }
+
+                        if (ConfigurationManager.getBooleanProperty("webui.submit.enable-cc") && bccLicense) {
+                            String s;
+                            List<Bundle> ccBundle = ContentServiceFactory.getInstance().getItemService().getBundles(item, "CC-LICENSE");
+                            s = ccBundle.size() > 0 ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.edit-item-form.replacecc.button") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.edit-item-form.addcc.button");
+                    %>
+                    <input class="btn btn-success col-md-3" type="submit" name="submit_addcc" value="<%= s %>"/>
+                    <input type="hidden" name="handle"
+                           value="<%= ConfigurationManager.getProperty("handle.prefix") %>"/>
+                    <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
+
+                    <%
+                        }
+                    %>
 
 
-        <div class="btn-group">
-            <%
-                if (bCreateBits) {
-            %>
-                <%--            <input class="btn btn-success col-md-2" type="submit" name="submit_addbitstream"--%>
-                <%--                   value="<fmt:message key="jsp.tools.edit-item-form.addbit.button"/>"/>--%>
-            <% }
-                if (breOrderBitstreams) {
-            %>
-                <%--            <input class="hidden" type="submit" value="<fmt:message key="jsp.tools.edit-item-form.order-update"/>"--%>
-                <%--                   name="submit_update_order" style="visibility: hidden;">--%>
-            <%
-                }
+                    <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
+                    <input type="hidden" name="action" value="<%= EditItemServlet.UPDATE_ITEM %>"/>
 
-                if (ConfigurationManager.getBooleanProperty("webui.submit.enable-cc") && bccLicense) {
-                    String s;
-                    List<Bundle> ccBundle = ContentServiceFactory.getInstance().getItemService().getBundles(item, "CC-LICENSE");
-                    s = ccBundle.size() > 0 ? LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.edit-item-form.replacecc.button") : LocaleSupport.getLocalizedMessage(pageContext, "jsp.tools.edit-item-form.addcc.button");
-            %>
-            <input class="btn btn-success col-md-3" type="submit" name="submit_addcc" value="<%= s %>"/>
-            <input type="hidden" name="handle" value="<%= ConfigurationManager.getProperty("handle.prefix") %>"/>
-            <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
-
-            <%
-                }
-            %>
-
-
-            <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
-            <input type="hidden" name="action" value="<%= EditItemServlet.UPDATE_ITEM %>"/>
-
-                <%-- <input type="submit" name="submit" value="Update" /> --%>
-            <input class="button-main" type="submit" name="submit"
-                   value="<fmt:message key="jsp.tools.general.update"/>"/>
-                <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
-            <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="button-main-outline">
-                <fmt:message key="jsp.tools.general.cancel"/>
-            </a>
+                        <%-- <input type="submit" name="submit" value="Update" /> --%>
+                    <input class="button-main" type="submit" name="submit"
+                           value="<fmt:message key="jsp.tools.general.update"/>"/>
+                        <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
+                    <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="button-main-outline">
+                        <fmt:message key="jsp.tools.general.cancel"/>
+                    </a>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </dspace:layout>
 <%!
     private boolean isContains(List<MetadataValue> metadataValues, String value) {
@@ -587,4 +612,5 @@
         }
         return sequenceNumber;
     }
+
 %>

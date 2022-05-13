@@ -46,7 +46,6 @@ function replaceValidationUI( form ) {
 document.addEventListener("DOMContentLoaded",  () => {
     const forms = document.querySelectorAll("form");
     for (let i = 0; i < forms.length; i++) {
-        console.log('forms: ', forms[i])
         replaceValidationUI(forms[i]);
     }
 })
