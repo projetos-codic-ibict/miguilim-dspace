@@ -1,0 +1,134 @@
+@import 'variables';
+//card
+.container-cards {
+	margin-top: 40px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 16px;
+	.card {
+		border-radius: 8px;
+		background:$white-lightest;
+		padding:24px;
+		display: flex;
+		align-items: center;
+		gap: 24px;
+		border:1px solid $board-field;		
+		transition: all .2s ease-out;
+		cursor: pointer;
+		.text {
+			h2 {
+				@extend .card-tit;
+			}
+			p {
+				color:$gray-dark;
+				span {
+					color:$bluecolor;
+				}
+			}
+		}
+		.icon {
+			background:$yellow;
+			border-radius: 100px;
+			width: 56px;
+			height: 56px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0 16px;			
+		}
+		&:hover {
+			@extend .card-sombra;
+		}
+	}
+}
+
+.container-cards {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 16px;
+}	
+
+
+//cards-results
+.results-cards {
+	margin: 32px 0;
+	.cards {
+		background-color: $white-lightest;
+		border-radius:8px;
+		padding: 24px 40px;
+		font-family: $linkfont-family;
+		margin-bottom: 8px;
+		border: 1px solid $board-field;
+		h2 {
+			border-top: 1px solid $board-field;
+			border-bottom: 1px solid $board-field;
+			padding: 8px 0;
+			color: $gray-dark;
+			font-size: 14px;
+			font-style: italic;
+			letter-spacing: 0.5px;
+			margin: 8px 0;
+		}
+		h3 {
+			@extend .subhead;			
+		}
+		@include for-size(tablet-landscape-up) { 
+			h3 {
+				font-size: 1.2rem;
+				line-height: 32px;
+			}
+		}		
+		p {
+			@extend .bt-title;
+			color: $gray-dark;
+			font-weight: 500;
+			line-height: 130%;
+		}
+		.group-footer {		
+			border-top: 1px solid $board-field;
+			padding-top: 16px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			@include for-size(tablet-landscape-up) { 
+				flex-direction: column;
+			}
+			.kind {
+				display: flex;
+				align-items: center;	
+				span {
+					font-weight: 800;
+					margin-left: 4px;
+				}		
+				strong {
+					margin-right: 4px;
+				}					
+			}
+			.info {
+				display: flex;
+				gap: 16px;
+				align-items: center;
+			}
+			.line {
+				width: 1px;
+				height: 8px;
+				background-color: $dark-blue;
+			}
+			.bt {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				@include for-size(tablet-landscape-up) { 
+				width: 100%;
+				margin-top: 16px;
+				}
+				.button-main {
+					height: 40px;	
+					@include for-size(tablet-landscape-up) { 
+					width: 100%;	
+					}
+				}			
+			}				
+		}
+	}
+}

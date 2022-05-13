@@ -214,7 +214,7 @@
             {
         %>
         
-        <div class="search-facet">
+        <div class="search-content">
             <h3><fmt:message key="jsp.search.facet.refine"/></h3>
 
             <%
@@ -562,12 +562,12 @@
 					    dataPublicacaoFormatada = "";
 				    }
 
-                    String url = itemService.getMetadataFirstValue(item, "dc", "identifier", "url", Item.ANY);
+                    String uri = itemService.getMetadataFirstValue(item, "dc", "identifier", "uri", Item.ANY);
                     String handleCollection = item.getCollections().get(0).getHandle();
                 %>
 
                 <div class="cards">
-                    <h3 onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'" style="cursor:pointer"><%= titulo %></h3>
+                    <h3 onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'" ><%= titulo %></h3>
                     <h2><%= editora %></h2>
                     <p><%= subtitulo %></p>
                     <div class="group-footer">
@@ -599,7 +599,7 @@
                             <div class="kind"><strong>Publicada em:</strong> <%= dataPublicacaoFormatada %></div>
                         </div>	
                         <div class="bt">
-                            <button onclick="window.open('<%= url %>','_blank')" type="submit" class="button-main">Acessar</button>
+                            <button onclick="location.href = '<%= uri %>'" type="submit" class="button-main">Acessar</button>
                         </div>
                     </div>
                 </div>

@@ -215,3 +215,41 @@ $linkfont-family: 'Open Sans', sans-serif;
     z-index:10;
 
 }
+
+
+//mixins
+@mixin mobile{
+    @media (max-width: 320px) { @content; }
+  }
+  @mixin tablet {
+    @media (max-width: 768px) { @content; }
+  }
+  @mixin desktop {
+    @media (min-width: 960px) { @content; }
+  }
+  @mixin desktop-hd {
+    @media (min-width: 1200px) { @content; }
+  }
+ /* @mixin desktop-full {
+    @media (min-width: 1800px) { @content; }
+  }*/
+
+  @mixin for-size($size) {
+    @if $size == phone-only {
+      @media (max-width: 599px) { @content; }
+    } @else if $size == tablet-portrait-up {
+      @media (max-width: 600px) { @content; }
+    } @else if $size == tablet-landscape-up {
+      @media (max-width: 920px) { @content; }
+    } @else if $size == desktop-up {
+      @media (min-width: 1200px) { @content; }
+    } @else if $size == big-desktop-up {
+      @media (min-width: 1800px) { @content; }
+    }
+  }
+
+  /*
+   @include for-size(tablet-landscape-up) { 
+
+   }
+   */

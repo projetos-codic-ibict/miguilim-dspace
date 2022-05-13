@@ -136,7 +136,7 @@
         <%
             if (admin_button)  // admin edit button
             { %>
-                <div class="search-facet">
+                <div class="search-content">
                 <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
                 <div class="panel-body">
@@ -182,7 +182,7 @@
             // submitter create new version button
             if (submitter_button && hasVersionButton) {
         %>
-        <div class="search-facet">
+        <div class="search-content">
             <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.submittertools"/></div>
                 <div class="panel-body">
@@ -210,9 +210,6 @@
                 <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message key="webui.displayitem.tab.itemdata"></fmt:message> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#" destiny="#item-data-full"><fmt:message key="webui.displayitem.tab.itemdata.complete"></fmt:message> </a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
             </li>
             <li class="nav-item">
@@ -231,15 +228,7 @@
 
         </div>
 
-            <div id="item-data-full" tabcontent>
-
-                <dspace:item-preview item="<%= item %>" />
-                <dspace:item item="<%= item %>" collections="<%= collections %>" style="full" />
-
-            </div>
-
-
-            <div id="termometro" tabcontent>
+        <div id="termometro" tabcontent>
             <h2>Termômetro</h2>
 
             <div class="header-termometro">
@@ -265,6 +254,8 @@
 
     </div>
 </div>
+
+
 
 
 

@@ -1,0 +1,44 @@
+//menu
+.navbar-nav {
+	margin: 12px 0 0 0;
+	li {
+		a {
+			color: $dark-blue;
+		}
+	}
+}
+.caret {
+	color: $dark-blue;
+}
+.navbar-right {
+	margin: 6px 8px 0 8px;
+}
+.navbar-nav.navbar-right:last-child {
+	.caret {
+		color: $dark-blue;
+	}
+}
+.navbar-header {
+	.navbar-toggle {
+		background-color: $dark-blue;
+		transform: translateY(10px);
+		span {
+			background-color: $white-lightest;
+		}
+	}
+}
+
+.navbar-nav {
+	li {
+		a {
+	text-shadow: none!important;
+	color: $dark-blue!important;
+		}
+	}
+}
+
+.navbar {
+	background: $background;
+	border-bottom: 1px solid $white-line-second;
+	box-shadow: none;
+}

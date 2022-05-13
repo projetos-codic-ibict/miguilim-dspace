@@ -1,0 +1,18 @@
+#footer_feedback {
+    padding-top: 12px;
+}
+
+.section-footer {
+	background-color: $white-lightest;
+	border-top: 1px solid $white-line;
+    display: flex;
+    justify-content: center;
+	flex-direction: column;
+    align-items: center;	
+	gap: 16px;
+	p {
+		color:$disabled;
+		text-align: center;
+	}
+	padding: 24px 0 16px 0;
+}
