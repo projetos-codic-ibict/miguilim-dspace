@@ -258,54 +258,6 @@
 
 
 
-
-
-<style id="style-termometro">
-
-    .header-termometro {
-        text-align: center;
-        margin-top: 50px;
-    }
-
-    .header-termometro p {
-        color: #9e1822;
-    }
-
-    #div-termometro {
-        background: rgba(200, 200, 200, 0.99);
-        position: relative;
-        color: #fff;
-        width: 380px;
-        height: 300px;
-        margin-bottom: 50px;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        border-radius: 10px;
-        clear: both;
-        padding: 0 15px;
-    }
-
-    #canvas-termometro {
-        width: 380px;
-        top: 40px;
-        right: 16px;
-        position: relative;
-    }
-
-    #preview-textfield {
-        position: relative;
-        padding-top: 20px;
-        top: 1px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        font-size: 2em;
-        font-weight: bold;
-        color: black;
-        font-family: 'Amaranth', sans-serif;
-    }
-
-</style>
 <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/gauge/gauge.js"> </script>
 <script type="text/javascript">
     initGauge();
