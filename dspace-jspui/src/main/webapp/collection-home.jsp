@@ -145,7 +145,7 @@
   	<div class="panel-heading">
         <fmt:message key="jsp.general.browse"/>
 	</div>
-	<div class="panel-body">
+	<div class="panel-body painealing-btn">
 	<%-- Insert the dynamic list of browse options --%>
 <%
 	for (int i = 0; i < bis.length; i++)
