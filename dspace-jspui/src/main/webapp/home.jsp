@@ -354,5 +354,3 @@
 
 
 </script>
-
-<jsp:include page="htmls.jsp"></jsp:include>
