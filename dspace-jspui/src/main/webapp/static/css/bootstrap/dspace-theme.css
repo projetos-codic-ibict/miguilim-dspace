@@ -1923,6 +1923,10 @@ t b.caret {
   background-color: #FFFFFF;
 }
 
+.navbar {
+  margin-bottom: 0 !important;
+}
+
 .media-list {
   background-color: #FFFFFF;
 }
