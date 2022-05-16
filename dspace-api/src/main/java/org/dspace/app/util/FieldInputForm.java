@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
+import java.util.SortedMap;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class FieldInputForm {
     @JsonProperty("dc-schema")
@@ -23,7 +25,7 @@ public class FieldInputForm {
 
     private String simpleVocabulary;
     private String simpleInputType;
-    private Map<String, String> complextInputType;
+    private SortedMap<String, String> complextInputType;
 
     public String getKey() {
         String separator = "_";
@@ -101,11 +103,11 @@ public class FieldInputForm {
         this.simpleInputType = simpleInputType;
     }
 
-    public Map<String, String> getComplextInputType() {
+    public SortedMap<String, String> getComplextInputType() {
         return complextInputType;
     }
 
-    public void setComplextInputType(Map<String, String> complextInputType) {
+    public void setComplextInputType(SortedMap<String, String> complextInputType) {
         this.complextInputType = complextInputType;
     }
 

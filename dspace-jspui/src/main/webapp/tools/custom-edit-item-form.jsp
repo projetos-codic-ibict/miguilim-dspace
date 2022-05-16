@@ -100,10 +100,10 @@
 
 <c:set var="dspace.layout.head.last" scope="request">
     <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>--%>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>
-    <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>
+<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>--%>
+<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>--%>
+<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>--%>
+<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>--%>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
@@ -454,6 +454,7 @@
                                                     class="form-control"
                                                     id="${keyValue}"
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                                <option value="">Selecione uma opção</option>
                                                 <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
                                                            var="option">
                                                     <option value="${option.value}">${option.key} </option>
@@ -467,6 +468,7 @@
                                                     class="form-control"
                                                     id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                                <option value="">Selecione uma opção</option>
                                                 <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
                                                            var="option">
                                                     <option ${option.value.equalsIgnoreCase(metadataValue.value) ? 'selected' : ''}

@@ -10,15 +10,18 @@ import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class VocabularyConverter {
-    public static final String CONFIG_DIRECTORY = "config";
-    public static final String VOCABULARY_DIRECTORY = "controlled-vocabularies";
+    private static final String CONFIG_DIRECTORY = "config";
+    private static final String VOCABULARY_DIRECTORY = "controlled-vocabularies";
     private final List<String> vocabularies = new ArrayList<>();
-    private String vocabulary = "CNPQ";
+    private String vocabularyCNPQ = "CNPQ";
 
     public List<String> getListOfVocabularies(String vocabularyName) {
+
+        boolean isCNPQ = false;
         try {
             String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
                     + File.separator + CONFIG_DIRECTORY + File.separator + VOCABULARY_DIRECTORY + File.separator + vocabularyName + ".xml";
@@ -33,9 +36,10 @@ public class VocabularyConverter {
             if (isComposedBy != null) {
                 JsonNode nodes = isComposedBy.get("node");
                 for (int i = 0; i < nodes.size(); i++) {
-                    vocabularies.add(nodes.get(i).get("label").asText());
+                    this.vocabularies.add(nodes.get(i).get("label").asText());
                 }
             } else {
+                isCNPQ = true;
                 JsonNode node = json.get("node").get("isComposedBy").get("node");
                 process(node);
             }
@@ -43,28 +47,31 @@ public class VocabularyConverter {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        if (!isCNPQ) {
+            Collections.sort(this.vocabularies);
+        }
         return this.vocabularies;
     }
 
     private void process(JsonNode node) {
         if (node == null) {
-            if (vocabulary.contains("::")) {
+            if (vocabularyCNPQ.contains("::")) {
 
-                vocabulary = vocabulary.substring(0, vocabulary.lastIndexOf("::"));
+                vocabularyCNPQ = vocabularyCNPQ.substring(0, vocabularyCNPQ.lastIndexOf("::"));
             }
             return;
         }
 
         if (!node.isArray()) {
-            vocabulary = vocabulary + node.get("label").asText();
+            vocabularyCNPQ = vocabularyCNPQ + node.get("label").asText();
         } else {
             for (int i = 0; i < node.size(); i++) {
-                vocabulary = vocabulary + "::" + node.get(i).get("label").asText();
-                vocabularies.add(vocabulary);
+                vocabularyCNPQ = vocabularyCNPQ + "::" + node.get(i).get("label").asText();
+                this.vocabularies.add(vocabularyCNPQ);
                 if (node.get(i).get("isComposedBy") != null && node.get(i).get("isComposedBy").get("node") != null) {
                     process(node.get(i).get("isComposedBy").get("node"));
                 } else {
-                    vocabulary = vocabulary.replace("::" + node.get(i).get("label").asText(), "");
+                    vocabularyCNPQ = vocabularyCNPQ.replace("::" + node.get(i).get("label").asText(), "");
                 }
             }
         }

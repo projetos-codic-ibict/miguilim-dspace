@@ -250,6 +250,7 @@
                     </label>
                     <input-type>onebox</input-type>
                     <hint>
+                        Selecione o(s) idioma(s) aceito(s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Para indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à direita do preenchimento.
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o idioma
                         da revista.

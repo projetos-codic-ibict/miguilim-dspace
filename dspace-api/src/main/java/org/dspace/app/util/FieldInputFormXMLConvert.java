@@ -11,10 +11,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class FieldInputFormXMLConvert {
     static final String XML_FORM_FILE_NAME = "input-forms.xml";
@@ -78,8 +75,8 @@ public class FieldInputFormXMLConvert {
         return null;
     }
 
-    private static Map<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
-        Map<String, String> values = new HashMap<>();
+    private static SortedMap<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
+        SortedMap<String, String> values = new TreeMap<>();
         for (JsonNode node : valuePairs) {
             if (node.get("value-pairs-name").asText().equalsIgnoreCase(valuePairsName)) {
                 JsonNode pairs = node.get("pair");
