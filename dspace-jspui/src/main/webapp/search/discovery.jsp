@@ -37,18 +37,14 @@
 <%@page import="com.coverity.security.Escape" %>
 <%@page import="org.dspace.discovery.configuration.DiscoverySearchFilterFacet" %>
 <%@page import="org.dspace.app.webui.util.UIUtil" %>
-<%@page import="java.util.HashMap" %>
-<%@page import="java.util.ArrayList" %>
 <%@page import="org.dspace.discovery.DiscoverFacetField" %>
 <%@page import="org.dspace.discovery.configuration.DiscoverySearchFilter" %>
 <%@page import="org.dspace.discovery.DiscoverFilterQuery" %>
 <%@page import="org.dspace.discovery.DiscoverQuery" %>
 <%@page import="org.apache.commons.lang.StringUtils" %>
-<%@page import="java.util.Map" %>
 <%@page import="org.dspace.discovery.DiscoverResult.FacetResult" %>
 <%@page import="org.dspace.discovery.DiscoverResult" %>
 <%@page import="org.dspace.content.DSpaceObject" %>
-<%@page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"
@@ -62,12 +58,13 @@
 <%@ page import="org.dspace.content.Collection" %>
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.dspace.sort.SortOption" %>
-<%@ page import="java.util.Enumeration" %>
-<%@ page import="java.util.Set" %>
 <%@ page import="org.apache.commons.lang.StringEscapeUtils" %>
 <%@ page import="org.dspace.content.service.ItemService"%>
 <%@ page import="org.dspace.content.factory.ContentServiceFactory"%>
 <%@ page import="org.dspace.content.DCDate"%>
+<%@ page import="java.util.*" %>
+<%@ page import="org.dspace.core.I18nUtil" %>
+<%@ page import="java.text.Collator" %>
 
 <%
     
@@ -122,10 +119,11 @@
     DiscoverResult qResults = (DiscoverResult) request.getAttribute("queryresults");
     List<Item> items = (List<Item>) request.getAttribute("items");
     List<Community> communities = (List<Community>) request.getAttribute("communities");
-    List<Collection> collections = (List<Collection>) request.getAttribute("collections");
+    List<Collection> collections = ContentServiceFactory.getInstance().getCollectionService().findAll(UIUtil.obtainContext(request));
 
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
+
 
     final String REVISTAS = "123456789/2";
 	final String PORTAL_DE_PERIODICOS = "123456789/2669";
@@ -326,14 +324,16 @@
    
         <%  } %>
 
+
+
         <div class="search-filter">
-            <h3>Filtro para busca</h3>
+            <h3><fmt:message key="jsp.search.results.searchin.header"></fmt:message></h3>
             <div class="search-element searchfilter">
-                <div class="accordion-header collapsed" data-toggle="collapse" href="#searchAccordion" role="button"
+                <div class="accordion-header" data-toggle="collapse" href="#searchAccordion" role="button"
                      aria-expanded="false" aria-controls="searchAccordion">
                     <span><fmt:message key="jsp.search.results.searchin"></fmt:message></span>
                 </div>
-                <div class="collapse" id="searchAccordion">
+                <div class="in" id="searchAccordion">
                     <form action="simple-search" method="get">
 
                         <input type="hidden" value="<%= rpp %>" name="rpp"/>
@@ -356,7 +356,7 @@
                                             %>
                                             <option value="/"><fmt:message key="jsp.general.genericScope"/></option>
                                             <% }
-                                                for (DSpaceObject dso : scopes) {
+                                                for (DSpaceObject dso : collections) {
                                             %>
                                             <option value="<%= dso.getHandle() %>" <%=dso.getHandle().equals(searchScope) ? "selected=\"selected\"" : "" %>>
                                                 <%= dso.getName() %>
@@ -482,6 +482,17 @@
                             <div>
                                 <select id="filtername" name="filtername" class="field-s w100">
                                     <%
+                                        Collator instance = Collator.getInstance();
+
+                                        // This strategy mean it'll ignore the accents
+                                        instance.setStrength(Collator.NO_DECOMPOSITION);
+                                    Collections.sort(availableFilters, new Comparator<DiscoverySearchFilter>() {
+                                        @Override
+                                        public int compare(DiscoverySearchFilter t0, DiscoverySearchFilter t1) {
+                                            return instance.compare(I18nUtil.getMessage("jsp.search.filter." + t0.getIndexFieldName()),
+                                                    I18nUtil.getMessage("jsp.search.filter." + t1.getIndexFieldName()));
+                                        }
+                                    });
                                         for (DiscoverySearchFilter searchFilter : availableFilters) {
                                             String fkey = "jsp.search.filter." + searchFilter.getIndexFieldName();
                                     %>
