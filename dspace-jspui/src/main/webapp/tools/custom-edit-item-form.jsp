@@ -344,10 +344,12 @@
                     <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
                     <c:choose>
-                        <c:when test="${fieldInputForm.simpleVocabulary != null && fieldInputForm.repeatable}">
+                        <c:when test="${fieldInputForm.simpleVocabulary != null}">
                             <%
                                 VocabularyConverter vocabularyConverter = new VocabularyConverter();
+                                System.out.println("vocab: "+ xmlField.getSimpleVocabulary());
                                 List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                                System.out.println("vocabularies: "+ vocabularies);
                             %>
                             <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
                             <div class="form-group">

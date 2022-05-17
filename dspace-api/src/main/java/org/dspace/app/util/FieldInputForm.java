@@ -25,7 +25,7 @@ public class FieldInputForm {
 
     private String simpleVocabulary;
     private String simpleInputType;
-    private SortedMap<String, String> complextInputType;
+    private Map<String, String> complextInputType;
 
     public String getKey() {
         String separator = "_";
@@ -103,11 +103,11 @@ public class FieldInputForm {
         this.simpleInputType = simpleInputType;
     }
 
-    public SortedMap<String, String> getComplextInputType() {
+    public Map<String, String> getComplextInputType() {
         return complextInputType;
     }
 
-    public void setComplextInputType(SortedMap<String, String> complextInputType) {
+    public void setComplextInputType(Map<String, String> complextInputType) {
         this.complextInputType = complextInputType;
     }
 

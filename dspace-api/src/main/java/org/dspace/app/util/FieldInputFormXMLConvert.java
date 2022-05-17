@@ -75,8 +75,8 @@ public class FieldInputFormXMLConvert {
         return null;
     }
 
-    private static SortedMap<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
-        SortedMap<String, String> values = new TreeMap<>();
+    private static Map<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
+        Map<String, String> values = new LinkedHashMap<>();
         for (JsonNode node : valuePairs) {
             if (node.get("value-pairs-name").asText().equalsIgnoreCase(valuePairsName)) {
                 JsonNode pairs = node.get("pair");
