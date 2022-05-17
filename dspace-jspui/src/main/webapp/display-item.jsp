@@ -210,6 +210,9 @@
                 <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message key="webui.displayitem.tab.itemdata"></fmt:message> </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" destiny="#item-data-full"><fmt:message key="webui.displayitem.tab.itemdata.complete"></fmt:message> </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
             </li>
             <li class="nav-item">
@@ -225,6 +228,13 @@
             <dspace:item-preview item="<%= item %>" />
             <dspace:item item="<%= item %>" collections="<%= collections %>" style="<%= displayStyle %>" />
 
+
+        </div>
+
+        <div id="item-data-full" tabcontent>
+
+            <dspace:item-preview item="<%= item %>" />
+            <dspace:item item="<%= item %>" collections="<%= collections %>" style="full" />
 
         </div>
 
