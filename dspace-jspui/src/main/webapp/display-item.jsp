@@ -56,6 +56,9 @@
 <%@page import="org.dspace.versioning.factory.VersionServiceFactory" %>
 <%@ page import="org.dspace.termometro.service.TermometroService" %>
 <%@ page import="org.dspace.termometro.factory.TermometroServiceFactory" %>
+<%@ page import="org.dspace.app.webui.servlet.DisplayStatisticsServlet" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 
 <%
     // Attributes
@@ -213,6 +216,9 @@
                 <a class="nav-link" aria-current="page" href="#" destiny="#item-data-full"><fmt:message key="webui.displayitem.tab.itemdata.complete"></fmt:message> </a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="#" destiny="#item-statistics"><fmt:message key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
             </li>
             <li class="nav-item">
@@ -222,41 +228,26 @@
 
         <div id="item-data" tabcontent>
 
-            <% String displayStyle = (displayAll ? "full" : ""); %>
-
-
             <dspace:item-preview item="<%= item %>" />
-            <dspace:item item="<%= item %>" collections="<%= collections %>" style="<%= displayStyle %>" />
-
+            <dspace:item item="<%= item %>" collections="<%= collections %>" />
 
         </div>
 
-        <div id="item-data-full" tabcontent>
+        <div id="item-data-full" tabcontent class="d-hide">
 
             <dspace:item-preview item="<%= item %>" />
             <dspace:item item="<%= item %>" collections="<%= collections %>" style="full" />
 
         </div>
 
-        <div id="termometro" tabcontent>
-            <h2>Termômetro</h2>
-
-            <div class="header-termometro">
-                <p>
-                    <fmt:message key="termometro.display.title"/>
-                </p>
-            </div>
-            <div class="container" id="div-termometro">
-                <canvas height=180 id="canvas-termometro" width=340></canvas>
-                <p>
-                <div id="preview-textfield"></div>
-                </p>
+            <div id="item-statistics"  tabcontent class="d-hide">
+                <%@include file="item-pages/display-stats.jsp"%>
             </div>
 
-
-
-        </div>
-
+            <div id="termometro"  tabcontent >
+                <%@include file="item-pages/display-termometro.jsp"%>
+            </div>
+            
         <div id="formulario" tabcontent class="d-hide">
             <iframe width="800" height="2000" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0" src="https://docs.google.com/forms/d/e/1FAIpQLSfi63n2szjUZo2f_K_9OXh-L71Q8nY1xAULe-d5T082nIO2tQ/viewform">
             </iframe>

@@ -384,6 +384,7 @@ public class HandleServlet extends DSpaceServlet
     {
         // perform any necessary pre-processing
         preProcessItemHome(context, request, response, item);
+        new DisplayStatisticsServlet().displayStatistics(context, request, response, true, handle);
         
         // Tombstone?
         if (item.isWithdrawn())
