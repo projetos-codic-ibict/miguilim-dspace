@@ -7,6 +7,7 @@ import org.json.JSONObject;
 import org.json.XML;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.util.ArrayList;
@@ -23,14 +24,7 @@ public class VocabularyConverter {
 
         boolean isCNPQ = false;
         try {
-            String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
-                    + File.separator + CONFIG_DIRECTORY + File.separator + VOCABULARY_DIRECTORY + File.separator + vocabularyName + ".xml";
-            File xmlFile = new File(xmlPath);
-            String xml = new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
-            JSONObject xmlJSONObj = XML.toJSONObject(xml);
-            String jsonPrettyPrintString = xmlJSONObj.toString();
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode json = objectMapper.readTree(jsonPrettyPrintString);
+            JsonNode json = getJsonFrom(vocabularyName);
 
             JsonNode isComposedBy = json.get("isComposedBy");
             if (isComposedBy != null) {
@@ -51,6 +45,18 @@ public class VocabularyConverter {
             Collections.sort(this.vocabularies);
         }
         return this.vocabularies;
+    }
+
+    public JsonNode getJsonFrom(String vocabularyName) throws IOException {
+        String xmlPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
+                + File.separator + CONFIG_DIRECTORY + File.separator + VOCABULARY_DIRECTORY + File.separator + vocabularyName + ".xml";
+        File xmlFile = new File(xmlPath);
+        String xml = new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
+        JSONObject xmlJSONObj = XML.toJSONObject(xml);
+        String jsonPrettyPrintString = xmlJSONObj.toString();
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode json = objectMapper.readTree(jsonPrettyPrintString);
+        return json;
     }
 
     private void process(JsonNode node) {

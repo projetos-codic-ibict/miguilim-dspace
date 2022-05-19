@@ -1945,7 +1945,7 @@
                     versão preprint do documento submetido para avaliação
                 </displayed-value>
                 <stored-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão preprint do documento submetido para avaliação.
+                    versão preprint do documento submetido para avaliação
                 </stored-value>
             </pair>
             <pair>
@@ -1972,7 +1972,7 @@
                     institucionais/digitais, da versão pós-print do autor
                 </displayed-value>
                 <stored-value>A revista não permite o armazenamento e acesso, em repositórios institucionais/digitais,
-                    da versão pós-print do autor.
+                    da versão pós-print do autor
                 </stored-value>
             </pair>
         </value-pairs>
@@ -2074,8 +2074,7 @@
                 <displayed-value>1. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para
                     fins comerciais, desde que...
                 </displayed-value>
-                <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins
-                    comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)
+                <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)
                 </stored-value>
             </pair>
             <pair>
@@ -2091,9 +2090,7 @@
                 <displayed-value>3. Permite redistribuição, comercial ou não comercial, desde que a obra não seja
                     modificada e que seja atribuído o...
                 </displayed-value>
-                <stored-value>Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e
-                    que seja atribuído o crédito ao autor (CC BY-ND)
-                </stored-value>
+                <stored-value>Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)</stored-value>
             </pair>
             <pair>
                 <displayed-value>4. Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o

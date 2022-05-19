@@ -28,6 +28,7 @@
 <%@ page import="org.dspace.app.util.FieldInputFormXMLConvert" %>
 <%@ page import="org.dspace.app.util.FieldInputFormUtils" %>
 <%@ page import="org.dspace.app.util.VocabularyConverter" %>
+<%@ page import="com.fasterxml.jackson.databind.JsonNode" %>
 
 <%
     Item item = (Item) request.getAttribute("item");
@@ -100,14 +101,15 @@
 
 <c:set var="dspace.layout.head.last" scope="request">
     <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/prototype.js"></script>--%>
-<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>--%>
-<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>--%>
-<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>--%>
-<%--    <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>--%>
+    <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/builder.js"></script>--%>
+    <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/effects.js"></script>--%>
+    <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/scriptaculous/controls.js"></script>--%>
+    <%--    <script type="text/javascript" src="<%= request.getContextPath() %>/dspace-admin/js/bitstream-ordering.js"></script>--%>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/slimselect.min.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/required.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/cnpq.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/edit-form.css" type="text/css"/>
 </c:set>
@@ -339,17 +341,21 @@
 
                         MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
                         String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
-
+                        String CNPQ = "cnpq";
                     %>
                     <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
                     <c:choose>
-                        <c:when test="${fieldInputForm.simpleVocabulary != null}">
+                        <c:when test="${fieldInputForm.simpleVocabulary != null || (fieldInputForm.complextInputType != null && fieldInputForm.repeatable)}">
                             <%
+                                List<String> vocabularies = new ArrayList<>();
                                 VocabularyConverter vocabularyConverter = new VocabularyConverter();
-                                List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                                if (xmlField.getSimpleVocabulary() != null) {
+                                    vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                                }
                             %>
                             <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
+
                             <div class="form-group">
                                 <label for="<%= key %>">
                                         ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
@@ -371,13 +377,54 @@
                                             <option <%=isContains(metadataValues, optionString) ? "selected" : ""%>
                                                     value="${option}">${option} </option>
                                         </c:forEach>
+                                        <c:if test="${fieldInputForm.complextInputType != null}">
+                                            <%
+                                                for (Map.Entry<String, String> entry : xmlField.getComplextInputType().entrySet()) {
+                                            %>
+                                            <option <%=isContains(metadataValues, entry.getKey()) ? "selected" : ""%>
+                                                    value="<%=entry.getKey()%>"><%= entry.getValue() %>
+                                            </option>
+                                            <% } %>
+                                        </c:if>
                                     </select>
+                                    <c:if test="<%=xmlField.getSimpleVocabulary() != null && xmlField.getSimpleVocabulary().equalsIgnoreCase(CNPQ)%>">
+                                        <%
+                                            JsonNode jsonNode = vocabularyConverter.getJsonFrom(xmlField.getSimpleVocabulary());
+                                            String json = jsonNode.toString();
+                                        %>
+                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading" role="tab" id="headingOne">
+                                                    <p class="panel-title">
+                                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                                           href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            Selecionar uma área do CNPQ
+                                                        </a>
+                                                    </p>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse collapse"
+                                                     role="tabpanel" aria-labelledby="headingOne">
+                                                    <div class="panel-body">
+                                                        <div class="cnpq">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            document.addEventListener("DOMContentLoaded", () => {
+                                                let json = JSON.stringify('<%= json %>');
+                                                json = JSON.parse(JSON.parse(json))
+                                                loadFromJSON(json)
+                                            })
+                                        </script>
+                                    </c:if>
                                 </div>
                             </div>
                             <script>
                                 new SlimSelect({
                                     select: "#<%= key %>",
-                                    <% if(!xmlField.getSimpleVocabulary().equals("cnpq")){ %>
+                                    <% if(xmlField.getSimpleVocabulary() != null && !xmlField.getSimpleVocabulary().equals(CNPQ)){ %>
                                     addable: function (value) {
                                         return value;
                                     }
@@ -448,50 +495,62 @@
                                     </a>
                                 </c:if>
                                 <div class="input-group-fields">
-                                    <c:if test="<%= metadataValues.size() == 0 %>">
-                                        <div>
-                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                                    class="form-control"
-                                                    id="${keyValue}"
-                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
-                                                <option value="">Selecione uma opção</option>
-                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
-                                                           var="option">
-                                                    <option value="${option.value}">${option.key} </option>
-                                                </c:forEach>
-                                            </select>
-                                        </div>
-                                    </c:if>
-                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">
-                                        <div>
-                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
-                                                    class="form-control"
-                                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
-                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
-                                                <option value="">Selecione uma opção</option>
-                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
-                                                           var="option">
-                                                    <option ${option.value.equalsIgnoreCase(metadataValue.value) ? 'selected' : ''}
-                                                            value="${option.value}">${option.key} </option>
-                                                </c:forEach>
-                                            </select>
-                                            <c:if test="${values.count > 1}">
-                                                <button type="button"
-                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
-                                                        class="btn btn-danger">
-                                                    <span class="glyphicon glyphicon-trash"></span>&nbsp
-                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
-                                                </button>
-                                            </c:if>
-                                        </div>
-                                    </c:forEach>
+
+                                    <%
+                                        String metadataValue = "";
+                                        if (metadataValues.size() > 0) {
+                                            metadataValue = metadataValues.get(0).getValue().replaceAll("\r", "").replaceAll("\n", "");
+                                        } %>
+                                    <c:set var="metadataValueVar" scope="session" value="<%= metadataValue  %>"/>
+                                    <div>
+                                        <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
+                                                class="form-control"
+                                                id="${keyValue}"
+                                                name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
+                                            <option value="">Selecione uma opção</option>
+                                            <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
+                                                       var="option">
+                                                <option ${option.key.equalsIgnoreCase(metadataValueVar) ? 'selected' : ''}
+                                                        value="${option.key}"> ${option.value} </option>
+                                            </c:forEach>
+                                        </select>
+                                    </div>
+
+                                        <%--                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">--%>
+                                        <%--                                        <%--%>
+                                        <%--                                            for (MetadataValue mv:metadataValues){--%>
+                                        <%--                                                System.out.println(mv.getValue());--%>
+                                        <%--                                            }--%>
+                                        <%--                                        %>--%>
+                                        <%--                                        <div>--%>
+                                        <%--                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}--%>
+                                        <%--                                                    class="form-control"--%>
+                                        <%--                                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"--%>
+                                        <%--                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">--%>
+                                        <%--                                                <option value="">Selecione uma opção</option>--%>
+                                        <%--                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"--%>
+                                        <%--                                                           var="option">--%>
+                                        <%--                                                    <option ${option.key.equalsIgnoreCase(metadataValue.value.replaceAll('\r', '').replaceAll('\n', '')) ? 'selected' : ''}--%>
+                                        <%--                                                            value="${option.key}"> ${option.value} </option>--%>
+                                        <%--                                                </c:forEach>--%>
+                                        <%--                                            </select>--%>
+                                        <%--                                            <c:if test="${values.count > 1}">--%>
+                                        <%--                                                <button type="button"--%>
+                                        <%--                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"--%>
+                                        <%--                                                        class="btn btn-danger">--%>
+                                        <%--                                                    <span class="glyphicon glyphicon-trash"></span>&nbsp--%>
+                                        <%--                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>--%>
+                                        <%--                                                </button>--%>
+                                        <%--                                            </c:if>--%>
+                                        <%--                                        </div>--%>
+                                        <%--                                    </c:forEach>--%>
                                 </div>
-                                <c:if test="${fieldInputForm.repeatable}">
-                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-plus"></span>
-                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
-                                    </button>
-                                </c:if>
+                                    <%--                                <c:if test="${fieldInputForm.repeatable}">--%>
+                                    <%--                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">--%>
+                                    <%--                                        <span class="glyphicon glyphicon-plus"></span>--%>
+                                    <%--                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>--%>
+                                    <%--                                    </button>--%>
+                                    <%--                                </c:if>--%>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -596,7 +655,7 @@
 </dspace:layout>
 <%!
     private boolean isContains(List<MetadataValue> metadataValues, String value) {
-        return metadataValues.stream().filter(m -> m.getValue().trim().equalsIgnoreCase(value)).findAny().orElse(null) != null;
+        return metadataValues.stream().filter(m -> m.getValue().replaceAll("\r", "").replaceAll("\n", "").trim().equalsIgnoreCase(value)).findAny().orElse(null) != null;
     }
 
     private String getSequenceNumber(Map<String, Integer> dcCounter, String key) {

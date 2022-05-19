@@ -55,7 +55,7 @@ public class FieldInputFormXMLConvert {
                                         field.setComplextInputType(getMapFromValuesPairs(valuePairs,
                                                 fields.get(k).get("input-type").get("value-pairs-name").asText()));
                                     } else {
-                                        field.setSimpleInputType(fields.get(k).get("input-type").asText());
+                                        field.setSimpleInputType(fields.get(k).get("input-type").asText().replaceAll("\r", "").replaceAll("\n", ""));
                                     }
                                     listOfFieldInputForm.add(field);
 
@@ -81,8 +81,8 @@ public class FieldInputFormXMLConvert {
             if (node.get("value-pairs-name").asText().equalsIgnoreCase(valuePairsName)) {
                 JsonNode pairs = node.get("pair");
                 for (JsonNode valueItem : pairs) {
-                    values.put(valueItem.get("displayed-value").asText(),
-                            valueItem.get("stored-value").asText());
+                    values.put(valueItem.get("stored-value").asText().replaceAll("\r", "").replaceAll("\n", ""),
+                            valueItem.get("displayed-value").asText().replaceAll("\r", "").replaceAll("\n", ""));
                 }
             }
         }

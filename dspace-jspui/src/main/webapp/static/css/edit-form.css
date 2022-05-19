@@ -13,3 +13,100 @@ a[data-toggle="popover"]{
 .ss-single-selected .placeholder{
     font-weight: normal;
 }
+
+.popover{
+    max-width:380px;
+}
+
+.glyphicon-question-sign{
+    color: #ed9c28;
+}
+
+.ss-main .ss-multi-selected .ss-values .ss-value{
+    font-size: 14px !important;
+}
+
+.ss-value{
+    background-color: #f3f3f3 !important;
+    color: #555 !important;
+}
+
+.ss-value .ss-value-text, .ss-value .ss-value-delete{
+    color: #555 !important;
+}
+
+/*cnpq select*/
+ul,
+#cnpqUL {
+    list-style-type: none;
+}
+
+#cnpqUL {
+    margin: 0;
+    padding: 0;
+}
+
+.caretCNPQ {
+    cursor: pointer;
+    -webkit-user-select: none;
+    /* Safari 3.1+ */
+    -moz-user-select: none;
+    /* Firefox 2+ */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+}
+
+.caretCNPQ::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+.caretCNPQ-down::before {
+    -ms-transform: rotate(90deg);
+    /* IE 9 */
+    -webkit-transform: rotate(90deg);
+    /* Safari */
+'
+transform: rotate(90deg);
+}
+
+.nested {
+    display: none;
+}
+
+.active {
+    display: block;
+}
+
+.option-select{
+    cursor: pointer;
+    padding: 2px;
+    border: 1px solid transparent;
+}
+
+.option-select:hover{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#cnpqUL li{
+    margin-bottom: 5px;
+}
+
+#accordion .panel-heading{
+    background: #eee !important;
+    color: #555 !important;
+
+}
+
+#accordion .panel-heading a{
+    text-decoration: none;
+    color:  #555 !important;
+}
+
+#accordion .panel-heading .panel-title{
+    font-size: inherit;
+}
