@@ -1984,4 +1984,8 @@ t b.caret {
   border-radius: 10px;
   padding: 1px 3px;
 }
+
+input, select, textarea {
+  font-size: 16px !important;
+}
 /*# sourceMappingURL=dspace-theme.css.map */
