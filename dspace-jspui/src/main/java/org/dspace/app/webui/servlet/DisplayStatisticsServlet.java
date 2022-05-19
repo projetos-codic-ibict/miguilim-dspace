@@ -62,7 +62,7 @@ public class DisplayStatisticsServlet extends DSpaceServlet
 
         if (!privatereport || admin)
         {
-            displayStatistics(context, request, response);
+            displayStatistics(context, request, response, false, null);
         }
         else
         {
@@ -71,12 +71,17 @@ public class DisplayStatisticsServlet extends DSpaceServlet
     }
 
     protected void displayStatistics(Context context, HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException,
+                                     HttpServletResponse response, boolean avoidDisplayJspPage, String previousHandle) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
 
         DSpaceObject dso = null;
-        String handle = request.getParameter("handle");
+        String handle = null;
+        if(previousHandle == null) {
+            handle = request.getParameter("handle");
+        } else {
+            handle = previousHandle;
+        }
 
         if("".equals(handle) || handle == null)
         {
@@ -330,8 +335,10 @@ public class DisplayStatisticsServlet extends DSpaceServlet
         request.setAttribute("statsCityVisits", statsCityVisits);
         request.setAttribute("isItem", isItem);
 
-        JSPManager.showJSP(request, response, "display-statistics.jsp");
-        
+        if(!avoidDisplayJspPage) {
+            JSPManager.showJSP(request, response, "display-statistics.jsp");
+        }
+
     }
 
 }
