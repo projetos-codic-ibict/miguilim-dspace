@@ -9,3 +9,7 @@ a[data-toggle="popover"]{
     cursor: pointer;
     outline: none;
 }
+
+.ss-single-selected .placeholder{
+    font-weight: normal;
+}

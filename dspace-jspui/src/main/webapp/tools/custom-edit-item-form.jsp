@@ -344,7 +344,7 @@
                     <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
                     <c:choose>
-                        <c:when test="${fieldInputForm.simpleVocabulary != null && fieldInputForm.repeatable}">
+                        <c:when test="${fieldInputForm.simpleVocabulary != null}">
                             <%
                                 VocabularyConverter vocabularyConverter = new VocabularyConverter();
                                 List<String> vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
