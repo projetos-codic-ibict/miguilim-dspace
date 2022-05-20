@@ -34,10 +34,14 @@
 %>
 </div>
 </main>
-            <%-- Page footer --%>
-             <footer class="section-footer">
-                <span><img height="40" src="<%= request.getContextPath() %>/image/footer-logo.png"></span>
-                <span><p class="footer-adress">Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br> SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF</p></span>
-            </footer>
+    
+    <%-- Page footer --%>
+    <footer class="section-footer">
+        <span><img height="40" src="<%= request.getContextPath() %>/image/footer-logo.png"></span>
+        <span><p class="footer-adress">Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br> SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF</p></span>
+    </footer>
+
+    <script defer="defer" src="//barra.brasil.gov.br/barra_2.0.js" type="text/javascript"></script>
+
     </body>
 </html>

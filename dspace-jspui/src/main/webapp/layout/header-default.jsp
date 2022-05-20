@@ -107,27 +107,36 @@
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
     <%-- HACK: marginwidth, marginheight: for non-CSS compliant Netscape browser --%>
     <body class="undernavigation">
-<a class="sr-only" href="#content">Skip navigation</a>
-<header class="navbar">    <!-- navbar-fixed-top -->
-    <%
-    if (!navbar.equals("off"))
-    {
-%>
-            <div class="container">
-                <dspace:include page="<%= navbar %>" />
-            </div>
-<%
-    }
-    else
-    {
+    <a class="sr-only" href="#content">Skip navigation</a>
+
+    <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+        <ul id="menu-barra-temp" style="list-style:none;">
+          <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+              <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a>
+          </li>
+        </ul>
+    </div>
+
+    <header class="navbar">    <!-- navbar-fixed-top -->
+        <%
+        if (!navbar.equals("off"))
+        {
     %>
-        <div class="container">
-            <dspace:include page="/layout/navbar-minimal.jsp" />
-        </div>
-<%
-    }
-%>
-</header>
+                <div class="container">
+                    <dspace:include page="<%= navbar %>" />
+                </div>
+    <%
+        }
+        else
+        {
+        %>
+            <div class="container">
+                <dspace:include page="/layout/navbar-minimal.jsp" />
+            </div>
+    <%
+        }
+    %>
+    </header>
 
 <main id="content" role="main">
                 <%-- Location bar --%>
