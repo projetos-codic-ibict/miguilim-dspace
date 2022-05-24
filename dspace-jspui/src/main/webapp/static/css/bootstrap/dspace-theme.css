@@ -1216,8 +1216,8 @@ hr {
   display: -ms-grid;
   display: grid;
   gap: 8px;
-  -ms-grid-columns: 1fr 3fr auto;
-      grid-template-columns: 1fr 3fr auto;
+  -ms-grid-columns: auto 3fr auto;
+      grid-template-columns: auto 3fr auto;
 }
 
 @media (max-width: 920px) {
@@ -1231,9 +1231,10 @@ hr {
   margin-top: 16px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 140px 140px 1fr 68px;
-      grid-template-columns: 140px 140px 1fr 68px;
+  -ms-grid-columns: auto auto auto auto;
+      grid-template-columns: auto auto auto auto;
   gap: 8px;
+  margin-bottom: 24px;
 }
 
 .grid-col-2b {
@@ -1302,6 +1303,28 @@ hr {
   .grid-colsecond {
     -ms-grid-columns: 1fr;
         grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 920px) {
+  .itemDisplayTable tr {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+  }
+  .itemDisplayTable tr td {
+    border: none !important;
+    padding: 0 8px !important;
+    margin-bottom: 8px;
+  }
+  .itemDisplayTable tr td:first-child {
+    font-weight: bold;
   }
 }
 

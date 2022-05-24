@@ -458,7 +458,7 @@ hr {
 .grid-col-3 {
 	display: grid;
 	gap:8px;
-	grid-template-columns: 1fr 3fr auto;
+	grid-template-columns: auto 3fr auto;
 	@include for-size(tablet-landscape-up) { 
 		grid-template-columns: 1fr;
 	}	
@@ -467,8 +467,9 @@ hr {
 .grid-col-2{
     margin-top: 16px;
     display: grid;
-    grid-template-columns: 140px 140px 1fr 68px;
+    grid-template-columns: auto auto auto auto;
     gap: 8px;
+	margin-bottom: 24px;
 }
 .grid-col-2b {
 	margin-top: 24px;
@@ -523,6 +524,26 @@ hr {
 		grid-template-columns: 1fr;
 	}
 }
+
+.itemDisplayTable {
+	tr {
+	@include for-size(tablet-landscape-up) { 
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #e1e1e1;
+		td {
+			border:none!important;
+			padding:0 8px!important;
+			margin-bottom: 8px;
+			&:first-child {
+				font-weight: bold;
+			}
+		}
+	}
+	}
+}
+
 .content-search {
 	background:$white-line-second;
 }
