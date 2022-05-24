@@ -48,7 +48,7 @@ services:
 networks:
   nw_miguilim:
     name: nw_miguilim
-    driver: bridge
+    driver: host
 
 volumes:
   mavenrepo:
