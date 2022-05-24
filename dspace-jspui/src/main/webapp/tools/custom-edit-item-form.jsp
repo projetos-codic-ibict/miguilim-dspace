@@ -398,7 +398,7 @@
                                                     <p class="panel-title">
                                                         <a role="button" data-toggle="collapse" data-parent="#accordion"
                                                            href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Selecionar uma área do CNPQ
+                                                            Opções de resposta
                                                         </a>
                                                     </p>
                                                 </div>
@@ -424,10 +424,15 @@
                             <script>
                                 new SlimSelect({
                                     select: "#<%= key %>",
+                                    placeholder: 'Selecione uma opção',
+                                    searchText: 'Sem resultados',
+                                    searchPlaceholder: 'Pesquisar',
+                                    allowDeselect: true,
                                     <% if(xmlField.getSimpleVocabulary() != null && !xmlField.getSimpleVocabulary().equals(CNPQ)){ %>
                                     addable: function (value) {
                                         return value;
-                                    }
+                                    },
+                                    searchPlaceholder: 'Pesquisar ou adicionar termos'
                                     <% } %>
                                 })
                             </script>

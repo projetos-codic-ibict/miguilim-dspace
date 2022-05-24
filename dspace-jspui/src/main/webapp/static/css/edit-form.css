@@ -92,6 +92,16 @@ transform: rotate(90deg);
     border-radius: 5px;
 }
 
+.ss-content .ss-search .ss-addable{
+    display: inline-block !important;
+    font-weight: normal !important;
+    font-size: 1rem !important;
+    flex: auto !important;
+    padding: 2px 5px;
+    width: 120px;
+    vertical-align: middle;
+}
+
 #cnpqUL li{
     margin-bottom: 5px;
 }
