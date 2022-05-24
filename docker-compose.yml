@@ -33,6 +33,8 @@ services:
       - CONTEXT_NAME=miguilim
       - DB_PASSWORD=${DB_PASSWORD}
     container_name: dspace_miguilim
+    ports:
+    - "80:80"
     tty: true
     volumes:
     - mavenrepo:/root/.m2/repository
