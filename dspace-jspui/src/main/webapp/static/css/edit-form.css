@@ -107,7 +107,7 @@ transform: rotate(90deg);
 }
 
 #accordion .panel-heading{
-    background: #eee !important;
+    background: #f5f5f5 !important;
     color: #555 !important;
 
 }
@@ -119,4 +119,13 @@ transform: rotate(90deg);
 
 #accordion .panel-heading .panel-title{
     font-size: inherit;
+}
+
+#headingOne {
+    padding: 0 15px;
+}
+
+#headingOne .panel-title{
+    display: flex;
+    padding: 10px 0;
 }

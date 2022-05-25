@@ -342,6 +342,9 @@
                         MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
                         String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
                         String CNPQ = "cnpq";
+                        boolean isCNPQ = xmlField.getSimpleVocabulary() != null && xmlField.getSimpleVocabulary().equals(CNPQ);
+                        String oasisbrQualifier = "oasisbr";
+                        boolean isOasisbrQualifier = xmlField.getQualifier().equals(oasisbrQualifier);
                     %>
                     <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
@@ -350,8 +353,12 @@
                             <%
                                 List<String> vocabularies = new ArrayList<>();
                                 VocabularyConverter vocabularyConverter = new VocabularyConverter();
-                                if (xmlField.getSimpleVocabulary() != null) {
+                                if (xmlField.getSimpleVocabulary() != null && !isCNPQ) {
                                     vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                                }else{
+                                    for (MetadataValue metadataValue: metadataValues) {
+                                        vocabularies.add(metadataValue.getValue());
+                                    }
                                 }
                             %>
                             <c:set var="metadataValuesVar" scope="session" value="<%= metadataValues  %>"/>
@@ -387,7 +394,7 @@
                                             <% } %>
                                         </c:if>
                                     </select>
-                                    <c:if test="<%=xmlField.getSimpleVocabulary() != null && xmlField.getSimpleVocabulary().equalsIgnoreCase(CNPQ)%>">
+                                    <c:if test="<%=xmlField.getSimpleVocabulary() != null && isCNPQ %>">
                                         <%
                                             JsonNode jsonNode = vocabularyConverter.getJsonFrom(xmlField.getSimpleVocabulary());
                                             String json = jsonNode.toString();
@@ -395,12 +402,10 @@
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
-                                                    <p class="panel-title">
-                                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
-                                                           href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                                            Opções de resposta
-                                                        </a>
-                                                    </p>
+                                                    <a class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion"
+                                                       href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        Opções de resposta
+                                                    </a>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse"
                                                      role="tabpanel" aria-labelledby="headingOne">
@@ -428,7 +433,7 @@
                                     searchText: 'Sem resultados',
                                     searchPlaceholder: 'Pesquisar',
                                     allowDeselect: true,
-                                    <% if(xmlField.getSimpleVocabulary() != null && !xmlField.getSimpleVocabulary().equals(CNPQ)){ %>
+                                    <% if(xmlField.getSimpleVocabulary() != null && !isCNPQ){ %>
                                     addable: function (value) {
                                         return value;
                                     },
@@ -520,42 +525,7 @@
                                             </c:forEach>
                                         </select>
                                     </div>
-
-                                        <%--                                    <c:forEach items="<%= metadataValues %>" var="metadataValue" varStatus="values">--%>
-                                        <%--                                        <%--%>
-                                        <%--                                            for (MetadataValue mv:metadataValues){--%>
-                                        <%--                                                System.out.println(mv.getValue());--%>
-                                        <%--                                            }--%>
-                                        <%--                                        %>--%>
-                                        <%--                                        <div>--%>
-                                        <%--                                            <select ${!fieldInputForm.required.isEmpty() ? 'required' : ''}--%>
-                                        <%--                                                    class="form-control"--%>
-                                        <%--                                                    id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"--%>
-                                        <%--                                                    name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">--%>
-                                        <%--                                                <option value="">Selecione uma opção</option>--%>
-                                        <%--                                                <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"--%>
-                                        <%--                                                           var="option">--%>
-                                        <%--                                                    <option ${option.key.equalsIgnoreCase(metadataValue.value.replaceAll('\r', '').replaceAll('\n', '')) ? 'selected' : ''}--%>
-                                        <%--                                                            value="${option.key}"> ${option.value} </option>--%>
-                                        <%--                                                </c:forEach>--%>
-                                        <%--                                            </select>--%>
-                                        <%--                                            <c:if test="${values.count > 1}">--%>
-                                        <%--                                                <button type="button"--%>
-                                        <%--                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"--%>
-                                        <%--                                                        class="btn btn-danger">--%>
-                                        <%--                                                    <span class="glyphicon glyphicon-trash"></span>&nbsp--%>
-                                        <%--                                                    <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>--%>
-                                        <%--                                                </button>--%>
-                                        <%--                                            </c:if>--%>
-                                        <%--                                        </div>--%>
-                                        <%--                                    </c:forEach>--%>
                                 </div>
-                                    <%--                                <c:if test="${fieldInputForm.repeatable}">--%>
-                                    <%--                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">--%>
-                                    <%--                                        <span class="glyphicon glyphicon-plus"></span>--%>
-                                    <%--                                        <fmt:message key="jsp.dspace-admin.metadataimport.add"/>--%>
-                                    <%--                                    </button>--%>
-                                    <%--                                </c:if>--%>
                             </div>
                         </c:when>
                         <c:otherwise>
@@ -576,6 +546,7 @@
                                         <div>
                                             <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                                     class="form-control"
+                                                    <%= isOasisbrQualifier && !isAdmin ? "disabled" : "" %>
                                                     id="${keyValue}"
                                                     type="text"
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
@@ -589,6 +560,7 @@
                                                     class="form-control"
                                                     id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                                     type="text"
+                                                    <%= isOasisbrQualifier && !isAdmin ? "disabled" : "" %>
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                                     value="${metadataValue.value}"
                                             />
