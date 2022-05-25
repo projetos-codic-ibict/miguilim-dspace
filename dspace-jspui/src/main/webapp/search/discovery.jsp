@@ -761,8 +761,8 @@
                 <% } %>
             </div>
             <% } else { %>
-                <div>
-                    <span><fmt:message key="browse.no-results.title"></fmt:message></span>
+                <div class="no-resultSearch">
+                    <span>asasaas<fmt:message key="browse.no-results.title"></fmt:message></span>
                 </div>
 
             <% }%>
