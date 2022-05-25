@@ -26,7 +26,6 @@
 <%@ page import="org.apache.commons.lang.StringUtils"%>
 
 
-<div class="search-main">
 	<%
 		boolean brefine = false;
 		
@@ -65,7 +64,7 @@
 		{
 	%>
 
-	<div class="search-content">
+	<div>
 		<h3><fmt:message key="jsp.search.facet.refine" /></h3>
 
 	<%
@@ -167,4 +166,3 @@
 		}
 	%>
 
-</div>
