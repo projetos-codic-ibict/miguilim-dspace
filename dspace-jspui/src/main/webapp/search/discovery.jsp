@@ -176,7 +176,7 @@
 
 <dspace:layout titlekey="jsp.search.title">
 
-    <div class="search-main">
+    <div class="search-main" <%= items.isEmpty() ? "style='display:block'" : "" %>>
 
 
         <%
@@ -433,7 +433,10 @@
                                                            value="<%= StringEscapeUtils.escapeHtml(filter[2]) %>" class="field-s w100"/>
                                                 </div>
                                                 <div>
+<%--
                                                     <button type="submit" class="button-main-outline"><fmt:message key="jsp.general.go"/></button>
+--%>
+                                                    <button type="submit" class="button-main-outline" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>">X</button>
                                                 </div>
                                             </div>
                         <%
@@ -757,7 +760,12 @@
                 </div>
                 <% } %>
             </div>
-            <% } %>
+            <% } else { %>
+                <div>
+                    <span><fmt:message key="browse.no-results.title"></fmt:message></span>
+                </div>
+
+            <% }%>
         </div>
 
     </div>
