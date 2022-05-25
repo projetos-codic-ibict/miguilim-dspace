@@ -129,11 +129,15 @@
     TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
     String pontuacaoTermometro = termometroService.calcularPontuacaoDoItem(item);
 
+     String REVISTAS = "123456789/2";
+     String PORTAL_DE_PERIODICOS = "123456789/2669";
+
 %>
 
 <dspace:layout title="<%= title %>">
 
 <div class="search-main">
+
 
 
         <%
@@ -218,12 +222,20 @@
             <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" destiny="#item-statistics"><fmt:message key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"  destiny="#formulario"><fmt:message key="webui.displayitem.tab.requestchange"></fmt:message> </a>
-            </li>
+            <%
+                if(item.getCollections().get(0).getHandle().equals(REVISTAS)) {
+            %>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" destiny="#termometro"><fmt:message key="webui.displayitem.tab.termometro"></fmt:message> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"  destiny="#formulario"><fmt:message key="webui.displayitem.tab.requestchange"></fmt:message> </a>
+                    </li>
+            <%
+                }
+            %>
+
         </ul>
 
         <div id="item-data" tabcontent>

@@ -404,6 +404,10 @@
 			int discovery_panel_cols = 12;
 			int discovery_facet_cols = 12;
 		%>
-		<%@ include file="discovery/static-sidebar-facet.jsp" %>
+		<div class="search-main">
+			<div class="search-content">
+				<%@ include file="discovery/static-sidebar-facet.jsp" %>
+			</div>
+		</div>
   </dspace:sidebar>
 </dspace:layout>
