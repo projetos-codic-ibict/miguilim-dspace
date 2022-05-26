@@ -549,7 +549,7 @@
             </div>
 
             <!-- Controles adicionais -->
-            <div class="discovery-pagination-controls panel-footer">
+            <div class="search-element searchfilter spacing-element">
                 <form action="simple-search" method="get">
                     <input type="hidden" value="<%= Utils.addEntities(searchScope) %>" name="location" />
                     <input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
@@ -566,8 +566,10 @@
                                 idx++;
                             }
                         } %>
+                    <div class="result-pagination">
+                        <div>
                     <label for="rpp"><fmt:message key="search.results.perpage"/></label>
-                    <select name="rpp" id="rpp">
+                    <select name="rpp" id="rpp" class="field-s w100">
                         <%
                             for (int i = 5; i <= 100 ; i += 5)
                             {
@@ -578,33 +580,45 @@
                             }
                         %>
                     </select>
-                    &nbsp;|&nbsp;
+                    
                     <%
                         if (sortOptions.size() > 0)
                         {
                     %>
-                    <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
-                    <select name="sort_by" id="sort_by">
-                        <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
+                    </div>
+
+                    <div>
+                        <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
+                        <select name="sort_by" id="sort_by" class="field-s w100">
+                            <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
+                            <%
+                                for (String sortBy : sortOptions)
+                                {
+                                    String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
+                                    String mKey = "search.sort-by." + Utils.addEntities(sortBy);
+                            %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
+                            }
+                        %>
+                        </select>
                         <%
-                            for (String sortBy : sortOptions)
-                            {
-                                String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
-                                String mKey = "search.sort-by." + Utils.addEntities(sortBy);
-                        %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
-                        }
-                    %>
-                    </select>
-                    <%
-                        }
-                    %>
+                            }
+                        %>
+                    </div>
+                    </div>
+
+                    <div class="result-pagination-2">
+                    <div>
                     <label for="order"><fmt:message key="search.results.order"/></label>
-                    <select name="order" id="order">
+                    <select name="order" id="order" class="field-s w100">
                         <option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
                         <option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
                     </select>
+                    </div>
+
+
+                    <div>
                     <label for="etal"><fmt:message key="search.results.etal" /></label>
-                    <select name="etal" id="etal">
+                    <select name="etal" id="etal" class="field-s w100">
                         <%
                             String unlimitedSelect = "";
                             if (etAl < 1)
@@ -645,7 +659,9 @@
                             }
                         %>
                     </select>
-                    <input class="btn btn-default" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
+                </div>
+                <div>
+                    <input class="button-main-outline" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
 
                     <%
                         if (admin_button)
@@ -653,6 +669,8 @@
                     %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
                     }
                 %>
+            </div>
+        </div>
                 </form>
             </div>
 

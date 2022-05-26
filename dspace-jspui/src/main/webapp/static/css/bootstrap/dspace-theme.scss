@@ -578,6 +578,32 @@ hr {
 		}
 	}
 }
+.spacing-element {
+	margin-top: 8px;
+}
+.result-pagination {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 8px;
+	@include for-size(tablet-landscape-up) { 
+		grid-template-columns: auto;
+	}	
+}
+
+.result-pagination-2 {
+	display: grid;
+	grid-template-columns: auto auto 100px;
+	gap: 8px;
+	margin-top: 16px;
+	@include for-size(tablet-landscape-up) { 
+		grid-template-columns: auto;
+	}
+	div:last-child {
+		display: flex;
+    justify-content: end;
+    align-items: end;
+	}
+}
 
 .search-main {
 	display: grid;
