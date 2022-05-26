@@ -1917,7 +1917,7 @@ t b.caret {
 }
 
 .navbar-nav {
-  margin: 12px 0 0 0;
+  margin: 12px 0 0 24px;
 }
 
 .navbar-nav li a {
@@ -2012,7 +2012,7 @@ t b.caret {
   font-size: 32px;
   margin-top: 24px;
   text-align: center;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid #EBEBEB;
   padding: 24px;
   border-radius: 8px;
