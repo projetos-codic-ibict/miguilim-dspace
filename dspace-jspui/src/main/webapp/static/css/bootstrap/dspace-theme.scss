@@ -592,7 +592,7 @@ hr {
 
 .result-pagination-2 {
 	display: grid;
-	grid-template-columns: auto auto 108px;
+	grid-template-columns: auto 120px 108px;
 	gap: 8px;
 	margin-top: 16px;
 	@include for-size(tablet-landscape-up) { 
