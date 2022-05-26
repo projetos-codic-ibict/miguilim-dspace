@@ -1369,8 +1369,8 @@ hr {
 .result-pagination {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto;
-      grid-template-columns: auto auto;
+  -ms-grid-columns: 180px auto;
+      grid-template-columns: 180px auto;
   gap: 8px;
 }
 
