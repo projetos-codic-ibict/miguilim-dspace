@@ -1683,6 +1683,7 @@ hr {
       -ms-flex-align: center;
           align-items: center;
   height: 40px;
+  cursor: pointer;
 }
 
 .pagination-number-itens .first-pagination .color-svg {

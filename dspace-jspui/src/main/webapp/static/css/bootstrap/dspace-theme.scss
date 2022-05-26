@@ -825,6 +825,7 @@ hr {
 			display: flex;
 			align-items: center;
 			height: 40px;
+			cursor: pointer;
 			.color-svg {
 				fill: $dark-blue;
 				transform: scale(-1,1) translateY(1px);

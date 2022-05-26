@@ -825,18 +825,18 @@
                                 if (pageFirst != pageCurrent) {
                             %>
                             <li><a  class="first-pagination" href="<%= prevURL %>">
-                                <svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
                                     <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
-                                </svg>
+                                </svg-->
                                 <fmt:message key="jsp.search.general.previous"/></a></li>
                             <%
                             } else {
                             %>
-                            <li><a  class="first-pagination"><svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <li><a  class="first-pagination"><!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
-                            </svg><fmt:message key="jsp.search.general.previous"/></a></li>
+                            </svg><fmt:message key="jsp.search.general.previous"/--></a></li>
                             <%
                                 }
 
