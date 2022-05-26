@@ -378,6 +378,11 @@
                         </div>
                         <br>
 
+                        <input type="hidden" value="<%= rpp %>" name="rpp" />
+                        <input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
+                        <input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
+
+
                         <!-- filtros já utilizados -->
                         <% if (appliedFilters.size() > 0) { %>
 
@@ -522,9 +527,9 @@
 
                                 <input type="text" id="filterquery" name="filterquery" class="field-s w100"
                                        placeholder="Escolha por"/>
-                                <input type="hidden" value="<%= rpp %>" name="rpp"/>
-                                <input type="hidden" value="<%= sortedBy %>" name="sort_by"/>
-                                <input type="hidden" value="<%= order %>" name="order"/>
+                                <input type="hidden" value="<%= rpp %>" name="rpp" />
+                                <input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
+                                <input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
 
                             </div>
                             <div>
@@ -542,6 +547,115 @@
                 <% } %>
 
             </div>
+
+            <!-- Controles adicionais -->
+            <div class="discovery-pagination-controls panel-footer">
+                <form action="simple-search" method="get">
+                    <input type="hidden" value="<%= Utils.addEntities(searchScope) %>" name="location" />
+                    <input type="hidden" value="<%= Utils.addEntities(query) %>" name="query" />
+                    <% if (appliedFilterQueries.size() > 0 ) {
+                        int idx = 1;
+                        for (String[] filter : appliedFilters)
+                        {
+                            boolean found = false;
+                    %>
+                    <input type="hidden" id="filter_field_<%=idx %>" name="filter_field_<%=idx %>" value="<%= Utils.addEntities(filter[0]) %>" />
+                    <input type="hidden" id="filter_type_<%=idx %>" name="filter_type_<%=idx %>" value="<%= Utils.addEntities(filter[1]) %>" />
+                    <input type="hidden" id="filter_value_<%=idx %>" name="filter_value_<%=idx %>" value="<%= Utils.addEntities(filter[2]) %>" />
+                    <%
+                                idx++;
+                            }
+                        } %>
+                    <label for="rpp"><fmt:message key="search.results.perpage"/></label>
+                    <select name="rpp" id="rpp">
+                        <%
+                            for (int i = 5; i <= 100 ; i += 5)
+                            {
+                                String selected = (i == rpp ? "selected=\"selected\"" : "");
+                        %>
+                        <option value="<%= i %>" <%= selected %>><%= i %></option>
+                        <%
+                            }
+                        %>
+                    </select>
+                    &nbsp;|&nbsp;
+                    <%
+                        if (sortOptions.size() > 0)
+                        {
+                    %>
+                    <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
+                    <select name="sort_by" id="sort_by">
+                        <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
+                        <%
+                            for (String sortBy : sortOptions)
+                            {
+                                String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
+                                String mKey = "search.sort-by." + Utils.addEntities(sortBy);
+                        %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
+                        }
+                    %>
+                    </select>
+                    <%
+                        }
+                    %>
+                    <label for="order"><fmt:message key="search.results.order"/></label>
+                    <select name="order" id="order">
+                        <option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
+                        <option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
+                    </select>
+                    <label for="etal"><fmt:message key="search.results.etal" /></label>
+                    <select name="etal" id="etal">
+                        <%
+                            String unlimitedSelect = "";
+                            if (etAl < 1)
+                            {
+                                unlimitedSelect = "selected=\"selected\"";
+                            }
+                        %>
+                        <option value="0" <%= unlimitedSelect %>><fmt:message key="browse.full.etal.unlimited"/></option>
+                        <%
+                            boolean insertedCurrent = false;
+                            for (int i = 0; i <= 50 ; i += 5)
+                            {
+                                // for the first one, we want 1 author, not 0
+                                if (i == 0)
+                                {
+                                    String sel = (i + 1 == etAl ? "selected=\"selected\"" : "");
+                        %><option value="1" <%= sel %>>1</option><%
+                        }
+
+                        // if the current i is greated than that configured by the user,
+                        // insert the one specified in the right place in the list
+                        if (i > etAl && !insertedCurrent && etAl > 1)
+                        {
+                    %><option value="<%= etAl %>" selected="selected"><%= etAl %></option><%
+                            insertedCurrent = true;
+                        }
+
+                        // determine if the current not-special case is selected
+                        String selected = (i == etAl ? "selected=\"selected\"" : "");
+
+                        // do this for all other cases than the first and the current
+                        if (i != 0 && i != etAl)
+                        {
+                    %>
+                        <option value="<%= i %>" <%= selected %>><%= i %></option>
+                        <%
+                                }
+                            }
+                        %>
+                    </select>
+                    <input class="btn btn-default" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
+
+                    <%
+                        if (admin_button)
+                        {
+                    %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
+                    }
+                %>
+                </form>
+            </div>
+
 
             <% 
                 if (items.size() > 0) 
@@ -610,7 +724,7 @@
                                 %>
                             </div>
                             <div class="line"></div>
-                            <div class="kind"><strong>Publicada em:</strong> <%= dataPublicacaoFormatada %></div>
+                            <div class="kind"><strong>Registrado em:</strong> <%= dataPublicacaoFormatada %></div>
                         </div>	
                         <div class="bt">
                             <button onclick="window.open('<%= url %>','_blank')" type="submit" class="button-main">Acessar</button>
