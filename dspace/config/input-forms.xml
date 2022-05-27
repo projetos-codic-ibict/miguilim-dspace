@@ -1123,9 +1123,9 @@
                     <dc-element>relation</dc-element>
                     <dc-qualifier>oasisbr</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Artigos da revista no Portal oasisbr:</label>
+                    <label>Revista no portal Oasisbr:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a URL da busca do ISSN da revista no Portal oasisbr.</hint>
+                    <hint>Caso a revista seja coletada pelo <a href="https://oasisbr.ibict.br" target="_blank">Oasisbr</a>. Indique a URL do registro da revista no portal, os registros das revistas podem ser encontrados na aba “Fontes Coletadas”.</hint>
                     <!--<visibility>workflow</visibility>-->
                     <required></required>
                 </field>
@@ -2072,15 +2072,18 @@
 
         <value-pairs value-pairs-name="common_rights_creativecommons" dc-term="common_rights_creativecommons">
             <pair>
-                <displayed-value>1. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para
-                    fins comerciais, desde que...
+                <displayed-value>
+                    1. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY).
                 </displayed-value>
-                <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)
+                <stored-value>
+                    Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>2. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para
-                    fins comerciais, desde que...
+                <displayed-value>
+                    2. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins
+                    comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações
+                    utilizem a mesma licença da obra original (CC BY-SA).
                 </displayed-value>
                 <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins
                     comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações
@@ -2088,22 +2091,23 @@
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>3. Permite redistribuição, comercial ou não comercial, desde que a obra não seja
-                    modificada e que seja atribuído o...
+                <displayed-value>
+                    3. Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND).
                 </displayed-value>
                 <stored-value>Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)</stored-value>
             </pair>
             <pair>
                 <displayed-value>4. Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o
-                    crédito ao autor e que a nova...
+                    crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC).
                 </displayed-value>
                 <stored-value>Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o
                     crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC)
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>5. Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais,
-                    desde que seja atribuído o crédito ao...
+                <displayed-value>5. Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde
+                    que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma
+                    licença da obra original (CC BY-NC-SA).
                 </displayed-value>
                 <stored-value>Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde
                     que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma
@@ -2111,8 +2115,8 @@
                 </stored-value>
             </pair>
             <pair>
-                <displayed-value>6. Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e
-                    que a obra não seja alterada de nenhuma...
+                <displayed-value>6. Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a
+                    obra não seja alterada de nenhuma forma (CC BY-NC-ND).
                 </displayed-value>
                 <stored-value>Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a
                     obra não seja alterada de nenhuma forma (CC BY-NC-ND)

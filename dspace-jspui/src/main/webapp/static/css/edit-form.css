@@ -16,6 +16,7 @@ a[data-toggle="popover"]{
 
 .popover{
     max-width:380px;
+    overflow-wrap: break-word;
 }
 
 .glyphicon-question-sign{

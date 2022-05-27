@@ -343,8 +343,6 @@
                         String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();
                         String CNPQ = "cnpq";
                         boolean isCNPQ = xmlField.getSimpleVocabulary() != null && xmlField.getSimpleVocabulary().equals(CNPQ);
-                        String oasisbrQualifier = "oasisbr";
-                        boolean isOasisbrQualifier = xmlField.getQualifier().equals(oasisbrQualifier);
                     %>
                     <c:set var="keyValue" scope="session" value="<%= key  %>"/>
 
@@ -546,7 +544,6 @@
                                         <div>
                                             <input ${!fieldInputForm.required.isEmpty() ? 'required' : ''}
                                                     class="form-control"
-                                                    <%= isOasisbrQualifier && !isAdmin ? "disabled" : "" %>
                                                     id="${keyValue}"
                                                     type="text"
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
@@ -560,7 +557,6 @@
                                                     class="form-control"
                                                     id="${values.count > 1 ? keyValue.concat(values.index) : keyValue}"
                                                     type="text"
-                                                    <%= isOasisbrQualifier && !isAdmin ? "disabled" : "" %>
                                                     name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>"
                                                     value="${metadataValue.value}"
                                             />
