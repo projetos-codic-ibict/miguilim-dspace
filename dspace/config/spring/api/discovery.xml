@@ -209,6 +209,15 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
+
+                <ref bean="searchdescriptionsituation" />
+                <ref bean="searchdescriptionsocialnetworks" />
+                <ref bean="searchrightspreprintsubmission" />
+                <ref bean="searchpublisherlegalnature" />
+                <ref bean="searchdescriptionpeerreviewexternality" />
+                <ref bean="searchdescriptionstate" />
+                <ref bean="searchDateStartYear" />
+
             </list>
         </property>
         <!--The sort filters for the discovery search-->
@@ -403,6 +412,15 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
+
+                <ref bean="searchdescriptionsituation" />
+                <ref bean="searchdescriptionsocialnetworks" />
+                <ref bean="searchrightspreprintsubmission" />
+                <ref bean="searchpublisherlegalnature" />
+                <ref bean="searchdescriptionpeerreviewexternality" />
+                <ref bean="searchdescriptionstate" />
+                <ref bean="searchDateStartYear" />
+
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->

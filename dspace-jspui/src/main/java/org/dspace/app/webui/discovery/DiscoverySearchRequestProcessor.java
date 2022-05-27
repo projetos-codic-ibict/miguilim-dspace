@@ -10,11 +10,8 @@ package org.dspace.app.webui.discovery;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.text.Collator;
+import java.util.*;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -270,7 +267,18 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         
         List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration
                 .getSidebarFacets();
-        
+
+
+        if(availableFacet != null) {
+            final Collator instance = Collator.getInstance();
+
+            // This strategy mean it'll ignore the accents
+            instance.setStrength(Collator.NO_DECOMPOSITION);
+            Collections.sort(availableFacet, (discoverySearchFilterFacet, discoverySearchFilterFacet2) ->
+                    instance.compare(I18nUtil.getMessage("jsp.search.facet.refine." + discoverySearchFilterFacet.getIndexFieldName()),
+                            I18nUtil.getMessage("jsp.search.facet.refine." + discoverySearchFilterFacet2.getIndexFieldName())));
+        }
+
         request.setAttribute("facetsConfig",
                 availableFacet != null ? availableFacet
                         : new ArrayList<DiscoverySearchFilterFacet>());
