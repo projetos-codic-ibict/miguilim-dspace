@@ -715,7 +715,6 @@
                 <div class="cards">
                     <h3 onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'" style="cursor:pointer"><%= titulo %></h3>
                     <h2><%= editora %></h2>
-                    <p><%= subtitulo %></p>
                     <div class="group-footer">
                         <div class="info">
                             <div class="kind">
@@ -742,10 +741,11 @@
                                 %>
                             </div>
                             <div class="line"></div>
-                            <div class="kind"><strong>Registrado em:</strong> <%= dataPublicacaoFormatada %></div>
-                        </div>	
+                            <div class="kind"><strong>ISSN:</strong> <%= subtitulo %></div>
+
+                        </div>
                         <div class="bt">
-                            <button onclick="window.open('<%= url %>','_blank')" type="submit" class="button-main">Acessar</button>
+                            <div class="kind"><strong>Registrado em:</strong> <%= dataPublicacaoFormatada %></div>
                         </div>
                     </div>
                 </div>
