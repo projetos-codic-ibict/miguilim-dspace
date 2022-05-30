@@ -1173,6 +1173,15 @@ b.caret {
 	padding: 1px 3px;
 }
 
+//table tabs
+#item-data-full {
+	.panel-info {
+	.panel-heading {
+		background-color: none!important;
+	}
+	}
+}
+
 .no-result-search{
 	font-size:32px;
 	margin-top: 24px;
