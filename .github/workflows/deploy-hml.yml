@@ -6,9 +6,9 @@ on:
       - main
 
 env:
-  SMTP_PASSWORD: ${SMTP_PASSWORD}
-  SMTP_HOST_IP: ${SMTP_HOST_IP}
-  
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_HOST_IP: ${{ secrets.PASSWORD_SSH }}
+
 jobs:
   deploy:
     runs-on: self-hosted
