@@ -45,7 +45,7 @@ function instala_dspace_ou_atualiza_dspace() {
 
 function declara_deploy_webapps() {
 
-  echo "Eftuando link simbólico de aplicações"
+  echo "Efetuando link simbólico de aplicações"
   rm -rf /opt/apache-tomcat-8.5.51/webapps/ROOT
   ln -s /dspace/webapps/solr /opt/apache-tomcat-8.5.51/webapps/
   ln -s /dspace/webapps/jspui /opt/apache-tomcat-8.5.51/webapps/ROOT
@@ -108,7 +108,7 @@ function instala_ant() {
   echo "Acrescentando permissão de execução no binario do Ant"
   chmod 775 /opt/apache-ant-1.9.14/bin/ant
 
-  echo "Efetuando link simbolico do Maven"
+  echo "Efetuando link simbolico do Ant"
   update-alternatives --install /usr/bin/ant ant /opt/apache-ant-1.9.14/bin/ant 78
 }
 
@@ -145,11 +145,17 @@ function verfica_e_trata_ambiente_de_desenvolvimento() {
   fi
 }
 
+function prepara_ambiente_rede() {
+  echo "Adicionando hosts"
+  echo "${SMTP_HOST_IP} smtp.apps.ibict.br' >> /etc/hosts
+}
+
 echo "Iniciando a execução do container"
 
 # Somente executa o bloco abaixo caso seja o primeiro "run" do container
 if [[ ! -f "/opt/docker-build-complete" ]]; then
   echo "Primeira execuçao do container, preparando instalação"
+  prepara_ambiente_rede
   prepara_tomcat
   instala_maven
   instala_ant
@@ -161,6 +167,7 @@ if [[ ! -f "/opt/docker-build-complete" ]]; then
   cria_arquivo_indicador_conclusao_build
   verfica_e_trata_ambiente_de_desenvolvimento
 else
+  prepara_ambiente_rede
   prepara_tomcat
   instala_maven
   instala_ant
