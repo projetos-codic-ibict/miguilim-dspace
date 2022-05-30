@@ -33,8 +33,8 @@ services:
       - DEV_MODE=true
       - CONTEXT_NAME=miguilim
       - DB_PASSWORD=${DB_PASSWORD}
-      - SMTP_PASSWORD=${SMTP_PASSWORD}
-      - SMTP_HOST_IP=${SMTP_HOST_IP}
+      - "SMTP_PASSWORD=${SMTP_PASSWORD}"
+      - "SMTP_HOST_IP=${SMTP_HOST_IP}"
     container_name: dspace_miguilim
     ports:
     - "80:8080"
