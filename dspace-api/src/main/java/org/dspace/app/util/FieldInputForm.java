@@ -26,6 +26,7 @@ public class FieldInputForm {
     private String simpleVocabulary;
     private String simpleInputType;
     private Map<String, String> complextInputType;
+    private String hintEdit;
 
     public String getKey() {
         String separator = "_";
@@ -117,6 +118,14 @@ public class FieldInputForm {
 
     public String getSimpleVocabulary() {
         return simpleVocabulary;
+    }
+
+    public String getHintEdit() {
+        return hintEdit;
+    }
+
+    public void setHintEdit(String hintEdit) {
+        this.hintEdit = hintEdit;
     }
 
     @Override

@@ -46,6 +46,9 @@ public class FieldInputFormXMLConvert {
                                 try {
                                     ObjectMapper mapper = new ObjectMapper();
                                     FieldInputForm field = mapper.readValue(fields.get(k).toString(), FieldInputForm.class);
+                                    if(fields.get(k).get("hint-edit") != null ){
+                                        field.setHintEdit(fields.get(k).get("hint-edit").asText());
+                                    }
                                     if(fields.get(k).get("vocabulary") != null ){
                                         field.setSimpleVocabulary(fields.get(k).get("vocabulary").isContainerNode() ?
                                                 fields.get(k).get("vocabulary").get("content").asText() : fields.get(k).get("vocabulary").asText());

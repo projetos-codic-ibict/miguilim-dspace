@@ -29,6 +29,7 @@
 <%@ page import="org.dspace.app.util.FieldInputFormUtils" %>
 <%@ page import="org.dspace.app.util.VocabularyConverter" %>
 <%@ page import="com.fasterxml.jackson.databind.JsonNode" %>
+<%@ page import="java.util.stream.Collectors" %>
 
 <%
     Item item = (Item) request.getAttribute("item");
@@ -354,6 +355,7 @@
                                 if (xmlField.getSimpleVocabulary() != null && !isCNPQ) {
                                     vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
                                 }else{
+                                    // pegar campos salvos do CNPQ
                                     for (MetadataValue metadataValue: metadataValues) {
                                         vocabularies.add(metadataValue.getValue());
                                     }
@@ -365,11 +367,12 @@
                                 <label for="<%= key %>">
                                         ${fieldInputForm.label} ${!fieldInputForm.required.isEmpty() ? '*' : ''}
                                 </label>
+
                                 <c:if test="${fieldInputForm.hint != null && !fieldInputForm.hint.isEmpty()}">
                                     <a data-container="body" role="button"
                                        data-toggle="popover" data-placement="top"
                                        data-html="true" data-trigger="focus" tabindex="0"
-                                       data-content='${fieldInputForm.hint}'>
+                                       data-content='${fieldInputForm.hintEdit != null ? fieldInputForm.hintEdit : fieldInputForm.hint}'>
                                         <span class="glyphicon glyphicon-question-sign"></span>
                                     </a>
                                 </c:if>
@@ -379,29 +382,40 @@
                                             name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
                                         <c:forEach items="<%= vocabularies %>" var="option">
                                             <% String optionString = (String) pageContext.getAttribute("option"); %>
-                                            <option <%=isContains(metadataValues, optionString) ? "selected" : ""%>
+                                            <option class="-" <%=isContains(metadataValues, optionString) ? "selected" : ""%>
                                                     value="${option}">${option} </option>
                                         </c:forEach>
                                         <c:if test="${fieldInputForm.complextInputType != null}">
                                             <%
                                                 for (Map.Entry<String, String> entry : xmlField.getComplextInputType().entrySet()) {
                                             %>
-                                            <option <%=isContains(metadataValues, entry.getKey()) ? "selected" : ""%>
+                                            <option class="--" <%=isContains(metadataValues, entry.getKey()) ? "selected" : ""%>
                                                     value="<%=entry.getKey()%>"><%= entry.getValue() %>
                                             </option>
                                             <% } %>
                                         </c:if>
+                                        <c:if test="<%= !vocabularies.isEmpty() || xmlField.getComplextInputType() != null %>">
+                                            <c:forEach
+                                                    items="<%= valuesOutXML(metadataValues, !vocabularies.isEmpty() ? vocabularies : new ArrayList<>(xmlField.getComplextInputType().keySet())) %>"
+                                                    var="option">
+                                                <option class="---" selected value="${option}">${option} </option>
+                                            </c:forEach>
+                                        </c:if>
+
                                     </select>
                                     <c:if test="<%=xmlField.getSimpleVocabulary() != null && isCNPQ %>">
                                         <%
                                             JsonNode jsonNode = vocabularyConverter.getJsonFrom(xmlField.getSimpleVocabulary());
                                             String json = jsonNode.toString();
                                         %>
-                                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                        <div class="panel-group" id="accordion" role="tablist"
+                                             aria-multiselectable="true">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
-                                                    <a class="panel-title" role="button" data-toggle="collapse" data-parent="#accordion"
-                                                       href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                    <a class="panel-title" role="button" data-toggle="collapse"
+                                                       data-parent="#accordion"
+                                                       href="#collapseOne" aria-expanded="true"
+                                                       aria-controls="collapseOne">
                                                         Opções de resposta
                                                     </a>
                                                 </div>
@@ -449,7 +463,7 @@
                                     <a data-container="body" role="button"
                                        data-toggle="popover" data-placement="top"
                                        data-html="true" data-trigger="focus" tabindex="0"
-                                       data-content='${fieldInputForm.hint}'>
+                                       data-content='${fieldInputForm.hintEdit != null ? fieldInputForm.hintEdit : fieldInputForm.hint}'>
                                         <span class="glyphicon glyphicon-question-sign"></span>
                                     </a>
                                 </c:if>
@@ -498,7 +512,7 @@
                                     <a data-container="body" role="button"
                                        data-toggle="popover" data-placement="top"
                                        data-html="true" data-trigger="focus" tabindex="0"
-                                       data-content='${fieldInputForm.hint}'>
+                                       data-content='${fieldInputForm.hintEdit != null ? fieldInputForm.hintEdit : fieldInputForm.hint}'>
                                         <span class="glyphicon glyphicon-question-sign"></span>
                                     </a>
                                 </c:if>
@@ -535,7 +549,7 @@
                                     <a data-container="body" role="button"
                                        data-toggle="popover" data-placement="top"
                                        data-html="true" data-trigger="focus" tabindex="0"
-                                       data-content='${fieldInputForm.hint}'>
+                                       data-content='${fieldInputForm.hintEdit != null ? fieldInputForm.hintEdit : fieldInputForm.hint}'>
                                         <span class="glyphicon glyphicon-question-sign"></span>
                                     </a>
                                 </c:if>
@@ -629,6 +643,16 @@
 <%!
     private boolean isContains(List<MetadataValue> metadataValues, String value) {
         return metadataValues.stream().filter(m -> m.getValue().replaceAll("\r", "").replaceAll("\n", "").trim().equalsIgnoreCase(value)).findAny().orElse(null) != null;
+    }
+
+    private List<String> valuesOutXML(List<MetadataValue> metadataValues, List<String> valuesFromXML) {
+        List<String> valuesSaved =
+                metadataValues.stream()
+                        .map(MetadataValue::getValue)
+                        .collect(Collectors.toList());
+        return valuesSaved.stream()
+                .filter(element -> !valuesFromXML.contains(element))
+                .collect(Collectors.toList());
     }
 
     private String getSequenceNumber(Map<String, Integer> dcCounter, String key) {

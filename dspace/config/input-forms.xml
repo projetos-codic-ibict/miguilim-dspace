@@ -252,6 +252,9 @@
                     <hint>
                         Selecione o(s) idioma(s) aceito(s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Para indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à direita do preenchimento.
                     </hint>
+                    <hint-edit>
+                        Selecione o (s) idioma (s) aceito (s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Informe o idioma
                         da revista.
                     </required>
@@ -274,6 +277,9 @@
                     <hint>
                         Selecione as principais áreas do conhecimento em que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Por favor, selecione apenas as áreas de conhecimento de maior ênfase da revista em suas publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à direita do preenchimento.
                     </hint>
+                    <hint-edit>
+                        Selecione as principais áreas do conhecimento em que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Por favor, selecione apenas as áreas de conhecimento de maior ênfase da revista em suas publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Selecione a(s)
                         área(s) de conhecimento correspondente(s), de acordo com tabela do CNPq. 
                     </required>
@@ -542,6 +548,9 @@
                         contínua. Para marcar mais de uma opção mantenha pressionada a tecla “Control” (Ctrl) e
                         selecione as opções desejadas.
                     </hint>
+                    <hint-edit>
+                        Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s). Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que publica de forma contínua. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Indique o (s) mês
                         (es) em que é (são) publicado (s).
                     </required>
@@ -580,6 +589,9 @@
                         não publique em
                         Fluxo continuo deixe a questão em branco.
                     </hint>
+                    <hint-edit>
+                        Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es) em que é (são) publicado (s) o expediente. Caso a revista não publique em Fluxo continuo deixe a questão em branco. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required></required>
                 </field>
 
@@ -600,9 +612,14 @@
                         avaliação.&lt;br&gt;Avaliação simples-cega:
                         as identidades dos autores são reveladas para os avaliadores, mas as dos avaliadores são
                         mantidas em
-                        sigilo para os autores durante o processo de avaliação.&lt;br&gt;
-                        
+                        sigilo para os autores durante o processo de avaliação.
                     </hint>
+                    <hint-edit>
+                        Informe o (s) modelo (s) de revisão por pares adotado (s) pela revista. Para esse campo é possível marcar mais de uma resposta.
+                        &lt;br&gt;Avaliação aberta: as identidades dos autores e dos avaliadores são reveladas para ambos durante o processo de avaliação.
+                        &lt;br&gt;Avaliação duplo-cega: as identidades dos autores e dos avaliadores não são reveladas para ambos durante o processo de avaliação.
+                        &lt;br&gt;Avaliação simples-cega: as identidades dos autores são reveladas para os avaliadores, mas as dos avaliadores são mantidas em sigilo para os autores durante o processo de avaliação.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Informe o modelo
                         de revisão por pares adotado pela revista.
                     </required>
@@ -633,6 +650,9 @@
                         opção mantenha
                         pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas.
                     </hint>
+                    <hint-edit>
+                        Indique a forma que se publica ou disponibiliza o nome dos avaliadores responsáveis pela revisão dos artigos submetidos à revista. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Indique a forma
                         que se publica ou disponibiliza o nome dos avaliadores.
                     </required>
@@ -687,6 +707,9 @@
                     <hint>
                         Indique as seções ou tipos de documentos publicados pela revista que passam pela avaliação por pares. Exemplos: Artigo original, Artigo de revisão,  Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.  Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
                     </hint>
+                    <hint-edit>
+                        Indique as seções ou tipos de documentos publicados pela revista que passam pela avaliação por pares. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.  Exemplos: Artigo original, Artigo de revisão,  Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Indique as seções
                         ou os tipos de documentos publicados pela revista que passam por avaliação por pares.
                     </required>
@@ -703,6 +726,9 @@
                     <hint>
                         Indique a instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que passam pelo processo de avaliação por pares.  Exemplos: Avaliador (es), Editor responsável, Editor de seção, Editor executivo. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
                     </hint>
+                    <hint-edit>
+                        Indique a instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que passam pelo processo de avaliação por pares. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento.   Exemplos: Avaliador (es), Editor responsável, Editor de seção, Editor executivo.  Indique a resposta de acordo com as opções descritas.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Indique a
                         instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que
                         passam pelo processo de avaliação por pares.
@@ -964,6 +990,9 @@
                     <hint>
                         Informe a qual (is) Código (s) de ética ou recomendações internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos: COPE, ICJME, BOAI etc.
                     </hint>
+                    <hint-edit>
+                        Informe a qual (is) Código (s) de ética ou recomendações internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Exemplos: COPE, ICJME, BOAI etc.
+                    </hint-edit>
                     <required></required>
                     <vocabulary>codigo</vocabulary>
                 </field>
@@ -978,6 +1007,9 @@
                     <hint>
                         Indique o padrão de normalização bibliográfica adotado pela revista. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Caso a revista adote um Padrão de normalização bibliográfica próprio deixe a questão em branco.
                     </hint>
+                    <hint-edit>
+                        Indique o padrão de normalização bibliográfica adotado pela revista. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Caso a revista adote um Padrão de normalização bibliográfica próprio deixe a questão em branco.
+                    </hint-edit>
                     <required></required>
                     <vocabulary>normalizacao</vocabulary>
                 </field>
@@ -992,6 +1024,9 @@
                     <hint>
                         Indique o (s) software (s) ou plataforma (s) utilizado (s) para a detecção de plágio. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos de softwares : Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate, Plagiarism.org, Plagius, Turnitin, WriteCheck, Similarity check.
                     </hint>
+                    <hint-edit>
+                        Indique o (s) software (s) ou plataforma (s) utilizado (s) para a detecção de plágio. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Exemplos de softwares : Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate, Plagiarism.org, Plagius, Turnitin, WriteCheck, Similarity check.
+                    </hint-edit>
                     <required></required>
                     <vocabulary>plagio</vocabulary>
                 </field>
@@ -1006,6 +1041,9 @@
                     <hint>
                         Indique a estratégia de preservação digital adotada pela revista. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos: Lockss, CLockss, Pórtico, Archivematica. Caso a revista ainda não adote uma política de preservação indique a opção "Ainda não adota política".
                     </hint>
+                    <hint-edit>
+                        Indique a estratégia de preservação digital adotada pela revista. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Exemplos: Lockss, CLockss, Pórtico, Archivematica. Caso a revista ainda não adote uma política de preservação indique a opção "Ainda não adota política".
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Informe a
                         estratégia de preservação digital adotada pela revista.
                     </required>
@@ -1023,6 +1061,9 @@
                         que deram origem à pesquisa publicada. Para marcar mais de uma
                         opção mantenha pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas.
                     </hint>
+                    <hint-edit>
+                        Informe se a revista exige que os autores disponibilizem os dados que deram origem à pesquisa publicada. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Indique a área-mãe
                         de avaliação da revista no estrato Qualis-Periódicos, de acordo com a classificação mais recente
                         da revista.
@@ -1081,6 +1122,9 @@
                     <hint>
                         A revista deve indicar o nome da (s) rede (s) social (is)em que está presente. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
                     </hint>
+                    <hint-edit>
+                        A revista deve indicar o nome da (s) rede (s) social (is)em que está presente. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.
+                    </hint-edit>
                     <required></required>
                     <vocabulary>redes</vocabulary>
                 </field>
@@ -1096,6 +1140,9 @@
                     <hint>
                         A revista deve indicar os serviços de informação em que está presente.  Como serviços de informação consideram-se bases de dados, índices, indexadores, diretórios e etc. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Caso a revista não faça parte de nenhum serviço de informação indique apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of Science, Scopus, Sumários.org etc.
                     </hint>
+                    <hint-edit>
+                        A revista deve indicar os serviços de informação em que está presente.  Como serviços de informação consideram-se bases de dados, índices, indexadores, diretórios e etc. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Caso a revista não faça parte de nenhum serviço de informação indique apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of Science, Scopus, Sumários.org etc.
+                    </hint-edit>
                     <required>CAMPO OBRIGATÓRIO: Selecione o
                         serviço de informação.
                     </required>
