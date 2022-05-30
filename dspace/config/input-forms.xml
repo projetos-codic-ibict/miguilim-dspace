@@ -1172,7 +1172,7 @@
                     <repeatable>false</repeatable>
                     <label>Revista no portal Oasisbr:</label>
                     <input-type>onebox</input-type>
-                    <hint>Caso a revista seja coletada pelo <a href="https://oasisbr.ibict.br" target="_blank">Oasisbr</a>. Indique a URL do registro da revista no portal, os registros das revistas podem ser encontrados na aba “Fontes Coletadas”.</hint>
+                    <hint>Caso a revista seja coletada pelo  &lt;a href="https://oasisbr.ibict.br" target="_blank"&gt;Oasisbr&lt;/a&gt;. Indique a URL do registro da revista no portal, os registros das revistas podem ser encontrados na aba “Fontes Coletadas”.</hint>
                     <!--<visibility>workflow</visibility>-->
                     <required></required>
                 </field>

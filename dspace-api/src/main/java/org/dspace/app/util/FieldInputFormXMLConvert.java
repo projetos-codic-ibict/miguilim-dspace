@@ -35,8 +35,10 @@ public class FieldInputFormXMLConvert {
 
             for (int i = 0; i < forms.size(); i++) {
 
-                JsonNode formName = forms.get(i).get("name");
-                if (formName.asText().equalsIgnoreCase(collectionName)) {
+                String formName = forms.get(i).get("name").asText();
+                collectionName = collectionName.toLowerCase(Locale.ROOT);
+                formName = formName.toLowerCase(Locale.ROOT);
+                if (collectionName.contains(formName)) {
                     JsonNode pages = forms.get(i).get("page");
 
                     for (int j = 0; j < pages.size(); j++) {
