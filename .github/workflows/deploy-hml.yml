@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  SMTP_PASSWORD: ${SMTP_PASSWORD}
+  SMTP_HOST_IP: ${SMTP_HOST_IP}
+  
 jobs:
   deploy:
     runs-on: self-hosted
