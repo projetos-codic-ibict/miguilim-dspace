@@ -147,7 +147,7 @@ function verfica_e_trata_ambiente_de_desenvolvimento() {
 
 function prepara_ambiente_rede() {
   echo "Adicionando hosts"
-  echo "${SMTP_HOST_IP} smtp.apps.ibict.br' >> /etc/hosts
+  echo "${SMTP_HOST_IP} smtp.apps.ibict.br" >> /etc/hosts
 }
 
 echo "Iniciando a execução do container"
