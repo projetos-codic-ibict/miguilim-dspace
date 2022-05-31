@@ -373,7 +373,7 @@
                                        placeholder="<fmt:message key="jsp.search.results.searchfor"/>">
                             </div>
                             <div>
-                                <button type="submit" class="button-main"><fmt:message key="jsp.general.go"/></button>
+                                <button type="submit" class="button-main">&nbsp;&nbsp;<fmt:message key="jsp.general.go"/>&nbsp;</button>
                             </div>
                         </div>
                         <br>
@@ -441,7 +441,7 @@
 <%--
                                                     <button type="submit" class="button-main-outline"><fmt:message key="jsp.general.go"/></button>
 --%>
-                                                    <button type="submit" class="button-main-outline" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>">X</button>
+                                                    <button type="submit" class="button-main-outline" id="submit_filter_remove_<%=idx %>" name="submit_filter_remove_<%=idx %>">Remover</button>
                                                 </div>
                                             </div>
                         <%
