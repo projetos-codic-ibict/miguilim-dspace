@@ -708,12 +708,12 @@ public class ItemTag extends TagSupport
         // Get all the metadata
         List<MetadataValue> values = itemService.getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
 
-        out.println("<div class=\"panel panel-info\"><div class=\"panel-heading\">"
+        out.println("<div class=\"panel panel-info\"><div class=\"panel-heading tab-table-root\">"
                 + LocaleSupport.getLocalizedMessage(pageContext,
                         "org.dspace.app.webui.jsptag.ItemTag.full") + "</div>");
 
         // Three column table - DC field, value, language
-        out.println("<table class=\"panel-body table itemDisplayTable\">");
+        out.println("<table class=\"panel-body table itemDisplayTable tab-table\">");
         out.println("<tr><th id=\"s1\" class=\"standard\">"
                 + LocaleSupport.getLocalizedMessage(pageContext,
                         "org.dspace.app.webui.jsptag.ItemTag.dcfield")
