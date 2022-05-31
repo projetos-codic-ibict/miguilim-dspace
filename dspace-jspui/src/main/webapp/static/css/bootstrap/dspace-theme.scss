@@ -543,6 +543,28 @@ hr {
 	}
 	}
 }
+//controles
+#browse_controls {
+
+}
+
+//table ajuste
+#item-data-full {
+	.panel {
+		box-shadow: none!important;
+	}
+	.panel-info {
+		background: none!important;
+	}
+	.panel-heading {
+		background: none!important;
+		color: $dark-blue!important;
+	}
+}
+.tab-table-root {
+	background: none!important;
+	color: $dark-blue!important;
+}
 
 .content-search {
 	background:$white-line-second;

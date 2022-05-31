@@ -287,7 +287,7 @@
 	<%-- End of Navigation Headers --%>
 
 	<%-- Include a component for modifying sort by, order, results per page, and et-al limit --%>
-	<div id="browse_controls" class="well text-center">
+	<div id="browse_controls" class="well text-center ">
 	<form method="get" action="<%= formaction %>">
 		<input type="hidden" name="type" value="<%= bix.getName() %>"/>
 <%
