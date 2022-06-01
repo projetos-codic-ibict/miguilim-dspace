@@ -17,10 +17,6 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.apache.log4j.Logger;
 import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataValue;
@@ -30,9 +26,10 @@ import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.termometro.content.EscalaPontuacaoTermometro;
 import org.dspace.termometro.content.TipoAvaliacaoEscala;
 
-public class CalculadoraTermometro {
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-    private static final Logger LOGGER = Logger.getLogger(CalculadoraTermometro.class);
+public class CalculadoraTermometro {
 
     private static final String CHAVE_PONTUACAO_DEFAULT = "default";
 
@@ -70,7 +67,6 @@ public class CalculadoraTermometro {
                         .ofNullable(escalaPontuacao.getPontuacao().get(chavePontuacao))
                         .orElseGet(() -> escalaPontuacao.getPontuacao().get(CHAVE_PONTUACAO_DEFAULT));
 
-                    LOGGER.info(valorPontuacao + " pontos calculados para o metadado " + regra.getKey());
                     pontuacaoTotalDoItem += valorPontuacao;
                 }
                 else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
@@ -80,8 +76,7 @@ public class CalculadoraTermometro {
                         Integer valorPontuacao = Optional
                             .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
                             .orElseGet(() -> 0);
-                        
-                        LOGGER.info(valorPontuacao + " pontos calculados para o metadado " + regra.getKey());
+
                         pontuacaoTotalDoItem += valorPontuacao;
                     }
                 }
@@ -89,11 +84,8 @@ public class CalculadoraTermometro {
         }
 
         pontuacaoFinal = Math.floor((pontuacaoTotalDoItem / PONTUACAO_MAXIMA_POSSIVEL) * 100);
-        LOGGER.info("PONTUACAO_TOTAL_DO_ITEM: " + pontuacaoTotalDoItem);
-        LOGGER.info("PONTUACAO_MAXIMA_POSSIVEL: " + PONTUACAO_MAXIMA_POSSIVEL);
-        LOGGER.info("PONTUACAO_FINAL: " + pontuacaoFinal);
 
-        return String.valueOf(pontuacaoTotalDoItem);
+        return String.valueOf(pontuacaoFinal);
     }
 
     private static Map<String, List<String>> obterMetadadosDoItem(DSpaceObject dso) {
