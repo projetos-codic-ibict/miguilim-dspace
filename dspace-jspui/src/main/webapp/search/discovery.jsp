@@ -625,6 +625,142 @@
             </div>
 
 
+            <%
+                if (qResults != null && qResults.getTotalSearchResults() == 0) {
+            %>
+                <%-- <p align="center">Search produced no results.</p> --%>
+            <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
+            <%
+            } else if (qResults != null) {
+                long pageTotal = ((Long) request.getAttribute("pagetotal")).longValue();
+                long pageCurrent = ((Long) request.getAttribute("pagecurrent")).longValue();
+                long pageLast = ((Long) request.getAttribute("pagelast")).longValue();
+                long pageFirst = ((Long) request.getAttribute("pagefirst")).longValue();
+
+                // create the URLs accessing the previous and next search result pages
+                String baseURL = request.getContextPath()
+                        + (!searchScope.equals("") ? "/handle/" + searchScope : "")
+                        + "/simple-search?query="
+                        + URLEncoder.encode(query, "UTF-8")
+                        + httpFilters
+                        + "&amp;sort_by=" + sortedBy
+                        + "&amp;order=" + order
+                        + "&amp;rpp=" + rpp
+                        + "&amp;etal=" + etAl
+                        + "&amp;start=";
+
+                String nextURL = baseURL;
+                String firstURL = baseURL;
+                String lastURL = baseURL;
+
+                String prevURL = baseURL
+                        + (pageCurrent - 2) * qResults.getMaxResults();
+
+                nextURL = nextURL
+                        + (pageCurrent) * qResults.getMaxResults();
+
+                firstURL = firstURL + "0";
+                lastURL = lastURL + (pageTotal - 1) * qResults.getMaxResults();
+
+                long lastHint = qResults.getStart() + qResults.getMaxResults() <= qResults.getTotalSearchResults() ?
+                        qResults.getStart() + qResults.getMaxResults() : qResults.getTotalSearchResults();
+
+
+            %>
+
+
+            <div class="pagination-number">
+
+                    <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
+                <div class="pagination-number-itens">
+                    <ol class="pagination-number-itens">
+
+                        <li class="results">
+                            <fmt:message key="jsp.search.results.results">
+                                <fmt:param><%=qResults.getStart() + 1%>
+                                </fmt:param>
+                                <fmt:param><%=lastHint%>
+                                </fmt:param>
+                                <fmt:param><%=qResults.getTotalSearchResults()%>
+                                </fmt:param>
+                                <fmt:param><%=(float) qResults.getSearchTime() / 1000 %>
+                                </fmt:param>
+                            </fmt:message>
+                        </li>
+
+                        <%
+                            if (pageFirst != pageCurrent) {
+                        %>
+                        <li><a  class="first-pagination" href="<%= prevURL %>">
+                            <!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
+                            </svg-->
+                            <fmt:message key="jsp.search.general.previous"/></a></li>
+                        <%
+                        } else {
+                        %>
+                        <li><a  class="first-pagination"><!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
+                            </svg--><fmt:message key="jsp.search.general.previous"/></a></li>
+                        <%
+                            }
+
+                            if (pageFirst != 1) {
+                        %>
+                        <li><a href="<%= firstURL %>">1</a></li>
+                        <li class="disabled"><span>...</span></li>
+                        <%
+                            }
+
+                            for (long q = pageFirst; q <= pageLast; q++) {
+                                String myLink = "<li><a href=\""
+                                        + baseURL;
+
+
+                                if (q == pageCurrent) {
+                                    myLink = "<li class=\"active\"><a>" + q + "</a></li>";
+                                } else {
+                                    myLink = myLink
+                                            + (q - 1) * qResults.getMaxResults()
+                                            + "\">"
+                                            + q
+                                            + "</a></li>";
+                                }
+                        %>
+
+                        <%= myLink %>
+
+                        <%
+                            }
+
+                            if (pageTotal > pageLast) {
+                        %>
+                        <li class="disabled"><span>...</span></li>
+                        <li><a href="<%= lastURL %>"><%= pageTotal %>
+                        </a></li>
+                        <%
+                            }
+                            if (pageTotal > pageCurrent) {
+                        %>
+                        <li><a href="<%= nextURL %>"><fmt:message key="jsp.search.general.next"/></a></li>
+                        <%
+                        } else {
+                        %>
+                        <li class="disabled"><span><fmt:message key="jsp.search.general.next"/></span></li>
+                        <%
+                            }
+                        %>
+                    </ol>
+
+
+            </div>
+        </div>
+        <%  }  %>
+
+
+
             <% 
                 if (items.size() > 0) 
                 { 
@@ -710,12 +846,13 @@
                     <fmt:message key="jsp.search.error.discovery"/>
                 </p>
                 <%
-                } else if (qResults != null && qResults.getTotalSearchResults() == 0) {
-                %>
-                    <%-- <p align="center">Search produced no results.</p> --%>
-                <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
-                <%
-                } else if (qResults != null) {
+                } } %>
+
+
+        </div>
+
+            <%
+            if (qResults != null) {
                     long pageTotal = ((Long) request.getAttribute("pagetotal")).longValue();
                     long pageCurrent = ((Long) request.getAttribute("pagecurrent")).longValue();
                     long pageLast = ((Long) request.getAttribute("pagelast")).longValue();
@@ -723,134 +860,124 @@
 
                     // create the URLs accessing the previous and next search result pages
                     String baseURL = request.getContextPath()
-                            + (!searchScope.equals("") ? "/handle/" + searchScope : "")
-                            + "/simple-search?query="
-                            + URLEncoder.encode(query, "UTF-8")
-                            + httpFilters
-                            + "&amp;sort_by=" + sortedBy
-                            + "&amp;order=" + order
-                            + "&amp;rpp=" + rpp
-                            + "&amp;etal=" + etAl
-                            + "&amp;start=";
+                    + (!searchScope.equals("") ? "/handle/" + searchScope : "")
+                    + "/simple-search?query="
+                    + URLEncoder.encode(query, "UTF-8")
+                    + httpFilters
+                    + "&amp;sort_by=" + sortedBy
+                    + "&amp;order=" + order
+                    + "&amp;rpp=" + rpp
+                    + "&amp;etal=" + etAl
+                    + "&amp;start=";
 
                     String nextURL = baseURL;
                     String firstURL = baseURL;
                     String lastURL = baseURL;
 
                     String prevURL = baseURL
-                            + (pageCurrent - 2) * qResults.getMaxResults();
+                    + (pageCurrent - 2) * qResults.getMaxResults();
 
                     nextURL = nextURL
-                            + (pageCurrent) * qResults.getMaxResults();
+                    + (pageCurrent) * qResults.getMaxResults();
 
                     firstURL = firstURL + "0";
                     lastURL = lastURL + (pageTotal - 1) * qResults.getMaxResults();
 
-                %>
-                <%
                     long lastHint = qResults.getStart() + qResults.getMaxResults() <= qResults.getTotalSearchResults() ?
-                            qResults.getStart() + qResults.getMaxResults() : qResults.getTotalSearchResults();
-                %>
+                    qResults.getStart() + qResults.getMaxResults() : qResults.getTotalSearchResults();
 
-                <div class="pagination-number">
 
-                        <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
-                    <div class="pagination-number-itens">
-                        <ol class="pagination-number-itens">
+            %>
+            <div class="pagination-number">
 
-                            <li class="results">
-                                <fmt:message key="jsp.search.results.results">
-                                    <fmt:param><%=qResults.getStart() + 1%>
-                                    </fmt:param>
-                                    <fmt:param><%=lastHint%>
-                                    </fmt:param>
-                                    <fmt:param><%=qResults.getTotalSearchResults()%>
-                                    </fmt:param>
-                                    <fmt:param><%=(float) qResults.getSearchTime() / 1000 %>
-                                    </fmt:param>
-                                </fmt:message>
-                            </li>
+                    <%-- <p align="center">Results <//%=qResults.getStart()+1%>-<//%=qResults.getStart()+qResults.getHitHandles().size()%> of --%>
+                <div class="pagination-number-itens">
+                    <ol class="pagination-number-itens">
 
-                            <%
-                                if (pageFirst != pageCurrent) {
-                            %>
-                            <li><a  class="first-pagination" href="<%= prevURL %>">
-                                <!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
-                                </svg-->
-                                <fmt:message key="jsp.search.general.previous"/></a></li>
-                            <%
-                            } else {
-                            %>
-                            <li><a  class="first-pagination"><!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <li class="results">
+                            <fmt:message key="jsp.search.results.results">
+                                <fmt:param><%=qResults.getStart() + 1%>
+                                </fmt:param>
+                                <fmt:param><%=lastHint%>
+                                </fmt:param>
+                                <fmt:param><%=qResults.getTotalSearchResults()%>
+                                </fmt:param>
+                                <fmt:param><%=(float) qResults.getSearchTime() / 1000 %>
+                                </fmt:param>
+                            </fmt:message>
+                        </li>
+
+                        <%
+                            if (pageFirst != pageCurrent) {
+                        %>
+                        <li><a  class="first-pagination" href="<%= prevURL %>">
+                            <!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
+                            </svg-->
+                            <fmt:message key="jsp.search.general.previous"/></a></li>
+                        <%
+                        } else {
+                        %>
+                        <li><a  class="first-pagination"><!--svg class="color-svg" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.52858 6.19526C9.78892 5.93491 10.211 5.93491 10.4714 6.19526L13.8047 9.5286C14.0651 9.78894 14.0651 10.2111 13.8047 10.4714L10.4714 13.8047C10.211 14.0651 9.78892 14.0651 9.52858 13.8047C9.26823 13.5444 9.26823 13.1223 9.52858 12.8619L12.3905 10L9.52858 7.13807C9.26823 6.87772 9.26823 6.45561 9.52858 6.19526Z" fill="svg"></path>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M2.66667 2C3.03486 2 3.33333 2.29848 3.33333 2.66667V7.33333C3.33333 7.86377 3.54405 8.37247 3.91912 8.74755C4.29419 9.12262 4.8029 9.33333 5.33333 9.33333H13.3333C13.7015 9.33333 14 9.63181 14 10C14 10.3682 13.7015 10.6667 13.3333 10.6667H5.33333C4.44928 10.6667 3.60143 10.3155 2.97631 9.69036C2.35119 9.06523 2 8.21739 2 7.33333V2.66667C2 2.29848 2.29848 2 2.66667 2Z" fill="svg"></path>
                             </svg--><fmt:message key="jsp.search.general.previous"/></a></li>
-                            <%
+                        <%
+                            }
+
+                            if (pageFirst != 1) {
+                        %>
+                        <li><a href="<%= firstURL %>">1</a></li>
+                        <li class="disabled"><span>...</span></li>
+                        <%
+                            }
+
+                            for (long q = pageFirst; q <= pageLast; q++) {
+                                String myLink = "<li><a href=\""
+                                        + baseURL;
+
+
+                                if (q == pageCurrent) {
+                                    myLink = "<li class=\"active\"><a>" + q + "</a></li>";
+                                } else {
+                                    myLink = myLink
+                                            + (q - 1) * qResults.getMaxResults()
+                                            + "\">"
+                                            + q
+                                            + "</a></li>";
                                 }
+                        %>
 
-                                if (pageFirst != 1) {
-                            %>
-                            <li><a href="<%= firstURL %>">1</a></li>
-                            <li class="disabled"><span>...</span></li>
-                            <%
-                                }
+                        <%= myLink %>
 
-                                for (long q = pageFirst; q <= pageLast; q++) {
-                                    String myLink = "<li><a href=\""
-                                            + baseURL;
+                        <%
+                            }
+
+                            if (pageTotal > pageLast) {
+                        %>
+                        <li class="disabled"><span>...</span></li>
+                        <li><a href="<%= lastURL %>"><%= pageTotal %>
+                        </a></li>
+                        <%
+                            }
+                            if (pageTotal > pageCurrent) {
+                        %>
+                        <li><a href="<%= nextURL %>"><fmt:message key="jsp.search.general.next"/></a></li>
+                        <%
+                        } else {
+                        %>
+                        <li class="disabled"><span><fmt:message key="jsp.search.general.next"/></span></li>
+                        <%
+                            }
+                        %>
+                    </ol>
 
 
-                                    if (q == pageCurrent) {
-                                        myLink = "<li class=\"active\"><a>" + q + "</a></li>";
-                                    } else {
-                                        myLink = myLink
-                                                + (q - 1) * qResults.getMaxResults()
-                                                + "\">"
-                                                + q
-                                                + "</a></li>";
-                                    }
-                            %>
-
-                            <%= myLink %>
-
-                            <%
-                                }
-
-                                if (pageTotal > pageLast) {
-                            %>
-                            <li class="disabled"><span>...</span></li>
-                            <li><a href="<%= lastURL %>"><%= pageTotal %>
-                            </a></li>
-                            <%
-                                }
-                                if (pageTotal > pageCurrent) {
-                            %>
-                            <li><a href="<%= nextURL %>"><fmt:message key="jsp.search.general.next"/></a></li>
-                            <%
-                            } else {
-                            %>
-                            <li class="disabled"><span><fmt:message key="jsp.search.general.next"/></span></li>
-                            <%
-                                }
-                            %>
-                        </ol>
-
-                    </div>
-                    <!-- give a content to the div -->
                 </div>
-                <% } %>
             </div>
-            <% } else { %>
-                
-                <div class="no-result-search">
-                    <span><fmt:message key="browse.no-results.title"></fmt:message></span>
-                </div>
 
             <% }%>
         </div>
-
-    </div>
 
 </dspace:layout>
