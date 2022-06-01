@@ -1481,6 +1481,12 @@ hr {
   }
 }
 
+@media (max-width: 920px) {
+  .logo-miguilim img {
+    height: 40px;
+  }
+}
+
 .result-pagination-2 {
   display: -ms-grid;
   display: grid;

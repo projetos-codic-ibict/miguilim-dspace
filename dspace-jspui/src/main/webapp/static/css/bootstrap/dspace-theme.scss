@@ -673,6 +673,14 @@ hr {
 	}	
 }
 
+.logo-miguilim {
+	@include for-size(tablet-landscape-up) { 
+		img {
+			height: 40px;
+		}
+	}	
+}
+
 .result-pagination-2 {
 	display: grid;
 	grid-template-columns: auto 120px 108px;
