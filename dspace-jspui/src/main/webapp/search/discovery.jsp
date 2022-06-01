@@ -568,8 +568,8 @@
                         } %>
                     <div class="result-pagination">
                         <div>
-                    <label for="rpp"><fmt:message key="search.results.perpage"/></label>
-                    <select name="rpp" id="rpp" class="field-s w100">
+                            <label for="rpp"><fmt:message key="search.results.perpage"/></label>
+                            <select name="rpp" id="rpp" class="field-s w100">
                         <%
                             for (int i = 5; i <= 100 ; i += 5)
                             {
@@ -580,97 +580,47 @@
                             }
                         %>
                     </select>
-                    
-                    <%
-                        if (sortOptions.size() > 0)
-                        {
-                    %>
-                    </div>
+                        </div>
 
-                    <div>
-                        <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
-                        <select name="sort_by" id="sort_by" class="field-s w100">
-                            <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
-                            <%
-                                for (String sortBy : sortOptions)
-                                {
-                                    String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
-                                    String mKey = "search.sort-by." + Utils.addEntities(sortBy);
-                            %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
-                            }
-                        %>
-                        </select>
-                        <%
-                            }
-                        %>
-                    </div>
-                    </div>
-
-                    <div class="result-pagination-2">
-                    <div>
-                    <label for="order"><fmt:message key="search.results.order"/></label>
-                    <select name="order" id="order" class="field-s w100">
-                        <option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
-                        <option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
-                    </select>
-                    </div>
-
-
-                    <div>
-                    <label for="etal"><fmt:message key="search.results.etal" /></label>
-                    <select name="etal" id="etal" class="field-s w100">
-                        <%
-                            String unlimitedSelect = "";
-                            if (etAl < 1)
-                            {
-                                unlimitedSelect = "selected=\"selected\"";
-                            }
-                        %>
-                        <option value="0" <%= unlimitedSelect %>><fmt:message key="browse.full.etal.unlimited"/></option>
-                        <%
-                            boolean insertedCurrent = false;
-                            for (int i = 0; i <= 50 ; i += 5)
-                            {
-                                // for the first one, we want 1 author, not 0
-                                if (i == 0)
-                                {
-                                    String sel = (i + 1 == etAl ? "selected=\"selected\"" : "");
-                        %><option value="1" <%= sel %>>1</option><%
-                        }
-
-                        // if the current i is greated than that configured by the user,
-                        // insert the one specified in the right place in the list
-                        if (i > etAl && !insertedCurrent && etAl > 1)
-                        {
-                    %><option value="<%= etAl %>" selected="selected"><%= etAl %></option><%
-                            insertedCurrent = true;
-                        }
-
-                        // determine if the current not-special case is selected
-                        String selected = (i == etAl ? "selected=\"selected\"" : "");
-
-                        // do this for all other cases than the first and the current
-                        if (i != 0 && i != etAl)
-                        {
-                    %>
-                        <option value="<%= i %>" <%= selected %>><%= i %></option>
-                        <%
+                        <div>
+                            <label for="sort_by"><fmt:message key="search.results.sort-by"/></label>
+                            <select name="sort_by" id="sort_by" class="field-s w100">
+                                <option value="score"><fmt:message key="search.sort-by.relevance"/></option>
+                                <%
+                                    for (String sortBy : sortOptions)
+                                    {
+                                        String selected = (sortBy.equals(sortedBy) ? "selected=\"selected\"" : "");
+                                        String mKey = "search.sort-by." + Utils.addEntities(sortBy);
+                                %> <option value="<%= Utils.addEntities(sortBy) %>" <%= selected %>><fmt:message key="<%= mKey %>"/></option><%
                                 }
+                            %>
+                            </select>
+
+                        </div>
+
+                        <div>
+                            <label for="order"><fmt:message key="search.results.order"/></label>
+                            <select name="order" id="order" class="field-s w100">
+                                <option value="ASC" <%= ascSelected %>><fmt:message key="search.order.asc" /></option>
+                                <option value="DESC" <%= descSelected %>><fmt:message key="search.order.desc" /></option>
+                            </select>
+                        </div>
+
+
+
+                        <div>
+                            <input class="button-main-outline" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
+
+                            <%
+                                if (admin_button)
+                                {
+                            %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
                             }
                         %>
-                    </select>
-                </div>
-                <div>
-                    <input class="button-main-outline" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
+                        </div>
 
-                    <%
-                        if (admin_button)
-                        {
-                    %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
-                    }
-                %>
-            </div>
-        </div>
+                    </div>
+
                 </form>
             </div>
 

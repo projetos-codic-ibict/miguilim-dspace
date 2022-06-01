@@ -605,8 +605,13 @@ hr {
 }
 .result-pagination {
 	display: grid;
-	grid-template-columns: 180px auto;
+	grid-template-columns: 210px 200px 200px auto;
 	gap: 8px;
+	div:last-child {
+		display: flex;
+		justify-content: end;
+		align-items: end;
+	}
 	@include for-size(tablet-landscape-up) { 
 		grid-template-columns: auto;
 	}	
