@@ -204,7 +204,7 @@
 	<%-- Include the main navigation for all the browse pages --%>
 	<%-- This first part is where we render the standard bits required by both possibly navigations --%>
 	<div id="browse_navigation" class="well text-center">
-	<form method="get" action="<%= formaction %>">
+	<form method="get" class="grid-col-jumppoint" action="<%= formaction %>">
 			<input type="hidden" name="type" value="<%= bix.getName() %>"/>
 			<input type="hidden" name="sort_by" value="<%= so.getNumber() %>"/>
 			<input type="hidden" name="order" value="<%= direction %>"/>
@@ -227,7 +227,8 @@
 	{
 %>
 		<span><fmt:message key="browse.nav.date.jump"/></span>
-		<select name="year">
+		
+		<select class="field-s " name="year">
 	        <option selected="selected" value="-1"><fmt:message key="browse.nav.year"/></option>
 <%
 		int thisYear = DCDate.getCurrent().getYear();
@@ -245,7 +246,8 @@
             <option>1960</option>
             <option>1950</option>
         </select>
-        <select name="month">
+
+        <select class="field-s " name="month">
             <option selected="selected" value="-1"><fmt:message key="browse.nav.month"/></option>
 <%
 		for (int i = 1; i <= 12; i++)
@@ -256,10 +258,10 @@
 		}
 %>
         </select>
-        <input type="submit" class="btn btn-default" value="<fmt:message key="browse.nav.go"/>" />
-        <br/>
+		
+        <input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
         <label for="starts_with"><fmt:message key="browse.nav.type-year"/></label>
-        <input type="text" name="starts_with" size="4" maxlength="4"/>
+        <input type="text" class="field" name="starts_with" size="4" maxlength="4"/>
 <%
 	}
 	
@@ -267,8 +269,9 @@
 	else
 	{
 %>	
+		
 		<span><fmt:message key="browse.nav.jump"/></span>
-	                        <a class="label label-default" href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
+		<a class="label label-default" href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
 <%
 	    for (char c = 'A'; c <= 'Z'; c++)
 	    {
@@ -276,9 +279,12 @@
 	                        <a class="label label-default" href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
 <%
 	    }
-%><br/>
-	    					<span><fmt:message key="browse.nav.enter"/></span>
-	    					<input type="text" name="starts_with"/>&nbsp;<input type="submit" class="btn btn-default" value="<fmt:message key="browse.nav.go"/>" />
+%>
+
+							<span><fmt:message key="browse.nav.enter"/></span>
+							<input type="text" name="starts_with"/>
+							<input type="submit" class="btn btn-default" value="<fmt:message key="browse.nav.go"/>" />
+							
 <%
 	}
 %>
@@ -287,8 +293,9 @@
 	<%-- End of Navigation Headers --%>
 
 	<%-- Include a component for modifying sort by, order, results per page, and et-al limit --%>
-	<div id="browse_controls" class="well text-center ">
-	<form method="get" action="<%= formaction %>">
+	<div id="browse_controls" class="well text-center searchfilter">
+		<div class="">
+	<form method="get" class="grid-col-listresult" action="<%= formaction %>">
 		<input type="hidden" name="type" value="<%= bix.getName() %>"/>
 <%
 		if (bi.hasAuthority())
@@ -320,8 +327,9 @@
 	if (sortOptions.size() > 1) // && bi.getBrowseLevel() > 0
 	{
 %>
+		<div>
 		<label for="sort_by"><fmt:message key="browse.full.sort-by"/></label>
-		<select name="sort_by">
+		<select name="sort_by" class="field-s w100">
 <%
 		for (SortOption sortBy : sortOptions)
 		{
@@ -334,17 +342,21 @@
         }
 %>
 		</select>
+		</div>
 <%
 	}
 %>
+		<div>
 		<label for="order"><fmt:message key="browse.full.order"/></label>
-		<select name="order">
+		<select name="order" class="field-s w100">
 			<option value="ASC" <%= ascSelected %>><fmt:message key="browse.order.asc" /></option>
 			<option value="DESC" <%= descSelected %>><fmt:message key="browse.order.desc" /></option>
 		</select>
+		</div>
 
+		<div>
 		<label for="rpp"><fmt:message key="browse.full.rpp"/></label>
-		<select name="rpp">
+		<select name="rpp" class="field-s w100">
 <%
 	for (int i = 5; i <= 100 ; i += 5)
 	{
@@ -355,9 +367,11 @@
 	}
 %>
 		</select>
+		</div>
 
+		<div>
 		<label for="etal"><fmt:message key="browse.full.etal" /></label>
-		<select name="etal">
+		<select name="etal" class="field-s w100">
 <%
 	String unlimitedSelect = "";
 	if (bi.getEtAl() == -1)
@@ -408,18 +422,19 @@
 	}
 %>
 		</select>
-
-		<input type="submit" class="btn btn-default" name="submit_browse" value="<fmt:message key="jsp.general.update"/>"/>
+	</div>
+		<input type="submit" class="button-main-outline" name="submit_browse" value="<fmt:message key="jsp.general.update"/>"/>
 
 <%
     if (admin_button && !withdrawn && !privateitems)
     {
-        %><input type="submit" class="btn btn-default" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
+        %><input type="submit" class="button-main-outline" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
     }
 %>
 
 	</form>
 	</div>
+</div>
 <div class="panel panel-primary">
 	<%-- give us the top report on what we are looking at --%>
 	<div class="panel-heading text-center">

@@ -1328,6 +1328,87 @@ hr {
   }
 }
 
+.grid-col-jumppoint {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto auto;
+  gap: 8px;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+.grid-col-jumppoint div span {
+  display: block;
+}
+
+.grid-col-jumppoint .field {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding: 0 16px 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.grid-col-jumppoint .field-s {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding: 0 16px 0 16px;
+  letter-spacing: 0.5px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 24px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.grid-col-listresult {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto auto auto;
+      grid-template-columns: auto auto auto auto auto;
+  gap: 8px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+}
+
+.grid-col-listresult div label {
+  display: block;
+  text-align: left;
+}
+
+.grid-col-listresult div .field-s {
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding: 0 16px 0 16px;
+  letter-spacing: 0.5px;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==);
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 24px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
 #item-data-full .panel {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
