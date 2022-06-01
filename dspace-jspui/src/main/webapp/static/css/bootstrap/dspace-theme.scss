@@ -543,6 +543,127 @@ hr {
 	}
 	}
 }
+
+.element-to-use {
+	.field {
+		height: 40px;
+		width: 100%;
+		outline: none;
+		border: 1px solid #E8E8E8;
+		border-radius: 8px;
+		outline: none;
+		border-radius: 8px;
+		padding: 0 16px 0 16px;
+		letter-spacing: 0.5px;
+	}
+}
+.grid-col-alphabetical {
+	display: grid;
+    grid-template-columns: auto 120px;
+    gap: 8px;
+	align-items: flex-end;	
+	div {
+		text-align: left;
+	}
+	label {
+		display: block;
+	}
+	@extend .element-to-use;	
+	.button-main-outline {
+		width: 100%;
+	}	
+}
+.grid-col-order {
+	display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 8px;
+	align-items: flex-end;	
+	div {
+		text-align: left;
+	}
+	.field-s {
+		height: 40px;
+		width: 100%;
+		outline: none;
+		border: 1px solid #E8E8E8;
+		border-radius: 8px;
+		outline: none;
+		border-radius: 8px;
+		padding: 0 16px 0 16px;
+		letter-spacing: 0.5px;
+		background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==);
+		background-repeat: no-repeat;
+		background-position: right 8px center;
+		background-size: 24px;	
+		appearance: none;		
+	}	
+}
+.grid-col-title {
+	display: grid;
+    grid-template-columns: auto 120px;
+    gap: 8px;
+	align-items: flex-end;	
+	div{
+		text-align: left;
+		align-items: flex-end;
+		@extend .element-to-use;
+		.button-main-outline {
+			width: 100%;
+		}
+		span {
+			display: block;
+		}
+	}
+}
+.title-jump {
+	display: flex;
+	text-align: left;
+	margin-bottom: 4px;
+}
+.grid-col-date {
+	display: grid;
+    grid-template-columns: auto auto auto auto auto;
+	gap: 8px;
+	text-align: left;
+	align-items: baseline;
+	div{
+		span {
+			display: block;
+		}	
+	}
+	.t-right {
+		text-align: right;
+	}	
+
+		.field {
+			height: 40px;
+			width: 100%;
+			outline: none;
+			border: 1px solid #E8E8E8;
+			border-radius: 8px;
+			outline: none;
+			border-radius: 8px;
+			padding: 0 16px 0 16px;
+			letter-spacing: 0.5px;
+		}
+		.field-s {
+			height: 40px;
+			width: 100%;
+			outline: none;
+			border: 1px solid #E8E8E8;
+			border-radius: 8px;
+			outline: none;
+			border-radius: 8px;
+			padding: 0 16px 0 16px;
+			letter-spacing: 0.5px;
+			background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==);
+			background-repeat: no-repeat;
+			background-position: right 8px center;
+			background-size: 24px;	
+			appearance: none;		
+		}		
+}
+
 .grid-col-jumppoint {
 	display: grid;
     grid-template-columns: auto auto auto auto auto auto;

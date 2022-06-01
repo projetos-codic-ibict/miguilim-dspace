@@ -130,7 +130,7 @@
 	<%-- Include the main navigation for all the browse pages --%>
 	<%-- This first part is where we render the standard bits required by both possibly navigations --%>
 	<div id="browse_navigation" class="well text-center">
-	<form method="get" action="<%= formaction %>">
+	<form method="get" class="searchfilter" action="<%= formaction %>">
 			<input type="hidden" name="type" value="<%= bix.getName() %>"/>
 			<input type="hidden" name="order" value="<%= direction %>"/>
 			<input type="hidden" name="rpp" value="<%= rpp %>"/>
@@ -171,9 +171,10 @@
 %>
         </select>
         <input type="submit" class="btn btn-default" value="<fmt:message key="browse.nav.go"/>" />
-		<br/>
-        <label for="starts_with"><fmt:message key="browse.nav.type-year"/></label>
+		<br/>		
+        <label for="starts_with" class="field-s w100"><fmt:message key="browse.nav.type-year"/></label>
         <input type="text" name="starts_with" size="4" maxlength="4"/>
+	
 <%
 	}
 	
@@ -187,14 +188,21 @@
 	    for (char c = 'A'; c <= 'Z'; c++)
 	    {
 %>
+
         <a href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
 <%
 	    }
 %>
 		<br/>
+		<div class="grid-col-alphabetical">
+		<div>
 		<label for="starts_with"><fmt:message key="browse.nav.enter"/></label>
-		<input type="text" name="starts_with"/>
-		<input type="submit" class="btn btn-default" value="<fmt:message key="browse.nav.go"/>" />
+		<input type="text" class="field w100" name="starts_with"/>
+		</div>
+		<div>
+		<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
+	</div>
+		</div>
 <%
 	}
 %>
@@ -203,8 +211,8 @@
 	<%-- End of Navigation Headers --%>
 
 	<%-- Include a component for modifying sort by, order and results per page --%>
-	<div id="browse_controls" class="well text-center">
-	<form method="get" action="<%= formaction %>">
+	<div id="browse_controls" class="well text-center searchfilter">
+	<form method="get" class="grid-col-order" action="<%= formaction %>">
 		<input type="hidden" name="type" value="<%= bix.getName() %>"/>
 		
 <%-- The following code can be used to force the browse around the current focus.  Without
@@ -215,14 +223,16 @@
 			%><input type="hidden" name="vfocus" value="<%= bi.getFocus() %>"/><%
 		}
 --%>
+		<div>
 		<label for="order"><fmt:message key="browse.single.order"/></label>
-		<select name="order">
+		<select class="field-s w100" name="order">
 			<option value="ASC" <%= ascSelected %>><fmt:message key="browse.order.asc" /></option>
 			<option value="DESC" <%= descSelected %>><fmt:message key="browse.order.desc" /></option>
 		</select>
-		
+		</div>
+		<div>
 		<label for="rpp"><fmt:message key="browse.single.rpp"/></label>
-		<select name="rpp">
+		<select class="field-s w100"  name="rpp">
 <%
 	for (int i = 5; i <= 100 ; i += 5)
 	{
@@ -233,7 +243,8 @@
 	}
 %>
 		</select>
-		<input type="submit" class="btn btn-default" name="submit_browse" value="<fmt:message key="jsp.general.update"/>"/>
+		</div>
+		<input type="submit" class="button-main-outline" name="submit_browse" value="<fmt:message key="jsp.general.update"/>"/>
 	</form>
 	</div>
 
