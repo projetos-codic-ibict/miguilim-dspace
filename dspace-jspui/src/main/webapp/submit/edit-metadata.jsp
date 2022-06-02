@@ -1454,41 +1454,29 @@
           fieldName = dcSchema + "_" + dcElement;
 
 
-       if ((si.getMissingFields() != null) && (si.getMissingFields().contains(fieldName)))
-       {
-           if(inputs[z].getWarning() != null)
-           {
-                   if(si.getJumpToField()==null || si.getJumpToField().length()==0)
-                                si.setJumpToField(fieldName);
 
-                   String req = "<div class=\"alert alert-warning\">" +
-                                                        inputs[z].getWarning() +
-                                                        "<a name=\""+fieldName+"\"></a></div>";
-                   out.write(req);
-           }
-       }
-       else
-       {
+         if ((si.getMissingFields() != null) && (si.getMissingFields().contains(fieldName))) {
+             if (inputs[z].getWarning() != null) {
+                 if (si.getJumpToField() == null || si.getJumpToField().length() == 0)
+                     si.setJumpToField(fieldName);
+
+                 String req = "<div class=\"alert alert-warning\">" +
+                         inputs[z].getWarning() +
+                         "<a name=\"" + fieldName + "\"></a></div>";
+                 out.write(req);
+             }
+         }
+
                         //print out hints, if not null
            if(inputs[z].getHints() != null)
            {
            		%>
            		<div class="help-block">
                 	<%= inputs[z].getHints() %>
-                <%
-                    if (hasVocabulary(vocabulary) &&  !readonly)
-                    {
-             	%>
-             						<span class="pull-right">
-                                             <dspace:popup page="/help/index.html#controlledvocabulary"><fmt:message key="jsp.controlledvocabulary.controlledvocabulary.help-link"/></dspace:popup>
-             						</span>
-             	<%
-                    }
-				%>
 				</div>
 				<%
            }
-       }
+
        
        repeatable = inputs[z].getRepeatable();
        fieldCountIncr = 0;
@@ -1577,5 +1565,11 @@
     		</div><br/>
 </div>    		
     </form>
+
+    <style>
+        option {
+            white-space: pre-wrap;
+        }
+    </style>
 
 </dspace:layout>
