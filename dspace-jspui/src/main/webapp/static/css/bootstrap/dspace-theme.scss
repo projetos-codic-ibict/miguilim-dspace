@@ -190,6 +190,8 @@ body {
 	}
 }
 
+
+
 .total {
 	@extend .d-flex;
 	//justify-content: space-between;
@@ -411,6 +413,37 @@ hr {
 			font-size:1rem;
 			color: $black;
 			margin-bottom: 24px;
+		}
+	}
+}
+
+.table {
+	colgroup {
+		@include for-size(tablet-landscape-up) { 
+			display: none;
+		}
+	}
+	tbody {
+		tr {
+			@include for-size(tablet-landscape-up) { 
+				display: flex;
+				flex-direction: column;
+				border-bottom: 1px solid $board-field;
+			}
+			th {
+				@include for-size(tablet-landscape-up) { 
+					display: none;
+				}
+			}
+			td {
+				@include for-size(tablet-landscape-up) { 
+				// 	display: block;
+				border: none;
+				}
+			//	display: block;
+				//flex-direction: column;
+
+			}
 		}
 	}
 }
