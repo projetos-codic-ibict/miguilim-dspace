@@ -1564,8 +1564,8 @@ hr {
 .grid-col-listresult {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto auto;
-      grid-template-columns: auto auto auto auto auto;
+  -ms-grid-columns: auto auto 150px auto 120px;
+      grid-template-columns: auto auto 150px auto 120px;
   gap: 8px;
   -webkit-box-align: end;
       -ms-flex-align: end;
