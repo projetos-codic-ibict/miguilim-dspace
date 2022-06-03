@@ -987,6 +987,13 @@ hr {
   color: #04132A;
   border-radius: 8px;
   height: 40px;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.button-main-outline:hover {
+  color: #FFFFFF;
+  background-color: #04132A;
 }
 
 @media (max-width: 920px) {
@@ -1394,6 +1401,13 @@ hr {
 
 .grid-col-alphabetical .button-main-outline {
   width: 100%;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.grid-col-alphabetical .button-main-outline:hover {
+  color: #FFFFFF;
+  background-color: #04132A;
 }
 
 .grid-col-order {
@@ -1450,6 +1464,13 @@ hr {
 
 .grid-col-title div .button-main-outline {
   width: 100%;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.grid-col-title div .button-main-outline:hover {
+  color: #FFFFFF;
+  background-color: #04132A;
 }
 
 .grid-col-title div span {
@@ -1467,8 +1488,8 @@ hr {
 .grid-col-date {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto auto auto;
-      grid-template-columns: auto auto auto auto auto;
+  -ms-grid-columns: auto auto 120px auto auto;
+      grid-template-columns: auto auto 120px auto auto;
   gap: 8px;
   text-align: left;
   -webkit-box-align: baseline;
@@ -2196,6 +2217,8 @@ hr {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
 }
 
 .btn-group a.button-main-outline:hover {

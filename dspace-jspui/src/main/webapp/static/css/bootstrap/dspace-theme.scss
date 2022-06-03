@@ -283,6 +283,11 @@ hr {
 	color:$dark-blue;
 	border-radius: 8px;
 	height: 40px;
+	transition: all ease-in-out .2s;
+	&:hover {
+		color: $white-lightest;
+		background-color: $dark-blue;
+	}	
 	@include for-size(tablet-landscape-up) { 
 		width: 100%;
 	}
@@ -607,6 +612,11 @@ hr {
 	@extend .element-to-use;	
 	.button-main-outline {
 		width: 100%;
+		transition: all ease-in-out .2s;
+		&:hover {
+			color: $white-lightest;
+			background-color: $dark-blue;
+		}		
 	}	
 }
 .grid-col-order {
@@ -645,6 +655,11 @@ hr {
 		@extend .element-to-use;
 		.button-main-outline {
 			width: 100%;
+			transition: all ease-in-out .2s;
+			&:hover {
+				color: $white-lightest;
+				background-color: $dark-blue;
+			}			
 		}
 		span {
 			display: block;
@@ -658,7 +673,7 @@ hr {
 }
 .grid-col-date {
 	display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto 120px auto auto;
 	gap: 8px;
 	text-align: left;
 	align-items: baseline;
@@ -1267,6 +1282,7 @@ hr {
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		transition: all ease-in-out .2s;
 		&:hover {
 			background-color: $dark-blue;
 			color: $white-lightest;
