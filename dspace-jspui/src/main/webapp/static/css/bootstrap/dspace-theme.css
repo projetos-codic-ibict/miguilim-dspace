@@ -2440,6 +2440,8 @@ t b.caret {
 #globe-visible {
   overflow: hidden;
   border-radius: 1000px;
+  max-width: 650px;
+  margin-bottom: 16px;
 }
 
 @-webkit-keyframes pointMove {
