@@ -1501,6 +1501,11 @@ b.caret {
 	animation-timing-function: ease-out;
   }
   
+  #globe-visible {
+	overflow:hidden;
+	border-radius:1000px;
+  }
+
   @keyframes pointMove {
 	from {
 	  opacity:0;
