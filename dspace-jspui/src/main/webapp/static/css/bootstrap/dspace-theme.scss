@@ -842,6 +842,7 @@ hr {
 	display: grid;
 	grid-template-columns: 180px auto;
 	gap: 8px;
+	align-items: end;
 	div:last-child {
 		//display: flex;
 		gap: 8px;

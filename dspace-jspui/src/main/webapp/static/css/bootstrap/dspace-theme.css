@@ -1681,6 +1681,9 @@ hr {
   -ms-grid-columns: 180px auto;
       grid-template-columns: 180px auto;
   gap: 8px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
 }
 
 .result-pagination div:last-child {
