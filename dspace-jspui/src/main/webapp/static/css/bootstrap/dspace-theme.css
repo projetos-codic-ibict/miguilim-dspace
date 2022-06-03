@@ -919,6 +919,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   width: 80%;
+  margin-top: 24px;
 }
 
 .search-home {

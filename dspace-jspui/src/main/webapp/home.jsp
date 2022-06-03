@@ -105,7 +105,7 @@
 			</div>
 		</div>
 		<div class="col globe">
-			<svg id="globe-visible" width="748" height="684" viewBox="0 0 748 684" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<svg id="globe-visible"  viewBox="0 0 748 684" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<g id="globe_01">
 				<path id="globe" d="M398 684C586.9 684 740 530.9 740 342C740 153.1 586.9 0 398 0C209.1 0 56 153.1 56 342C56 530.9 209.1 684 398 684Z" fill="#E8E8E8"/>
 				<g id="Union">
