@@ -1189,6 +1189,9 @@ hr {
 
 @media (max-width: 920px) {
   .table tbody tr td {
+    /*&::before {
+					content: attr(th-label) " ";
+				}*/
     border: none;
   }
 }
@@ -1396,8 +1399,8 @@ hr {
 .grid-col-order {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto auto;
-      grid-template-columns: auto auto auto;
+  -ms-grid-columns: auto 150px 120px;
+      grid-template-columns: auto 150px 120px;
   gap: 8px;
   -webkit-box-align: end;
       -ms-flex-align: end;
@@ -1659,9 +1662,6 @@ hr {
 }
 
 .result-pagination div:last-child {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   gap: 8px;
   -webkit-box-align: end;
       -ms-flex-align: end;

@@ -438,6 +438,9 @@ hr {
 			td {
 				@include for-size(tablet-landscape-up) { 
 				// 	display: block;
+				/*&::before {
+					content: attr(th-label) " ";
+				}*/
 				border: none;
 				}
 			//	display: block;
@@ -608,7 +611,7 @@ hr {
 }
 .grid-col-order {
 	display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto 150px 120px;
     gap: 8px;
 	align-items: flex-end;	
 	div {
@@ -823,10 +826,10 @@ hr {
 	grid-template-columns: 180px auto;
 	gap: 8px;
 	div:last-child {
-		display: flex;
+		//display: flex;
 		gap: 8px;
 		align-items: end;
-	}	
+	}
 	@include for-size(tablet-landscape-up) { 
 		grid-template-columns: auto;
 	}	
