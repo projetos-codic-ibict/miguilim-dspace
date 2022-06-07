@@ -48,7 +48,7 @@ public class MetadataImportServlet extends DSpaceServlet
     public void init()
     {
         // Set the lmimt to the number of items that may be changed in one go, default to 20
-        limit = ConfigurationManager.getIntProperty("bulkedit", "gui-item-limit", 20);
+        limit = ConfigurationManager.getIntProperty("bulkedit", "gui-item-limit", 500);
         log.debug("Setting bulk edit limit to " + limit + " items");
     }
 
