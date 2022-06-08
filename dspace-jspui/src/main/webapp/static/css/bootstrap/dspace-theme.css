@@ -35,7 +35,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 16px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1px;
 }
 
 .placeholder {
@@ -244,7 +244,7 @@
   font-size: 0.75rem;
   font-weight: 600;
   line-height: 16px;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.1px;
 }
 
 .placeholder {
@@ -920,6 +920,10 @@ body {
   display: flex;
   width: 80%;
   margin-top: 24px;
+}
+
+#TopoPerguntasFrequentes h2 {
+  font-size: 16px;
 }
 
 .search-home {
@@ -1957,7 +1961,57 @@ hr {
 
 .minus-space {
   margin: 0 auto;
-  max-width: 550px;
+  max-width: 640px;
+}
+
+.minus-space h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+}
+
+.minus-space h2 strong {
+  font-weight: 400;
+  letter-spacing: 1.5px;
+}
+
+.minus-space h2::after {
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  content: '';
+  width: 40px;
+  height: 2px;
+  display: block;
+  background: #FFD100;
+  margin-top: 7px;
+  border-radius: 2px;
+}
+
+.minus-space h2:hover::after {
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  content: '';
+  width: 20px;
+  background: #04132A;
+  border-radius: 2px;
+}
+
+.minus-space p {
+  margin-bottom: 24px;
+  line-height: 24px;
+}
+
+.minus-space ol li {
+  margin-bottom: 16px;
+}
+
+::-moz-selection {
+  color: #FFFFFF;
+  background: #04132A;
+}
+
+::selection {
+  color: #FFFFFF;
+  background: #04132A;
 }
 
 .pagination-number {

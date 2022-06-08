@@ -220,7 +220,11 @@ body {
 	width: 80%;
 	margin-top: 24px;
 }
-
+#TopoPerguntasFrequentes {
+	h2 {
+		font-size: 16px;
+	}
+}
 // search 
 .search-home {
 	position: absolute;
@@ -1065,8 +1069,49 @@ hr {
 
 .minus-space {
 	margin: 0 auto;
-	max-width: 550px;
+	max-width: 640px;
+	h2 {
+		font-size:2rem;
+		margin-bottom: 24px;
+		strong {
+			font-weight: 400;
+    		letter-spacing: 1.5px;
+		}		
+		&::after {		
+			transition: all ease .2s;	
+			content: '';
+			width: 40px;
+			height: 2px;
+			display: block;
+			background: $yellow;
+			margin-top: 7px;
+			border-radius: 2px;
+		}
+		&:hover {
+			&::after {
+				transition: all ease .2s;
+				content: '';
+				width: 20px;
+				background: $dark-blue;
+				border-radius: 2px;
+			}
+		}
+	}
+	p {
+		margin-bottom: 24px;
+		line-height: 24px;
+	}
+	ol {
+		li {
+			margin-bottom: 16px;
+		}
+	}
 }
+
+::selection {
+	color:$white-lightest;
+	background: $dark-blue;
+  }
 
 //pagination 
 .pagination-number {
