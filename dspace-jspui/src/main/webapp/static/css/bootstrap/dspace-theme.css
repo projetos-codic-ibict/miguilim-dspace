@@ -1971,7 +1971,7 @@ hr {
 }
 
 .minus-space h2 strong {
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 1.5px;
 }
 
@@ -1980,10 +1980,10 @@ hr {
   transition: all ease .2s;
   content: '';
   width: 40px;
-  height: 2px;
+  height: 4px;
   display: block;
   background: #FFD100;
-  margin-top: 7px;
+  margin-top: 4px;
   border-radius: 2px;
 }
 
@@ -1991,7 +1991,7 @@ hr {
   -webkit-transition: all ease .2s;
   transition: all ease .2s;
   content: '';
-  width: 20px;
+  width: 30px;
   background: #04132A;
   border-radius: 2px;
 }
