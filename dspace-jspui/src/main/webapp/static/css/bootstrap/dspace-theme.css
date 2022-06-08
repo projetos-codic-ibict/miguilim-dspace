@@ -1967,7 +1967,6 @@ hr {
 .minus-space h2 {
   font-size: 2rem;
   margin-bottom: 24px;
-  text-transform: uppercase;
 }
 
 .minus-space h2 strong {
@@ -1991,7 +1990,7 @@ hr {
   -webkit-transition: all ease .2s;
   transition: all ease .2s;
   content: '';
-  width: 30px;
+  width: 27px;
   background: #04132A;
   border-radius: 2px;
 }

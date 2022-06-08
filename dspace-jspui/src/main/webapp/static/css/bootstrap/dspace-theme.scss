@@ -1073,7 +1073,7 @@ hr {
 	h2 {
 		font-size:2rem;
 		margin-bottom: 24px;
-		text-transform: uppercase;
+		//text-transform: uppercase;
 		strong {
 			font-weight: 500;
     		letter-spacing: 1.5px;
@@ -1092,7 +1092,7 @@ hr {
 			&::after {
 				transition: all ease .2s;
 				content: '';
-				width: 30px;
+				width: 27px;
 				background: $dark-blue;
 				border-radius: 2px;
 			}
