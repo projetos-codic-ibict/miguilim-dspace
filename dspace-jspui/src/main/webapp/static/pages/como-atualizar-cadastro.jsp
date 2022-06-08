@@ -73,7 +73,7 @@
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
-<div class="espacamento"> 
+<div class="espacamento minus-space"> 
     <h2><strong class="titulo-medio">Como atualizar um cadastro?</strong></h2>
 
     <p>Para atualizar o cadastro de uma revista científica é necessário que o usuário  tenha o acesso autorizado para realizar tal 

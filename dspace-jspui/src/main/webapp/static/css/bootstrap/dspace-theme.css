@@ -1959,14 +1959,74 @@ hr {
   background: none !important;
 }
 
+.linksFAQ a {
+  display: block;
+  line-height: 32px;
+}
+
+.linksFAQ a:first-child {
+  margin-top: 32px;
+}
+
+.linksFAQ a::before {
+  font-family: 'Glyphicons Halflings';
+  content: "\e144";
+  padding-right: 4px;
+  top: 1px;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-size: 12px;
+}
+
+h1, h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  color: #071D41;
+  margin-top: 40px;
+}
+
+h1::after, h2::after {
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  content: '';
+  width: 40px;
+  height: 4px;
+  display: block;
+  background: #FFD100;
+  margin-top: 4px;
+  border-radius: 2px;
+}
+
+h1:hover::after, h2:hover::after {
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  content: '';
+  width: 27px;
+  background: #04132A;
+  border-radius: 2px;
+}
+
 .minus-space {
   margin: 0 auto;
   max-width: 640px;
 }
 
+.minus-space a.button-main-outline {
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
 .minus-space h2 {
   font-size: 2rem;
   margin-bottom: 24px;
+  color: #071D41;
+  margin-top: 40px;
+}
+
+.minus-space h2:first-child {
+  margin-top: 24px;
 }
 
 .minus-space h2 strong {
@@ -2003,6 +2063,15 @@ hr {
 
 .minus-space ol li {
   margin-bottom: 16px;
+}
+
+.minus-space dl dd {
+  margin-bottom: 4px;
+}
+
+.minus-space dl dd::before {
+  content: '-';
+  padding-right: 16px;
 }
 
 ::-moz-selection {

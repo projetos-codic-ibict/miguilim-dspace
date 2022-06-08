@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-<div class="espacamento"> 
+<div class="espacamento minus-space"> 
     <h2><strong class="titulo-medio">Criação de login</strong></h2>
     <p id="margem-unica">O primeiro passo para fazer parte do Miguilim é a criação do login da Revista científica ou do Portal de 
     periódicos que queira cadastrar. Aconselha-se que o e-mail utilizado para a criação do login seja o e-mail institucional da

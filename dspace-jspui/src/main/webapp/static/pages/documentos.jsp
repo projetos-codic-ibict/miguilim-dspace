@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-<div class="espacamento">
+<div class="espacamento minus-space">
 
     <h3 class="titulo-medio">Material de divulgação</h3>
     <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» DOCUMENTO DE APOIO AO DIRETÓRIO DAS REVISTAS CIENTÍFICAS ELETRÔNICAS BRASILEIRAS (MIGUILIM)</a>
