@@ -369,6 +369,12 @@ hr {
 			font-size: 2rem;
 			font-weight: 600;
 			line-height: 2.5rem;
+			&::after {
+				content: '';
+				margin: 0;
+				width: 0;
+				height: 0;
+			}			
 		}
 		p {
 			font-size: 1.5rem;

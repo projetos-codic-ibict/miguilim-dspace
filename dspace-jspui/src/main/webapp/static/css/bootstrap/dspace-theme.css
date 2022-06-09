@@ -442,6 +442,20 @@
   cursor: pointer;
 }
 
+.container-cards .card div h2::after {
+  content: '';
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
+.container-cards .card .text h2::after {
+  content: '';
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
 .container-cards .card .text p {
   color: #6A6A6A;
 }
@@ -1114,6 +1128,13 @@ hr {
   font-size: 2rem;
   font-weight: 600;
   line-height: 2.5rem;
+}
+
+.content-news .card h2::after {
+  content: '';
+  margin: 0;
+  width: 0;
+  height: 0;
 }
 
 .content-news .card p {
