@@ -499,6 +499,13 @@
   margin: 8px 0;
 }
 
+.results-cards .cards h2::after {
+  content: '';
+  margin: 0;
+  width: 0;
+  height: 0;
+}
+
 @media (max-width: 920px) {
   .results-cards .cards h3 {
     font-size: 1.2rem;
