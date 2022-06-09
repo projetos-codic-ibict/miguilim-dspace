@@ -332,10 +332,21 @@
         <%
             }
         %>
-
+       
+       
 
         <div class="search-filter">
             <h3><fmt:message key="jsp.search.results.searchin.header"></fmt:message></h3>
+            
+            <%
+            if (qResults != null && qResults.getTotalSearchResults() == 0) 
+            {
+            %>
+                <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
+            <%
+            } 
+            %>
+            
             <div class="search-element searchfilter">
                 <div class="accordion-header" data-toggle="collapse" href="#searchAccordion" role="button"
                      aria-expanded="false" aria-controls="searchAccordion">
@@ -634,13 +645,8 @@
 
 
             <%
-                if (qResults != null && qResults.getTotalSearchResults() == 0) 
-                {
-            %>
-                <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
-            <%
-                } 
-                else if (qResults != null) 
+                
+                if (qResults != null && qResults.getTotalSearchResults() > 0) 
                 {
                     long pageTotal = ((Long) request.getAttribute("pagetotal")).longValue();
                     long pageCurrent = ((Long) request.getAttribute("pagecurrent")).longValue();
