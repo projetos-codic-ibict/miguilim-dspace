@@ -792,8 +792,15 @@ body {
           box-sizing: initial;
 }
 
-.content-home {
+.content-home, .container-cards {
   position: relative;
+}
+
+.content-home h2::after, .container-cards h2::after {
+  content: '';
+  margin: 0;
+  width: 0;
+  height: 0;
 }
 
 .section-footer {
