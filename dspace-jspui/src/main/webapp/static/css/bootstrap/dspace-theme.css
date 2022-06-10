@@ -1142,6 +1142,92 @@ hr {
   font-weight: 300;
 }
 
+.button-top {
+  border: 2px solid #071D41;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 48px;
+  height: 48px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 32px;
+  -webkit-box-shadow: 0px 0px 15px rgba(106, 106, 106, 0.5);
+          box-shadow: 0px 0px 15px rgba(106, 106, 106, 0.5);
+  -webkit-transition: all ease-out .2s;
+  transition: all ease-out .2s;
+  position: fixed;
+  bottom: 80px;
+  left: 50px;
+  background-color: #FFFFFF;
+  text-decoration: none;
+}
+
+@media (max-width: 920px) {
+  .button-top {
+    left: 24px;
+    bottom: 40px;
+  }
+}
+
+.button-top .color-arrow {
+  fill: #071D41;
+}
+
+.button-top::after {
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  content: attr(tooltipBtn);
+  position: absolute;
+  background-color: #071D41;
+  color: white;
+  border-radius: 4px;
+  -webkit-transform: translateY(-50px) scale(0.9);
+          transform: translateY(-50px) scale(0.9);
+  padding: 8px;
+  width: 110px;
+  text-align: center;
+  opacity: 0;
+}
+
+.button-top:hover {
+  -webkit-box-shadow: 0px 0px 15px rgba(7, 29, 65, 0.8);
+          box-shadow: 0px 0px 15px rgba(7, 29, 65, 0.8);
+  background-color: #071D41;
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+}
+
+.button-top:hover .color-arrow {
+  fill: #FFFFFF;
+}
+
+.button-top:hover::after {
+  -webkit-transition: all ease-in-out .2s;
+  transition: all ease-in-out .2s;
+  content: attr(tooltipBtn);
+  position: absolute;
+  background-color: #071D41;
+  color: white;
+  border-radius: 4px;
+  -webkit-transform: translateY(-50px) scale(1);
+          transform: translateY(-50px) scale(1);
+  padding: 8px;
+  width: 110px;
+  text-align: center;
+  opacity: 1;
+}
+
+@media (max-width: 920px) {
+  .button-top:hover::after {
+    display: none;
+  }
+}
+
 .container-cards {
   margin-top: 40px;
   display: -ms-grid;
