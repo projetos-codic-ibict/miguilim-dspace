@@ -593,6 +593,9 @@ hr {
     margin-top: 16px;
     display: grid;
     grid-template-columns: auto auto auto auto;
+	@include for-size(tablet-landscape-up) { 
+		grid-template-columns: 1fr;
+	}
     gap: 8px;
 	margin-bottom: 24px;
 }

@@ -1404,6 +1404,13 @@ hr {
   margin-bottom: 24px;
 }
 
+@media (max-width: 920px) {
+  .grid-col-2 {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
+
 .grid-col-2b {
   margin-top: 24px;
   display: -ms-grid;
