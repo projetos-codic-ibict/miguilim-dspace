@@ -1117,6 +1117,7 @@ hr {
 			.row {
 				.col-md-8 {
 					h2 {
+						margin: 0;
 						&::after {		
 							transition: all ease .2s;	
 							content: '';
