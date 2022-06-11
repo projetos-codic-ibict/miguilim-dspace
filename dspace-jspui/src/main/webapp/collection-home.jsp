@@ -248,7 +248,7 @@
             <form method="get" class="btn-group" action="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/browse">
                 <input type="hidden" name="type" value="<%= bis[i].getName() %>"/>
                 <%-- <input type="hidden" name="collection" value="<%= collection.getHandle() %>" /> --%>
-                <input type="submit" class="btn btn-default" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
+                <input type="submit" class="button-main-outline" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
             </form>
         <%	
             }
