@@ -2079,6 +2079,7 @@ hr {
 .search-main .search-filter .well .row .col-md-8 small {
   display: block;
   margin-bottom: 16px;
+  margin: 8px 0 16px 0;
 }
 
 @media (max-width: 920px) {
