@@ -1116,6 +1116,15 @@ hr {
 		.well {
 			.row {
 				.col-md-8 {
+					h2 {
+						&::after {		
+							transition: all ease .2s;	
+							content: '';
+							width:0;
+							height:0;
+							display: block;
+						}						
+					}					
 					small {
 						display: block;
 						margin-bottom: 16px;

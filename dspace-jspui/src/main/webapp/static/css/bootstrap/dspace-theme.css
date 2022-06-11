@@ -2063,6 +2063,15 @@ hr {
   padding: 40px 32px;
 }
 
+.search-main .search-filter .well .row .col-md-8 h2::after {
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  content: '';
+  width: 0;
+  height: 0;
+  display: block;
+}
+
 .search-main .search-filter .well .row .col-md-8 small {
   display: block;
   margin-bottom: 16px;
