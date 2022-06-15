@@ -25,8 +25,8 @@ import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.jstl.fmt.LocaleSupport;
 import javax.servlet.jsp.tagext.TagSupport;
-import org.apache.commons.lang.ArrayUtils;
 
+import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.time.DateFormatUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.DCInputsReaderException;
@@ -455,6 +455,7 @@ public class ItemTag extends TagSupport
             boolean isResolver = false;
             boolean isNoBreakLine = false;
             boolean isDisplay = false;
+            boolean isLinkSearch = false;
 
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
@@ -477,6 +478,7 @@ public class ItemTag extends TagSupport
 
             if (style != null)
             {
+                isLinkSearch = style.contains("linkSearch");
                 isDate = style.contains("date");
                 isLink = style.contains("link");
 				isNoBreakLine = style.contains("nobreakline");
@@ -512,16 +514,14 @@ public class ItemTag extends TagSupport
             if (values != null && values.size() > 0)
             {
                 // Create CSS class to identify fields by their metadata name.
-		// We use underscore as separator and no wildcard qualifier
-		// because dots and asterisks are forbidden as CSS class names.
-		String metadataNameClass = "";
-		if (qualifier == null || Item.ANY.equals(qualifier)
-				|| qualifier.isEmpty()) {
-			metadataNameClass = schema + "_" + element;
-		} else {
-			metadataNameClass = schema + "_" + element + "_"
-					+ qualifier;
-		}   
+		        // We use underscore as separator and no wildcard qualifier
+		        // because dots and asterisks are forbidden as CSS class names.
+		        String metadataNameClass = "";
+		        if (qualifier == null || Item.ANY.equals(qualifier) || qualifier.isEmpty()) {
+			        metadataNameClass = schema + "_" + element;
+		        } else {
+			        metadataNameClass = schema + "_" + element + "_" + qualifier;
+		        }   
             	
                 out.print("<tr><td class=\"metadataFieldLabel " + metadataNameClass + "\">");
 
@@ -586,7 +586,15 @@ public class ItemTag extends TagSupport
                         }
                         j++;
                         
-                        if (isLink)
+                        if (isLinkSearch)
+                        {
+                            String valor = Utils.addEntities(val.getValue());
+                            String url = request.getContextPath() + "/simple-search?query=" + valor;
+                            
+                            out.print("<a href=\"" + url + "\">"
+                                    + Utils.addEntities(val.getValue()) + "</a>");
+                        }
+                        else if (isLink)
                         {
                             out.print("<a href=\"" + val.getValue() + "\">"
                                     + Utils.addEntities(val.getValue()) + "</a>");
