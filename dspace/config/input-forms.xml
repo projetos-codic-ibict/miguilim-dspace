@@ -1177,6 +1177,17 @@
                     <required></required>
                 </field>
 
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>h5index</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Índice H5 (Google Acadêmico):</label>
+                    <input-type>onebox</input-type>
+                    <hint>Indique o índice H5 da revista de acordo com o perfil da publicação no Google Acadêmico.</hint>
+                    <required></required>
+                </field>
+
             </page>
 
         </form>
