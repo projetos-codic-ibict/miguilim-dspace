@@ -637,7 +637,6 @@ public class CustomEditItemServlet extends DSpaceServlet
     {
         String button = UIUtil.getSubmitButton(request, "submit");
 
-        System.out.println("processUpdateItem: " + button);
         /*
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
