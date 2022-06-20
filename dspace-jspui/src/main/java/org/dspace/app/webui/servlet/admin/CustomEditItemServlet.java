@@ -616,7 +616,7 @@ public class CustomEditItemServlet extends DSpaceServlet
         if(response.isCommitted()) {
         	return;
         }
-        JSPManager.showJSP(request, response, "/tools/-item-form.jsp");
+        JSPManager.showJSP(request, response, "/tools/custom-edit-item-form.jsp");
     }
 
     /**

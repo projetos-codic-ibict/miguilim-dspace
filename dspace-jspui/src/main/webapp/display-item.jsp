@@ -129,7 +129,6 @@
     TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
     String pontuacaoTermometro = termometroService.calcularPontuacaoDoItem(item);
     String pontuacaoIndiceH5 = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc.identifier.h5index");
-    //.getMetadata(item, "dc", "identifier", "h5index", Item.ANY);
      String REVISTAS = "123456789/2";
      String PORTAL_DE_PERIODICOS = "123456789/2669";
 
