@@ -1404,6 +1404,24 @@ h1 , h2 {
 	font-family: 'Amaranth', sans-serif;
 }
 
+.indiceh5{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.indiceh5 span{
+	font-size: 2rem;
+	border: 5px solid #6FADCF;
+	padding: 1rem;
+	border-radius: 50%;
+	width: 6rem;
+	height: 6rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
 #item-data {
 	.panel {
 		@extend .d-hide;
