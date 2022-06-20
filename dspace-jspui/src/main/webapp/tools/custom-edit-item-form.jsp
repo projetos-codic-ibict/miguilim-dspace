@@ -412,14 +412,15 @@
                                              aria-multiselectable="true">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading" role="tab" id="headingOne">
-                                                    <a class="panel-title" role="button" data-toggle="collapse"
+                                                    <a href="#collapseOne" class="panel-title collapsed" role="button" data-toggle="collapse"
                                                        data-parent="#accordion"
-                                                       href="#collapseOne" aria-expanded="true"
+                                                        aria-expanded="false"
                                                        aria-controls="collapseOne">
                                                         Opções de resposta
                                                     </a>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse"
+                                                     aria-expanded="false"
                                                      role="tabpanel" aria-labelledby="headingOne">
                                                     <div class="panel-body">
                                                         <div class="cnpq">

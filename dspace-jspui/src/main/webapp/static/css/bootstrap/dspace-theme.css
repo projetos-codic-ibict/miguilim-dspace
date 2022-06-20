@@ -2399,6 +2399,38 @@ h1:hover::after, h2:hover::after {
   justify-content: center;
 }
 
+
+#accordion .panel-title.collapsed:after{
+  content: "+";
+  position: absolute;
+  right: 1rem;
+}
+
+#accordion .panel-title:after{
+  content: "-";
+  position: absolute;
+  right: 1rem;
+}
+
+#accordion .panel-heading{
+  background: #f5f5f5 !important;
+  color: #555 !important;
+  padding: 0 15px;
+  position: relative;
+}
+
+#accordion .panel-heading a{
+  text-decoration: none;
+  color:  #555 !important;
+}
+
+#accordion .panel-heading .panel-title{
+  font-size: inherit;
+  font-weight: 500;
+  display: flex;
+  padding: 10px 0;
+}
+
 .well {
   word-break: break-all;
 }

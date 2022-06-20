@@ -1,7 +1,5 @@
 function loadFromJSON(json) {
     const div = document.querySelector('.cnpq')
-    console.log(div, json)
-
     const ul1 = document.createElement('ul');
     ul1.id = 'cnpqUL'
     json.node.isComposedBy.node.forEach(element => {
