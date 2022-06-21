@@ -147,28 +147,11 @@
     </ul>
 
 
-    <% if (supportedLocales != null && supportedLocales.length > 1) {
+    <% if (supportedLocales != null && supportedLocales.length > 0) {
     %>
     <div class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
-                        key="jsp.layout.navbar-default.language"/><b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <%
-                        for (int i = supportedLocales.length - 1; i >= 0; i--) {
-                    %>
-                    <li>
-                        <a
-                           href="<%= currentPage %>?locale=<%=supportedLocales[i].toString()%>">
-                            <%= supportedLocales[i].getDisplayLanguage(supportedLocales[i])%>
-                        </a>
-                    </li>
-                    <%
-                        }
-                    %>
-                </ul>
-            </li>
+                <li id="google_translate_element"></li>
         </ul>
     </div>
     <%
@@ -227,3 +210,9 @@
 
     </div>
 </nav>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'pt'}, 'google_translate_element');
+    }
+</script>
+<script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
