@@ -315,7 +315,9 @@
     <div class="row">
         <div class="col-md-3"></div>
         <div class="col-md-9">
-            <p class="alert alert-info"><fmt:message key="jsp.tools.edit-item-form.msg.info"/></p>
+            <p class="alert alert-info">
+                Preencha as informações solicitadas sobre o item que irá depositar. Na maioria dos navegadores, você pode usar a tecla ''Tab'' para mover o cursor para o próximo campo. As questões identificadas com asterisco* são de preenchimento obrigatório. Caso vá realizar o depósito de uma revista científica, as informações que se referem a identificação da mesma (Títulos e números de ISSN) devem ser preenchidas conforme seu registro na Rede ISSN.
+            </p>
 
             <form id="edit_metadata" name="edit_metadata" class="edit-metadata" method="post"
                   action="<%= request.getContextPath() %>/tools/edit-item">
