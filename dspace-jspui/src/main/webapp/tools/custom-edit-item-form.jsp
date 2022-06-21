@@ -352,12 +352,15 @@
                             <%
                                 List<String> vocabularies = new ArrayList<>();
                                 VocabularyConverter vocabularyConverter = new VocabularyConverter();
-                                if (xmlField.getSimpleVocabulary() != null && !isCNPQ) {
-                                    vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
-                                }else{
-                                    // pegar campos salvos do CNPQ
-                                    for (MetadataValue metadataValue: metadataValues) {
-                                        vocabularies.add(metadataValue.getValue());
+                                if (xmlField.getSimpleVocabulary() != null) {
+                                    if(!isCNPQ) {
+                                        vocabularies = vocabularyConverter.getListOfVocabularies(xmlField.getSimpleVocabulary());
+                                    }
+                                    else{
+                                        // pegar campos salvos do CNPQ pra mostrar selecionados no input
+                                        for (MetadataValue metadataValue: metadataValues) {
+                                            vocabularies.add(metadataValue.getValue());
+                                        }
                                     }
                                 }
                             %>
