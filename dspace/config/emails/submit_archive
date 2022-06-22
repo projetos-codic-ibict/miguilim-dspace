@@ -4,18 +4,17 @@
 # {1}  Name of collection
 # {2}  handle 
 #
-Subject: DSpace: Submission Approved and Archived 
+Subject: [MIGUILIM] Registro aprovado no Diretório 
 
-You submitted: {0}
+Você submeteu o registro "{0}" à coleção "{1}" do Diretório das revistas científicas eletrônicas brasileiras (Miguilim).
 
-To collection: {1}
+Seu registro foi verificado e aprovado pela Equipe Miguilim!
 
-Your submission has been accepted and archived in DSpace,
-and it has been assigned the following identifier:
-{2}
+Para acesse a página do registro, acesse: {2}
 
-Please use this identifier when citing your submission.
+Agradecemos sua colaboração!
 
-Many thanks!
-
-DSpace
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras | Miguilim | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
