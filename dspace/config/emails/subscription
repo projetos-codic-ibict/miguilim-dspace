@@ -4,9 +4,17 @@
 # Parameters: {0} is the details of the new collections and items
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: DSpace Subscription
-New items are available in the collections you have subscribed to:
+Subject: [MIGUILIM] Novo registro no Diretório
+
+Um novo item foi registrado no Diretório das revistas científicas eletRônicas brasileiras (Miguilim). 
+
+Confira logo abaixo os dados do registro:
 
 {0}
 
-DSpace
+Agradecemos sua colaboração!
+
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras | Miguilim | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
