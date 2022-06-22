@@ -6,18 +6,21 @@
 # {3}  Reason for the rejection
 # {4}  Link to 'My DSpace' page
 #
-Subject: DSpace: Submission Rejected
+Subject: [MIGUILIM] Registro rejeitado no Diretório
 
-You submitted: {0}
+Você submeteu o registro "{0}" à coleção "{1}" do Diretório das revistas científicas eletrônicas brasileiras (Miguilim).
 
-To collection: {1}
-
-Your submission has been rejected by {2}
-with the following explanation:
+Seu registro foi verificado e precisou ser inicialmente rejeitado pelo seguinte motivo:
 
 {3}
 
-Your submission has not been deleted.  You can access it from your
-"My DSpace" page: {4}
+No entanto, seu registro nãO foi integralmente excluído do Miguilim. Você pode acessá-lo por meio do "Meu espaço" e fazer as correções conforme o motivo exposto acima.
 
-DSpace
+Para isso, acesse: {4}
+
+Agradecemos sua colaboração!
+
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras | Miguilim | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
