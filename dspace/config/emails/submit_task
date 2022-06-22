@@ -6,19 +6,19 @@
 # {3}  Description of task
 # {4}  link to 'my DSpace' page 
 #
-Subject: DSpace: You have a new task
+Subject: [MIGUILIM] Você tem uma nova tarefa
 
-A new item has been submitted:
+Um novo registro foi submetido ao Miguilim:
 
-Title:        {0}
-Collection:   {1}
-Submitted by: {2}
+Título: {0}
+Coleção: {1}
+Registrado por: {2}
 
-{3}
+Para executar essa tarefa, acesse o "Meu espaço": {4}
 
-To claim this task, please visit your "My DSpace"
-page:  {4}
+Agradecemos sua colaboração!
 
-Many thanks!
-
-DSpace
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras | Miguilim | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
