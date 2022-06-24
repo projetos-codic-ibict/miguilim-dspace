@@ -80,44 +80,43 @@
     ação. As revistas que foram cadastradas pelos próprios responsáveis já possuem essa autorização. Para verificar se possui 
     autorização para atualizar a revista, faça o Login no diretório, entre em “Meu espaço” e clique na aba “Ver depósito(s) aceito(s)”.
     As revistas listadas nessa seção estão vinculadas a esse login e podem ser atualizadas. As revistas que foram pré-cadastradas no
-    Miguilim pela equipe administradora do diretório precisam solicitar a autorização para a atualização. Segue abaixo o informativo de
+    Miguilim precisam solicitar autorização para a atualização. Segue abaixo as instruções de
     como atualizar os dados da revista em cada situação.</p>
 
     <h2><strong class="titulo-medio">Revistas pré-cadastradas (Não possuem login vinculado)</strong></h2>
     
     <p>Caso o usuário localize um registro de revista de sua responsabilidade já registrada no Miguilim e deseje fazer alterações no
-    mesmo, ele deve primeiramente solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a
+    mesmo, deve primeiramente solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a
     página do registro da revista e clicar na aba "Solicitar edição da revista". Ao clicar nessa aba o usuário terá acesso ao “Formulário 
     de solicitação de edição de revista no Miguilim” e deverá preencher os campos de acordo com as instruções indicadas e clicar em “Enviar”. 
     Os dados informados serão verificados pela Equipe Miguilim no site da revista, que concederá ou não as permissões de atualização. 
-    Assim sendo, as informações fornecidas no formulário deverão ser as mesmas constantes no site da revista, caso contrário não será possível 
+    As informações fornecidas no formulário deverão ser as mesmas constantes no site da revista, caso contrário não será possível 
     conceder as autorizações. O endereço de e-mail informado deverá ser o mesmo utilizado para realizar o login no Miguilim, já que a permissão 
-    vai ser dada para este login <a href="http://200.130.45.73:8080/jspui/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>.</p>
+    vai ser dada para este login. <a href="http://200.130.0.162/static/pages/criacao-login.jsp">(Veja como criar um login aqui)</a>.</p>
 
     <p>Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Em seguida a Equipe
     Miguilim entrará em contato com a revista indicando que esta possui as autorizações necessárias para a atualização do registro.</p>
     
-    <p>Com as devidas autorizações, o usuário deverá dirigir-se ao registro da revista, clicar na aba “Editar dados do registro” e informar o número de ISSN, login e senha
-        <a href="http://200.130.45.73:8080/jspui/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao informar estes dados o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. Os campos
-    devem ser preenchidos de acordo  com as instruções indicadas. A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora do 
-    Miguilim a verificação e revisão dos dados indicados.</p>
+    <p>Com as devidas autorizações e logado no Miguilim, o usuário deverá dirigir-se ao registro da revista e clicar no botão “Editar” que se encontra no quadro "Ferramentas do administrador"
+      <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. 
+	   Os campos devem ser preenchidos de acordo  com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar. A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora a verificação e revisão dos dados indicados.</p>
 
     <h2><strong class="titulo-medio">Revistas cadastradas pelos responsáveis (Possuem login vinculado)</strong></h2>
 	
     <p>Revistas que foram cadastradas pelos próprios responsáveis já possuem permissão de acesso interno aos registros e podem fazer a atualização dos dados da revista sem 
-    solicitar permissão para isso. Para a atualização dos dados o usuário deverá dirigir-se ao registro da revista, clicar na aba “Editar dados do registro” e informar o 
-    número de ISSN, login e senha <a href="http://200.130.45.73:8080/jspui/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao informar estes dados, o usuário efetuará o login e terá acesso ao formulário de edição, onde poderá 
-    alterar todos os campos que achar necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. A atualização do registro será disponibilizada 
-    automaticamente no diretório, cabendo à equipe gestora do Miguilim a verificação e revisão dos dados indicados.</p>
+    solicitar permissão para isso. Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista e clicar no botão “Editar”, que se encontra no quadro "Ferramentas do administrador" 
+   <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. 
+    Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora do Miguilim a verificação e revisão dos dados indicados.</p>
     
     <h2><strong class="titulo-medio">Atualização do cadastro de Portais de periódicos</strong></h2>
 
-    <p>As instruções de alteração apresentadas anteriormente não se aplicam à coleção “Portal de periódicos”. Para alterar os dados desses registros, o gestor do Portal deverá
-    entrar em contato com a Equipe Miguilim solicitando sua atualização. O contato pode ser feito por e-mail (revistas@ibict.br). Neste contato é importante que o solicitante
-    apresente-se e informe por qual o Portal de periódicos ele é responsável. Os campos da coleção Portais de periódicos são:</p>
+    <p>As instruções de alteração apresentadas anteriormente não se aplicam à coleção “Portal de revistas”. Para alterar os dados desses registros, o gestor do porrtal deverá
+    entrar em contato com a Equipe Miguilim solicitando sua atualização. 
+    O contato pode ser feito por e-mail (miguilim@ibict.br). Neste contato é importante que o solicitante
+    apresente-se e informe por qual o Portal de revistas é responsável. Os campos da coleção Portais de revistas são:</p>
 
     <dl>
-        <dd>Nome do portal de periódicos* </dd>
+        <dd>Nome do portal de revistas* </dd>
         <dd>URL* </dd>
         <dd>Instituição responsável* </dd>
         <dd>Organismo subordinado </dd>
