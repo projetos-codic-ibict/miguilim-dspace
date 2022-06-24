@@ -81,7 +81,7 @@
 		<ul>
 			<li>Ter registro de ISSN para o suporte eletrônico;</li>
 			<li>Ter o Brasil como país de publicação na rede ISSN;</li>  
-            <li>Ser eletrônica e estar disponível online;</li>
+                        <li>Ser eletrônica e estar disponível online;</li>
             <li>Manter conexão permanente e estável com a internet;</li>
             <li>Não ser publicada por uma <a href="https://predatoryjournals.com/publishers/" target="_blank">editora listada como 
             possivelmente predatória</a> no site <a href="https://predatoryjournals.com/" target="_blank">Stop Predatory Journals</a>, não 
