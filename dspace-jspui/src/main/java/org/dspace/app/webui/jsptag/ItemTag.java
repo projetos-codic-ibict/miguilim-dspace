@@ -722,6 +722,10 @@ public class ItemTag extends TagSupport
             metadataFields = defaultFields.split(",");
         }
 
+        out.println("<div class=\"panel panel-info\"><div class=\"panel-heading tab-table-root\">"
+                + LocaleSupport.getLocalizedMessage(pageContext,
+                "org.dspace.app.webui.jsptag.ItemTag.full") + "</div>");
+
         // Three column table - DC field, value, language
         out.println("<table class=\"panel-body table itemDisplayTable tab-table\">");
         out.println("<tr><th id=\"s1\" class=\"standard\">"
