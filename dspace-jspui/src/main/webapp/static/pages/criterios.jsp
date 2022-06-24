@@ -86,6 +86,7 @@
             		<li> Não apresentar comportamentos típicos de publicações predatórias (a avaliação será realizada pela equipe do Miguilim);</li>
             		<li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
 			<ul>
+				
 				<li>Publicar artigos originais e inéditos e que tenham sido previamente submetidos à revisão por pares;</li>
                 		<li>Ter corpo editorial composto por pesquisadores especialistas na área de atuação da revista.</li>
 			</ul>
