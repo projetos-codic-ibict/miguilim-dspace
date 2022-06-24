@@ -77,22 +77,26 @@
 <div class="espacamento minus-space"> 
     <h2><strong class="titulo-medio">Criação de login</strong></h2>
     <p id="margem-unica">O primeiro passo para fazer parte do Miguilim é a criação do login da Revista científica ou do Portal de 
-    periódicos que queira cadastrar. Aconselha-se que o e-mail utilizado para a criação do login seja o e-mail institucional da
-    Revista científica ou do Portal de periódicos. Deve-se evitar o uso de e-mails pessoais dos gestores, tendo em vista que a 
+    revistas que queira cadastrar. Aconselha-se que o e-mail utilizado para a criação do login seja o e-mail institucional da
+    revista científica ou do portal de revistas. Deve-se evitar o uso de e-mails pessoais dos gestores, tendo em vista que a 
     mudança dos responsáveis pode acarretar a perda do acesso.</p>
 
-    <p id="margem-unica">Para a criação do login, o responsável deve acessar a aba “Login” no site do Miguilim, clicar no link
-    “Usuário novo? Clique aqui para se registrar”, informar o e-mail institucional no campo “Endereço de e-mail” e clicar em 
-    “Registrar”. Ao efetuar estes passos, o responsável receberá um e-mail com um link para que faça o registro das informações e 
-    crie uma senha para o cadastro. Feito isso, o responsável deverá clicar em “Completar o registro”. A partir de então o login 
-    terá sido criado, o que permite acesso interno ao Miguilim via aba “Login”, onde os cadastros de revistas científicas e portais
-    de periódicos podem ser realizados.</p>
+    <p id="margem-unica">Para a criação do login, o responsável deve clicar em “Login”, depois em "Meu espaço" e, por fim, em
+    “Usuário novo? Clique aqui para se registrar”. Seguidos esses passos, informe o e-mail institucional no campo “Endereço de e-mail” 
+    e clique em “Registrar”. Ao efetuar estes passos, o responsável receberá um e-mail com um link para que faça o registro das informações e 
+    crie uma senha para o cadastro. Feito isso, o responsável deverá clicar em “Complete o registro”. A partir de então o login 
+    terá sido criado, o que permite acesso interno ao Miguilim por meio da aba “Login”, onde os cadastros de revistas científicas e portais
+    de revistas podem ser realizados.</p>
 
     <h2><strong class="titulo-medio">Login no diretório </strong></h2>
 
-    <p id="margem-unica">Para fazer login no Miguilim o usuário deve dirigir-se ao canto superior direito da tela, clicar em “Entrar
-    em” > “Meu espaço” e fazer login no Diretório com os dados de e-mail e senha. Feito isso o usuário irá se deparar com o ambiente 
+    <p id="margem-unica">Para fazer login no Miguilim o usuário deve dirigir-se ao canto superior direito da tela, clicar em “Login” >
+    “Meu espaço” e fazer login no Diretório com os dados de e-mail e senha. Feito isso o usuário irá se deparar com o ambiente 
     de trabalho interno do Miguilim.</p>
+	
+    <p id="margem-unica">Caso o usuário tenha esquecido sua senha basta clicar na aba "Login" > "Esqueceu sua senha?" e indicar o e-mail
+    cadastrado no Miguilim. Em seguida um link será enviado para o e-mail cadastrado. Ao clicar no link, o usuário poderá configurar uma
+    nova senha para continuar usando o Miguilim.</p>
 		
 </div>
 </dspace:layout>
