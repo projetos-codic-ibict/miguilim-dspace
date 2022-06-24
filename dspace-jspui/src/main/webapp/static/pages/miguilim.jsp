@@ -77,25 +77,27 @@
 <div class="espacamento minus-space"> 
 <h2><strong class="titulo-medio">Miguilim</strong></h2>
 
-    <p>O Diretório das revistas científicas eletrônicas brasileiras - Miguilim é uma iniciativa do <a href="http://www.ibict.br/" target="_blank"> Instituto Brasileiro de Informação
+    <p>O Diretório das revistas científicas eletrônicas brasileiras (Miguilim) é uma iniciativa do <a href="http://www.ibict.br/" target="_blank"> Instituto Brasileiro de Informação
         em Ciência e Tecnologia (Ibict)</a> criada com o intuito de agregar, em um único local, informações sobre as revistas científicas editadas e publicadas no Brasil que se encontravam dispersas em diferentes
-    plataformas. O diretório reúne em sua base de dados o cadastro de informações essenciais das políticas editoriais  de milhares de revistas científicas brasileiras e tem
+    plataformas. O Diretório reúne em sua base de dados o cadastro de informações essenciais das políticas editoriais de milhares de revistas científicas brasileiras e tem
     como objetivos básicos: </p>
 	
     <ol>
         <li>Facilitar o acesso ao conjunto das revistas científicas editadas e publicadas no Brasil;</li>
         <li>Promover a disseminação e a visibilidade das revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
-        <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas, assim como instruir os editores a respeito das possibilidades das práticas editoriais a seguir;</li>
-        <li>Por meio dos dados informados pelas revistas busca promover, também, a transparência necessária à avaliação dessas revistas;</li>
+        <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas;</li>
+        <li>PInstruir editores científicos a respeito das possibilidades das práticas editoriais;</li>
+        <li>Promover a transparência necessária à avaliação dessas revistas, por meio dos dados informados;</li>
         <li>Instruir os editores em relação aos critérios de avaliação requeridos por grandes indexadores e bases de dados que disseminam e atribuem credibilidade às revistas;</li>
         <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da Informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim e, de maneira especial, sobre a qualidade editorial das revistas brasileiras;</li>
-        <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas como Diadorim, OasisBr, Latindex  e EmeRI;</li>
+        <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas, como Diadorim, Oasisbr, Latindex  e EmeRI;</li>
         <li>Dar acesso aos dados das revistas brasileiras a bases de dados, repositórios diversos e outros diretórios de revistas nacionais ou internacionais;</li>
-        <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e a consistência desses dados nas diversas plataformas;</li>
-        <li>Incentivar ações práticas relacionadas aos movimentos de Ciência Aberta e Acesso Aberto à informação científica.</li>
+        <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e consistência desses dados nas diversas plataformas;</li>
+	<li>Incentivar ações práticas relacionadas aos movimentos de Ciência Aberta e Acesso Aberto à informação científica.</li>
     </ol>  
 
-    <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico.</p>
+    <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico.
+.</p>
 	
 </div>
 </dspace:layout>
