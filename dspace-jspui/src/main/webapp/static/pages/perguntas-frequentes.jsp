@@ -84,7 +84,7 @@
         <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas?</a>
         <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar uma revista científica?</a>
         <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista científica?</a>
-        <a href="#ComoAlterarOregistro">Como alterar o registro de um Portal de periódicos?</a>
+        <a href="#ComoAlterarOregistro">Como alterar o registro de um Portal de revistas?</a>
         <a href="#PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</a>
         <a href="#RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</a>
         <a href="#ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</a>
@@ -93,7 +93,7 @@
         <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
         <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</a>
 	<a href="#OqueEoTermometroH5">O que é o Termômetro de Índice H5?</a>
-        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de periódicos?</a>
+        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
     
@@ -254,7 +254,7 @@
                 instâncias. Do mais específico ao mais abrangente, tem-se: os “Itens” que são subordinados às "Coleções" e que, por sua vez, são subordinadas as “Comunidades”.  
                 Por ser de administração centralizada o Miguilim possui apenas uma Comunidade, denominada “Miguilim”. Subordinadas a esta Comunidade figuram as coleções “Portais de revistas” e “Revistas científicas”, que abrigam os cadastros dos respectivos Itens de determinados portais de revistas e revistas científicas. </p>
                 
-                <p id="margem-unica">O DSpace permite um fluxo de depósito em que os próprios editores das revistas e os administradores dos portais de periódicos podem realizar
+                <p id="margem-unica">O DSpace permite um fluxo de depósito em que os próprios editores das revistas e os administradores dos portais de revistas podem realizar
                 o cadastro dos itens pelos quais são responsáveis e os administradores do Miguilim, posteriormente, revisam o cadastro antes de aceitá-lo e torná-lo público.</p>
                 
                 
@@ -292,12 +292,12 @@
                 revistas científicas. Os portais de revistas são mais do que simples agregadores de revistas de uma instituição, agem, muitas vezes, como uma instância institucional no 
                 gerenciamento de revistas científicas. Possuem equipes especializadas nos processos de gestão de revistas e trabalham no sentido de gerar políticas editoriais
                 básicas para as revistas que agregam, treinar os editores científicos no manuseio do software de gestão de revistas e na implementação de ferramentas que aumentem
-                a acessibilidade e a interoperabilidade das revistas. De forma geral buscam promover o acesso, a visibilidade, a segurança, a qualidade das revistas e o suporte
-                aos editores dos periódicos científicos. Com base na proximidade de propósitos adotados pelo Miguilim e visando o desenvolvimento e valorização do trabalho 
+                a acessibilidade e a interoperabilidade das revistas. De modo geral buscam promover o acesso, a visibilidade, a segurança, a qualidade e dar suporte
+                aos editores das revistas científicas que hospedam. Com base na proximidade de propósitos adotados pelo Miguilim e visando o desenvolvimento e valorização do trabalho 
                 realizado pelos portais de revistas, a criação de uma coleção dessas plataformas se tornou primordial.</p>
     
                 <p id="margem-unica">A coleção busca relacionar cada revista ao seu portal agregador, traçando uma responsabilização pela revista além de criar um diretório dos
-                portais com o intuito de aumentar a visibilidade dessas plataformas. Como tem propósitos mais básicos, o cadastro de portais de periódicos possui apenas quatorze
+                portais com o intuito de aumentar a visibilidade dessas plataformas. Como tem propósitos mais básicos, o cadastro de portais de revistas possui apenas 14 (quatorze)
                 campos.</p>
     
                 <a class="button-top" tooltipBtn="ir para o topo" href="#TopoPerguntasFrequentes">
