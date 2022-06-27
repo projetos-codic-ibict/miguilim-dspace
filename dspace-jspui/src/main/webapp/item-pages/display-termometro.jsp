@@ -1,16 +1,17 @@
 <%@page contentType="text/html;charset=UTF-8" %>
+<p>Jesi</p>
 <div class="panel-group" id="accordion" role="tablist"
      aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-            <a href="#collapseOne" class="panel-title" role="button" data-toggle="collapse"
+            <a href="#collapseOne" class="panel-title collapsed" role="button" data-toggle="collapse"
                data-parent="#accordion"
-               aria-expanded="true"
+               aria-expanded="false"
                aria-controls="collapseOne">
                 <fmt:message key="termometro.display.header"/>
             </a>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in"
+        <div id="collapseOne" class="panel-collapse collapse"
              aria-expanded="false"
              role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
@@ -49,7 +50,10 @@
                 </div>
                 <br/>
                 <h3>Como a pontuação é atribuída?</h3>
-                <p>A pontuação indicada no termômetro leva em consideração as respostas dadas a 22 campos do registro da revista. Estes campos dizem respeito à abertura do processo editorial da revista como um todo e relacionam-se à questões de transparência, disseminação e acesso aos conteúdos, direitos autorais, interoperabilidade, ética, dentre outros.</p>
+                <p>A pontuação indicada no termômetro leva em consideração as respostas dadas a 22 campos do registro da
+                    revista. Estes campos dizem respeito à abertura do processo editorial da revista como um todo e
+                    relacionam-se à questões de transparência, disseminação e acesso aos conteúdos, direitos autorais,
+                    interoperabilidade, ética, dentre outros.</p>
                 <p>Os campos considerados são:</p>
                 <ul>
                     <li>Protocolo de interoperabilidade</li>
@@ -76,12 +80,22 @@
                     <li>Serviços de informação*</li>
                 </ul>
                 <p>
-                    Para cada um dos 22 campos a revista pode pontuar entre 0 (zero), 1 (um) ou 2 (dois) pontos, sendo 2 (dois) a pontuação máxima para cada um. Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a revista atinge a pontuação máxima, de 44 pontos. O selo será atribuído àquelas revistas que marcarem 36 pontos ou mais, que correspondem a 80% da pontuação máxima e indicarem a resposta “Acesso aberto imediato” no campo “Tipo de acesso”.
+                    Para cada um dos 22 campos a revista pode pontuar entre 0 (zero), 1 (um) ou 2 (dois) pontos, sendo 2
+                    (dois) a pontuação máxima para cada um. Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a
+                    revista atinge a pontuação máxima, de 44 pontos. O selo será atribuído àquelas revistas que marcarem
+                    36 pontos ou mais, que correspondem a 80% da pontuação máxima e indicarem a resposta “Acesso aberto
+                    imediato” no campo “Tipo de acesso”.
                 </p>
-                <p>Nos campos de preenchimento textual basta que o campo seja preenchido para que a revista receba o valor máximo referente a ele (2 pontos). Caso o campo seja deixado em branco, a pontuação será 0 (zero).
+                <p>Nos campos de preenchimento textual basta que o campo seja preenchido para que a revista receba o
+                    valor máximo referente a ele (2 pontos). Caso o campo seja deixado em branco, a pontuação será 0
+                    (zero).
                 </p>
-                <p>Nos campos de múltipla escolha foram atribuídas pontuações diferentes para cada uma das opções de respostas, mas seguindo sempre a mesma escala, ou seja, de 0 (zero) a 2 (dois). Deste modo, quanto mais aberta for a política editorial da revista, maior será sua pontuação.</p>
-                <p>Para os campos repetitivos, sejam eles textuais ou de múltipla escolha, basta que a revista preencha o campo uma vez ou indique a resposta com a opção que relaciona a política mais aberta para receber os dois pontos pelo campo.
+                <p>Nos campos de múltipla escolha foram atribuídas pontuações diferentes para cada uma das opções de
+                    respostas, mas seguindo sempre a mesma escala, ou seja, de 0 (zero) a 2 (dois). Deste modo, quanto
+                    mais aberta for a política editorial da revista, maior será sua pontuação.</p>
+                <p>Para os campos repetitivos, sejam eles textuais ou de múltipla escolha, basta que a revista preencha
+                    o campo uma vez ou indique a resposta com a opção que relaciona a política mais aberta para receber
+                    os dois pontos pelo campo.
                 </p>
                 <br/>
                 <div class="detalhamento-pontuacao">
@@ -200,9 +214,10 @@
                             <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 1 ponto<br>Quantidade de respostas: 2 = 2 pontos<br></td>
+                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                                Quantidade de respostas: 1 = 0 ponto<br>
+                                Quantidade de respostas: 2 = 1 ponto<br>
+                                Quantidade de respostas: 3 = 2 pontos<br></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol">010</td>
@@ -212,7 +227,7 @@
                             <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Tradicional = 0 pontos<br>Ahead
+                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Tradicional = 0 ponto<br>Ahead
                                 of
                                 print = 1
                                 ponto<br>Fluxo contínuo = 2 pontos<br></td>
@@ -227,7 +242,7 @@
                         <tr>
                             <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Avaliação aberta = 2
                                 pontos<br>Avaliação
-                                duplo-cega = 0 pontos<br>Avaliação simples-cega = 0 pontos<br></td>
+                                duplo-cega = 0 ponto<br>Avaliação simples-cega = 0 ponto<br></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol">012</td>
@@ -249,7 +264,7 @@
                                 1 ponto<br>A
                                 revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
                                 cadastrados como
-                                possíveis avaliadores = 0 pontos<br>A revista não publica nem revela o nome dos
+                                possíveis avaliadores = 0 ponto<br>A revista não publica nem revela o nome dos
                                 avaliadores
                                 = 0
                                 pontos<br></td>
@@ -262,22 +277,17 @@
                             <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>A revista publica, no
-                                expediente,
-                                a listagem
-                                dos avaliadores que realizaram avaliações = 2 pontos<br>A revista publica, no corpo do
-                                documento
-                                aprovado na avaliação por pares, o nome dos avaliadores responsáveis = 1 ponto<br>A
-                                revista
-                                publica os
-                                pareceres resultantes das avaliações realizadas com o nome dos avaliadores = 2
-                                pontos<br>A
-                                revista não
-                                publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados
-                                como
-                                possíveis
-                                avaliadores = 0 pontos<br>A revista não publica, nem revela o nome dos avaliadores = 0
-                                pontos<br></td>
+                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                                A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações = 1
+                                pontos <br>
+                                A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
+                                avaliadores responsáveis = 1 ponto<br>
+                                A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
+                                avaliadores = 2 pontos<br>
+                                A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
+                                cadastrados como possíveis avaliadores = 0 ponto<br>
+                                A revista não publica, nem revela o nome dos avaliadores = 0 ponto
+                            </td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol">014</td>
@@ -289,7 +299,7 @@
                         <tr>
                             <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A avaliação por pares é
                                 realizada,
-                                exclusivamente, por pesquisadores da instituição que edita a revista = 0 pontos<br>A
+                                exclusivamente, por pesquisadores da instituição que edita a revista = 0 ponto<br>A
                                 avaliação por pares
                                 é realizada por pesquisadores da instituiçao que edita a revista e por pesquisadores que
                                 são
@@ -311,7 +321,7 @@
                                 preprints que
                                 já se encontram armazenados em outras plataformas = 2 pontos<br>A revista não aceita a
                                 submissão de
-                                preprints que já se encontram armazenados em outras plataformas = 0 pontos<br></td>
+                                preprints que já se encontram armazenados em outras plataformas = 0 ponto<br></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol">016</td>
@@ -331,7 +341,7 @@
                                 ponto<br>Branca: apresenta restrições para o armazenamento e acesso das versões preprint
                                 e
                                 pós-print dos
-                                documentos em repositórios institucionais/digitais = 0 pontos<br>Verde: permite o
+                                documentos em repositórios institucionais/digitais = 0 ponto<br>Verde: permite o
                                 armazenamento e acesso
                                 das versões preprint e pós-print dos documentos em repositórios institucionais/digitais
                                 = 2
@@ -346,12 +356,11 @@
                             <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Imediatamente após a aceitação
-                                do
-                                documento =
-                                2 pontos<br>Imediatamente após a publicação do documento = 2 pontos<br>Após finalizado o
-                                período de
-                                embargo = 1 ponto<br>Não permite o armazenamento = 0 pontos<br></td>
+                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                                Imediatamente após a aceitação do documento = 2 pontos<br>
+                                Imediatamente após a publicação do documento = 1 ponto<br>
+                                Após finalizado o período de embargo = 0 ponto<br>
+                                Não permite o armazenamento = 0 ponto<br></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol">018</td>
@@ -363,7 +372,7 @@
                         <tr>
                             <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Acesso aberto imediato = 2
                                 pontos<br>Acesso
-                                aberto após período de embargo = 1 ponto<br>Acesso restrito = 0 pontos<br>Acesso híbrido
+                                aberto após período de embargo = 1 ponto<br>Acesso restrito = 0 ponto<br>Acesso híbrido
                                 = 1
                                 ponto<br>
                             </td>
@@ -420,10 +429,10 @@
                             <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A revista cobra taxa de
                                 submissão
                                 de artigos =
-                                0 pontos<br>A revista cobra taxa de processamento de artigos (APC) = 0 pontos<br>A
+                                0 ponto<br>A revista cobra taxa de processamento de artigos (APC) = 0 ponto<br>A
                                 revista
                                 cobra taxa de
-                                submissão e de processamento de artigos = 0 pontos<br>A revista não cobra nenhuma taxa
+                                submissão e de processamento de artigos = 0 ponto<br>A revista não cobra nenhuma taxa
                                 de
                                 publicação = 2
                                 pontos<br></td>
@@ -450,14 +459,13 @@
                             <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A revista exige que os autores
-                                publiquem os
-                                dados que deram origem à pesquisa em repositórios e/ou revistas de dados = 2 pontos<br>A
-                                revista publica
-                                os dados que deram origem à pesquisa na própria revista = 0 pontos<br>A revista não
-                                exige
-                                que os autores
-                                publiquem os dados que deram origem à pesquisa = 0 pontos<br></td>
+                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>
+                                A revista exige que os autores publiquem os dados que deram origem à pesquisa em
+                                repositórios e/ou revistas de dados = 2 pontos<br>
+                                A revista publica
+                                os dados que deram origem à pesquisa na própria revista = 1 ponto<br>
+                                A revista não exige que os autores publiquem os dados que deram origem à pesquisa = 0
+                                ponto<br></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="3"><b>Soma dos pontos da revista:</b></td>
@@ -484,15 +492,13 @@
              aria-expanded="false"
              role="tabpanel" aria-labelledby="headingH5">
             <div class="panel-body">
-                <c:choose>
-                    <c:when test="<%=pontuacaoIndiceH5 != null%>">
                         <div class="indiceh5">
                             <h3>
                                 <fmt:message key="termometroh5.display.title"/>
                             </h3>
                             <span>
-            <%=pontuacaoIndiceH5%>
-        </span>
+                                <%=pontuacaoIndiceH5 != null ?  pontuacaoIndiceH5 : "O Índice H5 desta revista não foi informado" %>
+                            </span>
                         </div>
                         <h3>O que é o Índice H5?</h3>
                         <p>O H5 é um índice do Google que busca quantificar o impacto de uma revista com base no número
@@ -505,11 +511,6 @@
                             últimos 5
                             anos ela
                             publicou pelo menos 10 artigos que foram citados ao menos 10 vezes.</p>
-                    </c:when>
-                    <c:otherwise>
-                        <p>O Índice H5 desta revista não foi informado.</p>
-                    </c:otherwise>
-                </c:choose>
             </div>
         </div>
     </div>
