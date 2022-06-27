@@ -2006,7 +2006,6 @@ h1:hover::after, h2:hover::after {
 }
 .well code {
   word-break: break-all;
-  white-space: break-spaces;
 }
 
 .edit-metadata {
