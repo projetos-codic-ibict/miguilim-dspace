@@ -1200,9 +1200,9 @@
                     <dc-element>title</dc-element>
                     <dc-qualifier></dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Nome do portal de periódicos:</label>
+                    <label>Nome do portal de revistas:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o nome do portal agregador de periódicos.
+                    <hint>Indique o nome do portal agregador de revistas.
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o Nome do
                         portal de periódicos
@@ -1216,7 +1216,7 @@
                     <repeatable>true</repeatable>
                     <label>URL:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe a URL da página inicial do portal de periódicos.</hint>
+                    <hint>Informe a URL da página inicial do portal de revistas.</hint>
                     <required>CAMPO OBRIGATÓRIO: Informe a url</required>
                 </field>
 
@@ -1230,7 +1230,7 @@
                     </label>
                     <input-type>onebox</input-type>
                     <hint>Informe o nome completo e por extenso da instituição responsável
-                        pelo portal de periódicos . A responsabilidade deverá levar em consideração o nível hierárquico
+                        pelo portal de revistas. A responsabilidade deverá levar em consideração o nível hierárquico
                         mais alto de afiliação. Por exemplo, uma universidade, e
                         não seus departamentos, faculdades ou institutos. Todos esses organismos subordinados podem ser
                         descritos no campo Organismo subordinado. Exemplo de preenchimento: Universidade de Brasília
@@ -1249,7 +1249,7 @@
                     <label>Organismo subordinado:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Caso o portal de periódicos se encontre sob a responsabilidade de um
+                    <hint>Caso o portal de revistas se encontre sob a responsabilidade de um
                         organismo subordinado a instituição principal informe o nome completo e por extenso desse
                         organismo. Considere como organismos subordinados:
                         departamentos, faculdades, coordenações, institutos etc. Exemplo de preenchimento: Instituto de
@@ -1266,7 +1266,7 @@
                     <label>Administrador responsável:</label>
                     <input-type>onebox</input-type>
                     <hint>Informe, por extenso, o nome do principal administrador responsável
-                        pelo portal de periódicos. O nome do administrador responsável deve ser preenchido,
+                        pelo portal de revistas. O nome do administrador responsável deve ser preenchido,
                         preferencialmente, da mesma forma que o campo "Nome" do curriculo
                         Lattes.
                     </hint>
@@ -1282,9 +1282,9 @@
                     <repeatable>true</repeatable>
                     <label>E-mail:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o endereço de e-mail utilizada pela revista. Deve ser
-                        indicado o endereço de e-mail próprio da revista, evitando, portanto, e-mails pessoais, já
-                        que a mudança de editor pode acarretar perda do contato.
+                    <hint>Informe o endereço de e-mail utilizado pelo portal de revistas. Deve ser
+                        indicado o endereço de e-mail próprio do portal, evitando, portanto, e-mails pessoais, já
+                        que a mudança de e-mail pode acarretar perda do contato.
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o endereço
                         de e-mail.
@@ -1299,7 +1299,7 @@
                     <label>Código Postal (CEP):
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o código postal do local de contato do portal de periódicos.
+                    <hint>Informe o código postal do local de contato do portal de revistas.
                         Preenchimento: 99999-999.
                     </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o código
@@ -1370,7 +1370,7 @@
                     <repeatable>true</repeatable>
                     <label>Telefone:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o telefone de contato do portal de periódicos. Deve ser
+                    <hint>Informe o telefone de contato do portal de revistas. Deve ser
                         indicado telefone próprio, evitando, portanto, telefones pessoais, já que a mudança de telefone
                         pode acarretar perda do contato. Preenchimento:
                         (99) 99999-9999.
@@ -1386,7 +1386,7 @@
                     <label>Revistas do portal:
                     </label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o título das revistas hospedadas no portal de periódicos. O
+                    <hint>Indique o título das revistas hospedadas no portal de revistas. O
                         campo deve ser preenchido da mesma forma que o campo "Key title", presente no registro da
                         revista na rede ISSN. Essa informação pode ser verificada
                         no link: https://portal.issn.org/
