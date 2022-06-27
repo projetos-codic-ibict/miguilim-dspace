@@ -78,13 +78,13 @@
         <div class="linksFAQ">
         <a href="#PqMiguilim">Por que o nome Miguilim?</a>
         <a href="#ComoCriarLogin">Como criar um login?</a>
-        <a href="#ComoCadastroUmaRevista">Como cadastrar uma revista ou portal de periódicos?</a>
+        <a href="#ComoCadastroUmaRevista">Como cadastrar uma revista científica ou um portal de revistas?</a>
         <a href="#criteriosBasicos">Quais são os critérios básicos para cadastro?</a>
         <a href="#QualquerRevista">Qualquer revista pode ser cadastrada?</a>
         <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas?</a>
-        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar minha revista?</a>
-        <a href="#ComoAtualizarArevista">Como atualizar a minha revista?</a>
-        <a href="#ComoAlterarOregistro">Como alterar o registro de um Portal de periódicos?</a>
+        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar uma revista científica?</a>
+        <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista científica?</a>
+        <a href="#ComoAlterarOregistro">Como alterar o registro de um Portal de revistas?</a>
         <a href="#PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</a>
         <a href="#RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</a>
         <a href="#ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</a>
@@ -92,7 +92,8 @@
         <a href="#EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</a>
         <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
         <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</a>
-        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de periódicos?</a>
+	<a href="#OqueEoTermometroH5">O que é o Termômetro de Índice H5?</a>
+        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
     
@@ -107,25 +108,25 @@
     
             <h2 id="ComoCriarLogin">Como criar um login?</h2>
     
-                <p id="margem-unica">O primeiro passo para fazer parte do Miguilim é criar login da Revista científica ou do Portal de periódicos que queira cadastrar. Aconselha-se 
-                que o e-mail utilizado para a criação do login seja o e-mail institucional da Revista científica ou do Portal de periódicos. Deve-se evitar o uso de e-mails pessoais dos gestores, tendo em vista que a mudança dos responsáveis pode acarretar a perda do acesso.</p>
+                <p id="margem-unica">O primeiro passo para fazer parte do Miguilim é criar login da revista científica ou do portal de revistas que queira cadastrar. Aconselha-se 
+                que o e-mail utilizado para a criação do login seja o e-mail institucional da revista científica ou do portal de revistas. Deve-se evitar o uso de e-mails pessoais dos gestores, tendo em vista que a mudança dos responsáveis pode acarretar a perda do acesso.</p>
                 
                 <p id="margem-unica">Para criar o login, o responsável deve acessar a aba “Login”, clicar no link “Usuário novo? Clique aqui para se registrar”, informar o e-mail 
                 institucional no campo “Endereço de e-mail” e clicar em “Registrar”. Ao efetuar estes passos, o responsável receberá um e-mail com um link para que faça o registro das
                 informações e crie uma senha para o cadastro. Feito isso, o responsável deverá clicar em “Completar o registro”. A partir de então o login terá sido criado, o que permite 
-                acesso interno ao Miguilim via aba “Login”, onde os cadastros de revistas científicas e portais de periódicos podem ser realizados.</p>
+                acesso interno ao Miguilim via aba “Login”, onde os cadastros de revistas científicas e portais de revistas podem ser realizados.</p>
     
-            <h2 id="ComoCadastroUmaRevista">Como cadastrar uma revista ou portal de periódicos?</h2>
+            <h2 id="ComoCadastroUmaRevista">Como cadastrar uma revista científica ou portal de revistas?</h2>
              
-                <p id="margem-unica">Assegurando-se que a Revista científica ou o Portal de periódicos não estão registrados no Miguilim, basta fazer o login pela aba “Entrar em”
-                e clicar no botão “Iniciar um novo depósito”. Em seguida deve-se escolher uma das duas coleções do Miguilim, “Revistas” ou “Portais de periódicos”. Escolhida a 
+                <p id="margem-unica">Assegurando-se que a revista científica ou o portal de revistas não estão registrados no Miguilim, basta fazer o login pela aba “Login”
+                e clicar no botão “Iniciar um novo depósito”. Em seguida deve-se escolher uma das duas coleções do Miguilim: “Revistas científicas” ou “Portais de revistas”. Escolhida a 
                 coleção o usuário terá acesso ao formulário de cadastro, momento em que deve iniciar a descrição do registro por meio do preenchimento dos campos de acordo com as 
                 instruções indicadas. Após o preenchimento dos campos, o cadastro ficará pendente de aceite por parte da equipe gestora do Miguilim, cabendo a ela a verificação dos 
                 dados e posterior aprovação. Assim que a equipe gestora realizar o aceite do cadastro, um e-mail com o link do registro finalizado será encaminhado ao responsável.</p>
     
             <h2 id="criteriosBasicos">Quais são os critérios básicos para cadastro?</h2>
     
-                <p id="margem-unica">Para que uma revista seja aceita no Miguilim ela deverá cumprir os seguintes requisitos mínimos:</p>
+                <p id="margem-unica">Para que uma revista científica seja aceita no Miguilim ela deverá cumprir os seguintes requisitos mínimos:</p>
     
                 <ul>
                     <li>Ter registro de ISSN para o suporte eletrônico;</li>
@@ -139,56 +140,56 @@
                     critérios listados</a> pelo referido site (a avaliação será realizada pela equipe do Miguilim);</li>
                     <li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
                     <ul>
-                        <li>Publicar artigos originais e inéditos e que tenham sido previamente submetidos à revisão por pares;</li>
+                        <li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
                         <li>Ter corpo editorial composto por pesquisadores especialistas na área de atuação da revista.</li>
                     </ul>
                 </ul>
             
-                <p id="margem-unica">O Miguilim também aceita o cadastro de Portais de periódicos, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima.</p>
+                <p id="margem-unica">O Miguilim também aceita o cadastro de portais de revistas, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima.</p>
                 
             <h2 id="QualquerRevista">Qualquer revista pode ser cadastrada?</h2>   
     
-                <p id="margem-unica">Cumprindo os critérios básicos para registro, qualquer revista pode ser cadastrada. No entanto, todos os cadastros estão sujeitos à revisão 
+                <p id="margem-unica">Cumprindo os critérios básicos para registro, qualquer revista científica pode ser cadastrada. No entanto, todos os cadastros estão sujeitos à revisão 
                 pela equipe do Diretório antes de serem aprovados. Além de verificar o cumprimento dos critérios básicos, a revisão tem o objetivo de avaliar se os dados foram
                 preenchidos de acordo com as instruções indicadas em cada campo e se as informações fornecidas condizem com o que se indica na página da revista.</p>
     
-            <h2 id="QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas?</h2>
+            <h2 id="QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas científicas?</h2>
     
                 <p id="margem-unica">Para atualizar o cadastro de uma revista científica é necessário que o usuário  tenha o acesso autorizado para realizar tal ação. As revistas
                 que foram cadastradas pelos próprios responsáveis já possuem essa autorização. Para verificar se possui autorização para atualizar a revista, faça o Login no diretório, 
                 entre em “Meu espaço” e clique na aba “Ver depósito (s) aceito (s)”. As revistas listadas nessa seção estão vinculadas a esse login e podem ser atualizadas. As revistas
                 que foram pré-cadastradas no Miguilim precisam solicitar a autorização para a atualização.</p>
     
-            <h2 id="ComoSolicitarPermissao">Como solicitar permissão para atualizar minha revista?</h2>
+            <h2 id="ComoSolicitarPermissao">Como solicitar permissão para atualizar uma revista científica?</h2>
     
                 <p id="margem-unica">Caso o usuário localize um registro de revista de sua responsabilidade já registrada no Miguilim e deseje fazer alterações no mesmo, ele deve 
                 primeiramente solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a página do registro da revista e clicar na aba 
                 "Solicitar edição da revista". Ao clicar nessa aba o usuário terá acesso ao “Formulário de solicitação de edição de revista no Miguilim” e deverá preencher os 
                 campos de acordo com as instruções indicadas e clicar em “Enviar”. Os dados informados serão verificados pela Equipe Miguilim no site da revista, que concederá ou
-                não as permissões de atualização. Assim sendo, as informações fornecidas no formulário deverão ser as mesmas constantes no site da revista, caso contrário não será 
+                não as permissões de atualização. As informações fornecidas no formulário deverão ser as mesmas que constam no site da revista, caso contrário não será 
                 possível conceder as autorizações. O endereço de e-mail informado deverá ser o mesmo utilizado para realizar o login no Miguilim, já que a permissão vai ser dada para
                 este login. Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Em seguida
                 a Equipe Miguilim entrará em contato com a revista indicando que esta possui as autorizações necessárias para a atualização do registro.</p>
     
-            <h2 id="ComoAtualizarArevista">Como atualizar a minha revista?</h2>
+            <h2 id="ComoAtualizarArevista">Como atualizar o cadastro de uma revista científica?</h2>
                 
-                <p id="margem-unica">Para a atualização dos dados o usuário deverá dirigir-se ao registro da revista, clicar na aba “Editar dados do registro” e informar o número
-                de ISSN, login e senha. Ao informar estes dados, o usuário efetuará o login e terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar 
-                necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. A atualização do registro será disponibilizada automaticamente no diretório, cabendo
-                à equipe gestora do Miguilim a verificação e revisão dos dados indicados.</p>
+                <p id="margem-unica">Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista e clicar no botão "Editar", que se encontra no quadro "Ferramentas do administrador".
+                Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que forem 
+                necessários. Os campos devem ser preenchidos de acordo com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro
+		será disponibiliza automaticamente no diretório, cabendo À equipe gestora a verificação e revisão dos dados indicados.</p>
             
-            <h2 id="ComoAlterarOregistro">Como alterar o registro de um Portal de periódicos?</h2>
+            <h2 id="ComoAlterarOregistro">Como alterar o registro de um portal de revistas?</h2>
     
-                <p id="margem-unica">Para alterar os dados desses registros, o gestor do Portal deverá entrar em contato com a Equipe Miguilim solicitando sua atualização. O contato pode ser feito
-                por e-mail (revistas@ibict.br). Neste contato é importante que o solicitante apresente-se e informe por qual o Portal de periódicos é responsável. Os campos da 
-                coleção Portais de periódicos são:</p>
+                <p id="margem-unica">Para alterar os dados desses registros, o (a) gestor (a) do portal deverá entrar em contato com a Equipe Miguilim solicitando sua atualização. O contato deve ser feito
+                por e-mail <miguilims@ibict.br>. Neste contato é importante que o (a) solicitante apresente-se e informe por qual o portal de revistas é responsável. Os campos da 
+                coleção "Portais de revistas" são:</p>
     
                 <dl>
-                    <dd>Nome do portal de periódicos* </dd>
+                    <dd>Nome do portal de revistas* </dd>
                     <dd>URL* </dd>
                     <dd>Instituição responsável* </dd>
                     <dd>Organismo subordinado </dd>
-                    <dd>Administrador responsável* </dd>
+                    <dd>Administrador (a) responsável* </dd>
                     <dd>E-mail* </dd>
                     <dd>Código Postal (CEP)* </dd>
                     <dd>Estado (UF)* </dd>
@@ -224,7 +225,7 @@
                 
             <h2 id="RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</h2>
     
-                <p id="margem-unica">Não, o Miguilim engloba somente as revistas criadas e editadas no Brasil. Revistas estrangeiras podem ser registradas em outros diretórios, 
+                <p id="margem-unica">Não, o Miguilim engloba somente as revistas científicas criadas e editadas no Brasil. Revistas estrangeiras podem ser registradas em outros diretórios, 
                 índices e bases de dados com objetivos similares.</p>
             
             <h2 id="ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</h2>
@@ -235,14 +236,14 @@
     
                 <p id="margem-unica">Buscando descrever aspectos essenciais da política editorial das revistas, campos adicionais foram criados com base em alguns critérios de 
                 avaliação de grandes diretórios e indexadores e avaliadores nacionais e internacionais como Latindex, Scielo, DOAJ,  Redalyc, Web of Science, Scopus e Qualis 
-                Capes. Ao final chegou-se à relação de 65 campos descritivos, que incluem dados cadastrais/de identificação e sobre a política editorial das revistas.</p>
+                Capes. Ao final chegou-se à relação de 67 campos descritivos, que incluem dados cadastrais/de identificação e sobre a política editorial das revistas.</p>
             
             <h2 id="DeOndeVieramAsInformacoes">De onde vieram as informações dos primeiros registros do Miguilim?</h2>
     
-                <p id="margem-unica">O Miguilim foi lançado com aproximadamente 3000 registros de revistas científicas e portais de periódicos brasileiros pré-cadastrados no 
+                <p id="margem-unica">O Miguilim foi lançado com, aproximadamente, 4.800 registros de revistas científicas e 260 portais de revistas pré-cadastrados no 
                 diretório. Em relação às revistas científicas, os dados são provenientes de informações declaradas nas plataformas: Diadorim, Latindex, DOAJ, Portal ISSN, 
                 Wikidata, Google Scholar Metrics, Sumário e a base do antigo e já desativado Portal de periódicos SEER. Estes dados foram coletados dessas bases, passaram por
-                curadoria e então importados ao Miguilim. Em relação aos portais de periódicos, estes foram mapeados pela equipe gestora e preenchidos manualmente.</p>
+                curadoria e então importados ao Miguilim. Em relação aos portais de revistas, estes foram mapeados pela equipe gestora e preenchidos manualmente.</p>
             
             <h2 id="EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</h2>
     
@@ -251,48 +252,52 @@
     
                 <p id="margem-unica">A administração dos conteúdos descritos e depositados no Dspace segue estrutura de relação hierárquica. O Dspace se organiza em três 
                 instâncias. Do mais específico ao mais abrangente, tem-se: os “Itens” que são subordinados às "Coleções" e que, por sua vez, são subordinadas as “Comunidades”.  
-                Por ser de administração centralizada o Miguilim possui apenas uma Comunidade, denominada “Miguilim”. Subordinadas a esta Comunidade figuram as coleções “Portais de Periódicos” e “Revistas”, que abrigam os cadastros dos respectivos Itens de determinados portais de periódicos e revistas científicas. </p>
+                Por ser de administração centralizada o Miguilim possui apenas uma Comunidade, denominada “Miguilim”. Subordinadas a esta Comunidade figuram as coleções “Portais de revistas” e “Revistas científicas”, que abrigam os cadastros dos respectivos Itens de determinados portais de revistas e revistas científicas. </p>
                 
-                <p id="margem-unica">O DSpace permite um fluxo de depósito em que os próprios editores das revistas e os administradores dos portais de periódicos podem realizar
+                <p id="margem-unica">O DSpace permite um fluxo de depósito em que os próprios editores das revistas e os administradores dos portais de revistas podem realizar
                 o cadastro dos itens pelos quais são responsáveis e os administradores do Miguilim, posteriormente, revisam o cadastro antes de aceitá-lo e torná-lo público.</p>
                 
                 
             <h2 id="ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</h2>
     
-                <p id="margem-unica">Uma das funções prioritárias do Miguilim é manter um cadastro com informações atualizadas das revistas que compõem. A interface para a 
-                atualização dos dados disponível no DSpace não foi criada para contemplar as necessidades de usabilidade do usuário externo. Sendo assim, identificou-se a 
+                <p id="margem-unica">Uma das funções prioritárias do Miguilim é manter um cadastro com informações atualizadas das revistas científicas que o compõe. Sendo assim, identificou-se a 
                 necessidade de criar um formulário em que os próprios editores científicos possam atualizar os dados das revistas que editam.</p>
     
-                <p id="margem-unica">O formulário de atualização é uma aplicação externa que se comunica com o DSpace. Dessa forma, os dados que são atualizados no formulário de
-                atualização são exportados automaticamente para o cadastro da revista no Miguilim. Quando a atualização do cadastro é feita a equipe gestora do Miguilim recebe um
+                <p id="margem-unica">Dessa forma, os dados que são atualizados no formulário são exportados automaticamente para o cadastro da revista no Miguilim. Quando a atualização do cadastro é feita a equipe gestora do Miguilim recebe um
                 e-mail comunicando da atualização do item, cabendo aos administradores a verificação dos dados informados e a realização de correções, se necessário.</p>
             
             <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</h2>
     
                 <p id="margem-unica">O termômetro de Acesso Aberto tem como objetivo identificar o alinhamento das revistas científicas brasileiras cadastradas no Miguilim aos 
-                Movimentos de Acesso Aberto e de Ciência Aberta. Para fazer esta medição, o termômetro utiliza como parâmetro as respostas dadas pelo editor da revista a uma 
-                série de metadados, sendo possível criar uma escala que mede o quão alinhada a revista está a estes Movimentos.	As revistas que cumprirem ao menos 80% dos 
-                critérios de abertura definidos pela Equipe Miguilim receberão um selo de publicação em Acesso Aberto, que comprova os esforços realizados pela revista para 
+                Movimentos de Acesso Aberto e de Ciência Aberta. Para medir esse alinhamento o termômetro utiliza como parâmetro as respostas dadas pelo editor da revista a uma 
+                série de metadados, sendo possível criar uma escala que mede o quão alinhada a revista está a estes Movimentos.	As revistas que indicarem "Acesso aberto imediato" no campo 
+		"Tipo de acesso" e cumprirem ao menos 80% dos critérios de abertura definidos pela Equipe Miguilim receberão um selo de publicação em Acesso Aberto, que reconhece os esforços realizados pela revista para 
                 colocar a Ciência ao alcance de todos.</p>
     
                 <p id="margem-unica">A pontuação indicada no termômetro leva em consideração as respostas dadas a 22 campos do registro da revista. Estes campos dizem respeito à abertura do
                 processo editorial da revista como um todo e relacionam-se às questões de transparência, disseminação e acesso aos conteúdos, direitos autorais, interoperabilidade,
                 ética, dentre outros. Para cada um dos 22 campos a revista pode pontuar entre 0 (zero), 1 (um) ou 2 (dois) pontos, sendo 2 (dois) a pontuação máxima para cada um. 
-                Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a revista atinge a pontuação máxima de 44 pontos. O selo será atribuído àquelas revistas que marcarem 36 
+                Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a revista atinge a pontuação máxima de 44 pontos, ou 100%. O selo será atribuído àquelas revistas que marcarem 36 
                 pontos ou mais, que corresponde a 80% da pontuação máxima.</p>
-            
-            <h2 id="PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de periódicos?</h2>
+		
+	    <h2 id="OqueEoTermometroH5">O que é o Termômetro de Índice H5?</h2>
+
+             <p id="margem-unica">O Termômetro de Índice H5 indica o Índice de citação H5 do Google que foi atribuído às revistas científicas cadastradas no Miguilim.
+	        O H5 busca quantificar o impacto de uma revista científica baseado no número de citações obtidas pelos artigos publicados nos últimos 5 anos. Para compreender o cálculo do
+		índice H5 deve-se considerar o seguinte: se uma revista científica possui H5 de 10 significa que nos últimos 5 anos ela publicou ao menos 10 artigos que receberam ao menos 10 citações.</p>
+		
+            <h2 id="PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</h2>
     
-                <p id="margem-unica">Além de criar a coleção de “Revistas científicas” notou-se a necessidade de criar uma coleção para os Portais de periódicos que abrigam as 
-                revistas. Portais de periódicos, mais do que um simples agregador de revistas de uma instituição, agem, muitas vezes, como uma instância institucional no 
+                <p id="margem-unica">Além da coleção “Revistas científicas” notou-se a necessidade de criar a coleção "Portais de revistas" para os portais que abrigam as 
+                revistas científicas. Os portais de revistas são mais do que simples agregadores de revistas de uma instituição, agem, muitas vezes, como uma instância institucional no 
                 gerenciamento de revistas científicas. Possuem equipes especializadas nos processos de gestão de revistas e trabalham no sentido de gerar políticas editoriais
                 básicas para as revistas que agregam, treinar os editores científicos no manuseio do software de gestão de revistas e na implementação de ferramentas que aumentem
-                a acessibilidade e a interoperabilidade das revistas. De forma geral buscam promover o acesso, a visibilidade, a segurança, a qualidade das revistas e o suporte
-                aos editores dos periódicos científicos. Com base na proximidade de propósitos adotados pelo Miguilim e visando o desenvolvimento e valorização do trabalho 
-                realizado nos portais de periódicos, a criação de uma coleção dessas plataformas se tornou primordial.</p>
+                a acessibilidade e a interoperabilidade das revistas. De modo geral buscam promover o acesso, a visibilidade, a segurança, a qualidade e dar suporte
+                aos editores das revistas científicas que hospedam. Com base na proximidade de propósitos adotados pelo Miguilim e visando o desenvolvimento e valorização do trabalho 
+                realizado pelos portais de revistas, a criação de uma coleção dessas plataformas se tornou primordial.</p>
     
                 <p id="margem-unica">A coleção busca relacionar cada revista ao seu portal agregador, traçando uma responsabilização pela revista além de criar um diretório dos
-                portais com o intuito de aumentar a visibilidade dessas plataformas. Como tem propósitos mais básicos, o cadastro de portais de periódicos possui apenas quatorze
+                portais com o intuito de aumentar a visibilidade dessas plataformas. Como tem propósitos mais básicos, o cadastro de portais de revistas possui apenas 14 (quatorze)
                 campos.</p>
     
                 <a class="button-top" tooltipBtn="ir para o topo" href="#TopoPerguntasFrequentes">

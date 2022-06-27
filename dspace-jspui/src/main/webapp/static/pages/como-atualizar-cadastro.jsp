@@ -110,10 +110,12 @@
     
     <h2><strong class="titulo-medio">Atualização do cadastro de Portais de revistas</strong></h2>
 
-    <p>As instruções de alteração apresentadas anteriormente não se aplicam à coleção “Portal de revistas”. Para alterar os dados desses registros, o gestor do porrtal deverá
+    <p>As instruções de alteração apresentadas anteriormente não se aplicam à coleção “Portais de revistas”. Para alterar os dados desses registros, o gestor do porrtal deverá
     entrar em contato com a Equipe Miguilim solicitando sua atualização. 
     O contato pode ser feito por e-mail (miguilim@ibict.br). Neste contato é importante que o solicitante
-    apresente-se e informe por qual o Portal de revistas é responsável. Os campos da coleção Portais de revistas são:</p>
+    apresente-se e informe por qual o Portal de revistas é responsável.
+	    
+    <p>Os campos da coleção "Portais de revistas" são:</p>
 
     <dl>
         <dd>Nome do portal de revistas* </dd>

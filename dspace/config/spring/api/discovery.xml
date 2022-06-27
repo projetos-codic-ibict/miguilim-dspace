@@ -229,6 +229,7 @@
                 <property name="sortFields">
                     <list>
 						<ref bean="sortDateAccessioned" />
+						<ref bean="sortTitle" />
                     </list>
                 </property>
             </bean>
@@ -432,6 +433,7 @@
                 <property name="sortFields">
                     <list>
 						<ref bean="sortDateAccessioned" />
+						<ref bean="sortTitle" />
                     </list>
                 </property>
             </bean>
