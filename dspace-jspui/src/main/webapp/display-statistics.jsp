@@ -36,7 +36,7 @@
 
     <div class="container browse-by-container">
 
-        <div class="text-center centered-alone-header">
+        <div class="centered-alone-header">
             <h2>
                 <fmt:message key="jsp.statistics.title" />
             </h2>
