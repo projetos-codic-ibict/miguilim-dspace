@@ -1,17 +1,16 @@
 <%@page contentType="text/html;charset=UTF-8" %>
-<p>Jesi</p>
 <div class="panel-group" id="accordion" role="tablist"
      aria-multiselectable="true">
     <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">
-            <a href="#collapseOne" class="panel-title collapsed" role="button" data-toggle="collapse"
+            <a id="temometroCollapse" href="#collapseOne" class="panel-title" role="button" data-toggle="collapse"
                data-parent="#accordion"
                aria-expanded="false"
                aria-controls="collapseOne">
                 <fmt:message key="termometro.display.header"/>
             </a>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse"
+        <div id="collapseOne" class="panel-collapse collapse in"
              aria-expanded="false"
              role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
@@ -279,7 +278,7 @@
                         <tr>
                             <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
                                 A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações = 1
-                                pontos <br>
+                                ponto <br>
                                 A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
                                 avaliadores responsáveis = 1 ponto<br>
                                 A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
@@ -492,25 +491,29 @@
              aria-expanded="false"
              role="tabpanel" aria-labelledby="headingH5">
             <div class="panel-body">
-                        <div class="indiceh5">
-                            <h3>
-                                <fmt:message key="termometroh5.display.title"/>
-                            </h3>
-                            <span>
-                                <%=pontuacaoIndiceH5 != null ?  pontuacaoIndiceH5 : "O Índice H5 desta revista não foi informado" %>
-                            </span>
-                        </div>
-                        <h3>O que é o Índice H5?</h3>
-                        <p>O H5 é um índice do Google que busca quantificar o impacto de uma revista com base no número
-                            de
-                            citações
-                            obtidas pelos artigos da revista nos últimos 5 anos. Para compreender o cálculo do Índice H5
-                            de
-                            maneira
-                            simples deve-se considerar o seguinte: se uma revista possui um H5 de 10 é porque nos
-                            últimos 5
-                            anos ela
-                            publicou pelo menos 10 artigos que foram citados ao menos 10 vezes.</p>
+                <div class="indiceh5">
+                    <h3>
+                        <fmt:message key="termometroh5.display.title"/>
+                    </h3>
+                    <% if (pontuacaoIndiceH5 != null) { %>
+                        <span>
+                            <%=pontuacaoIndiceH5%>
+                        </span>
+                    <%} else {%>
+                        <p>O Índice H5 desta revista não foi informado</p>
+                    <% }%>
+                </div>
+                <h3>O que é o Índice H5?</h3>
+                <p>O H5 é um índice do Google que busca quantificar o impacto de uma revista com base no número
+                    de
+                    citações
+                    obtidas pelos artigos da revista nos últimos 5 anos. Para compreender o cálculo do Índice H5
+                    de
+                    maneira
+                    simples deve-se considerar o seguinte: se uma revista possui um H5 de 10 é porque nos
+                    últimos 5
+                    anos ela
+                    publicou pelo menos 10 artigos que foram citados ao menos 10 vezes.</p>
             </div>
         </div>
     </div>

@@ -314,6 +314,8 @@
         }
 
         document.querySelector("#termometro").classList.add("d-hide");
+        document.querySelector("#temometroCollapse").classList.add("collapsed");
+        document.querySelector("#collapseOne").classList.remove("in");
     </script>
 
     <script>
