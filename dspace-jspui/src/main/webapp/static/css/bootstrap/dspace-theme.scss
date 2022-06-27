@@ -1437,7 +1437,8 @@ h1 , h2 {
  #accordion .panel-heading{
 	 background: #f5f5f5 !important;
 	 color: #555 !important;
-
+	 padding: 0 15px;
+	 position: relative;
  }
 
  #accordion .panel-heading a{
