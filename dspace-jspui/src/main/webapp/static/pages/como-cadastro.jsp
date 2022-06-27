@@ -76,7 +76,7 @@
 <div class="espacamento minus-space"> 
 <h2><strong class="titulo-medio">Como fazer um cadastro?</strong></h2>
 
-	<p>Antes de iniciar o cadastro de uma revista científica ou de um Portal de revistas deve-se verificar se estes já não possuem
+	<p>Antes de iniciar o cadastro de uma revista científica ou de um portal de revistas deve-se verificar se estes já não possuem
     um cadastro no Miguilim. Para isso, o responsável deve usar a barra de busca da página inicial do Diretório e pesquisar por 
     título, instituição responsável ou número de ISSN. Também é possível verificar todos os registros do Diretório por meio da aba
     “Navegar” > “Comunidades e coleções”. 
@@ -86,8 +86,9 @@
     
     <p>Assegurando-se que a revista científica ou o Portal de revistas não se encontram previamente cadastrados no Miguilim, 
     basta fazer o login pela aba "Login” e clicar no botão “Iniciar um novo depósito” <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Em seguida
-    deve-se escolher uma das duas coleções do Miguilim, “Revistas” ou “Portais de revustas”. Escolhida a coleção o usuário terá
-    acesso ao formulário de cadastro, momento em que deve iniciar a descrição do registro por meio do preenchimento dos campos de
+    deve-se escolher uma das duas coleções do Miguilim: “Revistas científicas” ou “Portais de revistas”.</p>
+	
+    <p>Escolhida a coleção o usuário terá acesso ao formulário de cadastro, momento em que deve iniciar a descrição do registro por meio do preenchimento dos campos de
     acordo com as instruções indicadas. Após o preenchimento dos campos, o cadastro ficará pendente de aceite por parte da equipe 
     gestora do Miguilim, cabendo a ela a verificação dos dados e posterior aprovação. Assim que a equipe gestora aprovar o cadastro 
     um e-mail com o link do registro finalizado será encaminhado ao responsável.</p>
