@@ -1570,6 +1570,12 @@
         option {
             white-space: pre-wrap;
         }
+
+        select[name="dc_rights_creativecommons"] {
+            height: 65px;
+            white-space: pre-wrap;
+        }
+
     </style>
 
 </dspace:layout>
