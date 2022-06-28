@@ -233,27 +233,6 @@
         </div>
         <p class="copyrightText"><%= copyright %></p>
         
-        <%-- Browse --%>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <fmt:message key="jsp.general.browse"/>
-            </div>
-            <div class="panel-body painealing-btn">
-            <%-- Insert the dynamic list of browse options --%>
-        <%
-            for (int i = 0; i < bis.length; i++)
-            {
-                String key = "browse.menu." + bis[i].getName();
-        %>
-            <form method="get" class="btn-group" action="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/browse">
-                <input type="hidden" name="type" value="<%= bis[i].getName() %>"/>
-                <%-- <input type="hidden" name="collection" value="<%= collection.getHandle() %>" /> --%>
-                <input type="submit" class="button-main-outline" name="submit_browse" value="<fmt:message key="<%= key %>"/>"/>
-            </form>
-        <%	
-            }
-        %>	</div>
-        </div>
         <%  if (submit_button)
             { %>
                 <form class="form-group" action="<%= request.getContextPath() %>/submit" method="post">
