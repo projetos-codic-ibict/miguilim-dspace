@@ -1871,24 +1871,21 @@
                 <displayed-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
                     avaliadores responsáveis
                 </displayed-value>
-                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
-                    avaliadores responsáveis
+                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis
                 </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
                     avaliadores
                 </displayed-value>
-                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
-                    avaliadores
+                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores
                 </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de
                     pesquisadores cadastrados como possíveis avaliadores
                 </displayed-value>
-                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
-                    cadastrados como possíveis avaliadores
+                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores
                 </stored-value>
             </pair>
             <pair>
