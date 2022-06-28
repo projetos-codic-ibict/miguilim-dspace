@@ -86,7 +86,7 @@
         <li>Facilitar o acesso ao conjunto das revistas científicas editadas e publicadas no Brasil;</li>
         <li>Promover a disseminação e a visibilidade das revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
         <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas;</li>
-        <li>PInstruir editores científicos a respeito das possibilidades das práticas editoriais;</li>
+        <li>Instruir editores científicos a respeito das possibilidades das práticas editoriais;</li>
         <li>Promover a transparência necessária à avaliação dessas revistas, por meio dos dados informados;</li>
         <li>Instruir os editores em relação aos critérios de avaliação requeridos por grandes indexadores e bases de dados que disseminam e atribuem credibilidade às revistas;</li>
         <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da Informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim e, de maneira especial, sobre a qualidade editorial das revistas brasileiras;</li>
