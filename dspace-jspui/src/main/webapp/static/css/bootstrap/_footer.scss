@@ -16,3 +16,17 @@
 	}
 	padding: 24px 0 16px 0;
 }
+
+.social-media-icons {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	background-color: $yellow;
+	gap: 48px;
+	a {
+		align-items: center;
+		justify-content: center;
+		display: flex;		
+	}
+}
