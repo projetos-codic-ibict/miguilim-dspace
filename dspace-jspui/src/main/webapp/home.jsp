@@ -51,13 +51,9 @@
 <%! public static final String REVISTAS = "123456789/2";
 	public static final String PORTAL_DE_PERIODICOS = "123456789/2669";
 %><%
-    List<Community> communities = (List<Community>) request.getAttribute("communities");
 
     Locale sessionLocale = UIUtil.getSessionLocale(request);
     Config.set(request.getSession(), Config.FMT_LOCALE, sessionLocale);
-    NewsService newsService = CoreServiceFactory.getInstance().getNewsService();
-    String topNews = newsService.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-top.html"));
-    String sideNews = newsService.readNewsFile(LocaleSupport.getLocalizedMessage(pageContext, "news-side.html"));
 
     ConfigurationService configurationService = DSpaceServicesFactory.getInstance().getConfigurationService();
     
