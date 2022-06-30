@@ -130,7 +130,7 @@
 
 <dspace:layout title="<%= title %>">
 
-    <div class="search-main">
+    <div class="search-main" <%= !admin_button ? "style='grid-template-columns: 1fr;'" : "" %>>
 
 
         <%
