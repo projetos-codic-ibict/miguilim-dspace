@@ -278,7 +278,7 @@ public final class Utils
      */
     public static String addEntities(String value)
     {
-        return Escape.html(value).replaceAll(":", "%3A");
+        return Escape.html(value);
     }
 
     /**
