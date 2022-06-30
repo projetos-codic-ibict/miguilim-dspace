@@ -133,11 +133,7 @@
                     <li>Ter o Brasil como país de publicação na rede ISSN;</li>  
                     <li>Ser eletrônica e estar disponível online;</li>
                     <li>Manter conexão permanente e estável com a internet;</li>
-                    <li>Não ser publicada por uma <a href="https://predatoryjournals.com/publishers/" target="_blank">editora listada como 
-                    possivelmente predatória</a> no site <a href="https://predatoryjournals.com/" target="_blank">Stop Predatory Journals</a>, não 
-                    integrar a <a href="https://predatoryjournals.com/journals/" target="_blank">lista de revistas possivelmente predatórias</a> e 
-                    não apresentar comportamentos predatórios conforme os <a href="https://predatoryjournals.com/about/" target="_blank">
-                    critérios listados</a> pelo referido site (a avaliação será realizada pela equipe do Miguilim);</li>
+                    <li>Não apresentar comportamentos típicos de publicações predatórias (a avaliação será realizada pela equipe do Miguilim);</li>
                     <li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
                     <ul>
                         <li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
