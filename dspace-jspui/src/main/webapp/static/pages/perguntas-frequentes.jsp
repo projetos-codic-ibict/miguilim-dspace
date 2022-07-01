@@ -133,11 +133,7 @@
                     <li>Ter o Brasil como país de publicação na rede ISSN;</li>  
                     <li>Ser eletrônica e estar disponível online;</li>
                     <li>Manter conexão permanente e estável com a internet;</li>
-                    <li>Não ser publicada por uma <a href="https://predatoryjournals.com/publishers/" target="_blank">editora listada como 
-                    possivelmente predatória</a> no site <a href="https://predatoryjournals.com/" target="_blank">Stop Predatory Journals</a>, não 
-                    integrar a <a href="https://predatoryjournals.com/journals/" target="_blank">lista de revistas possivelmente predatórias</a> e 
-                    não apresentar comportamentos predatórios conforme os <a href="https://predatoryjournals.com/about/" target="_blank">
-                    critérios listados</a> pelo referido site (a avaliação será realizada pela equipe do Miguilim);</li>
+                    <li>Não apresentar comportamentos típicos de publicações predatórias (a avaliação será realizada pela equipe do Miguilim);</li>
                     <li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
                     <ul>
                         <li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
@@ -209,15 +205,15 @@
     
                 <ol>
                     <li>Facilitar o acesso ao conjunto das revistas científicas editadas e publicadas no Brasil;</li>
-                    <li>Promover a disseminação e a visibilidade das revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
-                    <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas, assim como instruir os editores a respeito das possibilidades das práticas editoriais a seguir;</li>
-                    <li>Por meio dos dados informados pelas revistas busca promover, também, a transparência necessária à avaliação dessas revistas; </li>
-                    <li>Instruir os editores em relação aos critérios de avaliação requeridos por grandes indexadores e bases de dados que disseminam e atribuem credibilidade às revistas;</li>
-                    <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim e, de maneira especial, sobre a qualidade editorial das revistas brasileiras;</li>
-                    <li>Tem a intenção de servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas como Diadorim, Oasisbr, Latindex  e Emeri;</li>
+                    <li>Dar visibilidade às revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
+                    <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas;</li> 
+		    <li>Disseminar boas práticas editoriais aos editores científicos;</li>
+                    <li>Promover a transparência necessária à avaliação da qualidade editorial das revistas;</li>
+                    <li>Instruir editores científicos em relação aos critérios de avaliação requeridos por serviços de informação científica, nacionais e internacionais;</li>
+                    <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim;</li>
+                    <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas, como Diadorim, Oasisbr, Latindex  e Emeri;</li>
                     <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e a consistência desses dados nas diversas plataformas;</li>
-                    <li>Assim como servir de porta de entrada para outros produtos do Ibict, a plataforma busca dar acesso aos dados das revistas brasileiras a bases de dados, repositórios diversos e outros diretórios de revistas nacionais ou internacionais;</li>
-                    <li>Incentivar ações práticas relacionadas aos movimentos de Ciência Aberta e Acesso Aberto à informação científica.</li>
+                    <li>Fomentar ações práticas relacionadas aos Movimentos de Ciência Aberta e de Acesso Aberto à informação científica.</li>
                 </ol>
     
                 <p id="margem-unica">Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da ciência 

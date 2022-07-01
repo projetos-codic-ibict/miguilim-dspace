@@ -130,7 +130,7 @@
 
 <dspace:layout title="<%= title %>">
 
-    <div class="search-main">
+    <div class="search-main" <%= !admin_button ? "style='grid-template-columns: 1fr;'" : "" %>>
 
 
         <%
@@ -145,6 +145,9 @@
                         <input class="btn btn-default col-md-12" type="submit" name="submit"
                                value="<fmt:message key="jsp.general.edit.button"/>"/>
                     </form>
+
+                    <% if(UIUtil.obtainContext(request).getCurrentUser() != null) { %>
+
                     <form method="post" action="<%= request.getContextPath() %>/mydspace">
                         <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
                         <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>"/>
@@ -177,6 +180,7 @@
                         <input class="btn btn-info col-md-12" type="submit" name="submit"
                                value="<fmt:message key="jsp.general.version.history.button"/>"/>
                     </form>
+                    <% } %>
                     <% } %>
                 </div>
             </div>

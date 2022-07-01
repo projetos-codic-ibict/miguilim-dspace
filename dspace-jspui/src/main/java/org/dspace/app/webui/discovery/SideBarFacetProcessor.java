@@ -7,7 +7,10 @@
  */
 package org.dspace.app.webui.discovery;
 
+import java.text.Collator;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -64,21 +67,18 @@ public class SideBarFacetProcessor implements CollectionHomeProcessor,
     private void process(Context context, HttpServletRequest request,
             HttpServletResponse response, DSpaceObject scope)
     {
-        DiscoverQuery queryArgs = DiscoverUtility.getDiscoverQuery(context,
-                request, scope, true);
+        DiscoverQuery queryArgs = DiscoverUtility.getDiscoverQuery(context, request, scope, true);
         queryArgs.setMaxResults(0);
         DiscoverResult qResults;
+        
         try
         {
-            qResults = SearchUtils.getSearchService().search(context, scope,
-                    queryArgs);
-            request.setAttribute("discovery.fresults",
-                    qResults.getFacetResults());
-            DiscoveryConfiguration discoveryConfiguration = SearchUtils
-                    .getDiscoveryConfiguration(scope);
-            List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration
-                    .getSidebarFacets();
-            
+            qResults = SearchUtils.getSearchService().search(context, scope, queryArgs);
+            request.setAttribute("discovery.fresults", qResults.getFacetResults());
+            DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration(scope);
+            List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration.getSidebarFacets();
+
+            Collections.sort(availableFacet, Comparator.comparing(DiscoverySearchFilterFacet::getLabelMetadado, Collator.getInstance()));
             request.setAttribute("facetsConfig",
                     availableFacet != null ? availableFacet
                             : new ArrayList<DiscoverySearchFilterFacet>());

@@ -84,16 +84,15 @@
 	
     <ol>
         <li>Facilitar o acesso ao conjunto das revistas científicas editadas e publicadas no Brasil;</li>
-        <li>Promover a disseminação e a visibilidade das revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
+        <li>Dar visibilidade às revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
         <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas;</li>
-        <li>PInstruir editores científicos a respeito das possibilidades das práticas editoriais;</li>
-        <li>Promover a transparência necessária à avaliação dessas revistas, por meio dos dados informados;</li>
-        <li>Instruir os editores em relação aos critérios de avaliação requeridos por grandes indexadores e bases de dados que disseminam e atribuem credibilidade às revistas;</li>
-        <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da Informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim e, de maneira especial, sobre a qualidade editorial das revistas brasileiras;</li>
-        <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas, como Diadorim, Oasisbr, Latindex  e EmeRI;</li>
-        <li>Dar acesso aos dados das revistas brasileiras a bases de dados, repositórios diversos e outros diretórios de revistas nacionais ou internacionais;</li>
-        <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e consistência desses dados nas diversas plataformas;</li>
-	<li>Incentivar ações práticas relacionadas aos movimentos de Ciência Aberta e Acesso Aberto à informação científica.</li>
+        <li>Disseminar boas práticas editoriais aos editores científicos;</li>
+        <li>Promover a transparência necessária à avaliação da qualidade editorial das revistas;</li>
+        <li>Instruir editores científicos em relação aos critérios de avaliação requeridos por serviços de informação científica, nacionais e internacionais;</li>
+        <li>Incentivar pesquisas no âmbito da Comunicação Científica e da Ciência da informação sobre os mais variados temas que possam ser extraídos dos dados disponíveis no Miguilim;</li>
+        <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas, como Diadorim, Oasisbr, Latindex  e Emeri;</li>
+        <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e a consistência desses dados nas diversas plataformas;</li>
+	<li>Fomentar ações práticas relacionadas aos Movimentos de Ciência Aberta e de Acesso Aberto à informação científica.</li>
     </ol>  
 
     <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico.

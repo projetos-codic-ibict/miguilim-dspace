@@ -450,7 +450,7 @@
                     <label>Bairro:</label>
                     <input-type>onebox</input-type>
                     <hint>Informe bairro de acordo com o código postal.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe a cidade.</required>
+                    <required>CAMPO OBRIGATÓRIO: Informe o bairro.</required>
                 </field>
 
                 <field>
@@ -1064,9 +1064,7 @@
                     <hint-edit>
                         Informe se a revista exige que os autores disponibilizem os dados que deram origem à pesquisa publicada. Para esse campo é possível marcar mais de uma resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique a área-mãe
-                        de avaliação da revista no estrato Qualis-Periódicos, de acordo com a classificação mais recente
-                        da revista.
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista exige que os autores disponibilizem os dados que deram origem à pesquisa publicada.
                     </required>
                 </field>
 
@@ -1337,7 +1335,7 @@
                     <label>Bairro/Setor:</label>
                     <input-type>onebox</input-type>
                     <hint>Informe bairro ou setor de acordo código postal.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe a cidade.</required>
+                    <required>CAMPO OBRIGATÓRIO: Informe o bairro ou setor.</required>
                 </field>
 
                 <field>
@@ -1873,24 +1871,21 @@
                 <displayed-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
                     avaliadores responsáveis
                 </displayed-value>
-                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
-                    avaliadores responsáveis
+                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis
                 </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
                     avaliadores
                 </displayed-value>
-                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
-                    avaliadores
+                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores
                 </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de
                     pesquisadores cadastrados como possíveis avaliadores
                 </displayed-value>
-                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
-                    cadastrados como possíveis avaliadores
+                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores
                 </stored-value>
             </pair>
             <pair>

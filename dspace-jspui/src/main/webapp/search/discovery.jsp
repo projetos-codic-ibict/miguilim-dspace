@@ -779,7 +779,7 @@
             <%  }  %>
 
             <% 
-                if (items.size() > 0) 
+                if (items != null && items.size() > 0)
                 { 
             %>
                     <div class="results-cards">
