@@ -48,7 +48,7 @@
         </svg></a>
     </div> 
     <footer class="section-footer">
-        <span><img height="40" src="<%= request.getContextPath() %>/image/footer-logo.png"></span>
+        <span><img height="100" src="<%= request.getContextPath() %>/image/footer-logo.png"></span>
         <span><p class="footer-adress">Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br> SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF</p></span>
     </footer>
 
