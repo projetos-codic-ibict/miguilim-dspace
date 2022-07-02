@@ -95,6 +95,7 @@
     <!--The default configuration settings for discovery-->
     <bean id="defaultConfiguration" class="org.dspace.discovery.configuration.DiscoveryConfiguration" scope="prototype">
         <!--Which sidebar facets are to be displayed-->
+        
         <property name="sidebarFacets">
             <list>
                 <ref bean="searchDateStartYear" />
@@ -121,13 +122,14 @@
                 <ref bean="searchFilterAccess" />
             </list>
         </property>
-         <property name="sidebarFacetsPortais">
+        <property name="sidebarFacetsPortais">
             <list>
                 <ref bean="searchdescriptionstate" />
                 <ref bean="searchFilterPublisherName" />
                 <ref bean="searchFilterSubordinate" />
             </list>
         </property>
+       
         <!-- Set TagCloud configuration per discovery configuration -->
         <property name="tagCloudFacetConfiguration" ref="defaultTagCloudFacetConfiguration"/>
         <!--The search filters which can be used on the discovery search page-->
@@ -210,6 +212,7 @@
 
             </list>
         </property>
+
         <!--The sort filters for the discovery search-->
         <property name="searchSortConfiguration">
             <bean class="org.dspace.discovery.configuration.DiscoverySortConfiguration">
@@ -327,7 +330,6 @@
 				<ref bean="searchdescriptionpeerreviewexternality" />
 				<ref bean="searchdescriptionstate" />
 				<ref bean="searchDateStartYear" />
-
 
             </list>
         </property>

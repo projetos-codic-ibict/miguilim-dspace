@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.solr.client.solrj.util.ClientUtils;
-
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.content.DSpaceObject;
 import org.dspace.core.Context;
@@ -101,7 +100,7 @@ public class DiscoverUtility
         {
             setFacet(context, request, scope, queryArgs,
                     discoveryConfiguration, userFilters, discoveryConfiguration
-                    .getSidebarFacets(), TYPE_FACETS);
+                    .getSidebarFacets(scope), TYPE_FACETS);
         }
 
         return queryArgs;
