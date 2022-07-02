@@ -7,10 +7,7 @@
  */
 package org.dspace.app.webui.discovery;
 
-import java.text.Collator;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -78,7 +75,6 @@ public class SideBarFacetProcessor implements CollectionHomeProcessor,
             DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration(scope);
             List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration.getSidebarFacets();
 
-            Collections.sort(availableFacet, Comparator.comparing(DiscoverySearchFilterFacet::getLabelMetadado, Collator.getInstance()));
             request.setAttribute("facetsConfig",
                     availableFacet != null ? availableFacet
                             : new ArrayList<DiscoverySearchFilterFacet>());

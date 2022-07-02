@@ -97,45 +97,30 @@
         <!--Which sidebar facets are to be displayed-->
         <property name="sidebarFacets">
             <list>
-				<ref bean="searchFilterSituation" />
-				<ref bean="searchFilterStartyear" />
-				<ref bean="searchFilterLanguage" />
-				<ref bean="searchFilterCNPq" />
-				<ref bean="searchFilterPublisherName" />
-				<ref bean="searchFilterSubordinate" />
-				<ref bean="searchFilterPublisher" />
-				<ref bean="searchFilterPublisherLegalnature" />
-				<ref bean="searchFilterEditor" />
-				<ref bean="searchFilterPeriodicity" />
-				<ref bean="searchFilterMonthofpublication" />
-				<ref bean="searchFilterPeerreview" />
-				<ref bean="searchFilterReviewersPeriodicityOfPublication" />
-				<ref bean="searchFilterPeerreviewExternality" />
-				<ref bean="searchFilterSealColor" />
-				<ref bean="searchFilterAccess" />
-				<ref bean="searchFilterEmbargedTime" />
-				<ref bean="searchFilterCreativecommons" />
-				<ref bean="searchFilterPublicationFees" />
-				<ref bean="searchFilterSubmissionFees" />
-				<ref bean="searchFilterApc" />
-				<ref bean="searchFilterCodeofethics" />
-				<ref bean="searchFilterReferenceGuidelines" />
-				<ref bean="searchFilterDigitalPreservation" />
-				<ref bean="searchFilterResearchData" />
-				<ref bean="searchFilterQualisArea" />
-				<ref bean="searchFilterQualisClassification" />
-				<ref bean="searchFilterInformationServices" />
-				<ref bean="searchFilterJournalsPortalUri" />
-				<ref bean="searchFilterOasisbr" />
-
-                <ref bean="searchdescriptionsituation" />
-                <ref bean="searchdescriptionsocialnetworks" />
-                <ref bean="searchrightspreprintsubmission" />
-                <ref bean="searchpublisherlegalnature" />
-                <ref bean="searchdescriptionpeerreviewexternality" />
-                <ref bean="searchdescriptionstate" />
                 <ref bean="searchDateStartYear" />
-
+                <ref bean="searchFilterJournalsPortalUri" />
+                <ref bean="searchFilterCNPq" /> 
+                <ref bean="searchFilterQualisClassification" />
+                <ref bean="searchFilterCodeofethics" />
+                <ref bean="searchdescriptionstate" />
+                <ref bean="searchFilterResearchData" />
+                <ref bean="searchdescriptionpeerreviewexternality" />
+                <ref bean="searchFilterLanguage" />
+                <ref bean="searchFilterPublisherName" />
+	            <ref bean="searchFilterCreativecommons" />
+                <ref bean="searchFilterPeerreview" />
+                <ref bean="searchFilterModalityOfPublication" />
+                <ref bean="searchFilterPublisherLegalnature" />
+                <ref bean="searchFilterSubordinate" />
+                <ref bean="searchFilterReferenceGuidelines" />
+                <ref bean="searchrightspreprintsubmission" />
+                <ref bean="searchdescriptionsocialnetworks" />
+                <ref bean="searchFilterSealColor" />
+                <ref bean="searchFilterInformationServices" />
+                <ref bean="searchFilterSituation" />
+                <ref bean="searchFilterPublicationFees" />
+                <ref bean="searchFilterAccess" />
+                
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
