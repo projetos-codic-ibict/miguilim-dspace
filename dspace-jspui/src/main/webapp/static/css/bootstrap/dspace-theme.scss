@@ -931,7 +931,7 @@ hr {
 	gap: 8px;
 	align-items: end;
 	div:last-child {
-		//display: flex;
+		display: flex;
 		gap: 8px;
 		align-items: end;
 	}
@@ -1789,4 +1789,12 @@ b.caret {
 		background-color: none!important;
   	}
 	}
+}
+
+.autorize {
+	display: flex;
+    gap: 16px;
+    flex-direction: column;
+    flex: auto;
+    align-items: baseline;
 }
