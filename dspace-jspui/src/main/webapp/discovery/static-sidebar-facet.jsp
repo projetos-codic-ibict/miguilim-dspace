@@ -80,6 +80,7 @@
 			{
 				continue;
 			}
+
 			String fkey = "jsp.search.facet.refine."+f;
 			int limit = facetConf.getFacetLimit()+1;
 	%>

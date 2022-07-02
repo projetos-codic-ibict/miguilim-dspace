@@ -7,8 +7,6 @@
  */
 package org.dspace.discovery.configuration;
 
-import org.dspace.core.I18nUtil;
-
 /**
  * An expanded class that allows a search filter to be used as a sidebar facet
  *
@@ -25,11 +23,6 @@ public class DiscoverySearchFilterFacet extends DiscoverySearchFilter {
     private DiscoveryConfigurationParameters.SORT sortOrderSidebar = DiscoveryConfigurationParameters.SORT.COUNT;
     private DiscoveryConfigurationParameters.SORT sortOrderFilterPage = DiscoveryConfigurationParameters.SORT.COUNT;
     
-    public String getLabelMetadado() {
-        String key = "jsp.search.facet.refine." + getIndexFieldName();
-        return I18nUtil.getMessage(key);
-    }
-
     public int getFacetLimit()
     {
         if(facetLimit == -1){

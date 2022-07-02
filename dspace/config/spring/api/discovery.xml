@@ -98,7 +98,7 @@
         <property name="sidebarFacets">
             <list>
                 <ref bean="searchDateStartYear" />
-                <ref bean="searchFilterJournalsPortalUri" />
+                <ref bean="searchFilterQualisArea" />
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
                 <ref bean="searchFilterCodeofethics" />
