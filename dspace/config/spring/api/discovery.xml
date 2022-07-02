@@ -111,7 +111,6 @@
                 <ref bean="searchFilterPeerreview" />
                 <ref bean="searchFilterModalityOfPublication" />
                 <ref bean="searchFilterPublisherLegalnature" />
-                <ref bean="searchFilterSubordinate" />
                 <ref bean="searchFilterReferenceGuidelines" />
                 <ref bean="searchrightspreprintsubmission" />
                 <ref bean="searchdescriptionsocialnetworks" />
@@ -120,7 +119,13 @@
                 <ref bean="searchFilterSituation" />
                 <ref bean="searchFilterPublicationFees" />
                 <ref bean="searchFilterAccess" />
-                
+            </list>
+        </property>
+         <property name="sidebarFacetsPortais">
+            <list>
+                <ref bean="searchdescriptionstate" />
+                <ref bean="searchFilterPublisherName" />
+                <ref bean="searchFilterSubordinate" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->

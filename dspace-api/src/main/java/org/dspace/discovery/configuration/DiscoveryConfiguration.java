@@ -7,13 +7,13 @@
  */
 package org.dspace.discovery.configuration;
 
-import org.apache.commons.collections.CollectionUtils;
-import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.annotation.Required;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
+import org.apache.commons.collections.CollectionUtils;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Required;
 
 /**
  * @author Kevin Van de Velde (kevin at atmire dot com)
@@ -22,6 +22,7 @@ public class DiscoveryConfiguration implements InitializingBean{
 
     /** The configuration for the sidebar facets **/
     private List<DiscoverySearchFilterFacet> sidebarFacets = new ArrayList<DiscoverySearchFilterFacet>();
+    private List<DiscoverySearchFilterFacet> sidebarFacetsPortais = new ArrayList<DiscoverySearchFilterFacet>();
 
     private TagCloudFacetConfiguration tagCloudFacetConfiguration = new TagCloudFacetConfiguration();
     
@@ -58,6 +59,14 @@ public class DiscoveryConfiguration implements InitializingBean{
     @Required
     public void setSidebarFacets(List<DiscoverySearchFilterFacet> sidebarFacets) {
         this.sidebarFacets = sidebarFacets;
+    }
+
+    public void setSidebarFacetsPortais(List<DiscoverySearchFilterFacet> sidebarFacetsPortais) {
+        this.sidebarFacetsPortais = sidebarFacetsPortais;
+    }
+
+    public List<DiscoverySearchFilterFacet> getSidebarFacetsPortais() {
+        return sidebarFacetsPortais;
     }
 
     public TagCloudFacetConfiguration getTagCloudFacetConfiguration() {
