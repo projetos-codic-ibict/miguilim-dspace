@@ -853,7 +853,7 @@ hr {
 }
 .grid-col-listresult {
 	display: grid;
-    grid-template-columns: auto auto 150px auto 120px;
+    grid-template-columns: auto auto 150px auto 120px auto;
     gap: 8px;
     align-items: end;
 	div {

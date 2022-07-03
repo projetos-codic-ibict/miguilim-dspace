@@ -1791,8 +1791,8 @@ hr {
 .grid-col-listresult {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto auto 150px auto 120px;
-      grid-template-columns: auto auto 150px auto 120px;
+  -ms-grid-columns: auto auto 150px auto 120px auto;
+      grid-template-columns: auto auto 150px auto 120px auto;
   gap: 8px;
   -webkit-box-align: end;
       -ms-flex-align: end;
