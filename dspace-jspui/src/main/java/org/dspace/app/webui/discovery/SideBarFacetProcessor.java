@@ -37,8 +37,6 @@ public class SideBarFacetProcessor implements CollectionHomeProcessor,
     /** log4j category */
     private static Logger log = Logger.getLogger(SideBarFacetProcessor.class);
 
-    final String PORTAL_DE_REVISTAS = "123456789/2669";
-
     @Override
     public void process(Context context, HttpServletRequest request,
             HttpServletResponse response, Community community)
@@ -76,15 +74,7 @@ public class SideBarFacetProcessor implements CollectionHomeProcessor,
             qResults = SearchUtils.getSearchService().search(context, scope, queryArgs);
             request.setAttribute("discovery.fresults", qResults.getFacetResults());
             DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration(scope);
-            List<DiscoverySearchFilterFacet> availableFacet = null;
-            
-            if(scope != null && PORTAL_DE_REVISTAS.equals(scope.getHandle())) {
-                availableFacet = discoveryConfiguration.getSidebarFacetsPortais();
-            }
-            else
-            {
-                availableFacet = discoveryConfiguration.getSidebarFacets();
-            }
+            List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration.getSidebarFacets(scope);
             
             request.setAttribute("facetsConfig",
                     availableFacet != null ? availableFacet

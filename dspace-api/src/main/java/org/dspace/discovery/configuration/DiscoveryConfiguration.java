@@ -12,13 +12,16 @@ import java.util.Collection;
 import java.util.List;
 
 import org.apache.commons.collections.CollectionUtils;
+import org.dspace.content.DSpaceObject;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Required;
 
 /**
  * @author Kevin Van de Velde (kevin at atmire dot com)
  */
-public class DiscoveryConfiguration implements InitializingBean{
+public class DiscoveryConfiguration implements InitializingBean {
+
+    final String PORTAL_DE_REVISTAS = "123456789/2669";
 
     /** The configuration for the sidebar facets **/
     private List<DiscoverySearchFilterFacet> sidebarFacets = new ArrayList<DiscoverySearchFilterFacet>();
@@ -52,6 +55,14 @@ public class DiscoveryConfiguration implements InitializingBean{
         this.id = id;
     }
 
+    public List<DiscoverySearchFilterFacet> getSidebarFacets(DSpaceObject dso) {
+        if(dso != null && PORTAL_DE_REVISTAS.equals(dso.getHandle())) {
+            return sidebarFacetsPortais;
+        }
+        
+        return sidebarFacets;
+    }
+
     public List<DiscoverySearchFilterFacet> getSidebarFacets() {
         return sidebarFacets;
     }
@@ -61,12 +72,12 @@ public class DiscoveryConfiguration implements InitializingBean{
         this.sidebarFacets = sidebarFacets;
     }
 
-    public void setSidebarFacetsPortais(List<DiscoverySearchFilterFacet> sidebarFacetsPortais) {
-        this.sidebarFacetsPortais = sidebarFacetsPortais;
-    }
-
     public List<DiscoverySearchFilterFacet> getSidebarFacetsPortais() {
         return sidebarFacetsPortais;
+    }
+    
+    public void setSidebarFacetsPortais(List<DiscoverySearchFilterFacet> sidebarFacetsPortais) {
+        this.sidebarFacetsPortais = sidebarFacetsPortais;
     }
 
     public TagCloudFacetConfiguration getTagCloudFacetConfiguration() {
