@@ -1385,11 +1385,20 @@ hr {
 
 @media (max-width: 920px) {
   .table tbody tr td {
+    word-wrap: break-word;
     /*&::before {
 					content: attr(th-label) " ";
 				}*/
     border: none;
   }
+}
+
+.table tbody tr td a {
+  word-wrap: break-word;
+}
+
+.metadataFieldValue, .dc_identifier_url {
+  word-break: break-word;
 }
 
 .brand-space {
@@ -1951,6 +1960,12 @@ hr {
   min-width: 300px;
   padding: 40px 32px;
   border-right: 1px solid #EBEBEB;
+}
+
+@media (max-width: 920px) {
+  .search-main .search-content {
+    border: none;
+  }
 }
 
 .search-main .search-content h3 {
