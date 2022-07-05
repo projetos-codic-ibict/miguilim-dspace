@@ -1730,6 +1730,25 @@ b.caret {
 	}
 }
 
+#formulario {
+	iframe {
+		.D8bnZd {
+		background-color: none!important;
+  	}
+	}
+}
+.autorize {
+	display: flex;
+    gap: 16px;
+    flex-direction: column;
+    flex: auto;
+    align-items: baseline;
+}
+
+a.admin-help {
+	display: none;
+}
+
 .no-result-search{
 	font-size:32px;
 	margin-top: 24px;
@@ -1795,18 +1814,3 @@ b.caret {
 	  opacity:1;
 	}
   }
-
-  #formulario {
-	iframe {
-		.D8bnZd {
-		background-color: none!important;
-  	}
-	}
-}
-.autorize {
-	display: flex;
-    gap: 16px;
-    flex-direction: column;
-    flex: auto;
-    align-items: baseline;
-}
