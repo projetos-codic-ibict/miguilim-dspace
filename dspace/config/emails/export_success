@@ -5,14 +5,17 @@
 #
 # See org.dspace.core.Email for information on the format of this file.
 #
-Subject: DSpace - Item export requested is ready for download
-The item export you requested from the repository is now ready for download.
+Subject: [MIGUILIM] Item disponível para download
 
-You may download the compressed file using the following link:
+A exportação do item que você solicitou no Miguilim está disponível para download.
+
+Você pode baixar o arquivo compactado em formato .zip utilizando o link abaixo: 
+
 {0}
 
-This file will remain available for at least {1} hours.  
+O arquivo estará disponível para download por até 48 horas.  
 
-
-The DSpace Team
-
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras | Miguilim | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
