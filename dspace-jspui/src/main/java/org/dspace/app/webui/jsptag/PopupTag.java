@@ -86,7 +86,7 @@ public class PopupTag extends BodyTagSupport
 
         String html = "<script type=\"text/javascript\">\n"
                 + "<!-- Javascript starts here\n"
-                + "document.write('<a href=\"#\" onClick=\"var popupwin = window.open(\\'"
+                + "document.write('<a " + addAdminClass(actualPage) + " href=\"#\" onClick=\"var popupwin = window.open(\\'"
                 + actualPage
                 + "\\',\\'dspacepopup\\',\\'height=600,width=550,resizable,scrollbars\\');popupwin.focus();return false;\">"
                 + linkText + "<\\/a>');\n" + "// -->\n"
@@ -103,5 +103,12 @@ public class PopupTag extends BodyTagSupport
         }
 
         return SKIP_BODY;
+    }
+
+    private String addAdminClass(String linkText) {
+        if(linkText != null && linkText.contains("admin")) {
+            return " class=\"admin-help\"";
+        }
+        return  "";
     }
 }
