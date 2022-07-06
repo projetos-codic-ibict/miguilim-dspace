@@ -193,12 +193,10 @@
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterQualisArea" />
 				<ref bean="searchFilterQualisClassification" />
-				<ref bean="searchFilterSocialNetworks" />
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
 
-                <ref bean="searchdescriptionsituation" />
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
                 <ref bean="searchdescriptionstate" />
@@ -317,7 +315,6 @@
 				<ref bean="searchFilterCodeofethics" />
 				<ref bean="searchFilterInformationServices" />
 
-				<ref bean="searchdescriptionsituation" />
 				<ref bean="searchdescriptionsocialnetworks" />
 				<ref bean="searchpublisherlegalnature" />
 				<ref bean="searchdescriptionstate" />
@@ -391,12 +388,10 @@
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterQualisArea" />
 				<ref bean="searchFilterQualisClassification" />
-				<ref bean="searchFilterSocialNetworks" />				
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
 
-                <ref bean="searchdescriptionsituation" />
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
                 <ref bean="searchdescriptionstate" />
