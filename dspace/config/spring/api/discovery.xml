@@ -98,22 +98,19 @@
         
         <property name="sidebarFacets">
             <list>
-                <ref bean="searchDateStartYear" />
+                
                 <ref bean="searchFilterQualisArea" />
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
                 <ref bean="searchFilterCodeofethics" />
                 <ref bean="searchdescriptionstate" />
                 <ref bean="searchFilterResearchData" />
-                <ref bean="searchdescriptionpeerreviewexternality" />
                 <ref bean="searchFilterLanguage" />
                 <ref bean="searchFilterPublisherName" />
 	            <ref bean="searchFilterCreativecommons" />
                 <ref bean="searchFilterPeerreview" />
                 <ref bean="searchFilterModalityOfPublication" />
-                <ref bean="searchFilterPublisherLegalnature" />
                 <ref bean="searchFilterReferenceGuidelines" />
-                <ref bean="searchrightspreprintsubmission" />
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchFilterSealColor" />
                 <ref bean="searchFilterInformationServices" />
@@ -155,7 +152,6 @@
 				<ref bean="searchFilterPublisherName" />
 				<ref bean="searchFilterSubordinate" />
 				<ref bean="searchFilterPublisher" />
-				<ref bean="searchFilterPublisherLegalnature" />
 				<ref bean="searchFilterEditor" />
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
@@ -204,11 +200,9 @@
 
                 <ref bean="searchdescriptionsituation" />
                 <ref bean="searchdescriptionsocialnetworks" />
-                <ref bean="searchrightspreprintsubmission" />
                 <ref bean="searchpublisherlegalnature" />
-                <ref bean="searchdescriptionpeerreviewexternality" />
                 <ref bean="searchdescriptionstate" />
-                <ref bean="searchDateStartYear" />
+                
 
             </list>
         </property>
@@ -325,11 +319,9 @@
 
 				<ref bean="searchdescriptionsituation" />
 				<ref bean="searchdescriptionsocialnetworks" />
-				<ref bean="searchrightspreprintsubmission" />
 				<ref bean="searchpublisherlegalnature" />
-				<ref bean="searchdescriptionpeerreviewexternality" />
 				<ref bean="searchdescriptionstate" />
-				<ref bean="searchDateStartYear" />
+				
 
             </list>
         </property>
@@ -347,7 +339,6 @@
 				<ref bean="searchFilterTitleLater" />
 				<ref bean="searchFilterIssn" />
 				<ref bean="searchFilterIssnl" />
-                <ref bean="searchFilterPeerreViewDocuments" />
                 <ref bean="searchFilterSituation" />
 				<ref bean="searchFilterStartyear" />
 				<ref bean="searchFilterEndyear" />
@@ -359,7 +350,6 @@
 				<ref bean="searchFilterPublisherName" />
 				<ref bean="searchFilterSubordinate" />
 				<ref bean="searchFilterPublisher" />
-				<ref bean="searchFilterPublisherLegalnature" />
 				<ref bean="searchFilterEditor" />
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
@@ -408,11 +398,9 @@
 
                 <ref bean="searchdescriptionsituation" />
                 <ref bean="searchdescriptionsocialnetworks" />
-                <ref bean="searchrightspreprintsubmission" />
                 <ref bean="searchpublisherlegalnature" />
-                <ref bean="searchdescriptionpeerreviewexternality" />
                 <ref bean="searchdescriptionstate" />
-                <ref bean="searchDateStartYear" />
+                
 
             </list>
         </property>
