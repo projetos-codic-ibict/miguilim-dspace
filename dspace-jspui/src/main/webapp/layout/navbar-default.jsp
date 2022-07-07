@@ -150,7 +150,7 @@
     <% if (supportedLocales != null && supportedLocales.length > 0) {
     %>
     <div class="nav navbar-nav navbar-right">
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right" id="google-translate-element">
                 <li id="google_translate_element"></li>
         </ul>
     </div>
