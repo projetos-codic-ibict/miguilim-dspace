@@ -67,7 +67,7 @@ public class FeedbackServlet extends DSpaceServlet
 
         if (fromPage == null || fromPage.indexOf(basicHost) == -1)
         {
-//            throw new AuthorizeException();
+            fromPage = "";
         }
 
         // The email address they provided
@@ -95,7 +95,6 @@ public class FeedbackServlet extends DSpaceServlet
             String feedback = request.getParameter("feedback");
             String subject = request.getParameter("feedsubject");
             String name = request.getParameter("feedname");
-            String emailSender = request.getParameter("email");
 
             // Check all data is there
             if ((formEmail == null) || formEmail.equals("")
@@ -123,8 +122,8 @@ public class FeedbackServlet extends DSpaceServlet
                 email.addArgument(userAgent); // User agent
                 email.addArgument(sessionID); // Session ID
                 email.addArgument(feedback); // The feedback itself
-                email.addArgument(subject); // The feedback itself
-                email.addArgument(name); // The feedback itself
+                email.addArgument(subject != null ? subject : ""); // The feedback itself
+                email.addArgument(name != null ? name : ""); // The feedback itself
 
                 // Replying to feedback will reply to email on form
                 email.setReplyTo(formEmail);
