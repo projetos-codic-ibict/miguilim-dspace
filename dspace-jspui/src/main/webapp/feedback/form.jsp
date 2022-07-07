@@ -53,14 +53,13 @@
 
     <%-- <p>Thanks for taking the time to share your feedback about the
     DSpace system. Your comments are appreciated!</p> --%>
-    <p><fmt:message key="jsp.feedback.form.text1"/></p>
 
 <%
     if (problem)
     {
 %>
         <%-- <p><strong>Please fill out all of the information below.</strong></p> --%>
-        <p><strong><fmt:message key="jsp.feedback.form.text2"/></strong></p>
+
 <%
     }
 %>
@@ -68,13 +67,25 @@
         <center>
             <table>
                 <tr>
-                    <td class="submitFormLabel"><label for="temail"><fmt:message key="jsp.feedback.form.email"/></label></td>
-                    <td><input type="text" name="email" id="temail" size="50" value="<%=StringEscapeUtils.escapeHtml(email)%>" /></td>
+                    <td class="submitFormLabel"><label for="tsubject">Assunto:</label></td>
+                    <td><input type="text" name="subject" id="tsubject" size="50" value="" /></td>
                 </tr>
+
                 <tr>
                     <td class="submitFormLabel"><label for="tfeedback"><fmt:message key="jsp.feedback.form.comment"/></label></td>
                     <td><textarea name="feedback" id="tfeedback" rows="6" cols="50"><%=StringEscapeUtils.escapeHtml(feedback)%></textarea></td>
                 </tr>
+
+                <tr>
+                    <td class="submitFormLabel"><label for="tname">Nome:</label></td>
+                    <td><input type="text" name="subject" id="tname" size="50" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td class="submitFormLabel"><label for="temail">E-mail:</label></td>
+                    <td><input type="text" name="subject" id="temail" size="50" value="" /></td>
+                </tr>
+
                 <tr>
                     <td colspan="2" align="center">
                     <input type="submit" name="submit" value="<fmt:message key="jsp.feedback.form.send"/>" />
@@ -82,6 +93,12 @@
                 </tr>
             </table>
         </center>
+
+        <p>
+            Caso prefira, entre em contato com a Equipe Miguilim por meio dos canais: <br/>
+            <b>E-mail:</b> miguilim@ibict.br | <b>Telefone:</b> (55 61) 3217-6449
+        </p>
+
     </form>
 
 </dspace:layout>
