@@ -130,6 +130,7 @@ public class FeedbackServlet extends DSpaceServlet
 
                 email.send();
 
+
                 log.info(LogManager.getHeader(context, "sent_feedback", "from="
                         + formEmail));
 
