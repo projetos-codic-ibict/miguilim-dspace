@@ -67,7 +67,7 @@ public class FeedbackServlet extends DSpaceServlet
 
         if (fromPage == null || fromPage.indexOf(basicHost) == -1)
         {
-            throw new AuthorizeException();
+//            throw new AuthorizeException();
         }
 
         // The email address they provided
