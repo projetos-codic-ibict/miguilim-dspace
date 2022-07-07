@@ -68,7 +68,7 @@
             <table>
                 <tr>
                     <td class="submitFormLabel"><label for="tsubject">Assunto:</label></td>
-                    <td><input type="text" name="subject" id="tsubject" size="50" value="" /></td>
+                    <td><input type="text" name="feedsubject" id="tsubject" size="50" value="" /></td>
                 </tr>
 
                 <tr>
@@ -78,12 +78,12 @@
 
                 <tr>
                     <td class="submitFormLabel"><label for="tname">Nome:</label></td>
-                    <td><input type="text" name="subject" id="tname" size="50" value="" /></td>
+                    <td><input type="text" name="feedname" id="tname" size="50" value="" /></td>
                 </tr>
 
                 <tr>
                     <td class="submitFormLabel"><label for="temail">E-mail:</label></td>
-                    <td><input type="text" name="subject" id="temail" size="50" value="" /></td>
+                    <td><input type="text" name="email" id="temail" size="50" value="" /></td>
                 </tr>
 
                 <tr>
