@@ -123,6 +123,7 @@
     <div class="search-main">
 
         <div class="search-content">
+
             <% if(admin_button || editor_button ) { %>
                 <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/>
@@ -167,12 +168,13 @@
                     </form>
                     <% } %>
                 </div>
+                    <% } %>
+
+                    <%  } %>
         </div>
 
 
-            <% } %>
 
-            <%  } %>
 
             <%
                 if (rs != null && rs.count() > 0)
