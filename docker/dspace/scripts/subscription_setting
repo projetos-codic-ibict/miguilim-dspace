@@ -1,3 +1,27 @@
+## SAMPLE CRONTAB FOR A PRODUCTION DSPACE
+## You obviously may wish to tweak this for your own installation,
+## but this should give you an idea of what you likely wish to schedule via cron.
+##
+## NOTE: You may also need to add additional sysadmin related tasks to your crontab
+## (e.g. zipping up old log files, or even removing old logs, etc).
+ 
+#-----------------
+# GLOBAL VARIABLES
+#-----------------
+# Full path of your local DSpace Installation (e.g. /home/dspace or /dspace or similar)
+# MAKE SURE TO CHANGE THIS VALUE!!!
+DSPACE = /dspace
+ 
+# Shell to use
+SHELL=/bin/sh
+ 
+# Add all major 'bin' directories to path
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+ 
+# Set JAVA_OPTS with defaults for DSpace Cron Jobs.
+# Only provides 512MB of memory by default (which should be enough for most sites).
+JAVA_OPTS="-Xmx512M -Xms512M -Dfile.encoding=UTF-8"
+ 
 # Send out subscription e-mails at 02:00 every day
 # (This sends an email to any users who have "subscribed" to a Collection, notifying them of newly added content.)
-2 * * * * /dspace/bin/dspace sub-daily
+2 * * * * $DSPACE/bin/dspace sub-daily

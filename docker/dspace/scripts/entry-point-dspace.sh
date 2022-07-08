@@ -177,8 +177,8 @@ else
   verfica_e_trata_ambiente_de_desenvolvimento
 fi
 
-echo "Executando Cron"
-cron
-
 echo "Solicitando inicialização do Tomcat"
 ${TOMCAT_HOME}/bin/catalina.sh run
+
+echo "Executando Cron"
+cron
