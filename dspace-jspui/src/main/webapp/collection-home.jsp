@@ -123,14 +123,13 @@
     <div class="search-main">
 
         <div class="search-content">
-
             <% if(admin_button || editor_button ) { %>
                 <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/>
                     <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\")%>"><fmt:message key="jsp.adminhelp"/></dspace:popup></span>
                 </div>
 
-                <div class="panel-body">              
+                <div class="panel-body">
             <% if( editor_button ) { %>
                     <form method="post" action="<%=request.getContextPath()%>/tools/edit-communities">
                         <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
@@ -139,11 +138,11 @@
                         <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
                     </form>
             <% } %>
-            
+
             <% if( admin_button ) { %>
                     <form method="post" action="<%=request.getContextPath()%>/tools/itemmap">
                         <input type="hidden" name="cid" value="<%= collection.getID() %>" />
-                        <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.collection-home.item.button"/>" />                  
+                        <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.collection-home.item.button"/>" />
                     </form>
             <% if(submitters != null) { %>
                     <form method="get" action="<%=request.getContextPath()%>/tools/group-edit">
@@ -168,13 +167,12 @@
                     </form>
                     <% } %>
                 </div>
-                    <% } %>
-
-                    <%  } %>
         </div>
 
 
+            <% } %>
 
+            <%  } %>
 
             <%
                 if (rs != null && rs.count() > 0)
