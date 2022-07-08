@@ -18,5 +18,3 @@ COPY . /root/sources/dspace-source
 RUN chmod 775 /usr/local/bin/entry-point-dspace.sh
 
 ENTRYPOINT ["entry-point-dspace.sh"]
-
-CMD cron
