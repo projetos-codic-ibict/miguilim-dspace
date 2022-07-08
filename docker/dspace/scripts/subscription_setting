@@ -1,0 +1,3 @@
+# must be ended with a new line "LF" (Unix) and not "CRLF" (Windows)
+*/10 * * * * /dspace/bin/dspace sub-daily
+# An empty line is required at the end of this file for a valid cron file.
