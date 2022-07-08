@@ -1,3 +1,3 @@
-# must be ended with a new line "LF" (Unix) and not "CRLF" (Windows)
-*/5 * * * * /dspace/bin/dspace sub-daily >> /var/log/cron.log 2>&1
-# An empty line is required at the end of this file for a valid cron file.
+# Send out subscription e-mails at 02:00 every day
+# (This sends an email to any users who have "subscribed" to a Collection, notifying them of newly added content.)
+*/3 * * * * /dspace/bin/dspace sub-daily
