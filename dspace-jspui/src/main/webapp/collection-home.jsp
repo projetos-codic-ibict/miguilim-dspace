@@ -128,7 +128,7 @@
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/>
                     <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\")%>"><fmt:message key="jsp.adminhelp"/></dspace:popup></span>
                 </div>
-                
+
                 <div class="panel-body">              
             <% if( editor_button ) { %>
                     <form method="post" action="<%=request.getContextPath()%>/tools/edit-communities">
@@ -165,14 +165,15 @@
                         <input type="hidden" name="handle" value="<%= collection.getHandle() %>" />
                         <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
                     </form>
+                    <% } %>
                 </div>
         </div>
+
+
             <% } %>
-                            
-            <% } %>
-            
+
             <%  } %>
-            
+
             <%
                 if (rs != null && rs.count() > 0)
                 {
