@@ -1596,10 +1596,6 @@ b.caret {
 	}	
 }
 
-#google-translate-element {
-	padding-left: 15px;
-}
-
 .dropdown-menu {
 	transition: all .2s ease-out;
 	li {
@@ -1751,6 +1747,60 @@ b.caret {
 
 a.admin-help {
 	display: none;
+}
+
+.translateBtn {
+	position: fixed; 
+	right: -169px; 
+	top:200px;
+	width: 230px;
+	@include for-size(tablet-landscape-up) { 
+		top:300px;
+	}
+	display: flex;
+    gap: 24px;
+    background: $white-lightest;
+    padding: 8px;
+    border-radius: 4px;
+	div:first-child {
+		width: 40px;
+	}
+	transition: all .2s cubic-bezier(.76,0,.27,.99);
+}
+
+.toggle-me {
+	&::after {
+		transition: all ease-in-out .2s;
+		content: attr(tooltipBtn);
+		position: absolute;
+		background-color: $bluecolor;
+		color: white;
+		border-radius: 4px;
+		transform: translate(-160px,2px) scale(0.9);
+		padding: 8px;
+		width: 110px;
+		text-align: center;
+		opacity: 0;
+	}
+	&:hover {		
+		&::after {
+			transition: all ease-in-out .2s;
+			content: attr(tooltipBtn);
+			position: absolute;
+			background-color: $bluecolor;
+			color: white;
+			border-radius: 4px;
+			transform: translate(-160px,2px) scale(1);
+			padding: 8px;
+			width: 110px;
+			text-align: center;
+			opacity: 1;
+		}			
+	}
+}
+
+.translateBtn.active{
+	right: 0px;
 }
 
 .no-result-search{
