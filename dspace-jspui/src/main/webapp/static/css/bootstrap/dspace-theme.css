@@ -2830,15 +2830,18 @@ a.admin-help {
 
 .translateBtn {
   position: fixed;
-  right: -169px;
-  top: 200px;
+  right: -180px;
+  top: 150px;
   width: 230px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 24px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 16px;
   background: #FFFFFF;
-  padding: 8px;
+  padding: 4px 8px;
   border-radius: 4px;
   -webkit-transition: all 0.2s cubic-bezier(0.76, 0, 0.27, 0.99);
   transition: all 0.2s cubic-bezier(0.76, 0, 0.27, 0.99);
