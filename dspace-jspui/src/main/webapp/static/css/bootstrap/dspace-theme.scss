@@ -1749,6 +1749,11 @@ a.admin-help {
 	display: none;
 }
 
+.enabled {
+	top:250px!important;
+	margin-top: 0!important;
+}
+
 .translateBtn {
 	position: fixed; 
 	right: -180px; 
@@ -1764,7 +1769,7 @@ a.admin-help {
     padding: 4px 8px;
     border-radius: 4px;
 	div:first-child {
-		width: 40px;
+		width: 32px;
 	}
 	transition: all .2s cubic-bezier(.76,0,.27,.99);
 }

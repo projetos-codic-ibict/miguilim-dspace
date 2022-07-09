@@ -2828,6 +2828,11 @@ a.admin-help {
   display: none;
 }
 
+.enabled {
+  top: 250px !important;
+  margin-top: 0 !important;
+}
+
 .translateBtn {
   position: fixed;
   right: -180px;
@@ -2854,7 +2859,7 @@ a.admin-help {
 }
 
 .translateBtn div:first-child {
-  width: 40px;
+  width: 32px;
 }
 
 .toggle-me::after {
