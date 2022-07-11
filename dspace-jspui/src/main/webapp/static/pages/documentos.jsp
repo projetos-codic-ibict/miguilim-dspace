@@ -76,8 +76,8 @@
 
 <div class="espacamento minus-space">
 
-    <h2 class="titulo-medio">Material de divulgação</h2>
-    <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» DOCUMENTO DE APOIO AO DIRETÓRIO DAS REVISTAS CIENTÍFICAS ELETRÔNICAS BRASILEIRAS (MIGUILIM)</a>
+    <h2 class="titulo-medio">Documentos úteis</h2>
+    <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a>
 </div>
 </dspace:layout>
 
