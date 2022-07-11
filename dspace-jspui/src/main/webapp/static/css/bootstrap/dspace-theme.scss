@@ -1759,6 +1759,7 @@ a.admin-help {
 	right: -180px; 
 	top:150px;
 	width: 230px;
+	cursor: pointer;
 	@include for-size(tablet-landscape-up) { 
 		top:300px;
 	}

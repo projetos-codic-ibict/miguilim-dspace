@@ -206,7 +206,7 @@
     %>
     <div class="translateBtn" >
         <div>        
-        <a class="toggle-me" tooltipbtn="traduzir página" href="#">
+        <a class="toggle-me" tooltipbtn="traduzir página">
                     <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 998.1 998.3" xml:space="preserve">
                         <path fill="#DBDBDB" d="M931.7 998.3c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4H283.6l260.1 797.9h388z"/>
                         <path fill="#DCDCDC" d="M931.7 230.4c9.7 0 18.9 3.8 25.8 10.6 6.8 6.7 10.6 15.5 10.6 24.8v667.1c0 9.3-3.7 18.1-10.6 24.8-6.9 6.8-16.1 10.6-25.8 10.6H565.5L324.9 230.4h606.8m0-30H283.6l260.1 797.9h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z"/>
@@ -239,8 +239,8 @@
     }
 </script>
 <script>
-    $('.toggle-me').click( function() {
-        $('.translateBtn').toggleClass('active');
+    jQuery('.toggle-me').click( function() {
+        jQuery('.translateBtn').toggleClass('active');
     });
 </script>
 <script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
