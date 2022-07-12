@@ -63,7 +63,8 @@
 <%
     }
 %>
-    <form action="<%= request.getContextPath() %>/feedback" method="post">
+    <form action="<%= request.getContextPath() %>/feedback" id="feedback-form" method="post">
+        <input type="hidden" value="" id="captcha-rocks" name="captcha-rocks" />
         <center>
             <table>
                 <tr>
@@ -88,7 +89,11 @@
 
                 <tr>
                     <td colspan="2" align="center">
-                    <input type="submit" name="submit" value="<fmt:message key="jsp.feedback.form.send"/>" />
+                        <button class="g-recaptcha"
+                                data-sitekey="6Ldm7OIgAAAAAJ3u-STm0oOcPvYWhZOcNQhInaES"
+                                data-callback='onSubmit'
+                                data-action='submit'><fmt:message key="jsp.feedback.form.send"/></button>
+
                     </td>
                 </tr>
             </table>
@@ -100,5 +105,15 @@
         </p>
 
     </form>
+
+    <script src="https://www.google.com/recaptcha/api.js"></script>
+
+    <script>
+        function onSubmit(token) {
+            console.log(token);
+            document.querySelector("#captcha-rocks").setAttribute("value", token);
+            document.getElementById("feedback-form").submit();
+        }
+    </script>
 
 </dspace:layout>
