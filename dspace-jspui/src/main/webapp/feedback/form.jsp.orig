@@ -56,6 +56,7 @@
     <%-- <p>Thanks for taking the time to share your feedback about the
     DSpace system. Your comments are appreciated!</p> --%>
 
+<<<<<<< HEAD
     <%
         if (problem)
         {
@@ -89,6 +90,52 @@
                 <div>
                     <input type="submit" name="submit" class="button-main-outline" value="<fmt:message key="jsp.feedback.form.send"/>" />
                 </div>
+=======
+<%
+    if (problem)
+    {
+%>
+        <%-- <p><strong>Please fill out all of the information below.</strong></p> --%>
+
+<%
+    }
+%>
+    <form action="<%= request.getContextPath() %>/feedback" id="feedback-form" method="post">
+        <input type="hidden" value="" id="captcha-rocks" name="captcha-rocks" />
+        <center>
+            <table>
+                <tr>
+                    <td class="submitFormLabel"><label for="tsubject">Assunto:</label></td>
+                    <td><input type="text" name="feedsubject" id="tsubject" size="50" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td class="submitFormLabel"><label for="tfeedback"><fmt:message key="jsp.feedback.form.comment"/></label></td>
+                    <td><textarea name="feedback" id="tfeedback" rows="6" cols="50"><%=StringEscapeUtils.escapeHtml(feedback)%></textarea></td>
+                </tr>
+
+                <tr>
+                    <td class="submitFormLabel"><label for="tname">Nome:</label></td>
+                    <td><input type="text" name="feedname" id="tname" size="50" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td class="submitFormLabel"><label for="temail">E-mail:</label></td>
+                    <td><input type="text" name="email" id="temail" size="50" value="" /></td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" align="center">
+                        <button class="g-recaptcha"
+                                data-sitekey="6Ldm7OIgAAAAAJ3u-STm0oOcPvYWhZOcNQhInaES"
+                                data-callback='onSubmit'
+                                data-action='submit'><fmt:message key="jsp.feedback.form.send"/></button>
+
+                    </td>
+                </tr>
+            </table>
+        </center>
+>>>>>>> 7992bbdabeb4f726397e71ec963618b20aa87f50
 
         <p>
             <small> prefira, entre em contato com a Equipe Miguilim por meio dos canais: </small>

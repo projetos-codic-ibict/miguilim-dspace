@@ -150,6 +150,11 @@ function prepara_ambiente_rede() {
   echo "${SMTP_HOST_IP} smtp.apps.ibict.br" >> /etc/hosts
 }
 
+function inicia_servicos() {
+  echo "Executando Cron"
+  cron
+}
+
 echo "Iniciando a execução do container"
 
 # Somente executa o bloco abaixo caso seja o primeiro "run" do container
@@ -176,6 +181,8 @@ else
   remove_arquivos_instalacao
   verfica_e_trata_ambiente_de_desenvolvimento
 fi
+
+inicia_servicos
 
 echo "Solicitando inicialização do Tomcat"
 ${TOMCAT_HOME}/bin/catalina.sh run

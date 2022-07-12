@@ -10,13 +10,22 @@ package org.dspace.app.webui.servlet;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
 import org.apache.log4j.Logger;
 import org.apache.commons.validator.EmailValidator;
 import org.dspace.app.webui.util.JSPManager;
@@ -27,6 +36,7 @@ import org.dspace.core.Email;
 import org.dspace.core.I18nUtil;
 import org.dspace.core.LogManager;
 import org.dspace.eperson.EPerson;
+import org.json.JSONObject;
 
 /**
  * Servlet for handling user feedback
@@ -44,6 +54,9 @@ public class FeedbackServlet extends DSpaceServlet
             HttpServletResponse response) throws ServletException, IOException,
             SQLException, AuthorizeException
     {
+
+
+
         // Obtain information from request
         // The page where the user came from
         String fromPage = request.getHeader("Referer");
@@ -160,6 +173,22 @@ public class FeedbackServlet extends DSpaceServlet
             SQLException, AuthorizeException
     {
         // Treat as a GET
-        doDSGet(context, request, response);
+        HttpPost post = new HttpPost("https://www.google.com/recaptcha/api/siteverify");
+        List<BasicNameValuePair> params = Arrays.asList(new BasicNameValuePair("secret", "6Ldm7OIgAAAAAFlSXz7S-vfXkQRP4udFNUAWHDYC"), new BasicNameValuePair("response", request.getParameter("captcha-rocks")));
+
+        post.setEntity(new UrlEncodedFormEntity(params));
+
+        try (CloseableHttpClient httpClient = HttpClients.createDefault();
+             CloseableHttpResponse reponseHttpClient = httpClient.execute(post)) {
+
+            JSONObject jsonObject = new JSONObject(EntityUtils.toString(reponseHttpClient.getEntity()));
+            if(jsonObject.getBoolean("success")) {
+                doDSGet(context, request, response);
+            }
+            else {
+                JSPManager.showInternalError(request, response);
+            }
+        }
+
     }
 }
