@@ -101,157 +101,121 @@
                     <h3>Detalhes da pontuação</h3>
 
                     <table class="table panel-body">
-                        <tbody>
+                        <thead>
                         <tr>
-                            <th class="oddRowEvenCol">Sequência</th>
-                            <th class="oddRowEvenCol">Identificador do parametro de configuração</th>
                             <th class="oddRowEvenCol">Campos avaliados</th>
                             <th class="oddRowEvenCol">Pontuação obtida</th>
-                            <th class="oddRowEvenCol">Pontuação máxima</th>
                         </tr>
+                        </thead>
+                        <tbody>
+
                         <tr>
-                            <td class="oddRowEvenCol">001</td>
-                            <td class="oddRowEvenCol">BLOCO 1:termometro.collection.1.metadata.21</td>
                             <td class="oddRowEvenCol"><b>Protocolo de interoperabilidade</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">002</td>
-                            <td class="oddRowOddCol">BLOCO 1:termometro.collection.1.metadata.22</td>
                             <td class="oddRowOddCol"><b>Identificador persistente</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">003</td>
-                            <td class="oddRowEvenCol">BLOCO 1:termometro.collection.1.metadata.25</td>
                             <td class="oddRowEvenCol"><b>Identificador da instituição editora</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">004</td>
-                            <td class="oddRowOddCol">BLOCO 1:termometro.collection.1.metadata.27</td>
                             <td class="oddRowOddCol"><b>Identificador do editor responsável</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">005</td>
-                            <td class="oddRowEvenCol">BLOCO 1:termometro.collection.1.metadata.60</td>
                             <td class="oddRowEvenCol"><b>Código de ética</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">006</td>
-                            <td class="oddRowOddCol">BLOCO 1:termometro.collection.1.metadata.61</td>
                             <td class="oddRowOddCol"><b>Padrão de normalização bibliográfica</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">007</td>
-                            <td class="oddRowEvenCol">BLOCO 1:termometro.collection.1.metadata.62</td>
                             <td class="oddRowEvenCol"><b>Plataforma de detecção de plágio</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">008</td>
-                            <td class="oddRowOddCol">BLOCO 1:termometro.collection.1.metadata.67</td>
                             <td class="oddRowOddCol"><b>Redes sociais</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Quantidade de respostas: 0 = 0
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
                                 pontos<br>Quantidade
                                 de respostas: 1 = 1 ponto<br>Quantidade de respostas: 2 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">009</td>
-                            <td class="oddRowEvenCol">BLOCO 1:termometro.collection.1.metadata.68</td>
                             <td class="oddRowEvenCol"><b>Serviços de informação</b></td>
-                            <td class="oddRowEvenCol">2</td>
-                            <td class="oddRowEvenCol">2</td>
+                            <td class="oddRowEvenCol">0</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
                                 Quantidade de respostas: 1 = 0 ponto<br>
                                 Quantidade de respostas: 2 = 1 ponto<br>
                                 Quantidade de respostas: 3 = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">010</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.36</td>
                             <td class="oddRowOddCol"><b>Modalidade de publicação</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Tradicional = 0 ponto<br>Ahead
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Tradicional = 0 ponto<br>Ahead
                                 of
                                 print = 1
                                 ponto<br>Fluxo contínuo = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">011</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.41</td>
                             <td class="oddRowEvenCol"><b>Modalidade de avaliação por pares</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Avaliação aberta = 2
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Avaliação aberta = 2
                                 pontos<br>Avaliação
                                 duplo-cega = 0 ponto<br>Avaliação simples-cega = 0 ponto<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">012</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.42</td>
                             <td class="oddRowOddCol"><b>Publicação dos avaliadores</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A revista publica somente o
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista publica somente o
                                 nome de
                                 avaliadores
                                 que participaram da avaliação de documentos aprovados para a publicação = 1 ponto<br>A
@@ -269,14 +233,11 @@
                                 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">013</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.43</td>
                             <td class="oddRowEvenCol"><b>Forma de publicação do nome dos avaliadores</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
                                 A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações = 1
                                 ponto <br>
                                 A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
@@ -289,14 +250,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">014</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.45</td>
                             <td class="oddRowOddCol"><b>Externalidade da avaliação por pares</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A avaliação por pares é
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A avaliação por pares é
                                 realizada,
                                 exclusivamente, por pesquisadores da instituição que edita a revista = 0 ponto<br>A
                                 avaliação por pares
@@ -308,14 +266,11 @@
                                 pesquisadores que são externos à instituição que edita a revista = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">015</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.48</td>
                             <td class="oddRowEvenCol"><b>Permissão de submissão de preprint</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>A revista aceita a submissão
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>A revista aceita a submissão
                                 de
                                 preprints que
                                 já se encontram armazenados em outras plataformas = 2 pontos<br>A revista não aceita a
@@ -323,14 +278,11 @@
                                 preprints que já se encontram armazenados em outras plataformas = 0 ponto<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">016</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.52</td>
                             <td class="oddRowOddCol"><b>Selo de armazenamento e acesso</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Amarela: permite o
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Amarela: permite o
                                 armazenamento e
                                 acesso das
                                 versões preprint dos documentos em repositórios institucionais/digitais = 1 ponto<br>Azul:
@@ -348,28 +300,22 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">017</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.53</td>
                             <td class="oddRowEvenCol"><b>Prazo para disponibilização de documentos</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
                                 Imediatamente após a aceitação do documento = 2 pontos<br>
                                 Imediatamente após a publicação do documento = 1 ponto<br>
                                 Após finalizado o período de embargo = 0 ponto<br>
                                 Não permite o armazenamento = 0 ponto<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">018</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.54</td>
                             <td class="oddRowOddCol"><b>Tipo de acesso</b></td>
-                            <td class="oddRowOddCol">2</td>
-                            <td class="oddRowOddCol">2</td>
+                            <td class="oddRowOddCol">0</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>Acesso aberto imediato = 2
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Acesso aberto imediato = 2
                                 pontos<br>Acesso
                                 aberto após período de embargo = 1 ponto<br>Acesso restrito = 0 ponto<br>Acesso híbrido
                                 = 1
@@ -377,14 +323,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">019</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.56</td>
                             <td class="oddRowEvenCol"><b>Licença Creative Commons</b></td>
                             <td class="oddRowEvenCol">0</td>
-                            <td class="oddRowEvenCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Permite distribuição,
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Permite distribuição,
                                 remixagem,
                                 adaptação e
                                 criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito
@@ -418,14 +361,11 @@
                                 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">020</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.57</td>
                             <td class="oddRowOddCol"><b>Taxas de publicação</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>A revista cobra taxa de
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista cobra taxa de
                                 submissão
                                 de artigos =
                                 0 ponto<br>A revista cobra taxa de processamento de artigos (APC) = 0 ponto<br>A
@@ -437,28 +377,22 @@
                                 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol">021</td>
-                            <td class="oddRowEvenCol">BLOCO 2:termometro.collection.1.metadata.63</td>
                             <td class="oddRowEvenCol"><b>Estratégia de preservação digital</b></td>
-                            <td class="oddRowEvenCol">2</td>
-                            <td class="oddRowEvenCol">2</td>
+                            <td class="oddRowEvenCol">0</td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="5">Escala de respostas:<br>Ainda não adota política = 0
+                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Ainda não adota política = 0
                                 pontos<br>LOCKSS
                                 = 2 pontos<br>CLOCKSS = 2 pontos<br>Portico = 2 pontos<br>PKP PN = 2 pontos<br>Archivematica
                                 = 2
                                 pontos<br>'other' = 2 pontos<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol">022</td>
-                            <td class="oddRowOddCol">BLOCO 2:termometro.collection.1.metadata.64</td>
                             <td class="oddRowOddCol"><b>Exigência de disponibilização de dados de pesquisa</b></td>
                             <td class="oddRowOddCol">0</td>
-                            <td class="oddRowOddCol">2</td>
                         </tr>
                         <tr>
-                            <td class="oddRowOddCol" colspan="5">Escala de respostas:<br>
+                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>
                                 A revista exige que os autores publiquem os dados que deram origem à pesquisa em
                                 repositórios e/ou revistas de dados = 2 pontos<br>
                                 A revista publica
@@ -467,9 +401,8 @@
                                 ponto<br></td>
                         </tr>
                         <tr>
-                            <td class="oddRowEvenCol" colspan="3"><b>Soma dos pontos da revista:</b></td>
+                            <td class="oddRowEvenCol"><b>Soma dos pontos da revista:</b></td>
                             <td class="oddRowEvenCol"><b>6 (13%)</b></td>
-                            <td class="oddRowEvenCol"><b>44</b></td>
                         </tr>
                         </tbody>
                     </table>
