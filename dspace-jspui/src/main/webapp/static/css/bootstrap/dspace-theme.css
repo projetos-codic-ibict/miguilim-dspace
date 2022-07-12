@@ -2833,6 +2833,57 @@ a.admin-help {
   margin-top: 0 !important;
 }
 
+.feedback-form {
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.feedback-form small {
+  display: block;
+}
+
+.feedback-form p {
+  background: #FFFFFF;
+  border: 1px solid #EBEBEB;
+  padding: 16px;
+  border-radius: 4px;
+  margin-top: 24px;
+}
+
+.feedback-form div {
+  margin-bottom: 16px;
+}
+
+.feedback-form h1 {
+  margin-bottom: 24px;
+}
+
+.feedback-field {
+  outline: none;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding: 0 16px 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.feedback-textarea {
+  outline: none;
+  height: 80px;
+  width: 100%;
+  outline: none;
+  border: 1px solid #E8E8E8;
+  border-radius: 8px;
+  outline: none;
+  border-radius: 8px;
+  padding: 0 16px 0 16px;
+  letter-spacing: 0.5px;
+}
+
 .translateBtn {
   position: fixed;
   right: -180px;
