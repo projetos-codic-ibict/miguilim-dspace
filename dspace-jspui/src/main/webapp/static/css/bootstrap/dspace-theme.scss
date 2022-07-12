@@ -1775,7 +1775,11 @@ a.admin-help {
 		}	
 		h1 {
 			margin-bottom: 24px;
-		}			
+		}	
+		span{
+			margin: 16px 0;
+			display: block;
+		}				
 	}
 	&-field {
 		outline: none;

@@ -2858,6 +2858,11 @@ a.admin-help {
   margin-bottom: 24px;
 }
 
+.feedback-form span {
+  margin: 16px 0;
+  display: block;
+}
+
 .feedback-field {
   outline: none;
   height: 40px;
