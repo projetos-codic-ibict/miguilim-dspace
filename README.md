@@ -67,3 +67,4 @@ The DSpace Issue Tracker can be found at: https://jira.duraspace.org/projects/DS
 
 DSpace source code is freely available under a standard [BSD 3-Clause license](https://opensource.org/licenses/BSD-3-Clause).
 The full license is available at http://www.dspace.org/license/
+
