@@ -91,7 +91,7 @@
                 </div>
 
         <p>
-            <small> prefira, entre em contato com a Equipe Miguilim por meio dos canais: </small>
+            <small>Caso prefira, entre em contato com a Equipe Miguilim por meio dos canais: </small>
             <strong>E-mail:</strong> miguilim@ibict.br | <strong>Telefone:</strong> (55 61) 3217-6449
         </p>
     </form>
