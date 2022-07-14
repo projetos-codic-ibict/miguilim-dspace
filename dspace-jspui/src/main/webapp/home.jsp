@@ -74,7 +74,8 @@
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
 	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
 	Map<String, List<FacetResult>> facetsRoot = (Map<String, List<FacetResult>>) request.getAttribute("discovery.fresults");
-
+	System.out.println("facetsRoot" + facetsRoot);
+	System.out.println("facetsRoot.get(cnpq)" + facetsRoot.get("cnpq"));
 %>
 
 <dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
