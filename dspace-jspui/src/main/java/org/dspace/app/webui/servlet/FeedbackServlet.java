@@ -55,8 +55,6 @@ public class FeedbackServlet extends DSpaceServlet
             SQLException, AuthorizeException
     {
 
-
-
         // Obtain information from request
         // The page where the user came from
         String fromPage = request.getHeader("Referer");
@@ -102,7 +100,7 @@ public class FeedbackServlet extends DSpaceServlet
         }
 
         // Has the user just posted their feedback?
-        if (request.getParameter("submit") != null)
+        if (request.getParameter("submita") != null)
         {
             EmailValidator ev = EmailValidator.getInstance();
             String feedback = request.getParameter("feedback");
