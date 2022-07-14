@@ -80,8 +80,6 @@
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
 	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
 	Map<String, List<FacetResult>> facetsRoot = (Map<String, List<FacetResult>>) request.getAttribute("discovery.fresults");
-	System.out.println("facetsRoot" + facetsRoot);
-	System.out.println("facetsRoot.get(cnpq)" + facetsRoot.get("cnpq"));
 %>
 
 <dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
@@ -212,7 +210,7 @@
 		<div class="text">
 			<h2>Ciências agrárias</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasAgrarias = getFacetResult(facetsRoot, "cnpq", "Ciências agrárias"); %>
-			<p><span><%= facetResultCienciasAgrarias.isPresent() ? facetResultCienciasAgrarias.get().getCount() : "Sem Ciências agrárias" %></span></p>
+			<p><span><%= facetResultCienciasAgrarias.isPresent() ? facetResultCienciasAgrarias.get().getCount() : "0" %></span></p>
 		</div>		
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+biológicas&filtername=cnpq&filtertype=equals'" >
@@ -226,7 +224,7 @@
 		<div class="text">
 			<h2>Ciências Biológicas</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasBiologicas = getFacetResult(facetsRoot, "cnpq", "Ciências biológicas"); %>
-			<p><span><%= facetResultCienciasBiologicas.isPresent() ? facetResultCienciasBiologicas.get().getCount() : "Sem Ciências biológicas" %></span></p>
+			<p><span><%= facetResultCienciasBiologicas.isPresent() ? facetResultCienciasBiologicas.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+da+saúde&filtername=cnpq&filtertype=equals'" >
@@ -238,7 +236,7 @@
 		<div class="text">
 			<h2>Ciências da saúde</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasSaude = getFacetResult(facetsRoot, "cnpq", "Ciências da saúde"); %>
-			<p><span><%= facetResultCienciasSaude.isPresent() ? facetResultCienciasSaude.get().getCount() : "Sem Ciências da saúde" %></span></p>
+			<p><span><%= facetResultCienciasSaude.isPresent() ? facetResultCienciasSaude.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+exatas+e+da+terra&filtername=cnpq&filtertype=equals'" >
@@ -253,7 +251,7 @@
 		<div class="text">
 			<h2>Ciências exatas e da terra</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasExatas = getFacetResult(facetsRoot, "cnpq", "Ciências exatas e da terra"); %>
-			<p><span><%= facetResultCienciasExatas.isPresent() ? facetResultCienciasExatas.get().getCount() : "Sem Ciências exatas e da terra" %></span></p>
+			<p><span><%= facetResultCienciasExatas.isPresent() ? facetResultCienciasExatas.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+humanas&filtername=cnpq&filtertype=equals'" >
@@ -268,7 +266,7 @@
 		<div class="text">
 			<h2>Ciências humanas</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasHumanas = getFacetResult(facetsRoot, "cnpq", "Ciências humanas"); %>
-			<p><span><%= facetResultCienciasHumanas.isPresent() ? facetResultCienciasHumanas.get().getCount() : "Sem Ciências humanas" %></span></p>
+			<p><span><%= facetResultCienciasHumanas.isPresent() ? facetResultCienciasHumanas.get().getCount() : "0" %></span></p>
 		</div>
 	</div>	
 	<div onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Ciências+sociais+aplicadas&filtername=cnpq&filtertype=equals'" class="card">
@@ -287,7 +285,7 @@
 		<div class="text">
 			<h2>Ciências sociais aplicadas</h2>
 			<% java.util.Optional<FacetResult> facetResultCienciasSociais = getFacetResult(facetsRoot, "cnpq", "Ciências sociais aplicadas"); %>
-			<p><span><%= facetResultCienciasSociais.isPresent() ? facetResultCienciasSociais.get().getCount() : "Sem Ciências Sociais" %></span></p>
+			<p><span><%= facetResultCienciasSociais.isPresent() ? facetResultCienciasSociais.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Engenharias&filtername=cnpq&filtertype=equals'" >
@@ -302,7 +300,7 @@
 		<div class="text">
 			<h2>Engenharias</h2>
 			<% java.util.Optional<FacetResult> facetResultEngenharias = getFacetResult(facetsRoot, "cnpq", "Engenharias"); %>
-			<p><span><%= facetResultEngenharias.isPresent() ? facetResultEngenharias.get().getCount() : "Sem Engenharias" %></span></p>
+			<p><span><%= facetResultEngenharias.isPresent() ? facetResultEngenharias.get().getCount() : "0" %></span></p>
 
 		</div>		
 	</div>
@@ -316,7 +314,7 @@
 		<div class="text">
 			<h2>Linguística, letras e artes</h2>
 			<% java.util.Optional<FacetResult> facetResultLinguistica = getFacetResult(facetsRoot, "cnpq", "Linguística, letras e artes"); %>
-			<p><span><%= facetResultLinguistica.isPresent() ? facetResultLinguistica.get().getCount() : "Sem Linguística, letras e artes" %></span></p>
+			<p><span><%= facetResultLinguistica.isPresent() ? facetResultLinguistica.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	<div class="card" onclick="location.href = '<%= request.getContextPath() %>/simple-search?filterquery=Multidisciplinar&filtername=cnpq&filtertype=equals'" >
@@ -329,7 +327,7 @@
 		<div class="text">
 			<h2>Multidisciplinar</h2>
 			<% java.util.Optional<FacetResult> facetResultMultidisciplinar = getFacetResult(facetsRoot, "cnpq", "Multidisciplinar"); %>
-			<p><span><%= facetResultMultidisciplinar.isPresent() ? facetResultMultidisciplinar.get().getCount() : "Sem Multidisciplinar" %></span></p>
+			<p><span><%= facetResultMultidisciplinar.isPresent() ? facetResultMultidisciplinar.get().getCount() : "0" %></span></p>
 		</div>
 	</div>
 	
