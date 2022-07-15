@@ -103,7 +103,6 @@
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
                 <ref bean="searchFilterCodeofethics" />
-                <ref bean="searchdescriptionstate" />
                 <ref bean="searchFilterResearchData" />
                 <ref bean="searchFilterLanguage" />
                 <ref bean="searchFilterPublisherName" />
@@ -151,7 +150,6 @@
 				<ref bean="searchFilterCNPq" />
 				<ref bean="searchFilterPublisherName" />
 				<ref bean="searchFilterSubordinate" />
-				<ref bean="searchFilterPublisher" />
 				<ref bean="searchFilterEditor" />
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
@@ -199,8 +197,7 @@
 
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
-                <ref bean="searchdescriptionstate" />
-                
+
 
             </list>
         </property>
@@ -317,8 +314,7 @@
 
 				<ref bean="searchdescriptionsocialnetworks" />
 				<ref bean="searchpublisherlegalnature" />
-				<ref bean="searchdescriptionstate" />
-				
+
 
             </list>
         </property>
@@ -346,7 +342,6 @@
 				<ref bean="searchFilterCNPq" />
 				<ref bean="searchFilterPublisherName" />
 				<ref bean="searchFilterSubordinate" />
-				<ref bean="searchFilterPublisher" />
 				<ref bean="searchFilterEditor" />
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
@@ -394,8 +389,7 @@
 
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
-                <ref bean="searchdescriptionstate" />
-                
+
 
             </list>
         </property>
