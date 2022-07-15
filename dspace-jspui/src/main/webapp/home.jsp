@@ -54,7 +54,7 @@
 		return facetResultOpt;
 	}
 
-	public static final String REVISTAS = "123456789/2";
+	public static final String REVISTAS = "miguilim/2";
 	public static final String PORTAL_DE_PERIODICOS = "miguilim/2669";
 %><%
 
