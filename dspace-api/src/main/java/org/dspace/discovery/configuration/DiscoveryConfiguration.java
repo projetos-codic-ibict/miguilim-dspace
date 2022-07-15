@@ -21,7 +21,7 @@ import org.springframework.beans.factory.annotation.Required;
  */
 public class DiscoveryConfiguration implements InitializingBean {
 
-    final String PORTAL_DE_REVISTAS = "miugilim/2669";
+    final String PORTAL_DE_REVISTAS = "miguilim/2669";
 
     /** The configuration for the sidebar facets **/
     private List<DiscoverySearchFilterFacet> sidebarFacets = new ArrayList<DiscoverySearchFilterFacet>();

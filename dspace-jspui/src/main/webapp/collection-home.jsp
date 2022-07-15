@@ -112,7 +112,7 @@
     HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
 
     final String REVISTAS = "123456789/2";
-	final String PORTAL_DE_PERIODICOS = "miugilim/2669";
+	final String PORTAL_DE_PERIODICOS = "miguilim/2669";
 %>
 
 <%@page import="org.dspace.app.webui.servlet.MyDSpaceServlet"%>

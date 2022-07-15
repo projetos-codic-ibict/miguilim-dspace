@@ -55,7 +55,7 @@
 	}
 
 	public static final String REVISTAS = "123456789/2";
-	public static final String PORTAL_DE_PERIODICOS = "miugilim/2669";
+	public static final String PORTAL_DE_PERIODICOS = "miguilim/2669";
 %><%
 
     Locale sessionLocale = UIUtil.getSessionLocale(request);
@@ -92,14 +92,14 @@
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
 			<div class="total">
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/handle/123456789/2'" style="cursor:pointer">
+					<span onclick="location.href = '<%= request.getContextPath() %>/handle/miguilim/2'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
 					</span>
 					Revistas científicas
 				</p>
 				<p class="line"></p>
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/handle/miugilim/2669'" style="cursor:pointer">
+					<span onclick="location.href = '<%= request.getContextPath() %>/handle/miguilim/2669'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %>
 					</span>Portais de revistas
 				</p>
