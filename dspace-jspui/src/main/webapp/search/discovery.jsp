@@ -126,7 +126,7 @@
 
 
     final String REVISTAS = "123456789/2";
-	final String PORTAL_DE_PERIODICOS = "123456789/2669";
+	final String PORTAL_DE_PERIODICOS = "miugilim/2669";
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
