@@ -398,7 +398,7 @@
                                 0 ponto<br>A revista cobra taxa de processamento de artigos (APC) = 0 ponto<br>A
                                 revista
                                 cobra taxa de
-                                submissão e de processamento de artigos = 0 ponto<br>A revista não cobra nenhuma taxa
+                                submissão e de processamento de artigos = 0 ponto<br>A revista não cobra qualquer taxa
                                 de
                                 publicação = 2
                                 pontos<br></td>
