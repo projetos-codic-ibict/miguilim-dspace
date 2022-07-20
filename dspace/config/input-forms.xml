@@ -3,7 +3,7 @@
 
 <input-forms>
     <form-map>
-        <name-map collection-handle="123456789/2" form-name="revistas" />
+        <name-map collection-handle="miguilim/2" form-name="revistas" />
     </form-map>
 
     <form-map>

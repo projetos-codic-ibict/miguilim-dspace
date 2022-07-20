@@ -111,7 +111,7 @@
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
 
-    final String REVISTAS = "123456789/2";
+    final String REVISTAS = "miguilim/2";
 	final String PORTAL_DE_PERIODICOS = "miguilim/2669";
 %>
 

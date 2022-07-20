@@ -176,7 +176,7 @@ import org.dspace.workflow.factory.WorkflowServiceFactory;
  * 
  * <PRE>
  * 
- * webui.itemdisplay.thesis.collections = 123456789/24, 123456789/35
+ * webui.itemdisplay.thesis.collections = miguilim/24, 123456789/35
  * 
  * </PRE>
  * 
