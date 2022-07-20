@@ -121,7 +121,8 @@
     List<Version> historyVersions = (List<Version>) request.getAttribute("versioning.historyversions");
 
     TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
-    String pontuacaoTermometro = termometroService.calcularPontuacaoTotalDoItem(item);
+    String pontuacaoTotalTermometro = termometroService.calcularPontuacaoTotalDoItem(item);
+    String porcentagemPontuacaoTermometro = termometroService.calcularPorcentagemPontuacao(item);
     String pontuacaoIndiceH5 = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc.identifier.h5index");
     String REVISTAS = "miguilim/2";
     String PORTAL_DE_PERIODICOS = "miguilim/2669";
@@ -313,7 +314,7 @@
             termometro.minValue = 0;
             termometro.maxValue = 100;
             termometro.animationSpeed = 10;
-            termometro.set(<%= pontuacaoTermometro %>);
+            termometro.set(<%= porcentagemPontuacaoTermometro %>);
             termometro.setTextField(document.getElementById("preview-textfield"));
         }
 

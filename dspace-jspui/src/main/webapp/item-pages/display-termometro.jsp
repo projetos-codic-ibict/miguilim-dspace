@@ -429,7 +429,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Soma dos pontos da revista:</b></td>
-                            <td class="oddRowEvenCol"><b>6 (13%)</b></td>
+                            <td class="oddRowEvenCol"><b><%= pontuacaoTotalTermometro %> (<%= porcentagemPontuacaoTermometro %>%)</b></td>
                         </tr>
                         </tbody>
                     </table>

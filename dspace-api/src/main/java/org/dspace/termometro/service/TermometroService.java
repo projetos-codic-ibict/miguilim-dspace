@@ -13,6 +13,8 @@ import org.dspace.content.DSpaceObject;
 
 public interface TermometroService {
 
+    String calcularPorcentagemPontuacao(DSpaceObject dso) throws IOException;
+
     String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException;
 
     String calcularPontuacaoDoItemPorMetadado(DSpaceObject dso, String metadado)  throws IOException;

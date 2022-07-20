@@ -17,7 +17,13 @@ public class TermometroServiceImpl implements TermometroService {
 
     protected TermometroServiceImpl() {
     }
-   
+    
+    @Override
+    public String calcularPorcentagemPontuacao(DSpaceObject dso) throws IOException {
+        
+        return CalculadoraTermometro.calcularPorcentagemPontuacao(dso);
+    }
+
     @Override
     public String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException {
         
