@@ -13,5 +13,7 @@ import org.dspace.content.DSpaceObject;
 
 public interface TermometroService {
 
-    String calcularPontuacaoDoItem(DSpaceObject dso) throws IOException;
+    String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException;
+
+    String calcularPontuacaoDoItemPorMetadado(DSpaceObject dso, String metadado)  throws IOException;
 }

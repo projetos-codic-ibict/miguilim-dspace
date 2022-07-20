@@ -19,9 +19,14 @@ public class TermometroServiceImpl implements TermometroService {
     }
    
     @Override
-    public String calcularPontuacaoDoItem(DSpaceObject dso) throws IOException {
+    public String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException {
         
-        return CalculadoraTermometro.calcularPontuacaoDoItem(dso);
+        return CalculadoraTermometro.calcularPontuacaoTotalDoItem(dso);
+    }
+
+    @Override
+    public String calcularPontuacaoDoItemPorMetadado(DSpaceObject dso, String metadado)  throws IOException {
+        return CalculadoraTermometro.calcularPontuacaoDoItemPorMetadado(dso, metadado);
     }
 
 }

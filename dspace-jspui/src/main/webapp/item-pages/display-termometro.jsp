@@ -1,4 +1,31 @@
 <%@page contentType="text/html;charset=UTF-8" %>
+
+<%
+    String pontuacaoProtocoloInteroperabilidade = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.interoperabilityprotocol");
+    String pontuacaoIdentificadorPersistente = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.persistentidentifier");
+    String pontuacaoInstituicaoEditora = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.publisher");
+    String pontuacaoEditorResponsavel = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.editor");
+    String pontuacaoModalidadePublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.modalityofpublication");
+    String pontuacaoAvaliacaoPares = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreview");
+    String pontuacaoPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerspublication");
+    String pontuacaoFormaPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerstypeofpublication");
+    String pontuacaoExternalidadeAvaliacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreviewexternality");
+    String pontuacaoSubmissaoPrePrint = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.preprintsubmission");
+    String pontuacaoSeloArmazenamento = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.sealcolor");
+    String pontuacaoDisponibilizacaoDocumentos = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.time");
+    String pontuacaoTipoAcesso = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.access");
+    String pontuacaoCreativeCommons = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.creativecommons");
+    String pontuacaoTaxaPublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.publicationfees");
+    String pontuacaoCodigoEtica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.codeofethics");
+    String pontuacaoNormalizacaoBibliografica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.referenceguidelines");
+    String pontuacaoPlataformaPlagio = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.plagiarismdetection");
+    String pontuacaoPreservacaoDigital = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.digitalpreservation");
+    String pontuacaoExigenciaDadosPesquisa = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.researchdata");
+    String pontuacaoRedesSociais = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.socialnetworks");
+    String pontuacaoServicosInformacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.relation.informationservices");
+%>
+
+
 <div class="panel-group" id="accordion" role="tablist"
      aria-multiselectable="true">
     <div class="panel panel-default">
@@ -111,7 +138,7 @@
 
                         <tr>
                             <td class="oddRowEvenCol"><b>Protocolo de interoperabilidade</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoProtocoloInteroperabilidade %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -120,7 +147,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Identificador persistente</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoIdentificadorPersistente %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -129,7 +156,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Identificador da instituição editora</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoInstituicaoEditora %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -138,7 +165,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Identificador do editor responsável</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoEditorResponsavel %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -147,7 +174,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Código de ética</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoCodigoEtica %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -156,7 +183,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Padrão de normalização bibliográfica</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoNormalizacaoBibliografica %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -165,7 +192,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Plataforma de detecção de plágio</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoPlataformaPlagio %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -174,7 +201,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Redes sociais</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoRedesSociais %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
@@ -183,7 +210,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Serviços de informação</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoServicosInformacao %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
@@ -193,7 +220,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Modalidade de publicação</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoModalidadePublicacao %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Tradicional = 0 ponto<br>Ahead
@@ -203,7 +230,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Modalidade de avaliação por pares</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoAvaliacaoPares %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Avaliação aberta = 2
@@ -212,7 +239,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Publicação dos avaliadores</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoPublicacaoAvaliadores %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista publica somente o
@@ -234,7 +261,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Forma de publicação do nome dos avaliadores</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoFormaPublicacaoAvaliadores %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
@@ -251,7 +278,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Externalidade da avaliação por pares</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoExternalidadeAvaliacao %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A avaliação por pares é
@@ -267,7 +294,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Permissão de submissão de preprint</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoSubmissaoPrePrint %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>A revista aceita a submissão
@@ -279,7 +306,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Selo de armazenamento e acesso</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoSeloArmazenamento %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Amarela: permite o
@@ -301,7 +328,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Prazo para disponibilização de documentos</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoDisponibilizacaoDocumentos %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
@@ -312,7 +339,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Tipo de acesso</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoTipoAcesso %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Acesso aberto imediato = 2
@@ -324,7 +351,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Licença Creative Commons</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoCreativeCommons %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Permite distribuição,
@@ -362,7 +389,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Taxas de publicação</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoTaxaPublicacao %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista cobra taxa de
@@ -378,7 +405,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol"><b>Estratégia de preservação digital</b></td>
-                            <td class="oddRowEvenCol">0</td>
+                            <td class="oddRowEvenCol"><%= pontuacaoPreservacaoDigital %></td>
                         </tr>
                         <tr>
                             <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Ainda não adota política = 0
@@ -389,7 +416,7 @@
                         </tr>
                         <tr>
                             <td class="oddRowOddCol"><b>Exigência de disponibilização de dados de pesquisa</b></td>
-                            <td class="oddRowOddCol">0</td>
+                            <td class="oddRowOddCol"><%= pontuacaoExigenciaDadosPesquisa %></td>
                         </tr>
                         <tr>
                             <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>

@@ -121,7 +121,7 @@
     List<Version> historyVersions = (List<Version>) request.getAttribute("versioning.historyversions");
 
     TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
-    String pontuacaoTermometro = termometroService.calcularPontuacaoDoItem(item);
+    String pontuacaoTermometro = termometroService.calcularPontuacaoTotalDoItem(item);
     String pontuacaoIndiceH5 = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc.identifier.h5index");
     String REVISTAS = "miguilim/2";
     String PORTAL_DE_PERIODICOS = "miguilim/2669";

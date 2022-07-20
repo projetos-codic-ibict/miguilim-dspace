@@ -46,7 +46,61 @@ public class CalculadoraTermometro {
         }
 	}
     
-    public static String calcularPontuacaoDoItem(DSpaceObject dso) throws IOException {
+    public static String calcularPontuacaoDoItemPorMetadado(DSpaceObject dso, String metadado) throws IOException {
+        initialize();
+
+        Double pontuacaoTotalDoItem = 0.0;
+
+        String[] estruturaMetadado = metadado.split("\\.");
+        String schema = estruturaMetadado[0];
+        String element = estruturaMetadado[1];
+        String qualifier = estruturaMetadado[2];
+        
+        Map<String, List<String>> metadadosDoItem = itemService
+            .getMetadata((Item) dso, schema, element, qualifier, Item.ANY)
+            .stream()
+            .collect(
+                Collectors.groupingBy(
+                    m -> m.getMetadataField().toString(), 
+                    Collectors.mapping(MetadataValue::getValue, 
+                    Collectors.toList())));
+
+        for (Map.Entry<String, EscalaPontuacaoTermometro> regra : REGRAS_PARA_PONTUACAO.entrySet()) 
+        {
+            List<String> valoresDoMetadado = metadadosDoItem.get(regra.getKey());
+
+            if(valoresDoMetadado != null) 
+            {
+                EscalaPontuacaoTermometro escalaPontuacao = (EscalaPontuacaoTermometro) regra.getValue();
+
+                if(escalaPontuacao.getTipoAvaliacao() == TipoAvaliacaoEscala.TEXTUAL.getCodigo()) {
+                    String chavePontuacao = String.valueOf(valoresDoMetadado.size());
+                    Integer valorPontuacao = Optional
+                        .ofNullable(escalaPontuacao.getPontuacao().get(chavePontuacao))
+                        .orElseGet(() -> escalaPontuacao.getPontuacao().get(CHAVE_PONTUACAO_DEFAULT));
+
+                    pontuacaoTotalDoItem += valorPontuacao;
+                }
+                else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
+                    for(String chavePontuacao : valoresDoMetadado) 
+                    {
+                        String chaveFormatada = chavePontuacao.replaceAll("\\s{2,}", " ");
+                        Integer valorPontuacao = Optional
+                            .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
+                            .orElseGet(() -> 0);
+
+                        pontuacaoTotalDoItem += valorPontuacao;
+                    }
+                }
+            }
+
+            
+        }
+
+        return String.valueOf(pontuacaoTotalDoItem.intValue());
+    }
+
+    public static String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException {
         initialize();
         
         Double pontuacaoFinal = 0.0;
@@ -88,6 +142,11 @@ public class CalculadoraTermometro {
         return String.valueOf(pontuacaoFinal);
     }
 
+
+
+
+
+
     private static Map<String, List<String>> obterMetadadosDoItem(DSpaceObject dso) {
         return itemService
             .getMetadata((Item) dso, Item.ANY, Item.ANY, Item.ANY, Item.ANY)
@@ -98,6 +157,8 @@ public class CalculadoraTermometro {
                     Collectors.mapping(MetadataValue::getValue, 
                     Collectors.toList())));
     }
+
+   
 
     private static boolean isTipoAvaliacaoListagem(EscalaPontuacaoTermometro escalaPontuacao) {
         return escalaPontuacao.getTipoAvaliacao() == TipoAvaliacaoEscala.SELECAO.getCodigo()
