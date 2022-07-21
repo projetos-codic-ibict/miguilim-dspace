@@ -9,7 +9,7 @@
 ol.breadcrumb li {color: white; font-style: italic;}
 ol.breadcrumb li a {color: white; font-weight: bold; font-style: normal;}
 body.undernavigation {overflow-x: hidden;}
-#content {padding-bottom:60px;}
+//#content {padding-bottom:60px;}
 #designedby {padding: 5px;}
 #footer_feedback {padding-top: 12px;}
 input[type="file"] {display: block;height: auto;}
@@ -133,6 +133,11 @@ body {
 		}
 	}
 }
+
+#termometro {
+	margin-top: 32px;
+}
+
 //footer
 .section-footer {
 	background-color: $white-lightest;
@@ -979,6 +984,7 @@ hr {
 	@include for-size(tablet-landscape-up) { 
 		grid-template-columns: 1fr;
 	}
+	
 	.search-content{
 		min-width: 300px;
 		padding: 40px 32px;
@@ -1148,7 +1154,7 @@ hr {
 				}
 			}
 		}		
-		background:$white-line-second;
+		//background:$white-line-second;
 		@include for-size(tablet-landscape-up) { 
 			background: none;
 		}
