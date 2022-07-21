@@ -1154,7 +1154,7 @@ hr {
 				}
 			}
 		}		
-		//background:$white-line-second;
+		background:#f7f7f7;
 		@include for-size(tablet-landscape-up) { 
 			background: none;
 		}
@@ -1475,6 +1475,7 @@ h1 , h2 {
 
 
 #item-data {
+	//background: #ffffff;
 	.panel {
 		@extend .d-hide;
 	}
