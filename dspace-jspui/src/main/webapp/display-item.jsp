@@ -319,7 +319,6 @@
         }
 
         document.querySelector("#termometro").classList.add("d-hide");
-        document.querySelector("#item-statistics").classList.add("d-hide");
         document.querySelector("#temometroCollapse").classList.add("collapsed");
         document.querySelector("#collapseOne").classList.remove("in");
     </script>
@@ -342,5 +341,10 @@
             })
         });
 
+        document.querySelector("#item-statistics").classList.add("d-hide");
+
     </script>
+
+
+
 </dspace:layout>
