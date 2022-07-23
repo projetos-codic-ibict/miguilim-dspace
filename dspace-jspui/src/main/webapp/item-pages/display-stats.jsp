@@ -138,38 +138,6 @@
                 </div>
 
                 <div class="panel">
-                    <div class="panel-body">
-                        <table class="statsTable">
-                            <tr>
-                                <th class="stats-item-title">
-                                    <!-- spacer cell -->
-                                </th>
-                                <th><fmt:message key="jsp.statistics.heading.views" /></th>
-                            </tr>
-                            <c:forEach items="${statsCountryVisits.matrix}" var="row"
-                                       varStatus="counter">
-                                <c:forEach items="${row}" var="cell" varStatus="rowcounter">
-                                    <c:choose>
-                                        <c:when test="${rowcounter.index % 2 == 0}">
-                                            <c:set var="rowClass" value="evenRowOddCol" />
-                                        </c:when>
-                                        <c:otherwise>
-                                            <c:set var="rowClass" value="oddRowOddCol" />
-                                        </c:otherwise>
-                                    </c:choose>
-                                    <tr class="${rowClass}">
-                                        <td><c:out
-                                                value="${statsCountryVisits.colLabels[rowcounter.index]}" />
-                                        <td><c:out value="${cell}" />
-                                    </tr>
-                                    </td>
-                                </c:forEach>
-                            </c:forEach>
-                        </table>
-                    </div>
-                </div>
-
-                <div class="panel">
 
                     <canvas id="canvas-country" height="100" ></canvas>
 

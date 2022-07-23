@@ -341,7 +341,7 @@
             })
         });
 
-        document.querySelector("#item-statistics").classList.add("d-hide");
+        // document.querySelector("#item-statistics").classList.add("d-hide");
 
     </script>
 
