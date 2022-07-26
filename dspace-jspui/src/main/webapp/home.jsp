@@ -92,14 +92,14 @@
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
 			<div class="total">
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/handle/miguilim/2'" style="cursor:pointer">
+					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
 					</span>
 					Revistas científicas
 				</p>
 				<p class="line"></p>
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/handle/miguilim/2669'" style="cursor:pointer">
+					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2669&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %>
 					</span>Portais de revistas
 				</p>
