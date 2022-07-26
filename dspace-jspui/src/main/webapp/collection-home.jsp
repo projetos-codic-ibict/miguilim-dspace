@@ -107,7 +107,7 @@
     ItemCounter ic = new ItemCounter(UIUtil.obtainContext(request));
 
     Boolean showItems = (Boolean)request.getAttribute("show.items");
-    boolean show_items = showItems != null ? showItems.booleanValue() : false;
+    boolean show_items = true;
 
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
