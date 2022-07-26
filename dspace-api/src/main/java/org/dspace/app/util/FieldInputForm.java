@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Map;
+import java.util.Objects;
 import java.util.SortedMap;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -142,5 +143,18 @@ public class FieldInputForm {
                 ", simpleInputType='" + simpleInputType + '\'' +
                 ", complextInputType=" + complextInputType +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        FieldInputForm that = (FieldInputForm) o;
+        return Objects.equals(schema, that.schema) && Objects.equals(element, that.element) && Objects.equals(qualifier, that.qualifier);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(schema, element, qualifier);
     }
 }

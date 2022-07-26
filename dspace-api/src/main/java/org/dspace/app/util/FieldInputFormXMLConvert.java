@@ -3,6 +3,7 @@ package org.dspace.app.util;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import org.dspace.content.MetadataValue;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.json.JSONObject;
 import org.json.XML;
@@ -73,11 +74,16 @@ public class FieldInputFormXMLConvert {
                     }
                 }
             }
-            return listOfFieldInputForm;
+            return removeDuplications(listOfFieldInputForm);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public static List<FieldInputForm> removeDuplications(List<FieldInputForm> fieldInputForms){
+        Set<FieldInputForm> set = new LinkedHashSet<>(fieldInputForms);
+        return new ArrayList<>(set);
     }
 
     private static Map<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
