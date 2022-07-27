@@ -205,7 +205,7 @@ public class ItemTag extends TagSupport {
 
     private static final String DOI_DEFAULT_BASEURL = "http://dx.doi.org/";
 
-    private static String REVISTAS = "miguilim/2";
+    private static String PORTAIS = "Portais";
 
     /** Item to display */
     private Item item;
@@ -657,12 +657,17 @@ public class ItemTag extends TagSupport {
         // List<MetadataValue> values = itemService.getMetadata(item, Item.ANY,
         // Item.ANY, Item.ANY, Item.ANY);
         String[] metadataFields = null;
-        if (item.getCollections().get(0).getHandle().equals(REVISTAS)) {
-            metadataFields = styleSelection.getConfigurationForStyle("default");
-        } else {
+        System.out.println("item.getOwningCollection().getName(): " + item.getOwningCollection().getName());
+        if (item.getOwningCollection().getName().startsWith(PORTAIS)) {
+            System.out.println("portais");
             metadataFields = styleSelection.getConfigurationForStyle("portais");
+        } else {
+            System.out.println("revista default");
+            metadataFields = styleSelection.getConfigurationForStyle("default");
         }
-
+        for (String field : metadataFields) {
+            System.out.println("field: " + field);
+        }
         if (ArrayUtils.isEmpty(metadataFields)) {
             metadataFields = defaultFields.split(",");
         }
