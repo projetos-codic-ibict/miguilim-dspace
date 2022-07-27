@@ -415,7 +415,13 @@ public class ItemTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         Context context = UIUtil.obtainContext(request);
         Locale sessionLocale = UIUtil.getSessionLocale(request);
-        String[] metadataFields = styleSelection.getConfigurationForStyle(style);
+
+        String[] metadataFields = null;
+        if (item.getOwningCollection().getName().startsWith(PORTAIS)) {
+            metadataFields = styleSelection.getConfigurationForStyle("portais");
+        } else {
+            metadataFields = styleSelection.getConfigurationForStyle(style);
+        }
 
         if (ArrayUtils.isEmpty(metadataFields)) {
             metadataFields = defaultFields.split(",");
@@ -496,7 +502,7 @@ public class ItemTag extends TagSupport {
                     metadataNameClass = schema + "_" + element + "_" + qualifier;
                 }
 
-                out.print("<tr><td class=\"metadataFieldLabel " + metadataNameClass + "\">");
+                out.print("<tr><td class=\"metadataFieldLabel1 " + metadataNameClass + "\">");
 
                 String label = null;
                 try {
@@ -653,21 +659,14 @@ public class ItemTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         Context context = UIUtil.obtainContext(request);
 
-        // Get all the metadata
-        // List<MetadataValue> values = itemService.getMetadata(item, Item.ANY,
-        // Item.ANY, Item.ANY, Item.ANY);
+
         String[] metadataFields = null;
-        System.out.println("item.getOwningCollection().getName(): " + item.getOwningCollection().getName());
         if (item.getOwningCollection().getName().startsWith(PORTAIS)) {
-            System.out.println("portais");
             metadataFields = styleSelection.getConfigurationForStyle("portais");
         } else {
-            System.out.println("revista default");
             metadataFields = styleSelection.getConfigurationForStyle("default");
         }
-        for (String field : metadataFields) {
-            System.out.println("field: " + field);
-        }
+
         if (ArrayUtils.isEmpty(metadataFields)) {
             metadataFields = defaultFields.split(",");
         }
@@ -683,6 +682,7 @@ public class ItemTag extends TagSupport {
                 + "</th></tr>");
 
         for (String field : metadataFields) {
+            System.out.println("field1: " + field);
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
             if (fieldStyleMatcher.matches()) {
@@ -702,8 +702,9 @@ public class ItemTag extends TagSupport {
 
             List<MetadataValue> displayValues = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
             if (displayValues != null && !displayValues.isEmpty()) {
+                System.out.println("field1: " + field);
                 out.print("<tr>");
-                out.print("<td headers=\"s1\" class=\"metadataFieldLabel\">");
+                out.print("<td headers=\"s1\" class=\"metadataFieldLabel2\">");
                 out.print(field);
 
                 String label = null;
@@ -752,7 +753,7 @@ public class ItemTag extends TagSupport {
                 .getRequest();
 
         if (collections != null) {
-            out.print("<tr><td class=\"metadataFieldLabel\">");
+            out.print("<tr><td class=\"metadataFieldLabel3\">");
             if (item.getHandle() == null) // assume workspace item
             {
                 out.print(LocaleSupport.getLocalizedMessage(pageContext,
