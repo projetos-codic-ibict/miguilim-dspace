@@ -2479,5 +2479,10 @@ a.admin-help {
   padding-bottom: 1.5rem;
 }
 
+.pagination-number-itens .active a {
+  background-color: #04132A;
+  color: #FFFFFF;
+}
+
 
 /*# sourceMappingURL=dspace-theme.css.map */
