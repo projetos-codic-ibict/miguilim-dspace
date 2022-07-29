@@ -107,30 +107,7 @@
    <a href="https://miguilim.ibict.br/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. 
     Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora do Miguilim a verificação e revisão dos dados indicados.</p>
     
-    <h2><strong class="titulo-medio">Atualização do cadastro de Portais de revistas</strong></h2>
-
-    <p>As instruções de alteração apresentadas anteriormente não se aplicam à coleção “Portais de revistas”. Para alterar os dados desses registros, o gestor do porrtal deverá
-    entrar em contato com a Equipe Miguilim solicitando sua atualização. 
-    O contato pode ser feito por e-mail (miguilim@ibict.br). Neste contato é importante que o solicitante
-    apresente-se e informe por qual o Portal de revistas é responsável.
-	    
-    <p>Os campos da coleção "Portais de revistas" são:</p>
-
-    <dl>
-        <dd>Nome do portal de revistas* </dd>
-        <dd>URL* </dd>
-        <dd>Instituição responsável* </dd>
-        <dd>Organismo subordinado </dd>
-        <dd>Administrador responsável* </dd>
-        <dd>E-mail* </dd>
-        <dd>Código Postal (CEP)* </dd>
-        <dd>Estado (UF)* </dd>
-        <dd>Cidade* </dd>
-        <dd>Bairro/Setor* </dd>
-        <dd>Rua/Quadra ou similar</dd>
-        <dd>Casa/Prédio/ Sala ou similar</dd>
-        <dd>Telefone</dd>
-        <dd>Revistas do portal*</dd>
+   
     </dl>
 
 </div>
