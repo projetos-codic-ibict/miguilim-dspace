@@ -78,7 +78,7 @@
 <h2><strong class="titulo-medio">Critérios básicos para cadastro</strong></h2>
 		<p id="margem-unica">Para que uma revista seja aceita no Miguilim ela deverá cumprir os seguintes requisitos mínimos:</p>
 
-		<ul>
+		</ol>
 			<li>Ter registro de ISSN para o suporte eletrônico;</li>
 			<li>Ter o Brasil como país de publicação na rede ISSN;</li>  
                         <li>Ser eletrônica e estar disponível online;</li>
