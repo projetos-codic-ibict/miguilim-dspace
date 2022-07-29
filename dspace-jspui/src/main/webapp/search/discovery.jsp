@@ -229,7 +229,7 @@
 
                             String fkey = "jsp.search.facet.refine." + f;
                     %>
-                            <div class="accordion-body">
+                            <div class="accordion-body kk1">
 
                                 <div class="accordion-header collapsed" data-toggle="collapse" href="#facet_<%= f %>" role="button" aria-expanded="false" aria-controls="facet_<%= f %>">
                                     <span><fmt:message key="<%= fkey %>"/></span>
@@ -326,7 +326,7 @@
         %>
                 <div class="search-content">
                     <h3><fmt:message key="jsp.search.facet.refine"/></h3>
-                    <div class="accordion-body">
+                    <div class="accordion-body kk2">
                       
                     </div>
                 </div>

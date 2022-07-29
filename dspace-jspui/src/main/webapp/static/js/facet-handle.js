@@ -14,8 +14,10 @@ function  getAccordionContentElement() {
 
 function  openFacet() {
     const accordionItem = getAccordionContentElement();
-    accordionItem.style.height = 'auto';
-    accordionItem.classList.add('in');
+    if(accordionItem){
+        accordionItem.style.height = 'auto';
+        accordionItem.classList.add('in');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
