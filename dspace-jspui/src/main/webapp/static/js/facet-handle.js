@@ -2,26 +2,39 @@ function getFacetFromURL(){
     if(window.location.search) {
         const queryParams = window.location.search.substring(1);
         const params = queryParams.split("&");
-        const facetParam = params[params.length -1].split('=')[0];
-        return facetParam;
+        return params[params.length -1].split('=')[0];
     }
     return null;
 }
 
-function  getAccordionContentElement() {
+
+
+function  getFaceName() {
     const facetParam = getFacetFromURL();
-    const facetName = facetParam.split('_')[0];
-    return document.querySelector(`#facet_${facetName}`);
+   return facetParam.split('_')[0];
 }
 
-function  openFacet() {
-    const accordionItem = getAccordionContentElement();
+function  openFacet(facetName) {
+    let facetId = `#facet_${facetName}`;
+    const accordionItem = document.querySelector(facetId);
     if(accordionItem){
         accordionItem.style.height = 'auto';
         accordionItem.classList.add('in');
+        addAnchor(facetId)
     }
 }
 
+function addAnchor(facetId){
+    const url = new URL(window.location);
+    url.hash = `#${facetId}`;
+    window.history.pushState({}, '', url);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
-    openFacet();
+    try {
+        const facetName = getFaceName();
+        openFacet(facetName);
+    }catch (e) {
+        console.error(e)
+    }
 })
