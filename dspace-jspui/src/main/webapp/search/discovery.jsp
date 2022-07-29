@@ -130,6 +130,7 @@
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/facet-handle.js'></script>
     <script type="text/javascript">
         var jQ = jQuery.noConflict();
         jQ(document).ready(function () {
