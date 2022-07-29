@@ -4,7 +4,7 @@ function getFacetFromURL(){
         const params = queryParams.split("&");
         return params[params.length -1].split('=')[0];
     }
-    return null;
+    return '';
 }
 
 
@@ -26,7 +26,7 @@ function  openFacet(facetName) {
 
 function addAnchor(facetId){
     const url = new URL(window.location);
-    url.hash = `#${facetId}`;
+    url.hash = facetId;
     window.history.pushState({}, '', url);
 }
 
