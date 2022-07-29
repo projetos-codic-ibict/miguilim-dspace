@@ -100,11 +100,11 @@
       <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. 
 	   Os campos devem ser preenchidos de acordo  com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar. A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora a verificação e revisão dos dados indicados.</p>
 
-    <h2><strong class="titulo-medio">Revistas cadastradas pelos responsáveis (Possuem login vinculado)</strong></h2>
+    <h2><strong class="titulo-medio">Revistas e portais de revistas cadastrados pelos responsáveis (Possuem login vinculado)</strong></h2>
 	
-    <p>Revistas que foram cadastradas pelos próprios responsáveis já possuem permissão de acesso interno aos registros e podem fazer a atualização dos dados da revista sem 
-    solicitar permissão para isso. Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista e clicar no botão “Editar”, que se encontra no quadro "Ferramentas do administrador" 
-   <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. 
+    <p>Revistas e portais de revistas que foram cadastrados pelos próprios responsáveis já possuem permissão de acesso interno aos registros e podem fazer a atualização dos dados sem 
+    solicitar permissão para isso. Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista ou portal e clicar no botão “Editar”, que se encontra no quadro "Ferramentas do administrador" 
+   <a href="https://miguilim.ibict.br/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. Os campos devem ser preenchidos de acordo com as instruções indicadas. 
     Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro será disponibilizada automaticamente no diretório, cabendo à equipe gestora do Miguilim a verificação e revisão dos dados indicados.</p>
     
     <h2><strong class="titulo-medio">Atualização do cadastro de Portais de revistas</strong></h2>
