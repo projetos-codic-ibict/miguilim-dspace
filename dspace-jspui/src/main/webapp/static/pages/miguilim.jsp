@@ -82,7 +82,7 @@
     plataformas. O Diretório reúne em sua base de dados o cadastro de informações essenciais das políticas editoriais de milhares de revistas científicas brasileiras e tem
     como objetivos básicos: </p>
 	
-    <ol>
+    </p>
         <li>Facilitar o acesso ao conjunto das revistas científicas editadas e publicadas no Brasil;</li>
         <li>Dar visibilidade às revistas científicas brasileiras com intuito de aumentar o impacto da sua produção no cenário internacional;</li>
         <li>Explicitar aspectos da política editorial com vistas a transparência dos processos editoriais empreendidos pelas revistas;</li>
@@ -93,7 +93,7 @@
         <li>Servir como porta de entrada para outros produtos do Ibict que fazem o cadastro de revistas científicas, como Diadorim, Oasisbr, Latindex  e Emeri;</li>
         <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e a consistência desses dados nas diversas plataformas;</li>
 	<li>Fomentar ações práticas relacionadas aos Movimentos de Ciência Aberta e de Acesso Aberto à informação científica.</li>
-    </ol>  
+    </p>  
 
     <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico. </p>
 	
