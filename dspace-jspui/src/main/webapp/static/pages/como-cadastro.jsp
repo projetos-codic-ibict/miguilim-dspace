@@ -82,10 +82,10 @@
     “Navegar” > “Comunidades e coleções”. 
 	Aconselha-se que esta verificação seja feita tanto para revistas científicas quanto para portais de revistas que os responsáveis não tenham feito o cadastro no Miguilim, pois vários itens foram pré-cadastrados pela 
     equipe do Diretório. Caso localize o registro da revista científica ou do Portal de revistas que desejava cadastrar, não 
-    realize um novo registro. Neste caso, deve ser feita a <a href="http://200.130.0.162/static/pages/como-atualizar-cadastro.jsp" target="_blank">atualização do cadastro</a> existente.</p>
+    realize um novo registro. Neste caso, deve ser feita a <a href="https://miguilim.ibict.br/static/pages/como-atualizar-cadastro.jsp" target="_blank">atualização do cadastro</a> existente.</p>
     
     <p>Assegurando-se que a revista científica ou o Portal de revistas não se encontram previamente cadastrados no Miguilim, 
-    basta fazer o login pela aba "Login” e clicar no botão “Iniciar um novo depósito” <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Em seguida
+    basta fazer o login pela aba "Login” e clicar no botão “Iniciar um novo depósito” <a href="https://miguilim.ibict.br/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Em seguida
     deve-se escolher uma das duas coleções do Miguilim: “Revistas científicas” ou “Portais de revistas”.</p>
 	
     <p>Escolhida a coleção o usuário terá acesso ao formulário de cadastro, momento em que deve iniciar a descrição do registro por meio do preenchimento dos campos de
