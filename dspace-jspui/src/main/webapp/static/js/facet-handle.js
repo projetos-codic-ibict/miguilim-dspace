@@ -9,7 +9,9 @@ function getFacetFromURL(){
 }
 
 function  getAccordionContentElement() {
-    return document.querySelector(`#${getFacetFromURL()}`);
+    const facetParam = getFacetFromURL();
+    const facetName = facetParam.split('_')[0];
+    return document.querySelector(`#facet_${facetName}`);
 }
 
 function  openFacet() {
