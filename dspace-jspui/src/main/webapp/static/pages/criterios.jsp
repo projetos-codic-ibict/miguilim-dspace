@@ -92,10 +92,8 @@
 			</ul>
 		</ul>
 		
-		<p id="margem-unica">O Miguilim também aceita o cadastro de portais de revistas, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima. 
-.</p>
-		<p id="margem-unica">Todas as revistas científicas e portais de revistas que realizarem o cadastro no Miguilim serão avaliados segundo estes critérios. Caso o responsável queira solicitar uma avaliação prévia deve enviar e-mail para miguilim@ibict.br. 
-.</p>
+		<p id="margem-unica">O Miguilim também aceita o cadastro de portais de revistas, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima.  </p>
+		<p id="margem-unica">Todas as revistas científicas e portais de revistas que realizarem o cadastro no Miguilim serão avaliados segundo estes critérios. Caso o responsável queira solicitar uma avaliação prévia deve enviar e-mail para miguilim@ibict.br. </p>
 </div>
 </dspace:layout>
 
