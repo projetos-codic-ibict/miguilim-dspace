@@ -76,26 +76,25 @@
 <div class="espacamento minus-space"> 
     <h2><strong class="titulo-medio">Como atualizar um cadastro?</strong></h2>
 
-    <p>Para atualizar o cadastro de uma revista científica é necessário que o usuário  tenha o acesso autorizado para realizar tal 
-    ação. As revistas que foram cadastradas pelos próprios responsáveis já possuem essa autorização. Para verificar se possui 
-    autorização para atualizar a revista, faça o Login no diretório, entre em “Meu espaço” e clique na aba “Ver depósito(s) aceito(s)”.
-    As revistas listadas nessa seção estão vinculadas a esse login e podem ser atualizadas. As revistas que foram pré-cadastradas no
-    Miguilim precisam solicitar autorização para a atualização. Segue abaixo as instruções de
-    como atualizar os dados da revista em cada situação.</p>
+    <p>Para atualizar o cadastro de uma revista científica ou de um portal de revistas é necessário que o usuário tenha acesso autorizado para realizar tal 
+    ação. As revistas e portais que foram cadastradas pelos próprios responsáveis já possuem essa autorização. Para verificar se possui 
+    autorização, faça o Login no Miguilim, entre em “Meu espaço” e clique na aba “Ver depósito(s) aceito(s)”.
+    As revistas e e portais de revistas listados nessa seção estão vinculados a esse login e podem ser atualizados. As revistas e portais de revistas que foram pré-cadastrados no
+    Miguilim precisam solicitar autorização para a atualização. Segue abaixo as instruções de como atualizar os dados do registro em cada situação.</p>
 
-    <h2><strong class="titulo-medio">Revistas pré-cadastradas (Não possuem login vinculado)</strong></h2>
+    <h2><strong class="titulo-medio">Revistas e portais de revistas pré-cadastrados (Não possuem login vinculado)</strong></h2>
     
-    <p>Caso o usuário localize um registro de revista de sua responsabilidade já registrada no Miguilim e deseje fazer alterações no
+    <p>Caso o usuário localize um registro de revista ou de portal de revistas de sua responsabilidade já cadastrado no Miguilim e deseje fazer alterações no
     mesmo, deve primeiramente solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a
-    página do registro da revista e clicar na aba "Solicitar edição da revista". Ao clicar nessa aba o usuário terá acesso ao “Formulário 
-    de solicitação de edição de revista no Miguilim” e deverá preencher os campos de acordo com as instruções indicadas e clicar em “Enviar”. 
-    Os dados informados serão verificados pela Equipe Miguilim no site da revista, que concederá ou não as permissões de atualização. 
-    As informações fornecidas no formulário deverão ser as mesmas constantes no site da revista, caso contrário não será possível 
+    página do registro da revista ou do portal de revistas e clicar na aba "Solicitar edição de registros". Ao clicar nessa aba o usuário terá acesso ao “Formulário 
+    de solicitação de edição de registros” e deverá preencher os campos de acordo com as instruções indicadas e clicar em “Enviar”. 
+    Os dados informados serão verificados pela Equipe Miguilim no site da revista ou do portal de revistas, que concederá ou não as permissões de atualização. 
+    As informações fornecidas no formulário deverão ser as mesmas constantes no site da revista e/ou do portal de revistas, caso contrário não será possível 
     conceder as autorizações. O endereço de e-mail informado deverá ser o mesmo utilizado para realizar o login no Miguilim, já que a permissão 
-    vai ser dada para este login. <a href="http://200.130.0.162/static/pages/criacao-login.jsp">(Veja como criar um login aqui)</a>.</p>
+    vai ser dada para este login. <a href="https://miguilim.ibict.br/static/pages/criacao-login.jsp">(Veja como criar um login aqui)</a>.</p>
 
-    <p>Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Em seguida a Equipe
-    Miguilim entrará em contato com a revista indicando que esta possui as autorizações necessárias para a atualização do registro.</p>
+    <p>Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Em seguida, a Equipe
+    Miguilim entrará em contato com a revista ou portal de revistas informando que as autorizações necessárias para a atualização do registro foram concedidas.</p>
     
     <p>Com as devidas autorizações e logado no Miguilim, o usuário deverá dirigir-se ao registro da revista e clicar no botão “Editar” que se encontra no quadro "Ferramentas do administrador"
       <a href="http://200.130.0.162/static/pages/criacao-login.jsp" target="_blank">(Veja como criar um login aqui)</a>. Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que achar necessário. 
