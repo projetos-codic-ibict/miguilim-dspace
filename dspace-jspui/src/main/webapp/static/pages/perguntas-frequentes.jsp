@@ -81,10 +81,9 @@
         <a href="#ComoCadastroUmaRevista">Como cadastrar uma revista científica ou um portal de revistas?</a>
         <a href="#criteriosBasicos">Quais são os critérios básicos para cadastro?</a>
         <a href="#QualquerRevista">Qualquer revista pode ser cadastrada?</a>
-        <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas?</a>
-        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar uma revista científica?</a>
-        <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista científica?</a>
-        <a href="#ComoAlterarOregistro">Como alterar o registro de um Portal de revistas?</a>
+        <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas e portais de revistas?</a>
+        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar revistas e portais de revistas?</a>
+        <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista ou portal de revistas?</a>
         <a href="#PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</a>
         <a href="#RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</a>
         <a href="#ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</a>
@@ -149,54 +148,31 @@
                 pela equipe do Diretório antes de serem aprovados. Além de verificar o cumprimento dos critérios básicos, a revisão tem o objetivo de avaliar se os dados foram
                 preenchidos de acordo com as instruções indicadas em cada campo e se as informações fornecidas condizem com o que se indica na página da revista.</p>
     
-            <h2 id="QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas científicas?</h2>
+            <h2 id="QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas e portais de revistas?</h2>
     
-                <p id="margem-unica">Para atualizar o cadastro de uma revista científica é necessário que o usuário  tenha o acesso autorizado para realizar tal ação. As revistas
-                que foram cadastradas pelos próprios responsáveis já possuem essa autorização. Para verificar se possui autorização para atualizar a revista, faça o Login no diretório, 
-                entre em “Meu espaço” e clique na aba “Ver depósito (s) aceito (s)”. As revistas listadas nessa seção estão vinculadas a esse login e podem ser atualizadas. As revistas
-                que foram pré-cadastradas no Miguilim precisam solicitar a autorização para a atualização.</p>
+                <p id="margem-unica">Para atualizar o cadastro de uma revista ou portal de revistas é necessário que o usuário tenha acesso autorizado para realizar tal ação. As revistas
+                e portais de revistas que foram cadastrados pelos próprios responsáveis já possuem essa autorização. Para verificar se possui essa autorização, faça Login no Miguilim, 
+                entre em “Meu espaço” e clique na aba “Ver depósito (s) aceito (s)”. As revistas e portais de revistas listados nessa seção estão vinculadas a esse login e podem ser atualizados. As revistas
+                e portais de revistas que foram pré-cadastrados no Miguilim precisam solicitar a autorização para atualização.</p>
     
-            <h2 id="ComoSolicitarPermissao">Como solicitar permissão para atualizar uma revista científica?</h2>
+            <h2 id="ComoSolicitarPermissao">Como solicitar permissão para atualizar revistas ou portais de revistas?</h2>
     
-                <p id="margem-unica">Caso o usuário localize um registro de revista de sua responsabilidade já registrada no Miguilim e deseje fazer alterações no mesmo, ele deve 
-                primeiramente solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a página do registro da revista e clicar na aba 
-                "Solicitar edição da revista". Ao clicar nessa aba o usuário terá acesso ao “Formulário de solicitação de edição de revista no Miguilim” e deverá preencher os 
-                campos de acordo com as instruções indicadas e clicar em “Enviar”. Os dados informados serão verificados pela Equipe Miguilim no site da revista, que concederá ou
-                não as permissões de atualização. As informações fornecidas no formulário deverão ser as mesmas que constam no site da revista, caso contrário não será 
+                <p id="margem-unica">Caso o usuário localize um registro de sua responsabilidade já registrada no Miguilim e deseje fazer alterações no mesmo, primeiramente ele deve 
+                solicitar permissão para a atualização do registro. Para esta solicitação, o usuário deve acessar a página do registro e clicar na aba 
+                "Solicitar edição de registro", quando terá acesso ao “Formulário de solicitação de edição de registros”. A partir disso, deverá preencher os 
+                campos de acordo com as instruções indicadas e clicar em “Enviar”. Os dados informados serão verificados pela Equipe Miguilim no site da revista ou do portal de revistas, que concederá ou
+                não as permissões de atualização. As informações fornecidas no formulário deverão ser as mesmas que constam no site indicado, caso contrário não será 
                 possível conceder as autorizações. O endereço de e-mail informado deverá ser o mesmo utilizado para realizar o login no Miguilim, já que a permissão vai ser dada para
-                este login. Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Em seguida
+                este login. Assim que o formulário for enviado a Equipe Miguilim será notificada e irá proceder com os ajustes para a concessão das permissões de atualização. Realizados os procedimentos,
                 a Equipe Miguilim entrará em contato com a revista indicando que esta possui as autorizações necessárias para a atualização do registro.</p>
     
-            <h2 id="ComoAtualizarArevista">Como atualizar o cadastro de uma revista científica?</h2>
+            <h2 id="ComoAtualizarArevista">Como atualizar o cadastro de uma revista ou portal de revistas?</h2>
                 
-                <p id="margem-unica">Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista e clicar no botão "Editar", que se encontra no quadro "Ferramentas do administrador".
+                <p id="margem-unica">Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista ou portal de revistas e clicar no botão "Editar", que se encontra no quadro "Ferramentas do administrador".
                 Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que forem 
                 necessários. Os campos devem ser preenchidos de acordo com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro
-		será disponibiliza automaticamente no diretório, cabendo À equipe gestora a verificação e revisão dos dados indicados.</p>
-            
-            <h2 id="ComoAlterarOregistro">Como alterar o registro de um portal de revistas?</h2>
-    
-                <p id="margem-unica">Para alterar os dados desses registros, o (a) gestor (a) do portal deverá entrar em contato com a Equipe Miguilim solicitando sua atualização. O contato deve ser feito
-                por e-mail <miguilims@ibict.br>. Neste contato é importante que o (a) solicitante apresente-se e informe por qual o portal de revistas é responsável. Os campos da 
-                coleção "Portais de revistas" são:</p>
-    
-                <dl>
-                    <dd>Nome do portal de revistas* </dd>
-                    <dd>URL* </dd>
-                    <dd>Instituição responsável* </dd>
-                    <dd>Organismo subordinado </dd>
-                    <dd>Administrador (a) responsável* </dd>
-                    <dd>E-mail* </dd>
-                    <dd>Código Postal (CEP)* </dd>
-                    <dd>Estado (UF)* </dd>
-                    <dd>Cidade* </dd>
-                    <dd>Bairro/Setor* </dd>
-                    <dd>Rua/Quadra ou similar</dd>
-                    <dd>Casa/Prédio/ Sala ou similar</dd>
-                    <dd>Telefone</dd>
-                    <dd>Revistas do portal*</dd>
-                </dl>
-            
+		será disponibiliza automaticamente no diretório, cabendo à equipe gestora posterior verificação e revisão dos dados indicados.</p>
+                                  
             <h2 id="PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</h2>
     
                 <p id="margem-unica">O Miguilim foi criado com o intuito de agregar, em um único local, informações sobre as revistas científicas editadas e publicadas no Brasil que se encontravam
@@ -236,7 +212,7 @@
             
             <h2 id="DeOndeVieramAsInformacoes">De onde vieram as informações dos primeiros registros do Miguilim?</h2>
     
-                <p id="margem-unica">O Miguilim foi lançado com, aproximadamente, 4.800 registros de revistas científicas e 260 portais de revistas pré-cadastrados no 
+                <p id="margem-unica">O Miguilim foi lançado com mais de 5.000 registros de revistas científicas e 260 portais de revistas já cadastrados no 
                 diretório. Em relação às revistas científicas, os dados são provenientes de informações declaradas nas plataformas: Diadorim, Latindex, DOAJ, Portal ISSN, 
                 Wikidata, Google Scholar Metrics, Sumário e a base do antigo e já desativado Portal de periódicos SEER. Estes dados foram coletados dessas bases, passaram por
                 curadoria e então importados ao Miguilim. Em relação aos portais de revistas, estes foram mapeados pela equipe gestora e preenchidos manualmente.</p>
@@ -256,11 +232,13 @@
                 
             <h2 id="ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</h2>
     
-                <p id="margem-unica">Uma das funções prioritárias do Miguilim é manter um cadastro com informações atualizadas das revistas científicas que o compõe. Sendo assim, identificou-se a 
-                necessidade de criar um formulário em que os próprios editores científicos possam atualizar os dados das revistas que editam.</p>
+                <p id="margem-unica">Uma das funções prioritárias do Miguilim é manter atualizadas as informações das revistas e dos portais de revistas que o compõe. Sendo assim, identificou-se a 
+                necessidade de criar um formulário em que os próprios editores científicos e gestores de portais de revistas possam atualizar os dados das revistas que editam e dos portais que administram.</p>
     
-                <p id="margem-unica">Dessa forma, os dados que são atualizados no formulário são exportados automaticamente para o cadastro da revista no Miguilim. Quando a atualização do cadastro é feita a equipe gestora do Miguilim recebe um
-                e-mail comunicando da atualização do item, cabendo aos administradores a verificação dos dados informados e a realização de correções, se necessário.</p>
+                <p id="margem-unica">Dessa forma, foram feitas modificações nas configurações do formulário de atualização do software DSpace, de modo que os próprios editores e gestores consigam fazer as atualizações necessárias.
+			
+		<p id="margem-unica">Os dados atualizados são apresentados automaticamente no registro no Miguilim. Ao mesmo tempo, a equipe gestora recebe um e-mail comunicando da atualização do item, cabendo aos administradores a verificação dos dados informados
+		e a realização de correções, se necessário.</p>
             
             <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</h2>
     
