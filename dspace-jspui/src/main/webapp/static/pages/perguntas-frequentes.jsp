@@ -237,8 +237,7 @@
     
                 <p id="margem-unica">Dessa forma, foram feitas modificações nas configurações do formulário de atualização do software DSpace, de modo que os próprios editores e gestores consigam fazer as atualizações necessárias.
 			
-		<p id="margem-unica">Os dados atualizados são apresentados automaticamente no registro no Miguilim. Ao mesmo tempo, a equipe gestora recebe um e-mail comunicando da atualização do item, cabendo aos administradores a verificação dos dados informados
-		e a realização de correções, se necessário.</p>
+		<p id="margem-unica">Os dados atualizados são apresentados automaticamente no registro no Miguilim. Ao mesmo tempo, a equipe gestora recebe um e-mail comunicando da atualização do item, cabendo a ela posterior verificação dos dados informados e realização de correções, se necessário..</p>
             
             <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</h2>
     
