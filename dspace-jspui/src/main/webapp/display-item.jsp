@@ -211,12 +211,20 @@
         %>
 
         <div class="search-filter">
-                <%-- <strong>Please use this identifier to cite or link to this item:
-                <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
-            <div class="well"><fmt:message key="jsp.display-item.identifier"/>
-                <code><%= preferredIdentifier %>
-                </code></div>
-
+            <%-- <strong>Please use this identifier to cite or link to this item:
+            <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
+            
+            <%
+                if (preferredIdentifier != null) 
+                {
+            %>
+            <div class="well">
+                <fmt:message key="jsp.display-item.identifier"/>
+                <code><%= preferredIdentifier %></code>
+            </div>
+            <%
+                }
+            %>
             <ul class="nav nav-pills">
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message
@@ -231,7 +239,7 @@
                             key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
                 </li>
                 <%
-                    if (item.getCollections().get(0).getHandle().equals(REVISTAS)) {
+                    if (collections.get(0).getHandle().equals(REVISTAS)) {
                 %>
 
                 <li class="nav-item">

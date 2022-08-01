@@ -16,6 +16,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
+import java.util.Optional;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -415,9 +416,13 @@ public class ItemTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         Context context = UIUtil.obtainContext(request);
         Locale sessionLocale = UIUtil.getSessionLocale(request);
-
+        
         String[] metadataFields = null;
-        if (item.getOwningCollection().getName().startsWith(PORTAIS)) {
+        Collection collection = Optional
+            .ofNullable(item.getOwningCollection())
+            .orElse(collections != null ? collections.get(0) : null);
+        
+        if (collection != null && collection.getName().startsWith(PORTAIS)) {
             metadataFields = styleSelection.getConfigurationForStyle("portais");
         } else {
             metadataFields = styleSelection.getConfigurationForStyle(style);
@@ -659,9 +664,12 @@ public class ItemTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         Context context = UIUtil.obtainContext(request);
 
-
         String[] metadataFields = null;
-        if (item.getOwningCollection().getName().startsWith(PORTAIS)) {
+        Collection collection = Optional
+            .ofNullable(item.getOwningCollection())
+            .orElse(collections != null ? collections.get(0) : null);
+    
+        if (collection != null && collection.getName().startsWith(PORTAIS)) {
             metadataFields = styleSelection.getConfigurationForStyle("portais");
         } else {
             metadataFields = styleSelection.getConfigurationForStyle("default");
@@ -682,7 +690,6 @@ public class ItemTag extends TagSupport {
                 + "</th></tr>");
 
         for (String field : metadataFields) {
-            System.out.println("field1: " + field);
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
             if (fieldStyleMatcher.matches()) {
@@ -702,7 +709,6 @@ public class ItemTag extends TagSupport {
 
             List<MetadataValue> displayValues = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
             if (displayValues != null && !displayValues.isEmpty()) {
-                System.out.println("field1: " + field);
                 out.print("<tr>");
                 out.print("<td headers=\"s1\" class=\"metadataFieldLabel2\">");
                 out.print(field);

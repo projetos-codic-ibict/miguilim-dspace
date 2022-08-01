@@ -23,9 +23,15 @@
 
 <%@ page import="org.dspace.app.webui.servlet.MyDSpaceServlet" %>
 <%@ page import="org.dspace.content.WorkspaceItem" %>
+<%@page import="org.dspace.content.Collection" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
+
+
 
 <%
     WorkspaceItem wi = (WorkspaceItem) request.getAttribute("workspace.item");
+    List<Collection> collections = Arrays.asList(wi.getCollection());
 %>
 
 <dspace:layout locbar="link"
@@ -38,7 +44,7 @@
     <%-- <p>Are you sure you want to remove the following incomplete item?</p> --%>
     <p><fmt:message key="jsp.mydspace.remove-item.confirmation"/></p>
 
-    <dspace:item item="<%= wi.getItem() %>"/>
+    <dspace:item item="<%= wi.getItem() %>" collections="<%= collections %>"/>
 
     <form action="<%= request.getContextPath() %>/mydspace" method="post">
         <input type="hidden" name="workspace_id" value="<%= wi.getID() %>"/>

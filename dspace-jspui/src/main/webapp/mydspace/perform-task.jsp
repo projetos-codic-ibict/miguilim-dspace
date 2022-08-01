@@ -27,12 +27,16 @@
 <%@ page import="org.dspace.eperson.EPerson" %>
 <%@ page import="org.dspace.workflowbasic.BasicWorkflowItem" %>
 <%@ page import="org.dspace.workflowbasic.service.BasicWorkflowService" %>
+<%@ page import="java.util.Arrays" %>
+<%@ page import="java.util.List" %>
 
 <%
     BasicWorkflowItem workflowItem =
         (BasicWorkflowItem) request.getAttribute("workflow.item");
 
     Collection collection = workflowItem.getCollection();
+    List<Collection> collections = Arrays.asList(collection);
+
     Item item = workflowItem.getItem();
 %>
 
@@ -72,7 +76,7 @@
     }
 %>
     
-    <dspace:item item="<%= item %>" />
+    <dspace:item item="<%= item %>" collections="<%= collections %>" />
 
     <p>&nbsp;</p>
 
