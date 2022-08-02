@@ -49,9 +49,13 @@
 <%!
 	private java.util.Optional<FacetResult> getFacetResult(Map<String, List<FacetResult>> facetsRoot,
 														   String rootFacet, String targetFacet) {
-		Optional<FacetResult> facetResultOpt = facetsRoot.get(rootFacet).stream().filter(facetResult ->
-				facetResult.getDisplayedValue().equalsIgnoreCase(targetFacet)).findFirst();
-		return facetResultOpt;
+		if(!facetsRoot.isEmpty() && facetsRoot.get(rootFacet) != null) {
+			Optional<FacetResult> facetResultOpt = facetsRoot.get(rootFacet).stream().filter(facetResult ->
+					facetResult.getDisplayedValue().equalsIgnoreCase(targetFacet)).findFirst();
+			return facetResultOpt;
+
+		}
+		return Optional.empty();
 	}
 
 	public static final String REVISTAS = "miguilim/2";
