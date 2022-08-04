@@ -44,7 +44,6 @@
 <%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
 
 <%
-    // Retrieve attributes
     Collection collection = (Collection) request.getAttribute("collection");
     Community  community  = (Community) request.getAttribute("community");
     Group      submitters = (Group) request.getAttribute("submitters");
