@@ -2474,8 +2474,7 @@ a.admin-help {
     opacity: 1;
   }
 }
-
-.list-group .list-group-item{
+.list-group .list-group-item {
   padding-bottom: 1.5rem;
 }
 
@@ -2483,6 +2482,5 @@ a.admin-help {
   background-color: #04132A;
   color: #FFFFFF;
 }
-
 
 /*# sourceMappingURL=dspace-theme.css.map */

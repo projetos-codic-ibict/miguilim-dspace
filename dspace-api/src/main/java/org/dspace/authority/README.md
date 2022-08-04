@@ -17,6 +17,7 @@ authority.author.indexer.field.1=dc.contributor.author
 authority.author.indexer.field.2=dc.relation.ispartofseries
 ```
 
+
 ## Add the desired properties of the new authority type in the solr schema
 solr/authority/conf/schema.xml
 ```
