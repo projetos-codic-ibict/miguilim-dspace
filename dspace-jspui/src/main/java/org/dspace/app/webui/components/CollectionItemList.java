@@ -95,13 +95,12 @@ public class CollectionItemList implements CollectionHomeProcessor
         {
             offset = 0;
         }
-        
+
         try
         {
             BrowseIndex bi = BrowseIndex.getBrowseIndex(name);
             if (bi == null || !"item".equals(bi.getDisplayType()))
             {
-                log.info("Log 4");
                 request.setAttribute("show.items", Boolean.FALSE);
                 return;
             }
@@ -123,18 +122,15 @@ public class CollectionItemList implements CollectionHomeProcessor
 
             if (binfo.hasResults())
             {
-                log.info("Log 3");
                 request.setAttribute("show.items", Boolean.TRUE);
             }
             else
             {
-                log.info("Log 2");
                 request.setAttribute("show.items", Boolean.FALSE);
             }
         }
         catch (BrowseException e)
         {
-            log.info("Log 1");
             request.setAttribute("show.items", Boolean.FALSE);
         }
     }
