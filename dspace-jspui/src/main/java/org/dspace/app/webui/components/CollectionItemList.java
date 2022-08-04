@@ -7,23 +7,20 @@
  */
 package org.dspace.app.webui.components;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.dspace.authorize.AuthorizeException;
+import org.apache.log4j.Logger;
 import org.dspace.app.webui.util.UIUtil;
+import org.dspace.authorize.AuthorizeException;
+import org.dspace.browse.*;
 import org.dspace.content.Collection;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.plugin.CollectionHomeProcessor;
 import org.dspace.plugin.PluginException;
-import org.dspace.browse.BrowseEngine;
-import org.dspace.browse.BrowseIndex;
-import org.dspace.browse.BrowseInfo;
-import org.dspace.browse.BrowserScope;
-import org.dspace.browse.BrowseException;
 import org.dspace.sort.SortException;
 import org.dspace.sort.SortOption;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -35,6 +32,9 @@ import org.dspace.sort.SortOption;
  */
 public class CollectionItemList implements CollectionHomeProcessor
 {
+
+    private static Logger log = Logger.getLogger(CollectionItemList.class);
+
     // the name of a browse index to display collection's items
     private static String name = ConfigurationManager.getProperty("webui.collectionhome.browse-name");
     // the number of authors to display before trncating
@@ -122,15 +122,18 @@ public class CollectionItemList implements CollectionHomeProcessor
 
             if (binfo.hasResults())
             {
+                log.info("Log 3");
                 request.setAttribute("show.items", Boolean.TRUE);
             }
             else
             {
+                log.info("Log 2");
                 request.setAttribute("show.items", Boolean.FALSE);
             }
         }
         catch (BrowseException e)
         {
+            log.info("Log 1");
             request.setAttribute("show.items", Boolean.FALSE);
         }
     }
