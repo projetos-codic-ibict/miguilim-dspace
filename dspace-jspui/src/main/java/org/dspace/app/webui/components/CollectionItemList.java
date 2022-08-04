@@ -101,6 +101,7 @@ public class CollectionItemList implements CollectionHomeProcessor
             BrowseIndex bi = BrowseIndex.getBrowseIndex(name);
             if (bi == null || !"item".equals(bi.getDisplayType()))
             {
+                log.info("Log 4");
                 request.setAttribute("show.items", Boolean.FALSE);
                 return;
             }
