@@ -43,7 +43,6 @@
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 <%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
 
-
 <%
     // Retrieve attributes
     Collection collection = (Collection) request.getAttribute("collection");
