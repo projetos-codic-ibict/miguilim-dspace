@@ -1,3 +1,3 @@
 # Send out subscription e-mails at 02:00 every day
 # (This sends an email to any users who have "subscribed" to a Collection, notifying them of newly added content.)
-30 10 * * * /dspace/bin/dspace sub-daily
+30 22 * * * /dspace/bin/dspace sub-daily
