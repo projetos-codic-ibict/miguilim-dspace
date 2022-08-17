@@ -154,7 +154,7 @@ public class SubscribeCLITool {
         // What we actually want to pass to Harvest is "Midnight of yesterday in my current timezone"
         // Truncation will actually pass in "Midnight of yesterday in UTC", which will be,
         // at least in CDT, "7pm, the day before yesterday, in my current timezone".
-        cal.add(Calendar.HOUR, -24);
+        cal.add(Calendar.HOUR, -0);
         cal.set(Calendar.HOUR_OF_DAY, 0);
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
@@ -338,7 +338,7 @@ public class SubscribeCLITool {
         String today = sdf.format(new Date());
         // Get the start and end dates for yesterday
         Date thisTimeYesterday = new Date(System.currentTimeMillis()
-                - (24 * 60 * 60 * 1000));
+                - (0 * 60 * 60 * 1000));
         String yesterday = sdf.format(thisTimeYesterday);
         System.out.println("DATA 2: " + yesterday);
 
@@ -390,7 +390,7 @@ public class SubscribeCLITool {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         // Get the start and end dates for yesterday
         Date thisTimeYesterday = new Date(System.currentTimeMillis()
-                - (24 * 60 * 60 * 1000));
+                - (0 * 60 * 60 * 1000));
         String yesterday = sdf.format(thisTimeYesterday);
         System.out.println("DATA 3: " + yesterday);
 
