@@ -7,28 +7,46 @@
  */
 package org.dspace.eperson;
 
-import org.apache.commons.cli.*;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
+import java.util.TimeZone;
+
+import javax.mail.MessagingException;
+
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.HelpFormatter;
+import org.apache.commons.cli.Option;
+import org.apache.commons.cli.Options;
+import org.apache.commons.cli.PosixParser;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.dspace.content.*;
 import org.dspace.content.Collection;
+import org.dspace.content.DCDate;
+import org.dspace.content.Item;
+import org.dspace.content.MetadataSchema;
+import org.dspace.content.MetadataValue;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
-import org.dspace.core.*;
+import org.dspace.core.ConfigurationManager;
+import org.dspace.core.Context;
+import org.dspace.core.Email;
+import org.dspace.core.I18nUtil;
+import org.dspace.core.LogManager;
 import org.dspace.eperson.factory.EPersonServiceFactory;
 import org.dspace.eperson.service.SubscribeService;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
 import org.dspace.search.Harvest;
 import org.dspace.search.HarvestedItemInfo;
-
-import javax.mail.MessagingException;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.*;
 
 /**
  * CLI tool used for sending new item e-mail alerts to users
@@ -63,7 +81,8 @@ public class SubscribeCLITool {
     public static void processDaily(Context context, boolean test) throws SQLException,
             IOException {
         // Grab the subscriptions
-
+        
+        System.out.println("ENVIO 1");
         List<Subscription> subscriptions = subscribeService.findAll(context);
 
         EPerson currentEPerson = null;
@@ -119,6 +138,8 @@ public class SubscribeCLITool {
     public static void sendEmail(Context context, EPerson eperson,
                                  List<Collection> collections, boolean test) throws IOException, MessagingException,
             SQLException {
+
+        System.out.println("ENVIO 2");
         // Get a resource bundle according to the eperson language preferences
         Locale supportedLocale = I18nUtil.getEPersonLocale(eperson);
         ResourceBundle labels = ResourceBundle.getBundle("Messages", supportedLocale);
@@ -248,6 +269,7 @@ public class SubscribeCLITool {
      * @param argv command-line arguments, none used yet
      */
     public static void main(String[] argv) {
+        System.out.println("ENVIO 3");
         String usage = "org.dspace.eperson.Subscribe [-t] or nothing to send out subscriptions.";
 
         Options options = new Options();
@@ -303,6 +325,7 @@ public class SubscribeCLITool {
     }
 
     private static List<HarvestedItemInfo> filterOutToday(List<HarvestedItemInfo> completeList) {
+        System.out.println("ENVIO 4");
         log.debug("Filtering out all today item to leave new items list size="
                 + completeList.size());
         List<HarvestedItemInfo> filteredList = new ArrayList<HarvestedItemInfo>();
@@ -355,6 +378,7 @@ public class SubscribeCLITool {
     }
 
     private static List<HarvestedItemInfo> filterOutModified(List<HarvestedItemInfo> completeList) {
+        System.out.println("ENVIO 5");
         log.debug("Filtering out all modified to leave new items list size=" + completeList.size());
         List<HarvestedItemInfo> filteredList = new ArrayList<HarvestedItemInfo>();
 
