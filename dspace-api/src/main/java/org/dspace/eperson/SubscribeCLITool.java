@@ -159,6 +159,8 @@ public class SubscribeCLITool {
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         Date midnightYesterday = cal.getTime();
+        System.out.println("DATA 1: " + midnightYesterday);
+
 
 
         // FIXME: text of email should be more configurable from an
@@ -184,6 +186,7 @@ public class SubscribeCLITool {
                         false, // Or withdrawals
                         includeAll);
 
+                System.out.println("SIZE 1: " + itemInfos.size());
                 if (ConfigurationManager.getBooleanProperty("eperson.subscription.onlynew", false)) {
                     // get only the items archived yesterday
                     itemInfos = filterOutModified(itemInfos);
@@ -192,6 +195,7 @@ public class SubscribeCLITool {
                     // not archived yesterday and modified today
                     itemInfos = filterOutToday(itemInfos);
                 }
+                System.out.println("SIZE 2: " + itemInfos.size());
 
                 // Only add to buffer if there are new items
                 if (itemInfos.size() > 0) {
@@ -336,6 +340,7 @@ public class SubscribeCLITool {
         Date thisTimeYesterday = new Date(System.currentTimeMillis()
                 - (24 * 60 * 60 * 1000));
         String yesterday = sdf.format(thisTimeYesterday);
+        System.out.println("DATA 2: " + yesterday);
 
         for (HarvestedItemInfo infoObject : completeList) {
             Date lastUpdate = infoObject.item.getLastModified();
@@ -387,6 +392,7 @@ public class SubscribeCLITool {
         Date thisTimeYesterday = new Date(System.currentTimeMillis()
                 - (24 * 60 * 60 * 1000));
         String yesterday = sdf.format(thisTimeYesterday);
+        System.out.println("DATA 3: " + yesterday);
 
         for (HarvestedItemInfo infoObject : completeList) {
             List<MetadataValue> dateAccArr = itemService.getMetadata(infoObject.item, "dc", "date", "accessioned", Item.ANY);
