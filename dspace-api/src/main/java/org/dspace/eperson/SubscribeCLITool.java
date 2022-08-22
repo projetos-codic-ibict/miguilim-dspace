@@ -273,7 +273,6 @@ public class SubscribeCLITool {
      * @param argv command-line arguments, none used yet
      */
     public static void main(String[] argv) {
-        System.out.println("ENVIO 3");
         String usage = "org.dspace.eperson.Subscribe [-t] or nothing to send out subscriptions.";
 
         Options options = new Options();
