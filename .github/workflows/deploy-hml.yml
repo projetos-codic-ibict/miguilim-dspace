@@ -1,0 +1,17 @@
+name: Deploy HML-Miguilim
+
+on:
+  workflow_dispatch:
+
+env:
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_HOST_IP: ${{ secrets.SMTP_HOST_IP }}
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          sh docker/dspace/build-dspace.sh 
