@@ -1,0 +1,36 @@
+name: Pipeline - Deploy Miguilim
+
+on:
+  # push:
+  #  branches:
+  #    - main
+
+  workflow_dispatch:
+
+env:
+  SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+  SMTP_HOST_IP: ${{ secrets.SMTP_HOST_IP }}
+
+jobs:
+  HML:
+    runs-on: [self-hosted, linux, x64, runner-hml]
+    environment:
+      name: HML
+      url: 'http://172.16.21.20'
+    
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          sh docker/dspace/build-dspace.sh
+
+  PRD:
+    runs-on: [self-hosted, linux, x64, runner-prd]
+    environment: 
+      name: PRD
+      url: 'https://miguilim.ibict.br/'
+    needs: HML
+
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          sh docker/dspace/build-dspace.sh
