@@ -31,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          cp docker/dspace/config_files/subscription_setting /etc/cron.d/subscription_setting
+          sudo cp docker/dspace/config_files/subscription_setting /etc/cron.d/subscription_setting
           chmod 775 /etc/cron.d/subscription_setting
           crontab /etc/cron.d/subscription_setting
           sh docker/dspace/build-dspace.sh
