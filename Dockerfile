@@ -6,7 +6,7 @@ EXPOSE 8080
 RUN apt-get update; exit 0
 RUN apt-get -y install cron
 
-COPY docker/dspace/scripts/subscription_setting /etc/cron.d/subscription_setting
+COPY docker/dspace/config_files/subscription_setting /etc/cron.d/subscription_setting
 RUN chmod 775 /etc/cron.d/subscription_setting
 RUN crontab /etc/cron.d/subscription_setting
 

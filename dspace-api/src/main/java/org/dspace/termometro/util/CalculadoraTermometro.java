@@ -11,13 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.Calendar;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.TimeZone;
 import java.util.stream.Collectors;
 
 import org.dspace.content.DSpaceObject;
@@ -65,11 +62,6 @@ public class CalculadoraTermometro {
 
     public static String calcularPontuacaoTotalDoItem(DSpaceObject dso) throws IOException {
         initialize();
-        
-        Calendar cal = Calendar.getInstance(TimeZone.getDefault());
-        cal.setTime(new Date());
-        System.out.println("Data Original: " + cal.getTime());
-        System.out.println("Timezone: " + cal.getTimeZone());
         
         Map<String, List<String>> metadadosDoItem = obterValoresMetadados(dso, Item.ANY, Item.ANY, Item.ANY);
         Double pontuacaoTotalDoItem = calcularPontuacao(metadadosDoItem);
