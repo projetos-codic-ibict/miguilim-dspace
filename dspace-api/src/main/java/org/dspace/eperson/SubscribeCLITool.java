@@ -137,6 +137,8 @@ public class SubscribeCLITool {
     public static void sendEmail(Context context, EPerson eperson,
                                  List<Collection> collections, boolean test) throws IOException, MessagingException,
             SQLException {
+        
+        System.out.println("Person: " + eperson.getEmail());
         // Get a resource bundle according to the eperson language preferences
         Locale supportedLocale = I18nUtil.getEPersonLocale(eperson);
         ResourceBundle labels = ResourceBundle.getBundle("Messages", supportedLocale);
@@ -156,7 +158,7 @@ public class SubscribeCLITool {
         cal.set(Calendar.MINUTE, 0);
         cal.set(Calendar.SECOND, 0);
         Date midnightYesterday = cal.getTime();
-        System.out.println("Data Original: " + midnightYesterday);
+        System.out.println("Data p/ Pesquisa: " + midnightYesterday);
 
 
         // FIXME: text of email should be more configurable from an
@@ -167,6 +169,7 @@ public class SubscribeCLITool {
         for (int i = 0; i < collections.size(); i++) {
             Collection c = collections.get(i);
 
+            System.out.println("Collection: " + c.getName());
             try {
                 boolean includeAll = ConfigurationManager.getBooleanProperty("harvest.includerestricted.subscription", true);
 
@@ -323,6 +326,8 @@ public class SubscribeCLITool {
                 context.abort();
             }
         }
+
+        System.out.println("###################################################################################################");
     }
 
     private static List<HarvestedItemInfo> filterOutToday(List<HarvestedItemInfo> completeList) {
@@ -336,16 +341,15 @@ public class SubscribeCLITool {
         Date thisTimeYesterday = new Date(System.currentTimeMillis()
                 - (24 * 60 * 60 * 1000));
         String yesterday = sdf.format(thisTimeYesterday);
-        System.out.println("Data filterOutToday: " + yesterday);
+        System.out.println("Data p/ Filtro: " + thisTimeYesterday);
+        System.out.println("Data Formatada: " + yesterday);
 
         for (HarvestedItemInfo infoObject : completeList) {
             Date lastUpdate = infoObject.item.getLastModified();
             String lastUpdateStr = sdf.format(lastUpdate);
 
-            System.out.println("Today: " + today);
             // has the item modified today?
             if (lastUpdateStr.equals(today)) {
-                System.out.println("Registro atualizado hoje");
                 List<MetadataValue> dateAccArr = itemService.getMetadata(infoObject.item, "dc",
                         "date", "accessioned", Item.ANY);
                 // we need only the item archived yesterday
@@ -373,7 +377,6 @@ public class SubscribeCLITool {
                     filteredList.add(infoObject);
                 }
             } else {
-                System.out.println("Registro selecionado");
                 // the item has been modified yesterday...
                 filteredList.add(infoObject);
             }
