@@ -59,9 +59,9 @@ public class FieldInputFormXMLConvert {
                                     }
                                     if (fields.get(k).get("input-type").isContainerNode()) {
                                         field.setComplextInputType(getMapFromValuesPairs(valuePairs,
-                                                fields.get(k).get("input-type").get("value-pairs-name").asText()));
+                                                fields.get(k).get("input-type").get("value-pairs-name").asText().replaceAll("\\s{2,}", " ")));
                                     } else {
-                                        field.setSimpleInputType(fields.get(k).get("input-type").asText().replaceAll("\r", "").replaceAll("\n", ""));
+                                        field.setSimpleInputType(fields.get(k).get("input-type").asText().replaceAll("\r", "").replaceAll("\n", "").replaceAll("\\s{2,}", " "));
                                     }
                                     listOfFieldInputForm.add(field);
 
@@ -89,11 +89,11 @@ public class FieldInputFormXMLConvert {
     private static Map<String, String> getMapFromValuesPairs(JsonNode valuePairs, String valuePairsName) {
         Map<String, String> values = new LinkedHashMap<>();
         for (JsonNode node : valuePairs) {
-            if (node.get("value-pairs-name").asText().equalsIgnoreCase(valuePairsName)) {
+            if (node.get("value-pairs-name").asText().replaceAll("\\s{2,}", " ").equalsIgnoreCase(valuePairsName)) {
                 JsonNode pairs = node.get("pair");
                 for (JsonNode valueItem : pairs) {
-                    values.put(valueItem.get("stored-value").asText().replaceAll("\r", "").replaceAll("\n", ""),
-                            valueItem.get("displayed-value").asText().replaceAll("\r", "").replaceAll("\n", ""));
+                    values.put(valueItem.get("stored-value").asText().replaceAll("\r", "").replaceAll("\n", "").replaceAll("\\s{2,}", " "),
+                            valueItem.get("displayed-value").asText().replaceAll("\r", "").replaceAll("\n", "").replaceAll("\\s{2,}", " "));
                 }
             }
         }
