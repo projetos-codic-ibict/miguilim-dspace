@@ -1,18 +1,23 @@
 package org.dspace.app.util;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.dspace.content.MetadataValue;
-import org.dspace.services.factory.DSpaceServicesFactory;
-import org.json.JSONObject;
-import org.json.XML;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+
+import org.dspace.services.factory.DSpaceServicesFactory;
+import org.json.JSONObject;
+import org.json.XML;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class FieldInputFormXMLConvert {
     static final String XML_FORM_FILE_NAME = "input-forms.xml";

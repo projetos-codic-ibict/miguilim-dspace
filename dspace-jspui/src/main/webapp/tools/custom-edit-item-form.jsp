@@ -386,6 +386,7 @@
                                             id="<%= key %>" ${fieldInputForm.repeatable ? 'multiple' : ''}
                                             name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
                                         <c:forEach items="<%= vocabularies %>" var="option">
+                                            <option data-placeholder="true"></option>
                                             <% String optionString = (String) pageContext.getAttribute("option"); %>
                                             <option class="-" <%=isContains(metadataValues, optionString) ? "selected" : ""%>
                                                     value="${option}">${option} </option>
@@ -527,7 +528,7 @@
                                     <%
                                         String metadataValue = "";
                                         if (metadataValues.size() > 0) {
-                                            metadataValue = metadataValues.get(0).getValue().replaceAll("\r", "").replaceAll("\n", "");
+                                            metadataValue = metadataValues.get(0).getValue().replaceAll("\r", "").replaceAll("\n", "").replaceAll("\\s{2,}", " ");
                                         } %>
                                     <c:set var="metadataValueVar" scope="session" value="<%= metadataValue  %>"/>
                                     <div>
@@ -536,10 +537,8 @@
                                                 id="${keyValue}"
                                                 name="value_<%= key %>_<%= getSequenceNumber(dcCounter, key) %>">
                                             <option value="">Selecione uma opção</option>
-                                            <c:forEach items="${fieldInputForm.complextInputType.entrySet()}"
-                                                       var="option">
-                                                <option ${option.key.equalsIgnoreCase(metadataValueVar) ? 'selected' : ''}
-                                                        value="${option.key}"> ${option.value} </option>
+                                            <c:forEach items="${fieldInputForm.complextInputType.entrySet()}" var="option">
+                                                <option ${option.key.equalsIgnoreCase(metadataValueVar) ? 'selected' : ''} value="${option.key}"> ${option.value} </option>
                                             </c:forEach>
                                         </select>
                                     </div>
