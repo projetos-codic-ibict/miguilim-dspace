@@ -226,14 +226,14 @@
        </step>
        -->
 
-      <!--Step 4 will be to Upload the item
+      <!--Step 4 will be to Upload the item -->
       <step>
         <heading>submit.progressbar.upload</heading>
         <processing-class>org.dspace.submit.step.UploadStep</processing-class>
         <jspui-binding>org.dspace.app.webui.submit.step.JSPUploadStep</jspui-binding>
-		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadStep</xmlui-binding>
+		    <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.UploadStep</xmlui-binding>
         <workflow-editable>true</workflow-editable>
-      </step>-->
+      </step>
       
 
        <!-- Step 4 Upload Item with Embargo Features
