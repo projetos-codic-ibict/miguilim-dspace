@@ -1198,6 +1198,18 @@
                     <visibility>workflow</visibility>
                 </field>
 
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>openaccessseal</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Selo de acesso aberto:</label>
+                    <input-type value-pairs-name="common_identifier_openaccessseal">dropdown</input-type>
+                    <hint>Informe se foi atribuído ou não à revista o selo de acesso aberto.</hint>
+                    <required></required>
+                    <visibility>workflow</visibility>
+                </field>
+
             </page>
 
         </form>
@@ -2671,7 +2683,7 @@
             </pair>
         </value-pairs>
 
-         <value-pairs value-pairs-name="common_identifier_predatoryjournal" dc-term="common_identifier_predatoryjournal">
+        <value-pairs value-pairs-name="common_identifier_predatoryjournal" dc-term="common_identifier_predatoryjournal">
             <pair>
                 <displayed-value>A revista apresenta indícios de ser predatória</displayed-value>
                 <stored-value>A revista apresenta indícios de ser predatória</stored-value>
@@ -2679,6 +2691,17 @@
             <pair>
                 <displayed-value>A revista não apresenta indícios de ser predatória</displayed-value>
                 <stored-value>A revista não apresenta indícios de ser predatória</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_identifier_openaccessseal" dc-term="common_identifier_openaccessseal">
+            <pair>
+                <displayed-value>Foi atribuído à revista o selo de acesso aberto</displayed-value>
+                <stored-value>Foi atribuído à revista o selo de acesso aberto</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não foi atribuído à revista o selo de acesso aberto</displayed-value>
+                <stored-value>Não foi atribuído à revista o selo de acesso aberto</stored-value>
             </pair>
         </value-pairs>
 
