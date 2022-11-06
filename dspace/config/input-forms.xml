@@ -1195,6 +1195,7 @@
                     <input-type value-pairs-name="common_identifier_predatoryjournal">dropdown</input-type>
                     <hint>Após a avaliação realizada, a revista apresenta indícios de ser predatória?</hint>
                     <required></required>
+                    <visibility>workflow</visibility>
                 </field>
 
             </page>
