@@ -562,7 +562,7 @@ public class ItemTag extends TagSupport {
 
                         if (isLinkSearch) {
                             String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?query="
+                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + qualifier + "&filter_type_1=contains&filter_value_1="
                                     + valor.replaceAll(":", " ");
 
                             out.print("<a href=\"" + url + "\">"

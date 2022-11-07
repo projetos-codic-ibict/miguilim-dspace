@@ -22,6 +22,7 @@ import org.dspace.embargo.service.EmbargoService;
 import org.dspace.event.Event;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
+import org.dspace.termometro.util.CalculadoraTermometro;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -32,6 +33,8 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class InstallItemServiceImpl implements InstallItemService
 {
+
+    final String REVISTAS = "miguilim/2";
 
     @Autowired(required = true)
     protected ContentServiceFactory contentServiceFactory;
@@ -74,7 +77,7 @@ public class InstallItemServiceImpl implements InstallItemService
             throw new RuntimeException("Can't create an Identifier!", e);
         }
 
-        populateMetadata(c, item);
+        populateMetadata(c, item, collection);
 
         // Finish up / archive the item
         item = finishItem(c, item, is);
@@ -143,7 +146,7 @@ public class InstallItemServiceImpl implements InstallItemService
     }
 
 
-    protected void populateMetadata(Context c, Item item)
+    protected void populateMetadata(Context c, Item item, Collection collection)
         throws SQLException, AuthorizeException
     {
         // create accession date
@@ -196,6 +199,19 @@ public class InstallItemServiceImpl implements InstallItemService
 
         // Add provenance description
         itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "description", "provenance", "en", provDescription);
+        
+        if(collection.getHandle().equals(REVISTAS)) 
+        {
+            try
+            {
+                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "en", 
+                    CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+            }
+            catch(IOException e)
+            {
+                throw new RuntimeException("Can't create an Identifier!", e);
+            }
+        }
     }
 
     /**

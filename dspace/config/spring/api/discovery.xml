@@ -198,6 +198,9 @@
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
 
+                <ref bean="searchFilterPredatoryJournal" />
+                <ref bean="searchFilterOpenAccessSeal" />
+                <ref bean="searchFilterThermometer" />
 
             </list>
         </property>
@@ -390,6 +393,9 @@
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
 
+                <ref bean="searchFilterPredatoryJournal" />
+                <ref bean="searchFilterOpenAccessSeal" />
+                <ref bean="searchFilterThermometer" />
 
             </list>
         </property>
@@ -1413,6 +1419,42 @@
         <property name="metadataFields">
             <list>
                 <value>dc.description.situation</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterPredatoryJournal" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="predatoryjournal"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.predatoryjournal</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterOpenAccessSeal" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="openaccessseal"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.openaccessseal</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterThermometer" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="thermometer"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.thermometer</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
