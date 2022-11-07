@@ -1159,20 +1159,30 @@
 
       for (int i = 0; i < valueList.size(); i += 2)
       {
-         display = (String)valueList.get(i);
-         value = (String)valueList.get(i+1);
-         for (j = 0; j < defaults.size(); j++)
-         {
-             if (value.equals(defaults.get(j).getValue()))
-                 break;
-         }
-         sb.append("<option ")
-           .append(j < defaults.size() ? " selected=\"selected\" " : "")
-           .append("value=\"")
-           .append(value.replaceAll("\"", "&quot;"))
-           .append("\">")
-           .append(display)
-           .append("</option>");
+        display = (String)valueList.get(i);
+        value = (String)valueList.get(i+1);
+
+        if(i == 0 && !display.equals("Em branco"))
+        {
+          if(!repeatable)
+          {
+            sb.append("<option value=\"\">Selecione uma opção</option>");
+          }
+        }
+
+        for (j = 0; j < defaults.size(); j++)
+        {
+          if (value.equals(defaults.get(j).getValue()))
+            break;
+        }
+        
+        sb.append("<option ")
+          .append(j < defaults.size() ? " selected=\"selected\" " : "")
+          .append("value=\"")
+          .append(value.replaceAll("\"", "&quot;"))
+          .append("\">")
+          .append(display)
+          .append("</option>");
       }
 
       sb.append("</select></span></div><br/>");
