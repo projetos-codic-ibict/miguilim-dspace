@@ -104,10 +104,11 @@
 				<p>
 					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
-						
+						<!--
 						<%
 							termometroService.atualizarMetadadosTermometro(UIUtil.obtainContext(request), (Collection) handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS));
 						%>
+						-->
 					</span>
 					Revistas científicas
 				</p>
