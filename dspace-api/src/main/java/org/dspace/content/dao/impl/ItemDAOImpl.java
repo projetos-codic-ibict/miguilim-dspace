@@ -7,14 +7,22 @@
  */
 package org.dspace.content.dao.impl;
 
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
 import org.apache.log4j.Logger;
 import org.dspace.content.Collection;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataField;
 import org.dspace.content.MetadataValue;
 import org.dspace.content.dao.ItemDAO;
-import org.dspace.core.Context;
 import org.dspace.core.AbstractHibernateDSODAO;
+import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
@@ -24,14 +32,6 @@ import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
 import org.hibernate.type.StandardBasicTypes;
-
-import java.sql.SQLException;
-import java.util.Collections;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
-import java.util.stream.Collectors;
 
 /**
  * Hibernate implementation of the Database Access Object interface class for the Item object.
@@ -318,5 +318,18 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException {
+        StringBuilder builder = new StringBuilder();
+        builder.append("select i from Item i join i.collections c WHERE :collection IN c AND i.id NOT IN (");
+        builder.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField WHERE m.metadataField.id = 275)");
+
+        Query query = createQuery(context, builder.toString());
+        query.setParameter("collection", collection);
+        query.setMaxResults(1000);
+        
+        return iterate(query);
     }
 }

@@ -20,6 +20,7 @@
 <%@page import="org.dspace.content.service.CommunityService"%>
 <%@page import="org.dspace.content.factory.ContentServiceFactory"%>
 <%@page import="org.dspace.content.service.ItemService"%>
+<%@page import="org.dspace.content.Collection"%>
 <%@page import="org.dspace.core.Utils"%>
 <%@page import="org.dspace.content.Bitstream"%>
 <%@ page contentType="text/html;charset=UTF-8" %>
@@ -44,6 +45,8 @@
 <%@ page import="org.dspace.handle.factory.HandleServiceFactory" %>
 <%@ page import="org.dspace.handle.service.HandleService" %>
 <%@ page import="java.util.*" %>
+<%@ page import="org.dspace.termometro.service.TermometroService" %>
+<%@ page import="org.dspace.termometro.factory.TermometroServiceFactory" %>
 
 
 <%!
@@ -84,6 +87,9 @@
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
 	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
 	Map<String, List<FacetResult>> facetsRoot = (Map<String, List<FacetResult>>) request.getAttribute("discovery.fresults");
+
+	TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
+	
 %>
 
 <dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
@@ -98,6 +104,10 @@
 				<p>
 					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
 						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
+						
+						<%
+							termometroService.atualizarMetadadosTermometro(UIUtil.obtainContext(request), (Collection) handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS));
+						%>
 					</span>
 					Revistas científicas
 				</p>

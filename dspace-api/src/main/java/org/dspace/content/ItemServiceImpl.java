@@ -1293,4 +1293,9 @@ prevent the generation of resource policy entry values with null dspace_object a
 
         return false;
     }
+
+    @Override
+    public Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException {
+        return itemDAO.findAllByCollectionWhithoutThermometer(context, collection);
+    }
 }
