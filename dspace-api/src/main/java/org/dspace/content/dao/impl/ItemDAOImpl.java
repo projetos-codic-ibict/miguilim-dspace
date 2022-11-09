@@ -324,7 +324,8 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
     public Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException {
         StringBuilder builder = new StringBuilder();
         builder.append("select i from Item i join i.collections c WHERE :collection IN c AND i.id NOT IN (");
-        builder.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField WHERE m.metadataField.id = 275)");
+        builder.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField ");
+        builder.append("WHERE m.metadataField.element = 'identifier' AND m.metadataField.qualifier = 'thermometer')");
 
         Query query = createQuery(context, builder.toString());
         query.setParameter("collection", collection);

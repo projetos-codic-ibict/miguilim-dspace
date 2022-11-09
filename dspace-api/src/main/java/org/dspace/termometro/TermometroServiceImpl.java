@@ -60,8 +60,8 @@ public class TermometroServiceImpl implements TermometroService {
 			count++;
 		}
         
-        //context.commit();
         System.out.println(count);
+        context.commit();
     }
 
 }
