@@ -200,7 +200,8 @@ public class InstallItemServiceImpl implements InstallItemService
         // Add provenance description
         itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "description", "provenance", "en", provDescription);
         
-        if(collection.getHandle().equals(REVISTAS)) 
+        Collection itemCollection = collectionService.find(c, collection.getID());
+        if(itemCollection.getHandle().equals(REVISTAS)) 
         {
             try
             {
