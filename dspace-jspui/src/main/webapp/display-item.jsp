@@ -127,7 +127,31 @@
     String REVISTAS = "miguilim/2";
     String PORTAL_DE_PERIODICOS = "miguilim/2669";
 
+    List<MetadataValue> predatoryValues = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
+    List<MetadataValue> openAccessValues = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc", "identifier", "openaccessseal", Item.ANY);
+
+    boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
+    boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Foi atribuído à revista o selo de acesso aberto");
 %>
+
+<head>
+    <style>
+        .legenda:hover::after {
+            border-radius: 4px;
+            display: block;
+            position: absolute;
+            background-color: #071D41;
+            color: white;
+            top: -35px;
+            left: 5px;            
+            padding: 8px;
+            width: 180px;
+            text-align: center;
+            font-size: smaller;
+            content: attr(textoLegenda);
+        }
+    </style>
+</head>
 
 <dspace:layout title="<%= title %>">
 
@@ -260,6 +284,25 @@
                 <dspace:item-preview item="<%= item %>"/>
                 <dspace:item item="<%= item %>" collections="<%= collections %>"/>
 
+                <% 
+                    String displayOpenAccess = possuiAcessoAberto ? "block" : "none";
+                    String displayPredatory = possuiIndicioRevistaPredatoria ? "block" : "none";
+                %>
+                <div>
+                    <div class="d-flex">
+                        <div class="col-md-2" style="display: <%= displayOpenAccess %>;">
+                            <a class="legenda" textoLegenda="Dados de acesso aberto">
+                                <img height="120px" src="<%= request.getContextPath() %>/image/selo-aberto.png" alt="selo-acesso-aberto"/>
+                            </a>
+                        </div>
+                        <div class="col-md-2" style="display: <%= displayPredatory %>;">
+                            <a class="legenda" textoLegenda="Indícios de revista predatória">
+                                <img height="120px" src="<%= request.getContextPath() %>/image/selo-predatoria.png" alt="selo-revista-predatoria" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
 
             <div id="item-data-full" tabcontent class="d-hide">
@@ -282,11 +325,12 @@
                         src="https://docs.google.com/forms/d/e/1FAIpQLSfi63n2szjUZo2f_K_9OXh-L71Q8nY1xAULe-d5T082nIO2tQ/viewform">
                 </iframe>
             </div>
-
+           
         </div>
     </div>
 
-
+    
+    
     <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/gauge/gauge.js"></script>
     <script type="text/javascript">
         initGauge();
