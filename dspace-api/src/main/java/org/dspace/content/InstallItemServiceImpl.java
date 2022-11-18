@@ -10,6 +10,7 @@ package org.dspace.content;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.factory.ContentServiceFactory;
@@ -205,8 +206,11 @@ public class InstallItemServiceImpl implements InstallItemService
         {
             try
             {
-                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "en", 
-                    CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+                if(!possuiMetadadoDeTermometro(item))
+                {
+                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR ", 
+                        CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+                }
             }
             catch(IOException e)
             {
@@ -276,5 +280,16 @@ public class InstallItemServiceImpl implements InstallItemService
         }
 
         return myMessage.toString();
+    }
+
+    private boolean possuiMetadadoDeTermometro(Item item) {
+        return item
+            .getMetadata()
+            .stream()
+            .filter(i -> i.getMetadataField().getQualifier() != null)
+            .filter(i -> i.getMetadataField().getQualifier().equals("thermometer"))
+            .collect(Collectors.toList())
+            .size() > 0;
+        
     }
 }
