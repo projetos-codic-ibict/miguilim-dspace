@@ -198,7 +198,16 @@
 	    <workflow-editable>true</workflow-editable>
 	  </step> -->
 
-       <!-- Find publications based on ID/DOI/Title/Author to pre-fill the submission. XMLUI ONLY.
+      <!--Step 1 will be to Sign off on the License-->
+      <step>
+        <heading>submit.progressbar.license</heading>
+        <processing-class>org.dspace.submit.step.LicenseStep</processing-class>
+        <jspui-binding>org.dspace.app.webui.submit.step.JSPLicenseStep</jspui-binding>
+		    <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.LicenseStep</xmlui-binding>
+		    <workflow-editable>false</workflow-editable>
+      </step>
+
+      <!-- Find publications based on ID/DOI/Title/Author to pre-fill the submission. XMLUI ONLY.
             For JSPUI version, see JSPUIStartSubmissionLookupStep under <step-definitions> above.
        <step>
            <heading>submit.progressbar.lookup</heading>
@@ -206,13 +215,14 @@
            <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.StartSubmissionLookupStep</xmlui-binding>
            <workflow-editable>true</workflow-editable>
        </step>
-        -->
+      -->
+      
       <!--Step 2 will be to Describe the item.-->
       <step>
         <heading>submit.progressbar.describe</heading>
         <processing-class>org.dspace.submit.step.DescribeStep</processing-class>
         <jspui-binding>org.dspace.app.webui.submit.step.JSPDescribeStep</jspui-binding>
-		<xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.DescribeStep</xmlui-binding>
+		    <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.DescribeStep</xmlui-binding>
         <workflow-editable>true</workflow-editable>
       </step>
 
@@ -268,14 +278,6 @@
       </step>
       -->
 
-      <!--Step 7 will be to Sign off on the License-->
-    <step>
-      <heading>submit.progressbar.license</heading>
-      <processing-class>org.dspace.submit.step.LicenseStep</processing-class>
-      <jspui-binding>org.dspace.app.webui.submit.step.JSPLicenseStep</jspui-binding>
-		  <xmlui-binding>org.dspace.app.xmlui.aspect.submission.submit.LicenseStep</xmlui-binding>
-		  <workflow-editable>false</workflow-editable>
-    </step>
  
   </submission-process>
 
