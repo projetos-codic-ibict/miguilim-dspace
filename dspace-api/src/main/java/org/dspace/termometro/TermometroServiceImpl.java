@@ -56,7 +56,7 @@ public class TermometroServiceImpl implements TermometroService {
         {
             Item item = items.next();
 			String pontuacao = calcularPorcentagemPontuacao(item);
-			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "en", pontuacao);
+			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", pontuacao);
 			count++;
 		}
         

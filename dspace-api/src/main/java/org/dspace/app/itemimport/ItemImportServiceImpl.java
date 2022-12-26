@@ -726,9 +726,13 @@ public class ItemImportServiceImpl implements ItemImportService, InitializingBea
         // //getElementData(n,
         // "qualifier");
         String language = getAttributeValue(n, "language");
-        if (language != null)
+        if (StringUtils.isNotEmpty(language))
         {
             language = language.trim();
+        }
+        else
+        {
+        	language = "pt_BR";
         }
 
         if (!isQuiet)

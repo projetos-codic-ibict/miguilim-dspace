@@ -457,7 +457,7 @@ public class VersionedHandleIdentifierProvider extends IdentifierProvider {
         // Add handle as identifier.uri DC value.
         if (StringUtils.isNotBlank(handleref))
         {
-            itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "uri", null, handleref);
+            itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "uri", "pt_BR", handleref);
         }
         itemService.update(context, item);
     }

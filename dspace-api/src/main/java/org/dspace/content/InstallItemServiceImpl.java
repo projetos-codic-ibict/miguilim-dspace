@@ -36,6 +36,7 @@ public class InstallItemServiceImpl implements InstallItemService
 {
 
     final String REVISTAS = "miguilim/2";
+    final String LANGUAGE_BR = "pt_BR ";
 
     @Autowired(required = true)
     protected ContentServiceFactory contentServiceFactory;
@@ -152,7 +153,7 @@ public class InstallItemServiceImpl implements InstallItemService
     {
         // create accession date
         DCDate now = DCDate.getCurrent();
-        itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "accessioned", null, now.toString());
+        itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "accessioned", LANGUAGE_BR, now.toString());
 
         // add date available if not under embargo, otherwise it will
         // be set when the embargo is lifted.
@@ -160,7 +161,7 @@ public class InstallItemServiceImpl implements InstallItemService
         // problems before we set inArchive.
         if (embargoService.getEmbargoTermsAsDate(c, item) == null)
         {
-            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "available", null, now.toString());
+            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "available", LANGUAGE_BR, now.toString());
         }
 
         // If issue date is set as "today" (literal string), then set it to current date

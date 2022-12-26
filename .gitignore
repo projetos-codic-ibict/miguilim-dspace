@@ -18,3 +18,9 @@ overlays/
 /dspace/config/local.cfg
 /dspace/config/local.cfg
 .DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings/
+.metadata/
