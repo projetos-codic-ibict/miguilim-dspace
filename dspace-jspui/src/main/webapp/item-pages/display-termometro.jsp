@@ -37,7 +37,7 @@
                 <fmt:message key="termometro.display.header"/>
             </a>
         </div>
-        <div id="collapseOne" class="panel-collapse collapse in"
+        <div id="collapseOne" class="panel-collapse in"
              aria-expanded="false"
              role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
@@ -437,44 +437,5 @@
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingH5">
-            <a href="#collapseH5" class="panel-title collapsed" role="button" data-toggle="collapse"
-               data-parent="#accordion"
-               aria-expanded="false"
-               aria-controls="collapseH5">
-                <fmt:message key="termometroh5.display.header"/>
-            </a>
-        </div>
-
-        <div id="collapseH5" class="panel-collapse collapse"
-             aria-expanded="false"
-             role="tabpanel" aria-labelledby="headingH5">
-            <div class="panel-body">
-                <div class="indiceh5">
-                    <h3>
-                        <fmt:message key="termometroh5.display.title"/>
-                    </h3>
-                    <% if (pontuacaoIndiceH5 != null) { %>
-                        <span>
-                            <%=pontuacaoIndiceH5%>
-                        </span>
-                    <%} else {%>
-                        <p>O Índice H5 desta revista não foi informado</p>
-                    <% }%>
-                </div>
-                <h3>O que é o Índice H5?</h3>
-                <p>O H5 é um índice do Google que busca quantificar o impacto de uma revista com base no número
-                    de
-                    citações
-                    obtidas pelos artigos da revista nos últimos 5 anos. Para compreender o cálculo do Índice H5
-                    de
-                    maneira
-                    simples deve-se considerar o seguinte: se uma revista possui um H5 de 10 é porque nos
-                    últimos 5
-                    anos ela
-                    publicou pelo menos 10 artigos que foram citados ao menos 10 vezes.</p>
-            </div>
-        </div>
-    </div>
+    
 </div>

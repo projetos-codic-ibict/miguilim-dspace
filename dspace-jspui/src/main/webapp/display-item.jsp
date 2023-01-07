@@ -268,7 +268,7 @@
 
                 <li class="nav-item">
                     <a class="nav-link" href="#" destiny="#termometro"><fmt:message
-                            key="webui.displayitem.tab.termometros"></fmt:message> </a>
+                            key="webui.displayitem.tab.termometro"></fmt:message> </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#" destiny="#formulario"><fmt:message
@@ -371,8 +371,7 @@
         }
 
         document.querySelector("#termometro").classList.add("d-hide");
-        document.querySelector("#temometroCollapse").classList.add("collapsed");
-        document.querySelector("#collapseOne").classList.remove("in");
+   
     </script>
 
     <script>
