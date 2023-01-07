@@ -339,8 +339,7 @@
                 <c:forEach items="<%= fieldInputFormList %>" var="fieldInputForm" varStatus="loop">
                     <%
                         FieldInputForm xmlField = ((FieldInputForm) pageContext.getAttribute("fieldInputForm"));
-                        List<MetadataValue> metadataValues = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(),
-                                xmlField.getElement(), xmlField.getQualifier());
+                        List<MetadataValue> metadataValues = fieldInputFormUtils.getFieldFromMetadataByKeys(xmlField.getSchema(), xmlField.getElement(), xmlField.getQualifier());
 
                         MetadataValue metadata = metadataValues.size() > 0 ? metadataValues.get(0) : null;
                         String key = metadata != null ? metadata.getMetadataField().toString() : xmlField.getKey();

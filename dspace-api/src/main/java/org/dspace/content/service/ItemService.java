@@ -624,4 +624,6 @@ public interface ItemService extends DSpaceObjectService<Item>, DSpaceObjectLega
     List<Item> findRandom(Context context);
 
     Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException;
+    
+    boolean existeMetadadoNoItem(Item item, String qualifier);
 }

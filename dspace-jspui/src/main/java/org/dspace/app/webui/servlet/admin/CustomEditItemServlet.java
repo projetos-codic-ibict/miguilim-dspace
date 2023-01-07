@@ -40,7 +40,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Servlet for editing and deleting (expunging) items
@@ -641,7 +643,7 @@ public class CustomEditItemServlet extends DSpaceServlet
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
          */
-        itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+        // itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
 
         // We'll sort the parameters by name. This ensures that DC fields
         // of the same element/qualifier are added in the correct sequence.
@@ -683,6 +685,8 @@ public class CustomEditItemServlet extends DSpaceServlet
                 {
                     qualifier = st.nextToken();
                 }
+                
+                itemService.clearMetadata(context, item, schema, element, qualifier, Item.ANY);
 
                 String sequenceNumber = st.nextToken();
 
@@ -851,7 +855,16 @@ public class CustomEditItemServlet extends DSpaceServlet
         }
 
         itemService.update(context, item);
-
+        
+        if(itemService.existeMetadadoNoItem(item, "update"))
+        {
+        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+            String dataAtualizacao = simpleDateFormat.format(DCDate.getCurrent().toDate());
+            
+        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataAtualizacao);
+        }
+        
         if (button.equals("submit_addcc"))
         {
             // Show cc-edit page
@@ -1034,4 +1047,5 @@ public class CustomEditItemServlet extends DSpaceServlet
             JSPManager.showFileSizeLimitExceededError(request, response, ex.getMessage(), ex.getActualSize(), ex.getPermittedSize());
         }
     }
+    
 }

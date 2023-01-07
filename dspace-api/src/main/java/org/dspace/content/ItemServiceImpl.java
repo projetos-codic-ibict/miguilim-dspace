@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
@@ -99,7 +100,6 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
     protected WorkspaceItemService workspaceItemService;
     @Autowired(required=true)
     protected WorkflowItemService workflowItemService;
-    
 
     protected ItemServiceImpl()
     {
@@ -447,9 +447,7 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
             authorizeService.authorizeAction(context, item, Constants.WRITE);
         }
 
-        log.info(LogManager.getHeader(context, "update_item", "item_id="
-                + item.getID()));
-
+        log.info(LogManager.getHeader(context, "update_item", "item_id=" + item.getID()));
         super.update(context, item);
 
         // Set sequence IDs for bitstreams in item
@@ -471,11 +469,14 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
         sequence++;
 
 
-        for (Bundle bund : bunds) {
+        for (Bundle bund : bunds) 
+        {
             List<Bitstream> streams = bund.getBitstreams();
 
-            for (Bitstream stream : streams) {
-                if (stream.getSequenceID() < 0) {
+            for (Bitstream stream : streams) 
+            {
+                if (stream.getSequenceID() < 0) 
+                {
                     stream.setSequenceID(sequence);
                     sequence++;
                     bitstreamService.update(context, stream);
@@ -488,15 +489,15 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
         {
             // Set the last modified date
             item.setLastModified(new Date());
-
+            
             itemDAO.save(context, item);
 
-            if(item.isMetadataModified()){
+            if(item.isMetadataModified())
+            {
                 context.addEvent(new Event(Event.MODIFY_METADATA, item.getType(), item.getID(), item.getDetails(), getIdentifiers(context, item)));
             }
 
-            context.addEvent(new Event(Event.MODIFY, Constants.ITEM, item.getID(),
-                    null, getIdentifiers(context, item)));
+            context.addEvent(new Event(Event.MODIFY, Constants.ITEM, item.getID(), null, getIdentifiers(context, item)));
             item.clearModified();
             item.clearDetails();
         }
@@ -1298,4 +1299,16 @@ prevent the generation of resource policy entry values with null dspace_object a
     public Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException {
         return itemDAO.findAllByCollectionWhithoutThermometer(context, collection);
     }
+
+	@Override
+	public boolean existeMetadadoNoItem(Item item, String qualifier) {
+		return item
+	            .getMetadata()
+	            .stream()
+	            .filter(i -> i.getMetadataField().getQualifier() != null)
+	            .filter(i -> i.getMetadataField().getQualifier().equals(qualifier))
+	            .collect(Collectors.toList())
+	            .size() > 0;
+	}
+    
 }

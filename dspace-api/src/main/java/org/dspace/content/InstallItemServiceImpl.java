@@ -9,6 +9,7 @@ package org.dspace.content;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -62,24 +63,27 @@ public class InstallItemServiceImpl implements InstallItemService
     }
 
     @Override
-    public Item installItem(Context c, InProgressSubmission is,
-            String suppliedHandle) throws SQLException,
-            AuthorizeException
+    public Item installItem(Context c, InProgressSubmission is, String suppliedHandle) throws SQLException, AuthorizeException
     {
         Item item = is.getItem();
         Collection collection = is.getCollection();
-        try {
+        try 
+        {
             if(suppliedHandle == null)
             {
                 identifierService.register(c, item);
-            }else{
+            }
+            else
+            {
                 identifierService.register(c, item, suppliedHandle);
             }
-        } catch (IdentifierException e) {
+        } 
+        catch (IdentifierException e) 
+        {
             throw new RuntimeException("Can't create an Identifier!", e);
         }
 
-        populateMetadata(c, item, collection);
+        populateMetadata(c, item, collection, suppliedHandle);
 
         // Finish up / archive the item
         item = finishItem(c, item, is);
@@ -148,8 +152,7 @@ public class InstallItemServiceImpl implements InstallItemService
     }
 
 
-    protected void populateMetadata(Context c, Item item, Collection collection)
-        throws SQLException, AuthorizeException
+    protected void populateMetadata(Context c, Item item, Collection collection, String suppliedHandle) throws SQLException, AuthorizeException
     {
         // create accession date
         DCDate now = DCDate.getCurrent();
@@ -209,8 +212,19 @@ public class InstallItemServiceImpl implements InstallItemService
             {
                 if(!possuiMetadadoDeTermometro(item))
                 {
-                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR ", 
+                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, 
                         CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+                }
+                
+                if(suppliedHandle == null)
+                {
+                	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
+                    String dataAtualizacao = simpleDateFormat.format(now.toDate());
+                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataAtualizacao);
+                }
+                else
+                {
+                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, "Não atualizada");
                 }
             }
             catch(IOException e)

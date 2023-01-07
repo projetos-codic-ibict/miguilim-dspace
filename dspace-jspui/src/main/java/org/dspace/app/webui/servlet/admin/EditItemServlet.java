@@ -664,7 +664,7 @@ public class EditItemServlet extends DSpaceServlet
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
          */
-        itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+        // itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
 
         // We'll sort the parameters by name. This ensures that DC fields
         // of the same element/qualifier are added in the correct sequence.
@@ -706,7 +706,9 @@ public class EditItemServlet extends DSpaceServlet
                 {
                     qualifier = st.nextToken();
                 }
-
+                
+                itemService.clearMetadata(context, item, schema, element, qualifier, Item.ANY);
+                
                 String sequenceNumber = st.nextToken();
 
                 // Get a string with "element" for unqualified or
