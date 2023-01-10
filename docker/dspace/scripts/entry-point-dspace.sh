@@ -48,6 +48,7 @@ function declara_deploy_webapps() {
   echo "Efetuando link simbólico de aplicações"
   rm -rf /opt/apache-tomcat-8.5.51/webapps/ROOT
   ln -s /dspace/webapps/solr /opt/apache-tomcat-8.5.51/webapps/
+  ln -s /dspace/webapps/rest /opt/apache-tomcat-8.5.51/webapps/
   ln -s /dspace/webapps/jspui /opt/apache-tomcat-8.5.51/webapps/ROOT
   if [ "${DEV_MODE}" = true ]; then
     ln -s /dspace/webapps/jspui /opt/apache-tomcat-8.5.51/webapps/"${CONTEXT_NAME}"
