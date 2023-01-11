@@ -858,11 +858,14 @@ public class CustomEditItemServlet extends DSpaceServlet
         
         if(itemService.existeMetadadoNoItem(item, "update"))
         {
-        	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-            String dataAtualizacao = simpleDateFormat.format(DCDate.getCurrent().toDate());
+        	DCDate now = DCDate.getCurrent();
+
+        	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+            String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+            String dataHoraAtualizacao = data + " às " + hora;
             
         	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
-        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataAtualizacao);
+        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
         }
         
         if (button.equals("submit_addcc"))

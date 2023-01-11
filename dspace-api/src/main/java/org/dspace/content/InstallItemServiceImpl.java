@@ -218,9 +218,10 @@ public class InstallItemServiceImpl implements InstallItemService
                 
                 if(suppliedHandle == null)
                 {
-                	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy hh:mm:ss");
-                    String dataAtualizacao = simpleDateFormat.format(now.toDate());
-                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataAtualizacao);
+                    String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+                    String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+                    String dataHoraAtualizacao = data + " às " + hora;
+                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
                 }
                 else
                 {
