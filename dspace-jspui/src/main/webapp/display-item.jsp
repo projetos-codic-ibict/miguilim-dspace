@@ -263,20 +263,38 @@
                             key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
                 </li>
                 <%
-                    if (collections.get(0).getHandle().equals(REVISTAS)) {
+                    if (collections.get(0).getHandle().equals(REVISTAS)) 
+                    {
                 %>
 
-                <li class="nav-item">
-                    <a class="nav-link" href="#" destiny="#termometro"><fmt:message
-                            key="webui.displayitem.tab.termometro"></fmt:message> </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#" destiny="#formulario"><fmt:message
-                            key="webui.displayitem.tab.requestchange"></fmt:message> </a>
-                </li>
+		                <li class="nav-item">
+		                    <a class="nav-link" href="#" destiny="#termometro">
+		                    	<fmt:message key="webui.displayitem.tab.termometro"></fmt:message> 
+		                    </a>
+		                </li>
+		                
+		                <li class="nav-item">
+		                    <a class="nav-link" href="#" destiny="#formulario">
+		                    	<fmt:message key="webui.displayitem.tab.requestchange"></fmt:message> 
+		                    </a>
+		                </li>
+              
                 <%
                     }
+                    else
+                    {
                 %>
+                
+						<li class="nav-item">
+		                    <a class="nav-link" href="#" destiny="#formulario">
+		                    	<fmt:message key="webui.displayitem.tab.requestchangeportal"></fmt:message> 
+		                    </a>
+		                </li>
+                
+                 <%
+                    }
+                %>
+                
             </ul>
 
             <div id="item-data" tabcontent>
