@@ -24,6 +24,8 @@ import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.*;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
+import org.dspace.core.Email;
+import org.dspace.core.I18nUtil;
 import org.dspace.core.LogManager;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
@@ -633,9 +635,8 @@ public class CustomEditItemServlet extends DSpaceServlet
      * @param item
      *            the item
      */
-    private void processUpdateItem(Context context, HttpServletRequest request,
-            HttpServletResponse response, Item item) throws ServletException,
-            IOException, SQLException, AuthorizeException
+    private void processUpdateItem(Context context, HttpServletRequest request, HttpServletResponse response, Item item) 
+    		throws ServletException, IOException, SQLException, AuthorizeException
     {
         String button = UIUtil.getSubmitButton(request, "submit");
 
@@ -850,8 +851,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 
             MetadataField field = metadataFieldService.find(context, dcTypeID);
             MetadataSchema schema = field.getMetadataSchema();
-            itemService.addMetadata(context, item, schema.getName(), field.getElement(), field
-                    .getQualifier(), lang, value);
+            itemService.addMetadata(context, item, schema.getName(), field.getElement(), field.getQualifier(), lang, value);
         }
 
         itemService.update(context, item);
@@ -895,8 +895,8 @@ public class CustomEditItemServlet extends DSpaceServlet
             request.setAttribute("item", item);
             JSPManager
                     .showJSP(request, response, UPLOAD_BITSTREAM_JSP);
-        }else
-        if(button.equals("submit_update_order") || button.startsWith("submit_order_"))
+        }
+        else if(button.equals("submit_update_order") || button.startsWith("submit_order_"))
         {
             List<Bundle> bundles = itemService.getBundles(item, "ORIGINAL");
             for (Bundle bundle : bundles) {
@@ -942,7 +942,9 @@ public class CustomEditItemServlet extends DSpaceServlet
         {
             response.sendRedirect(request.getContextPath() + "/handle/" + item.getHandle());
         }
-
+        
+        enviarEmailDeAtualizacao(request, item);
+        
         // Complete transaction
         context.complete();
     }
@@ -957,12 +959,11 @@ public class CustomEditItemServlet extends DSpaceServlet
      * @param response
      *            current servlet response object
      */
-    private void processUploadBitstream(Context context,
-            HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException,
-            AuthorizeException
+    private void processUploadBitstream(Context context, HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException, SQLException, AuthorizeException
     {
-        try {
+        try 
+        {
             // Wrap multipart request to get the submission info
             FileUploadRequest wrapper = new FileUploadRequest(request);
             Bitstream b = null;
@@ -1044,11 +1045,27 @@ public class CustomEditItemServlet extends DSpaceServlet
 
             // Update DB
             context.complete();
-        } catch (FileSizeLimitExceededException ex)
+        } 
+        catch (FileSizeLimitExceededException ex)
         {
             log.warn("Upload exceeded upload.max");
             JSPManager.showFileSizeLimitExceededError(request, response, ex.getMessage(), ex.getActualSize(), ex.getPermittedSize());
         }
     }
+    
+	private void enviarEmailDeAtualizacao(HttpServletRequest request, Item item) {
+		try 
+		{
+			Email email = Email.getEmail(I18nUtil.getEmailFilename(I18nUtil.getDefaultLocale(), "update_item"));
+			email.addArgument(handleService.getCanonicalForm(item.getHandle()));
+			email.addRecipient("miguilim@ibict.br");
+			email.send();
+		} 
+		catch (Exception e) 
+		{
+			log.error("Não foi possível enviar o email de atualização.", e);
+		}
+
+	}
     
 }
