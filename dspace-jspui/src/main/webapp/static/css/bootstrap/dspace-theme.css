@@ -179,7 +179,7 @@
 }
 
 .table-line {
-  box-shadow: 0, -1, 0, 0 #ebebeb;
+  box-shadow: 0, -1, 0, 0 rgb(235, 235, 235);
 }
 
 .card-sombra, .content-news .arrow:hover, .search-home, .container-cards .card:hover {
@@ -266,7 +266,7 @@
 
 .subhead, .results-cards .cards h3 {
   font-family: "Open Sans", sans-serif;
-  font-size: 1.5rem!important;
+  font-size: 1.5rem;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.5px;
@@ -376,7 +376,7 @@
 }
 
 .table-line {
-  box-shadow: 0, -1, 0, 0 #ebebeb;
+  box-shadow: 0, -1, 0, 0 rgb(235, 235, 235);
 }
 
 .card-sombra, .content-news .arrow:hover, .search-home, .container-cards .card:hover {
@@ -469,6 +469,9 @@
   margin: 0;
   width: 0;
   height: 0;
+}
+.results-cards .cards h3 {
+  font-size: 1.57rem;
 }
 @media (max-width: 920px) {
   .results-cards .cards h3 {
@@ -712,19 +715,19 @@ div.tagcloud {
 }
 
 div.tagcloud .tagcloud_1 {
-  color: #d96c27;
+  color: rgb(217, 108, 39);
   font-weight: normal;
   margin-right: 5px;
 }
 
 div.tagcloud .tagcloud_2 {
-  color: #424242;
+  color: rgb(66, 66, 66);
   font-weight: normal;
   margin-right: 5px;
 }
 
 div.tagcloud .tagcloud_3 {
-  color: #818183;
+  color: rgb(129, 129, 131);
   font-weight: normal;
   margin-right: 5px;
 }
@@ -955,6 +958,10 @@ hr {
   .link-search {
     display: none;
   }
+}
+
+::-moz-placeholder {
+  color: #9A9A9A;
 }
 
 ::placeholder {
@@ -1367,7 +1374,9 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-col-title {
@@ -1436,7 +1445,9 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-col-jumppoint {
@@ -1473,7 +1484,9 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .grid-col-listresult {
@@ -1500,7 +1513,9 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 #item-data-full .panel {
@@ -1706,7 +1721,9 @@ hr {
   gap: 8px;
 }
 .search-main .search-element select {
-  appearance: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   box-shadow: none;
 }
 .search-main .search-element .field-s {
@@ -1878,6 +1895,11 @@ h1:hover::after, h2:hover::after {
 .minus-space dl dd::before {
   content: "-";
   padding-right: 16px;
+}
+
+::-moz-selection {
+  color: #FFFFFF;
+  background: #04132A;
 }
 
 ::selection {
@@ -2481,6 +2503,4 @@ a.admin-help {
 .pagination-number-itens .active a {
   background-color: #04132A;
   color: #FFFFFF;
-}
-
-/*# sourceMappingURL=dspace-theme.css.map */
+}/*# sourceMappingURL=dspace-theme.css.map */
