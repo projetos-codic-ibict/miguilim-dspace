@@ -7,6 +7,27 @@
  */
 package org.dspace.app.webui.servlet.admin;
 
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.StringTokenizer;
+import java.util.UUID;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -17,11 +38,24 @@ import org.dspace.app.webui.util.FileUploadRequest;
 import org.dspace.app.webui.util.JSPManager;
 import org.dspace.app.webui.util.UIUtil;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.content.Bitstream;
+import org.dspace.content.BitstreamFormat;
+import org.dspace.content.Bundle;
 import org.dspace.content.Collection;
-import org.dspace.content.*;
+import org.dspace.content.DCDate;
+import org.dspace.content.DSpaceObject;
+import org.dspace.content.Item;
+import org.dspace.content.MetadataField;
+import org.dspace.content.MetadataSchema;
 import org.dspace.content.authority.Choices;
 import org.dspace.content.factory.ContentServiceFactory;
-import org.dspace.content.service.*;
+import org.dspace.content.service.BitstreamFormatService;
+import org.dspace.content.service.BitstreamService;
+import org.dspace.content.service.BundleService;
+import org.dspace.content.service.CollectionService;
+import org.dspace.content.service.ItemService;
+import org.dspace.content.service.MetadataFieldService;
+import org.dspace.content.service.MetadataSchemaService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.core.Email;
@@ -36,15 +70,7 @@ import org.dspace.license.factory.LicenseServiceFactory;
 import org.dspace.license.service.CreativeCommonsService;
 import org.dspace.services.ConfigurationService;
 import org.dspace.services.factory.DSpaceServicesFactory;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.*;
-import java.sql.SQLException;
-import java.text.SimpleDateFormat;
-import java.util.*;
-import java.util.stream.Collectors;
+import org.dspace.termometro.util.CalculadoraTermometro;
 
 /**
  * Servlet for editing and deleting (expunging) items
@@ -856,17 +882,8 @@ public class CustomEditItemServlet extends DSpaceServlet
 
         itemService.update(context, item);
         
-        if(itemService.existeMetadadoNoItem(item, "update"))
-        {
-        	DCDate now = DCDate.getCurrent();
-
-        	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
-            String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
-            String dataHoraAtualizacao = data + " às " + hora;
-            
-        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
-        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
-        }
+        atualizarMetadadoUpdate(context, item);
+        atualizarMetadadoThermomether(context, item);
         
         if (button.equals("submit_addcc"))
         {
@@ -1065,7 +1082,30 @@ public class CustomEditItemServlet extends DSpaceServlet
 		{
 			log.error("Não foi possível enviar o email de atualização.", e);
 		}
-
 	}
+	
+	private void atualizarMetadadoUpdate(Context context, Item item) throws SQLException {
+		if(itemService.existeMetadadoNoItem(item, "update"))
+        {
+        	DCDate now = DCDate.getCurrent();
+
+        	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+            String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+            String dataHoraAtualizacao = data + " às " + hora;
+            
+        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
+        }
+	}
+	
+	private void atualizarMetadadoThermomether(Context context, Item item) throws IOException, SQLException {
+		if(itemService.existeMetadadoNoItem(item, "thermometer"))
+        {
+        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", Item.ANY);
+        	itemService
+        		.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+        }
+	}
+
     
 }
