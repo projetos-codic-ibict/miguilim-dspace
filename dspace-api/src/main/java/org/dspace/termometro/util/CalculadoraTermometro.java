@@ -111,15 +111,23 @@ public class CalculadoraTermometro {
                     pontuacaoTotalDoItem += valorPontuacao;
                 }
                 else if (isTipoAvaliacaoListagem(escalaPontuacao)) {
+                	
+                	Integer valorPontuacao = 0;
+                			
                     for(String chavePontuacao : valoresDoMetadado) 
                     {
                         String chaveFormatada = chavePontuacao.replaceAll("\\s{2,}", " ");
-                        Integer valorPontuacao = Optional
+                        valorPontuacao += Optional
                             .ofNullable(escalaPontuacao.getPontuacao().get(chaveFormatada))
                             .orElseGet(() -> 0);
-
-                        pontuacaoTotalDoItem += valorPontuacao;
                     }
+                    
+                    if(escalaPontuacao.getLimitePontuacao() != null && (valorPontuacao > escalaPontuacao.getLimitePontuacao()))
+                    {
+                    	valorPontuacao = escalaPontuacao.getLimitePontuacao();
+                    }
+                    
+                    pontuacaoTotalDoItem += valorPontuacao;
                 }
             }
         }
