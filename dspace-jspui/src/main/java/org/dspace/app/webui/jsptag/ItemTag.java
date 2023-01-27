@@ -449,6 +449,7 @@ public class ItemTag extends TagSupport {
             boolean isNoBreakLine = false;
             boolean isDisplay = false;
             boolean isLinkSearch = false;
+            boolean isSearchTitle = false;
 
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
@@ -467,6 +468,7 @@ public class ItemTag extends TagSupport {
             // Find out if the field should rendered with a particular style
 
             if (style != null) {
+            	isSearchTitle = style.contains("searchTitle");
                 isLinkSearch = style.contains("linkSearch");
                 isDate = style.contains("date");
                 isLink = style.contains("link");
@@ -560,17 +562,27 @@ public class ItemTag extends TagSupport {
                         }
                         j++;
 
-                        if (isLinkSearch) {
-                            String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + qualifier + "&filter_type_1=contains&filter_value_1="
-                                    + valor.replaceAll(":", " ");
+                        if(isSearchTitle)
+                        {
+                        	String valor = Utils.addEntities(val.getValue());
+                            String url = request.getContextPath() + "/simple-search?filter_field_1=title&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
 
-                            out.print("<a href=\"" + url + "\">"
-                                    + Utils.addEntities(val.getValue()) + "</a>");
-                        } else if (isLink) {
-                            out.print("<a href=\"" + val.getValue() + "\">"
-                                    + Utils.addEntities(val.getValue()) + "</a>");
-                        } else if (isDate) {
+                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+
+                        }
+                        else if (isLinkSearch) 
+                        {
+                            String valor = Utils.addEntities(val.getValue());
+                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + qualifier + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+
+                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+                        } 
+                        else if (isLink) 
+                        {
+                            out.print("<a href=\"" + val.getValue() + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+                        } 
+                        else if (isDate) 
+                        {
                             DCDate dd = new DCDate(val.getValue());
 
                             // Parse the date
