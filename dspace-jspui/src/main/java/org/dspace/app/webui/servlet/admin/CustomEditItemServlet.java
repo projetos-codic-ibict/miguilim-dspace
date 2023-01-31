@@ -150,6 +150,8 @@ public class CustomEditItemServlet extends DSpaceServlet
              = LicenseServiceFactory.getInstance().getCreativeCommonsService();
 
     protected ConfigurationService configurationService = DSpaceServicesFactory.getInstance().getConfigurationService();
+    
+    final String REVISTAS = "miguilim/2";
 
     @Override
     protected void doDSGet(Context context, HttpServletRequest request,
@@ -670,7 +672,7 @@ public class CustomEditItemServlet extends DSpaceServlet
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
          */
-        // itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+        itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
 
         // We'll sort the parameters by name. This ensures that DC fields
         // of the same element/qualifier are added in the correct sequence.
@@ -712,8 +714,6 @@ public class CustomEditItemServlet extends DSpaceServlet
                 {
                     qualifier = st.nextToken();
                 }
-                
-                itemService.clearMetadata(context, item, schema, element, qualifier, Item.ANY);
 
                 String sequenceNumber = st.nextToken();
 
@@ -750,7 +750,7 @@ public class CustomEditItemServlet extends DSpaceServlet
                 String sconfidence = request.getParameter("choice_" + key + "_confidence_" + sequenceNumber);
                 int confidence = (sconfidence == null || sconfidence.equals("")) ?
                                  Choices.CF_NOVALUE : Choices.getConfidenceValue(sconfidence);
-
+                
                 // Get the value
                 String[] parameterValues = request.getParameterValues(p);
                 for (String value: parameterValues) {
@@ -1085,26 +1085,22 @@ public class CustomEditItemServlet extends DSpaceServlet
 	}
 	
 	private void atualizarMetadadoUpdate(Context context, Item item) throws SQLException {
-		if(itemService.existeMetadadoNoItem(item, "update"))
-        {
-        	DCDate now = DCDate.getCurrent();
-
-        	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
-            String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
-            String dataHoraAtualizacao = data + " às " + hora;
+		DCDate now = DCDate.getCurrent();
+		
+        String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+        String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+        String dataHoraAtualizacao = data + " às " + hora;
             
-        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
-        	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
-        }
+        itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+        itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
 	}
 	
 	private void atualizarMetadadoThermomether(Context context, Item item) throws IOException, SQLException {
-		if(itemService.existeMetadadoNoItem(item, "thermometer"))
-        {
-        	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", Item.ANY);
-        	itemService
-        		.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));
-        }
+		if(item.getCollections().get(0).getHandle().equals(REVISTAS))
+		{
+			itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", Item.ANY);
+			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+		}
 	}
 
     
