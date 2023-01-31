@@ -206,33 +206,34 @@ public class InstallItemServiceImpl implements InstallItemService
         itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "description", "provenance", "en", provDescription);
         
         Collection itemCollection = collectionService.find(c, collection.getID());
-        if(itemCollection.getHandle().equals(REVISTAS)) 
+      
+        try
         {
-            try
+        	boolean isItemDaColecaoRevista = itemCollection.getHandle().equals(REVISTAS);
+        	
+        	if(!possuiMetadadoDeTermometro(item) && isItemDaColecaoRevista)
             {
-                if(!possuiMetadadoDeTermometro(item))
-                {
-                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, 
-                        CalculadoraTermometro.calcularPorcentagemPontuacao(item));
-                }
-                
-                if(suppliedHandle == null)
-                {
-                    String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
-                    String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
-                    String dataHoraAtualizacao = data + " às " + hora;
-                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
-                }
-                else
-                {
-                	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, "Não atualizada");
-                }
+        		itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, CalculadoraTermometro.calcularPorcentagemPontuacao(item));
             }
-            catch(IOException e)
+                
+            if(suppliedHandle == null)
             {
-                throw new RuntimeException("Can't create an Identifier!", e);
+            	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+                String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+                String dataHoraAtualizacao = data + " às " + hora;
+                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
+            }
+            else
+            {
+            	String descricaoDefault = isItemDaColecaoRevista ? "Não atualizada" : "Não atualizado";
+            	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
             }
         }
+        catch(IOException e)
+        {
+        	throw new RuntimeException("Can't create an Identifier!", e);
+        }
+        
     }
 
     /**
