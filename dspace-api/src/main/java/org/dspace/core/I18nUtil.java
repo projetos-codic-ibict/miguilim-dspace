@@ -274,18 +274,19 @@ public class I18nUtil
         {
             locale = DEFAULTLOCALE;
         }
-        ResourceBundle.Control control = 
-            ResourceBundle.Control.getNoFallbackControl(
-            ResourceBundle.Control.FORMAT_DEFAULT);
-
+        
+        ResourceBundle.Control control = ResourceBundle.Control.getNoFallbackControl(ResourceBundle.Control.FORMAT_DEFAULT);
         ResourceBundle messages = ResourceBundle.getBundle("Messages", locale, control);
-        try {
+        
+        try 
+        {
             String message = messages.getString(key.trim());
             return message;
-        } catch (MissingResourceException e) {
-            log.error("'" + key + "' translation undefined in locale '"
-                    + locale.toString() + "'");
-            return key;
+        } 
+        catch (MissingResourceException e) 
+        {
+            log.error("'" + key + "' translation undefined in locale '" + locale.toString() + "'");
+            throw e;
         }
     }
     

@@ -422,9 +422,12 @@ public class ItemTag extends TagSupport {
             .ofNullable(item.getOwningCollection())
             .orElse(collections != null ? collections.get(0) : null);
         
-        if (collection != null && collection.getName().startsWith(PORTAIS)) {
+        if (collection != null && collection.getName().startsWith(PORTAIS)) 
+        {
             metadataFields = styleSelection.getConfigurationForStyle("portais");
-        } else {
+        } 
+        else 
+        {
             metadataFields = styleSelection.getConfigurationForStyle(style);
         }
 
@@ -458,15 +461,17 @@ public class ItemTag extends TagSupport {
             }
 
             String browseIndex;
-            try {
+            try 
+            {
                 browseIndex = getBrowseField(field);
-            } catch (BrowseException e) {
+            } 
+            catch (BrowseException e) 
+            {
                 log.error(e);
                 browseIndex = null;
             }
 
             // Find out if the field should rendered with a particular style
-
             if (style != null) {
             	isSearchTitle = style.contains("searchTitle");
                 isLinkSearch = style.contains("linkSearch");
@@ -479,14 +484,16 @@ public class ItemTag extends TagSupport {
             }
 
             // Get the separate schema + element + qualifier
-
             String[] eq = field.split("\\.");
             String schema = eq[0];
             String element = eq[1];
             String qualifier = null;
-            if (eq.length > 2 && eq[2].equals("*")) {
+            if (eq.length > 2 && eq[2].equals("*")) 
+            {
                 qualifier = Item.ANY;
-            } else if (eq.length > 2) {
+            } 
+            else if (eq.length > 2) 
+            {
                 qualifier = eq[2];
             }
 
@@ -512,15 +519,21 @@ public class ItemTag extends TagSupport {
                 out.print("<tr><td class=\"metadataFieldLabel1 " + metadataNameClass + "\">");
 
                 String label = null;
-                try {
-                    label = I18nUtil.getMessage("metadata."
-                            + ("default".equals(this.style) ? "" : this.style + ".") + field,
-                            context);
-                } catch (MissingResourceException e) {
-                    // if there is not a specific translation for the style we
-                    // use the default one
-                    label = LocaleSupport.getLocalizedMessage(pageContext,
-                            "metadata." + field);
+                try 
+                {
+                	if(collection != null && collection.getName().startsWith(PORTAIS)) 
+                	{
+                		label = I18nUtil.getMessage("metadata.portais." + field, context);
+                	}
+                	else
+                	{
+                		label = I18nUtil.getMessage("metadata." + ("default".equals(this.style) ? "" : this.style + ".") + field, context);
+                	}
+                } 
+                catch (MissingResourceException e) 
+                {
+                    // if there is not a specific translation for the style we use the default one
+                    label = LocaleSupport.getLocalizedMessage(pageContext, "metadata." + field);
                 }
 
                 out.print(label);
@@ -681,9 +694,12 @@ public class ItemTag extends TagSupport {
             .ofNullable(item.getOwningCollection())
             .orElse(collections != null ? collections.get(0) : null);
     
-        if (collection != null && collection.getName().startsWith(PORTAIS)) {
+        if (collection != null && collection.getName().startsWith(PORTAIS)) 
+        {
             metadataFields = styleSelection.getConfigurationForStyle("portais");
-        } else {
+        } 
+        else 
+        {
             metadataFields = styleSelection.getConfigurationForStyle("default");
         }
 
@@ -726,9 +742,20 @@ public class ItemTag extends TagSupport {
                 out.print(field);
 
                 String label = null;
-                try {
-                    label = I18nUtil.getMessage("metadata." + field, context);
-                } catch (MissingResourceException e) {
+                try 
+                {
+                	if(collection != null && collection.getName().startsWith(PORTAIS)) 
+                	{
+                		label = I18nUtil.getMessage("metadata.portais." + field, context);
+                	}
+                	else
+                	{
+                		label = I18nUtil.getMessage("metadata." + field, context);
+                	}
+                } 
+                catch (MissingResourceException e) 
+                {
+                    // if there is not a specific translation for the style we use the default one
                     label = LocaleSupport.getLocalizedMessage(pageContext, "metadata." + field);
                 }
 
