@@ -1074,6 +1074,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 		try 
 		{
 			Email email = Email.getEmail(I18nUtil.getEmailFilename(I18nUtil.getDefaultLocale(), "update_item"));
+			email.addArgument(item.getHandle());
 			email.addArgument(handleService.getCanonicalForm(item.getHandle()));
 			email.addRecipient("miguilim@ibict.br");
 			email.send();

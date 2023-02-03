@@ -1,14 +1,15 @@
 # Workflow task email message
 #
-# {0}  Handle
+# {0} Prefixo Handle
+# {1} Handle Completo
 #
-Subject: [MIGUILIM] Atualização de Registro
+Subject: [MIGUILIM] Atualização de Registro - {0}
 
 Prezado (a),
 
 Um registro foi atualizado:
 
-{0}
+{1}
 
 
 Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
