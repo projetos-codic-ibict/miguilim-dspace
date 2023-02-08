@@ -453,7 +453,7 @@
                             </tr>
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
-                                    Escala de respostas:
+                                    Escala de respostas:<br>
                                     <%
                                     	String licencaOpcaoA = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
                                     			"Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)");
