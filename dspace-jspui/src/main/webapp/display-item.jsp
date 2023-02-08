@@ -57,11 +57,12 @@
 <%@ page import="org.dspace.termometro.service.TermometroService" %>
 <%@ page import="org.dspace.termometro.factory.TermometroServiceFactory" %>
 <%@ page import="org.dspace.app.webui.servlet.DisplayStatisticsServlet" %>
+<%@ page import="org.dspace.content.service.ItemService"%>
+<%@ page import="org.dspace.termometro.util.PrinterTermometro"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-
 <%
-    // Attributes
+	// Attributes
     Boolean displayAllBoolean = (Boolean) request.getAttribute("display.all");
     boolean displayAll = (displayAllBoolean != null && displayAllBoolean.booleanValue());
     Boolean suggest = (Boolean) request.getAttribute("suggest.enable");
@@ -120,15 +121,18 @@
     VersionHistory history = (VersionHistory) request.getAttribute("versioning.history");
     List<Version> historyVersions = (List<Version>) request.getAttribute("versioning.historyversions");
 
+    ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
+    PrinterTermometro printer = new PrinterTermometro();
+
     String pontuacaoTotalTermometro = termometroService.calcularPontuacaoTotalDoItem(item);
     String porcentagemPontuacaoTermometro = termometroService.calcularPorcentagemPontuacao(item);
-    String pontuacaoIndiceH5 = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc.identifier.h5index");
+    String pontuacaoIndiceH5 = itemService.getMetadata(item, "dc.identifier.h5index");
     String REVISTAS = "miguilim/2";
     String PORTAL_DE_PERIODICOS = "miguilim/2669";
 
-    List<MetadataValue> predatoryValues = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
-    List<MetadataValue> openAccessValues = ContentServiceFactory.getInstance().getItemService().getMetadata(item, "dc", "identifier", "openaccessseal", Item.ANY);
+    List<MetadataValue> predatoryValues = itemService.getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
+    List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "identifier", "openaccessseal", Item.ANY);
 
     boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
     boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Foi atribuído à revista o selo de acesso aberto");

@@ -5,24 +5,51 @@
     String pontuacaoIdentificadorPersistente = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.persistentidentifier");
     String pontuacaoInstituicaoEditora = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.publisher");
     String pontuacaoEditorResponsavel = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.editor");
-    String pontuacaoModalidadePublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.modalityofpublication");
-    String pontuacaoAvaliacaoPares = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreview");
-    String pontuacaoPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerspublication");
-    String pontuacaoFormaPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerstypeofpublication");
-    String pontuacaoExternalidadeAvaliacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreviewexternality");
-    String pontuacaoSubmissaoPrePrint = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.preprintsubmission");
-    String pontuacaoSeloArmazenamento = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.sealcolor");
-    String pontuacaoDisponibilizacaoDocumentos = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.time");
-    String pontuacaoTipoAcesso = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.access");
-    String pontuacaoCreativeCommons = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.creativecommons");
-    String pontuacaoTaxaPublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.publicationfees");
     String pontuacaoCodigoEtica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.codeofethics");
     String pontuacaoNormalizacaoBibliografica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.referenceguidelines");
     String pontuacaoPlataformaPlagio = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.plagiarismdetection");
-    String pontuacaoPreservacaoDigital = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.digitalpreservation");
-    String pontuacaoExigenciaDadosPesquisa = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.researchdata");
     String pontuacaoRedesSociais = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.socialnetworks");
     String pontuacaoServicosInformacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.relation.informationservices");
+    
+    String pontuacaoModalidadePublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.modalityofpublication");
+    List<MetadataValue> modalityOfPublicationValues = itemService.getMetadata(item, "dc", "description", "modalityofpublication", Item.ANY);
+    
+    String pontuacaoAvaliacaoPares = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreview");
+    List<MetadataValue> peerReviewValues = itemService.getMetadata(item, "dc", "description", "peerreview", Item.ANY);
+    
+    String pontuacaoPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerspublication");
+    List<MetadataValue> reviewersPublicationValues = itemService.getMetadata(item, "dc", "description", "reviewerspublication", Item.ANY);
+    
+    String pontuacaoFormaPublicacaoAvaliadores = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.reviewerstypeofpublication");
+    List<MetadataValue> reviewersTypeOfPublicationValues = itemService.getMetadata(item, "dc", "description", "reviewerstypeofpublication", Item.ANY);
+    
+    String pontuacaoExternalidadeAvaliacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.peerreviewexternality");
+    List<MetadataValue> peerReviewExternalityValues = itemService.getMetadata(item, "dc", "description", "peerreviewexternality", Item.ANY);
+    
+    String pontuacaoSubmissaoPrePrint = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.preprintsubmission");
+    List<MetadataValue> prePrintSubmissionValues = itemService.getMetadata(item, "dc", "rights", "preprintsubmission", Item.ANY);
+    
+    String pontuacaoSeloArmazenamento = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.sealcolor");
+    List<MetadataValue> sealColorValues = itemService.getMetadata(item, "dc", "rights", "sealcolor", Item.ANY);
+    
+    String pontuacaoDisponibilizacaoDocumentos = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.time");
+    List<MetadataValue> timeValues = itemService.getMetadata(item, "dc", "rights", "time", Item.ANY);
+    
+    String pontuacaoTipoAcesso = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.access");
+    List<MetadataValue> accessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
+    
+    String pontuacaoCreativeCommons = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.creativecommons");
+    List<MetadataValue> creativeCommonsValues = itemService.getMetadata(item, "dc", "rights", "creativecommons", Item.ANY);
+    
+    String pontuacaoTaxaPublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.publicationfees");
+    List<MetadataValue> publicationFeesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
+    
+    String pontuacaoPreservacaoDigital = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.digitalpreservation");
+    List<MetadataValue> digitalPreservationValues = itemService.getMetadata(item, "dc", "description", "digitalpreservation", Item.ANY);
+    
+    String pontuacaoExigenciaDadosPesquisa = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.rights.researchdata");
+    List<MetadataValue> researchDataValues = itemService.getMetadata(item, "dc", "rights", "researchdata", Item.ANY);
+   
 %>
 
 
@@ -136,301 +163,389 @@
                         </thead>
                         <tbody>
 
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Protocolo de interoperabilidade</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoProtocoloInteroperabilidade %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Identificador persistente</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoIdentificadorPersistente %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Identificador da instituição editora</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoInstituicaoEditora %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Identificador do editor responsável</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoEditorResponsavel %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Código de ética</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoCodigoEtica %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Padrão de normalização bibliográfica</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoNormalizacaoBibliografica %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Plataforma de detecção de plágio</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoPlataformaPlagio %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Redes sociais</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoRedesSociais %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Quantidade de respostas: 0 = 0
-                                pontos<br>Quantidade
-                                de respostas: 1 = 1 ponto<br>Quantidade de respostas: 2 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Serviços de informação</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoServicosInformacao %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
-                                Quantidade de respostas: 1 = 0 ponto<br>
-                                Quantidade de respostas: 2 = 1 ponto<br>
-                                Quantidade de respostas: 3 = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Modalidade de publicação</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoModalidadePublicacao %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Tradicional = 0 ponto<br>Ahead
-                                of
-                                print = 1
-                                ponto<br>Fluxo contínuo = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Modalidade de avaliação por pares</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoAvaliacaoPares %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Avaliação aberta = 2
-                                pontos<br>Avaliação
-                                duplo-cega = 0 ponto<br>Avaliação simples-cega = 0 ponto<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Publicação dos avaliadores</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoPublicacaoAvaliadores %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista publica somente o
-                                nome de
-                                avaliadores
-                                que participaram da avaliação de documentos aprovados para a publicação = 1 ponto<br>A
-                                revista publica o
-                                nome de todos os avaliadores que participaram da avaliação de documentos por determinado
-                                período = 2
-                                pontos<br>A revista somente publica avaliadores que concordam com a publicação do seu
-                                nome =
-                                1 ponto<br>A
-                                revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
-                                cadastrados como
-                                possíveis avaliadores = 0 ponto<br>A revista não publica nem revela o nome dos
-                                avaliadores
-                                = 0
-                                pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Forma de publicação do nome dos avaliadores</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoFormaPublicacaoAvaliadores %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
-                                A revista publica, no expediente, a listagem dos avaliadores que realizam avaliações = 1
-                                ponto <br>
-                                A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
-                                avaliadores responsáveis = 1 ponto<br>
-                                A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
-                                avaliadores = 2 pontos<br>
-                                A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
-                                cadastrados como possíveis avaliadores = 0 ponto<br>
-                                A revista não publica, nem revela o nome dos avaliadores = 0 ponto
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Externalidade da avaliação por pares</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoExternalidadeAvaliacao %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A avaliação por pares é
-                                realizada,
-                                exclusivamente, por pesquisadores da instituição que edita a revista = 0 ponto<br>A
-                                avaliação por pares
-                                é realizada por pesquisadores da instituiçao que edita a revista e por pesquisadores que
-                                são
-                                externos à
-                                instituição que edita a revista = 1 ponto<br>A avaliação por pares é realizada,
-                                exclusivamente, por
-                                pesquisadores que são externos à instituição que edita a revista = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Permissão de submissão de preprint</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoSubmissaoPrePrint %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>A revista aceita a submissão
-                                de
-                                preprints que
-                                já se encontram armazenados em outras plataformas = 2 pontos<br>A revista não aceita a
-                                submissão de
-                                preprints que já se encontram armazenados em outras plataformas = 0 ponto<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Selo de armazenamento e acesso</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoSeloArmazenamento %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Amarela: permite o
-                                armazenamento e
-                                acesso das
-                                versões preprint dos documentos em repositórios institucionais/digitais = 1 ponto<br>Azul:
-                                permite o
-                                armazenamento e acesso das versões pós-print dos documentos em repositórios
-                                institucionais/digitais = 1
-                                ponto<br>Branca: apresenta restrições para o armazenamento e acesso das versões preprint
-                                e
-                                pós-print dos
-                                documentos em repositórios institucionais/digitais = 0 ponto<br>Verde: permite o
-                                armazenamento e acesso
-                                das versões preprint e pós-print dos documentos em repositórios institucionais/digitais
-                                = 2
-                                pontos<br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Prazo para disponibilização de documentos</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoDisponibilizacaoDocumentos %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>
-                                Imediatamente após a aceitação do documento = 2 pontos<br>
-                                Imediatamente após a publicação do documento = 1 ponto<br>
-                                Após finalizado o período de embargo = 0 ponto<br>
-                                Não permite o armazenamento = 0 ponto<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Tipo de acesso</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoTipoAcesso %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>Acesso aberto imediato = 2
-                                pontos<br>Acesso
-                                aberto após período de embargo = 1 ponto<br>Acesso restrito = 0 ponto<br>Acesso híbrido
-                                = 1
-                                ponto<br>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Licença Creative Commons</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoCreativeCommons %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Permite distribuição,
-                                remixagem,
-                                adaptação e
-                                criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito
-                                ao
-                                autor da
-                                obra original (CC BY) = 2 pontos<br>Permite distribuição, remixagem, adaptação e criação
-                                a
-                                partir da
-                                obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra
-                                original e que as
-                                novas criações utilizem a mesma licença da obra original (CC BY-SA) = 2 pontos<br>Permite
-                                redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que
-                                seja
-                                atribuído o
-                                crédito ao autor (CC BY-ND) = 1 ponto<br>Permite remixagem, adaptação e criação a partir
-                                da
-                                obra, desde
-                                que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins
-                                comerciais (CC
-                                BY-NC) = 1 ponto<br>Permite remixagem, adaptação e criação a partir da obra, para fins
-                                não
-                                comerciais,
-                                desde que seja atribuído o crédito ao autor da obra original e que as novas criações
-                                utilizem a mesma
-                                licença da obra original (CC BY-NC-SA) = 1 ponto<br>Permite redistribuição não
-                                comercial,
-                                desde que seja
-                                atribuído o crédito ao autor e que a obra não seja alterada de nenhuma forma (CC
-                                BY-NC-ND) =
-                                0
-                                pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Taxas de publicação</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoTaxaPublicacao %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>A revista cobra taxa de
-                                submissão
-                                de artigos =
-                                0 ponto<br>A revista cobra taxa de processamento de artigos (APC) = 0 ponto<br>A
-                                revista
-                                cobra taxa de
-                                submissão e de processamento de artigos = 0 ponto<br>A revista não cobra qualquer taxa
-                                de
-                                publicação = 2
-                                pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Estratégia de preservação digital</b></td>
-                            <td class="oddRowEvenCol"><%= pontuacaoPreservacaoDigital %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol" colspan="2">Escala de respostas:<br>Ainda não adota política = 0
-                                pontos<br>LOCKSS
-                                = 2 pontos<br>CLOCKSS = 2 pontos<br>Portico = 2 pontos<br>PKP PN = 2 pontos<br>Archivematica
-                                = 2
-                                pontos<br>'other' = 2 pontos<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol"><b>Exigência de disponibilização de dados de pesquisa</b></td>
-                            <td class="oddRowOddCol"><%= pontuacaoExigenciaDadosPesquisa %></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowOddCol" colspan="2">Escala de respostas:<br>
-                                A revista exige que os autores publiquem os dados que deram origem à pesquisa em
-                                repositórios e/ou revistas de dados = 2 pontos<br>
-                                A revista publica
-                                os dados que deram origem à pesquisa na própria revista = 1 ponto<br>
-                                A revista não exige que os autores publiquem os dados que deram origem à pesquisa = 0
-                                ponto<br></td>
-                        </tr>
-                        <tr>
-                            <td class="oddRowEvenCol"><b>Soma dos pontos da revista:</b></td>
-                            <td class="oddRowEvenCol"><b><%= pontuacaoTotalTermometro %> (<%= porcentagemPontuacaoTermometro %>%)</b></td>
-                        </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Protocolo de interoperabilidade</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoProtocoloInteroperabilidade %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Identificador persistente</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoIdentificadorPersistente %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Identificador da instituição editora</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoInstituicaoEditora %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Identificador do editor responsável</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoEditorResponsavel %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Código de ética</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoCodigoEtica %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Padrão de normalização bibliográfica</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoNormalizacaoBibliografica %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Plataforma de detecção de plágio</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoPlataformaPlagio %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Redes sociais</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoRedesSociais %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 0 = 0 pontos<br>
+                                    Quantidade de respostas: 1 = 1 ponto<br>
+                                    Quantidade de respostas: 2 = 2 pontos<br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Serviços de informação</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoServicosInformacao %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    Quantidade de respostas: 1 = 0 pontos<br>
+                                    Quantidade de respostas: 2 = 1 ponto<br>
+                                    Quantidade de respostas: 3 = 2 pontos<br></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Modalidade de publicação</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoModalidadePublicacao %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String tradicional = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Tradicional");
+                                    	String aheadOfPrint = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Ahead of print");
+                                    	String fluxoContinuo = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Fluxo contínuo");
+                                    %>
+                                    <%= tradicional %> = 0 pontos <br>
+                                    <%= aheadOfPrint %> = 1 ponto <br>
+                                    <%= fluxoContinuo %> = 2 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Modalidade de avaliação por pares</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoAvaliacaoPares %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String aberta = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação aberta");
+                                    	String duploCega = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação duplo-cega");
+                                    	String simplesCega = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação simples-cega");
+                                    %>
+                                    <%= aberta %> = 2 pontos <br>
+                                    <%= duploCega %> = 0 pontos <br>
+                                    <%= simplesCega %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Publicação dos avaliadores</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoPublicacaoAvaliadores %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String publicacaoOpcaoA = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    			"A revista publica somente o nome de avaliadores que participaram da avaliação de documentos aprovados para a publicação");
+                                    	String publicacaoOpcaoB = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    			"A revista publica o nome de todos os avaliadores que participaram da avaliação de documentos por determinado período");
+                                    	String publicacaoOpcaoC = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    			"A revista somente publica avaliadores que concordam com a publicação do seu nome");
+                                    	String publicacaoOpcaoD = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    			"A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores");
+                                    	String publicacaoOpcaoE = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    			"A revista não publica nem revela o nome dos avaliadores");
+                                    %>
+                                    <%= publicacaoOpcaoA %> = 1 ponto <br>
+                                    <%= publicacaoOpcaoB %> = 2 pontos <br>
+                                    <%= publicacaoOpcaoC %> = 1 ponto <br>
+                                    <%= publicacaoOpcaoD %> = 0 pontos <br>
+                                    <%= publicacaoOpcaoE %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Forma de publicação do nome dos avaliadores</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoFormaPublicacaoAvaliadores %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String formaOpcaoA = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    			"A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações");
+                                    	String formaOpcaoB = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    			"A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis");
+                                    	String formaOpcaoC = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    			"A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores");
+                                    	String formaOpcaoD = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    			"A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores");
+                                    	String formaOpcaoE = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    			"A revista não publica, nem revela o nome dos avaliadores");
+                                    %>
+                                    <%= formaOpcaoA %> = 1 ponto <br>
+                                    <%= formaOpcaoB %> = 1 ponto <br>
+                                    <%= formaOpcaoC %> = 2 pontos <br>
+                                    <%= formaOpcaoD %> = 0 pontos <br>
+                                    <%= formaOpcaoE %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Externalidade da avaliação por pares</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoExternalidadeAvaliacao %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String externalidadeOpcaoA = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
+                                    			"A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista");
+                                    	String externalidadeOpcaoB = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
+                                    			"A avaliação por pares é realizada por pesquisadores da instituiçao que edita a revista e por pesquisadores que são externos à instituição que edita a revista");
+                                    	String externalidadeOpcaoC = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
+                                    			"A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista");
+                                    %>
+                                    <%= externalidadeOpcaoA %> = 0 pontos <br>
+                                    <%= externalidadeOpcaoB %> = 1 ponto <br>
+                                    <%= externalidadeOpcaoC %> = 2 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Permissão de submissão de preprint</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoSubmissaoPrePrint %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String submissaoOpcaoA = printer.formatarApresentacaoMensagem(prePrintSubmissionValues, 
+                                    			"A revista aceita a submissão de preprints que já se encontram armazenados em outras plataformas");
+                                    	String submissaoOpcaoB = printer.formatarApresentacaoMensagem(prePrintSubmissionValues, 
+                                    			"A revista não aceita a submissão de preprints que já se encontram armazenados em outras plataformas");
+                                    %>
+                                    <%= submissaoOpcaoA %> = 2 pontos <br>
+                                    <%= submissaoOpcaoB %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Selo de armazenamento e acesso</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoSeloArmazenamento %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String amarelo = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    			"Amarela: permite o armazenamento e acesso das versões preprint dos documentos em repositórios institucionais/digitais");
+                                    	String azul = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    			"Azul: permite o armazenamento e acesso das versões pós-print dos documentos em repositórios institucionais/digitais");
+                                    	String branco = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    			"Branca: apresenta restrições para o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais");
+                                    	String verde = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    			"Verde: permite o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais");
+                                    %>
+                                    <%= amarelo %> = 1 ponto <br>
+                                    <%= azul %> = 1 ponto <br>
+                                    <%= branco %> = 0 pontos <br>
+                                    <%= verde %> = 2 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Prazo para disponibilização de documentos</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoDisponibilizacaoDocumentos %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String prazoOpcaoA = printer.formatarApresentacaoMensagem(timeValues, "Imediatamente após a aceitação do documento");
+                                    	String prazoOpcaoB = printer.formatarApresentacaoMensagem(timeValues, "Imediatamente após a publicação do documento");
+                                    	String prazoOpcaoC = printer.formatarApresentacaoMensagem(timeValues, "Após finalizado o período de embargo");
+                                    	String prazoOpcaoD = printer.formatarApresentacaoMensagem(timeValues, "Não permite o armazenamento");
+                                    %>
+                                    <%= prazoOpcaoA %> = 2 pontos <br>
+                                    <%= prazoOpcaoB %> = 1 ponto <br>
+                                    <%= prazoOpcaoC %> = 0 pontos <br>
+                                    <%= prazoOpcaoD %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Tipo de acesso</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoTipoAcesso %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String acessoOpcaoA = printer.formatarApresentacaoMensagem(accessValues, "Acesso aberto imediato");
+                                    	String acessoOpcaoB = printer.formatarApresentacaoMensagem(accessValues, "Acesso aberto após período de embargo");
+                                    	String acessoOpcaoC = printer.formatarApresentacaoMensagem(accessValues, "Acesso restrito");
+                                    	String acessoOpcaoD = printer.formatarApresentacaoMensagem(accessValues, "Acesso híbrido");
+                                    %>
+                                    <%= acessoOpcaoA %> = 2 pontos <br>
+                                    <%= acessoOpcaoB %> = 1 ponto <br>
+                                    <%= acessoOpcaoC %> = 0 pontos <br>
+                                    <%= acessoOpcaoD %> = 1 ponto <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Licença Creative Commons</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoCreativeCommons %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:
+                                    <%
+                                    	String licencaOpcaoA = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)");
+                                    	String licencaOpcaoB = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra " +
+                                                "original e que as novas criações utilizem a mesma licença da obra original (CC BY-SA)");
+                                    	String licencaOpcaoC = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)");
+                                    	String licencaOpcaoD = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC)");
+                                    	String licencaOpcaoE = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações " +
+                                                "utilizem a mesma licença da obra original (CC BY-NC-SA)");
+                                    	String licencaOpcaoF = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    			"Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND)");
+                                    %>
+                                    <%= licencaOpcaoA %> = 2 pontos <br>
+                                    <%= licencaOpcaoB %> = 2 pontos <br>
+                                    <%= licencaOpcaoC %> = 1 ponto <br>
+                                    <%= licencaOpcaoD %> = 1 ponto <br>
+                                    <%= licencaOpcaoE %> = 1 ponto <br>
+                                    <%= licencaOpcaoF %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Taxas de publicação</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoTaxaPublicacao %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String taxaOpcaoA = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de submissão de artigos");
+                                    	String taxaOpcaoB = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de processamento de artigos (APC)");
+                                    	String taxaOpcaoC = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de submissão e de processamento de artigos");
+                                    	String taxaOpcaoD = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista não cobra qualquer taxa de publicação");
+                                    %>
+                                    <%= taxaOpcaoA %> = 0 pontos <br>
+                                    <%= taxaOpcaoB %> = 0 pontos <br>
+                                    <%= taxaOpcaoC %> = 0 pontos <br>
+                                    <%= taxaOpcaoD %> = 2 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Estratégia de preservação digital</b></td>
+                                <td class="oddRowEvenCol"><%= pontuacaoPreservacaoDigital %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String naoAdota = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Ainda não adota política");
+                                    	String lockss = printer.formatarApresentacaoMensagem(digitalPreservationValues, "LOCKSS");
+                                    	String clockss = printer.formatarApresentacaoMensagem(digitalPreservationValues, "CLOCKSS");
+                                    	String portico = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Portico");
+                                    	String pkpPn = printer.formatarApresentacaoMensagem(digitalPreservationValues, "PKP PN");
+                                    	String archivematica = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Archivematica");
+                                    	String other = printer.formatarApresentacaoMensagem(digitalPreservationValues, "'other'");
+                                    %>
+                                    <%= naoAdota %> = 0 pontos <br>
+                                    <%= lockss %> = 2 pontos <br>
+                                    <%= clockss %> = 2 pontos <br>
+                                    <%= portico %> = 2 pontos <br>
+                                    <%= pkpPn %> = 2 pontos <br>
+                                    <%= archivematica %> = 2 pontos <br>
+                                    <%= other %> = 2 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol"><b>Exigência de disponibilização de dados de pesquisa</b></td>
+                                <td class="oddRowOddCol"><%= pontuacaoExigenciaDadosPesquisa %></td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowOddCol" colspan="2">
+                                    Escala de respostas:<br>
+                                    <%
+                                    	String pesquisaOpcaoA = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    			"A revista exige que os autores publiquem os dados que deram origem à pesquisa em repositórios e/ou revistas de dados");
+                                    	String pesquisaOpcaoB = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    			"A revista publica os dados que deram origem à pesquisa na própria revista");
+                                    	String pesquisaOpcaoC = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    			"A revista não exige que os autores publiquem os dados que deram origem à pesquisa");
+                                    %>
+                                    <%= pesquisaOpcaoA %> = 2 pontos <br>
+                                    <%= pesquisaOpcaoB %> = 1 ponto <br>
+                                    <%= pesquisaOpcaoC %> = 0 pontos <br>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="oddRowEvenCol"><b>Soma dos pontos da revista:</b></td>
+                                <td class="oddRowEvenCol"><b><%= pontuacaoTotalTermometro %> (<%= porcentagemPontuacaoTermometro %>%)</b></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
