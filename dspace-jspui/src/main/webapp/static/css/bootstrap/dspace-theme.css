@@ -266,7 +266,7 @@
 
 .subhead, .results-cards .cards h3 {
   font-family: "Open Sans", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem!important;
   font-weight: 700;
   line-height: 48px;
   letter-spacing: 0.5px;
