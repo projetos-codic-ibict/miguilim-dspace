@@ -76,23 +76,22 @@
 
     <div class="espacamento minus-space" id="TopoPerguntasFrequentes">
         <div class="linksFAQ">
-        <a href="#PqMiguilim">Por que o nome Miguilim?</a>
-        <a href="#ComoCriarLogin">Como criar um login?</a>
-        <a href="#ComoCadastroUmaRevista">Como cadastrar uma revista científica ou um portal de revistas?</a>
-        <a href="#criteriosBasicos">Quais são os critérios básicos para cadastro?</a>
-        <a href="#QualquerRevista">Qualquer revista pode ser cadastrada?</a>
-        <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas e portais de revistas?</a>
-        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar revistas e portais de revistas?</a>
-        <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista ou portal de revistas?</a>
-        <a href="#PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</a>
-        <a href="#RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</a>
-        <a href="#ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</a>
-        <a href="#DeOndeVieramAsInformacoes">De onde vieram as informações dos primeiros registros do Miguilim?</a>
-        <a href="#EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</a>
-        <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
-        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</a>
-	<a href="#OqueEoTermometroH5">O que é o Termômetro de Índice H5?</a>
-        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
+	        <a href="#PqMiguilim">Por que o nome Miguilim?</a>
+	        <a href="#ComoCriarLogin">Como criar um login?</a>
+	        <a href="#ComoCadastroUmaRevista">Como cadastrar uma revista científica ou um portal de revistas?</a>
+	        <a href="#criteriosBasicos">Quais são os critérios básicos para cadastro?</a>
+	        <a href="#QualquerRevista">Qualquer revista pode ser cadastrada?</a>
+	        <a href="#QuemPodeAtualizar">Quem pode atualizar o cadastro de revistas e portais de revistas?</a>
+	        <a href="#ComoSolicitarPermissao">Como solicitar permissão para atualizar revistas e portais de revistas?</a>
+	        <a href="#ComoAtualizarArevista">Como atualizar o cadastro de uma revista ou portal de revistas?</a>
+	        <a href="#PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</a>
+	        <a href="#RevistasQueNaosaoPublicadas">Revistas que não são publicadas no Brasil também podem ser cadastradas?</a>
+	        <a href="#ComoForamDefinidosOsCampos">Como foram definidos os campos de descrição de revistas do Miguilim?</a>
+	        <a href="#DeOndeVieramAsInformacoes">De onde vieram as informações dos primeiros registros do Miguilim?</a>
+	        <a href="#EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</a>
+	        <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
+	        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</a>
+	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
     
@@ -252,12 +251,6 @@
                 ética, dentre outros. Para cada um dos 22 campos a revista pode pontuar entre 0 (zero), 1 (um) ou 2 (dois) pontos, sendo 2 (dois) a pontuação máxima para cada um. 
                 Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a revista atinge a pontuação máxima de 44 pontos, ou 100%. O selo será atribuído àquelas revistas que marcarem 36 
                 pontos ou mais, que corresponde a 80% da pontuação máxima.</p>
-		
-	    <h2 id="OqueEoTermometroH5">O que é o Termômetro de Índice H5?</h2>
-
-             <p id="margem-unica">O Termômetro de Índice H5 indica o Índice de citação H5 do Google que foi atribuído às revistas científicas cadastradas no Miguilim.
-	        O H5 busca quantificar o impacto de uma revista científica baseado no número de citações obtidas pelos artigos publicados nos últimos 5 anos. Para compreender o cálculo do
-		índice H5 deve-se considerar o seguinte: se uma revista científica possui H5 de 10 significa que nos últimos 5 anos ela publicou ao menos 10 artigos que receberam ao menos 10 citações.</p>
 		
             <h2 id="PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</h2>
     
