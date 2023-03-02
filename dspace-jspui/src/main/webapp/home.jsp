@@ -95,6 +95,18 @@
 <div class="content-home">
 	<div class="d-flex a-center">
 		<div class="col">
+			<div class="contentChip">
+			<a href="#" class="chipBeta">beta<a/>
+			  <div class="contentChipText">
+			    <h2>Prezado usuário,</h2>
+			    <p>O Miguilim foi disponibilizado à comunidade externa a partir do dia 05/01/2023. Desde então sua equipe gestora tem trabalhado para corrigir falhas pontuais que o sistema possa apresentar. Contamos também com a colaboração de nossos usuários, que podem se sentir a vontade para entrar em contato com a equipe Miguilim e sugerir modificações/correções que julguem oportunas.
+
+			Desse modo, ajustes de diferentes naturezas são frequentemente executados, o que pode levar a interrupções pontuais.</p>
+			    <div class="footerChip">
+			      <p>Agradecemos desde já a compreensão e permanecemos à disposição para esclarecimentos adicionais.</p>
+			    </div>
+			  </div>
+			</div>
 			<h1>Miguilim</h1>
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
 			<div class="total">
