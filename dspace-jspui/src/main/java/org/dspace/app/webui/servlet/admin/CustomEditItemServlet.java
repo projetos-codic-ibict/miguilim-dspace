@@ -672,7 +672,7 @@ public class CustomEditItemServlet extends DSpaceServlet
          * "Cancel" handled above, so whatever happens, we need to update the
          * item metadata. First, we remove it all, then build it back up again.
          */
-        itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+        // itemService.clearMetadata(context, item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
 
         // We'll sort the parameters by name. This ensures that DC fields
         // of the same element/qualifier are added in the correct sequence.
@@ -716,15 +716,18 @@ public class CustomEditItemServlet extends DSpaceServlet
                 }
 
                 String sequenceNumber = st.nextToken();
+                
+                if(sequenceNumber.contentEquals("00"))
+                {
+                	itemService.clearMetadata(context, item, schema, element, qualifier, Item.ANY);
+                }
 
                 // Get a string with "element" for unqualified or
                 // "element_qualifier"
-                String key = metadataFieldService.findByElement(context,
-                		schema,element,qualifier).toString();
+                String key = metadataFieldService.findByElement(context, schema,element,qualifier).toString();
 
                 // Get the language
-                String language = request.getParameter("language_" + key + "_"
-                        + sequenceNumber);
+                String language = request.getParameter("language_" + key + "_" + sequenceNumber);
 
                 // trim language and set empty string language = null
                 if (language != null)
@@ -758,11 +761,10 @@ public class CustomEditItemServlet extends DSpaceServlet
                     // If remove button pressed for this value, we don't add it
                     // back to the item. We also don't add empty values
                     // (if no authority is specified).
-                    if (!((value.equals("") && authority == null) || button.equals("submit_remove_" + key
-                            + "_" + sequenceNumber))) {
+                    if (!((value.equals("") && authority == null) || button.equals("submit_remove_" + key + "_" + sequenceNumber))) 
+                    {
                         // Value is empty, or remove button for this wasn't pressed
-                        itemService.addMetadata(context, item, schema, element, qualifier, language, value,
-                                authority, confidence);
+                        itemService.addMetadata(context, item, schema, element, qualifier, language, value, authority, confidence);
                     }
                 }
             }
