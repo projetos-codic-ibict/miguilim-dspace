@@ -93,7 +93,7 @@
 
 <!-- detalhe globo -->
 <div class="content-home">
-	<div class="d-flex a-center">	
+		<div class="d-flex a-center">
 		<div class="col">
 			<h1>Miguilim</h1>
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
@@ -149,6 +149,16 @@
 				</svg>
 		</div>
 	</div>
+
+	<!-- buscar -->
+	<div class="search-home">
+		<form method="get" action="/simple-search" class="form-home">
+			<a class="link-search" href="/simple-search">Busca avançada</a>
+			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
+			<input type="submit" class="button-main" value="Buscar">
+		</form>
+	</div>
+</div>
 
 	<!-- buscar -->
 	<div class="search-home">
