@@ -93,8 +93,7 @@
 
 <!-- detalhe globo -->
 <div class="content-home">
-	<div class="d-flex a-center">
-		<div class="d-flex a-center">
+	<div class="d-flex a-center">	
 		<div class="col">
 			<h1>Miguilim</h1>
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
