@@ -168,18 +168,9 @@
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
 			<input type="submit" class="button-main" value="Buscar">
 		</form>
+		</div>
 	</div>
-</div>
 
-	<!-- buscar -->
-	<div class="search-home">
-		<form method="get" action="<%= request.getContextPath() %>/simple-search" class="form-home">
-			<a class="link-search" href="<%= request.getContextPath() %>/simple-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
-			<input type="text" name="query" id="tequery"  class="field-search" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>">
-			<input type="submit" class="button-main" value="Buscar">
-		</form>
-	</div>
-</div>
 
 <!-- random news -->
 <div class="content-news">
