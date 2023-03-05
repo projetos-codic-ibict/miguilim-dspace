@@ -7,6 +7,8 @@
  */
 package org.dspace.rest;
 
+import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +24,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.dspace.core.I18nUtil;
 import org.dspace.discovery.DiscoverFacetField;
 import org.dspace.discovery.DiscoverQuery;
@@ -43,6 +45,7 @@ public class FacetasResource extends Resource
     public List<Faceta> obterFacetas (
     		@QueryParam("query-value") String queryValue, 
     		@QueryParam("query-metadados") List<String> metadados, 
+    		@QueryParam("query-collection") String collectionId, 
     		@Context HttpHeaders headers, 
     		@Context HttpServletRequest request)
     {
@@ -54,8 +57,8 @@ public class FacetasResource extends Resource
     	try 
     	{
 			context = createContext();
-			
-			DiscoverQuery query = obterQuery(queryValue, opcoesFacetas);
+
+			DiscoverQuery query = obterQuery(queryValue, collectionId, opcoesFacetas);
 			DiscoverResult itens = SearchUtils.getSearchService().search(context, null, query);
 			
 			for (DiscoverySearchFilterFacet opcao : opcoesFacetas)
@@ -81,7 +84,11 @@ public class FacetasResource extends Resource
 				}
 			
 				faceta.setResultados(resultadosFaceta);
-				facetas.add(faceta);
+				
+				if(isNotEmpty(resultadosFaceta))
+				{
+					facetas.add(faceta);
+				}
             }
 			
 			context.complete();
@@ -98,7 +105,7 @@ public class FacetasResource extends Resource
     	
        	List<DiscoverySearchFilterFacet> opcoesFacetas = new ArrayList<>();
     	
-    	if(CollectionUtils.isNotEmpty(metadados))
+    	if(isNotEmpty(metadados))
     	{
     		for(String metadado : metadados)
     		{
@@ -125,9 +132,14 @@ public class FacetasResource extends Resource
     	return opcoesFacetas;
     }
     
-    private DiscoverQuery obterQuery(String queryValue, List<DiscoverySearchFilterFacet> opcoesFacetas) {
+    private DiscoverQuery obterQuery(String queryValue, String collectionId, List<DiscoverySearchFilterFacet> opcoesFacetas) {
     	DiscoverQuery query = new DiscoverQuery();
 		query.setQuery(queryValue);
+		
+		if(StringUtils.isNotEmpty(collectionId))
+		{
+			query.addFilterQueries("location:l" + collectionId);
+		}
 		
 		for (DiscoverySearchFilterFacet opcao : opcoesFacetas)
 		{
