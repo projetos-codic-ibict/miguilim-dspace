@@ -65,6 +65,7 @@
 <%@ page import="java.util.*" %>
 <%@ page import="org.dspace.core.I18nUtil" %>
 <%@ page import="java.text.Collator" %>
+<%@ page import="java.text.SimpleDateFormat" %>
 
 <%
     
@@ -806,12 +807,30 @@
                                 }
 
                                 DCDate dataPublicacao = new DCDate(itemService.getMetadataFirstValue(item, "dc", "date", "available", Item.ANY));
-                                String dataPublicacaoFormatada = UIUtil.displayDate(dataPublicacao, false, false, hrq);
-                                if (dataPublicacaoFormatada == null)
-                                {
-                                    dataPublicacaoFormatada = "";
-                                }
 
+                                String dataPublicacaoFormatada = null;
+                                if (dataPublicacao.toDate() == null)
+                                {
+                                	// Data default definida pela equipe do IBICT.
+                                    dataPublicacaoFormatada = "15-Jul-2022";
+                                }
+                                else
+                                {
+                                	dataPublicacaoFormatada = UIUtil.displayDate(dataPublicacao, false, false, hrq);
+                                }
+                                
+                                String dataAtualizacaoFormatada = null;
+                                String dataAtualizacao = itemService.getMetadataFirstValue(item, "dc", "date", "update", Item.ANY);
+                                String[] partesData = dataAtualizacao.split(" ");
+                                
+                                if(partesData.length > 2)
+                                {
+                                	SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy"); 
+
+                                	DCDate data = new DCDate(formatoData.parse(partesData[0]));
+                                	dataAtualizacaoFormatada = UIUtil.displayDate(data, false, false, hrq);
+                                }
+                              
                                 String url = itemService.getMetadataFirstValue(item, "dc", "identifier", "url", Item.ANY);
                                 String handleCollection = item.getCollections().get(0).getHandle();
                         %>
@@ -849,7 +868,17 @@
 
                                         </div>
                                         <div class="bt">
-                                            <div class="kind"><strong>Registrado em:</strong> <%= dataPublicacaoFormatada %></div>
+                                            <div>
+                                                <strong>Registrado em:</strong> <%= dataPublicacaoFormatada %><br/>
+                                                <%
+                                                    if(dataAtualizacaoFormatada != null) 
+                                                    {
+                                                %>
+                                                    <strong>Atualizado em:</strong> <%= dataAtualizacaoFormatada %>
+                                                 <%
+                                                    } 
+                                                %>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
