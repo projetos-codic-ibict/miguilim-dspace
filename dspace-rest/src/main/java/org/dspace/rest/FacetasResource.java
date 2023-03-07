@@ -34,6 +34,7 @@ import org.dspace.discovery.SearchUtils;
 import org.dspace.discovery.configuration.DiscoveryConfiguration;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.rest.common.Faceta;
+import org.dspace.rest.common.RespostaFacetas;
 import org.dspace.rest.common.ResultadoFaceta;
 
 
@@ -42,7 +43,7 @@ public class FacetasResource extends Resource
 {
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public List<Faceta> obterFacetas (
+    public RespostaFacetas obterFacetas (
     		@QueryParam("query-value") String queryValue, 
     		@QueryParam("query-metadados") List<String> metadados, 
     		@QueryParam("query-collection") String collectionId, 
@@ -50,6 +51,8 @@ public class FacetasResource extends Resource
     		@Context HttpServletRequest request)
     {
     	org.dspace.core.Context context = null;
+    	
+    	RespostaFacetas retorno = new RespostaFacetas();
     	
     	List<DiscoverySearchFilterFacet> opcoesFacetas = obterFacetasParaPesquisa(metadados);
     	List<Faceta> facetas = new ArrayList<>();
@@ -91,6 +94,9 @@ public class FacetasResource extends Resource
 				}
             }
 			
+			retorno.setQuantidadeTotalItens(itens.getTotalSearchResults());
+			retorno.setFacetas(facetas);
+			
 			context.complete();
 		} 
         catch (Exception e)
@@ -98,7 +104,7 @@ public class FacetasResource extends Resource
             processException("Message: " + e.getMessage(), context);
         }
     	
-        return facetas;
+    	return retorno;
     }
     
     private List<DiscoverySearchFilterFacet> obterFacetasParaPesquisa(List<String> metadados) {
