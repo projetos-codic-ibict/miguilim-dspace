@@ -110,7 +110,7 @@
                 </a>
             </div>
             <div class="col-logo">
-                <a href='<%= request.getContextPath()%>/image/logo-texto.png' download>
+                <a href='<%= request.getContextPath()%>/image/logo.png' download>
                 <div class="content-logo">
                     <img src='<%= request.getContextPath()%>/image/logo.png'>                   
                 </div>
