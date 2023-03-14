@@ -1936,12 +1936,55 @@ a.admin-help {
 	  opacity:1;
 	}
   }
-
- .list-group .list-group-item{
-	 padding-bottom: 1.5rem;
- }
-
- .pagination-number-itens .active a {
-	 background-color: #04132A;
-	 color: #FFFFFF;
+  .content-brand {
+	padding:24px;
+	border-radius: 8px;
+	width: 100%;
+	background-color:$white-line-second;
+	margin:24px 0;
+	display: flex;
+	justify-content:space-between;
+	align-content: center;
+	.col-logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: wrap;
+		.text {
+			overflow: hidden;
+			height: 16px;
+			small {
+				display: block;
+				color:$gray-dark;
+				text-align: center;				
+				transform: translateY(0px);
+				transition: all .2s ease-out;
+			}
+		}
+		a {
+			text-align: center;
+			color:$gray-dark;
+			padding: 8px;
+			text-decoration: none;
+			&:hover {
+				background-color:rgba($background,0.6);
+				border-radius: 4px;
+				.text {
+					small {
+						transform: translateY(-17px);
+					}
+				}
+			}
+		}
+		.content-logo {
+			height: 80px;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			img{
+				width: 80%;
+				margin-bottom: 16px;
+			}
+		}
+	}
  }
