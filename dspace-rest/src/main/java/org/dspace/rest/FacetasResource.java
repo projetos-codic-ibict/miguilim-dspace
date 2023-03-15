@@ -126,8 +126,7 @@ public class FacetasResource extends Resource
     	}
     	else
     	{
-    		DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
-        	opcoesFacetas = discoveryConfiguration.getSidebarFacets();
+    		opcoesFacetas = obterFacetasDefault();
     	}
     	
     	Collator instance = Collator.getInstance();
@@ -153,6 +152,22 @@ public class FacetasResource extends Resource
 		}
 	
 		return query;
+    }
+    
+    private List<DiscoverySearchFilterFacet> obterFacetasDefault()
+    {
+    	List<DiscoverySearchFilterFacet> facetasDefault = new ArrayList<>();
+    	
+    	DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
+    	facetasDefault = discoveryConfiguration.getSidebarFacets();
+    	
+    	DiscoverySearchFilterFacet filterState = new DiscoverySearchFilterFacet();
+    	filterState.setMetadataFields(Arrays.asList("dc.state"));
+    	filterState.setIndexFieldName("state");
+    	
+    	facetasDefault.add(filterState);
+    	
+    	return facetasDefault;
     }
    
 }
