@@ -159,7 +159,7 @@ public class FacetasResource extends Resource
     	List<DiscoverySearchFilterFacet> facetasDefault = new ArrayList<>();
     	
     	DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
-    	facetasDefault = discoveryConfiguration.getSidebarFacets();
+    	facetasDefault = new ArrayList<>(discoveryConfiguration.getSidebarFacets());
     	
     	DiscoverySearchFilterFacet filterState = new DiscoverySearchFilterFacet();
     	filterState.setMetadataFields(Arrays.asList("dc.state"));
