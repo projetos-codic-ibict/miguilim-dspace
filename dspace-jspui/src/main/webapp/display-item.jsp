@@ -164,14 +164,15 @@
 
         <%
             if (admin_button)  // admin edit button
-            { %>
+            { 
+        %>
         <div class="search-content">
             <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
                 <div class="panel-body">
-                    <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
-                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
-                        <input class="btn btn-default col-md-12" type="submit" name="submit"
+                    <form method="get" action="<%= request.getContextPath() %>/tools/version">
+                        <input type="hidden" name="itemID" value="<%= item.getID() %>"/>
+                        <input class="btn btn-default col-md-12" type="submit" name="submit_version"
                                value="<fmt:message key="jsp.general.edit.button"/>"/>
                     </form>
 

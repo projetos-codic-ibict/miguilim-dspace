@@ -37,37 +37,37 @@ public class VersionItemServlet extends DSpaceServlet
     /** log4j category */
     private static final Logger log = Logger.getLogger(VersionItemServlet.class);
 
-    private final transient ItemService itemService =
-            ContentServiceFactory.getInstance().getItemService();
+    private final transient ItemService itemService = ContentServiceFactory.getInstance().getItemService();
 
     @Override
     protected void doDSGet(Context context, HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, SQLException,
-            AuthorizeException
+            throws ServletException, IOException, SQLException, AuthorizeException
     {
-        UUID itemID = UIUtil.getUUIDParameter(request,"itemID");
-        Item item = itemService.find(context,itemID);
-        String submit = UIUtil.getSubmitButton(request,"submit");
-        if (submit!=null && submit.equals("submit")){
+        UUID itemID = UIUtil.getUUIDParameter(request, "itemID");
+        Item item = itemService.find(context, itemID);
+        String submit = UIUtil.getSubmitButton(request, "submit");
+       
+        if (submit!=null && submit.equals("submit"))
+        {
             request.setAttribute("itemID", itemID);
-            JSPManager.showJSP(request, response,
-                    "/tools/version-summary.jsp");
+            JSPManager.showJSP(request, response, "/tools/version-summary.jsp");
             return;
         }
         
         String summary = request.getParameter("summary");
-        if (submit!=null && submit.equals("submit_version")){                        
+        if (submit!=null && submit.equals("submit_version"))
+        {                        
             Integer wsid = VersionUtil.processCreateNewVersion(context, item.getID(), summary);            
             response.sendRedirect(request.getContextPath()+"/submit?resume=" + wsid);
             context.complete();
             return;
         }
-        else if (submit!=null && submit.equals("submit_update_version")){
+        else if (submit!=null && submit.equals("submit_update_version"))
+        {
             String versionID = request.getParameter("versionID");
             request.setAttribute("itemID", itemID);
             request.setAttribute("versionID", versionID);
-            JSPManager.showJSP(request, response,
-                    "/tools/version-update-summary.jsp");
+            JSPManager.showJSP(request, response, "/tools/version-update-summary.jsp");
             return;
         }
         
