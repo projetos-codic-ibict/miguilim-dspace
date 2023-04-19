@@ -1437,6 +1437,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-title {
@@ -2557,7 +2559,7 @@ a.admin-help {
   }
 }
 .content-brand {
-  padding: 16px;
+  padding: 24px;
   border-radius: 8px;
   width: 100%;
   background-color: #F2F2F2;
