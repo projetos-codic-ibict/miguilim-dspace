@@ -2620,4 +2620,8 @@ a.admin-help {
 .content-brand .col-logo .content-logo img {
   width: 80%;
   margin-bottom: 16px;
+}
+
+.list-group-item {
+  display: flow-root !important;
 }/*# sourceMappingURL=dspace-theme.css.map */
