@@ -1510,6 +1510,9 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-jumppoint {
@@ -1549,6 +1552,9 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-listresult {
@@ -1578,6 +1584,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #item-data-full .panel {
@@ -1802,6 +1810,11 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .search-main .search-element .button-main {
   height: 40px;

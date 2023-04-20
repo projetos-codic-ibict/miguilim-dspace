@@ -2,7 +2,7 @@
  @import 'variables';
  @import 'cards';
  @import 'footer';
-
+ 
 .banner img {background-color: #FFFFFF;padding:15px;margin:20px;}
 .brand {padding-top: 30px;}
 .brand h4 {color: #999999}
@@ -743,10 +743,10 @@ hr {
 		background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==);
 		background-repeat: no-repeat;
 		background-position: right 8px center;
-		background-size: 24px;	
+		background-size: 24px;		
 		appearance: none;	
 		text-overflow: ellipsis;
-		white-space: nowrap;			
+		white-space: nowrap;				
 	}	
 }
 .grid-col-title {
@@ -817,6 +817,9 @@ hr {
 			background-position: right 8px center;
 			background-size: 24px;	
 			appearance: none;		
+			appearance: none;	
+			text-overflow: ellipsis;
+			white-space: nowrap;				
 		}		
 }
 
@@ -856,6 +859,9 @@ hr {
 		background-position: right 8px center;
 		background-size: 24px;	
 		appearance: none;		
+		appearance: none;	
+		text-overflow: ellipsis;
+		white-space: nowrap;			
 	}	
 }
 .grid-col-listresult {
@@ -882,7 +888,9 @@ hr {
 			background-repeat: no-repeat;
 			background-position: right 8px center;
 			background-size: 24px;	
-			appearance: none;		
+			appearance: none;	
+			text-overflow: ellipsis;
+			white-space: nowrap;					
 		}
 	}
 }
@@ -1109,7 +1117,10 @@ hr {
 			background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==");  
 			background-repeat: no-repeat;
 			background-position:right 8px center;
-			background-size:24px;			
+			background-size:24px;	
+			appearance: none;	
+			text-overflow: ellipsis;
+			white-space: nowrap;					
 		}
 		.button-main {
 			height: 40px;
