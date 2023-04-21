@@ -2553,4 +2553,8 @@ a.admin-help {
 .badge {
   background: #FFD100;
   color: #04132A;
+}
+
+.list-group-item {
+  display: flow-root !important;
 }/*# sourceMappingURL=dspace-theme.css.map */

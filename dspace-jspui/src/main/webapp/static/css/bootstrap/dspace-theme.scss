@@ -1995,3 +1995,7 @@ a.admin-help {
 	background: $yellow;
 	color: $dark-blue;
 }
+
+.list-group-item {
+	display: flow-root!important;
+}
