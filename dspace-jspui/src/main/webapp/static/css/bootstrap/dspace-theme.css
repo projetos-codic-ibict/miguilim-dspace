@@ -409,6 +409,12 @@
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
+.container-cards .card div h2::after {
+  content: "";
+  margin: 0;
+  width: 0;
+  height: 0;
+}
 .container-cards .card .text h2::after {
   content: "";
   margin: 0;
@@ -463,6 +469,9 @@
   margin: 0;
   width: 0;
   height: 0;
+}
+.results-cards .cards h3 {
+  font-size: 1.5rem;
 }
 @media (max-width: 920px) {
   .results-cards .cards h3 {
@@ -527,75 +536,6 @@
   }
 }
 
-.contentChip {
-  position: absolute;
-  cursor: pointer;
-}
-.contentChip .chipBeta {
-  text-transform: uppercase;
-  color: rgb(255, 34, 41);
-  background-color: rgba(255, 34, 41, 0.1);
-  font-size: 14px;
-  padding: 5px 16px;
-  border-radius: 4px;
-  border: 2px solid rgba(255, 34, 41, 0.6);
-  border: insert;
-  text-decoration: none;
-  cursor: pointer;
-}
-.contentChip a.contentChipText {
-  cursor: pointer;
-}
-.contentChip .contentChipText {
-  cursor: pointer;
-  position: absolute;
-  visibility: hidden;
-  overflow: hidden;
-  top: -100px;
-  left: 80px;
-  width: 500px;
-  background-color: #EBEBEB;
-  border-radius: 8px;
-  padding-bottom: 0;
-  margin-bottom: 0;
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTEzLjQwOTkgMTEuOTk5OUwxNy43MDk5IDcuNzA5OTRDMTcuODk4MiA3LjUyMTY0IDE4LjAwNCA3LjI2NjI0IDE4LjAwNCA2Ljk5OTk0QzE4LjAwNCA2LjczMzY0IDE3Ljg5ODIgNi40NzgyNSAxNy43MDk5IDYuMjg5OTRDMTcuNTIxNiA2LjEwMTY0IDE3LjI2NjIgNS45OTU4NSAxNi45OTk5IDUuOTk1ODVDMTYuNzMzNiA1Ljk5NTg1IDE2LjQ3ODIgNi4xMDE2NCAxNi4yODk5IDYuMjg5OTRMMTEuOTk5OSAxMC41ODk5TDcuNzA5OTQgNi4yODk5NEM3LjUyMTY0IDYuMTAxNjQgNy4yNjYyNCA1Ljk5NTg1IDYuOTk5OTQgNS45OTU4NUM2LjczMzY0IDUuOTk1ODUgNi40NzgyNCA2LjEwMTY0IDYuMjg5OTQgNi4yODk5NEM2LjEwMTY0IDYuNDc4MjUgNS45OTU4NSA2LjczMzY0IDUuOTk1ODUgNi45OTk5NEM1Ljk5NTg1IDcuMjY2MjQgNi4xMDE2NCA3LjUyMTY0IDYuMjg5OTQgNy43MDk5NEwxMC41ODk5IDExLjk5OTlMNi4yODk5NCAxNi4yODk5QzYuMTk2MjEgMTYuMzgyOSA2LjEyMTgyIDE2LjQ5MzUgNi4wNzEwNSAxNi42MTU0QzYuMDIwMjggMTYuNzM3MiA1Ljk5NDE0IDE2Ljg2NzkgNS45OTQxNCAxNi45OTk5QzUuOTk0MTQgMTcuMTMyIDYuMDIwMjggMTcuMjYyNyA2LjA3MTA1IDE3LjM4NDVDNi4xMjE4MiAxNy41MDY0IDYuMTk2MjEgMTcuNjE3IDYuMjg5OTQgMTcuNzA5OUM2LjM4MjkgMTcuODAzNyA2LjQ5MzUgMTcuODc4MSA2LjYxNTM2IDE3LjkyODhDNi43MzcyMiAxNy45Nzk2IDYuODY3OTMgMTguMDA1NyA2Ljk5OTk0IDE4LjAwNTdDNy4xMzE5NSAxOC4wMDU3IDcuMjYyNjYgMTcuOTc5NiA3LjM4NDUyIDE3LjkyODhDNy41MDYzOCAxNy44NzgxIDcuNjE2OTggMTcuODAzNyA3LjcwOTk0IDE3LjcwOTlMMTEuOTk5OSAxMy40MDk5TDE2LjI4OTkgMTcuNzA5OUMxNi4zODI5IDE3LjgwMzcgMTYuNDkzNSAxNy44NzgxIDE2LjYxNTQgMTcuOTI4OEMxNi43MzcyIDE3Ljk3OTYgMTYuODY3OSAxOC4wMDU3IDE2Ljk5OTkgMTguMDA1N0MxNy4xMzIgMTguMDA1NyAxNy4yNjI3IDE3Ljk3OTYgMTcuMzg0NSAxNy45Mjg4QzE3LjUwNjQgMTcuODc4MSAxNy42MTcgMTcuODAzNyAxNy43MDk5IDE3LjcwOTlDMTcuODAzNyAxNy42MTcgMTcuODc4MSAxNy41MDY0IDE3LjkyODggMTcuMzg0NUMxNy45Nzk2IDE3LjI2MjcgMTguMDA1NyAxNy4xMzIgMTguMDA1NyAxNi45OTk5QzE4LjAwNTcgMTYuODY3OSAxNy45Nzk2IDE2LjczNzIgMTcuOTI4OCAxNi42MTU0QzE3Ljg3ODEgMTYuNDkzNSAxNy44MDM3IDE2LjM4MjkgMTcuNzA5OSAxNi4yODk5TDEzLjQwOTkgMTEuOTk5OVoiIGZpbGw9IiM0MjQyNDIiLz4KPC9zdmc+Cg==");
-  background-repeat: no-repeat;
-  background-position: 460px 16px;
-}
-.contentChip .contentChipText h2 {
-  padding: 16px 30px 0 30px;
-  font-size: 20px;
-}
-.contentChip .contentChipText P {
-  padding: 0 30px 16px 30px;
-  font-size: 14px;
-}
-.contentChip .contentChipText .footerChip {
-  background-color: #FFD100;
-  border-radius: 0px 0px 0 8px;
-  padding: 8px;
-  font-size: 14px;
-  font-weight: bold;
-}
-.contentChip .contentChipText .footerChip P {
-  margin: 8px 0 0 0;
-}
-@media (max-width: 920px) {
-  .contentChip .contentChipText {
-    top: -280px;
-    left: 10px;
-    width: 310px;
-    background-color: #EBEBEB;
-    border-radius: 8px;
-    background-position: 272px 16px;
-    z-index: 1000;
-  }
-}
-
-.active .contentChipText {
-  visibility: visible;
-}
-
 #footer_feedback {
   padding-top: 12px;
 }
@@ -627,6 +567,7 @@
   justify-content: center;
   background-color: #FFD100;
   gap: 48px;
+  margin-top: 40px;
 }
 .social-media-icons a {
   align-items: center;
@@ -681,7 +622,7 @@ div.panel-primary div.panel-heading a {
 }
 
 /* This magic gets the 16x16 icon to show up.. setting height/width didn't
-   do it, but adding padding actually made it show up. */
+  do it, but adding padding actually made it show up. */
 img.ds-authority-confidence,
 span.ds-authority-confidence {
   width: 16px;
@@ -736,7 +677,7 @@ input.ds-authority-value {
 }
 
 /** XXX Change to this to get the authority value to show up for debugging:
- input.ds-authority-value { display:inline; }
+input.ds-authority-value { display:inline; }
 **/
 /* for edit-item-form lock button */
 input.ds-authority-lock {
@@ -1222,7 +1163,7 @@ hr {
   .table tbody tr td {
     word-wrap: break-word;
     /*&::before {
-    	content: attr(th-label) " ";
+     content: attr(th-label) " ";
     }*/
     border: none;
   }
@@ -1991,6 +1932,11 @@ h1:hover::after, h2:hover::after {
   border: 1px solid #E8E8E8;
   border-radius: 8px;
   padding: 0 0 0 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .pagination-number-itens {
   margin-top: 24px;
@@ -2620,4 +2566,13 @@ a.admin-help {
 .content-brand .col-logo .content-logo img {
   width: 80%;
   margin-bottom: 16px;
+}
+
+.badge {
+  background: #FFD100;
+  color: #04132A;
+}
+
+.list-group-item {
+  display: flow-root !important;
 }/*# sourceMappingURL=dspace-theme.css.map */
