@@ -409,6 +409,12 @@
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
+.container-cards .card div h2::after {
+  content: "";
+  margin: 0;
+  width: 0;
+  height: 0;
+}
 .container-cards .card .text h2::after {
   content: "";
   margin: 0;
@@ -463,6 +469,9 @@
   margin: 0;
   width: 0;
   height: 0;
+}
+.results-cards .cards h3 {
+  font-size: 1.5rem;
 }
 @media (max-width: 920px) {
   .results-cards .cards h3 {
@@ -529,7 +538,6 @@
 
 .contentChip {
   position: absolute;
-  cursor: pointer;
 }
 .contentChip .chipBeta {
   text-transform: uppercase;
@@ -541,10 +549,6 @@
   border: 2px solid rgba(255, 34, 41, 0.6);
   border: insert;
   text-decoration: none;
-  cursor: pointer;
-}
-.contentChip a.contentChipText {
-  cursor: pointer;
 }
 .contentChip .contentChipText {
   cursor: pointer;
@@ -681,7 +685,7 @@ div.panel-primary div.panel-heading a {
 }
 
 /* This magic gets the 16x16 icon to show up.. setting height/width didn't
-   do it, but adding padding actually made it show up. */
+  do it, but adding padding actually made it show up. */
 img.ds-authority-confidence,
 span.ds-authority-confidence {
   width: 16px;
@@ -736,7 +740,7 @@ input.ds-authority-value {
 }
 
 /** XXX Change to this to get the authority value to show up for debugging:
- input.ds-authority-value { display:inline; }
+input.ds-authority-value { display:inline; }
 **/
 /* for edit-item-form lock button */
 input.ds-authority-lock {
@@ -967,6 +971,11 @@ body {
 
 input.field-s {
   background-image: none !important;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .form-home {
@@ -1222,7 +1231,7 @@ hr {
   .table tbody tr td {
     word-wrap: break-word;
     /*&::before {
-    	content: attr(th-label) " ";
+     content: attr(th-label) " ";
     }*/
     border: none;
   }
@@ -1437,6 +1446,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-title {
@@ -1508,6 +1519,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-jumppoint {
@@ -1547,6 +1560,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .grid-col-listresult {
@@ -1576,6 +1591,8 @@ hr {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 #item-data-full .panel {
@@ -1800,6 +1817,11 @@ hr {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .search-main .search-element .button-main {
   height: 40px;
@@ -1976,6 +1998,11 @@ h1:hover::after, h2:hover::after {
   border: 1px solid #E8E8E8;
   border-radius: 8px;
   padding: 0 0 0 8px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .pagination-number-itens {
   margin-top: 24px;
@@ -2557,7 +2584,7 @@ a.admin-help {
   }
 }
 .content-brand {
-  padding: 16px;
+  padding: 24px;
   border-radius: 8px;
   width: 100%;
   background-color: #F2F2F2;
@@ -2605,4 +2632,13 @@ a.admin-help {
 .content-brand .col-logo .content-logo img {
   width: 80%;
   margin-bottom: 16px;
+}
+
+.badge {
+  background-color: #FFD100;
+  color: #071D41;
+}
+
+.list-group-item {
+  display: flow-root !important;
 }/*# sourceMappingURL=dspace-theme.css.map */
