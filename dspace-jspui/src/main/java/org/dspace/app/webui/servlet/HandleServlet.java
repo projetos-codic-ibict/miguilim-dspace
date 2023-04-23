@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -19,7 +18,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.google.common.collect.Lists;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -63,6 +61,8 @@ import org.jdom.Element;
 import org.jdom.Text;
 import org.jdom.output.XMLOutputter;
 
+import com.google.common.collect.Lists;
+
 /**
  * Servlet for handling requests within a community or collection. The Handle is
  * extracted from the URL, e.g: <code>/community/1721.1/1234</code>. If there
@@ -80,7 +80,9 @@ import org.jdom.output.XMLOutputter;
 @SuppressWarnings("deprecation")
 public class HandleServlet extends DSpaceServlet
 {
-    /** log4j category */
+	private static final long serialVersionUID = 493806857176623056L;
+
+	/** log4j category */
     private static final Logger log = Logger.getLogger(HandleServlet.class);
 
     // services API
@@ -549,6 +551,8 @@ public class HandleServlet extends DSpaceServlet
         request.setAttribute("dspace.layout.head", headMetadata);
         request.setAttribute("doi", doi);
         request.setAttribute("preferred_identifier", preferredIdentifier);
+        request.setAttribute("pending_review", itemService.existeMetadadoNoItem(item, "pendingreview"));
+
         JSPManager.showJSP(request, response, "/display-item.jsp");
     }
     

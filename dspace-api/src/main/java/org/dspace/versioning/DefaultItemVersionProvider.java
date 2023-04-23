@@ -7,7 +7,12 @@
  */
 package org.dspace.versioning;
 
+import java.sql.SQLException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.authorize.ResourcePolicy;
 import org.dspace.content.Item;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.content.service.WorkspaceItemService;
@@ -15,15 +20,9 @@ import org.dspace.core.Context;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
 import org.dspace.versioning.service.VersionHistoryService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
-import org.apache.log4j.Logger;
-import org.dspace.authorize.ResourcePolicy;
 import org.dspace.versioning.service.VersioningService;
 import org.dspace.workflow.WorkflowItemService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -102,25 +101,34 @@ public class DefaultItemVersionProvider extends AbstractVersionProvider implemen
         try
         {
             copyMetadata(c, itemNew, previousItem);
-            createBundlesAndAddBitstreams(c, itemNew, previousItem);
+            // createBundlesAndAddBitstreams(c, itemNew, previousItem);
+            
             try
             {
                 identifierService.reserve(c, itemNew);
-            } catch (IdentifierException e) {
+            } 
+            catch (IdentifierException e) 
+            {
                 throw new RuntimeException("Can't create Identifier!", e);
             }
+            
             // DSpace knows several types of resource policies (see the class
             // org.dspace.authorize.ResourcePolicy): Submission, Workflow, Custom
             // and inherited. Submission, Workflow and Inherited policies will be
             // set automatically as neccessary. We need to copy the custom policies
             // only to preserve customly set policies and embargos (which are
             // realized by custom policies with a start date).
-            List<ResourcePolicy> policies = 
-                    authorizeService.findPoliciesByDSOAndType(c, previousItem, ResourcePolicy.TYPE_CUSTOM);
+            // List<ResourcePolicy> policies = authorizeService.findPoliciesByDSOAndType(c, previousItem, ResourcePolicy.TYPE_CUSTOM);
+            
+            List<ResourcePolicy> policies = authorizeService.getPolicies(c, previousItem);
             authorizeService.addPolicies(c, policies, itemNew);
+
             itemService.update(c, itemNew);
+            
             return itemNew;
-        }catch (IOException | SQLException | AuthorizeException e) {
+        }
+        catch (SQLException | AuthorizeException e) 
+        {
             throw new RuntimeException(e.getMessage(), e);
         }
     }
