@@ -2,9 +2,6 @@
 @import 'variables';
 @import 'cards';
 @import 'footer';
-@import 'variables';
-@import 'cards';
-@import 'footer';
 
 .banner img {background-color: #FFFFFF;padding:15px;margin:20px;}
 .brand {padding-top: 30px;}
@@ -279,6 +276,9 @@ body {
 
 input.field-s {
    background-image: none!important;
+   appearance: none;	
+   text-overflow: ellipsis;
+   white-space: nowrap;	   
 }
 
 .form-home {
@@ -820,7 +820,9 @@ hr {
 		   background-repeat: no-repeat;
 		   background-position: right 8px center;
 		   background-size: 24px;	
-		   appearance: none;		
+		   appearance: none;	
+		   text-overflow: ellipsis;
+		   white-space: nowrap;			   	
 	   }		
 }
 
@@ -859,7 +861,10 @@ hr {
 	   background-repeat: no-repeat;
 	   background-position: right 8px center;
 	   background-size: 24px;	
-	   appearance: none;		
+	   appearance: none;	
+	   text-overflow: ellipsis;
+	   white-space: nowrap;	
+	   	
    }	
 }
 .grid-col-listresult {
@@ -886,7 +891,9 @@ hr {
 		   background-repeat: no-repeat;
 		   background-position: right 8px center;
 		   background-size: 24px;	
-		   appearance: none;		
+		   appearance: none;	
+		   text-overflow: ellipsis;
+		   white-space: nowrap;		
 	   }
    }
 }
@@ -915,7 +922,10 @@ hr {
 .w100 {
    width: 100%;
 }
-
+.panel {
+	border-radius: 8px!important;
+	overflow: hidden;
+}
 .searchfilter {
    cursor: pointer;
    .accordion-header.collapsed {
@@ -1113,7 +1123,10 @@ hr {
 		   background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggZmlsbD0iIzA0MTMyQSIgZD0iTTE3LDkuMTdhMSwxLDAsMCwwLTEuNDEsMEwxMiwxMi43MSw4LjQ2LDkuMTdhMSwxLDAsMCwwLTEuNDEsMCwxLDEsMCwwLDAsMCwxLjQybDQuMjQsNC4yNGExLDEsMCwwLDAsMS40MiwwTDE3LDEwLjU5QTEsMSwwLDAsMCwxNyw5LjE3WiIvPjwvc3ZnPg==");  
 		   background-repeat: no-repeat;
 		   background-position:right 8px center;
-		   background-size:24px;			
+		   background-size:24px;	
+		   appearance: none;	
+		   text-overflow: ellipsis;
+		   white-space: nowrap;			   		
 	   }
 	   .button-main {
 		   height: 40px;
@@ -1306,6 +1319,9 @@ h1 , h2 {
 	   border: 1px solid #E8E8E8;	
 	   border-radius: 8px;
 	   padding: 0 0 0 8px;
+	   appearance: none;	
+	   text-overflow: ellipsis;
+	   white-space: nowrap;		   
    }
    &-itens {
 	   margin-top: 24px;
@@ -1993,4 +2009,13 @@ a.admin-help {
 		   }
 	   }
    }
+}
+
+.badge {
+	background-color: $yellow;
+	color: $bluecolor;
+}
+
+.list-group-item {
+	display: flow-root!important;
 }

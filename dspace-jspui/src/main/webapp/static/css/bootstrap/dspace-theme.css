@@ -180,7 +180,6 @@
 
 .table-line {
   box-shadow: 0, -1, 0, 0 rgb(235, 235, 235);
-  box-shadow: 0, -1, 0, 0 rgb(235, 235, 235);
 }
 
 .card-sombra, .content-news .arrow:hover, .search-home, .container-cards .card:hover {
@@ -410,12 +409,6 @@
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
-.container-cards .card div h2::after {
-  content: "";
-  margin: 0;
-  width: 0;
-  height: 0;
-}
 .container-cards .card .text h2::after {
   content: "";
   margin: 0;
@@ -632,6 +625,7 @@
   justify-content: center;
   background-color: #FFD100;
   gap: 48px;
+  margin-top: 40px;
 }
 .social-media-icons a {
   align-items: center;
@@ -1519,8 +1513,6 @@ hr {
   background-size: 24px;
   -webkit-appearance: none;
      -moz-appearance: none;
-          -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1562,8 +1554,6 @@ hr {
   background-size: 24px;
   -webkit-appearance: none;
      -moz-appearance: none;
-          -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1595,8 +1585,6 @@ hr {
   background-size: 24px;
   -webkit-appearance: none;
      -moz-appearance: none;
-          -webkit-appearance: none;
-     -moz-appearance: none;
           appearance: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1624,6 +1612,11 @@ hr {
 
 .w100 {
   width: 100%;
+}
+
+.panel {
+  border-radius: 8px !important;
+  overflow: hidden;
 }
 
 .searchfilter {
@@ -2639,7 +2632,12 @@ a.admin-help {
 .content-brand .col-logo .content-logo img {
   width: 80%;
   margin-bottom: 16px;
-}/*# sourceMappingURL=dspace-theme.css.map */
+}
+
+.badge {
+  background-color: #FFD100;
+  color: #071D41;
+}
 
 .list-group-item {
   display: flow-root !important;
