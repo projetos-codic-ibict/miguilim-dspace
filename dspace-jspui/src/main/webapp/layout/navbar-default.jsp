@@ -141,6 +141,9 @@
         </li>
 
         <li class="<%= currentPage.endsWith("/perguntas-frequentes")? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/perguntas-frequentes.jsp"><fmt:message key="jsp.layout.navbar.miguilim.frequentquestions"/></a></li>
+       	<!--
+        <li class="<%= currentPage.endsWith("/indicadores")? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/indicadores.jsp"><fmt:message key="jsp.layout.navbar.miguilim.indicadores"/></a></li>
+       	-->
         <li class="<%= currentPage.endsWith("/feedback")? "active" : "" %>"><a href="<%= request.getContextPath() %>/feedback"> <fmt:message key="jsp.layout.navbar-default.feedback"/></a></li>
 
     </ul>

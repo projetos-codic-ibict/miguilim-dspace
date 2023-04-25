@@ -94,8 +94,35 @@
         <li>Evitar o retrabalho dos editores responsáveis no preenchimento dos dados das revistas em diversas instâncias e promover a padronização e a consistência desses dados nas diversas plataformas;</li>
 	<li>Fomentar ações práticas relacionadas aos Movimentos de Ciência Aberta e de Acesso Aberto à informação científica.</li>
     </ol>
-
+<br>
     <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico. </p>
+
+        <div class="content-brand">
+            <div class="col-logo">
+                <a href='<%= request.getContextPath()%>/image/logo-texto.png' download>
+                <div class="content-logo">                   
+                        <img src='<%= request.getContextPath()%>/image/logo-texto.png'>                                        
+                </div>
+                <div class="text">
+                    <small>Tamanho: 110 KB</small>
+                    <small>Faça download</small>
+                </div>
+                </a>
+            </div>
+            <div class="col-logo">
+                <a href='<%= request.getContextPath()%>/image/logo.png' download>
+                <div class="content-logo">
+                    <img src='<%= request.getContextPath()%>/image/logo.png'>                   
+                </div>
+                <div class="text">
+                    <small>Tamanho: 63 KB</small>
+                    <small>Faça download</small>
+                </div>
+
+                </a>
+            </div>
+        </div>
+	
 
     <div class="content-brand">
 

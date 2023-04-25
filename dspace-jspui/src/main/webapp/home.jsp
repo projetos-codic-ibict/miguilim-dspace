@@ -92,9 +92,21 @@
 <dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
 <!-- detalhe globo -->
-<div class="content-home">
+<div class="content-home">	
 	<div class="d-flex a-center">
 		<div class="col">
+			<div class="contentChip">
+				<a href="#" class="chipBeta">beta</a>
+				<div class="contentChipText">
+					<h2>Prezado usuário,</h2>
+					<p>O Miguilim foi disponibilizado à comunidade externa a partir do dia 05/01/2023. Desde então sua equipe gestora tem trabalhado para corrigir falhas pontuais que o sistema possa apresentar. Contamos também com a colaboração de nossos usuários, que podem se sentir a vontade para entrar em contato com a equipe Miguilim e sugerir modificações/correções que julguem oportunas.
+		
+				Desse modo, ajustes de diferentes naturezas são frequentemente executados, o que pode levar a interrupções pontuais.</p>
+					<div class="footerChip">
+					<p>Agradecemos desde já a compreensão e permanecemos à disposição para esclarecimentos adicionais.</p>
+					</div>
+				</div>
+			</div> 	
 			<div class="contentChip">
 				<a href="#" class="chipBeta">beta<a/>
 				  <div class="contentChipText">
@@ -161,16 +173,16 @@
 				</svg>
 		</div>
 	</div>
-
 	<!-- buscar -->
 	<div class="search-home">
-		<form method="get" action="<%= request.getContextPath() %>/simple-search" class="form-home">
-			<a class="link-search" href="<%= request.getContextPath() %>/simple-search"><fmt:message key="jsp.layout.navbar-default.advanced"/></a>
-			<input type="text" name="query" id="tequery"  class="field-search" placeholder="<fmt:message key="jsp.layout.navbar-default.search"/>">
+		<form method="get" action="/simple-search" class="form-home">
+			<a class="link-search" href="/simple-search">Busca avançada</a>
+			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
 			<input type="submit" class="button-main" value="Buscar">
 		</form>
+		</div>
 	</div>
-</div>
+
 
 <!-- random news -->
 <div class="content-news">
@@ -412,5 +424,13 @@
 		});
 	});
 
+
+</script>
+<script>
+		var el = document.querySelector('.contentChip');
+
+el.onclick = function() {
+  el.classList.toggle('active');
+}
 
 </script>

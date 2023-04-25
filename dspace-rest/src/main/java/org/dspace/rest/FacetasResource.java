@@ -7,6 +7,8 @@
  */
 package org.dspace.rest;
 
+import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
+
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +24,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MediaType;
 
-import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.dspace.core.I18nUtil;
 import org.dspace.discovery.DiscoverFacetField;
 import org.dspace.discovery.DiscoverQuery;
@@ -32,6 +34,7 @@ import org.dspace.discovery.SearchUtils;
 import org.dspace.discovery.configuration.DiscoveryConfiguration;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.rest.common.Faceta;
+import org.dspace.rest.common.RespostaFacetas;
 import org.dspace.rest.common.ResultadoFaceta;
 
 
@@ -40,13 +43,16 @@ public class FacetasResource extends Resource
 {
     @GET
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
-    public List<Faceta> obterFacetas (
+    public RespostaFacetas obterFacetas (
     		@QueryParam("query-value") String queryValue, 
     		@QueryParam("query-metadados") List<String> metadados, 
+    		@QueryParam("query-collection") String collectionId, 
     		@Context HttpHeaders headers, 
     		@Context HttpServletRequest request)
     {
     	org.dspace.core.Context context = null;
+    	
+    	RespostaFacetas retorno = new RespostaFacetas();
     	
     	List<DiscoverySearchFilterFacet> opcoesFacetas = obterFacetasParaPesquisa(metadados);
     	List<Faceta> facetas = new ArrayList<>();
@@ -54,8 +60,8 @@ public class FacetasResource extends Resource
     	try 
     	{
 			context = createContext();
-			
-			DiscoverQuery query = obterQuery(queryValue, opcoesFacetas);
+
+			DiscoverQuery query = obterQuery(queryValue, collectionId, opcoesFacetas);
 			DiscoverResult itens = SearchUtils.getSearchService().search(context, null, query);
 			
 			for (DiscoverySearchFilterFacet opcao : opcoesFacetas)
@@ -81,8 +87,15 @@ public class FacetasResource extends Resource
 				}
 			
 				faceta.setResultados(resultadosFaceta);
-				facetas.add(faceta);
+				
+				if(isNotEmpty(resultadosFaceta))
+				{
+					facetas.add(faceta);
+				}
             }
+			
+			retorno.setQuantidadeTotalItens(itens.getTotalSearchResults());
+			retorno.setFacetas(facetas);
 			
 			context.complete();
 		} 
@@ -91,14 +104,14 @@ public class FacetasResource extends Resource
             processException("Message: " + e.getMessage(), context);
         }
     	
-        return facetas;
+    	return retorno;
     }
     
     private List<DiscoverySearchFilterFacet> obterFacetasParaPesquisa(List<String> metadados) {
     	
        	List<DiscoverySearchFilterFacet> opcoesFacetas = new ArrayList<>();
     	
-    	if(CollectionUtils.isNotEmpty(metadados))
+    	if(isNotEmpty(metadados))
     	{
     		for(String metadado : metadados)
     		{
@@ -113,8 +126,7 @@ public class FacetasResource extends Resource
     	}
     	else
     	{
-    		DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
-        	opcoesFacetas = discoveryConfiguration.getSidebarFacets();
+    		opcoesFacetas = obterFacetasDefault();
     	}
     	
     	Collator instance = Collator.getInstance();
@@ -125,9 +137,14 @@ public class FacetasResource extends Resource
     	return opcoesFacetas;
     }
     
-    private DiscoverQuery obterQuery(String queryValue, List<DiscoverySearchFilterFacet> opcoesFacetas) {
+    private DiscoverQuery obterQuery(String queryValue, String collectionId, List<DiscoverySearchFilterFacet> opcoesFacetas) {
     	DiscoverQuery query = new DiscoverQuery();
 		query.setQuery(queryValue);
+		
+		if(StringUtils.isNotEmpty(collectionId))
+		{
+			query.addFilterQueries("location:l" + collectionId);
+		}
 		
 		for (DiscoverySearchFilterFacet opcao : opcoesFacetas)
 		{
@@ -135,6 +152,22 @@ public class FacetasResource extends Resource
 		}
 	
 		return query;
+    }
+    
+    private List<DiscoverySearchFilterFacet> obterFacetasDefault()
+    {
+    	List<DiscoverySearchFilterFacet> facetasDefault = new ArrayList<>();
+    	
+    	DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
+    	facetasDefault = new ArrayList<>(discoveryConfiguration.getSidebarFacets());
+    	
+    	DiscoverySearchFilterFacet filterState = new DiscoverySearchFilterFacet();
+    	filterState.setMetadataFields(Arrays.asList("dc.state"));
+    	filterState.setIndexFieldName("state");
+    	
+    	facetasDefault.add(filterState);
+    	
+    	return facetasDefault;
     }
    
 }
