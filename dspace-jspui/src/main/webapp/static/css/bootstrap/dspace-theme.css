@@ -2396,6 +2396,11 @@ t b.caret {
   background-color: none !important;
 }
 
+.panel {
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
 #formulario iframe .D8bnZd {
   background-color: none !important;
 }
