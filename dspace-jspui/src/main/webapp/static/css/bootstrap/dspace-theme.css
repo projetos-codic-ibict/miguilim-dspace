@@ -1617,6 +1617,7 @@ hr {
 .panel {
   border-radius: 8px;
   overflow: hidden;
+  border-color: #dcdcdc;
 }
 
 .searchfilter {
