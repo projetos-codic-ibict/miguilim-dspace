@@ -96,7 +96,10 @@
     </ol>
 
     <p>Em última análise, o Miguilim busca o aumento da qualidade editorial das revistas científicas brasileiras, a internacionalização da Ciência brasileira e a democratização do acesso ao conhecimento científico. </p>
-	
+
+    <div class="content-brand">
+
+    </div>
 </div>
 </dspace:layout>
 

@@ -241,4 +241,6 @@
       <a href="http://www.dspace.org/"><fmt:message key="jsp.layout.navbar-default.about"/></a>
     </td>
   </tr>
+
+  
 </table>
