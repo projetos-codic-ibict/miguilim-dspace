@@ -410,7 +410,13 @@
             termometro.maxValue = 100;
             termometro.animationSpeed = 10;
             termometro.set(<%= porcentagemPontuacaoTermometro %>);
-            termometro.setTextField(document.getElementById("preview-textfield"));
+
+            var textRenderer = new TextRenderer(document.getElementById('preview-textfield'))
+            textRenderer.render = function(gauge) {
+            	this.el.innerHTML = gauge.displayedValue + "%"
+            };
+
+            termometro.setTextField(textRenderer);
         }
 
         document.querySelector("#termometro").classList.add("d-hide");
