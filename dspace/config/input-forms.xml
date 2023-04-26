@@ -1187,18 +1187,6 @@
                     <visibility>workflow</visibility>
                 </field>
 
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>identifier</dc-element>
-                    <dc-qualifier>openaccessseal</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Selo de acesso aberto:</label>
-                    <input-type value-pairs-name="common_identifier_openaccessseal">dropdown</input-type>
-                    <hint>Informe se foi atribuído ou não à revista o selo de acesso aberto.</hint>
-                    <required></required>
-                    <visibility>workflow</visibility>
-                </field>
-
             </page>
 
         </form>
