@@ -47,15 +47,18 @@ import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataField;
 import org.dspace.content.MetadataSchema;
+import org.dspace.content.WorkspaceItem;
 import org.dspace.content.authority.Choices;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.BitstreamFormatService;
 import org.dspace.content.service.BitstreamService;
 import org.dspace.content.service.BundleService;
 import org.dspace.content.service.CollectionService;
+import org.dspace.content.service.InstallItemService;
 import org.dspace.content.service.ItemService;
 import org.dspace.content.service.MetadataFieldService;
 import org.dspace.content.service.MetadataSchemaService;
+import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.core.Email;
@@ -71,6 +74,11 @@ import org.dspace.license.service.CreativeCommonsService;
 import org.dspace.services.ConfigurationService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.termometro.util.CalculadoraTermometro;
+import org.dspace.utils.DSpace;
+import org.dspace.versioning.Version;
+import org.dspace.versioning.service.VersioningService;
+import org.dspace.workflow.WorkflowService;
+import org.dspace.workflow.factory.WorkflowServiceFactory;
 
 /**
  * Servlet for editing and deleting (expunging) items
@@ -80,7 +88,9 @@ import org.dspace.termometro.util.CalculadoraTermometro;
  */
 public class CustomEditItemServlet extends DSpaceServlet
 {
-    /** User wants to delete (expunge) an item */
+	private static final long serialVersionUID = -4537107893515192316L;
+
+	/** User wants to delete (expunge) an item */
     public static final int START_DELETE = 1;
 
     /** User confirms delete (expunge) of item */
@@ -150,6 +160,11 @@ public class CustomEditItemServlet extends DSpaceServlet
              = LicenseServiceFactory.getInstance().getCreativeCommonsService();
 
     protected ConfigurationService configurationService = DSpaceServicesFactory.getInstance().getConfigurationService();
+    
+    protected VersioningService versioningService = new DSpace().getSingletonService(VersioningService.class);
+    protected WorkspaceItemService workspaceItemService = ContentServiceFactory.getInstance().getWorkspaceItemService();
+    protected InstallItemService installItemService = ContentServiceFactory.getInstance().getInstallItemService();
+    protected WorkflowService workflowService = WorkflowServiceFactory.getInstance().getWorkflowService();
     
     final String REVISTAS = "miguilim/2";
 
@@ -289,8 +304,31 @@ public class CustomEditItemServlet extends DSpaceServlet
             break;
 
         case UPDATE_ITEM:
-            processUpdateItem(context, request, response, item);
-
+        	Version version = versioningService.createNewVersion(context, item, item.getHandle());
+        	WorkspaceItem wsi = workspaceItemService.findByItem(context, version.getItem());
+        	
+            processUpdateItem(context, request, response, item, version);
+            
+            try 
+            {
+            	itemService.clearMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+            	itemService.addMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", "pt_BR", item.getID().toString());
+				
+            	workflowService.start(context, wsi);
+				
+            	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+            	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", "pt_BR", Boolean.TRUE.toString());
+			} 
+            catch (Exception e) 
+            {
+            	log.error("Caught exception in submission step: ",e);
+            	throw new ServletException(e);
+			}
+            finally
+            {
+            	context.complete();
+            }
+            
             break;
 
         case START_WITHDRAW:
@@ -663,10 +701,11 @@ public class CustomEditItemServlet extends DSpaceServlet
      * @param item
      *            the item
      */
-    private void processUpdateItem(Context context, HttpServletRequest request, HttpServletResponse response, Item item) 
+    private void processUpdateItem(Context context, HttpServletRequest request, HttpServletResponse response, Item itemOriginal, Version version) 
     		throws ServletException, IOException, SQLException, AuthorizeException
     {
         String button = UIUtil.getSubmitButton(request, "submit");
+        Item item = version.getItem();
 
         /*
          * "Cancel" handled above, so whatever happens, we need to update the
@@ -885,7 +924,7 @@ public class CustomEditItemServlet extends DSpaceServlet
         itemService.update(context, item);
         
         atualizarMetadadoUpdate(context, item);
-        atualizarMetadadoThermomether(context, item);
+        atualizarMetadadoThermomether(context, itemOriginal, item);
         
         if (button.equals("submit_addcc"))
         {
@@ -959,13 +998,13 @@ public class CustomEditItemServlet extends DSpaceServlet
         }
         else
         {
-            response.sendRedirect(request.getContextPath() + "/handle/" + item.getHandle());
+        	response.sendRedirect(request.getContextPath() + "/handle/" + version.getSummary());
         }
         
         enviarEmailDeAtualizacao(request, item);
         
         // Complete transaction
-        context.complete();
+        // context.complete();
     }
 
     /**
@@ -1098,8 +1137,8 @@ public class CustomEditItemServlet extends DSpaceServlet
         itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
 	}
 	
-	private void atualizarMetadadoThermomether(Context context, Item item) throws IOException, SQLException {
-		if(item.getCollections().get(0).getHandle().equals(REVISTAS))
+	private void atualizarMetadadoThermomether(Context context, Item itemOriginal, Item item) throws IOException, SQLException {
+		if(itemOriginal.getCollections().get(0).getHandle().equals(REVISTAS))
 		{
 			itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", Item.ANY);
 			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));

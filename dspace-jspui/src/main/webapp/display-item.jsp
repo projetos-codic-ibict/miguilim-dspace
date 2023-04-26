@@ -136,6 +136,8 @@
 
     boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
     boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Foi atribuído à revista o selo de acesso aberto");
+    
+    Boolean pendingReview = (Boolean) request.getAttribute("pending_review");
 %>
 
 <head>
@@ -164,16 +166,25 @@
 
         <%
             if (admin_button)  // admin edit button
-            { %>
+            { 
+        %>
         <div class="search-content">
             <div class="panel panel-warning">
                 <div class="panel-heading"><fmt:message key="jsp.admintools"/></div>
                 <div class="panel-body">
-                    <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
-                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
-                        <input class="btn btn-default col-md-12" type="submit" name="submit"
-                               value="<fmt:message key="jsp.general.edit.button"/>"/>
-                    </form>
+                	
+                	<%
+                		if (!pendingReview) 
+                		{
+            		%>
+		                    <form method="get" action="<%= request.getContextPath() %>/tools/edit-item">
+		                        <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
+		                        <input class="btn btn-default col-md-12" type="submit" name="submit"
+		                               value="<fmt:message key="jsp.general.edit.button"/>"/>
+		                    </form>
+                    <%
+                		}
+            		%>
 
                     <% if(UIUtil.obtainContext(request).getCurrentUser() != null) { %>
 
@@ -238,21 +249,31 @@
             }
         %>
 
-        <div class="search-filter">
+		<div class="search-filter">
             <%-- <strong>Please use this identifier to cite or link to this item:
             <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
+            
+			<%
+				if (pendingReview && (UIUtil.obtainContext(request).getCurrentUser() != null)) 
+                {
+            %>
+					<p class="alert alert-info"><fmt:message key="jsp.submit.complete.update"/></p> 
+            <%
+                }
+            %>
             
             <%
                 if (preferredIdentifier != null) 
                 {
             %>
-            <div class="well">
-                <fmt:message key="jsp.display-item.identifier"/>
-                <code><%= preferredIdentifier %></code>
-            </div>
+		            <div class="well">
+		                <fmt:message key="jsp.display-item.identifier"/>
+		                <code><%= preferredIdentifier %></code>
+		            </div>
             <%
                 }
             %>
+            
             <ul class="nav nav-pills">
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message

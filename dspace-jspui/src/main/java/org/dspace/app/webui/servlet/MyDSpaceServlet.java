@@ -7,6 +7,22 @@
  */
 package org.dspace.app.webui.servlet;
 
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.UUID;
+
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.itemexport.ItemExportException;
 import org.dspace.app.itemexport.factory.ItemExportServiceFactory;
@@ -23,9 +39,15 @@ import org.dspace.authorize.AuthorizeException;
 import org.dspace.content.Collection;
 import org.dspace.content.Community;
 import org.dspace.content.Item;
+import org.dspace.content.MetadataSchema;
+import org.dspace.content.MetadataValue;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.content.factory.ContentServiceFactory;
-import org.dspace.content.service.*;
+import org.dspace.content.service.CollectionService;
+import org.dspace.content.service.CommunityService;
+import org.dspace.content.service.ItemService;
+import org.dspace.content.service.SupervisedItemService;
+import org.dspace.content.service.WorkspaceItemService;
 import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.core.LogManager;
@@ -41,20 +63,6 @@ import org.dspace.workflowbasic.BasicWorkflowItem;
 import org.dspace.workflowbasic.factory.BasicWorkflowServiceFactory;
 import org.dspace.workflowbasic.service.BasicWorkflowItemService;
 import org.dspace.workflowbasic.service.BasicWorkflowService;
-
-import javax.servlet.ServletException;
-import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.UUID;
 
 /**
  * Servlet for constructing the components of the "My DSpace" page
@@ -614,9 +622,16 @@ public class MyDSpaceServlet extends DSpaceServlet
             wsi.setStageReached(lastStep);
             wsi.setPageReached(AbstractProcessingStep.LAST_PAGE_REACHED);
             workspaceItemService.update(context, wsi);
-
-            JSPManager
-                    .showJSP(request, response, "/mydspace/task-complete.jsp");
+            
+            List<MetadataValue> valores =  itemService.getMetadata(workflowItem.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+            
+            if(CollectionUtils.isNotEmpty(valores))
+            {
+            	Item oldItem = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
+            	itemService.clearMetadata(context, oldItem, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+            }
+            
+            JSPManager.showJSP(request, response, "/mydspace/task-complete.jsp");
             context.complete();
         }
         else

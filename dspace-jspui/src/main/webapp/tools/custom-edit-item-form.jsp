@@ -30,6 +30,8 @@
 <%@ page import="org.dspace.app.util.VocabularyConverter" %>
 <%@ page import="com.fasterxml.jackson.databind.JsonNode" %>
 <%@ page import="java.util.stream.Collectors" %>
+<%@ page import="org.dspace.app.webui.util.UIUtil" %>
+<%@ page import="org.dspace.core.Context" %>
 
 <%
     Item item = (Item) request.getAttribute("item");
@@ -98,6 +100,8 @@
     Collection collection = null;
     if (collections.size() > 0)
         collection = collections.get(0);
+    		
+    Context context = UIUtil.obtainContext(request);
 %>
 
 <c:set var="dspace.layout.head.last" scope="request">
@@ -328,7 +332,7 @@
                     String row = "even";
                     String collectionName = item.getOwningCollection().getName();
                     List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
-                    List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(collectionName);
+                    List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(context, collectionName);
                     FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
                     Map<String, Integer> dcCounter = new HashMap<String, Integer>();
 

@@ -11,9 +11,12 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.dspace.authorize.AuthorizeException;
+import org.dspace.authorize.service.AuthorizeService;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.InstallItemService;
@@ -25,6 +28,7 @@ import org.dspace.event.Event;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
 import org.dspace.termometro.util.CalculadoraTermometro;
+import org.dspace.versioning.service.VersioningService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -49,6 +53,10 @@ public class InstallItemServiceImpl implements InstallItemService
     protected IdentifierService identifierService;
     @Autowired(required = true)
     protected ItemService itemService;
+    @Autowired(required = true)
+    protected VersioningService versioningService;
+    @Autowired(required = true)
+    protected AuthorizeService authorizeService;
 
     protected InstallItemServiceImpl()
     {
@@ -67,8 +75,29 @@ public class InstallItemServiceImpl implements InstallItemService
     {
         Item item = is.getItem();
         Collection collection = is.getCollection();
+        
         try 
         {
+        	List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+            
+        	try 
+            {
+        		if(CollectionUtils.isNotEmpty(valores))
+            	{
+            		Item oldItem = itemService.find(c, UUID.fromString(valores.get(0).getValue()));
+            		suppliedHandle = oldItem.getHandle();
+            	            
+            		itemService.delete(c, oldItem);
+            	}
+            		
+            	itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+    		} 
+            catch (IOException e) 
+            {
+    				e.printStackTrace();
+    		}
+            
+            
             if(suppliedHandle == null)
             {
                 identifierService.register(c, item);
@@ -216,15 +245,19 @@ public class InstallItemServiceImpl implements InstallItemService
         		itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, CalculadoraTermometro.calcularPorcentagemPontuacao(item));
             }
                 
-            if(suppliedHandle == null)
+            if(suppliedHandle == null || itemService.existeMetadadoNoItem(item, "update"))
             {
             	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
                 String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
                 String dataHoraAtualizacao = data + " às " + hora;
+                
+                itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
                 itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
             }
             else
             {
+            	itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+            	
             	String descricaoDefault = isItemDaColecaoRevista ? "Não atualizada" : "Não atualizado";
             	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
             }
@@ -233,7 +266,6 @@ public class InstallItemServiceImpl implements InstallItemService
         {
         	throw new RuntimeException("Can't create an Identifier!", e);
         }
-        
     }
 
     /**
@@ -272,7 +304,7 @@ public class InstallItemServiceImpl implements InstallItemService
 
         // set embargo lift date and take away read access if indicated.
         embargoService.setEmbargo(c, item);
-
+        
         return item;
     }
 
