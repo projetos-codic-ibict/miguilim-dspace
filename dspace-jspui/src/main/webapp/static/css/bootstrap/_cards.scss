@@ -82,7 +82,8 @@
 				}
 		}
 		h3 {
-			@extend .subhead;			
+			@extend .subhead;
+			font-size: 1.5rem;			
 		}
 		@include for-size(tablet-landscape-up) { 
 			h3 {

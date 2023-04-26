@@ -509,6 +509,9 @@
                         <!-- Primeira linha -->
                         <div class="grid-col-2b">
                             <div>
+                                <div id="tool" class="testeDinamico deletar">
+                                    <p></p>
+                                </div>                                
                                 <select id="filtername" name="filtername" class="field-s w100">
                                     <%
                                         Collator instance = Collator.getInstance();
@@ -1032,3 +1035,24 @@
         </div>
 
 </dspace:layout>
+
+<script>
+    const selectField = document.getElementById('filtername');
+    var elem = document.querySelector('#tool'); 
+
+    function showDiv() {
+        elem.classList.remove('deletar');
+        const selectedValue = selectField.options[selectField.selectedIndex].text;
+        elem.innerText = selectedValue;  
+    }
+
+    function hideDiv() {
+        elem.classList.add('deletar');
+        const selectedValue = selectField.options[selectField.selectedIndex].text;
+        elem.innerText = selectedValue;         
+    }
+
+    selectField.onmouseover = showDiv;
+    selectField.onmouseleave = hideDiv;
+    
+</script>

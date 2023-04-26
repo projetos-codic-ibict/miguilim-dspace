@@ -111,15 +111,15 @@
 			<h2>Diretório das revistas <br> científicas eletrônicas brasileiras</h2>
 			<div class="total">
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
-						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), REVISTAS)) %>
+					<span onclick="location.href = '/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
+						5014
 					</span>
 					Revistas científicas
 				</p>
 				<p class="line"></p>
 				<p>
-					<span onclick="location.href = '<%= request.getContextPath() %>/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2669&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
-						<%= ic.getCount(handleService.resolveToObject(UIUtil.obtainContext(request), PORTAL_DE_PERIODICOS)) %>
+					<span onclick="location.href = '/simple-search?rpp=10&sort_by=score&order=desc&location=miguilim%2F2669&query=&rpp=10&sort_by=score&order=desc'" style="cursor:pointer">
+						268
 					</span>Portais de revistas
 				</p>
 			</div>
@@ -169,7 +169,7 @@
 			<input type="submit" class="button-main" value="Buscar">
 		</form>
 		</div>
-	</div>
+</div>
 
 
 <!-- random news -->
