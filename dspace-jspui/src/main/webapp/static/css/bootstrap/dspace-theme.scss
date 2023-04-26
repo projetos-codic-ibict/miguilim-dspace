@@ -2086,3 +2086,19 @@ a.admin-help {
   .active .contentChipText {
 	visibility: visible;
   }
+
+
+  .testeDinamico {
+	position: absolute;
+	background-color: rgba(15, 15, 15, 0.8);
+	border-radius: 4px;
+	color: $white-lightest;
+	transform: translateY(-32px);
+	transition: all .2s ease-in-out;
+	padding: 4px 8px;
+	z-index: 10000;
+  }
+
+  .deletar {
+	display: none;
+  }

@@ -1032,3 +1032,24 @@
         </div>
 
 </dspace:layout>
+
+<script>
+    const selectField = document.getElementById('filtername');
+    var elem = document.querySelector('#tool'); 
+
+    function showDiv() {
+        elem.classList.remove('deletar');
+        const selectedValue = selectField.options[selectField.selectedIndex].text;
+        elem.innerText = selectedValue;  
+    }
+
+    function hideDiv() {
+        elem.classList.add('deletar');
+        const selectedValue = selectField.options[selectField.selectedIndex].text;
+        elem.innerText = selectedValue;         
+    }
+
+    selectField.onmouseover = showDiv;
+    selectField.onmouseleave = hideDiv;
+    
+</script>
