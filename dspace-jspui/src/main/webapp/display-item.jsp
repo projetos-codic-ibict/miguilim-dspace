@@ -132,10 +132,10 @@
     String PORTAL_DE_PERIODICOS = "miguilim/2669";
 
     List<MetadataValue> predatoryValues = itemService.getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
-    List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "identifier", "openaccessseal", Item.ANY);
+    List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
 
     boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
-    boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Foi atribuído à revista o selo de acesso aberto");
+    boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
     
     Boolean pendingReview = (Boolean) request.getAttribute("pending_review");
 %>
