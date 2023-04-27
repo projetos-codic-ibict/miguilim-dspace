@@ -509,7 +509,7 @@
                         <!-- Primeira linha -->
                         <div class="grid-col-2b">
                             <div>
-                                <div id="tool" class="testeDinamico deletar">
+                                <div id="tool" class="fieldAuxiliary deletar">
                                     <p></p>
                                 </div>                                
                                 <select id="filtername" name="filtername" class="field-s w100">
