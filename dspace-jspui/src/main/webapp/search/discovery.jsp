@@ -344,7 +344,7 @@
             if (qResults != null && qResults.getTotalSearchResults() == 0) 
             {
             %>
-                <p align="center"><fmt:message key="jsp.search.general.noresults"/></p>
+                <p><fmt:message key="jsp.search.general.noresults"/></p>
             <%
             } 
             %>
