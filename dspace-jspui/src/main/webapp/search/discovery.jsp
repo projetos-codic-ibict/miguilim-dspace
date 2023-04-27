@@ -362,7 +362,7 @@
                         <input type="hidden" value="<%= order %>" name="order"/>
 
                         <!-- Primeira linha -->
-                        <div class="grid-col-3 space-double">
+                        <div class="grid-col-3-ajuste space-double">
                             <div>
                                 <select name="location" id="tlocation" class="field-s w100">
                                         <%
