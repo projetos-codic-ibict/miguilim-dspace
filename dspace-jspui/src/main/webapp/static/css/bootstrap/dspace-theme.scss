@@ -1359,7 +1359,7 @@ h1 , h2 {
 	   white-space: nowrap;		   
    }
    &-itens {
-	   margin-top: 16px;
+	   margin-top: 16px!important;
 	   list-style: none;
 	   display: flex;
 	   gap: 8px;

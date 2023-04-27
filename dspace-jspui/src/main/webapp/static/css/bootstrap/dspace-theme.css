@@ -2047,7 +2047,7 @@ h1:hover::after, h2:hover::after {
   white-space: nowrap;
 }
 .pagination-number-itens {
-  margin-top: 16px;
+  margin-top: 16px !important;
   list-style: none;
   display: flex;
   gap: 8px;
