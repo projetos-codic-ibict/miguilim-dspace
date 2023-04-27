@@ -562,8 +562,8 @@
 
                             </div>
                         </div>
-                        <!--p class="lead white-font">Did you mean: <b><i><a class="white-font" id="spellCheckQuery" data-spell="sds" href="#"-->
-                        </a></i></b></p>
+                        <!--p class="lead white-font">Did you mean: <a class="white-font" id="spellCheckQuery" data-spell="sds" href="#"-->
+                        </a></p>
 
                     </form>
 
