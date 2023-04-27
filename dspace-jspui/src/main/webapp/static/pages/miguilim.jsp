@@ -122,11 +122,6 @@
                 </a>
             </div>
         </div>
-	
-
-    <div class="content-brand">
-
-    </div>
 </div>
 </dspace:layout>
 
