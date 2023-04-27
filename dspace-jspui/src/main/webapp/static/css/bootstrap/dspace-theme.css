@@ -1631,6 +1631,11 @@ hr {
   border-color: #dcdcdc;
 }
 
+.accordion-content .list-group-item {
+  background: none;
+  padding-right: 16px;
+}
+
 .searchfilter {
   cursor: pointer;
 }
@@ -1653,6 +1658,8 @@ hr {
   padding-right: 24px;
   overflow-wrap: break-word;
   word-wrap: break-word;
+  font-size: 0.8rem !important;
+  font-weight: 500;
 }
 
 .spacing-element {
