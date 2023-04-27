@@ -2029,6 +2029,10 @@ h1:hover::after, h2:hover::after {
 .pagination-number-itens .results {
   padding-right: 32px;
 }
+.pagination-number-itens .active a {
+  background-color: #071D41;
+  color: #ffffff;
+}
 .pagination-number-itens .first-pagination {
   display: flex;
   align-items: center;

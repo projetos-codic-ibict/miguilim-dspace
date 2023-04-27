@@ -1346,6 +1346,12 @@ h1 , h2 {
 	   .results {
 		   padding-right: 32px;
 	   }
+	   .active {
+			a {
+			background-color: $bluecolor;
+			color:#ffffff;
+			}
+		}	   
 	   
 	   .first-pagination {
 		   display: flex;
