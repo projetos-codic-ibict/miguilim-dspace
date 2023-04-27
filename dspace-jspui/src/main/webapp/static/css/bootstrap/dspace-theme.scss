@@ -1052,6 +1052,8 @@ hr {
 			   border-radius:4px;
 			   border:1px solid $white-line;
 			   margin-bottom:8px;
+			   overflow: hidden;
+			   background-color: $white-lightest;			   
 		   } // body
 		   &-header {
 			   padding: 16px;

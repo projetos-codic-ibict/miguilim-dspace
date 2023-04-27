@@ -1755,6 +1755,8 @@ hr {
   border-radius: 4px;
   border: 1px solid #EBEBEB;
   margin-bottom: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
 }
 .search-main .search-content .accordion-header {
   padding: 16px;
