@@ -606,6 +606,15 @@ hr {
 	   grid-template-columns: 1fr;
    }	
 }
+.grid-col-3-ajuste {
+	display: grid;
+	gap:8px;
+	grid-template-columns: 2fr 3fr auto;
+	@include for-size(tablet-landscape-up) { 
+		grid-template-columns: 1fr;
+	}	
+ }
+
 
 .grid-col-2{
    margin-top: 16px;

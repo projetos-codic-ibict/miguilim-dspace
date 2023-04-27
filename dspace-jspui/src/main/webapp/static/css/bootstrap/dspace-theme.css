@@ -1293,6 +1293,17 @@ hr {
   }
 }
 
+.grid-col-3-ajuste {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 2fr 3fr auto;
+}
+@media (max-width: 920px) {
+  .grid-col-3-ajuste {
+    grid-template-columns: 1fr;
+  }
+}
+
 .grid-col-2 {
   margin-top: 16px;
   display: grid;
