@@ -910,7 +910,17 @@ hr {
 	text-overflow: ellipsis;
 	white-space: nowrap;			
 }	
-
+.lead {
+	margin: 20px 0 16px 0!important;
+	font-weight: 500!important;
+	font-size: 1rem!important;
+}
+.disabled {
+	color:#9A9A9A;
+}
+.white-font {
+	color:#292A89!important;
+}
 //table ajuste
 #item-data-full {
    .panel {
