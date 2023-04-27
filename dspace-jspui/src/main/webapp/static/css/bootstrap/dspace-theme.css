@@ -1601,6 +1601,14 @@ hr {
   white-space: nowrap;
 }
 
+.field-s {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 #item-data-full .panel {
   box-shadow: none !important;
 }

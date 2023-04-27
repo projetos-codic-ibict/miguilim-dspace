@@ -905,6 +905,11 @@ hr {
 	   }
    }
 }
+.field-s {
+	appearance: none;	
+	text-overflow: ellipsis;
+	white-space: nowrap;			
+}	
 
 //table ajuste
 #item-data-full {
