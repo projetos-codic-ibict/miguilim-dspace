@@ -1610,7 +1610,7 @@ hr {
 }
 
 .lead {
-  margin: 0 16px 0 !important;
+  margin: 0 0 16px 0 !important;
   font-weight: 500 !important;
   font-size: 1rem !important;
 }
@@ -2047,7 +2047,7 @@ h1:hover::after, h2:hover::after {
   white-space: nowrap;
 }
 .pagination-number-itens {
-  margin-top: 24px;
+  margin-top: 16px;
   list-style: none;
   display: flex;
   gap: 8px;
