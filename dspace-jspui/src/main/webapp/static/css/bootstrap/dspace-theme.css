@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .menu {
   font-family: "Open Sans", sans-serif;
 }
@@ -2071,6 +2072,7 @@ h1:hover::after, h2:hover::after {
   align-items: center;
   height: 40px;
   cursor: pointer;
+  border: 2px solid rgba 154 154 154/30%;
   border-radius: 8px;
   padding: 10px 16px !important;
   background: rgba(154, 154, 154, 0.3);
