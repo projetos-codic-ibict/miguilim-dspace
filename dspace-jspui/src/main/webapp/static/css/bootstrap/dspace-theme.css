@@ -2074,6 +2074,7 @@ h1:hover::after, h2:hover::after {
   border-radius: 8px;
   padding: 10px 16px !important;
   background: rgba(154, 154, 154, 0.3);
+  cursor: not-allowed;
 }
 @media (max-width: 920px) {
   .pagination-number-itens .results, .pagination-number-itens .field-s {
