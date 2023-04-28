@@ -45,7 +45,7 @@
 
 <dspace:layout titlekey="jsp.feedback.form.title">
 
-    <div class="feedback-form">
+    <div class="feedback-form breath-element">
             <%-- <h1>Feedback Form</h1> --%>
         <h1><fmt:message key="jsp.feedback.form.title"/></h1>
 

@@ -73,7 +73,7 @@
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
-<div class="espacamento minus-space"> 
+<div class="espacamento minus-space breath-element"> 
 <h2><strong class="titulo-medio">Como fazer um cadastro?</strong></h2>
 
 	<p>Antes de iniciar o cadastro de uma revista científica ou de um portal de revistas deve-se verificar se estes já não possuem

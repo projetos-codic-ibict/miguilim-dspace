@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-    <div class="espacamento minus-space" id="TopoPerguntasFrequentes">
+    <div class="espacamento minus-space breath-element" id="TopoPerguntasFrequentes">
         <div class="linksFAQ">
 	        <a href="#PqMiguilim">Por que o nome Miguilim?</a>
 	        <a href="#ComoCriarLogin">Como criar um login?</a>

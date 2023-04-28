@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-<div class="espacamento minus-space">
+<div class="espacamento minus-space breath-element">
 
     <h2 class="titulo-medio">Documentos úteis</h2>
     <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a><br/>

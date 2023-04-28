@@ -74,7 +74,7 @@
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
 
-<div class="espacamento minus-space"> 
+<div class="espacamento minus-space breath-element"> 
 <h2><strong class="titulo-medio">Critérios básicos para cadastro</strong></h2>
 		<p id="margem-unica">Para que uma revista seja aceita no Miguilim ela deverá cumprir os seguintes requisitos mínimos:</p>
 
