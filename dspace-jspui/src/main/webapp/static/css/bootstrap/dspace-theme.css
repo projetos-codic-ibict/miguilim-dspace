@@ -2073,7 +2073,7 @@ h1:hover::after, h2:hover::after {
   height: 40px;
   cursor: pointer;
   border-radius: 8px;
-  padding: 10px 16px;
+  padding: 10px 16px !important;
   background: rgba(154, 154, 154, 0.3);
 }
 @media (max-width: 920px) {
