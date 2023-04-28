@@ -1342,6 +1342,14 @@ hr {
   color: #FFFFFF !important;
 }
 
+.panel-footer {
+  background-color: #071D41;
+  color: #FFFFFF;
+}
+.panel-footer .pull-left, .panel-footer .pull-right {
+  color: #FFFFFF;
+}
+
 .table tbody > tr > th {
   border-bottom: 1px solid #E8E8E8 !important;
 }

@@ -648,6 +648,14 @@ hr {
    color: $white-lightest!important;
 }
 
+.panel-footer {
+	background-color:$bluecolor;
+	color:$white-lightest;
+	.pull-left , .pull-right {
+		color:$white-lightest;
+	}
+}
+
 .table tbody>tr>th {
    border-bottom: 1px solid $board-field!important;
 }
