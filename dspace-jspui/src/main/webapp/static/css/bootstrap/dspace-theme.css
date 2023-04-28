@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .menu {
   font-family: "Open Sans", sans-serif;
 }
@@ -2064,6 +2065,16 @@ h1:hover::after, h2:hover::after {
   justify-items: flex-end;
   justify-content: end;
   color: #04132A;
+}
+.pagination-number-itens .disabled {
+  color: #9A9A9A;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 16px;
+  background: rgba(154, 154, 154, 0.3);
 }
 @media (max-width: 920px) {
   .pagination-number-itens .results, .pagination-number-itens .field-s {

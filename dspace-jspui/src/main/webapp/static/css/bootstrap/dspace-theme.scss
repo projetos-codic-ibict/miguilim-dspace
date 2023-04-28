@@ -1377,6 +1377,17 @@ h1 , h2 {
 	   justify-items: flex-end;
 	   justify-content: end;	
 	   color:$dark-blue;	
+	   .disabled {
+		color: #9A9A9A;
+		display: flex;	
+		align-items: center;		
+		height: 40px;		
+		cursor: pointer;		
+		//border: 2px solid #9a9a9a;		
+		border-radius: 8px;		
+		padding: 10px 16px;		
+		background: rgba(154 154 154 / 30%);
+	   }	   
 	   @include for-size(tablet-landscape-up) { 
 		   .results , .field-s {
 			   display: none;
@@ -1389,7 +1400,7 @@ h1 , h2 {
 		   }	
 	   }		
 	   .results {
-		   padding-right: 32px;
+		   padding-right: 32px;		   
 	   }
 	   .active {
 			a {
