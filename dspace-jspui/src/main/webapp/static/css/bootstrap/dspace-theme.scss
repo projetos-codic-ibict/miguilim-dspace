@@ -273,7 +273,7 @@ body {
    }
 }
 
-input.field-s {
+input.field-s , .field-s {
    background-image: none!important;
    appearance: none;	
    text-overflow: ellipsis;
@@ -749,7 +749,7 @@ hr {
    div {
 	   text-align: left;
    }
-   .field-s {
+   .field-s , .field-s {
 	   height: 40px;
 	   width: 100%;
 	   outline: none;
@@ -822,7 +822,7 @@ hr {
 		   padding: 0 16px 0 16px;
 		   letter-spacing: 0.5px;
 	   }
-	   .field-s {
+	   .field-s ,.field-s {
 		   height: 40px;
 		   width: 100%;
 		   outline: none;
@@ -863,7 +863,7 @@ hr {
 	   padding: 0 16px 0 16px;
 	   letter-spacing: 0.5px;
    }
-   .field-s {
+   .field-s , .field-s {
 	   height: 40px;
 	   width: 100%;
 	   outline: none;
@@ -893,7 +893,7 @@ hr {
 		   display: block;
 		   text-align: left;
 	   }
-	   .field-s {
+	   .field-s ,.field-s {
 		   height: 40px;
 		   width: 100%;
 		   outline: none;
@@ -913,7 +913,7 @@ hr {
 	   }
    }
 }
-.field-s {
+.field-s , .field-s {
 	appearance: none;	
 	text-overflow: ellipsis;
 	white-space: nowrap;			
@@ -1155,7 +1155,7 @@ hr {
 		   box-shadow: none;
 	   }
 	   
-	   .field-s {
+	   .field-s , .field-s {
 		   height: 40px;
 		   width: 100%;
 		   outline: none;
@@ -1358,7 +1358,7 @@ h1 , h2 {
 //pagination 
 .pagination-number {
    width: 100%;
-   .field-s {
+   .field-s , .field-s {
 	   height: 40px;
 	   outline: none;
 	   border: 1px solid #E8E8E8;	

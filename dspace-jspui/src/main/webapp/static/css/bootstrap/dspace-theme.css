@@ -964,7 +964,7 @@ body {
   }
 }
 
-input.field-s {
+input.field-s, .field-s {
   background-image: none !important;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -1443,7 +1443,7 @@ hr {
 .grid-col-order div {
   text-align: left;
 }
-.grid-col-order .field-s {
+.grid-col-order .field-s, .grid-col-order .field-s {
   height: 40px;
   width: 100%;
   outline: none;
@@ -1516,7 +1516,7 @@ hr {
   padding: 0 16px 0 16px;
   letter-spacing: 0.5px;
 }
-.grid-col-date .field-s {
+.grid-col-date .field-s, .grid-col-date .field-s {
   height: 40px;
   width: 100%;
   outline: none;
@@ -1557,7 +1557,7 @@ hr {
   padding: 0 16px 0 16px;
   letter-spacing: 0.5px;
 }
-.grid-col-jumppoint .field-s {
+.grid-col-jumppoint .field-s, .grid-col-jumppoint .field-s {
   height: 40px;
   width: 100%;
   outline: none;
@@ -1588,7 +1588,7 @@ hr {
   display: block;
   text-align: left;
 }
-.grid-col-listresult div .field-s {
+.grid-col-listresult div .field-s, .grid-col-listresult div .field-s {
   height: 40px;
   width: 100%;
   outline: none;
@@ -1609,7 +1609,7 @@ hr {
   white-space: nowrap;
 }
 
-.field-s {
+.field-s, .field-s {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
@@ -1855,7 +1855,7 @@ hr {
           appearance: none;
   box-shadow: none;
 }
-.search-main .search-element .field-s {
+.search-main .search-element .field-s, .search-main .search-element .field-s {
   height: 40px;
   width: 100%;
   outline: none;
@@ -2044,7 +2044,7 @@ h1:hover::after, h2:hover::after {
 .pagination-number {
   width: 100%;
 }
-.pagination-number .field-s {
+.pagination-number .field-s, .pagination-number .field-s {
   height: 40px;
   outline: none;
   border: 1px solid #E8E8E8;
