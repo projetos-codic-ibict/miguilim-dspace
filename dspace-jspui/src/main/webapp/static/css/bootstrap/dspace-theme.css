@@ -965,7 +965,6 @@ body {
 }
 
 input.field-s, .field-s {
-  background-image: none !important;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
