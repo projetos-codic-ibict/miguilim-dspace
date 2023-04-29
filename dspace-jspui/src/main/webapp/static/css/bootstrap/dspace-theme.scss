@@ -1057,7 +1057,7 @@ hr {
 	   }
 	   .accordion {
 		   &-body {
-			   border-radius:4px;
+			   border-radius:8px;
 			   border:1px solid $white-line;
 			   margin-bottom:8px;
 			   overflow: hidden;
@@ -1066,7 +1066,7 @@ hr {
 		   &-header {
 			   padding: 16px;
 			   height: 48px;
-			   border-radius:4px 4px 0 0;
+			   border-radius:8px 8px 0 0;
 			   color:$white-lightest;
 			   display: flex;
 			   align-items: center;
