@@ -2,15 +2,32 @@
 
 <%
     String pontuacaoProtocoloInteroperabilidade = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.interoperabilityprotocol");
-    String pontuacaoIdentificadorPersistente = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.persistentidentifier");
-    String pontuacaoInstituicaoEditora = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.publisher");
-    String pontuacaoEditorResponsavel = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.editor");
-    String pontuacaoCodigoEtica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.codeofethics");
-    String pontuacaoNormalizacaoBibliografica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.referenceguidelines");
-    String pontuacaoPlataformaPlagio = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.plagiarismdetection");
-    String pontuacaoRedesSociais = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.socialnetworks");
-    String pontuacaoServicosInformacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.relation.informationservices");
-    
+	List<MetadataValue> interoperabilityProtocolValues = itemService.getMetadata(item, "dc", "identifier", "interoperabilityprotocol", Item.ANY);
+
+	String pontuacaoIdentificadorPersistente = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.persistentidentifier");
+	List<MetadataValue> persistentIdentifierValues = itemService.getMetadata(item, "dc", "identifier", "persistentidentifier", Item.ANY);
+	
+	String pontuacaoInstituicaoEditora = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.publisher");
+	List<MetadataValue> publisherValues = itemService.getMetadata(item, "dc", "identifier", "publisher", Item.ANY);
+	
+	String pontuacaoEditorResponsavel = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.identifier.editor");
+	List<MetadataValue> editorValues = itemService.getMetadata(item, "dc", "identifier", "editor", Item.ANY);
+	
+	String pontuacaoCodigoEtica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.codeofethics");
+	List<MetadataValue> codeOfEthicsValues = itemService.getMetadata(item, "dc", "description", "codeofethics", Item.ANY);
+	
+	String pontuacaoNormalizacaoBibliografica = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.referenceguidelines");
+	List<MetadataValue> referenceGuidelinesValues = itemService.getMetadata(item, "dc", "description", "referenceguidelines", Item.ANY);
+	
+	String pontuacaoPlataformaPlagio = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.plagiarismdetection");
+	List<MetadataValue> plagiarismDetectionValues = itemService.getMetadata(item, "dc", "description", "plagiarismdetection", Item.ANY);
+	
+	String pontuacaoRedesSociais = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.socialnetworks");
+	List<MetadataValue> socialNetworksValues = itemService.getMetadata(item, "dc", "description", "socialnetworks", Item.ANY);
+	
+	String pontuacaoServicosInformacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.relation.informationservices");
+	List<MetadataValue> informationServicesValues = itemService.getMetadata(item, "dc", "relation", "informationservices", Item.ANY);
+	
     String pontuacaoModalidadePublicacao = termometroService.calcularPontuacaoDoItemPorMetadado(item, "dc.description.modalityofpublication");
     List<MetadataValue> modalityOfPublicationValues = itemService.getMetadata(item, "dc", "description", "modalityofpublication", Item.ANY);
     
@@ -125,7 +142,7 @@
                     <li>Licenças Creative Commons*</li>
                     <li>Taxas de publicação*</li>
                     <li>Código de ética</li>
-                    <li> Padrão de normalização bibliográfica</li>
+                    <li>Padrão de normalização bibliográfica</li>
                     <li>Plataforma de detecção de plágio</li>
                     <li>Estratégia de preservação digital*</li>
                     <li>Exigência de disponibilização de dados de pesquisa*</li>
@@ -170,8 +187,8 @@
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(interoperabilityProtocolValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(interoperabilityProtocolValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -181,8 +198,8 @@
                             <tr>
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(persistentIdentifierValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(persistentIdentifierValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -192,8 +209,8 @@
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(publisherValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(publisherValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -203,8 +220,8 @@
                             <tr>
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(editorValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(editorValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -214,8 +231,8 @@
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(codeOfEthicsValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(codeOfEthicsValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -225,8 +242,8 @@
                             <tr>
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(referenceGuidelinesValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(referenceGuidelinesValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -236,8 +253,8 @@
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(plagiarismDetectionValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(plagiarismDetectionValues, 1, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -247,9 +264,9 @@
                             <tr>
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 0 = 0 pontos<br>
-                                    Quantidade de respostas: 1 = 1 ponto<br>
-                                    Quantidade de respostas: 2 = 2 pontos<br>
+                                    Quantidade de respostas: 0 = 0 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(socialNetworksValues, 0, false) %> <br>
+                                    Quantidade de respostas: 1 = 1 ponto  <%= printer.formatarApresentacaoPorCriterioDeQuantidade(socialNetworksValues, 1, false) %> <br>
+                                    Quantidade de respostas: 2 = 2 pontos <%= printer.formatarApresentacaoPorCriterioDeQuantidade(socialNetworksValues, 2, true) %> <br>
                                 </td>
                             </tr>
                             <tr>
@@ -259,9 +276,10 @@
                             <tr>
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
-                                    Quantidade de respostas: 1 = 0 pontos<br>
-                                    Quantidade de respostas: 2 = 1 ponto<br>
-                                    Quantidade de respostas: 3 = 2 pontos<br></td>
+                                    Quantidade de respostas: 1 = 0 pontos  <%= printer.formatarApresentacaoPorCriterioDeQuantidade(informationServicesValues, 1, false) %> <br>
+                                    Quantidade de respostas: 2 = 1 ponto   <%= printer.formatarApresentacaoPorCriterioDeQuantidade(informationServicesValues, 2, false) %> <br>
+                                    Quantidade de respostas: 3 = 2 pontos  <%= printer.formatarApresentacaoPorCriterioDeQuantidade(informationServicesValues, 3, true) %> <br>
+                                </td>
                             </tr>
                             <tr>
                                 <td class="oddRowOddCol"><b>Modalidade de publicação</b></td>
@@ -271,9 +289,9 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String tradicional = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Tradicional", "0 pontos");
-                                    	String aheadOfPrint = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Ahead of print", "1 ponto");
-                                    	String fluxoContinuo = printer.formatarApresentacaoMensagem(modalityOfPublicationValues, "Fluxo contínuo", "2 pontos");
+                                    	String tradicional = printer.formatarApresentacaoPorCriterioDeIgualdade(modalityOfPublicationValues, "Tradicional", "0 pontos");
+                                    	String aheadOfPrint = printer.formatarApresentacaoPorCriterioDeIgualdade(modalityOfPublicationValues, "Ahead of print", "1 ponto");
+                                    	String fluxoContinuo = printer.formatarApresentacaoPorCriterioDeIgualdade(modalityOfPublicationValues, "Fluxo contínuo", "2 pontos");
                                     %>
                                     <%= tradicional %> <br>
                                     <%= aheadOfPrint %> <br>
@@ -288,9 +306,9 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String aberta = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação aberta", "2 pontos");
-                                    	String duploCega = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação duplo-cega", "0 pontos");
-                                    	String simplesCega = printer.formatarApresentacaoMensagem(peerReviewValues, "Avaliação simples-cega", "0 pontos");
+                                    	String aberta = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewValues, "Avaliação aberta", "2 pontos");
+                                    	String duploCega = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewValues, "Avaliação duplo-cega", "0 pontos");
+                                    	String simplesCega = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewValues, "Avaliação simples-cega", "0 pontos");
                                     %>
                                     <%= aberta %> <br>
                                     <%= duploCega %> <br>
@@ -305,19 +323,19 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String publicacaoOpcaoA = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    	String publicacaoOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersPublicationValues, 
                                     			"A revista publica somente o nome de avaliadores que participaram da avaliação de documentos aprovados para a publicação",
                                     			"1 ponto");
-                                    	String publicacaoOpcaoB = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    	String publicacaoOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersPublicationValues, 
                                     			"A revista publica o nome de todos os avaliadores que participaram da avaliação de documentos por determinado período",
                                     			"2 pontos");
-                                    	String publicacaoOpcaoC = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    	String publicacaoOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersPublicationValues, 
                                     			"A revista somente publica avaliadores que concordam com a publicação do seu nome",
                                     			"1 ponto");
-                                    	String publicacaoOpcaoD = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    	String publicacaoOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersPublicationValues, 
                                     			"A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores",
                                     			"0 pontos");
-                                    	String publicacaoOpcaoE = printer.formatarApresentacaoMensagem(reviewersPublicationValues, 
+                                    	String publicacaoOpcaoE = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersPublicationValues, 
                                     			"A revista não publica nem revela o nome dos avaliadores",
                                     			"0 pontos");
                                     %>
@@ -336,19 +354,19 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String formaOpcaoA = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    	String formaOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersTypeOfPublicationValues, 
                                     			"A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações",
                                     			"1 ponto");
-                                    	String formaOpcaoB = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    	String formaOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersTypeOfPublicationValues, 
                                     			"A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis",
                                     			"1 ponto");
-                                    	String formaOpcaoC = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    	String formaOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersTypeOfPublicationValues, 
                                     			"A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores",
                                     			"2 pontos");
-                                    	String formaOpcaoD = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    	String formaOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersTypeOfPublicationValues, 
                                     			"A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores",
                                     			"0 pontos");
-                                    	String formaOpcaoE = printer.formatarApresentacaoMensagem(reviewersTypeOfPublicationValues, 
+                                    	String formaOpcaoE = printer.formatarApresentacaoPorCriterioDeIgualdade(reviewersTypeOfPublicationValues, 
                                     			"A revista não publica, nem revela o nome dos avaliadores",
                                     			"0 pontos");
                                     %>
@@ -367,13 +385,13 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String externalidadeOpcaoA = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
+                                    	String externalidadeOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewExternalityValues, 
                                     			"A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista",
                                     			"0 pontos");
-                                    	String externalidadeOpcaoB = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
-                                    			"A avaliação por pares é realizada por pesquisadores da instituiçao que edita a revista e por pesquisadores que são externos à instituição que edita a revista",
+                                    	String externalidadeOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewExternalityValues, 
+                                    			"A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista",
                                     			"1 ponto");
-                                    	String externalidadeOpcaoC = printer.formatarApresentacaoMensagem(peerReviewExternalityValues, 
+                                    	String externalidadeOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(peerReviewExternalityValues, 
                                     			"A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista",
                                     			"2 pontos");
                                     %>
@@ -390,9 +408,9 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String submissaoOpcaoA = printer.formatarApresentacaoMensagem(prePrintSubmissionValues, 
+                                    	String submissaoOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(prePrintSubmissionValues, 
                                     			"A revista aceita a submissão de preprints que já se encontram armazenados em outras plataformas", "2 pontos");
-                                    	String submissaoOpcaoB = printer.formatarApresentacaoMensagem(prePrintSubmissionValues, 
+                                    	String submissaoOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(prePrintSubmissionValues, 
                                     			"A revista não aceita a submissão de preprints que já se encontram armazenados em outras plataformas", "0 pontos");
                                     %>
                                     <%= submissaoOpcaoA %> <br>
@@ -407,16 +425,16 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String amarelo = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    	String amarelo = printer.formatarApresentacaoPorCriterioDeIgualdade(sealColorValues, 
                                     			"Amarela: permite o armazenamento e acesso das versões preprint dos documentos em repositórios institucionais/digitais",
                                     			"1 ponto");
-                                    	String azul = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    	String azul = printer.formatarApresentacaoPorCriterioDeIgualdade(sealColorValues, 
                                     			"Azul: permite o armazenamento e acesso das versões pós-print dos documentos em repositórios institucionais/digitais",
                                     			"1 ponto");
-                                    	String branco = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    	String branco = printer.formatarApresentacaoPorCriterioDeIgualdade(sealColorValues, 
                                     			"Branca: apresenta restrições para o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais",
                                     			"0 pontos");
-                                    	String verde = printer.formatarApresentacaoMensagem(sealColorValues, 
+                                    	String verde = printer.formatarApresentacaoPorCriterioDeIgualdade(sealColorValues, 
                                     			"Verde: permite o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios institucionais/digitais",
                                     			"2 pontos");
                                     %>
@@ -434,10 +452,10 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String prazoOpcaoA = printer.formatarApresentacaoMensagem(timeValues, "Imediatamente após a aceitação do documento", "2 pontos");
-                                    	String prazoOpcaoB = printer.formatarApresentacaoMensagem(timeValues, "Imediatamente após a publicação do documento", "1 ponto");
-                                    	String prazoOpcaoC = printer.formatarApresentacaoMensagem(timeValues, "Após finalizado o período de embargo", "0 pontos");
-                                    	String prazoOpcaoD = printer.formatarApresentacaoMensagem(timeValues, "Não permite o armazenamento", "0 pontos");
+                                    	String prazoOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(timeValues, "Imediatamente após a aceitação do documento", "2 pontos");
+                                    	String prazoOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(timeValues, "Imediatamente após a publicação do documento", "1 ponto");
+                                    	String prazoOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(timeValues, "Após finalizado o período de embargo", "0 pontos");
+                                    	String prazoOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(timeValues, "Não permite o armazenamento", "0 pontos");
                                     %>
                                     <%= prazoOpcaoA %> <br>
                                     <%= prazoOpcaoB %> <br>
@@ -453,10 +471,10 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String acessoOpcaoA = printer.formatarApresentacaoMensagem(accessValues, "Acesso aberto imediato", "2 pontos");
-                                    	String acessoOpcaoB = printer.formatarApresentacaoMensagem(accessValues, "Acesso aberto após período de embargo", "1 ponto");
-                                    	String acessoOpcaoC = printer.formatarApresentacaoMensagem(accessValues, "Acesso restrito", "0 pontos");
-                                    	String acessoOpcaoD = printer.formatarApresentacaoMensagem(accessValues, "Acesso híbrido", "1 ponto");
+                                    	String acessoOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(accessValues, "Acesso aberto imediato", "2 pontos");
+                                    	String acessoOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(accessValues, "Acesso aberto após período de embargo", "1 ponto");
+                                    	String acessoOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(accessValues, "Acesso restrito", "0 pontos");
+                                    	String acessoOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(accessValues, "Acesso híbrido", "1 ponto");
                                     %>
                                     <%= acessoOpcaoA %> <br>
                                     <%= acessoOpcaoB %> <br>
@@ -472,24 +490,24 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String licencaOpcaoA = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)",
                                     			"2 pontos");
-                                    	String licencaOpcaoB = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra " +
                                                 "original e que as novas criações utilizem a mesma licença da obra original (CC BY-SA)",
                                                 "2 pontos");
-                                    	String licencaOpcaoC = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)",
                                     			"1 ponto");
-                                    	String licencaOpcaoD = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC)",
                                     			"1 ponto");
-                                    	String licencaOpcaoE = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoE = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações " +
                                                 "utilizem a mesma licença da obra original (CC BY-NC-SA)",
                                                 "1 ponto");
-                                    	String licencaOpcaoF = printer.formatarApresentacaoMensagem(creativeCommonsValues, 
+                                    	String licencaOpcaoF = printer.formatarApresentacaoPorCriterioDeIgualdade(creativeCommonsValues, 
                                     			"Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND)",
                                     			"0 pontos");
                                     %>
@@ -509,10 +527,10 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String taxaOpcaoA = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de submissão de artigos", "0 pontos");
-                                    	String taxaOpcaoB = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de processamento de artigos (APC)", "0 pontos");
-                                    	String taxaOpcaoC = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista cobra taxa de submissão e de processamento de artigos", "0 pontos");
-                                    	String taxaOpcaoD = printer.formatarApresentacaoMensagem(publicationFeesValues, "A revista não cobra qualquer taxa de publicação", "2 pontos");
+                                    	String taxaOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(publicationFeesValues, "A revista cobra taxa de submissão de artigos", "0 pontos");
+                                    	String taxaOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(publicationFeesValues, "A revista cobra taxa de processamento de artigos (APC)", "0 pontos");
+                                    	String taxaOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(publicationFeesValues, "A revista cobra taxa de submissão e de processamento de artigos", "0 pontos");
+                                    	String taxaOpcaoD = printer.formatarApresentacaoPorCriterioDeIgualdade(publicationFeesValues, "A revista não cobra qualquer taxa de publicação", "2 pontos");
                                     %>
                                     <%= taxaOpcaoA %> <br>
                                     <%= taxaOpcaoB %> <br>
@@ -528,13 +546,13 @@
                                 <td class="oddRowEvenCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String naoAdota = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Ainda não adota política", "0 pontos");
-                                    	String lockss = printer.formatarApresentacaoMensagem(digitalPreservationValues, "LOCKSS", "2 pontos");
-                                    	String clockss = printer.formatarApresentacaoMensagem(digitalPreservationValues, "CLOCKSS", "2 pontos");
-                                    	String portico = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Portico", "2 pontos");
-                                    	String pkpPn = printer.formatarApresentacaoMensagem(digitalPreservationValues, "PKP PN", "2 pontos");
-                                    	String archivematica = printer.formatarApresentacaoMensagem(digitalPreservationValues, "Archivematica", "2 pontos");
-                                    	String other = printer.formatarApresentacaoMensagem(digitalPreservationValues, "'other'", "2 pontos");
+                                    	String naoAdota = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "Ainda não adota política", "0 pontos");
+                                    	String lockss = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "LOCKSS", "2 pontos");
+                                    	String clockss = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "CLOCKSS", "2 pontos");
+                                    	String portico = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "Portico", "2 pontos");
+                                    	String pkpPn = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "PKP PN", "2 pontos");
+                                    	String archivematica = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "Archivematica", "2 pontos");
+                                    	String other = printer.formatarApresentacaoPorCriterioDeIgualdade(digitalPreservationValues, "'other'", "2 pontos");
                                     %>
                                     <%= naoAdota %> <br>
                                     <%= lockss %> <br>
@@ -553,11 +571,11 @@
                                 <td class="oddRowOddCol" colspan="2">
                                     Escala de respostas:<br>
                                     <%
-                                    	String pesquisaOpcaoA = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    	String pesquisaOpcaoA = printer.formatarApresentacaoPorCriterioDeIgualdade(researchDataValues, 
                                     			"A revista exige que os autores publiquem os dados que deram origem à pesquisa em repositórios e/ou revistas de dados", "2 pontos");
-                                    	String pesquisaOpcaoB = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    	String pesquisaOpcaoB = printer.formatarApresentacaoPorCriterioDeIgualdade(researchDataValues, 
                                     			"A revista publica os dados que deram origem à pesquisa na própria revista", "1 ponto");
-                                    	String pesquisaOpcaoC = printer.formatarApresentacaoMensagem(researchDataValues, 
+                                    	String pesquisaOpcaoC = printer.formatarApresentacaoPorCriterioDeIgualdade(researchDataValues, 
                                     			"A revista não exige que os autores publiquem os dados que deram origem à pesquisa", "0 pontos");
                                     %>
                                     <%= pesquisaOpcaoA %> <br>
