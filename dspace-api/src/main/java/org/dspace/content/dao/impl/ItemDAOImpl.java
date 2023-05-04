@@ -329,7 +329,7 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
 
         Query query = createQuery(context, builder.toString());
         query.setParameter("collection", collection);
-        query.setMaxResults(1000);
+        query.setMaxResults(2000);
         
         return iterate(query);
     }

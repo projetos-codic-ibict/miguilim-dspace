@@ -498,6 +498,11 @@
     <servlet-name>request-item</servlet-name>
     <servlet-class>org.dspace.app.webui.servlet.RequestItemServlet</servlet-class>
   </servlet>
+  
+  <servlet>
+    <servlet-name>tmp</servlet-name>
+    <servlet-class>org.dspace.app.webui.servlet.TmpServlet</servlet-class>
+  </servlet>
     	
   <servlet-mapping>
     <servlet-name>shibboleth-login</servlet-name>
@@ -839,6 +844,11 @@
   <servlet-mapping>
     <servlet-name>termometro</servlet-name>
     <url-pattern>/termometro</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>tmp</servlet-name>
+    <url-pattern>/tmp</url-pattern>
   </servlet-mapping>
   
   <!-- Icon MIME type -->
