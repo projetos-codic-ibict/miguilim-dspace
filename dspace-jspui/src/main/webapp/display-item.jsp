@@ -254,7 +254,7 @@
             <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
             
 			<%
-				if (pendingReview && (UIUtil.obtainContext(request).getCurrentUser() != null)) 
+				if (pendingReview) 
                 {
             %>
 					<p class="alert alert-info"><fmt:message key="jsp.submit.complete.update"/></p> 
