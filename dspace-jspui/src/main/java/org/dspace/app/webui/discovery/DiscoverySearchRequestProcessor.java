@@ -11,7 +11,12 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.text.Collator;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -246,47 +251,39 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             throw new SearchProcessorException(e.getMessage(), e);
         }
 
-        DiscoveryConfiguration discoveryConfiguration = SearchUtils
-                .getDiscoveryConfiguration(scope);
-        List<DiscoverySortFieldConfiguration> sortFields = discoveryConfiguration
-                .getSearchSortConfiguration().getSortFields();
+        DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration(scope);
+        List<DiscoverySortFieldConfiguration> sortFields = discoveryConfiguration.getSearchSortConfiguration().getSortFields();
         List<String> sortOptions = new ArrayList<String>();
+        
         for (DiscoverySortFieldConfiguration sortFieldConfiguration : sortFields)
         {
-            String sortField = SearchUtils.getSearchService().toSortFieldIndex(
-                    sortFieldConfiguration.getMetadataField(),
-                    sortFieldConfiguration.getType());
+            String sortField = SearchUtils.getSearchService().toSortFieldIndex(sortFieldConfiguration.getMetadataField(), sortFieldConfiguration.getType());
             sortOptions.add(sortField);
         }
+        
         request.setAttribute("sortOptions", sortOptions);
         
-        DiscoverQuery queryArgs = DiscoverUtility.getDiscoverQuery(context,
-                request, scope, true);
-
+        DiscoverQuery queryArgs = DiscoverUtility.getDiscoverQuery(context, request, scope, true);
         queryArgs.setSpellCheck(discoveryConfiguration.isSpellCheckEnabled()); 
         
-        List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration
-                .getSidebarFacets();
-
-
-        if(availableFacet != null) {
+        List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration.getSidebarFacets();
+        if(availableFacet != null) 
+        {
             final Collator instance = Collator.getInstance();
 
             // This strategy mean it'll ignore the accents
             instance.setStrength(Collator.NO_DECOMPOSITION);
             Collections.sort(availableFacet, (discoverySearchFilterFacet, discoverySearchFilterFacet2) ->
-                    instance.compare(I18nUtil.getMessage("jsp.search.facet.refine." + discoverySearchFilterFacet.getIndexFieldName()),
+                    instance.compare(
+                    		I18nUtil.getMessage("jsp.search.facet.refine." + discoverySearchFilterFacet.getIndexFieldName()),
                             I18nUtil.getMessage("jsp.search.facet.refine." + discoverySearchFilterFacet2.getIndexFieldName())));
         }
 
-        request.setAttribute("facetsConfig",
-                availableFacet != null ? availableFacet
-                        : new ArrayList<DiscoverySearchFilterFacet>());
+        request.setAttribute("facetsConfig", availableFacet != null ? availableFacet : new ArrayList<DiscoverySearchFilterFacet>());
         int etal = UIUtil.getIntParameter(request, "etal");
         if (etal == -1)
         {
-            etal = ConfigurationManager
-                    .getIntProperty("webui.itemlist.author-limit");
+            etal = ConfigurationManager.getIntProperty("webui.itemlist.author-limit");
         }
 
         request.setAttribute("etal", etal);
@@ -294,19 +291,20 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         String query = request.getParameter("query");
         request.setAttribute("query", query);
         request.setAttribute("queryArgs", queryArgs);
-        List<DiscoverySearchFilter> availableFilters = discoveryConfiguration
-                .getSearchFilters();
+        
+        List<DiscoverySearchFilter> availableFilters = discoveryConfiguration.getSearchFilters();
         request.setAttribute("availableFilters", availableFilters);
 
         List<String[]> appliedFilters = DiscoverUtility.getFilters(request);
         request.setAttribute("appliedFilters", appliedFilters);
+        
         List<String> appliedFilterQueries = new ArrayList<String>();
         for (String[] filter : appliedFilters)
         {
-            appliedFilterQueries.add(filter[0] + "::" + filter[1] + "::"
-                    + filter[2]);
+            appliedFilterQueries.add(filter[0] + "::" + filter[1] + "::" + filter[2]);
         }
         request.setAttribute("appliedFilterQueries", appliedFilterQueries);
+        
         List<DSpaceObject> scopes = new ArrayList<DSpaceObject>();
         if (scope == null)
         {
@@ -328,15 +326,14 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         {
             try
             {
-				DSpaceObject pDso = ContentServiceFactory.getInstance().getDSpaceObjectService(scope)
-						.getParentObject(context, scope);
+				DSpaceObject pDso = ContentServiceFactory.getInstance().getDSpaceObjectService(scope).getParentObject(context, scope);
                 while (pDso != null)
                 {
                     // add to the available scopes in reverse order
                     scopes.add(0, pDso);
-                    pDso = ContentServiceFactory.getInstance().getDSpaceObjectService(pDso)
-    						.getParentObject(context, pDso);
+                    pDso = ContentServiceFactory.getInstance().getDSpaceObjectService(pDso).getParentObject(context, pDso);
                 }
+                
                 scopes.add(scope);
                 if (scope instanceof Community)
                 {
@@ -357,6 +354,7 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
                 throw new SearchProcessorException(e.getMessage(), e);
             }
         }
+        
         request.setAttribute("scope", scope);
         request.setAttribute("scopes", scopes);
 
@@ -364,8 +362,7 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         DiscoverResult qResults = null;
         try
         {
-            qResults = SearchUtils.getSearchService().search(context, scope,
-                    queryArgs);
+            qResults = SearchUtils.getSearchService().search(context, scope, queryArgs);
             
             List<Community> resultsListComm = new ArrayList<Community>();
             List<Collection> resultsListColl = new ArrayList<Collection>();
@@ -397,16 +394,13 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
 
             // Pass in some page qualities
             // total number of pages
-            long pageTotal = 1 + ((qResults.getTotalSearchResults() - 1) / qResults
-                    .getMaxResults());
+            long pageTotal = 1 + ((qResults.getTotalSearchResults() - 1) / qResults.getMaxResults());
 
             // current page being displayed
-            long pageCurrent = 1 + (qResults.getStart() / qResults
-                    .getMaxResults());
+            long pageCurrent = 1 + (qResults.getStart() / qResults.getMaxResults());
 
             // pageLast = min(pageCurrent+3,pageTotal)
-            long pageLast = ((pageCurrent + 3) > pageTotal) ? pageTotal
-                    : (pageCurrent + 3);
+            long pageLast = ((pageCurrent + 3) > pageTotal) ? pageTotal : (pageCurrent + 3);
 
             // pageFirst = max(1,pageCurrent-3)
             long pageFirst = ((pageCurrent - 3) > 1) ? (pageCurrent - 3) : 1;
@@ -415,13 +409,11 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             request.setAttribute("items", resultsListItem);
             request.setAttribute("communities", resultsListComm);
             request.setAttribute("collections", resultsListColl);
-
             request.setAttribute("pagetotal", new Long(pageTotal));
             request.setAttribute("pagecurrent", new Long(pageCurrent));
             request.setAttribute("pagelast", new Long(pageLast));
             request.setAttribute("pagefirst", new Long(pageFirst));
             request.setAttribute("spellcheck", qResults.getSpellCheckQuery());
-            
             request.setAttribute("queryresults", qResults);
 
             try
@@ -437,12 +429,16 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
 
             }
 
-            if ("submit_export_metadata".equals(UIUtil.getSubmitButton(request,"submit"))) {
-                try {
-                    if (authorizeService.isAdmin(context)) {
+            if ("submit_export_metadata".equals(UIUtil.getSubmitButton(request,"submit"))) 
+            {
+                try 
+                {
+                    if (authorizeService.isAdmin(context)) 
+                    {
                         exportMetadata(context, response, resultsListItem);
                     }
-                    else {
+                    else 
+                    {
                         JSPManager.showJSP(request, response, "/error/authorize.jsp");
                     }
                 }
@@ -455,10 +451,7 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         }
         catch (SearchServiceException e)
         {
-            log.error(
-                    LogManager.getHeader(context, "search", "query="
-                            + query + ",scope=" + scope
-                            + ",error=" + e.getMessage()), e);
+            log.error(LogManager.getHeader(context, "search", "query=" + query + ",scope=" + scope + ",error=" + e.getMessage()), e);
             request.setAttribute("search.error", true);
             request.setAttribute("search.error.message", e.getMessage());
         }

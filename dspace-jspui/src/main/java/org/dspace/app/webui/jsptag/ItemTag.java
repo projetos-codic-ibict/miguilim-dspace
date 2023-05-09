@@ -585,14 +585,15 @@ public class ItemTag extends TagSupport {
                         }
                         else if (isLinkSearch) 
                         {
+                        	String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
                             String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + qualifier + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
 
                             out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
                         } 
                         else if (isLink) 
                         {
-                            out.print("<a href=\"" + val.getValue() + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+                            out.print("<a href=\"" + val.getValue() + "\" target=\"_blank\">" + Utils.addEntities(val.getValue()) + "</a>");
                         } 
                         else if (isDate) 
                         {
@@ -1254,5 +1255,9 @@ public class ItemTag extends TagSupport {
             }
         }
         return null;
+    }
+    
+    private String adequarValorParaPesquisa(String valor) {
+    	return valor.replaceAll("creative", "");
     }
 }
