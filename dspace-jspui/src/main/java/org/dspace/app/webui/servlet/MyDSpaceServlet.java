@@ -628,7 +628,11 @@ public class MyDSpaceServlet extends DSpaceServlet
             if(CollectionUtils.isNotEmpty(valores))
             {
             	Item oldItem = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
-            	itemService.clearMetadata(context, oldItem, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+            	
+            	if(oldItem != null)
+            	{
+            		itemService.clearMetadata(context, oldItem, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+            	}
             }
             
             JSPManager.showJSP(request, response, "/mydspace/task-complete.jsp");
