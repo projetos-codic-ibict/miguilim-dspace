@@ -467,6 +467,7 @@
 }
 .results-cards .cards h3 {
   font-size: 1.5rem;
+  line-height: 2.2rem !important;
   margin-top: 0 !important;
 }
 @media (max-width: 920px) {
