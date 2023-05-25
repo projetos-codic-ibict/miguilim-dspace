@@ -91,6 +91,7 @@
 			h3 {
 				font-size: 1.2rem;
 				line-height: 32px;
+				margin-top: 0!important;
 			}
 		}		
 		p {
@@ -210,6 +211,10 @@
 		.contentChipText {
 		 visibility: visible
 		}
+	  }
+
+	  .subhead, .results-cards .cards h3 {
+		margin-top: 0!important;
 	  }
   
   
