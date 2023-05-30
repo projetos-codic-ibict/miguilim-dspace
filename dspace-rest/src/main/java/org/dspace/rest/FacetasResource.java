@@ -9,6 +9,7 @@ package org.dspace.rest;
 
 import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 
+import java.sql.SQLException;
 import java.text.Collator;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -45,7 +46,9 @@ public class FacetasResource extends Resource
     @Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
     public RespostaFacetas obterFacetas (
     		@QueryParam("query-value") String queryValue, 
-    		@QueryParam("query-metadados") List<String> metadados, 
+    		@QueryParam("query-field") List<String> queryField,
+            @QueryParam("query-operation") List<String> queryOperation,
+            @QueryParam("query-filter") List<String> queryFilter,
     		@QueryParam("query-collection") String collectionId, 
     		@Context HttpHeaders headers, 
     		@Context HttpServletRequest request)
@@ -54,14 +57,16 @@ public class FacetasResource extends Resource
     	
     	RespostaFacetas retorno = new RespostaFacetas();
     	
-    	List<DiscoverySearchFilterFacet> opcoesFacetas = obterFacetasParaPesquisa(metadados);
+    	List<DiscoverySearchFilterFacet> opcoesFacetas = obterFacetasDefault();
     	List<Faceta> facetas = new ArrayList<>();
-    	
+        
     	try 
     	{
 			context = createContext();
 
 			DiscoverQuery query = obterQuery(queryValue, collectionId, opcoesFacetas);
+			preencherFiltrosDaQuery(context, query, queryField, queryOperation, queryFilter);
+			
 			DiscoverResult itens = SearchUtils.getSearchService().search(context, null, query);
 			
 			for (DiscoverySearchFilterFacet opcao : opcoesFacetas)
@@ -106,36 +111,8 @@ public class FacetasResource extends Resource
     	
     	return retorno;
     }
-    
-    private List<DiscoverySearchFilterFacet> obterFacetasParaPesquisa(List<String> metadados) {
-    	
-       	List<DiscoverySearchFilterFacet> opcoesFacetas = new ArrayList<>();
-    	
-    	if(isNotEmpty(metadados))
-    	{
-    		for(String metadado : metadados)
-    		{
-                String[] blocosMetadado = metadado.split("\\.");
-                             
-                DiscoverySearchFilterFacet filter = new DiscoverySearchFilterFacet();
-                filter.setMetadataFields(Arrays.asList(metadado));
-                filter.setIndexFieldName(blocosMetadado[blocosMetadado.length - 1]);
-                
-                opcoesFacetas.add(filter);
-    		}
-    	}
-    	else
-    	{
-    		opcoesFacetas = obterFacetasDefault();
-    	}
-    	
-    	Collator instance = Collator.getInstance();
-    	instance.setStrength(Collator.NO_DECOMPOSITION);
-    	Collections.sort(opcoesFacetas, (filter1, filter2) -> 
-    		instance.compare(I18nUtil.getMessage("rest.facet." + filter1.getIndexFieldName()), I18nUtil.getMessage("rest.facet." + filter2.getIndexFieldName())));
-    	  
-    	return opcoesFacetas;
-    }
+
+	
     
     private DiscoverQuery obterQuery(String queryValue, String collectionId, List<DiscoverySearchFilterFacet> opcoesFacetas) {
     	DiscoverQuery query = new DiscoverQuery();
@@ -167,7 +144,32 @@ public class FacetasResource extends Resource
     	
     	facetasDefault.add(filterState);
     	
+    	Collator instance = Collator.getInstance();
+    	instance.setStrength(Collator.NO_DECOMPOSITION);
+    	Collections.sort(facetasDefault, (filter1, filter2) -> 
+    		instance.compare(I18nUtil.getMessage("rest.facet." + filter1.getIndexFieldName()), I18nUtil.getMessage("rest.facet." + filter2.getIndexFieldName())));
+    	
     	return facetasDefault;
     }
+    
+    private void preencherFiltrosDaQuery(org.dspace.core.Context context, DiscoverQuery query, 
+    		List<String> queryField, 
+    		List<String> queryOperation, 
+    		List<String> queryFilter) throws SQLException {
+		
+    	int index = Math.min(queryField.size(), Math.min(queryOperation.size(), queryFilter.size()));
+		for (int i = 0; i < index; i++)
+		{
+			String filterQuery = SearchUtils
+					.getSearchService()
+		            .toFilterQuery(context, queryField.get(i), queryOperation.get(i), queryFilter.get(i))
+		            .getFilterQuery();
+		        
+			if (filterQuery != null)
+		    {
+				query.addFilterQueries(filterQuery);
+		    }
+		}
+	}
    
 }
