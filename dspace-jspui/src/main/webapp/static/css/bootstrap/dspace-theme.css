@@ -467,11 +467,14 @@
 }
 .results-cards .cards h3 {
   font-size: 1.5rem;
+  line-height: 2.2rem !important;
+  margin-top: 0 !important;
 }
 @media (max-width: 920px) {
   .results-cards .cards h3 {
     font-size: 1.2rem;
     line-height: 32px;
+    margin-top: 0 !important;
   }
 }
 .results-cards .cards p {
@@ -593,6 +596,10 @@
 
 .active .contentChipText {
   visibility: visible;
+}
+
+.subhead, .results-cards .cards h3 {
+  margin-top: 0 !important;
 }
 
 #footer_feedback {
