@@ -167,10 +167,13 @@
     
             <h2 id="ComoAtualizarArevista">Como atualizar o cadastro de uma revista ou portal de revistas?</h2>
                 
-                <p id="margem-unica">Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista ou portal de revistas e clicar no botão "Editar", que se encontra no quadro "Ferramentas do administrador".
-                Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que forem 
-                necessários. Os campos devem ser preenchidos de acordo com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro
-		será disponibiliza automaticamente no diretório, cabendo à equipe gestora posterior verificação e revisão dos dados indicados.</p>
+                <p id="margem-unica">
+                	Para a atualização dos dados, o usuário, logado no Miguilim, deverá dirigir-se ao registro da revista ou portal de revistas e clicar no botão "Editar", que se encontra no 
+                	quadro "Ferramentas do administrador". Ao clicar em "Editar" o usuário terá acesso ao formulário de edição, onde poderá alterar todos os campos que forem necessários. Os campos devem ser 
+                	preenchidos de acordo com as instruções indicadas. Ao final do preenchimento deve-se clicar em "Atualizar". A atualização do registro ficará pendente de aceite. cabendo à equipe gestora 
+                	posterior verificação e homologação dos dados indicados. Enquanto as atualizações não forem homologadas pela equipe gestora, aparecerá a seguinte mensagem na página do registro: 
+                	“Depósito em processo de revisão”.
+                </p>
                                   
             <h2 id="PorqueEimportanteCadastrar">Porque é importante cadastrar uma revista no Miguilim?</h2>
     
