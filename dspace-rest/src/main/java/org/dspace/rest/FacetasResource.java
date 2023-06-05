@@ -134,15 +134,17 @@ public class FacetasResource extends Resource
     private List<DiscoverySearchFilterFacet> obterFacetasDefault()
     {
     	List<DiscoverySearchFilterFacet> facetasDefault = new ArrayList<>();
-    	
-    	DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration();
-    	facetasDefault = new ArrayList<>(discoveryConfiguration.getSidebarFacets());
-    	
+    	facetasDefault = new ArrayList<>(SearchUtils.getDiscoveryConfiguration().getSidebarFacets());
+
     	DiscoverySearchFilterFacet filterState = new DiscoverySearchFilterFacet();
-    	filterState.setMetadataFields(Arrays.asList("dc.state"));
+    	filterState.setMetadataFields(Arrays.asList("dc.description.state"));
     	filterState.setIndexFieldName("state");
-    	
     	facetasDefault.add(filterState);
+    	
+    	DiscoverySearchFilterFacet filterUpdate = new DiscoverySearchFilterFacet();
+    	filterUpdate.setMetadataFields(Arrays.asList("dc.date.update"));
+    	filterUpdate.setIndexFieldName("update");
+    	facetasDefault.add(filterUpdate);
     	
     	Collator instance = Collator.getInstance();
     	instance.setStrength(Collator.NO_DECOMPOSITION);
