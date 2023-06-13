@@ -124,8 +124,9 @@
 
         <!-- Miguilim -->
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message
-                    key="jsp.layout.navbar.miguilim"/> <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            	<fmt:message key="jsp.layout.navbar.miguilim"/> <b class="caret"></b>
+            </a>
             <ul class="dropdown-menu">
                 <li><a href="<%= request.getContextPath() %>/static/pages/miguilim.jsp"><fmt:message key="jsp.layout.navbar.miguilim.about"/></a></li>
                 <li class="divider"></li>
@@ -134,22 +135,14 @@
                 <li class="<%= currentPage.endsWith("/como-cadastro") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/como-cadastro.jsp"><fmt:message key="jsp.layout.navbar.miguilim.howregister"/></a></li>
                 <li class="<%= currentPage.endsWith("/como-atualizar-cadastro") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/como-atualizar-cadastro.jsp"><fmt:message key="jsp.layout.navbar.miguilim.howupdateregisgter"/></a></li>
                 <li class="<%= currentPage.endsWith("/documentos") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/documentos.jsp"><fmt:message key="jsp.layout.navbar.miguilim.docs"/></a></li>
-
-                <%-- End of dynamic browse indices --%>
-
             </ul>
         </li>
 
         <li class="<%= currentPage.endsWith("/perguntas-frequentes") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/perguntas-frequentes.jsp"><fmt:message key="jsp.layout.navbar.miguilim.frequentquestions"/></a></li>
-       	
         <li class="<%= currentPage.endsWith("/indicadores") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/indicadores.jsp"><fmt:message key="jsp.layout.navbar.miguilim.indicadores"/></a></li>
-       	
         <li class="<%= currentPage.endsWith("/feedback") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/feedback"> <fmt:message key="jsp.layout.navbar-default.feedback"/></a></li>
 
     </ul>
-
-
-
 
     <div class="nav navbar-nav navbar-right">
         <ul class="nav navbar-nav navbar-right">
