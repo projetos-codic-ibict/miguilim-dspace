@@ -234,12 +234,18 @@
                 
             <h2 id="ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</h2>
     
-                <p id="margem-unica">Uma das funções prioritárias do Miguilim é manter atualizadas as informações das revistas e dos portais de revistas que o compõe. Sendo assim, identificou-se a 
-                necessidade de criar um formulário em que os próprios editores científicos e gestores de portais de revistas possam atualizar os dados das revistas que editam e dos portais que administram.</p>
-    
-                <p id="margem-unica">Dessa forma, foram feitas modificações nas configurações do formulário de atualização do software DSpace, de modo que os próprios editores e gestores consigam fazer as atualizações necessárias.
+                <p id="margem-unica">
+                	Uma das funções prioritárias do Miguilim é manter atualizadas as informações das revistas e dos portais de revistas que o compõe. Sendo assim, identificou-se a necessidade de criar um formulário 
+                	em que os próprios editores científicos e gestores de portais de revistas possam atualizar os dados das revistas que editam e dos portais que administram.
+                </p>
+            
+                <p id="margem-unica">
+                	Dessa forma, foram feitas modificações nas configurações do formulário de atualização do software DSpace, de modo que os próprios editores e gestores consigam fazer as atualizações necessárias.
+                </p>	
 			
-		<p id="margem-unica">Os dados atualizados são apresentados automaticamente no registro no Miguilim. Ao mesmo tempo, a equipe gestora recebe um e-mail comunicando da atualização do item, cabendo a ela posterior verificação dos dados informados e realização de correções, se necessário..</p>
+				<p id="margem-unica">
+					Os dados atualizados ficam pendentes de aceite, cabendo à equipe gestora posterior verificação dos dados informados e realização de correções, se necessário…
+				</p>
             
             <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</h2>
     
