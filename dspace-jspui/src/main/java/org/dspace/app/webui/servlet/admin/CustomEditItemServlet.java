@@ -1001,7 +1001,7 @@ public class CustomEditItemServlet extends DSpaceServlet
         	response.sendRedirect(request.getContextPath() + "/handle/" + version.getSummary());
         }
         
-        enviarEmailDeAtualizacao(request, item);
+        enviarEmailDeAtualizacao(request, item, itemOriginal.getHandle());
         
         // Complete transaction
         // context.complete();
@@ -1111,12 +1111,12 @@ public class CustomEditItemServlet extends DSpaceServlet
         }
     }
     
-	private void enviarEmailDeAtualizacao(HttpServletRequest request, Item item) {
+	private void enviarEmailDeAtualizacao(HttpServletRequest request, Item item, String handleOriginal) {
 		try 
 		{
 			Email email = Email.getEmail(I18nUtil.getEmailFilename(I18nUtil.getDefaultLocale(), "update_item"));
-			email.addArgument(item.getHandle());
-			email.addArgument(handleService.getCanonicalForm(item.getHandle()));
+			email.addArgument(handleOriginal);
+			email.addArgument(handleService.getCanonicalForm(handleOriginal));
 			email.addRecipient("miguilim@ibict.br");
 			email.send();
 		} 
