@@ -28,6 +28,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.fileupload.FileUploadBase.FileSizeLimitExceededException;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -47,6 +48,7 @@ import org.dspace.content.DSpaceObject;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataField;
 import org.dspace.content.MetadataSchema;
+import org.dspace.content.MetadataValue;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.content.authority.Choices;
 import org.dspace.content.factory.ContentServiceFactory;
@@ -169,16 +171,13 @@ public class CustomEditItemServlet extends DSpaceServlet
     final String REVISTAS = "miguilim/2";
 
     @Override
-    protected void doDSGet(Context context, HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException,
-            SQLException, AuthorizeException
+    protected void doDSGet(Context context, HttpServletRequest request, HttpServletResponse response) 
+    		throws ServletException, IOException, SQLException, AuthorizeException
     {
         /*
          * GET with no parameters displays "find by handle/id" form parameter
          * item_id -> find and edit item with internal ID item_id parameter
-         * handle -> find and edit corresponding item if internal ID or Handle
-         * are invalid, "find by handle/id" form is displayed again with error
-         * message
+         * handle -> find and edit corresponding item if internal ID or Handle are invalid, "find by handle/id" form is displayed again with error message
          */
         UUID internalID = UIUtil.getUUIDParameter(request, "item_id");
         String handle = request.getParameter("handle");
@@ -304,20 +303,40 @@ public class CustomEditItemServlet extends DSpaceServlet
             break;
 
         case UPDATE_ITEM:
-        	Version version = versioningService.createNewVersion(context, item, item.getHandle());
-        	WorkspaceItem wsi = workspaceItemService.findByItem(context, version.getItem());
+        	Item itemOriginal  = item;
+        	
+        	List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+        	if(CollectionUtils.isNotEmpty(valores))
+        	{
+        		itemOriginal = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
+
+        		if(item.getOwningCollection() == null)
+        		{
+        			item.setOwningCollection(itemOriginal.getCollections().get(0));
+                }
+            }
+        	
+        	
+        	Version version = versioningService.createNewVersion(context, item, itemOriginal.getHandle());
+        	WorkspaceItem workspaceVersion = workspaceItemService.findByItem(context, version.getItem());
         	
             processUpdateItem(context, request, response, item, version);
             
             try 
             {
             	itemService.clearMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
-            	itemService.addMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", "pt_BR", item.getID().toString());
+            	itemService.addMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", "pt_BR", itemOriginal.getID().toString());
 				
-            	workflowService.start(context, wsi);
+            	workflowService.start(context, workspaceVersion);
 				
-            	itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
-            	itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", "pt_BR", Boolean.TRUE.toString());
+            	itemService.clearMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+            	itemService.addMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", "pt_BR", Boolean.TRUE.toString());
+
+            	if(itemOriginal != null)
+            	{
+            		WorkspaceItem wItem = workspaceItemService.findByItem(context, item);
+            		workspaceItemService.deleteAll(context, wItem);
+            	}
 			} 
             catch (Exception e) 
             {
@@ -496,6 +515,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 
 				}
 			}
+			
             showEditForm(context, request, response, item);
 
             break;
@@ -556,6 +576,18 @@ public class CustomEditItemServlet extends DSpaceServlet
 
         // Collections
         List<Collection> collections = item.getCollections();
+        if(CollectionUtils.isEmpty(collections))
+        {
+        	List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+        	
+        	if(CollectionUtils.isNotEmpty(valores))
+        	{
+        		Item itemOriginal = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
+        		
+        		handle = handleService.findHandle(context, itemOriginal);
+        		collections = itemOriginal.getCollections();
+        	}
+        }
 
         // All DC types in the registry
         List<MetadataField> types = metadataFieldService.findAll(context);
@@ -1117,7 +1149,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 			Email email = Email.getEmail(I18nUtil.getEmailFilename(I18nUtil.getDefaultLocale(), "update_item"));
 			email.addArgument(handleOriginal);
 			email.addArgument(handleService.getCanonicalForm(handleOriginal));
-			email.addRecipient("miguilim@ibict.br");
+			email.addRecipient("klebers.alves@gmail.com");
 			email.send();
 		} 
 		catch (Exception e) 
@@ -1138,7 +1170,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 	}
 	
 	private void atualizarMetadadoThermomether(Context context, Item itemOriginal, Item item) throws IOException, SQLException {
-		if(itemOriginal.getCollections().get(0).getHandle().equals(REVISTAS))
+		if(itemOriginal.getOwningCollection().getHandle().equals(REVISTAS))
 		{
 			itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", Item.ANY);
 			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));

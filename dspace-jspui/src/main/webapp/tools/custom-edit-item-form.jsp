@@ -330,7 +330,7 @@
                     MetadataAuthorityService mam = ContentAuthorityServiceFactory.getInstance().getMetadataAuthorityService();
                     ChoiceAuthorityService cam = ContentAuthorityServiceFactory.getInstance().getChoiceAuthorityService();
                     String row = "even";
-                    String collectionName = item.getOwningCollection().getName();
+                    String collectionName = item.getOwningCollection() != null ? item.getOwningCollection().getName() : collections.get(0).getName();
                     List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
                     List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(context, collectionName);
                     FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
@@ -636,11 +636,11 @@
                     <input type="hidden" name="item_id" value="<%= item.getID() %>"/>
                     <input type="hidden" name="action" value="<%= EditItemServlet.UPDATE_ITEM %>"/>
 
-                        <%-- <input type="submit" name="submit" value="Update" /> --%>
-                    <input class="button-main" type="submit" name="submit"
-                           value="<fmt:message key="jsp.tools.general.update"/>"/>
-                        <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
-                    <a href="<%=request.getContextPath() + "/handle/" + item.getHandle()%>" class="button-main-outline">
+                    <%-- <input type="submit" name="submit" value="Update" /> --%>
+                    <input class="button-main" type="submit" name="submit" value="<fmt:message key="jsp.tools.general.update"/>"/>
+                    
+                    <%-- <input type="submit" name="submit_cancel" value="Cancel" /> --%>
+                    <a href="<%=request.getContextPath() + "/handle/" + handle %>" class="button-main-outline">
                         <fmt:message key="jsp.tools.general.cancel"/>
                     </a>
                 </div>

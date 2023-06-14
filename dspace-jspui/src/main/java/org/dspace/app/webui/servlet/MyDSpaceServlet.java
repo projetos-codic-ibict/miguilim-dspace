@@ -260,9 +260,28 @@ public class MyDSpaceServlet extends DSpaceServlet
         {
             // User clicked on a "Resume" button for a workspace item.
             String wsID = request.getParameter("workspace_id");
-            response.sendRedirect(response.encodeRedirectURL(request
-                    .getContextPath()
-                    + "/submit?resume=" + wsID));
+            String idItemParaEdicao = "";
+            
+            boolean workspaceParaItemDeEdicao = Boolean.FALSE;
+            
+            if (workspaceItem != null)
+            {
+            	Item item = workspaceItem.getItem();
+            	
+            	idItemParaEdicao = item.getID().toString();
+            	workspaceParaItemDeEdicao =  itemService.existeMetadadoNoItem(item, "previousitem");
+            }
+            
+            
+            if(workspaceParaItemDeEdicao)
+            {
+            	response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/tools/edit-item?item_id=" + idItemParaEdicao));
+            }
+            else
+            {
+            	response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/submit?resume=" + wsID));
+            }
+            
             ok = true;
         }
         else if (buttonPressed.equals("submit_delete"))
