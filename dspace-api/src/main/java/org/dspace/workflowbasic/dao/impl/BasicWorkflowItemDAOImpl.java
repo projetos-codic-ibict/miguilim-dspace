@@ -67,8 +67,14 @@ public class BasicWorkflowItemDAOImpl extends AbstractHibernateDAO<BasicWorkflow
     @Override
     public List<BasicWorkflowItem> findByPooledTasks(Context context, EPerson ePerson) throws SQLException
     {
-        String queryString = "select wf from TaskListItem as tli join tli.workflowItem wf where tli.ePerson = :eperson ORDER BY wf.workflowitemId";
-        Query query = createQuery(context, queryString);
+        StringBuilder queryString = new StringBuilder(); 
+        queryString.append("SELECT wf FROM TaskListItem tli JOIN tli.workflowItem wf JOIN wf.item i ");
+        queryString.append("WHERE tli.ePerson = :eperson AND i.id NOT IN ( ");
+        queryString.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField ");
+        queryString.append("WHERE m.metadataField.element = 'identifier' AND m.metadataField.qualifier = 'previousitem') ");
+        queryString.append("ORDER BY wf.workflowitemId");
+        
+        Query query = createQuery(context, queryString.toString());
         query.setParameter("eperson", ePerson);
         return list(query);
     }
@@ -84,4 +90,18 @@ public class BasicWorkflowItemDAOImpl extends AbstractHibernateDAO<BasicWorkflow
     public int countRows(Context context) throws SQLException {
         return count(createQuery(context, "SELECT count(*) FROM BasicWorkflowItem"));
     }
+
+	@Override
+	public List<BasicWorkflowItem> findByEditingTasks(Context context, EPerson ePerson) throws SQLException {
+		StringBuilder queryString = new StringBuilder(); 
+        queryString.append("SELECT wf FROM TaskListItem tli JOIN tli.workflowItem wf JOIN wf.item i ");
+        queryString.append("WHERE tli.ePerson = :eperson AND i.id IN ( ");
+        queryString.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField ");
+        queryString.append("WHERE m.metadataField.element = 'identifier' AND m.metadataField.qualifier = 'previousitem') ");
+        queryString.append("ORDER BY wf.workflowitemId");
+        
+        Query query = createQuery(context, queryString.toString());
+        query.setParameter("eperson", ePerson);
+        return list(query);
+	}
 }

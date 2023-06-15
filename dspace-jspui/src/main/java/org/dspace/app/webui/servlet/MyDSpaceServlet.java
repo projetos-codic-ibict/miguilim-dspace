@@ -260,9 +260,28 @@ public class MyDSpaceServlet extends DSpaceServlet
         {
             // User clicked on a "Resume" button for a workspace item.
             String wsID = request.getParameter("workspace_id");
-            response.sendRedirect(response.encodeRedirectURL(request
-                    .getContextPath()
-                    + "/submit?resume=" + wsID));
+            String idItemParaEdicao = "";
+            
+            boolean workspaceParaItemDeEdicao = Boolean.FALSE;
+            
+            if (workspaceItem != null)
+            {
+            	Item item = workspaceItem.getItem();
+            	
+            	idItemParaEdicao = item.getID().toString();
+            	workspaceParaItemDeEdicao =  itemService.existeMetadadoNoItem(item, "previousitem");
+            }
+            
+            
+            if(workspaceParaItemDeEdicao)
+            {
+            	response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/tools/edit-item?item_id=" + idItemParaEdicao));
+            }
+            else
+            {
+            	response.sendRedirect(response.encodeRedirectURL(request.getContextPath() + "/submit?resume=" + wsID));
+            }
+            
             ok = true;
         }
         else if (buttonPressed.equals("submit_delete"))
@@ -867,6 +886,8 @@ public class MyDSpaceServlet extends DSpaceServlet
 
         // User's PersonalWorkspace
         List<WorkspaceItem> workspaceItems = workspaceItemService.findByEPerson(context, currentUser);
+        
+        List<BasicWorkflowItem> editingList = workflowService.getEditingTasks(context, currentUser);
 
         // User's authorization groups
         List<Group> memberships = groupService.allMemberGroups(context, currentUser);
@@ -906,6 +927,8 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("supervised.items", supervisedItems);
         request.setAttribute("export.archives", exportArchives);
         request.setAttribute("import.uploads", importUploads);
+        request.setAttribute("workflow.editing", editingList);
+
 
         // Forward to main mydspace page
         JSPManager.showJSP(request, response, "/mydspace/main.jsp");

@@ -191,4 +191,6 @@ public interface BasicWorkflowService extends WorkflowService<BasicWorkflowItem>
      * @param wi  the workflow item
      */
     public String getSubmitterName(BasicWorkflowItem wi) throws SQLException;
+    
+    public List<BasicWorkflowItem> getEditingTasks(Context context, EPerson e) throws SQLException;
 }

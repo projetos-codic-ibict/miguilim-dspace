@@ -161,4 +161,9 @@ public class BasicWorkflowItemServiceImpl implements BasicWorkflowItemService {
     public int countTotal(Context context) throws SQLException {
         return workflowItemDAO.countRows(context);
     }
+
+	@Override
+	public List<BasicWorkflowItem> findEditingTasks(Context context, EPerson ePerson) throws SQLException {
+		return workflowItemDAO.findByEditingTasks(context, ePerson);
+	}
 }

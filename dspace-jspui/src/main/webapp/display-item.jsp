@@ -137,7 +137,7 @@
     boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
     boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
     
-    Boolean pendingReview = (Boolean) request.getAttribute("pending_review");
+    Boolean pendingReview = (Boolean) (request.getAttribute("pending_review") != null ? request.getAttribute("pending_review") : false);
 %>
 
 <head>

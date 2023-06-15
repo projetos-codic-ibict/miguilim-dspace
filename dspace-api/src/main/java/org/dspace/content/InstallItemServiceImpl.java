@@ -25,6 +25,7 @@ import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.embargo.service.EmbargoService;
 import org.dspace.event.Event;
+import org.dspace.handle.service.HandleService;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
 import org.dspace.termometro.util.CalculadoraTermometro;
@@ -57,6 +58,8 @@ public class InstallItemServiceImpl implements InstallItemService
     protected VersioningService versioningService;
     @Autowired(required = true)
     protected AuthorizeService authorizeService;
+    @Autowired(required = true)
+    protected HandleService handleService;
 
     protected InstallItemServiceImpl()
     {
@@ -86,8 +89,10 @@ public class InstallItemServiceImpl implements InstallItemService
             	{
             		Item oldItem = itemService.find(c, UUID.fromString(valores.get(0).getValue()));
             		suppliedHandle = oldItem.getHandle();
-            	            
+            	    
             		itemService.delete(c, oldItem);
+            		
+            		handleService.unbindHandle(c, item);
             	}
             		
             	itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
