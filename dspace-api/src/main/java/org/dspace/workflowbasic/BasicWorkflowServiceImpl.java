@@ -1023,7 +1023,7 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                 for (EPerson anEpa : epa)
                 {
                     Locale supportedLocale = I18nUtil.getEPersonLocale(anEpa);
-                    Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_task"));
+                    Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, obterTemplateEmailSubmissao(wi.getItem())));
                     email.addArgument(title);
                     email.addArgument(coll.getName());
                     email.addArgument(submitter);
@@ -1264,4 +1264,15 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
     public List<String> getFlywayMigrationLocations() {
         return Collections.emptyList();
     } // TODO
+    
+    private String obterTemplateEmailSubmissao(Item item) {
+    	String template = "submit_task";
+    	
+    	if(itemService.existeMetadadoNoItem(item, "previousitem"))
+    	{
+    		template = "submit_update";
+    	}
+    	
+    	return template;
+    }
 }

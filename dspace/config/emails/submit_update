@@ -1,0 +1,26 @@
+# Workflow task email message
+#
+# {0}  Title of submission
+# {1}  Name of collection
+# {2}  submitter's name
+# {3}  Description of task
+# {4}  link to 'my DSpace' page 
+#
+Subject: [MIGUILIM] Você tem uma nova atualização de registro
+
+Prezado (a),
+
+As alterações de um registro foram submetidas ao Miguilim:
+
+Título: {0}
+Coleção: {1}
+Registrado por: {2}
+
+Para executar essa tarefa, acesse o "Meu espaço": {4}
+
+Agradecemos sua colaboração!
+
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras (Miguilim) | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
