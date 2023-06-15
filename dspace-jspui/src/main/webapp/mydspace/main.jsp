@@ -56,6 +56,9 @@
     List<BasicWorkflowItem> pooled =
         (List<BasicWorkflowItem>) request.getAttribute("workflow.pooled");
 	
+    List<BasicWorkflowItem> pooledEditing =
+        (List<BasicWorkflowItem>) request.getAttribute("workflow.editing");
+            
     List<Group> groupMemberships =
         (List<Group>) request.getAttribute("group.memberships");
 
@@ -217,9 +220,70 @@
         }
 %>
     </table>
+
 <%
     }
 
+    if (pooledEditing.size() > 0)
+    {
+%>    
+        <h3><fmt:message key="jsp.mydspace.main.editing"/></h3>
+        
+        <p class="submitFormHelp">
+            <fmt:message key="jsp.mydspace.main.text3"/>
+        </p>
+
+        <table class="table" align="center" summary="Table listing the tasks in the pool">
+            <tr>
+                <th id="t6" class="oddRowOddCol"><fmt:message key="jsp.mydspace.main.task"/></th>
+                <th id="t7" class="oddRowEvenCol"><fmt:message key="jsp.mydspace.main.item"/></th>
+                <th id="t8" class="oddRowOddCol"><fmt:message key="jsp.mydspace.main.subto"/></th>
+                <th id="t9" class="oddRowEvenCol"><fmt:message key="jsp.mydspace.main.subby"/></th>
+                <th class="oddRowOddCol"> </th>
+            </tr>
+<%
+            String row = "even";
+
+            for (int i = 0; i < pooledEditing.size(); i++)
+            {
+                String title = pooledEditing.get(i).getItem().getName();
+                if (StringUtils.isBlank(title)) 
+                {
+                    title = LocaleSupport.getLocalizedMessage(pageContext,"jsp.general.untitled");            	
+                }
+                    
+                EPerson submitter = pooledEditing.get(i).getItem().getSubmitter();
+%>
+            <tr>
+				<td headers="t6" class="<%= row %>RowOddCol">
+<%
+                    switch (pooledEditing.get(i).getState())
+		            {
+                        case BasicWorkflowService.WFSTATE_STEP1POOL: %><fmt:message key="jsp.mydspace.main.sub1"/><% break;
+		            	case BasicWorkflowService.WFSTATE_STEP2POOL: %><fmt:message key="jsp.mydspace.main.sub2"/><% break;
+		            	case BasicWorkflowService.WFSTATE_STEP3POOL: %><fmt:message key="jsp.mydspace.main.sub3"/><% break;
+		            }
+%>
+
+                </td>
+                <td headers="t7" class="<%= row %>RowEvenCol"><%= Utils.addEntities(title) %></td>
+				<td headers="t8" class="<%= row %>RowOddCol"><%= pooledEditing.get(i).getCollection().getName() %></td>
+				<td headers="t9" class="<%= row %>RowEvenCol"><a href="mailto:<%= submitter.getEmail() %>"><%= Utils.addEntities(submitter.getFullName()) %></a></td>
+                <td class="<%= row %>RowOddCol">
+					<form action="<%= request.getContextPath() %>/mydspace" method="post">
+						<input type="hidden" name="step" value="<%= MyDSpaceServlet.MAIN_PAGE %>" />
+						<input type="hidden" name="workflow_id" value="<%= pooledEditing.get(i).getID() %>" />
+						<input class="btn btn-default" type="submit" name="submit_claim" value="<fmt:message key="jsp.mydspace.main.take.button"/>" />
+					</form> 
+				</td>
+            </tr>
+<%
+                row = (row.equals("even") ? "odd" : "even");
+	        }
+%>
+        </table>
+<%
+    }
     // Display workspace items (authoring or supervised), if any
     if (workspaceItems.size() > 0 || supervisedItems.size() > 0)
     {

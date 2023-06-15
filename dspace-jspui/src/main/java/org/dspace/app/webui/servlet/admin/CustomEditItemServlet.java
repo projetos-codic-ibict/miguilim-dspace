@@ -1149,7 +1149,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 			Email email = Email.getEmail(I18nUtil.getEmailFilename(I18nUtil.getDefaultLocale(), "update_item"));
 			email.addArgument(handleOriginal);
 			email.addArgument(handleService.getCanonicalForm(handleOriginal));
-			email.addRecipient("klebers.alves@gmail.com");
+			email.addRecipient("miguilim@ibict.br");
 			email.send();
 		} 
 		catch (Exception e) 

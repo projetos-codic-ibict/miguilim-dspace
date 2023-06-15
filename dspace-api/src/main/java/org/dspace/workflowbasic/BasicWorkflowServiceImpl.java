@@ -1275,4 +1275,9 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
     	
     	return template;
     }
+
+	@Override
+	public List<BasicWorkflowItem> getEditingTasks(Context context, EPerson e) throws SQLException {
+		return workflowItemService.findEditingTasks(context, e);
+	}
 }
