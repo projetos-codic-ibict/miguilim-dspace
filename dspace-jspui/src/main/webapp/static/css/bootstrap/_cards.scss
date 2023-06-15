@@ -15,9 +15,13 @@
 		border:1px solid $board-field;		
 		transition: all .2s ease-out;
 		cursor: pointer;
+		align-items: center;
+		justify-content: start;
+		//flex-wrap: wrap;
 		.text {
 			h2 {
-				@extend .card-tit;
+				//@extend .card-tit;
+				font-size: 1rem;
 				&::after {
 					content: '';
 					margin: 0;
@@ -27,9 +31,14 @@
 			}
 			p {
 				color:$gray-dark;
+				font-size: 0.8rem!important;				
 				span {
+					font-size: 1.2rem!important;
+					font-weight:500;
 					color:$bluecolor;
 				}
+				margin-bottom: 0;
+				padding-bottom: 0;
 			}
 		}
 		.icon {
