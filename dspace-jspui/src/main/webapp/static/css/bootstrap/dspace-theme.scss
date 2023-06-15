@@ -185,7 +185,7 @@ body {
 		   font-family:$linkfont-family;
 		   text-transform: uppercase;
 		   font-size:48px;
-		   //font-weight: 600;
+		   font-weight: 700;
 		   color:$bluecolor;
 		   margin-bottom: 0;
 	   }
@@ -413,16 +413,16 @@ hr {
 	   border: 1px solid $board-field;
 	   background:$white-lightest;
 	   border-radius: 8px;
-	   padding: 32px;
-	   h4 {
+	   padding: 32px 48px;
+	   h3 {
 		   font-size: 0.875rem;
-		   color:$gray-dark;
+		   font-size: 1.8rem;
+		   color:$bluecolor;
 	   }
 	   h2 {
 		   font-size: 1.8rem;
 		   font-weight: 600;
 		   line-height: 2rem;
-		   pa
 			   &::after {
 				   content: '';
 				   margin: 0;
@@ -433,6 +433,8 @@ hr {
 	   p {
 		   font-size: 1.5rem;
 		   font-weight: 300;
+		   color:$black;
+		   letter-spacing:0;
 	   }
    }
 }

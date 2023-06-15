@@ -476,8 +476,8 @@
   height: 0;
 }
 .results-cards .cards h3 {
-  font-size: 1.5rem;
-  line-height: 2.2rem !important;
+  font-size: 1.2rem;
+  line-height: 1.8rem !important;
   margin-top: 0 !important;
 }
 @media (max-width: 920px) {
@@ -508,11 +508,14 @@
   align-items: center;
 }
 .results-cards .cards .group-footer .kind span {
-  font-weight: 800;
+  font-weight: 600;
   margin-left: 4px;
 }
 .results-cards .cards .group-footer .kind strong {
   margin-right: 4px;
+}
+.results-cards .cards .group-footer svg {
+  height: 16px;
 }
 .results-cards .cards .group-footer .info {
   display: flex;
@@ -906,6 +909,7 @@ body {
   font-family: "Open Sans", sans-serif;
   text-transform: uppercase;
   font-size: 48px;
+  font-weight: 700;
   color: #071D41;
   margin-bottom: 0;
 }
@@ -1118,18 +1122,19 @@ hr {
   border: 1px solid #E8E8E8;
   background: #FFFFFF;
   border-radius: 8px;
-  padding: 32px;
+  padding: 32px 48px;
 }
-.content-news .card h4 {
+.content-news .card h3 {
   font-size: 0.875rem;
-  color: #6A6A6A;
+  font-size: 1.8rem;
+  color: #071D41;
 }
 .content-news .card h2 {
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 2rem;
 }
-pa .content-news .card h2::after {
+.content-news .card h2::after {
   content: "";
   margin: 0;
   width: 0;
@@ -1138,6 +1143,8 @@ pa .content-news .card h2::after {
 .content-news .card p {
   font-size: 1.5rem;
   font-weight: 300;
+  color: #04132A;
+  letter-spacing: 0;
 }
 
 .button-top {
