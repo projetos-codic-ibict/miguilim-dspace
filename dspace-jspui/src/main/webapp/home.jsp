@@ -124,7 +124,7 @@
 					</span>Portais de revistas
 				</p>
 			</div>
-			<button type="submit" class="button-main-outline" id="submit_filter_remove_1" name="submit_filter_remove_1">Cadastre a sua revista</button>
+			<!-- <button type="submit" class="button-main-outline" id="submit_filter_remove_1" name="submit_filter_remove_1">Cadastre a sua revista</button> -->
 		</div>
 		<div class="col globe">
 			<svg id="globe-visible"  viewBox="0 0 748 684" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -852,7 +852,7 @@ body {
 }
 
 .content-home {
-  margin-top: 64px;
+  margin-top: 32px;
 }
 
 #termometro {
@@ -931,7 +931,7 @@ body {
 
 .total {
   gap: 24px;
-  margin: 32px 0 56px 0;
+  margin: 56px 0 32px 0;
 }
 .total p {
   font-size: 16px;
@@ -970,6 +970,7 @@ body {
   position: relative;
   background: #FFFFFF;
   border-radius: 8px;
+  margin: 32px 0;
   height: 80px;
   width: 100%;
   padding: 8px;
@@ -1205,7 +1206,7 @@ pa .content-news .card h2::after {
 }
 
 .container-cards {
-  margin-top: 40px;
+  margin-top: 80px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 16px;
@@ -1269,10 +1270,14 @@ pa .content-news .card h2::after {
   transform: translate(24px, -16px);
 }
 .container-cards .card .icon .value span {
-  letter-spacing: -2px;
+  letter-spacing: 0px;
   font-weight: bold;
   font-size: 15px;
 }
+.container-cards .card:hover {
+  background-color: rgba(255, 209, 0, 0.3);
+}
+
 .group-brands .col h3 {
   font-size: 1rem;
   color: #04132A;
@@ -2710,8 +2715,7 @@ a.admin-help {
 #globe-visible {
   overflow: hidden;
   border-radius: 1000px;
-  max-width: 650px;
-  margin-bottom: 16px;
+  max-width: 450px;
 }
 
 @keyframes pointMove {
@@ -2853,10 +2857,6 @@ a.admin-help {
 }
 .contentChip .contentChipText P {
   margin: 8px 0 0 0;
-}
-
-.elevation {
-  transform: translateY(-24px);
 }
 
 @media (max-width: 920px) {

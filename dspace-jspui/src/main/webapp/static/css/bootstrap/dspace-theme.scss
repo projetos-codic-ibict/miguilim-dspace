@@ -133,7 +133,7 @@ body {
    }
 }
 .content-home {
-	margin-top: 64px;
+	margin-top: 32px;
 }
 #termometro {
    margin-top: 32px;
@@ -177,9 +177,10 @@ body {
 		   }
 	   }
    }
+
    .col{
 	   align-items: center;
-	   justify-content: center;
+	   justify-content: center;	   
 	   h1 {
 		   font-family:$linkfont-family;
 		   text-transform: uppercase;
@@ -220,7 +221,7 @@ body {
    @extend .d-flex;
    //justify-content: space-between;
    gap:24px;
-   margin:32px 0 56px 0;
+   margin:56px 0 32px 0;
    p {
 	   font-size: 16px;
 	   line-height: 48px;
@@ -268,6 +269,7 @@ body {
    background:$white-lightest;
    border-radius:8px;
    //height: 56px;
+   margin: 32px 0;
    height: 80px;
    width: 100%;
    @extend .card-sombra;
@@ -502,7 +504,7 @@ hr {
 
 //card
 .container-cards {
-   margin-top: 40px;
+   margin-top: 80px;
    display: grid;
    grid-template-columns: 1fr 1fr 1fr;
    gap: 16px;
@@ -564,7 +566,7 @@ hr {
 			border-radius: 50px;
 			transform: translate(24px, -16px);
 			span {
-				letter-spacing: -2px;
+				letter-spacing: 0px;
 				font-weight: bold;
 				font-size: 15px;				
 			}
@@ -572,6 +574,7 @@ hr {
 	   }
 	   &:hover {
 		   @extend .card-sombra;
+		   background-color:rgba($yellow , .3);
 	   }
    }
 }
@@ -2080,8 +2083,7 @@ a.admin-help {
  #globe-visible {
    overflow:hidden;
    border-radius:1000px;
-   max-width: 650px;
-   margin-bottom: 16px;
+   max-width: 450px;
  }
 
  @keyframes pointMove {
@@ -2231,7 +2233,7 @@ a.admin-help {
   } 
 }
 .elevation {
-	transform: translateY(-24px);
+	//transform: translateY(-24px);
 }
   @media (max-width: 920px) {
 	.contentChip .contentChipText {
