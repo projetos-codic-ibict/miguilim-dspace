@@ -2045,16 +2045,18 @@ hr {
 }
 
 h1, h2 {
-  font-size: 2rem;
+  font-size: 24px;
   margin-bottom: 24px;
   color: #071D41;
   margin-top: 40px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
 }
 h1::after, h2::after {
   transition: all ease 0.2s;
   content: "";
-  width: 40px;
-  height: 4px;
+  width: 32px;
+  height: 2px;
   display: block;
   background: #FFD100;
   margin-top: 4px;
@@ -2063,7 +2065,7 @@ h1::after, h2::after {
 h1:hover::after, h2:hover::after {
   transition: all ease 0.2s;
   content: "";
-  width: 27px;
+  width: 24px;
   background: #04132A;
   border-radius: 2px;
 }
@@ -2948,4 +2950,5 @@ a.admin-help {
   font-family: "Open Sans", sans-serif !important;
   font-weight: 600 !important;
   letter-spacing: 0;
+  font-size: 24px;
 }/*# sourceMappingURL=dspace-theme.css.map */

@@ -1346,15 +1346,17 @@ hr {
    }
 }
 h1 , h2 {
-   font-size:2rem;
+   font-size:24px;
    margin-bottom: 24px;
    color: $bluecolor;
    margin-top: 40px;
+   font-weight: 500;
+   letter-spacing: 1.5px;
    &::after {		
 	   transition: all ease .2s;	
 	   content: '';
-	   width: 40px;
-	   height: 4px;
+	   width: 32px;
+	   height: 2px;
 	   display: block;
 	   background: $yellow;
 	   margin-top: 4px;
@@ -1364,7 +1366,7 @@ h1 , h2 {
 	   &::after {
 		   transition: all ease .2s;
 		   content: '';
-		   width: 27px;
+		   width: 24px;
 		   background: $dark-blue;
 		   border-radius: 2px;
 	   }
@@ -2319,4 +2321,5 @@ a.admin-help {
 	font-family:$linkfont-family!important;
 	font-weight: 600!important;
 	letter-spacing:0;
+	font-size: 24px;
   }

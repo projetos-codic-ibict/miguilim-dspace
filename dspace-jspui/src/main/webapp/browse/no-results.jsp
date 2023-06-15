@@ -86,7 +86,7 @@
 
 <dspace:layout titlekey="browse.no-results.title" navbar="<%= layoutNavbar %>">
 
-    <h1><fmt:message key="browse.no-results.title"/></h1>
+<h2><strong class="titulo-medio"><fmt:message key="browse.no-results.title"/></strong></h2>
 
 <p>
     <%
