@@ -36,4 +36,6 @@ public interface BasicWorkflowItemService extends WorkflowItemService<BasicWorkf
     public List<BasicWorkflowItem> findByOwner(Context context, EPerson ePerson) throws SQLException;
 
     int countTotal(Context context) throws SQLException;
+    
+    public List<BasicWorkflowItem> findEditingTasks(Context context, EPerson ePerson) throws SQLException;
 }

@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.StringWriter;
 import java.net.URLEncoder;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -18,6 +19,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -417,7 +419,7 @@ public class HandleServlet extends DSpaceServlet
         }
   		  
         // Get the collections
-        List<Collection> collections = item.getCollections();
+        List<Collection> collections = CollectionUtils.isNotEmpty(item.getCollections()) ? item.getCollections() : Arrays.asList(item.getOwningCollection());
 
         // For the breadcrumbs, get the first collection and the first community
         // that is in. FIXME: Not multiple-inclusion friendly--should be
