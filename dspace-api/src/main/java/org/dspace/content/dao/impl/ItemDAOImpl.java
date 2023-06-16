@@ -337,9 +337,17 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Item> findAllLastModified(Context context) throws SQLException {
-		 Query query = createQuery(context, "SELECT i FROM Item i WHERE i.owningCollection IS NOT NULL AND i.withdrawn = false ORDER BY i.lastModified DESC");
-		 query.setMaxResults(15);
+		StringBuilder builder = new StringBuilder();
+	    builder.append("SELECT i from Item i ");
+	    builder.append("WHERE i.owningCollection IS NOT NULL AND i.withdrawn IS FALSE and i.inArchive = true AND i.id NOT IN ( ");
+	    builder.append("SELECT m.dSpaceObject FROM MetadataValue m JOIN m.metadataField ");
+	    builder.append("WHERE m.metadataField.element = 'date' AND m.metadataField.qualifier = 'update' ");
+	    builder.append("AND m.value IN ('Não atualizada', 'Não atualizado') )");
+	    builder.append("ORDER BY i.lastModified DESC");
+	        
+	    Query query = createQuery(context, builder.toString());
+		query.setMaxResults(15);
 		 
-		 return query.list();
+		return query.list();
 	}
 }
