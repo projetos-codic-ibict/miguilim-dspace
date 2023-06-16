@@ -255,7 +255,7 @@ body {
    //padding: 54px;
    pointer-events: none;
    transform: translateY(-16px);
-
+   z-index: -1;
 }
 #TopoPerguntasFrequentes {
    h2 {
@@ -371,7 +371,9 @@ hr {
 ::placeholder  {
    color:$disabled;
 }
-
+main {
+	min-height: 500px;
+}
 //container
 .content-news {
    position: relative;
@@ -1404,7 +1406,8 @@ h1 , h2 {
 	   }
 	   strong {
 		   font-weight: 500;
-		   letter-spacing: 1.5px;
+		   letter-spacing: 0.5px;
+		   line-height: 32px;
 	   }		
 	   &::after {		
 		   transition: all ease .2s;	
@@ -2221,6 +2224,7 @@ a.admin-help {
 		background-repeat: no-repeat;
 		background-position: 408px 16px;
 		transform: translateX(24px);
+		z-index: 1;
 	h2 {
 		padding: 16px 30px 0 30px;
 		font-size: 20px;
@@ -2330,4 +2334,12 @@ a.admin-help {
 	font-weight: 600!important;
 	letter-spacing:0;
 	font-size: 24px;
+  }
+
+  .chart-div {
+	padding: 16px!important;
+  }
+
+  .panel-group .panel {
+	font-family:$linkfont-family;
   }

@@ -83,6 +83,7 @@
 			font-style: italic;
 			letter-spacing: 0.5px;
 			margin: 8px 0;
+			font-family:$linkfont-family;
 				&::after {
 					content: '';
 					margin: 0;
