@@ -121,4 +121,6 @@ public interface ItemDAO extends DSpaceObjectLegacySupportDAO<Item>
     List<Item> findRandom(Context context);
 
     Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException;
+    
+    List<Item> findAllLastModified(Context context) throws SQLException;
 }

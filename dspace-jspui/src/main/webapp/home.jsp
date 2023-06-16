@@ -322,7 +322,7 @@
 		<%
 			boolean first = true;
 			int iteratorRecent = 0;
-			for (Item item : submissions.getRecentSubmissions())
+			for (Item item : itemService.findAllLastModified(UIUtil.obtainContext(request)))
 			{
 				iteratorRecent++;
 				String displayTitle = itemService.getMetadataFirstValue(item, "dc", "title", null, Item.ANY);

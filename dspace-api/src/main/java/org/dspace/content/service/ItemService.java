@@ -626,4 +626,6 @@ public interface ItemService extends DSpaceObjectService<Item>, DSpaceObjectLega
     Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException;
     
     boolean existeMetadadoNoItem(Item item, String qualifier);
+    
+    List<Item> findAllLastModified(Context context) throws SQLException;
 }

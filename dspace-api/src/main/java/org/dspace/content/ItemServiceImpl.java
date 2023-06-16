@@ -1310,5 +1310,10 @@ prevent the generation of resource policy entry values with null dspace_object a
 	            .collect(Collectors.toList())
 	            .size() > 0;
 	}
+
+	@Override
+	public List<Item> findAllLastModified(Context context) throws SQLException {
+		return itemDAO.findAllLastModified(context);
+	}
     
 }
