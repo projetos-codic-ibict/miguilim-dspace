@@ -379,9 +379,10 @@ main {
    position: relative;
    //max-width: 720px;
    margin: 80px auto;
-   padding: 0 40px;
+   padding: 0 0px;
    @include for-size(tablet-landscape-up) { 
 	   margin:80px auto 0 auto;
+	   padding: 0 40px;
 	   .left {
 		   left:-13px;
 	   }
@@ -406,17 +407,26 @@ main {
 	   }		
    }
    .left {
-	   left:16px;
+	   left:-24px;
+	   @include for-size(tablet-landscape-up) { 
+		left: 16px;
+	   }
    }
    .right {
-	   right:16px;
+	   right:-24px;
 	   transform: rotate(180deg);
+	   @include for-size(tablet-landscape-up) { 
+		right: 16px;
+	   }
    }	
    .card {
 	   border: 1px solid $board-field;
 	   background:$white-lightest;
 	   border-radius: 8px;
-	   padding: 32px 48px;
+	   padding: 32px 40px;
+	   @include for-size(tablet-landscape-up) { 
+		padding: 32px 48px;
+	   }
 	   h3 {
 		   font-size: 0.875rem;
 		   font-size: 1.8rem;

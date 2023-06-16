@@ -1093,11 +1093,12 @@ main {
 .content-news {
   position: relative;
   margin: 80px auto;
-  padding: 0 40px;
+  padding: 0 0px;
 }
 @media (max-width: 920px) {
   .content-news {
     margin: 80px auto 0 auto;
+    padding: 0 40px;
   }
   .content-news .left {
     left: -13px;
@@ -1120,17 +1121,32 @@ main {
   justify-content: center;
 }
 .content-news .left {
-  left: 16px;
+  left: -24px;
+}
+@media (max-width: 920px) {
+  .content-news .left {
+    left: 16px;
+  }
 }
 .content-news .right {
-  right: 16px;
+  right: -24px;
   transform: rotate(180deg);
+}
+@media (max-width: 920px) {
+  .content-news .right {
+    right: 16px;
+  }
 }
 .content-news .card {
   border: 1px solid #E8E8E8;
   background: #FFFFFF;
   border-radius: 8px;
-  padding: 32px 48px;
+  padding: 32px 40px;
+}
+@media (max-width: 920px) {
+  .content-news .card {
+    padding: 32px 48px;
+  }
 }
 .content-news .card h3 {
   font-size: 0.875rem;

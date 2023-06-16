@@ -125,7 +125,7 @@
 					Portais de revistas
 				</p>
 			</div>
-			<button type="button" class="button-main-outline" onclick="location.href='password-login';" >Cadastre a sua revista</button>
+			<button type="button" class="button-main-outline" onclick="location.href='static/pages/como-cadastro.jsp';" >Cadastre a sua revista</button>
 		</div>
 		<div class="col globe">
 			<svg id="globe-visible"  viewBox="0 0 748 684" fill="none" xmlns="http://www.w3.org/2000/svg">
