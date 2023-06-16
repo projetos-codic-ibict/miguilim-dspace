@@ -337,7 +337,7 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Item> findAllLastModified(Context context) throws SQLException {
-		 Query query = createQuery(context, "SELECT i FROM Item i ORDER BY last_modified DESC");
+		 Query query = createQuery(context, "SELECT i FROM Item i WHERE i.owningCollection IS NOT NULL ORDER BY i.lastModified DESC");
 		 query.setMaxResults(15);
 		 
 		 return query.list();
