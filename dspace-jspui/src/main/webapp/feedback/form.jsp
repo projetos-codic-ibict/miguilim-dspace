@@ -47,7 +47,7 @@
 
     <div class="feedback-form breath-element">
             <%-- <h1>Feedback Form</h1> --%>
-        <h1><fmt:message key="jsp.feedback.form.title"/></h1>
+            <h2><strong class="titulo-medio"><fmt:message key="jsp.feedback.form.title"/></strong></h2>
 
             <%-- <p>Thanks for taking the time to share your feedback about the
             DSpace system. Your comments are appreciated!</p> --%>

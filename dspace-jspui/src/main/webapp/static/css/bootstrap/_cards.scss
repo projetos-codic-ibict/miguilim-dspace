@@ -15,9 +15,13 @@
 		border:1px solid $board-field;		
 		transition: all .2s ease-out;
 		cursor: pointer;
+		align-items: center;
+		justify-content: start;
+		//flex-wrap: wrap;
 		.text {
 			h2 {
-				@extend .card-tit;
+				//@extend .card-tit;
+				font-size: 1rem;
 				&::after {
 					content: '';
 					margin: 0;
@@ -27,9 +31,14 @@
 			}
 			p {
 				color:$gray-dark;
+				font-size: 0.8rem!important;				
 				span {
+					font-size: 1.2rem!important;
+					font-weight:500;
 					color:$bluecolor;
 				}
+				margin-bottom: 0;
+				padding-bottom: 0;
 			}
 		}
 		.icon {
@@ -83,9 +92,10 @@
 		}
 		h3 {
 			@extend .subhead;
-			font-size: 1.5rem;	
-			line-height: 2.2rem!important;
+			font-size: 1.2rem;	
+			line-height: 1.8rem!important;
 			margin-top: 0!important;		
+			$linkfont-family: 'Open Sans', sans-serif;
 		}
 		@include for-size(tablet-landscape-up) { 
 			h3 {
@@ -113,12 +123,15 @@
 				display: flex;
 				align-items: center;	
 				span {
-					font-weight: 800;
+					font-weight: 600;
 					margin-left: 4px;
 				}		
 				strong {
 					margin-right: 4px;
 				}					
+			}
+			svg {
+				height: 16px;
 			}
 			.info {
 				display: flex;
