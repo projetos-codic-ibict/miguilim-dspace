@@ -1237,10 +1237,16 @@ hr {
   transition: all 0.2s ease-out;
   cursor: pointer;
 }
+.container-cards .card .text {
+  width: 100%;
+}
+.container-cards .card .text h2 {
+  margin: 0;
+}
 .container-cards .card .text p {
   width: -moz-fit-content;
   width: fit-content;
-  justify-content: center;
+  justify-content: start;
   color: #6A6A6A;
 }
 .container-cards .card .text p span {
@@ -1250,6 +1256,23 @@ hr {
   width: 32px;
   height: 32px;
   border-radius: 50px;
+}
+.container-cards .card .value {
+  background: #feeb97;
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  padding: 20px;
+  margin: 0;
+  border-radius: 50px;
+}
+.container-cards .card .value span {
+  letter-spacing: 0px;
+  font-weight: bold;
+  font-size: 15px;
 }
 .container-cards .card .icon {
   background: #FFD100;
@@ -1261,25 +1284,6 @@ hr {
   align-items: center;
   padding: 0 16px;
   position: relative;
-}
-.container-cards .card .icon .value {
-  position: absolute;
-  background: #feeb97;
-  height: 40px;
-  width: 40px;
-  border: 2px solid #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  padding: 8px;
-  border-radius: 50px;
-  transform: translate(24px, -16px);
-}
-.container-cards .card .icon .value span {
-  letter-spacing: 0px;
-  font-weight: bold;
-  font-size: 15px;
 }
 .container-cards .card:hover {
   background-color: rgba(255, 209, 0, 0.3);
@@ -2050,7 +2054,7 @@ h1, h2 {
   color: #071D41;
   margin-top: 40px;
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.5px;
 }
 h1::after, h2::after {
   transition: all ease 0.2s;

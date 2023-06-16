@@ -526,13 +526,16 @@ hr {
 	   border:1px solid $board-field;		
 	   transition: all .2s ease-out;
 	   cursor: pointer;
+	//    justify-content: space-evenly;
 	   .text {
-		   h2 {
+		width: 100%;
+		   h2 {			
 			   @extend .card-tit;
+			   margin: 0;
 		   }
 		   p {
 			width: fit-content;
-			justify-content: center;			
+			justify-content: start;			
 			   color:$gray-dark;
 			   span {
 				   color:$bluecolor;
@@ -544,6 +547,25 @@ hr {
 			   }
 		   }
 	   }
+	   .value {
+		background:#feeb97;
+		height: 32px;
+		width:32px;
+		// border: 2px solid $white-lightest ;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		font-size: 24px;
+		padding: 20px;
+		margin: 0;
+		border-radius: 50px;
+		
+		span {
+			letter-spacing: 0px;
+			font-weight: bold;
+			font-size: 15px;				
+		}
+	   }		   
 	   .icon {
 		   background:$yellow;
 		   border-radius: 100px;
@@ -554,25 +576,6 @@ hr {
 		   align-items: center;
 		   padding: 0 16px;	
 		   position: relative;	
-		   .value {
-			position: absolute;
-			background:#feeb97;
-			height: 40px;
-			width:40px;
-			border: 2px solid $white-lightest ;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			font-size: 24px;
-			padding: 8px;
-			border-radius: 50px;
-			transform: translate(24px, -16px);
-			span {
-				letter-spacing: 0px;
-				font-weight: bold;
-				font-size: 15px;				
-			}
-		   }	
 	   }
 	   &:hover {
 		   @extend .card-sombra;
@@ -1351,7 +1354,7 @@ h1 , h2 {
    color: $bluecolor;
    margin-top: 40px;
    font-weight: 500;
-   letter-spacing: 1.5px;
+   letter-spacing: 0.5px;
    &::after {		
 	   transition: all ease .2s;	
 	   content: '';
