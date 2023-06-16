@@ -43,7 +43,7 @@
                 <div class="panel-body">
 
 
-                    <div class="chart-div panel">
+                    <div class="chart-div">
 
                         <div>
                             <canvas id="canvas-month" height="100" ></canvas>
