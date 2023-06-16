@@ -2089,6 +2089,11 @@ h1:hover::after, h2:hover::after {
   margin: 8px 0;
   font-size: 1rem;
 }
+.minus-space #PqMiguilim, .minus-space #ComoCriarLogin, .minus-space #ComoCadastroUmaRevista, .minus-space #criteriosBasicos, .minus-space #QualquerRevista, .minus-space #QuemPodeAtualizar, .minus-space #ComoSolicitarPermissao, .minus-space #ComoAtualizarArevista, .minus-space #PorqueEimportanteCadastrar, .minus-space #RevistasQueNaosaoPublicadas, .minus-space #ComoForamDefinidosOsCampos, .minus-space #DeOndeVieramAsInformacoes, .minus-space #EmQualSoftware, .minus-space #ComoFuncionaOformulario, .minus-space #OqueEoTermometro, .minus-space #PorQueUmaColecaoDePortais {
+  font-size: 18px;
+  font-family: "Open Sans", sans-serif;
+  margin: 24px 0 16px 0;
+}
 .minus-space h2 {
   font-size: 1.5rem;
   margin-bottom: 24px;
