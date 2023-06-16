@@ -2978,4 +2978,8 @@ a.admin-help {
 
 .panel-group .panel {
   font-family: "Open Sans", sans-serif;
+}
+
+#canvas-country, #canvas-city {
+  padding: 16px;
 }/*# sourceMappingURL=dspace-theme.css.map */
