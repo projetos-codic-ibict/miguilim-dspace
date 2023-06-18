@@ -52,7 +52,7 @@
   letter-spacing: 0.5px;
 }
 
-.number-valor, .total span {
+.number-valor {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -249,7 +249,7 @@
   letter-spacing: 0.5px;
 }
 
-.number-valor, .total span {
+.number-valor {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -789,6 +789,10 @@ input.ds-authority-lock.is-unlocked {
   text-align: center;
 }
 
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
 div.tagcloud {
   width: 100%;
   text-align: center;
@@ -937,25 +941,55 @@ body {
 
 .total {
   gap: 24px;
-  margin: 56px 0 32px 0;
+  margin: 32px 0 32px 0;
 }
-.total p {
+.total .number {
+  background-color: #FFFFFF;
+  border: 1px solid #F2F2F2;
   font-size: 16px;
-  line-height: 48px;
-  color: #04132A;
-  margin-bottom: 0;
-  padding: 0;
-  height: 20px;
+  padding: 16px;
   font-family: "Open Sans", sans-serif;
-}
-.total span {
-  display: block;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 14px;
+  border-radius: 8px;
   color: #071D41;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+@media (max-width: 920px) {
+  .total .number {
+    width: 100%;
+  }
+}
+.total .number:first-child:hover {
+  background-color: rgba(225, 34, 41, 0.2);
+}
+.total .number:hover {
+  background-color: rgba(255, 209, 0, 0.2);
+}
+.total .number span {
+  font-weight: 600;
+}
+.total .number .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  background: #FFD100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total .number .icon svg {
+  padding: 4px;
+}
+.total .number .red {
+  background: #E12229;
 }
 .total .line {
+  display: none;
   width: 1px;
   height: 48px;
   background: #071D41;
@@ -1063,14 +1097,15 @@ hr {
 .link-search {
   position: absolute;
   top: 9px;
-  right: 149px;
+  right: 143px;
   text-decoration: underline;
   background: white;
-  height: 60px;
+  height: 62px;
   display: flex;
   align-items: center;
   font-size: 1rem;
   padding: 0 8px;
+  border-radius: 0 8px 8px 0;
 }
 @media (max-width: 920px) {
   .link-search {
@@ -1361,8 +1396,21 @@ main {
     margin: 20px 0 0px 0;
   }
 }
+.brand-space .col h3 {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
 .brand-space .col:first-child {
   margin-right: 100px;
+}
+.brand-space .col:first-child a img {
+  margin-top: 37px;
+}
+@media (max-width: 920px) {
+  .brand-space .col:first-child a img {
+    margin-top: 0px;
+    margin-bottom: 24px;
+  }
 }
 .brand-space .col:last-child img {
   margin-right: 80px;
