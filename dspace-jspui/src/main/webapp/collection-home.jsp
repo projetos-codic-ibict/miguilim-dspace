@@ -425,10 +425,16 @@
                     }
 
                     DCDate dataPublicacao = new DCDate(itemService.getMetadataFirstValue(item, "dc", "date", "available", Item.ANY));
-                    String dataPublicacaoFormatada = UIUtil.displayDate(dataPublicacao, false, false, hrq);
-                    if (dataPublicacaoFormatada == null)
+
+                    String dataPublicacaoFormatada = null;
+                    if (dataPublicacao.toDate() == null)
                     {
-                        dataPublicacaoFormatada = "";
+                    	// Data default definida pela equipe do IBICT.
+                        dataPublicacaoFormatada = "15-Jul-2022";
+                    }
+                    else
+                    {
+                    	dataPublicacaoFormatada = UIUtil.displayDate(dataPublicacao, false, false, hrq);
                     }
                     
                     String dataAtualizacaoFormatada = null;
