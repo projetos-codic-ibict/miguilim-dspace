@@ -52,7 +52,7 @@
   letter-spacing: 0.5px;
 }
 
-.number-valor, .total span {
+.number-valor {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -249,7 +249,7 @@
   letter-spacing: 0.5px;
 }
 
-.number-valor, .total span {
+.number-valor {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   font-weight: 600;
@@ -468,6 +468,7 @@
   font-style: italic;
   letter-spacing: 0.5px;
   margin: 8px 0;
+  font-family: "Open Sans", sans-serif;
 }
 .results-cards .cards h2::after {
   content: "";
@@ -788,6 +789,10 @@ input.ds-authority-lock.is-unlocked {
   text-align: center;
 }
 
+body {
+  font-family: "Open Sans", sans-serif !important;
+}
+
 div.tagcloud {
   width: 100%;
   text-align: center;
@@ -936,25 +941,55 @@ body {
 
 .total {
   gap: 24px;
-  margin: 56px 0 32px 0;
+  margin: 32px 0 32px 0;
 }
-.total p {
+.total .number {
+  background-color: #FFFFFF;
+  border: 1px solid #F2F2F2;
   font-size: 16px;
-  line-height: 48px;
-  color: #04132A;
-  margin-bottom: 0;
-  padding: 0;
-  height: 20px;
+  padding: 16px;
   font-family: "Open Sans", sans-serif;
-}
-.total span {
-  display: block;
-  font-weight: 600;
-  font-size: 2rem;
-  line-height: 14px;
+  border-radius: 8px;
   color: #071D41;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: -moz-max-content;
+  width: max-content;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+@media (max-width: 920px) {
+  .total .number {
+    width: 100%;
+  }
+}
+.total .number:first-child:hover {
+  background-color: rgba(225, 34, 41, 0.2);
+}
+.total .number:hover {
+  background-color: rgba(255, 209, 0, 0.2);
+}
+.total .number span {
+  font-weight: 600;
+}
+.total .number .icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+  background: #FFD100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total .number .icon svg {
+  padding: 4px;
+}
+.total .number .red {
+  background: #E12229;
 }
 .total .line {
+  display: none;
   width: 1px;
   height: 48px;
   background: #071D41;
@@ -966,6 +1001,7 @@ body {
   margin-top: 0px;
   pointer-events: none;
   transform: translateY(-16px);
+  z-index: -1;
 }
 
 #TopoPerguntasFrequentes h2 {
@@ -1061,14 +1097,15 @@ hr {
 .link-search {
   position: absolute;
   top: 9px;
-  right: 149px;
+  right: 143px;
   text-decoration: underline;
   background: white;
-  height: 60px;
+  height: 62px;
   display: flex;
   align-items: center;
   font-size: 1rem;
   padding: 0 8px;
+  border-radius: 0 8px 8px 0;
 }
 @media (max-width: 920px) {
   .link-search {
@@ -1084,14 +1121,19 @@ hr {
   color: #9A9A9A;
 }
 
+main {
+  min-height: 500px;
+}
+
 .content-news {
   position: relative;
   margin: 80px auto;
-  padding: 0 40px;
+  padding: 0 0px;
 }
 @media (max-width: 920px) {
   .content-news {
     margin: 80px auto 0 auto;
+    padding: 0 40px;
   }
   .content-news .left {
     left: -13px;
@@ -1114,17 +1156,32 @@ hr {
   justify-content: center;
 }
 .content-news .left {
-  left: 16px;
+  left: -24px;
+}
+@media (max-width: 920px) {
+  .content-news .left {
+    left: 16px;
+  }
 }
 .content-news .right {
-  right: 16px;
+  right: -24px;
   transform: rotate(180deg);
+}
+@media (max-width: 920px) {
+  .content-news .right {
+    right: 16px;
+  }
 }
 .content-news .card {
   border: 1px solid #E8E8E8;
   background: #FFFFFF;
   border-radius: 8px;
-  padding: 32px 48px;
+  padding: 32px 40px;
+}
+@media (max-width: 920px) {
+  .content-news .card {
+    padding: 32px 48px;
+  }
 }
 .content-news .card h3 {
   font-size: 0.875rem;
@@ -1339,8 +1396,21 @@ hr {
     margin: 20px 0 0px 0;
   }
 }
+.brand-space .col h3 {
+  font-weight: 400;
+  font-size: 0.9rem;
+}
 .brand-space .col:first-child {
   margin-right: 100px;
+}
+.brand-space .col:first-child a img {
+  margin-top: 37px;
+}
+@media (max-width: 920px) {
+  .brand-space .col:first-child a img {
+    margin-top: 0px;
+    margin-bottom: 24px;
+  }
 }
 .brand-space .col:last-child img {
   margin-right: 80px;
@@ -2105,7 +2175,8 @@ h1:hover::after, h2:hover::after {
 }
 .minus-space h2 strong {
   font-weight: 500;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.5px;
+  line-height: 32px;
 }
 .minus-space h2::after {
   transition: all ease 0.2s;
@@ -2845,7 +2916,7 @@ a.admin-help {
   position: absolute;
   visibility: hidden;
   overflow: hidden;
-  top: -32px;
+  top: -10px;
   left: 80px;
   width: 450px;
   background-color: #EBEBEB;
@@ -2856,6 +2927,7 @@ a.admin-help {
   background-repeat: no-repeat;
   background-position: 408px 16px;
   transform: translateX(24px);
+  z-index: 1;
 }
 .contentChip .contentChipText h2 {
   padding: 16px 30px 0 30px;
@@ -2962,4 +3034,16 @@ a.admin-help {
   font-weight: 600 !important;
   letter-spacing: 0;
   font-size: 24px;
+}
+
+.chart-div {
+  padding: 16px !important;
+}
+
+.panel-group .panel {
+  font-family: "Open Sans", sans-serif;
+}
+
+#canvas-country, #canvas-city {
+  padding: 16px;
 }/*# sourceMappingURL=dspace-theme.css.map */

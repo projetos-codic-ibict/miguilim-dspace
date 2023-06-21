@@ -364,7 +364,7 @@
             </div>
 
             <div id="formulario" tabcontent class="d-hide">
-                <iframe width="800" height="2000" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"
+                <iframe width="100%" height="2200" frameborder="0" scrolling="yes" marginheight="0" marginwidth="0"
                         src="https://docs.google.com/forms/d/e/1FAIpQLScn-5vKw_RGeeA1_tmD66TbRH8KKl2Dn2GrH_wyd9e1amQnCg/viewform">
                 </iframe>
             </div>

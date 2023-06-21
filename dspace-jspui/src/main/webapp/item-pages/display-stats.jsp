@@ -43,7 +43,7 @@
                 <div class="panel-body">
 
 
-                    <div class="chart-div panel">
+                    <div class="chart-div">
 
                         <div>
                             <canvas id="canvas-month" height="100" ></canvas>
@@ -137,7 +137,7 @@
                     <fmt:message key="jsp.statistics.heading.countryvisits" />
                 </div>
 
-                <div class="panel">
+                <div>
 
                     <canvas id="canvas-country" height="100" ></canvas>
 
@@ -163,7 +163,7 @@
 
                 <div class="panel-body">
 
-                    <div class="panel">
+                    <div>
                         <canvas id="canvas-city" height="100" ></canvas>
                     </div>
 

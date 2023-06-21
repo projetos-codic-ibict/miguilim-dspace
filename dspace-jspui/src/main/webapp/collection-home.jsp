@@ -42,6 +42,9 @@
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 <%@ page import="javax.servlet.jsp.jstl.fmt.LocaleSupport" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%@ page import="org.dspace.content.DCDate"%>
+
 
 <%
     Collection collection = (Collection) request.getAttribute("collection");
@@ -121,67 +124,90 @@
 <dspace:layout locbar="commLink" title="<%= name %>" feedData="<%= feedData %>">
     <div class="search-main">
 
-        <div class="search-content">
-            <% if(admin_button || editor_button ) { %>
-                <div class="panel panel-warning">
-                    <div class="panel-heading"><fmt:message key="jsp.admintools"/>
-                        <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\")%>"><fmt:message key="jsp.adminhelp"/></dspace:popup></span>
-                    </div>
+		<div class="search-content">
+            <% 
+            	if(admin_button || editor_button ) 
+            	{ 
+            %>
+					<div class="panel panel-warning">
+	                    <div class="panel-heading"><fmt:message key="jsp.admintools"/>
+	                        <span class="pull-right"><dspace:popup page="<%= LocaleSupport.getLocalizedMessage(pageContext, \"help.collection-admin\")%>"><fmt:message key="jsp.adminhelp"/></dspace:popup></span>
+	                    </div>
 
-                    <div class="panel-body">
-                        <% if( editor_button ) { %>
-                                <form method="post" action="<%=request.getContextPath()%>/tools/edit-communities">
-                                    <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
-                                    <input type="hidden" name="community_id" value="<%= community.getID() %>" />
-                                    <input type="hidden" name="action" value="<%= EditCommunitiesServlet.START_EDIT_COLLECTION %>" />
-                                    <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
-                                </form>
-                        <% } %>
+                    	<div class="panel-body">
+                        	<% 
+                        		if( editor_button ) 
+                        		{ 
+                        	%>
+	                                <form method="post" action="<%=request.getContextPath()%>/tools/edit-communities">
+	                                    <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
+	                                    <input type="hidden" name="community_id" value="<%= community.getID() %>" />
+	                                    <input type="hidden" name="action" value="<%= EditCommunitiesServlet.START_EDIT_COLLECTION %>" />
+	                                    <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.edit.button"/>" />
+	                                </form>
+                        	<% 
+                        		} 
+                        	%>
 
-                        <% if( admin_button ) { %>
-                                <form method="post" action="<%=request.getContextPath()%>/tools/itemmap">
-                                    <input type="hidden" name="cid" value="<%= collection.getID() %>" />
-                                    <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.collection-home.item.button"/>" />
-                                </form>
+                        	<% 
+                        		if( admin_button ) 
+                        		{ 
+                        	%>
+	                                <form method="post" action="<%=request.getContextPath()%>/tools/itemmap">
+	                                    <input type="hidden" name="cid" value="<%= collection.getID() %>" />
+	                                    <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.collection-home.item.button"/>" />
+	                                </form>
 
-                        <% if(submitters != null) { %>
-                                <form method="get" action="<%=request.getContextPath()%>/tools/group-edit">
-                                    <input type="hidden" name="group_id" value="<%=submitters.getID()%>" />
-                                    <input class="btn btn-default col-md-12" type="submit" name="submit_edit" value="<fmt:message key="jsp.collection-home.editsub.button"/>" />
-                                </form>
-                        <% } %>
+                       		<% 
+                       			if(submitters != null) 
+                       			{ 
+                       		%>
+	                                <form method="get" action="<%=request.getContextPath()%>/tools/group-edit">
+	                                    <input type="hidden" name="group_id" value="<%=submitters.getID()%>" />
+	                                    <input class="btn btn-default col-md-12" type="submit" name="submit_edit" value="<fmt:message key="jsp.collection-home.editsub.button"/>" />
+	                                </form>
+                        	<% 
+                        		} 
+                        	%>
 
-                        <% if( editor_button || admin_button) { %>
-                            <form method="post" action="<%=request.getContextPath()%>/mydspace">
-                                <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
-                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>" />
-                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.mydspace.request.export.collection"/>" />
-                            </form>
-                            <form method="post" action="<%=request.getContextPath()%>/mydspace">
-                                <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
-                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE %>" />
-                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.mydspace.request.export.migratecollection"/>" />
-                            </form>
-                            <form method="post" action="<%=request.getContextPath()%>/dspace-admin/metadataexport">
-                                <input type="hidden" name="handle" value="<%= collection.getHandle() %>" />
-                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
-                            </form>
-                        <% } %>
+                        	<% 
+                        		if( editor_button || admin_button) 
+                        		{ 
+                        	%>
+		                            <form method="post" action="<%=request.getContextPath()%>/mydspace">
+		                                <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
+		                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_EXPORT_ARCHIVE %>" />
+		                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.mydspace.request.export.collection"/>" />
+		                            </form>
+		                            <form method="post" action="<%=request.getContextPath()%>/mydspace">
+		                                <input type="hidden" name="collection_id" value="<%= collection.getID() %>" />
+		                                <input type="hidden" name="step" value="<%= MyDSpaceServlet.REQUEST_MIGRATE_ARCHIVE %>" />
+		                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.mydspace.request.export.migratecollection"/>" />
+		                            </form>
+		                            <form method="post" action="<%=request.getContextPath()%>/dspace-admin/metadataexport">
+		                                <input type="hidden" name="handle" value="<%= collection.getHandle() %>" />
+		                                <input class="btn btn-default col-md-12" type="submit" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
+		                            </form>
+                        	<% 
+                        		} 
+                        	%>
+            <% 
+            	} 
+            %>
+                    	</div>
+					</div>
 
-
-            <% } %>
-                    </div>
-                </div>
-
-            <%  } %>
+            <%  
+            	} 
+            %>
 
             <%
                 if (rs != null && rs.count() > 0)
                 {
             %>
-                <h3><fmt:message key="jsp.collection-home.recentsub"/></h3>
+                	<h3><fmt:message key="jsp.collection-home.recentsub"/></h3>
             <%
-                List<Item> items = rs.getRecentSubmissions();
+                	List<Item> items = rs.getRecentSubmissions();
                     for (int i = 0; i < items.size(); i++)
                     {
                         List<MetadataValue> dcv = itemService.getMetadata(items.get(i), "dc", "title", null, Item.ANY);
@@ -193,70 +219,98 @@
                                 displayTitle = Utils.addEntities(dcv.get(0).getValue());
                             }
                         }
-                        %><p class="recentItem"><a href="<%= request.getContextPath() %>/handle/<%= items.get(i).getHandle() %>"><%= displayTitle %></a></p><%
+			%>
+						<p class="recentItem"><a href="<%= request.getContextPath() %>/handle/<%= items.get(i).getHandle() %>"><%= displayTitle %></a></p>
+			<%
                     }
             %>
-                <p>&nbsp;</p>
-            <%      } %>
+                	<p>&nbsp;</p>
+            <%      
+            	} 
+            %>
             
-                <%= sidebar %>
-                <%
-                    int discovery_panel_cols = 12;
-                    int discovery_facet_cols = 12;
-                %>
-                <%@ include file="discovery/static-sidebar-facet.jsp" %>
+			<%= sidebar %>
+			<%
+				int discovery_panel_cols = 12;
+				int discovery_facet_cols = 12;
+			%>
+			<%@ include file="discovery/static-sidebar-facet.jsp" %>
         </div>
 
         <div class="search-filter">
 
-            <div class="well">
-            <div class="row"><div class="col-md-8"><h2><%= name %>
+			<div class="well">
+				<div class="row">
+            		<div class="col-md-8">
+            			<h2><%= name %>
         <%
-                    if(configurationService.getBooleanProperty("webui.strengths.show"))
-                    {
+                    		if(configurationService.getBooleanProperty("webui.strengths.show"))
+                    		{
         %>
-                        : [<%= ic.getCount(collection) %>]
+                        		: [<%= ic.getCount(collection) %>]
         <%
-                    }
+                    		}
         %>
-            <small><fmt:message key="jsp.collection-home.heading1"/></small>
-            <a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/statistics"><fmt:message key="jsp.collection-home.display-statistics"/></a>
-            </h2></div>
-        <%  if (logo != null) { %>
-                <div class="col-md-4">
-                    <img class="img-responsive pull-right" alt="Logo" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" />
-                </div>
-        <% 	} %>
-            </div>
+            			<small><fmt:message key="jsp.collection-home.heading1"/></small>
+            			<a class="statisticsLink btn btn-info" href="<%= request.getContextPath() %>/handle/<%= collection.getHandle() %>/statistics"><fmt:message key="jsp.collection-home.display-statistics"/></a>
+           	 			</h2>
+           	 		</div>
+        <%  
+        		if (logo != null) 
+        		{ 
+        %>
+                	<div class="col-md-4">
+                    	<img class="img-responsive pull-right" alt="Logo" src="<%= request.getContextPath() %>/retrieve/<%= logo.getID() %>" />
+                	</div>
+        <% 	
+        		} 
+        %>
+				</div>
         <%
-            if (StringUtils.isNotBlank(intro)) { %>
-            <%= intro %>
-        <% 	} %>
-        </div>
-        <p class="copyrightText"><%= copyright %></p>
+            if (StringUtils.isNotBlank(intro)) 
+            { 
+        %>
+            	<%= intro %>
+        <% 	
+        	} 
+        %>
+        	</div>
+        	<p class="copyrightText"><%= copyright %></p>
         
-        <%  if (submit_button)
-            { %>
+        <%  
+        	if (submit_button)
+            { 
+		%>
                 <form class="form-group" action="<%= request.getContextPath() %>/submit" method="post">
                     <input type="hidden" name="collection" value="<%= collection.getID() %>" />
                     <input class="button-main-outline" type="submit" name="submit" value="<fmt:message key="jsp.collection-home.submit.button"/>" />
                 </form>
-        <%  } %>
-                <form class="well" method="get" action="">
-        <%  if (loggedIn && subscribed)
-            { %>
-                        <small><fmt:message key="jsp.collection-home.subscribed"/> <a href="<%= request.getContextPath() %>/subscribe"><fmt:message key="jsp.collection-home.info"/></a></small>
-                        <input class="btn btn-sm btn-warning" type="submit" name="submit_unsubscribe" value="<fmt:message key="jsp.collection-home.unsub"/>" />
-        <%  } else { %>
-                        <small>
-                            <fmt:message key="jsp.collection-home.subscribe.msg"/>
-                        </small>
-                        <input class="btn btn-sm btn-info" type="submit" name="submit_subscribe" value="<fmt:message key="jsp.collection-home.subscribe"/>" />
-        <%  }
+        <%  
+        	} 
+        %>
+		
+		<form class="well" method="get" action="">
+        
+        <%  
+        	if (loggedIn && subscribed)
+            { 
+		%>
+				<small><fmt:message key="jsp.collection-home.subscribed"/> <a href="<%= request.getContextPath() %>/subscribe"><fmt:message key="jsp.collection-home.info"/></a></small>
+				<input class="btn btn-sm btn-warning" type="submit" name="submit_unsubscribe" value="<fmt:message key="jsp.collection-home.unsub"/>" />
+        <%  
+        	} 
+        	else 
+        	{ 
+        %>
+				<small><fmt:message key="jsp.collection-home.subscribe.msg"/></small>
+				<input class="btn btn-sm btn-info" type="submit" name="submit_subscribe" value="<fmt:message key="jsp.collection-home.subscribe"/>" />
+        <%  
+        	}
             if(feedEnabled)
-            { %>
-            <span class="pull-right">
-            <%
+            { 
+		%>
+            	<span class="pull-right">
+		<%
                 String[] fmts = feedData.substring(5).split(",");
                 String icon = null;
                 int width = 0;
@@ -264,35 +318,39 @@
                 {
                     if ("rss_1.0".equals(fmts[j]))
                     {
-                    icon = "rss1.gif";
-                    width = 80;
+	                    icon = "rss1.gif";
+	                    width = 80;
                     }
                     else if ("rss_2.0".equals(fmts[j]))
                     {
-                    icon = "rss2.gif";
-                    width = 80;
+	                    icon = "rss2.gif";
+	                    width = 80;
                     }
                     else
                     {
-                    icon = "rss.gif";
-                    width = 36;
+                    	icon = "rss.gif";
+                    	width = 36;
                     }
         %>
-            <a href="<%= request.getContextPath() %>/feed/<%= fmts[j] %>/<%= collection.getHandle() %>"><img src="<%= request.getContextPath() %>/image/<%= icon %>" alt="RSS Feed" width="<%= width %>" height="15" style="margin: 3px 0 3px" /></a>
+            	<a href="<%= request.getContextPath() %>/feed/<%= fmts[j] %>/<%= collection.getHandle() %>"><img src="<%= request.getContextPath() %>/image/<%= icon %>" alt="RSS Feed" width="<%= width %>" height="15" style="margin: 3px 0 3px" /></a>
         <%
-                } %>
-                </span><%
+                } 
+		%>
+                </span>
+		<%
             }
         %>
-                </form>
+		
+		</form>
 
         <div class="row">
             <%@ include file="discovery/static-tagcloud-facet.jsp" %>
         </div>
 
-        <% if (show_items)
-        {
-                BrowseInfo bi = (BrowseInfo) request.getAttribute("browse.info");
+        <% 
+        	if (show_items)
+        	{
+				BrowseInfo bi = (BrowseInfo) request.getAttribute("browse.info");
                 BrowseIndex bix = bi.getBrowseIndex();
 
                 // prepare the next and previous links
@@ -314,40 +372,38 @@
                 String bi_name_key = "browse.menu." + bi.getSortOption().getName();
                 String so_name_key = "browse.order." + (bi.isAscending() ? "asc" : "desc");
         %>
-            <%-- give us the top report on what we are looking at --%>
-            <fmt:message var="bi_name" key="<%= bi_name_key %>"/>
-            <fmt:message var="so_name" key="<%= so_name_key %>"/>
-            <div class="browse_range">
-                <fmt:message key="jsp.collection-home.content.range">
-                    <fmt:param value="${bi_name}"/>
-                    <fmt:param value="${so_name}"/>
-                    <fmt:param value="<%= Integer.toString(bi.getStart()) %>"/>
-                    <fmt:param value="<%= Integer.toString(bi.getFinish()) %>"/>
-                    <fmt:param value="<%= Integer.toString(bi.getTotal()) %>"/>
-                </fmt:message>
-            </div>
+           
 
-            <%--  do the top previous and next page links --%>
-            <div class="prev-next-links">
-        <% 
-            if (bi.hasPrevPage())
-            {
-        %>
-            <a href="<%= prev %>"><fmt:message key="browse.full.prev"/></a>&nbsp;
-        <%
-            }
+        <div>
+			<div class="panel panel-footer text-center">
+				<fmt:message key="browse.single.range">
+					<fmt:param value="<%= Integer.toString(bi.getStart()) %>"/>
+					<fmt:param value="<%= Integer.toString(bi.getFinish()) %>"/>
+					<fmt:param value="<%= Integer.toString(bi.getTotal()) %>"/>
+				</fmt:message>
+	
+				<% 
+					if (bi.hasPrevPage())
+					{
+				%>
+						<a class="pull-left" href="<%= prev %>"><fmt:message key="browse.single.prev"/></a>&nbsp;
+				<%
+					}
+				%>
 
-            if (bi.hasNextPage())
-            {
-        %>
-            &nbsp;<a href="<%= next %>"><fmt:message key="browse.full.next"/></a>
-        <%
-            }
-        %>
-            </div>
+				<%
+					if (bi.hasNextPage())
+					{
+				%>
+						&nbsp;<a class="pull-right" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
+				<%
+					}
+				%>
+			</div>
 
             <div class="results-cards">
-                <%
+			
+			<%
                 for (Item item : bi.getBrowseItemResults()) 
                 {
                     String titulo = itemService.getMetadataFirstValue(item, "dc", "title", null, Item.ANY);
@@ -374,10 +430,22 @@
                     {
                         dataPublicacaoFormatada = "";
                     }
+                    
+                    String dataAtualizacaoFormatada = null;
+                    String dataAtualizacao = itemService.getMetadataFirstValue(item, "dc", "date", "update", Item.ANY);
+                    String[] partesData = dataAtualizacao.split(" ");
+                    
+                    if(partesData.length > 2)
+                    {
+                    	SimpleDateFormat formatoData = new SimpleDateFormat("dd/MM/yyyy"); 
+
+                    	DCDate data = new DCDate(formatoData.parse(partesData[0]));
+                    	dataAtualizacaoFormatada = UIUtil.displayDate(data, false, false, hrq);
+                    }
 
                     String url = itemService.getMetadataFirstValue(item, "dc", "identifier", "url", Item.ANY);
                     String handleCollection = item.getCollections().get(0).getHandle();
-                %>
+			%>
 
                 <div class="cards">
                     <h3 onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'" style="cursor:pointer"><%= titulo %></h3>
@@ -389,20 +457,20 @@
                                     if(handleCollection.equals(REVISTAS))
                                     {
                                 %>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 18C6.10218 18 5.72064 18.158 5.43934 18.4393C5.15804 18.7206 5 19.1022 5 19.5C5 20.0523 4.55228 20.5 4 20.5C3.44772 20.5 3 20.0523 3 19.5C3 18.5717 3.36875 17.6815 4.02513 17.0251C4.6815 16.3687 5.57174 16 6.5 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H6.5Z" fill="#071D41"/>
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 3C6.10218 3 5.72064 3.15804 5.43934 3.43934C5.15804 3.72064 5 4.10218 5 4.5V19.5C5 19.8978 5.15804 20.2794 5.43934 20.5607C5.72064 20.842 6.10218 21 6.5 21H19V3H6.5ZM6.5 1H20C20.5523 1 21 1.44772 21 2V22C21 22.5523 20.5523 23 20 23H6.5C5.57174 23 4.6815 22.6313 4.02513 21.9749C3.36875 21.3185 3 20.4283 3 19.5V4.5C3 3.57174 3.36875 2.6815 4.02513 2.02513C4.6815 1.36875 5.57174 1 6.5 1Z" fill="#071D41"/>
-                                </svg>
-                                <span>Revista</span>
+		                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 18C6.10218 18 5.72064 18.158 5.43934 18.4393C5.15804 18.7206 5 19.1022 5 19.5C5 20.0523 4.55228 20.5 4 20.5C3.44772 20.5 3 20.0523 3 19.5C3 18.5717 3.36875 17.6815 4.02513 17.0251C4.6815 16.3687 5.57174 16 6.5 16H20C20.5523 16 21 16.4477 21 17C21 17.5523 20.5523 18 20 18H6.5Z" fill="#071D41"/>
+		                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 3C6.10218 3 5.72064 3.15804 5.43934 3.43934C5.15804 3.72064 5 4.10218 5 4.5V19.5C5 19.8978 5.15804 20.2794 5.43934 20.5607C5.72064 20.842 6.10218 21 6.5 21H19V3H6.5ZM6.5 1H20C20.5523 1 21 1.44772 21 2V22C21 22.5523 20.5523 23 20 23H6.5C5.57174 23 4.6815 22.6313 4.02513 21.9749C3.36875 21.3185 3 20.4283 3 19.5V4.5C3 3.57174 3.36875 2.6815 4.02513 2.02513C4.6815 1.36875 5.57174 1 6.5 1Z" fill="#071D41"/>
+		                                </svg>
+		                                <span>Revista</span>
                                 <%
-                                }
-                                else if(handleCollection.equals(PORTAL_DE_PERIODICOS))
-                                {
+	                                }
+	                                else if(handleCollection.equals(PORTAL_DE_PERIODICOS))
+	                                {
                                 %>
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.614 21C3.284 21 2.944 20.91 2.654 20.75C2.354 20.59 2.104 20.35 1.924 20.06C1.744 19.77 1.644 19.43 1.624 19.09C1.604 18.75 1.684 18.41 1.834 18.1L3.004 15.76V7C3.004 6.2 3.314 5.45 3.884 4.88C4.454 4.31 5.204 4 6.004 4H18.004C18.804 4 19.564 4.31 20.124 4.88C20.694 5.44 21.004 6.2 21.004 7V15.76L22.174 18.1C22.324 18.4 22.404 18.74 22.384 19.08C22.364 19.43 22.264 19.76 22.084 20.05C21.904 20.34 21.644 20.59 21.344 20.75C21.054 20.92 20.714 21 20.374 21H3.624C3.614 21 3.614 21 3.614 21ZM4.614 17L3.614 19H20.384L19.384 17H4.614ZM5.004 15H19.004V7C19.004 6.73 18.904 6.48 18.714 6.29C18.524 6.1 18.264 6 18.004 6H6.004C5.734 6 5.484 6.11 5.294 6.29C5.104 6.48 5.004 6.74 5.004 7V15Z" fill="#071D41"/>
-                                </svg>
-                                <span>Portal de revistas</span>
+		                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+		                                    <path d="M3.614 21C3.284 21 2.944 20.91 2.654 20.75C2.354 20.59 2.104 20.35 1.924 20.06C1.744 19.77 1.644 19.43 1.624 19.09C1.604 18.75 1.684 18.41 1.834 18.1L3.004 15.76V7C3.004 6.2 3.314 5.45 3.884 4.88C4.454 4.31 5.204 4 6.004 4H18.004C18.804 4 19.564 4.31 20.124 4.88C20.694 5.44 21.004 6.2 21.004 7V15.76L22.174 18.1C22.324 18.4 22.404 18.74 22.384 19.08C22.364 19.43 22.264 19.76 22.084 20.05C21.904 20.34 21.644 20.59 21.344 20.75C21.054 20.92 20.714 21 20.374 21H3.624C3.614 21 3.614 21 3.614 21ZM4.614 17L3.614 19H20.384L19.384 17H4.614ZM5.004 15H19.004V7C19.004 6.73 18.904 6.48 18.714 6.29C18.524 6.1 18.264 6 18.004 6H6.004C5.734 6 5.484 6.11 5.294 6.29C5.104 6.48 5.004 6.74 5.004 7V15Z" fill="#071D41"/>
+		                                </svg>
+		                                <span>Portal de revistas</span>
                                 <%
                                     }
                                 %>
@@ -410,54 +478,66 @@
 
                             <% if(subtitulo != null && !subtitulo.isEmpty()) { %><div class="line"></div><div class="kind"><strong>ISSN:</strong> <%= subtitulo %></div><% } %>
 
-
                         </div>
                         <div class="bt">
-                            <div class="kind"><strong>Registrado em:</strong> <%= dataPublicacaoFormatada %></div>
-                        </div>
+							<div>
+								<strong>Registrado em:</strong> <%= dataPublicacaoFormatada %><br/>
+								<%
+									if(dataAtualizacaoFormatada != null) 
+                                    {
+                                %>
+                                		<strong>Atualizado em:</strong> <%= dataAtualizacaoFormatada %>
+                                <%
+                                    } 
+                                %>
+                            </div>
+                    	</div>
                     </div>
                 </div>
-                <%
-                }
-                %>
+
+			<%
+				}
+			%>
 
             </div>
 
-            <%-- give us the bottom report on what we are looking at --%>
-            <div class="browse_range">
-                <fmt:message key="jsp.collection-home.content.range">
-                    <fmt:param value="${bi_name}"/>
-                    <fmt:param value="${so_name}"/>
+            <div class="panel panel-footer text-center">
+                <fmt:message key="browse.single.range">
                     <fmt:param value="<%= Integer.toString(bi.getStart()) %>"/>
                     <fmt:param value="<%= Integer.toString(bi.getFinish()) %>"/>
                     <fmt:param value="<%= Integer.toString(bi.getTotal()) %>"/>
                 </fmt:message>
+        
+	        	<% 
+	            	if (bi.hasPrevPage())
+	            	{
+	        	%>
+	            		<a class="pull-left" href="<%= prev %>"><fmt:message key="browse.single.prev"/></a>&nbsp;
+	        	<%
+	            	}
+	        	%>
+	        
+	        	<%
+	            	if (bi.hasNextPage())
+	            	{
+	        	%>
+	            		&nbsp;<a class="pull-right" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
+	        	<%
+	            	}
+	        	%>
             </div>
-
-            <%--  do the bottom previous and next page links --%>
-            <div class="prev-next-links">
-        <% 
-            if (bi.hasPrevPage())
-            {
-        %>
-            <a href="<%= prev %>"><fmt:message key="browse.full.prev"/></a>&nbsp;
-        <%
-            }
-
-            if (bi.hasNextPage())
-            {
-        %>
-            &nbsp;<a href="<%= next %>"><fmt:message key="browse.full.next"/></a>
-        <%
-            }
-        %>
-            </div>
+   
 
         <%
-        } // end of if (show_title)
+        	} 
         %>
+
         </div>
+        
+        
+        </div>
+        
  
-    </div>
+	</div>
 </dspace:layout>
 

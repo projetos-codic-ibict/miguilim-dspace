@@ -64,6 +64,10 @@ input.ds-authority-lock.is-unlocked
 .browse_range { text-align: center; }
 .prev-next-links { text-align: center; }
 
+body {
+	font-family:$linkfont-family!important;
+}
+
 div.tagcloud {
    width:100%;
    text-align:center
@@ -222,25 +226,52 @@ body {
    @extend .d-flex;
    //justify-content: space-between;
    gap:24px;
-   margin:56px 0 32px 0;
-   p {
+   margin:32px 0 32px 0;
+   .number {
+	background-color: $white-lightest;
+	border: 1px solid #F2F2F2;
 	   font-size: 16px;
-	   line-height: 48px;
-	   color: $black;
-	   margin-bottom: 0;
-	   padding: 0;
-	   height: 20px;
+	   //line-height: 48px;
+	   padding: 16px;
 	   font-family:$linkfont-family;
-   }
-   span {
-	   display: block;
-	   font-weight: 600;
-	   @extend .number-valor;
-	   font-size: 2rem;
-	   line-height:14px;
+	   border-radius: 8px;
 	   color: $bluecolor;
+	   display: flex;
+	   align-items: center;
+	   gap: 8px;
+	   width: max-content;
+	   cursor: pointer;
+	   transition: all .2s ease-in-out;
+	   @include for-size(tablet-landscape-up) { 
+		width: 100%;
+	   }
+	   &:first-child:hover {
+		background-color: rgba($red-lght,.2);
+	   }
+	   &:hover {
+		background-color: rgba($yellow,.2);
+	   }
+	   span {
+		font-weight: 600;
+	   }
+	   .icon {
+		width: 32px;
+		height: 32px;
+		border-radius: 50px;
+		background: $yellow;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		svg {
+			padding: 4px;
+		}	
+	   }
+	   .red {
+		background:$red-lght;
+	}		   
    }
    .line {
+		display: none;
 	   width: 1px;
 	   height: 48px;
 	   background:$bluecolor;
@@ -255,7 +286,7 @@ body {
    //padding: 54px;
    pointer-events: none;
    transform: translateY(-16px);
-
+   z-index: -1;
 }
 #TopoPerguntasFrequentes {
    h2 {
@@ -355,14 +386,15 @@ hr {
 .link-search {
     position: absolute;
     top: 9px;
-    right: 149px;
+    right: 143px;
     text-decoration: underline;
     background: white;
-    height: 60px;
+    height: 62px;
     display: flex;
     align-items: center;
 	font-size: 1rem;
     padding:0 8px;
+	border-radius: 0 8px 8px 0;
    @include for-size(tablet-landscape-up) { 
 	   display: none;
    }
@@ -371,15 +403,18 @@ hr {
 ::placeholder  {
    color:$disabled;
 }
-
+main {
+	min-height: 500px;
+}
 //container
 .content-news {
    position: relative;
    //max-width: 720px;
    margin: 80px auto;
-   padding: 0 40px;
+   padding: 0 0px;
    @include for-size(tablet-landscape-up) { 
 	   margin:80px auto 0 auto;
+	   padding: 0 40px;
 	   .left {
 		   left:-13px;
 	   }
@@ -404,17 +439,26 @@ hr {
 	   }		
    }
    .left {
-	   left:16px;
+	   left:-24px;
+	   @include for-size(tablet-landscape-up) { 
+		left: 16px;
+	   }
    }
    .right {
-	   right:16px;
+	   right:-24px;
 	   transform: rotate(180deg);
+	   @include for-size(tablet-landscape-up) { 
+		right: 16px;
+	   }
    }	
    .card {
 	   border: 1px solid $board-field;
 	   background:$white-lightest;
 	   border-radius: 8px;
-	   padding: 32px 48px;
+	   padding: 32px 40px;
+	   @include for-size(tablet-landscape-up) { 
+		padding: 32px 48px;
+	   }
 	   h3 {
 		   font-size: 0.875rem;
 		   font-size: 1.8rem;
@@ -643,8 +687,23 @@ hr {
    @include for-size(tablet-landscape-up) { 
 	   margin: 20px 0 0px 0;
    }
+   .col {
+	h3 {
+		font-weight: 400;
+		font-size: 0.9rem;
+	   }	
+   }
    .col:first-child {
 	   margin-right:100px;
+	   a {
+		img {
+			margin-top: 37px;
+			@include for-size(tablet-landscape-up) { 
+				margin-top: 0px;
+				margin-bottom: 24px;
+			}
+		}
+	   }	  
    }
    .col:last-child {
 	   img {
@@ -1404,7 +1463,8 @@ h1 , h2 {
 	   }
 	   strong {
 		   font-weight: 500;
-		   letter-spacing: 1.5px;
+		   letter-spacing: 0.5px;
+		   line-height: 32px;
 	   }		
 	   &::after {		
 		   transition: all ease .2s;	
@@ -2210,7 +2270,7 @@ a.admin-help {
 		position: absolute;
 		visibility: hidden;
 		overflow: hidden;			
-		top: -32px;
+		top: -10px;
 		left: 80px;
 		width: 450px;
 		background-color: #EBEBEB;
@@ -2221,6 +2281,7 @@ a.admin-help {
 		background-repeat: no-repeat;
 		background-position: 408px 16px;
 		transform: translateX(24px);
+		z-index: 1;
 	h2 {
 		padding: 16px 30px 0 30px;
 		font-size: 20px;
@@ -2330,4 +2391,16 @@ a.admin-help {
 	font-weight: 600!important;
 	letter-spacing:0;
 	font-size: 24px;
+  }
+
+  .chart-div {
+	padding: 16px!important;
+  }
+
+  .panel-group .panel {
+	font-family:$linkfont-family;
+  }
+
+  #canvas-country, #canvas-city {
+	padding: 16px;
   }
