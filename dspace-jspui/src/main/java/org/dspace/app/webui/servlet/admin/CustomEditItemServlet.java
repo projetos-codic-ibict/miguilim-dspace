@@ -806,8 +806,12 @@ public class CustomEditItemServlet extends DSpaceServlet
                     language = language.trim();
                     if (language.equals(""))
                     {
-                        language = null;
+                        language = "pt_BR";
                     }
+                }
+                else
+                {
+                	language = "pt_BR";
                 }
 
                 // Get the authority key if any
@@ -944,8 +948,12 @@ public class CustomEditItemServlet extends DSpaceServlet
                 lang = lang.trim();
                 if (lang.equals(""))
                 {
-                    lang = null;
+                    lang = "pt_BR";
                 }
+            }
+            else
+            {
+            	lang = "pt_BR";
             }
 
             MetadataField field = metadataFieldService.find(context, dcTypeID);
