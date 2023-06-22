@@ -42,7 +42,7 @@ public class InstallItemServiceImpl implements InstallItemService
 {
 
     final String REVISTAS = "miguilim/2";
-    final String LANGUAGE_BR = "pt_BR ";
+    final String LANGUAGE_BR = "pt_BR";
 
     @Autowired(required = true)
     protected ContentServiceFactory contentServiceFactory;
