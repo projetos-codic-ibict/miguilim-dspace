@@ -7,6 +7,20 @@
  */
 package org.dspace.workflowbasic;
 
+import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
+import java.util.UUID;
+
+import javax.mail.MessagingException;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -19,6 +33,7 @@ import org.dspace.content.Collection;
 import org.dspace.content.DCDate;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataSchema;
+import org.dspace.content.MetadataValue;
 import org.dspace.content.WorkspaceItem;
 import org.dspace.content.service.CollectionService;
 import org.dspace.content.service.InstallItemService;
@@ -41,19 +56,6 @@ import org.dspace.workflowbasic.service.BasicWorkflowItemService;
 import org.dspace.workflowbasic.service.BasicWorkflowService;
 import org.dspace.workflowbasic.service.TaskListItemService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.mail.MessagingException;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.MissingResourceException;
-import java.util.ResourceBundle;
-import java.util.UUID;
 
 public class BasicWorkflowServiceImpl implements BasicWorkflowService
 {
@@ -531,7 +533,9 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
 
             // now email notification
             notifyOfArchive(context, myitem, collection);
-
+            
+            itemService.clearMetadata(context, myitem, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+          
             // remove any workflow policies left
             try
             {
@@ -808,7 +812,7 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
             EPerson ep = item.getSubmitter();
             // Get the Locale
             Locale supportedLocale = I18nUtil.getEPersonLocale(ep);
-            Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, "submit_archive"));
+            Email email = Email.getEmail(I18nUtil.getEmailFilename(supportedLocale, obterTemplateEmailAprovacao(item)));
 
             // Get the item handle to email to user
             String handle = handleService.findHandle(context, item);
@@ -1048,6 +1052,8 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
                     }
                     email.addArgument(message);
                     email.addArgument(getMyDSpaceLink());
+                    email.addArgument(obterHandle(c, wi.getItem()));
+                    
                     email.addRecipient(anEpa.getEmail());
                     email.send();
                 }
@@ -1265,7 +1271,12 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
         return Collections.emptyList();
     } // TODO
     
-    private String obterTemplateEmailSubmissao(Item item) {
+	@Override
+	public List<BasicWorkflowItem> getEditingTasks(Context context, EPerson e) throws SQLException {
+		return workflowItemService.findEditingTasks(context, e);
+	}
+	
+	private String obterTemplateEmailSubmissao(Item item) {
     	String template = "submit_task";
     	
     	if(itemService.existeMetadadoNoItem(item, "previousitem"))
@@ -1275,9 +1286,27 @@ public class BasicWorkflowServiceImpl implements BasicWorkflowService
     	
     	return template;
     }
-
-	@Override
-	public List<BasicWorkflowItem> getEditingTasks(Context context, EPerson e) throws SQLException {
-		return workflowItemService.findEditingTasks(context, e);
-	}
+	
+	private String obterHandle(Context context, Item item) throws SQLException {
+		List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+    	
+		if(CollectionUtils.isNotEmpty(valores))
+    	{
+    		Item oldItem = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
+    		return oldItem.getHandle();
+    	}
+    	
+    	return item.getHandle();
+    }
+	
+	private String obterTemplateEmailAprovacao(Item item) {
+    	String template = "submit_archive";
+    	
+    	if(itemService.existeMetadadoNoItem(item, "previousitem"))
+    	{
+    		template = "submit_archive_update";
+    	}
+    	
+    	return template;
+    }
 }
