@@ -95,7 +95,7 @@ public class InstallItemServiceImpl implements InstallItemService
             		handleService.unbindHandle(c, item);
             	}
             		
-            	itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+            	// itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
     		} 
             catch (IOException e) 
             {

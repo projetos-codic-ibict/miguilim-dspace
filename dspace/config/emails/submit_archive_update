@@ -1,0 +1,24 @@
+# Item Archived email message
+#
+# {0}  Title of submission
+# {1}  Name of collection
+# {2}  handle 
+#
+Subject: [MIGUILIM] Aprovação de edição de registro
+
+Prezado (a),
+
+Você realizou alterações no registro "{0}" da coleção "{1}" do Diretório das revistas científicas eletrônicas brasileiras (Miguilim).
+
+As alterações foram verificadas e aprovadas pela Equipe Miguilim. Eventualmente, alguns dados podem ter sido ajustados no processo de validação.
+
+Acesse a página do registro em: {2}
+
+Agradecemos sua colaboração!
+
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+Diretório das revistas científicas eletrônicas brasileiras (Miguilim) | miguilim.ibict.br
+E-mail: miguilim@ibict.br
+Telefone: (55 61) 3217-6449
+
+
