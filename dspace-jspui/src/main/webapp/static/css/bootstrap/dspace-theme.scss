@@ -574,10 +574,15 @@ main {
 	//    justify-content: space-evenly;
 	   .text {
 		width: 100%;
-		   h2 {			
-			   @extend .card-tit;
-			   margin: 0;
-		   }
+		.card-title-home {			
+			// @extend .card-tit;
+			 margin: 0;
+			 font-family:$linkfont-family;
+			 font-size: 1.2rem!important;
+			 font-weight: 600;
+			 color:$bluecolor;
+			 line-height: 100%;
+		 }
 		   p {
 			width: fit-content;
 			justify-content: start;			

@@ -150,7 +150,7 @@
   line-height: 1rem;
 }
 
-.card-tit, .container-cards .card .text h2 {
+.card-tit {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -347,7 +347,7 @@
   line-height: 1rem;
 }
 
-.card-tit, .container-cards .card .text h2 {
+.card-tit {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -1299,8 +1299,13 @@ main {
 .container-cards .card .text {
   width: 100%;
 }
-.container-cards .card .text h2 {
+.container-cards .card .text .card-title-home {
   margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  color: #071D41;
+  line-height: 100%;
 }
 .container-cards .card .text p {
   width: -moz-fit-content;
