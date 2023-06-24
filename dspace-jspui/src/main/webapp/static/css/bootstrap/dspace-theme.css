@@ -1106,6 +1106,7 @@ hr {
   font-size: 1rem;
   padding: 0 8px;
   border-radius: 0 8px 8px 0;
+  color: #292A89;
 }
 @media (max-width: 920px) {
   .link-search {
