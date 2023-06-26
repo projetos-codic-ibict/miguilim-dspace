@@ -87,7 +87,7 @@
     </button>
     <a class="navbar-brand" href="https://ibict.br" target="_blank"><img height="45" src="<%= request.getContextPath() %>/image/logo-ibict.png" alt="Logo IBICT" /></a>
 
-    <a class="navbar-brand logo-miguilim" href="<%= request.getContextPath() %>/"><img height="50px" src="<%= request.getContextPath() %>/image/logo-miguilim.png" /></a>
+    <a class="navbar-brand logo-miguilim" href="<%= request.getContextPath() %>/"><img height="50px" src="<%= request.getContextPath() %>/image/logo-miguilim.png" alt="logo do projeto miguilim"/></a>
 </div>
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
