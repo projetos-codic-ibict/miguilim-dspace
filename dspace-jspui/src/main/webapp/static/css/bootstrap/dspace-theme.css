@@ -1025,6 +1025,8 @@ body {
 .search-home .button-main {
   font-size: 1.2rem;
   padding: 0 32px;
+  display: flex;
+  align-items: center;
 }
 .search-home .button-main:hover {
   background: #04132A;
@@ -3052,4 +3054,8 @@ a.admin-help {
 
 #canvas-country, #canvas-city {
   padding: 16px;
+}
+
+.none {
+  display: none;
 }/*# sourceMappingURL=dspace-theme.css.map */

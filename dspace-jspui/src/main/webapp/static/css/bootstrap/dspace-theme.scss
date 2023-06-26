@@ -312,6 +312,8 @@ body {
    .button-main {
 	font-size: 1.2rem;
 	padding:0 32px;
+    display: flex;
+    align-items: center;	
 	// background: $yellow;
 	//color:$black;
 	//font-weight: 500;
@@ -2409,4 +2411,8 @@ a.admin-help {
 
   #canvas-country, #canvas-city {
 	padding: 16px;
+  }
+
+  .none {
+	display: none;
   }
