@@ -153,8 +153,8 @@
 <%
     }
 %>
-	<h1><fmt:message key="jsp.community-list.title"/></h1>
-	<p><fmt:message key="jsp.community-list.text1"/></p>
+	<h2><fmt:message key="jsp.community-list.title"/></h2>
+	<p class="sub-title pb24"><fmt:message key="jsp.community-list.text1"/></p>
 
 <% if (communities.size() != 0)
 {

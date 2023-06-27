@@ -312,11 +312,11 @@ body {
    .button-main {
 	font-size: 1.2rem;
 	padding:0 32px;
-    display: flex;
-    align-items: center;	
 	// background: $yellow;
 	//color:$black;
 	//font-weight: 500;
+	display: flex;
+    align-items: center;
 	&:hover {
 		background:$dark-blue;
 	}
@@ -550,8 +550,6 @@ main {
 	   }		
    }
 }
-
-
 
 //card
 .container-cards {
@@ -1917,11 +1915,28 @@ b.caret {
 .navbar {
    margin-bottom:0!important;
 }
-
-
+.sub-title {
+	font-size: 1.2rem;
+}
+.pb24 {
+	padding-bottom: 24px;
+}
 // comunities
 .media-list {
-   background-color: $white-lightest;
+	background-color: $white-lightest;
+	color:$bluecolor!important;
+	.media {
+		&-body {
+			color:$bluecolor!important;
+			background: none;
+		}
+		&-heading {
+			font-family:$linkfont-family!important;
+			a {
+				color:$bluecolor!important;
+			}
+		}
+	}
 } 
 
 .media  {
@@ -2413,7 +2428,6 @@ a.admin-help {
   #canvas-country, #canvas-city {
 	padding: 16px;
   }
-
   .none {
 	display: none;
   }

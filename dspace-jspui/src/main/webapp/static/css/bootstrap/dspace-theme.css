@@ -2595,8 +2595,27 @@ t b.caret {
   margin-bottom: 0 !important;
 }
 
+.sub-title {
+  font-size: 1.2rem;
+}
+
+.pb24 {
+  padding-bottom: 24px;
+}
+
 .media-list {
   background-color: #FFFFFF;
+  color: #071D41 !important;
+}
+.media-list .media-body {
+  color: #071D41 !important;
+  background: none;
+}
+.media-list .media-heading {
+  font-family: "Open Sans", sans-serif !important;
+}
+.media-list .media-heading a {
+  color: #071D41 !important;
 }
 
 .media {
