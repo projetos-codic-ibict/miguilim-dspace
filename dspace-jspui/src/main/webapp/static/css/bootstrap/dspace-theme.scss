@@ -503,6 +503,9 @@ main {
    left: 50px;
    background-color:$white-lightest;
    text-decoration: none;
+   span {
+	display: none;
+   }   
    @include for-size(tablet-landscape-up) { 
 	   left: 24px;
 	   bottom: 40px;

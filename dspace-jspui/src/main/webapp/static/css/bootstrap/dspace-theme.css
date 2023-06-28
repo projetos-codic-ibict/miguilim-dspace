@@ -1226,6 +1226,9 @@ main {
   background-color: #FFFFFF;
   text-decoration: none;
 }
+.button-top span {
+  display: none;
+}
 @media (max-width: 920px) {
   .button-top {
     left: 24px;
