@@ -2113,6 +2113,10 @@ main {
   background: none !important;
 }
 
+.link-color {
+  color: #292A89;
+}
+
 .linksFAQ a {
   color: #292A89;
   display: block;
@@ -3082,4 +3086,8 @@ a.admin-help {
 
 .none {
   display: none;
+}
+
+a {
+  color: #292A89;
 }/*# sourceMappingURL=dspace-theme.css.map */

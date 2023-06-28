@@ -1398,6 +1398,9 @@ main {
 	   }
    }
 }
+.link-color {
+	color:$blue-link;
+}
 .linksFAQ {
    a {
 	color:$blue-link;
@@ -2434,4 +2437,8 @@ a.admin-help {
   }
   .none {
 	display: none;
+  }
+
+  a {
+	color:$blue-link;
   }
