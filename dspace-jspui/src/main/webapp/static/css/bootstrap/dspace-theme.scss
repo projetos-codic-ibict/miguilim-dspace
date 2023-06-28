@@ -1397,6 +1397,7 @@ main {
 }
 .linksFAQ {
    a {
+	color:$blue-link;
 	   &:first-child {
 		   margin-top: 32px;
 	   }

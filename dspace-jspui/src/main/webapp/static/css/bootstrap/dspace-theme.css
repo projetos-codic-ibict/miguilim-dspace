@@ -2111,6 +2111,7 @@ main {
 }
 
 .linksFAQ a {
+  color: #292A89;
   display: block;
   line-height: 32px;
 }
