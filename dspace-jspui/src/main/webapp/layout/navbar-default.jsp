@@ -94,7 +94,7 @@
     <ul class="nav navbar-nav">
         <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a
                 href="<%= request.getContextPath() %>/">
-                <span class="glyphicon glyphicon-home"></span>
+                <span class="glyphicon glyphicon-home"><span class="none">Página inicial</span></span>
             </a></li>
 
         <li class="dropdown">
