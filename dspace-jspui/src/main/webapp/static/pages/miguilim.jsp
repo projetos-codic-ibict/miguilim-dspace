@@ -101,7 +101,7 @@
             <div class="col-logo">
                 <a href='<%= request.getContextPath()%>/image/logo-texto.png' download>
                 <div class="content-logo">                   
-                        <img src='<%= request.getContextPath()%>/image/logo-texto.png'>                                        
+                        <img alt="Logo do projeto miguilim com descrição" src='<%= request.getContextPath()%>/image/logo-texto.png'>                                        
                 </div>
                 <div class="text">
                     <small>Tamanho: 110 KB</small>
@@ -112,7 +112,7 @@
             <div class="col-logo">
                 <a href='<%= request.getContextPath()%>/image/logo.png' download>
                 <div class="content-logo">
-                    <img src='<%= request.getContextPath()%>/image/logo.png'>                   
+                    <img alt="Logo do projeto miguilim sem descrição" src='<%= request.getContextPath()%>/image/logo.png'>                   
                 </div>
                 <div class="text">
                     <small>Tamanho: 63 KB</small>
