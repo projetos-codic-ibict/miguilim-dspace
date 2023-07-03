@@ -2442,3 +2442,26 @@ a.admin-help {
   a {
 	color:$blue-link;
   }
+
+
+  .alphabetica-itens {
+	margin:8px 16px;
+	.label-default {
+		background: $blue-light;
+		&:hover {
+			color:$white-lightest;
+		}
+	}
+	padding: 4px;
+	a {
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 16px;
+		color: $bluecolor;
+		font-weight: bold;
+	&:hover {
+		background:$blue-light;
+		text-decoration: none;
+	}
+	}
+  }
