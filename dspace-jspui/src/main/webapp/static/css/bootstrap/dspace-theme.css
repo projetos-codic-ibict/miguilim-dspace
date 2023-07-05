@@ -3112,4 +3112,8 @@ a {
 .alphabetica-itens a:hover {
   background: rgba(13, 122, 214, 0.1);
   text-decoration: none;
+}
+
+.label-padding {
+  margin-bottom: 16px !important;
 }/*# sourceMappingURL=dspace-theme.css.map */
