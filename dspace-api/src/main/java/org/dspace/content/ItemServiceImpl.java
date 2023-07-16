@@ -1006,8 +1006,7 @@ prevent the generation of resource policy entry values with null dspace_object a
      *
      */
     @Override
-    public Iterator<Item> findByMetadataField(Context context,
-               String schema, String element, String qualifier, String value)
+    public Iterator<Item> findByMetadataField(Context context, String schema, String element, String qualifier, String value, boolean inArchive)
           throws SQLException, AuthorizeException, IOException
     {
         MetadataSchema mds = metadataSchemaService.find(context, schema);
@@ -1024,11 +1023,11 @@ prevent the generation of resource policy entry values with null dspace_object a
 
         if (Item.ANY.equals(value))
         {
-            return itemDAO.findByMetadataField(context, mdf, null, true);
+            return itemDAO.findByMetadataField(context, mdf, null, inArchive);
         }
         else
         {
-            return itemDAO.findByMetadataField(context, mdf, value, true);
+            return itemDAO.findByMetadataField(context, mdf, value, inArchive);
         }
     }
 

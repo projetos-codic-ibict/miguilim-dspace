@@ -181,9 +181,9 @@
 			<label class="none">Buscar</label>
 			<a class="link-search" href="/simple-search">Busca avançada</a>
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
-			<buscar type="submit" class="button-main" name="bucar" value="Buscar">Buscar</buscar>
+			<button type="submit" class="button-main" name="buscar" value="Buscar">Buscar</button>
 		</form>
-		</div>
+	</div>
 </div>
 
 <!-- cards -->

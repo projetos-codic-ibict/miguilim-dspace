@@ -88,9 +88,13 @@ public class InstallItemServiceImpl implements InstallItemService
         		if(CollectionUtils.isNotEmpty(valores))
             	{
             		Item oldItem = itemService.find(c, UUID.fromString(valores.get(0).getValue()));
-            		suppliedHandle = oldItem.getHandle();
-            	    
-            		itemService.delete(c, oldItem);
+            		
+            		if(oldItem != null)
+            		{
+            			suppliedHandle = oldItem.getHandle();
+            			itemService.delete(c, oldItem);
+            		}
+            				
             		handleService.removerItemDoHandle(c, item.getHandle());
             	}
     		} 
