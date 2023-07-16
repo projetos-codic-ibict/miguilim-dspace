@@ -233,7 +233,13 @@
                 datasets : [
                     {
                         label: "<fmt:message key="jsp.statistics.heading.monthlyvisits" />",
-                                             data: [<c:forEach items="${statsMonthlyVisits.matrix}" var="row" varStatus="counter"><c:forEach items="${row}" var="cell" varStatus="counterSubLoop"><c:out value="${cell}" /><c:if test="${not counterSubLoop.last}">,</c:if></c:forEach></c:forEach>]
+                        fillColor : "rgba(220,220,220,0.2)",
+                        strokeColor : "rgba(0,127,255, 0.9)",
+                        pointColor : "rgba(220,220,220,1)",
+                        pointStrokeColor : "#fff",
+                        pointHighlightFill : "#fff",
+                        pointHighlightStroke : "rgba(220,220,220,1)",
+                        data: [<c:forEach items="${statsMonthlyVisits.matrix}" var="row" varStatus="counter"><c:forEach items="${row}" var="cell" varStatus="counterSubLoop"><c:out value="${cell}" /><c:if test="${not counterSubLoop.last}">,</c:if></c:forEach></c:forEach>]
                     }
                 ]
 
