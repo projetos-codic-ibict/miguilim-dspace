@@ -196,4 +196,6 @@ public interface HandleService {
     public void modifyHandleDSpaceObject(Context context, String handle, DSpaceObject newOwner) throws SQLException;
 
     int countTotal(Context context) throws SQLException;
+    
+    void removerItemDoHandle(Context context, String handle) throws SQLException;
 }

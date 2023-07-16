@@ -7,6 +7,13 @@
  */
 package org.dspace.handle.dao.impl;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Collections;
+import java.util.List;
+
 import org.dspace.content.DSpaceObject;
 import org.dspace.core.AbstractHibernateDAO;
 import org.dspace.core.Context;
@@ -19,13 +26,6 @@ import org.hibernate.dialect.Dialect;
 import org.hibernate.jdbc.ReturningWork;
 import org.hibernate.service.jdbc.dialect.internal.StandardDialectResolver;
 import org.hibernate.service.jdbc.dialect.spi.DialectResolver;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Collections;
-import java.util.List;
 
 /**
  * Hibernate implementation of the Database Access Object interface class for the Handle object.
@@ -146,4 +146,14 @@ public class HandleDAOImpl extends AbstractHibernateDAO<Handle> implements Handl
         // Run our work, returning the next value in the sequence (see 'nextValReturningWork' above)
         return getHibernateSession(context).doReturningWork(nextValReturningWork);
     }
+
+	@Override
+	public int removerItemDoHandle(Context context, String handle) throws SQLException {
+		String hql = "UPDATE Handle SET dso = NULL WHERE handle = :handle)";
+       
+		Query query = createQuery(context, hql);
+        query.setString("handle", handle);
+        
+        return query.executeUpdate();
+	}
 }

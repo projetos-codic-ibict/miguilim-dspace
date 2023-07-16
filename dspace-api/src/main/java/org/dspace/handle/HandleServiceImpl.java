@@ -7,6 +7,10 @@
  */
 package org.dspace.handle;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -18,10 +22,6 @@ import org.dspace.handle.dao.HandleDAO;
 import org.dspace.handle.service.HandleService;
 import org.dspace.services.ConfigurationService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -421,4 +421,12 @@ public class HandleServiceImpl implements HandleService
     public int countTotal(Context context) throws SQLException {
         return handleDAO.countRows(context);
     }
+
+	@Override
+	public void removerItemDoHandle(Context context, String handle) throws SQLException {
+		if(StringUtils.isNotEmpty(handle))
+		{
+			handleDAO.removerItemDoHandle(context, handle);
+		}
+	}
 }

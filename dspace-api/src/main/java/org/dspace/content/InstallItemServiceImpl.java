@@ -91,11 +91,8 @@ public class InstallItemServiceImpl implements InstallItemService
             		suppliedHandle = oldItem.getHandle();
             	    
             		itemService.delete(c, oldItem);
-            		
-            		handleService.unbindHandle(c, item);
+            		handleService.removerItemDoHandle(c, item.getHandle());
             	}
-            		
-            	// itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
     		} 
             catch (IOException e) 
             {
