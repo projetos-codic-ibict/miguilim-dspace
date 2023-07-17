@@ -269,7 +269,7 @@
 	{
 %>	
 		<span><fmt:message key="browse.nav.jump"/></span>
-		<div style="border:1px solid red">
+		
 		<a class="label label-default" href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
 <%
 	    for (char c = 'A'; c <= 'Z'; c++)
@@ -279,7 +279,7 @@
 <%
 	    }
 %>
-</div>
+
 							<span><fmt:message key="browse.nav.enter"/></span>
 							<div class="grid-col-alphabetical spacing-element">
 							<input type="text" class="field w100" name="starts_with"/>
