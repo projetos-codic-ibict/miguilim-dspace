@@ -139,6 +139,7 @@
 		</div>
 		<div class="col globe">
 			<svg id="globe-visible"  viewBox="0 0 748 684" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<title>image ilustrativa de um globo terrestre com um dedo apontando para o Brasil</title>
 				<g id="globe_01">
 				<path id="globe" d="M398 684C586.9 684 740 530.9 740 342C740 153.1 586.9 0 398 0C209.1 0 56 153.1 56 342C56 530.9 209.1 684 398 684Z" fill="#E8E8E8"/>
 				<g id="Union">
@@ -177,11 +178,12 @@
 	<!-- buscar -->
 	<div class="search-home">
 		<form method="get" action="/simple-search" class="form-home">
+			<label class="none">Buscar</label>
 			<a class="link-search" href="/simple-search">Busca avançada</a>
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
-			<input type="submit" class="button-main" value="Buscar">
+			<button type="submit" class="button-main" name="buscar" value="Buscar">Buscar</button>
 		</form>
-		</div>
+	</div>
 </div>
 
 <!-- cards -->
@@ -196,7 +198,7 @@
 			</svg>				
 		</div>
 		<div class="text">
-			<h2>Ciências Agrárias</h2>			
+			<p class="card-title-home">Ciências Agrárias</p>			
 		</div>		
 		<% java.util.Optional<FacetResult> facetResultCienciasAgrarias = getFacetResult(facetsRoot, "cnpq", "Ciências agrárias"); %>
 			<p class="value"><span><%= facetResultCienciasAgrarias.isPresent() ? facetResultCienciasAgrarias.get().getCount() : "0" %></span></p>						
@@ -210,7 +212,7 @@
 			</svg>				
 		</div>
 		<div class="text">
-			<h2>Ciências Biológicas</h2>		
+			<p class="card-title-home">Ciências Biológicas</p>		
 		</div>
 		<% java.util.Optional<FacetResult> facetResultCienciasBiologicas = getFacetResult(facetsRoot, "cnpq", "Ciências biológicas"); %>
 			<p class="value"><span><%= facetResultCienciasBiologicas.isPresent() ? facetResultCienciasBiologicas.get().getCount() : "0" %></span></p>					
@@ -222,7 +224,7 @@
 			</svg>
 		</div>
 		<div class="text">
-			<h2>Ciências da Saúde</h2>
+			<p class="card-title-home">Ciências da Saúde</p>
 		</div>
 		<% java.util.Optional<FacetResult> facetResultCienciasSaude = getFacetResult(facetsRoot, "cnpq", "Ciências da saúde"); %>
 			<p class="value"><span><%= facetResultCienciasSaude.isPresent() ? facetResultCienciasSaude.get().getCount() : "0" %></span></p>					
@@ -237,7 +239,7 @@
 			</svg>			
 		</div>
 		<div class="text">
-			<h2>Ciências Exatas e da Terra</h2>			
+			<p class="card-title-home">Ciências Exatas e da Terra</p>			
 		</div>
 		<% java.util.Optional<FacetResult> facetResultCienciasExatas = getFacetResult(facetsRoot, "cnpq", "Ciências exatas e da terra"); %>
 			<p class="value"><span><%= facetResultCienciasExatas.isPresent() ? facetResultCienciasExatas.get().getCount() : "0" %></span></p>					
@@ -252,7 +254,7 @@
 			</svg>							
 		</div>
 		<div class="text">
-			<h2>Ciências Humanas</h2>
+			<p class="card-title-home">Ciências Humanas</p>
 		</div>
 		<% java.util.Optional<FacetResult> facetResultCienciasHumanas = getFacetResult(facetsRoot, "cnpq", "Ciências humanas"); %>
 			<p class="value"><span><%= facetResultCienciasHumanas.isPresent() ? facetResultCienciasHumanas.get().getCount() : "0" %></span></p>						
@@ -271,7 +273,7 @@
 			</svg>			
 		</div>
 		<div class="text">
-			<h2>Ciências Sociais Aplicadas</h2>
+			<p class="card-title-home">Ciências Sociais Aplicadas</p>
 		</div>
 		<% java.util.Optional<FacetResult> facetResultCienciasSociais = getFacetResult(facetsRoot, "cnpq", "Ciências sociais aplicadas"); %>
 			<p class="value"><span><%= facetResultCienciasSociais.isPresent() ? facetResultCienciasSociais.get().getCount() : "0" %></span></p>					
@@ -286,7 +288,7 @@
 			</svg>						
 		</div>
 		<div class="text">
-			<h2>Engenharias</h2>
+			<p class="card-title-home">Engenharias</p>
 		</div>		
 		<% java.util.Optional<FacetResult> facetResultEngenharias = getFacetResult(facetsRoot, "cnpq", "Engenharias"); %>
 			<p class="value"><span><%= facetResultEngenharias.isPresent() ? facetResultEngenharias.get().getCount() : "0" %></span></p>					
@@ -299,7 +301,7 @@
 			</svg>				
 		</div>
 		<div class="text">
-			<h2>Linguística, Letras e Artes</h2>
+			<p class="card-title-home">Linguística, Letras e Artes</p>
 		</div>
 		<% java.util.Optional<FacetResult> facetResultLinguistica = getFacetResult(facetsRoot, "cnpq", "Linguística, letras e artes"); %>
 			<p class="value"><span><%= facetResultLinguistica.isPresent() ? facetResultLinguistica.get().getCount() : "0" %></span></p>					
@@ -312,7 +314,7 @@
 			</svg>						
 		</div>
 		<div class="text">
-			<h2>Multidisciplinar</h2>
+			<p class="card-title-home">Multidisciplinar</p>
 		</div>
 		<% java.util.Optional<FacetResult> facetResultMultidisciplinar = getFacetResult(facetsRoot, "cnpq", "Multidisciplinar"); %>
 			<p class="value"><span><%= facetResultMultidisciplinar.isPresent() ? facetResultMultidisciplinar.get().getCount() : "0" %></span></p>					
@@ -340,16 +342,24 @@
 				{
 					displayTitle = "Untitled";
 				}
+				
 				String publisher = itemService.getMetadataFirstValue(item, "dc", "publisher", "name", Item.ANY);
 				if (publisher == null)
 				{
 					publisher = "";
+				}
+				
+				String dateUpdate = itemService.getMetadataFirstValue(item, "dc", "date", "update", Item.ANY);
+				if (dateUpdate == null)
+				{
+					dateUpdate = "";
 				}
 		%>
 
 		<div style="cursor:pointer" onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
 			<h3><%= displayTitle %></h3>
 			<p><%= publisher %></p>
+			<%= dateUpdate %>
 		</div>
 
 		<%
@@ -369,16 +379,16 @@
 	<div class="d-flex brand-space">
 		<div class="col">
 			<h3>Conheça o parceiro do Miguilim</h3>
-			<a href="https://manuelzao.ibict.br" target="_blank"><img src="image/manuelzao.png" alt="logo do projeto manuelzao"></a>
+			<a href="https://manuelzao.ibict.br" target="_blank"><img src="image/manuelzao.png" alt="logo do projeto manuelzão"></a>
 		</div>
 		<div class="col">
 			<h3>Conheça também</h3>
 			<a href="https://diadorim.ibict.br/" target="_blank"><img src="image/diadorim.png" alt="logo do projeto diadorim"></a>
 			<a href="https://oasisbr.ibict.br/vufind/" target="_blank"><img src="image/OASISBR.png" alt="logo do projeto OASISBR"></a>
 			<a href="https://www.latindex.org/latindex/" target="_blank"><img src="image/latindex.png" alt="logo do projeto latindex"></a>
-			<a href="https://scielo.org/" target="_blank"><img src="image/scielo.png" alt="logo do projeto latindex"></a>
-			<a href="https://www.lareferencia.info/pt/" target="_blank"><img src="image/la.png" alt="logo do projeto latindex"></a>
-			<a href="https://www.rcaap.pt/" target="_blank"><img src="image/rcaap.png" alt="logo do projeto latindex"></a>
+			<a href="https://scielo.org/" target="_blank"><img src="image/scielo.png" alt="logo do projeto Scielo"></a>
+			<a href="https://www.lareferencia.info/pt/" target="_blank"><img src="image/la.png" alt="logo do projeto LA"></a>
+			<a href="https://www.rcaap.pt/" target="_blank"><img src="image/rcaap.png" alt="logo do projeto RCAAP"></a>
 		</div>
 	</div>
 </div>

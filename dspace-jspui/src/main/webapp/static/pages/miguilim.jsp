@@ -77,7 +77,7 @@
 <div class="espacamento minus-space"> 
 <h2><strong class="titulo-medio">Miguilim</strong></h2>
 
-    <p>O Diretório das revistas científicas eletrônicas brasileiras (Miguilim) é uma iniciativa do <a href="http://www.ibict.br/" target="_blank"> Instituto Brasileiro de Informação
+    <p>O Diretório das revistas científicas eletrônicas brasileiras (Miguilim) é uma iniciativa do <a class="link-color" href="http://www.ibict.br/" title="link do IBICT" target="_blank"> Instituto Brasileiro de Informação
         em Ciência e Tecnologia (Ibict)</a> criada com o intuito de agregar, em um único local, informações sobre as revistas científicas editadas e publicadas no Brasil que se encontravam dispersas em diferentes
     plataformas. O Diretório reúne em sua base de dados o cadastro de informações essenciais das políticas editoriais de milhares de revistas científicas brasileiras e tem
     como objetivos básicos: </p>
@@ -101,7 +101,7 @@
             <div class="col-logo">
                 <a href='<%= request.getContextPath()%>/image/logo-texto.png' download>
                 <div class="content-logo">                   
-                        <img src='<%= request.getContextPath()%>/image/logo-texto.png'>                                        
+                        <img alt="Logo do projeto miguilim com descrição" src='<%= request.getContextPath()%>/image/logo-texto.png'>                                        
                 </div>
                 <div class="text">
                     <small>Tamanho: 110 KB</small>
@@ -112,7 +112,7 @@
             <div class="col-logo">
                 <a href='<%= request.getContextPath()%>/image/logo.png' download>
                 <div class="content-logo">
-                    <img src='<%= request.getContextPath()%>/image/logo.png'>                   
+                    <img alt="Logo do projeto miguilim sem descrição" src='<%= request.getContextPath()%>/image/logo.png'>                   
                 </div>
                 <div class="text">
                     <small>Tamanho: 63 KB</small>

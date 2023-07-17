@@ -81,19 +81,20 @@
 
 <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="none">Menu hambuguer</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="https://ibict.br" target="_blank"><img height="45" src="<%= request.getContextPath() %>/image/logo-ibict.png" alt="Logo IBICT" /></a>
 
-    <a class="navbar-brand logo-miguilim" href="<%= request.getContextPath() %>/"><img height="50px" src="<%= request.getContextPath() %>/image/logo-miguilim.png" /></a>
+    <a class="navbar-brand logo-miguilim" href="<%= request.getContextPath() %>/"><img height="50px" src="<%= request.getContextPath() %>/image/logo-miguilim.png" alt="logo do projeto miguilim"/></a>
 </div>
 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
     <ul class="nav navbar-nav">
         <li class="<%= currentPage.endsWith("/home.jsp")? "active" : "" %>"><a
                 href="<%= request.getContextPath() %>/">
-                <span class="glyphicon glyphicon-home"></span>
+                <span class="glyphicon glyphicon-home"><span class="none">Página inicial</span></span>
             </a></li>
 
         <li class="dropdown">

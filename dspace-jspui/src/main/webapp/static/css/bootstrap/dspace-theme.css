@@ -150,7 +150,7 @@
   line-height: 1rem;
 }
 
-.card-tit, .container-cards .card .text h2 {
+.card-tit {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -347,7 +347,7 @@
   line-height: 1rem;
 }
 
-.card-tit, .container-cards .card .text h2 {
+.card-tit {
   font-family: "Open Sans", sans-serif;
   font-weight: 700;
   font-size: 1.6rem;
@@ -1025,6 +1025,8 @@ body {
 .search-home .button-main {
   font-size: 1.2rem;
   padding: 0 32px;
+  display: flex;
+  align-items: center;
 }
 .search-home .button-main:hover {
   background: #04132A;
@@ -1106,6 +1108,8 @@ hr {
   font-size: 1rem;
   padding: 0 8px;
   border-radius: 0 8px 8px 0;
+  color: #292A89;
+  font-weight: 600;
 }
 @media (max-width: 920px) {
   .link-search {
@@ -1222,6 +1226,9 @@ main {
   background-color: #FFFFFF;
   text-decoration: none;
 }
+.button-top span {
+  display: none;
+}
 @media (max-width: 920px) {
   .button-top {
     left: 24px;
@@ -1299,8 +1306,13 @@ main {
 .container-cards .card .text {
   width: 100%;
 }
-.container-cards .card .text h2 {
+.container-cards .card .text .card-title-home {
   margin: 0;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.2rem !important;
+  font-weight: 600;
+  color: #071D41;
+  line-height: 100%;
 }
 .container-cards .card .text p {
   width: -moz-fit-content;
@@ -2101,7 +2113,12 @@ main {
   background: none !important;
 }
 
+.link-color {
+  color: #292A89;
+}
+
 .linksFAQ a {
+  color: #292A89;
   display: block;
   line-height: 32px;
 }
@@ -2586,8 +2603,27 @@ t b.caret {
   margin-bottom: 0 !important;
 }
 
+.sub-title {
+  font-size: 1.2rem;
+}
+
+.pb24 {
+  padding-bottom: 24px;
+}
+
 .media-list {
   background-color: #FFFFFF;
+  color: #071D41 !important;
+}
+.media-list .media-body {
+  color: #071D41 !important;
+  background: none;
+}
+.media-list .media-heading {
+  font-family: "Open Sans", sans-serif !important;
+}
+.media-list .media-heading a {
+  color: #071D41 !important;
 }
 
 .media {
@@ -3046,4 +3082,38 @@ a.admin-help {
 
 #canvas-country, #canvas-city {
   padding: 16px;
+}
+
+.none {
+  display: none;
+}
+
+a {
+  color: #292A89;
+}
+
+.alphabetica-itens {
+  margin: 8px 16px;
+  padding: 4px;
+}
+.alphabetica-itens .label-default {
+  background: rgba(13, 122, 214, 0.1);
+}
+.alphabetica-itens .label-default:hover {
+  color: #FFFFFF;
+}
+.alphabetica-itens a {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #071D41;
+  font-weight: bold;
+}
+.alphabetica-itens a:hover {
+  background: rgba(13, 122, 214, 0.1);
+  text-decoration: none;
+}
+
+.label-padding {
+  margin-bottom: 16px !important;
 }/*# sourceMappingURL=dspace-theme.css.map */

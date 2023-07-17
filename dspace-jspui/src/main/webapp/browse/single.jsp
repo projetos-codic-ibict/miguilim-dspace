@@ -182,8 +182,9 @@
 	else
 	{
 %>	
+<div class="alphabetica-itens">
 		<span><fmt:message key="browse.nav.jump"/></span>
-        <a class="label label-default" href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
+        <a class="label label-default" title="ordem alfabética"  href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
 <%
 	    for (char c = 'A'; c <= 'Z'; c++)
 	    {
@@ -193,10 +194,11 @@
 <%
 	    }
 %>
+</div>
 		<br/>
 		<div class="grid-col-alphabetical">
 		<div>
-		<label for="starts_with"><fmt:message key="browse.nav.enter"/></label>
+		<label class="label-padding" for="starts_with"><fmt:message key="browse.nav.enter"/></label>
 		<input type="text" class="field w100" name="starts_with"/>
 		</div>
 		<div>
@@ -224,14 +226,14 @@
 		}
 --%>
 		<div>
-		<label for="order"><fmt:message key="browse.single.order"/></label>
+		<label class="label-padding" for="order"><fmt:message key="browse.single.order"/></label>
 		<select class="field-s w100" name="order">
 			<option value="ASC" <%= ascSelected %>><fmt:message key="browse.order.asc" /></option>
 			<option value="DESC" <%= descSelected %>><fmt:message key="browse.order.desc" /></option>
 		</select>
 		</div>
 		<div>
-		<label for="rpp"><fmt:message key="browse.single.rpp"/></label>
+		<label  class="label-padding" for="rpp"><fmt:message key="browse.single.rpp"/></label>
 		<select class="field-s w100"  name="rpp">
 <%
 	for (int i = 5; i <= 100 ; i += 5)
@@ -272,7 +274,7 @@
 	if (bi.hasNextPage())
 	{
 %>
-	&nbsp;<a class="pull-right" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
+	&nbsp;<a class="pull-right" title="direita" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
 <%
 	}
 %>
@@ -315,7 +317,7 @@
 	if (bi.hasNextPage())
 	{
 %>
-	&nbsp;<a class="pull-right" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
+	&nbsp;<a class="pull-right" title="direita" href="<%= next %>"><fmt:message key="browse.single.next"/></a>
 <%
 	}
 %>

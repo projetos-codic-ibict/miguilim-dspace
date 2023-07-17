@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -212,9 +213,16 @@ public class CustomEditItemServlet extends DSpaceServlet
         // Show edit form if appropriate
         if (itemToEdit != null)
         {
-            // now check to see if person can edit item
-            checkEditAuthorization(context, itemToEdit);
-            showEditForm(context, request, response, itemToEdit);
+        	if(!registroJaPossuiEdicaoPendente(context, itemToEdit))
+        	{
+	            // now check to see if person can edit item
+	            checkEditAuthorization(context, itemToEdit);
+	            showEditForm(context, request, response, itemToEdit);
+        	}
+        	else
+        	{
+        		JSPManager.showJSP(request, response, "/error/edit-reject.jsp");
+        	}
         }
         else
         {
@@ -305,48 +313,54 @@ public class CustomEditItemServlet extends DSpaceServlet
         case UPDATE_ITEM:
         	Item itemOriginal  = item;
         	
-        	List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
-        	if(CollectionUtils.isNotEmpty(valores))
+        	if(!registroJaPossuiEdicaoPendente(context, itemOriginal))
         	{
-        		itemOriginal = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
-
-        		if(item.getOwningCollection() == null)
-        		{
-        			item.setOwningCollection(itemOriginal.getCollections().get(0));
-                }
-            }
-        	
-        	
-        	Version version = versioningService.createNewVersion(context, item, itemOriginal.getHandle());
-        	WorkspaceItem workspaceVersion = workspaceItemService.findByItem(context, version.getItem());
-        	
-            processUpdateItem(context, request, response, item, version);
-            
-            try 
-            {
-            	itemService.clearMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
-            	itemService.addMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", "pt_BR", itemOriginal.getID().toString());
-				
-            	workflowService.start(context, workspaceVersion);
-				
-            	itemService.clearMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
-            	itemService.addMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", "pt_BR", Boolean.TRUE.toString());
-
-            	if(itemOriginal != null)
-            	{
-            		WorkspaceItem wItem = workspaceItemService.findByItem(context, item);
-            		workspaceItemService.deleteAll(context, wItem);
-            	}
-			} 
-            catch (Exception e) 
-            {
-            	log.error("Caught exception in submission step: ",e);
-            	throw new ServletException(e);
-			}
-            finally
-            {
-            	context.complete();
-            }
+	        	List<MetadataValue> valores =  itemService.getMetadata(item, MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+		        if(CollectionUtils.isNotEmpty(valores))
+		        {
+		        	itemOriginal = itemService.find(context, UUID.fromString(valores.get(0).getValue()));
+		
+		        	if(item.getOwningCollection() == null)
+		        	{
+		        		item.setOwningCollection(itemOriginal.getCollections().get(0));
+		        	}
+		        }
+		        	
+		        Version version = versioningService.createNewVersion(context, item, itemOriginal.getHandle());
+		        WorkspaceItem workspaceVersion = workspaceItemService.findByItem(context, version.getItem());
+		        	
+		        processUpdateItem(context, request, response, item, version);
+		            
+		        try 
+		        {
+		        	itemService.clearMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", Item.ANY);
+		            itemService.addMetadata(context, version.getItem(), MetadataSchema.DC_SCHEMA, "identifier", "previousitem", "pt_BR", itemOriginal.getID().toString());
+						
+		            workflowService.start(context, workspaceVersion);
+					
+		            itemService.clearMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", Item.ANY);
+		            itemService.addMetadata(context, itemOriginal, MetadataSchema.DC_SCHEMA, "identifier", "pendingreview", "pt_BR", Boolean.TRUE.toString());
+		
+		            if(itemOriginal != null)
+		            {
+		            	WorkspaceItem wItem = workspaceItemService.findByItem(context, item);
+		            	workspaceItemService.deleteAll(context, wItem);
+		            }
+				} 
+		        catch (Exception e) 
+		        {
+		        	log.error("Caught exception in submission step: ",e);
+		            throw new ServletException(e);
+				}
+		        finally
+		        {
+		        	context.complete();
+		        }
+        	}
+        	else
+        	{
+        		JSPManager.showJSP(request, response, "/error/edit-reject.jsp");
+        	}
             
             break;
 
@@ -1184,6 +1198,11 @@ public class CustomEditItemServlet extends DSpaceServlet
 			itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", "pt_BR", CalculadoraTermometro.calcularPorcentagemPontuacao(item));
 		}
 	}
-
+	
+	private boolean registroJaPossuiEdicaoPendente(Context context, Item item) throws SQLException, AuthorizeException, IOException {
+		Iterator<Item> valores = itemService
+				.findByMetadataField(context,  MetadataSchema.DC_SCHEMA, "identifier", "previousitem", item.getID().toString(), Boolean.FALSE);
+		return valores.hasNext();
+	}
     
 }

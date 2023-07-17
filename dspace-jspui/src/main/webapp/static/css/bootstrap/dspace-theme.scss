@@ -315,6 +315,8 @@ body {
 	// background: $yellow;
 	//color:$black;
 	//font-weight: 500;
+	display: flex;
+    align-items: center;
 	&:hover {
 		background:$dark-blue;
 	}
@@ -395,6 +397,8 @@ hr {
 	font-size: 1rem;
     padding:0 8px;
 	border-radius: 0 8px 8px 0;
+	color:$blue-link;
+	font-weight: 600;
    @include for-size(tablet-landscape-up) { 
 	   display: none;
    }
@@ -499,6 +503,9 @@ main {
    left: 50px;
    background-color:$white-lightest;
    text-decoration: none;
+   span {
+	display: none;
+   }   
    @include for-size(tablet-landscape-up) { 
 	   left: 24px;
 	   bottom: 40px;
@@ -547,8 +554,6 @@ main {
    }
 }
 
-
-
 //card
 .container-cards {
    margin-top: 80px;
@@ -574,10 +579,15 @@ main {
 	//    justify-content: space-evenly;
 	   .text {
 		width: 100%;
-		   h2 {			
-			   @extend .card-tit;
-			   margin: 0;
-		   }
+		.card-title-home {			
+			// @extend .card-tit;
+			 margin: 0;
+			 font-family:$linkfont-family;
+			 font-size: 1.2rem!important;
+			 font-weight: 600;
+			 color:$bluecolor;
+			 line-height: 100%;
+		 }
 		   p {
 			width: fit-content;
 			justify-content: start;			
@@ -1388,8 +1398,12 @@ main {
 	   }
    }
 }
+.link-color {
+	color:$blue-link;
+}
 .linksFAQ {
    a {
+	color:$blue-link;
 	   &:first-child {
 		   margin-top: 32px;
 	   }
@@ -1908,11 +1922,28 @@ b.caret {
 .navbar {
    margin-bottom:0!important;
 }
-
-
+.sub-title {
+	font-size: 1.2rem;
+}
+.pb24 {
+	padding-bottom: 24px;
+}
 // comunities
 .media-list {
-   background-color: $white-lightest;
+	background-color: $white-lightest;
+	color:$bluecolor!important;
+	.media {
+		&-body {
+			color:$bluecolor!important;
+			background: none;
+		}
+		&-heading {
+			font-family:$linkfont-family!important;
+			a {
+				color:$bluecolor!important;
+			}
+		}
+	}
 } 
 
 .media  {
@@ -2404,3 +2435,37 @@ a.admin-help {
   #canvas-country, #canvas-city {
 	padding: 16px;
   }
+  .none {
+	display: none;
+  }
+
+  a {
+	color:$blue-link;
+  }
+
+
+  .alphabetica-itens {
+	margin:8px 16px;
+	.label-default {
+		background: $blue-light;
+		&:hover {
+			color:$white-lightest;
+		}
+	}
+	padding: 4px;
+	a {
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 16px;
+		color: $bluecolor;
+		font-weight: bold;
+	&:hover {
+		background:$blue-light;
+		text-decoration: none;
+	}
+	}
+  }
+
+	.label-padding {
+		margin-bottom: 16px!important;
+	}
