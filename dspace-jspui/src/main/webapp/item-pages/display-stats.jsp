@@ -138,14 +138,11 @@
                 </div>
 
                 <div>
-
                     <canvas id="canvas-country" height="100" ></canvas>
-
                 </div>
 
             </div>
         </c:if>
-
 
 
         <!--
@@ -216,7 +213,7 @@
     <input type="hidden" id="collor12" value="#DF013A">
     <input type="hidden" id="collor12-highlight" value="#DF0174">
 
-    <script type="text/javascript" src="<%= request.getContextPath() %>/static/js/chartjs-1-0-1-beta2/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <script>
@@ -277,24 +274,17 @@
          * Country visits
          ****************************************************************************/
 
-            <c:if test="${not empty statsCountryVisits and not empty statsCountryVisits.colLabels}">
-
+        const cores = ["#FFFF00", "#99CC32", "#0000FF", "#70DB93", "#6B238E", "#C0D9D9", "#5F9F9F", "#5C3317", "#8C7853", "#DF0101", "#8E2323", "#D98719", "#FF6EC7", "##FF0000"];
         var countryVisitsData = {
-                labels : [<c:forEach items="${statsCountryVisits.matrix}" var="row" varStatus="counter"> <c:forEach items="${row}" var="cell" varStatus="rowcounter">"<c:out value="${statsCountryVisits.colLabels[rowcounter.index]}" />"<c:if test="${not rowcounter.last}">,</c:if></c:forEach></c:forEach>],
-                datasets : [
-
-                    {
-                        fillColor : "rgba(220,220,220,0.5)",
-                        strokeColor : "rgba(220,220,220,0.8)",
-                        highlightFill: "rgba(220,220,220,0.75)",
-                        highlightStroke: "rgba(220,220,220,1)",
-                        data : [<c:forEach items="${statsCountryVisits.matrix}" var="row" varStatus="counter"> <c:forEach items="${row}" var="cell" varStatus="rowcounterValue"><c:out value="${cell}" /><c:if test="${not rowcounterValue.last}">,</c:if></c:forEach></c:forEach>]
-
-                    }
-                ]
-
-            };
-        </c:if>
+            labels : [<c:forEach items="${statsCountryVisits.matrix}" var="row" varStatus="counter"> <c:forEach items="${row}" var="cell" varStatus="rowcounter">"<c:out value="${statsCountryVisits.colLabels[rowcounter.index]}" />"<c:if test="${not rowcounter.last}">,</c:if></c:forEach></c:forEach>],
+                datasets: [{
+                    data: [<c:forEach items="${statsCountryVisits.matrix}" var="row" varStatus="counter"> <c:forEach items="${row}" var="cell" varStatus="rowcounterValue"><c:out value="${cell}" /><c:if test="${not rowcounterValue.last}">,</c:if></c:forEach></c:forEach>],
+                    responsive: true,
+                    borderWidth: 1,
+                    backgroundColor: cores,
+                    hoverBackgroundColor: cores
+                }]
+        };
 
 
 
@@ -351,13 +341,21 @@
          }
          %>
 
-            /** Country stats **/
-                <c:if test="${not empty statsCountryVisits and not empty statsCountryVisits.colLabels}">
+        /** Country Stats **/
+        <c:if test="${not empty statsCountryVisits and not empty statsCountryVisits.colLabels}">        
             var ctx = document.getElementById("canvas-country").getContext("2d");
-            new Chart(ctx).Bar(countryVisitsData, {
-                responsive: true
+            new Chart(ctx, {
+                type: 'bar',
+                data: countryVisitsData,
+                options: {
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
             });
-            </c:if>
+        </c:if>
 
             /** City stats **/
                 <c:if test="${not empty statsCityVisits and not empty statsCityVisits.colLabels}">
@@ -368,6 +366,8 @@
             </c:if>
 
         });
+
+
 
     </script>
     </script>
