@@ -283,10 +283,14 @@
 </div>
 			<br>
 			<div class="grid-col-alphabetical">
-							<span><fmt:message key="browse.nav.enter"/></span>
+			<div>
+				<label class="label-padding" for="starts_with"><fmt:message key="browse.nav.enter"/></label>
 							<div class="grid-col-alphabetical spacing-element">
 							<input type="text" class="field w100" name="starts_with"/>
-							<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
+							</div>
+							<div>
+								<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
+							</div>
 							</div>
 						</div>
 							
