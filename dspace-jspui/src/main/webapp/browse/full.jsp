@@ -276,7 +276,7 @@
 	    for (char c = 'A'; c <= 'Z'; c++)
 	    {
 %>
-	                        <a class="label label-default" href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
+	                        <a href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
 <%
 	    }
 %>
