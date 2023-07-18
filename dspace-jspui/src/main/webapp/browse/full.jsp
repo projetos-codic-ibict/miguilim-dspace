@@ -281,18 +281,16 @@
 	    }
 %>
 </div>
-			<br>
-			<div class="grid-col-alphabetical">
-			<div>
-				<label class="label-padding" for="starts_with"><fmt:message key="browse.nav.enter"/></label>
-							<div class="grid-col-alphabetical spacing-element">
-							<input type="text" class="field w100" name="starts_with"/>
-							</div>
-							<div>
-								<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
-							</div>
-							</div>
-						</div>
+<br/>
+	<div class="grid-col-alphabetical">
+	<div>
+	<label class="label-padding" for="starts_with"><fmt:message key="browse.nav.enter"/></label>
+	<input type="text" class="field w100" name="starts_with"/>
+	</div>
+	<div>
+	<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
+	</div>
+</div>
 							
 							
 <%
