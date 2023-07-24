@@ -246,7 +246,7 @@
             <option>1960</option>
             <option>1950</option>
         </select>
-        <select class="field-s " name="month">
+        <select name="month">
             <option selected="selected" value="-1"><fmt:message key="browse.nav.month"/></option>
 <%
 		for (int i = 1; i <= 12; i++)
@@ -268,23 +268,29 @@
 	else
 	{
 %>	
+<div class="alphabetica-itens">
 		<span><fmt:message key="browse.nav.jump"/></span>
-		<div style="border:1px solid red">
+		
 		<a class="label label-default" href="<%= sharedLink %>&amp;starts_with=0">0-9</a>
 <%
 	    for (char c = 'A'; c <= 'Z'; c++)
 	    {
 %>
-	                        <a class="label label-default" href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
+	                        <a href="<%= sharedLink %>&amp;starts_with=<%= c %>"><%= c %></a>
 <%
 	    }
 %>
 </div>
-							<span><fmt:message key="browse.nav.enter"/></span>
-							<div class="grid-col-alphabetical spacing-element">
-							<input type="text" class="field w100" name="starts_with"/>
-							<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
-							</div>
+<br/>
+	<div class="grid-col-alphabetical">
+	<div>
+	<label class="label-padding" for="starts_with"><fmt:message key="browse.nav.enter"/></label>
+	<input type="text" class="field w100" name="starts_with"/>
+	</div>
+	<div>
+	<input type="submit" class="button-main-outline" value="<fmt:message key="browse.nav.go"/>" />
+	</div>
+</div>
 							
 							
 <%

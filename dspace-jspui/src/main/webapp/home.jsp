@@ -359,7 +359,7 @@
 		<div style="cursor:pointer" onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
 			<h3><%= displayTitle %></h3>
 			<p><%= publisher %></p>
-			<%= dateUpdate %>
+			Atualizado em <%= dateUpdate %>
 		</div>
 
 		<%
