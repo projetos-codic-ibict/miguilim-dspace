@@ -379,7 +379,7 @@
 	<div class="d-flex brand-space">
 		<div class="col">
 			<h3>Conheça o parceiro do Miguilim</h3>
-			<a href="https://manuelzao.ibict.br" target="_blank"><img src="image/manuelzao.png" alt="logo do projeto manuelzão"></a>
+			<a href="http://manuelzao.ibict.br" target="_blank"><img src="image/manuelzao.png" alt="logo do projeto manuelzão"></a>
 		</div>
 		<div class="col">
 			<h3>Conheça também</h3>
