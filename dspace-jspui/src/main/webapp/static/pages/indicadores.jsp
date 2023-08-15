@@ -65,7 +65,7 @@
 	<div class="espacamento"> 
 		<h2><strong class="titulo-medio">Indicadores</strong></h2>
 	        
-	    <iframe src="https://indicadoreshomologacaomiguilim.ibict.br/" frameborder="0" style="width:100%;height:7200px;"> </iframe>
+	    <iframe src="https://indicadoreshomologacaomiguilim.ibict.br/" frameborder="0" style="width:100%;height:8735px;"> </iframe>
 	</div>
 	
 </dspace:layout>
