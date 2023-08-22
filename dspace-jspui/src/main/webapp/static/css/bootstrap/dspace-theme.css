@@ -1050,9 +1050,9 @@ body {
 }
 
 input.field-s, .field-s {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1631,9 +1631,9 @@ main {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1704,9 +1704,9 @@ main {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1745,9 +1745,9 @@ main {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -1776,17 +1776,17 @@ main {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .field-s, .field-s {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -2025,9 +2025,9 @@ main {
   gap: 8px;
 }
 .search-main .search-element select {
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   box-shadow: none;
 }
 .search-main .search-element .field-s, .search-main .search-element .field-s {
@@ -2044,9 +2044,9 @@ main {
   background-repeat: no-repeat;
   background-position: right 8px center;
   background-size: 24px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -2247,9 +2247,9 @@ h1:hover::after, h2:hover::after {
   border: 1px solid #E8E8E8;
   border-radius: 8px;
   padding: 0 0 0 8px;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
+  -webkit-appearance: none !important;
+     -moz-appearance: none !important;
+          appearance: none !important;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
