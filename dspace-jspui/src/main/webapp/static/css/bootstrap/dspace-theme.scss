@@ -347,7 +347,7 @@ body {
 
 input.field-s , .field-s {
    //background-image: none!important;
-   appearance: none;	
+   appearance: none!important;	
    text-overflow: ellipsis;
    white-space: nowrap;	   
 }
@@ -913,7 +913,7 @@ main {
 	   background-repeat: no-repeat;
 	   background-position: right 8px center;
 	   background-size: 24px;	
-	   appearance: none;	
+	   appearance: none!important;	
 	   text-overflow: ellipsis;
 	   white-space: nowrap;			
 
@@ -986,7 +986,7 @@ main {
 		   background-repeat: no-repeat;
 		   background-position: right 8px center;
 		   background-size: 24px;	
-		   appearance: none;	
+		   appearance: none!important;	
 		   text-overflow: ellipsis;
 		   white-space: nowrap;			   	
 	   }		
@@ -1027,7 +1027,7 @@ main {
 	   background-repeat: no-repeat;
 	   background-position: right 8px center;
 	   background-size: 24px;	
-	   appearance: none;	
+	   appearance: none!important;	
 	   text-overflow: ellipsis;
 	   white-space: nowrap;	
 	   	
@@ -1057,14 +1057,14 @@ main {
 		   background-repeat: no-repeat;
 		   background-position: right 8px center;
 		   background-size: 24px;	
-		   appearance: none;	
+		   appearance: none!important;	
 		   text-overflow: ellipsis;
 		   white-space: nowrap;		
 	   }
    }
 }
 .field-s , .field-s {
-	appearance: none;	
+	appearance: none!important;	
 	text-overflow: ellipsis;
 	white-space: nowrap;			
 }	
@@ -1302,7 +1302,7 @@ main {
 		   gap: 8px;
 	   }
 	   select {
-		   appearance: none; 
+		   appearance: none!important; 
 		   box-shadow: none;
 	   }
 	   
@@ -1320,7 +1320,7 @@ main {
 		   background-repeat: no-repeat;
 		   background-position:right 8px center;
 		   background-size:24px;	
-		   appearance: none;	
+		   appearance: none!important;	
 		   text-overflow: ellipsis;
 		   white-space: nowrap;			   		
 	   }
@@ -1535,7 +1535,7 @@ h1 , h2 {
 	   border: 1px solid #E8E8E8;	
 	   border-radius: 8px;
 	   padding: 0 0 0 8px;
-	   appearance: none;	
+	   appearance: none!important;	
 	   text-overflow: ellipsis;
 	   white-space: nowrap;		   
    }
