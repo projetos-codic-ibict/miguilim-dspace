@@ -3094,6 +3094,9 @@ a {
 
 .alphabetica-itens {
   margin: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 4px;
 }
 .alphabetica-itens .label-default {

@@ -2446,6 +2446,9 @@ a.admin-help {
 
   .alphabetica-itens {
 	margin:8px 16px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 	.label-default {
 		background: $blue-light;
 		&:hover {
