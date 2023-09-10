@@ -10,6 +10,9 @@ env:
 jobs:
   deploy:
     runs-on: [self-hosted, linux, x64, runner-hml]
+    environment:
+      name: HML
+      url: 'http://172.16.21.20'
 
     steps:
       - uses: actions/checkout@v3
