@@ -2091,6 +2091,16 @@ main {
   background: #f7f7f7;
   padding: 40px 32px;
 }
+.search-main .search-filter .well {
+  display: flex;
+  align-items: center;
+}
+.search-main .search-filter .toggle-me:hover::after {
+  transform: translate(-110px, 2px) scale(1);
+}
+.search-main .search-filter .toggle-me {
+  margin-right: 16px;
+}
 .search-main .search-filter h3 {
   margin-bottom: 16px;
   font-weight: 600;

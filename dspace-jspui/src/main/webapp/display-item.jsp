@@ -250,6 +250,9 @@
         %>
 
 		<div class="search-filter">
+            <div class="d-flex">
+            <a class="toggle-me aberto" tooltipbtn="Acesso aberto"><img src="../../image/aberto.svg" alt="selo sobre conteúdo acesso aberto"></a>
+            <a class="toggle-me" tooltipbtn="Indícios predatórios"><img src="../../image/indicios.svg" alt="selo sobre conteúdo acesso aberto"></a>
             <%-- <strong>Please use this identifier to cite or link to this item:
             <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
             
@@ -273,7 +276,7 @@
             <%
                 }
             %>
-            
+            </div>
             <ul class="nav nav-pills">
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message
