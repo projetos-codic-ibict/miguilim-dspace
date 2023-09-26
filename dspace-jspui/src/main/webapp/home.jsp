@@ -331,7 +331,7 @@
 		</svg>
 	</a>
 	<div class="card">
-		<a class="toggle-me" tooltipbtn="Acesso aberto"><img src="image/aberto.svg" alt="selo sobre conteúdo acesso aberto"></a>
+		<a class="toggle-me" tooltipbtn="Práticas de Ciência Aberta"><img src="image/aberto.svg" alt="selo sobre conteúdo acesso aberto"></a>
 		<a class="toggle-me" tooltipbtn="Indícios predatórios"><img src="image/indicios.svg" alt="selo sobre conteúdo acesso aberto"></a>		
 		<%
 			boolean first = true;

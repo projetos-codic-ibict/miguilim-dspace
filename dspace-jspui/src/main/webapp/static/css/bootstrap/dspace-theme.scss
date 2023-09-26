@@ -419,13 +419,10 @@ main {
 	.toggle-me {
 	 position: relative;
 	 white-space: nowrap;
+	 width: auto;
 	}
 	.toggle-me:hover::after{
-	 transform: translate(-50%, 48px) scale(1);
-	 margin-left: -50%;
-	}
-	.aberto:hover::after{
-	 transform: translate(-113px, 2px) scale(1)!important;
+	 transform: translate(-80%, -48px) scale(1);
 	}
 	@include for-size(tablet-landscape-up) { 
 		margin:80px auto 0 auto;

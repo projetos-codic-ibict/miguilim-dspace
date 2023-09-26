@@ -1137,13 +1137,10 @@ main {
 .content-news .toggle-me {
   position: relative;
   white-space: nowrap;
+  width: auto;
 }
 .content-news .toggle-me:hover::after {
-  transform: translate(-50%, 48px) scale(1);
-  margin-left: -50%;
-}
-.content-news .aberto:hover::after {
-  transform: translate(-113px, 2px) scale(1) !important;
+  transform: translate(-80%, -48px) scale(1);
 }
 @media (max-width: 920px) {
   .content-news {
