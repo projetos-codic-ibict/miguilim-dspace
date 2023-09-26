@@ -277,6 +277,7 @@
                 }
             %>
             </div>
+            
             <ul class="nav nav-pills">
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message
