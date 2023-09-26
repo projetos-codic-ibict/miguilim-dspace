@@ -1140,7 +1140,10 @@ main {
   width: auto;
 }
 .content-news .toggle-me:hover::after {
-  transform: translate(-80%, -48px) scale(1);
+  transform: translate(-50%, -32px) scale(1);
+  width: auto !important;
+  white-space: nowrap;
+  margin-left: -50%;
 }
 @media (max-width: 920px) {
   .content-news {
@@ -2098,6 +2101,7 @@ main {
   transform: translate(-50%, -32px) scale(1);
   width: auto !important;
   white-space: nowrap;
+  margin-left: -50%;
 }
 .search-main .search-filter .toggle-me {
   margin-right: 16px;
