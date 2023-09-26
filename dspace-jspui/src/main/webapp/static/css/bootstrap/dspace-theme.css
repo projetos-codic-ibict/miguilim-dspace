@@ -1136,9 +1136,11 @@ main {
 }
 .content-news .toggle-me {
   position: relative;
+  white-space: nowrap;
 }
 .content-news .toggle-me:hover::after {
-  transform: translate(-116px, 2px) scale(1);
+  transform: translate(-50%, 48px) scale(1);
+  margin-left: -50%;
 }
 .content-news .aberto:hover::after {
   transform: translate(-113px, 2px) scale(1) !important;
@@ -2096,10 +2098,14 @@ main {
   align-items: center;
 }
 .search-main .search-filter .toggle-me:hover::after {
-  transform: translate(-110px, 2px) scale(1);
+  transform: translate(-50%, -32px) scale(1);
+  width: auto !important;
+  white-space: nowrap;
 }
 .search-main .search-filter .toggle-me {
   margin-right: 16px;
+  position: relative;
+  white-space: nowrap;
 }
 .search-main .search-filter h3 {
   margin-bottom: 16px;
