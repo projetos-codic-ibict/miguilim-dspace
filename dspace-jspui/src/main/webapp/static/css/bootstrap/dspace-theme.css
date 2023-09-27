@@ -1184,7 +1184,7 @@ main {
   display: flex;
   align-items: center;
 }
-.content-news .card a:last-child {
+.content-news .card a.tooltips-wrapper:last-of-type {
   margin-right: 16px;
 }
 @media (max-width: 920px) {
@@ -2790,33 +2790,6 @@ a.admin-help {
 }
 .translateBtn div:first-child {
   width: 32px;
-}
-
-.toggle-me::after {
-  transition: all ease-in-out 0.2s;
-  content: attr(tooltipBtn);
-  position: absolute;
-  background-color: #071D41;
-  color: white;
-  border-radius: 4px;
-  transform: translate(-160px, 2px) scale(0.9);
-  padding: 8px;
-  width: 110px;
-  text-align: center;
-  opacity: 0;
-}
-.toggle-me:hover::after {
-  transition: all ease-in-out 0.2s;
-  content: attr(tooltipBtn);
-  position: absolute;
-  background-color: #071D41;
-  color: white;
-  border-radius: 4px;
-  transform: translate(-160px, 2px) scale(1);
-  padding: 8px;
-  width: 110px;
-  text-align: center;
-  opacity: 1;
 }
 
 .translateBtn.active {

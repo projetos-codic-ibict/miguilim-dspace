@@ -463,8 +463,8 @@ main {
 		padding: 32px 40px;
 		display: flex;
 		align-items: center;
-		a:last-child {
-		 margin-right: 16px;
+		a.tooltips-wrapper:last-of-type {
+			margin-right: 16px;	
 		}
 		@include for-size(tablet-landscape-up) { 
 		 padding: 32px 48px;
@@ -2131,44 +2131,9 @@ a.admin-help {
    transition: all .2s cubic-bezier(.76,0,.27,.99);
 }
 
-.toggle-me {
-   &::after {
-	   transition: all ease-in-out .2s;
-	   content: attr(tooltipBtn);
-	   position: absolute;
-	   background-color: $bluecolor;
-	   color: white;
-	   border-radius: 4px;
-	   transform: translate(-160px,2px) scale(0.9);
-	   padding: 8px;
-	   width: 110px;
-	   text-align: center;
-	   opacity: 0;
-   }
-   &:hover {		
-	   &::after {
-		   transition: all ease-in-out .2s;
-		   content: attr(tooltipBtn);
-		   position: absolute;
-		   background-color: $bluecolor;
-		   color: white;
-		   border-radius: 4px;
-		   transform: translate(-160px,2px) scale(1);
-		   padding: 8px;
-		   width: 110px;
-		   text-align: center;
-		   opacity: 1;
-	   }			
-   }
-}
-
 .translateBtn.active{
    right: 0px;
 }
-
-
-
-
 
 .tooltips {
 	position: relative;
