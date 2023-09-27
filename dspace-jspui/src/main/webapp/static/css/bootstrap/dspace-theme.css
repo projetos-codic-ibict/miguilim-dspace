@@ -1182,8 +1182,9 @@ main {
   border-radius: 8px;
   padding: 32px 40px;
   display: flex;
+  align-items: center;
 }
-.content-news .card a {
+.content-news .card a:last-child {
   margin-right: 16px;
 }
 @media (max-width: 920px) {
