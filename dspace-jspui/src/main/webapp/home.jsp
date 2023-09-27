@@ -331,8 +331,16 @@
 		</svg>
 	</a>
 	<div class="card">
-		<a class="toggle-me" tooltipbtn="Práticas de Ciência Aberta"><img src="image/aberto.svg" alt="selo sobre conteúdo acesso aberto"></a>
-		<a class="toggle-me" tooltipbtn="Indícios predatórios"><img src="image/indicios.svg" alt="selo sobre conteúdo acesso aberto"></a>		
+		<a class="tooltips-wrapper">
+			<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta">
+				<img src="image/aberto.svg" alt="selo sobre conteúdo acesso aberto">
+			</div>
+		</a>
+		<a class="tooltips-wrapper">
+			<div class="tooltips" tooltipbtn="Indícios predatórios">
+				<img src="image/indicios.svg" alt="selo sobre conteúdo acesso aberto">
+			</div>
+		</a>			
 		<%
 			boolean first = true;
 			int iteratorRecent = 0;
@@ -359,9 +367,9 @@
 		%>
 
 		<div style="cursor:pointer" onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
-			<h3><%= displayTitle %></h3>
-			<p><%= publisher %></p>
 			Atualizado em <%= dateUpdate %>
+			<h3><%= displayTitle %></h3>
+			<p><%= publisher %></p>			
 		</div>
 
 		<%

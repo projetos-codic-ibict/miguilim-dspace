@@ -251,8 +251,16 @@
 
 		<div class="search-filter">
             <div class="d-flex">
-            <a class="toggle-me" tooltipbtn="Acesso aberto"><img src="../../image/aberto.svg" alt="selo sobre conteúdo acesso aberto"></a>
-            <a class="toggle-me" tooltipbtn="Indícios predatórios"><img src="../../image/indicios.svg" alt="selo sobre conteúdo acesso aberto"></a>
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Práticas de Ciência Aberta">
+                        <img src="../../image/aberto.svg" alt="selo sobre conteúdo acesso aberto">
+                    </div>
+                </a>
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Indícios predatórios">
+                        <img src="../../image/indicios.svg" alt="selo sobre conteúdo acesso aberto">
+                    </div>
+                </a>  
             <%-- <strong>Please use this identifier to cite or link to this item:
             <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
             

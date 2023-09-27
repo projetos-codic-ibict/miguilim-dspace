@@ -2832,6 +2832,44 @@ a.admin-help {
   right: 0px;
 }
 
+.tooltips {
+  position: relative;
+  white-space: nowrap;
+  transform-origin: center;
+  width: auto;
+  transform-origin: center;
+}
+.tooltips:last-child {
+  margin-right: 16px;
+}
+.tooltips:hover::after {
+  position: absolute;
+  background-color: #071D41;
+  color: white;
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+  left: 50%;
+  top: -16%;
+  padding: 8px 16px;
+  text-align: center;
+  opacity: 1;
+  transform-origin: center;
+}
+.tooltips::after {
+  transition: all ease-in-out 0.2s;
+  content: attr(tooltipBtn);
+  z-index: 1000;
+  transform: translate(-50%, -50%) scale(0.9);
+  left: 50%;
+  top: 0%;
+  position: absolute;
+  padding: 8px;
+  max-width: auto;
+  text-align: center;
+  opacity: 0;
+  transform-origin: center;
+}
+
 .no-result-search {
   font-size: 32px;
   margin-top: 24px;
