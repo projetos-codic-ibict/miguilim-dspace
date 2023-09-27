@@ -416,17 +416,7 @@ main {
 	//max-width: 720px;
 	margin: 80px auto;
 	padding: 0 0px;
-	.toggle-me {
-	 position: relative;
-	 white-space: nowrap;
-	 width: auto;
-	}
-	.toggle-me:hover::after{
-		transform: translate(-50%, -32px) scale(1);
-		width: auto!important;
-		white-space: nowrap;
-		margin-left: -50%;		
-	}
+
 	@include for-size(tablet-landscape-up) { 
 		margin:80px auto 0 auto;
 		padding: 0 40px;
@@ -483,6 +473,7 @@ main {
 			font-size: 0.875rem;
 			font-size: 1.8rem;
 			color:$bluecolor;
+			margin: 12px 0 4px 0;
 		}
 		h2 {
 			font-size: 1.8rem;
@@ -2215,7 +2206,7 @@ a.admin-help {
 	  transform-origin: center;
   }  
   }
-  
+
 .no-result-search{
    font-size:32px;
    margin-top: 24px;

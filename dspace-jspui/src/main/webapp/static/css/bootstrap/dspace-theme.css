@@ -1134,17 +1134,6 @@ main {
   margin: 80px auto;
   padding: 0 0px;
 }
-.content-news .toggle-me {
-  position: relative;
-  white-space: nowrap;
-  width: auto;
-}
-.content-news .toggle-me:hover::after {
-  transform: translate(-50%, -32px) scale(1);
-  width: auto !important;
-  white-space: nowrap;
-  margin-left: -50%;
-}
 @media (max-width: 920px) {
   .content-news {
     margin: 80px auto 0 auto;
@@ -1207,6 +1196,7 @@ main {
   font-size: 0.875rem;
   font-size: 1.8rem;
   color: #071D41;
+  margin: 12px 0 4px 0;
 }
 .content-news .card h2 {
   font-size: 1.8rem;
