@@ -331,21 +331,23 @@
 		</svg>
 	</a>
 	<div class="card">
-		<a class="tooltips-wrapper">
-			<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta">
-				<img src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
-			</div>
-		</a>
-		<a class="tooltips-wrapper">
-			<div class="tooltips" tooltipbtn="Indícios predatórios">
-				<img src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
-			</div>
-		</a>
-		<a class="tooltips-wrapper">
-			<div class="tooltips" tooltipbtn="Revista diamante">
-				<img src="image/diamante.svg" alt="selo sobre revista diamante">
-			</div>
-		</a>				
+		<div class="wrapper-stamp">
+			<a class="tooltips-wrapper">
+				<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta">
+					<img width="128" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
+				</div>
+			</a>
+			<a class="tooltips-wrapper">
+				<div class="tooltips" tooltipbtn="Indícios predatórios">
+					<img width="128"  src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
+				</div>
+			</a>
+			<a class="tooltips-wrapper">
+				<div class="tooltips" tooltipbtn="Revista diamante">
+					<img width="128"  src="image/diamante.svg" alt="selo sobre revista diamante">
+				</div>
+			</a>		
+			</div>			
 		<%
 			boolean first = true;
 			int iteratorRecent = 0;
