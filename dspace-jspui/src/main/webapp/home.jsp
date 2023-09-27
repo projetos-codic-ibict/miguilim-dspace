@@ -333,14 +333,19 @@
 	<div class="card">
 		<a class="tooltips-wrapper">
 			<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta">
-				<img src="image/aberto.svg" alt="selo sobre conteúdo acesso aberto">
+				<img src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
 			</div>
 		</a>
 		<a class="tooltips-wrapper">
 			<div class="tooltips" tooltipbtn="Indícios predatórios">
-				<img src="image/indicios.svg" alt="selo sobre conteúdo acesso aberto">
+				<img src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
 			</div>
-		</a>			
+		</a>
+		<a class="tooltips-wrapper">
+			<div class="tooltips" tooltipbtn="Revista diamante">
+				<img src="image/diamante.svg" alt="selo sobre revista diamante">
+			</div>
+		</a>				
 		<%
 			boolean first = true;
 			int iteratorRecent = 0;

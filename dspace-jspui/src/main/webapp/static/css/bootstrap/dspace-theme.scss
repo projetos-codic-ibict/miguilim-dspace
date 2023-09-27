@@ -463,9 +463,21 @@ main {
 		padding: 32px 40px;
 		display: flex;
 		align-items: center;
-		a.tooltips-wrapper:last-of-type {
-			margin-right: 16px;	
-		}
+		.wrapper-stamp {
+			display: flex;
+			@include for-size(tablet-landscape-up) {
+				justify-content:space-between;
+				margin-bottom: 16px;
+			}
+			@include for-size(phone-only) {
+				img {
+					width: 64px;
+				}
+			}
+			a.tooltips-wrapper:last-of-type {
+				margin-right: 16px;	
+			}		
+		   }
 		@include for-size(tablet-landscape-up) { 
 		 padding: 32px 48px;
 		 display: block;
@@ -1359,17 +1371,17 @@ main {
 		display: flex;
     	align-items: center;
 	}	
-	.toggle-me:hover::after {
-		transform: translate(-50%, -32px) scale(1);
-		width: auto!important;
-		white-space: nowrap;	
-		margin-left: -50%;			
-	}
-	.toggle-me {
-		margin-right: 16px;
-		position: relative;
-		white-space: nowrap;		
-	}	
+	// .toggle-me:hover::after {
+	// 	transform: translate(-50%, -32px) scale(1);
+	// 	width: auto!important;
+	// 	white-space: nowrap;	
+	// 	margin-left: -50%;			
+	// }
+	// .toggle-me {
+	// 	margin-right: 16px;
+	// 	position: relative;
+	// 	white-space: nowrap;		
+	// }	
 	h3 {
 		margin-bottom: 16px;
 		font-weight: 600;
