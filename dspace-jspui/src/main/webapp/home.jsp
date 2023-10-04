@@ -41,30 +41,31 @@
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 <%@ page import="org.dspace.content.service.CollectionService" %>
-<%@page import="org.dspace.handle.HandleServiceImpl" %>
+<%@ page import="org.dspace.handle.HandleServiceImpl" %>
 <%@ page import="org.dspace.handle.factory.HandleServiceFactory" %>
 <%@ page import="org.dspace.handle.service.HandleService" %>
 <%@ page import="java.util.*" %>
 <%@ page import="org.dspace.termometro.service.TermometroService" %>
 <%@ page import="org.dspace.termometro.factory.TermometroServiceFactory" %>
-
+<%@ page import="org.dspace.content.MetadataValue" %>
 
 <%!
-	private java.util.Optional<FacetResult> getFacetResult(Map<String, List<FacetResult>> facetsRoot,
-														   String rootFacet, String targetFacet) {
-		if(!facetsRoot.isEmpty() && facetsRoot.get(rootFacet) != null) {
+	private java.util.Optional<FacetResult> getFacetResult(Map<String, List<FacetResult>> facetsRoot, String rootFacet, String targetFacet) {
+		if(!facetsRoot.isEmpty() && facetsRoot.get(rootFacet) != null) 
+		{
 			Optional<FacetResult> facetResultOpt = facetsRoot.get(rootFacet).stream().filter(facetResult ->
 					facetResult.getDisplayedValue().equalsIgnoreCase(targetFacet)).findFirst();
+			
 			return facetResultOpt;
-
 		}
+		
 		return Optional.empty();
 	}
 
 	public static final String REVISTAS = "miguilim/2";
 	public static final String PORTAL_DE_PERIODICOS = "miguilim/2669";
-%><%
-
+%>
+<% 
     Locale sessionLocale = UIUtil.getSessionLocale(request);
     Config.set(request.getSession(), Config.FMT_LOCALE, sessionLocale);
 
@@ -83,10 +84,14 @@
     ItemCounter ic = new ItemCounter(UIUtil.obtainContext(request));
 
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
+    
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
 	HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
+	TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
+	
 	Map<String, List<FacetResult>> facetsRoot = (Map<String, List<FacetResult>>) request.getAttribute("discovery.fresults");
+	
 %>
 
 <dspace:layout locbar="off" titlekey="jsp.home.title" feedData="<%= feedData %>">
@@ -331,7 +336,9 @@
 		</svg>
 	</a>
 	<div class="card">
-		<%
+		
+			
+		<% 
 			boolean first = true;
 			int iteratorRecent = 0;
 			for (Item item : itemService.findAllLastModified(UIUtil.obtainContext(request)))
@@ -354,12 +361,47 @@
 				{
 					dateUpdate = "";
 				}
+				
+				String porcentagemPontuacaoTermometro = termometroService.calcularPorcentagemPontuacao(item);
+				 
+				List<MetadataValue> predatoryValues = itemService.getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
+				List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
+				List<MetadataValue> feesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
+		
+				boolean possuiSeloRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
+				boolean possuiSeloCienciaAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
+				boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") 
+				    		&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
+			
+				String displaySeloRevistaPredatoria = possuiSeloRevistaPredatoria ? "block" : "none";
+				String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "block" : "none";
+	            String displaySeloDiamante = possuiSeloDiamante ? "block" : "none";
 		%>
-
+                
 		<div style="cursor:pointer" onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
-			<h3><%= displayTitle %></h3>
-			<p><%= publisher %></p>
+			
+			<div class="wrapper-stamp" >
+				<a class="tooltips-wrapper">
+					<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta" style="display: <%= displaySeloAcessoAberto %>;">
+						<img width="128" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
+					</div>
+				</a>
+				<a class="tooltips-wrapper">
+					<div class="tooltips" tooltipbtn="Indícios predatórios" style="display: <%= displaySeloRevistaPredatoria %>;">
+						<img width="128"  src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
+					</div>
+				</a>
+				<a class="tooltips-wrapper">
+					<div class="tooltips" tooltipbtn="Revista diamante" style="display: <%= displaySeloDiamante %>;">
+						<img width="128"  src="image/diamante.svg" alt="selo sobre revista diamante">
+					</div>
+				</a>		
+			</div>
+	
+			
 			Atualizado em <%= dateUpdate %>
+			<h3><%= displayTitle %></h3>
+			<p><%= publisher %></p>			
 		</div>
 
 		<%

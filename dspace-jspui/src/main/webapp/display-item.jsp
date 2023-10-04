@@ -133,9 +133,12 @@
 
     List<MetadataValue> predatoryValues = itemService.getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
     List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
+    List<MetadataValue> feesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
 
-    boolean possuiIndicioRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
-    boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
+    boolean possuiSeloRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
+    boolean possuiSeloCienciaAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
+    boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") 
+    		&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
     
     Boolean pendingReview = (Boolean) (request.getAttribute("pending_review") != null ? request.getAttribute("pending_review") : false);
 %>
@@ -250,17 +253,39 @@
         %>
 
 		<div class="search-filter">
-            <%-- <strong>Please use this identifier to cite or link to this item:
-            <code><%= HandleManager.getCanonicalForm(handle) %></code></strong>--%>
-            
-			<%
-				if (pendingReview) 
-                {
-            %>
-					<p class="alert alert-info"><fmt:message key="jsp.submit.complete.update"/></p> 
             <%
-                }
+            if (pendingReview) 
+            {
             %>
+                <p class="alert alert-info"><fmt:message key="jsp.submit.complete.update"/></p> 
+            <%
+            }
+            %>
+            <div class="d-flex">
+            	
+				<% 
+                    String displaySeloRevistaPredatoria = possuiSeloRevistaPredatoria ? "block" : "none";
+					String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "block" : "none";
+                    String displaySeloDiamante = possuiSeloDiamante ? "block" : "none";
+                %>
+            
+            
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Práticas de Ciência Aberta" style="display: <%= displaySeloAcessoAberto %>;">
+                        <img src="../../image/aberto.svg" alt="selo sobre prática de ciência aberta">
+                    </div>
+                </a>
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Indícios predatórios" style="display: <%= displaySeloRevistaPredatoria %>;">
+                        <img src="../../image/indicios.svg" alt="selo sobre indícios de revista predatória">
+                    </div>
+                </a>
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Revista diamante" style="display: <%= displaySeloDiamante %>;">
+                        <img src="../../image/diamante.svg" alt="selo sobre revista diamante">
+                    </div>
+                </a>	
+	
             
             <%
                 if (preferredIdentifier != null) 
@@ -268,12 +293,13 @@
             %>
 		            <div class="well">
 		                <fmt:message key="jsp.display-item.identifier"/>
-		                <code><%= preferredIdentifier %></code>
+                        <code><%= preferredIdentifier %></code>
 		            </div>
             <%
                 }
             %>
-            
+            </div>
+
             <ul class="nav nav-pills">
                 <li class="nav-item active">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data"><fmt:message
@@ -326,25 +352,6 @@
 
                 <dspace:item-preview item="<%= item %>"/>
                 <dspace:item item="<%= item %>" collections="<%= collections %>"/>
-
-                <% 
-                    String displayOpenAccess = possuiAcessoAberto ? "block" : "none";
-                    String displayPredatory = possuiIndicioRevistaPredatoria ? "block" : "none";
-                %>
-                <div>
-                    <div class="d-flex">
-                        <div class="col-md-2" style="display: <%= displayOpenAccess %>;">
-                            <a class="legenda" textoLegenda="Dados de acesso aberto">
-                                <img height="120px" src="<%= request.getContextPath() %>/image/selo-aberto.png" alt="selo-acesso-aberto"/>
-                            </a>
-                        </div>
-                        <div class="col-md-2" style="display: <%= displayPredatory %>;">
-                            <a class="legenda" textoLegenda="Indícios de revista predatória">
-                                <img height="120px" src="<%= request.getContextPath() %>/image/selo-predatoria.png" alt="selo-revista-predatoria" />
-                            </a>
-                        </div>
-                    </div>
-                </div>
                 
             </div>
 

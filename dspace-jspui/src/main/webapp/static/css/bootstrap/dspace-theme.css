@@ -1181,16 +1181,37 @@ main {
   background: #FFFFFF;
   border-radius: 8px;
   padding: 32px 40px;
+  display: flex;
+  align-items: center;
+}
+.content-news .card .wrapper-stamp {
+  display: flex;
+}
+@media (max-width: 920px) {
+  .content-news .card .wrapper-stamp {
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+}
+@media (max-width: 599px) {
+  .content-news .card .wrapper-stamp img {
+    width: 64px;
+  }
+}
+.content-news .card .wrapper-stamp a.tooltips-wrapper:last-of-type {
+  margin-right: 16px;
 }
 @media (max-width: 920px) {
   .content-news .card {
     padding: 32px 48px;
+    display: block;
   }
 }
 .content-news .card h3 {
   font-size: 0.875rem;
   font-size: 1.8rem;
   color: #071D41;
+  margin: 12px 0 4px 0;
 }
 .content-news .card h2 {
   font-size: 1.8rem;
@@ -2077,6 +2098,10 @@ main {
   background: #f7f7f7;
   padding: 40px 32px;
 }
+.search-main .search-filter .well {
+  display: flex;
+  align-items: center;
+}
 .search-main .search-filter h3 {
   margin-bottom: 16px;
   font-weight: 600;
@@ -2770,35 +2795,46 @@ a.admin-help {
   width: 32px;
 }
 
-.toggle-me::after {
-  transition: all ease-in-out 0.2s;
-  content: attr(tooltipBtn);
-  position: absolute;
-  background-color: #071D41;
-  color: white;
-  border-radius: 4px;
-  transform: translate(-160px, 2px) scale(0.9);
-  padding: 8px;
-  width: 110px;
-  text-align: center;
-  opacity: 0;
-}
-.toggle-me:hover::after {
-  transition: all ease-in-out 0.2s;
-  content: attr(tooltipBtn);
-  position: absolute;
-  background-color: #071D41;
-  color: white;
-  border-radius: 4px;
-  transform: translate(-160px, 2px) scale(1);
-  padding: 8px;
-  width: 110px;
-  text-align: center;
-  opacity: 1;
-}
-
 .translateBtn.active {
   right: 0px;
+}
+
+.tooltips {
+  position: relative;
+  white-space: nowrap;
+  transform-origin: center;
+  width: auto;
+  transform-origin: center;
+}
+.tooltips:last-child {
+  margin-right: 16px;
+}
+.tooltips:hover::after {
+  position: absolute;
+  background-color: #071D41;
+  color: white;
+  border-radius: 4px;
+  transform: translate(-50%, -50%) scale(1);
+  left: 50%;
+  top: -16%;
+  padding: 8px 16px;
+  text-align: center;
+  opacity: 1;
+  transform-origin: center;
+}
+.tooltips::after {
+  transition: all ease-in-out 0.2s;
+  content: attr(tooltipBtn);
+  z-index: 1000;
+  transform: translate(-50%, -50%) scale(0.9);
+  left: 50%;
+  top: 0%;
+  position: absolute;
+  padding: 8px;
+  max-width: auto;
+  text-align: center;
+  opacity: 0;
+  transform-origin: center;
 }
 
 .no-result-search {
