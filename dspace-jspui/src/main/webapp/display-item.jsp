@@ -261,6 +261,19 @@
             <%
             }
             %>
+
+            <%
+            if (preferredIdentifier != null) 
+            {
+            %>
+                <div class="well">
+                    <fmt:message key="jsp.display-item.identifier"/>
+                    <code style="padding:5px 2px 2px 5px;"><%= preferredIdentifier %></code>
+                </div>
+            <%
+            }
+            %>
+
             <div class="d-flex">
             	
 				<% 
@@ -285,19 +298,7 @@
                         <img src="../../image/diamante.svg" alt="selo sobre revista diamante">
                     </div>
                 </a>	
-	
-            
-            <%
-                if (preferredIdentifier != null) 
-                {
-            %>
-		            <div class="well">
-		                <fmt:message key="jsp.display-item.identifier"/>
-                        <code><%= preferredIdentifier %></code>
-		            </div>
-            <%
-                }
-            %>
+        
             </div>
 
             <ul class="nav nav-pills">
