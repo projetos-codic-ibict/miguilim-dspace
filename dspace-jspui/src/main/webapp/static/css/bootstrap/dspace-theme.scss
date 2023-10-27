@@ -337,6 +337,93 @@ body {
 	   // background-size:24px;		
 		font-size: 1.2rem;
    }
+   .stamp-checkbox {
+	display: flex; 
+	align-items: center; width:100%;
+	justify-content: center;
+	position: relative;
+	height: 72px;
+	@include for-size(phone-only) {
+		display: none;
+	}
+   }
+   .click-stamp {
+	position: absolute;
+	display: inline-flex;
+	padding: 8px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 16px;
+	border-radius: 0px 0px 8px 8px;
+	background: #FFF;
+	
+	//transform: translateX(25%);		
+	.form-check {
+		display: flex;
+		gap: 8px;
+		align-items: center;
+		.label-stamp {
+			color: $black;
+			font-family: $linkfont-family;
+			font-size: 14px;
+			font-style: normal;
+			font-weight: 400!important;
+			line-height: 16px; /* 114.286% */
+			letter-spacing: 0.5px;	
+			margin-bottom: 0!important;		
+			display: flex;				
+		}
+		input[type="checkbox"] {
+			/* Add if not using autoprefixer */
+			-webkit-appearance: none;
+			/* Remove most all native input styles */
+			appearance: none;
+			/* For iOS < 15 */
+			background-color: $background;
+			/* Not removed via appearance */
+			margin: 0;
+		  
+			font: inherit;
+			color: $blue;
+			width: 15px;
+			height: 15px;
+			border: 1px solid $blue;
+			border-radius: 4px;
+		//	transform: translateY(-0.075em);
+			display: grid;
+			place-content: center;
+		  }
+		  
+		input[type="checkbox"]::before {
+			content: "";
+			width: 8px;
+			height: 8px;
+			background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNOCAwLjU5Mzc1TDMuMTg3NSA1LjQwNjI1TDEgMy4yMTg3NSIgc3Ryb2tlPSIjMDA2Q0Q4IiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+Cg==");
+			background-repeat: no-repeat;
+			//clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+			transform: scale(0);
+			//transform-origin: bottom left;
+			background-position: center center;
+			transition: 120ms transform ease-in-out;
+			//box-shadow: inset 2px 2px $blue;
+			/* Windows High Contrast Mode */
+			// background-color: $blue!important;
+			// border: 1px solid $blue!important;
+		  }
+		  
+		  input[type="checkbox"]:checked::before {
+			transform: scale(1);
+			// background-color: $blue!important;
+			padding: 4px;
+		  }
+
+		  
+		  input[type="checkbox"]:focus {
+			outline: 1px solid $blue !important;
+			outline-offset: max(1px,2px);
+		  }			
+	} 
+   }   
 }
 
 .well {
