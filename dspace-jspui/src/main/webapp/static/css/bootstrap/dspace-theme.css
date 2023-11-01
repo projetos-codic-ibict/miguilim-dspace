@@ -1063,7 +1063,8 @@ body {
   align-items: center;
   gap: 16px;
   border-radius: 0px 0px 8px 8px;
-  background: #FFF;
+  background: #FFFFFF;
+  margin-top: 24px;
 }
 .search-home .click-stamp .form-check {
   display: flex;

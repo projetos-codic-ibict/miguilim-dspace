@@ -191,25 +191,16 @@
 		<div class="stamp-checkbox">
 			<div class="click-stamp">
 				<div class="form-check">
-					<img width="40" src="image/indicios.svg" alt="selo sobre revista diamante">
+					<img width="80" src="image/indicios.svg" alt="selo sobre revista diamante">
 					<input type="checkbox" value="" id="flexCheckDefault">
-					<label class="label-stamp" for="flexCheckDefault">
-						Indícios predatório					
-					</label>
 				  </div>
 				  <div class="form-check">
-					<img width="40" src="image/aberto.svg" alt="selo sobre revista diamante">
+					<img width="80" src="image/aberto.svg" alt="selo sobre revista diamante">
 					<input type="checkbox" value="" id="flexCheckDefault">
-					<label class="label-stamp" for="flexCheckChecked">
-					Práticas de ciência aberta
-					</label>
 				  </div>
 				  <div class="form-check">
-					<img width="40" src="image/diamante.svg" alt="selo sobre revista diamante">
+					<img width="80" src="image/diamante.svg" alt="selo sobre revista diamante">
 					<input type="checkbox" value="" id="flexCheckChecked" checked>
-					<label class="label-stamp" for="flexCheckChecked">
-					Revista diamante
-					</label>
 				  </div>			  
 			</div>
 		</div>		
