@@ -334,7 +334,6 @@ body {
 	   // letter-spacing:0.5px;
 	   // background-repeat: no-repeat;
 	   // background-position:right 8px center;
-	   // background-size:24px;		
 		font-size: 1.2rem;
    }
    .stamp-checkbox {
@@ -344,7 +343,7 @@ body {
 	position: relative;
 	height: 72px;
 	@include for-size(phone-only) {
-		display: none;
+		display: none; 
 	}
    }
    .click-stamp {
