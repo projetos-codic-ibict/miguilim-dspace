@@ -36,10 +36,13 @@
     
 <%
     if (retry)
-    { %>
+    {
+%>
     <%-- <p><strong>The e-mail address you entered was invalid.</strong>  Please try again.</strong></p> --%>
 	<p class="alert alert-warning"><fmt:message key="jsp.register.new-user.info1"/></p>
-<%  } %>
+<%
+    }
+%>
 
     <%-- <p>If you've never logged on to DSpace before, please enter your e-mail
     address in the box below and click "Register".</p> --%>
@@ -48,6 +51,7 @@
     <form class="form-horizontal" action="<%= request.getContextPath() %>/register" method="post">
 
         <input type="hidden" name="step" value="<%= RegisterServlet.ENTER_EMAIL_PAGE %>"/>
+
         <%-- <td class="standard"><strong>E-mail Address:</strong></td> --%>
         <div class="form-group">
             <label class="col-md-offset-3 col-md-2 control-label" for="temail"><fmt:message key="jsp.register.new-user.email.field"/></label>
@@ -57,11 +61,12 @@
             <%-- <input type="submit" name="submit" value="Register"> --%>
             <input class="btn btn-default col-md-4" type="submit" name="submit" value="<fmt:message key="jsp.register.new-user.register.button"/>" />
         </div>
+
     </form>
+
     <%-- <p>If you or your department are interested in registering with DSpace, please
     contact the DSpace site administrators.</p> --%>
     <br/>
-	<div class="alert alert-info"><fmt:message key="jsp.register.new-user.info3"/></div>
 
     <dspace:include page="/components/contact-info.jsp" />
 
