@@ -188,6 +188,7 @@
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
 			<button type="submit" class="button-main" name="buscar" value="Buscar">Buscar</button>
 		</form>
+		<!--
 		<div class="stamp-checkbox">
 			<div class="click-stamp">
 				<div class="form-check">
@@ -203,7 +204,8 @@
 					<input type="checkbox" value="" id="flexCheckChecked" checked>
 				  </div>			  
 			</div>
-		</div>		
+		</div>
+		-->
 	</div>
 </div>
 
