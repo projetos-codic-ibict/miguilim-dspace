@@ -261,6 +261,19 @@
             <%
             }
             %>
+
+            <%
+            if (preferredIdentifier != null) 
+            {
+            %>
+                <div class="well">
+                    <fmt:message key="jsp.display-item.identifier"/>
+                    <code style="padding:5px 2px 2px 5px;"><%= preferredIdentifier %></code>
+                </div>
+            <%
+            }
+            %>
+
             <div class="d-flex">
             	
 				<% 
@@ -272,32 +285,20 @@
             
                 <a class="tooltips-wrapper">
                     <div class="tooltips" tooltipbtn="Práticas de Ciência Aberta" style="display: <%= displaySeloAcessoAberto %>;">
-                        <img src="../../image/aberto.svg" alt="selo sobre prática de ciência aberta">
+                        <img height="80" src="../../image/aberto.svg" alt="selo sobre prática de ciência aberta">
                     </div>
                 </a>
                 <a class="tooltips-wrapper">
                     <div class="tooltips" tooltipbtn="Indícios predatórios" style="display: <%= displaySeloRevistaPredatoria %>;">
-                        <img src="../../image/indicios.svg" alt="selo sobre indícios de revista predatória">
+                        <img height="80" src="../../image/indicios.svg" alt="selo sobre indícios de revista predatória">
                     </div>
                 </a>
                 <a class="tooltips-wrapper">
                     <div class="tooltips" tooltipbtn="Revista diamante" style="display: <%= displaySeloDiamante %>;">
-                        <img src="../../image/diamante.svg" alt="selo sobre revista diamante">
+                        <img height="80" src="../../image/diamante.svg" alt="selo sobre revista diamante">
                     </div>
                 </a>	
-	
-            
-            <%
-                if (preferredIdentifier != null) 
-                {
-            %>
-		            <div class="well">
-		                <fmt:message key="jsp.display-item.identifier"/>
-                        <code><%= preferredIdentifier %></code>
-		            </div>
-            <%
-                }
-            %>
+        
             </div>
 
             <ul class="nav nav-pills">

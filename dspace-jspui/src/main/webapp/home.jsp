@@ -188,6 +188,24 @@
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
 			<button type="submit" class="button-main" name="buscar" value="Buscar">Buscar</button>
 		</form>
+		<!--
+		<div class="stamp-checkbox">
+			<div class="click-stamp">
+				<div class="form-check">
+					<img width="80" src="image/indicios.svg" alt="selo sobre revista diamante">
+					<input type="checkbox" value="" id="flexCheckDefault">
+				  </div>
+				  <div class="form-check">
+					<img width="80" src="image/aberto.svg" alt="selo sobre revista diamante">
+					<input type="checkbox" value="" id="flexCheckDefault" checked>
+				  </div>
+				  <div class="form-check">
+					<img width="80" src="image/diamante.svg" alt="selo sobre revista diamante">
+					<input type="checkbox" value="" id="flexCheckChecked" checked>
+				  </div>			  
+			</div>
+		</div>
+		-->
 	</div>
 </div>
 
@@ -373,35 +391,37 @@
 				boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") 
 				    		&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
 			
-				String displaySeloRevistaPredatoria = possuiSeloRevistaPredatoria ? "block" : "none";
-				String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "block" : "none";
-	            String displaySeloDiamante = possuiSeloDiamante ? "block" : "none";
+				String displaySeloRevistaPredatoria = possuiSeloRevistaPredatoria ? "" : "d-hide";
+				String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "" : "d-hide";
+	            String displaySeloDiamante = possuiSeloDiamante ? "" : "d-hide";
 		%>
                 
-		<div style="cursor:pointer" onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" <%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
+	<div style="cursor:pointer; <%= iteratorRecent > 1 ? "" : "display:flex" %>"  onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>" 
+			<%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
 			
-			<div class="wrapper-stamp" >
+			<div class="wrapper-stamp">
 				<a class="tooltips-wrapper">
-					<div class="tooltips" tooltipbtn="Práticas de Ciência Aberta" style="display: <%= displaySeloAcessoAberto %>;">
+					<div class="tooltips <%= displaySeloAcessoAberto %>" tooltipbtn="Práticas de Ciência Aberta">
 						<img width="128" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
 					</div>
 				</a>
 				<a class="tooltips-wrapper">
-					<div class="tooltips" tooltipbtn="Indícios predatórios" style="display: <%= displaySeloRevistaPredatoria %>;">
+					<div class="tooltips <%= displaySeloRevistaPredatoria %>" tooltipbtn="Indícios predatórios">
 						<img width="128"  src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
 					</div>
 				</a>
 				<a class="tooltips-wrapper">
-					<div class="tooltips" tooltipbtn="Revista diamante" style="display: <%= displaySeloDiamante %>;">
+					<div class="tooltips <%= displaySeloDiamante %>" tooltipbtn="Revista diamante">
 						<img width="128"  src="image/diamante.svg" alt="selo sobre revista diamante">
 					</div>
 				</a>		
 			</div>
-	
 			
-			Atualizado em <%= dateUpdate %>
-			<h3><%= displayTitle %></h3>
-			<p><%= publisher %></p>			
+			<div>
+				<div>Atualizado em <%= dateUpdate %></div>
+				<h3><%= displayTitle %></h3>
+				<p><%= publisher %></p>
+			</div>		
 		</div>
 
 		<%
@@ -469,7 +489,10 @@
 
 			if(next > 0 && next <= 10) {
 				document.querySelector("div[carousel='" + selected + "']").classList.add("d-hide");
+				document.querySelector("div[carousel='" + selected + "']").style.display = "";
+
 				document.querySelector("div[carousel='" + next + "']").classList.remove("d-hide");
+				document.querySelector("div[carousel='" + next + "']").style.display = "flex";
 			}
 
 		});
