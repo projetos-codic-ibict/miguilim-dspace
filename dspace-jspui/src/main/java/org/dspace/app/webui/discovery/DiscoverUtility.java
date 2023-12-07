@@ -86,17 +86,12 @@ public class DiscoverUtility
             HttpServletRequest request, DSpaceObject scope, boolean enableFacet)
     {
         DiscoverQuery queryArgs = new DiscoverQuery();
-        DiscoveryConfiguration discoveryConfiguration = SearchUtils
-                .getDiscoveryConfiguration(scope);
+        DiscoveryConfiguration discoveryConfiguration = SearchUtils.getDiscoveryConfiguration(scope);
 
-        List<String> userFilters = setupBasicQuery(context,
-                discoveryConfiguration, request, queryArgs);
-
+        List<String> userFilters = setupBasicQuery(context, discoveryConfiguration, request, queryArgs);
         setPagination(request, queryArgs, discoveryConfiguration);
-
-        if (enableFacet
-                && !"submit_export_metadata".equals(UIUtil.getSubmitButton(
-                        request, "submit")))
+   
+        if (enableFacet && !"submit_export_metadata".equals(UIUtil.getSubmitButton(request, "submit")))
         {
             setFacet(context, request, scope, queryArgs,
                     discoveryConfiguration, userFilters, discoveryConfiguration
@@ -220,9 +215,7 @@ public class DiscoverUtility
      *            the query object to populate
      * @return the list of user filer (as filter query)
      */
-    private static List<String> setupBasicQuery(Context context,
-            DiscoveryConfiguration discoveryConfiguration,
-            HttpServletRequest request, DiscoverQuery queryArgs)
+    private static List<String> setupBasicQuery(Context context, DiscoveryConfiguration discoveryConfiguration, HttpServletRequest request, DiscoverQuery queryArgs)
     {
         // Get the query
         String query = request.getParameter("query");
@@ -233,8 +226,7 @@ public class DiscoverUtility
             queryArgs.setQuery(query);
         }
 
-        List<String> defaultFilterQueries = discoveryConfiguration
-                .getDefaultFilterQueries();
+        List<String> defaultFilterQueries = discoveryConfiguration.getDefaultFilterQueries();
         if (defaultFilterQueries != null)
         {
             for (String f : defaultFilterQueries)
@@ -242,24 +234,25 @@ public class DiscoverUtility
                 queryArgs.addFilterQueries(f);
             }
         }
+        
         List<String[]> filters = getFilters(request);
         List<String> userFilters = new ArrayList<String>();
         for (String[] f : filters)
         {
             try
             {
-            String newFilterQuery = null;
-            if (StringUtils.isNotBlank(f[0]) && StringUtils.isNotBlank(f[2]))
-            {
-                newFilterQuery = SearchUtils.getSearchService()
-                        .toFilterQuery(context, f[0], f[1], f[2])
-                        .getFilterQuery();
-            }
-            if (newFilterQuery != null)
-            {
-                queryArgs.addFilterQueries(newFilterQuery);
-                userFilters.add(newFilterQuery);
-            }
+	            String newFilterQuery = null;
+	            if (StringUtils.isNotBlank(f[0]) && StringUtils.isNotBlank(f[2]))
+	            {
+	                newFilterQuery = SearchUtils.getSearchService()
+	                        .toFilterQuery(context, f[0], f[1], f[2])
+	                        .getFilterQuery();
+	            }
+	            if (newFilterQuery != null)
+	            {
+	                queryArgs.addFilterQueries(newFilterQuery);
+	                userFilters.add(newFilterQuery);
+	            }
             }
             catch (SQLException e)
             {
@@ -758,14 +751,16 @@ public class DiscoverUtility
         {
             ignore = Integer.parseInt(submit.substring("submit_filter_remove_".length()));
         }
+        
         List<String[]> appliedFilters = new ArrayList<String[]>();
         
         List<String> filterValue = new ArrayList<String>();
         List<String> filterOp = new ArrayList<String>();
         List<String> filterField = new ArrayList<String>();
+        
         for (int idx = 1; ; idx++)
         {
-            String op = request.getParameter("filter_type_"+idx);
+            String op = request.getParameter("filter_type_" + idx);
             if (StringUtils.isBlank(op))
             {
                 break;
@@ -773,8 +768,8 @@ public class DiscoverUtility
             else if (idx != ignore)
             {
                 filterOp.add(op);
-                filterField.add(request.getParameter("filter_field_"+idx));
-                filterValue.add(request.getParameter("filter_value_"+idx));
+                filterField.add(request.getParameter("filter_field_" + idx));
+                filterValue.add(request.getParameter("filter_value_" + idx));
             }
         }
         
@@ -788,11 +783,42 @@ public class DiscoverUtility
         
         for (int idx = 0; idx < filterOp.size(); idx++)
         {
-            appliedFilters.add(new String[] { filterField.get(idx),
-                    filterOp.get(idx), filterValue.get(idx) });
+            appliedFilters.add(new String[] { 
+            		filterField.get(idx),
+                    filterOp.get(idx), 
+                    filterValue.get(idx) });
         }
+        
+        aplicarFiltroDosSelos(request, appliedFilters);
+        
         return appliedFilters;
     }
+
+	private static void aplicarFiltroDosSelos(HttpServletRequest request, List<String[]> appliedFilters) {
+		String checkPredatoria = request.getParameter("checkPredatoria");
+	    String checkAcessoAberto = request.getParameter("checkAcessoAberto");
+	    String checkDiamante = request.getParameter("checkDiamante");
+	        
+		if(checkPredatoria != null)
+        {
+        	appliedFilters.add(new String[] { "predatoryjournal", "equals", "A revista apresenta indícios de ser predatória" });
+        }
+       
+        if(checkAcessoAberto != null && checkAcessoAberto != "")
+        {
+        	appliedFilters.add(new String[] { "access", "equals", "Acesso aberto imediato" });
+        }
+        
+        if(checkDiamante != null && checkAcessoAberto == null)
+        {
+        	appliedFilters.add(new String[] { "access", "equals", "Acesso aberto imediato" });
+        	appliedFilters.add(new String[] { "publicationfees", "equals", "A revista não cobra qualquer taxa de publicação" });
+        }
+        else if(checkDiamante != null)
+        {
+        	appliedFilters.add(new String[] { "publicationfees", "equals", "A revista não cobra qualquer taxa de publicação" });
+        }
+	}
 
     // /**
     // * Build the query from the advanced search form

@@ -266,6 +266,13 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         DiscoverQuery queryArgs = DiscoverUtility.getDiscoverQuery(context, request, scope, true);
         queryArgs.setSpellCheck(discoveryConfiguration.isSpellCheckEnabled()); 
         
+	    String checkAcessoAberto = request.getParameter("checkAcessoAberto");
+        if(checkAcessoAberto != null)
+        {
+        	queryArgs.addFilterQueries("thermometer:(80 OR 81 OR 82 OR 83 OR 84 OR 85 OR 86 OR 87 OR 88 OR 89 OR 90 OR 91 OR 92 OR 93 OR 94 OR 95 OR 96 OR 97 OR 98 OR 99 OR 100)");
+        }
+
+        
         List<DiscoverySearchFilterFacet> availableFacet = discoveryConfiguration.getSidebarFacets();
         if(availableFacet != null) 
         {
@@ -294,7 +301,7 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         
         List<DiscoverySearchFilter> availableFilters = discoveryConfiguration.getSearchFilters();
         request.setAttribute("availableFilters", availableFilters);
-
+        
         List<String[]> appliedFilters = DiscoverUtility.getFilters(request);
         request.setAttribute("appliedFilters", appliedFilters);
         
@@ -303,6 +310,7 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
         {
             appliedFilterQueries.add(filter[0] + "::" + filter[1] + "::" + filter[2]);
         }
+        
         request.setAttribute("appliedFilterQueries", appliedFilterQueries);
         
         List<DSpaceObject> scopes = new ArrayList<DSpaceObject>();

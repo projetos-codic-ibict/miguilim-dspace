@@ -124,7 +124,8 @@
 
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     HttpServletRequest hrq = (HttpServletRequest) pageContext.getRequest();
-
+	
+    String checkAcessoAberto = request.getParameter("checkAcessoAberto");
 
     final String REVISTAS = "miguilim/2";
 	final String PORTAL_DE_PERIODICOS = "miguilim/2669";
@@ -538,10 +539,11 @@
                             <div>
                                 <select id="filtertype" name="filtertype" class="field-s w100">
                                     <%
-                                        for (String opt : options) {
+                                        for (String opt : options) 
+                                        {
                                             String fkey = "jsp.search.filter.op." + opt;
                                     %>
-                                    <option value="<%= opt %>"><fmt:message key="<%= fkey %>"/></option>
+                                    		<option value="<%= opt %>"><fmt:message key="<%= fkey %>"/></option>
                                     <%
                                         }
                                     %>
@@ -549,16 +551,16 @@
                             </div>
                             <div>
 
-                                <input type="text" id="filterquery" name="filterquery" class="field-s w100"
-                                       placeholder="Escolha por"/>
+                                <input type="text" id="filterquery" name="filterquery" class="field-s w100" placeholder="Escolha por"/>
                                 <input type="hidden" value="<%= rpp %>" name="rpp" />
                                 <input type="hidden" value="<%= Utils.addEntities(sortedBy) %>" name="sort_by" />
                                 <input type="hidden" value="<%= Utils.addEntities(order) %>" name="order" />
 
                             </div>
                             <div>
-                                <button type="submit" class="button-main-outline" type="submit"><fmt:message
-                                        key="jsp.search.filter.add"/></button>
+                                <button type="submit" class="button-main-outline" type="submit">
+                                	<fmt:message key="jsp.search.filter.add"/>
+                                </button>
 
                             </div>
                         </div>
@@ -667,9 +669,15 @@
                             + "&amp;sort_by=" + sortedBy
                             + "&amp;order=" + order
                             + "&amp;rpp=" + rpp
-                            + "&amp;etal=" + etAl
-                            + "&amp;start=";
-
+                            + "&amp;etal=" + etAl;
+                            
+                    if(checkAcessoAberto != null)
+                    {
+                       	baseURL += "&amp;checkAcessoAberto";
+                    }
+					
+                	baseURL += "&amp;start=";
+                	
                     String nextURL = baseURL;
                     String firstURL = baseURL;
                     String lastURL = baseURL;
@@ -921,9 +929,15 @@
                     + "&amp;sort_by=" + sortedBy
                     + "&amp;order=" + order
                     + "&amp;rpp=" + rpp
-                    + "&amp;etal=" + etAl
-                    + "&amp;start=";
+                    + "&amp;etal=" + etAl;
 
+                    if(checkAcessoAberto != null)
+                    {
+                    	baseURL += "&amp;checkAcessoAberto";
+                    }
+                    
+                    baseURL += "&amp;start=";
+                    
                     String nextURL = baseURL;
                     String firstURL = baseURL;
                     String lastURL = baseURL;

@@ -180,32 +180,32 @@
 				</svg>
 		</div>
 	</div>
-	<!-- buscar -->
+
 	<div class="search-home">
-		<form method="get" action="/simple-search" class="form-home">
+		<form method="get" action="/simple-search" class="form-home" id="buscar-form">
 			<label class="none">Buscar</label>
 			<a class="link-search" href="/simple-search">Busca avançada</a>
 			<input type="text" name="query" id="tequery" class="field-search" placeholder="Buscar no Miguilim">
 			<button type="submit" class="button-main" name="buscar" value="Buscar">Buscar</button>
 		</form>
-		<!--
+
 		<div class="stamp-checkbox">
 			<div class="click-stamp">
 				<div class="form-check">
-					<img width="80" src="image/indicios.svg" alt="selo sobre revista diamante">
-					<input type="checkbox" value="" id="flexCheckDefault">
-				  </div>
-				  <div class="form-check">
-					<img width="80" src="image/aberto.svg" alt="selo sobre revista diamante">
-					<input type="checkbox" value="" id="flexCheckDefault" checked>
-				  </div>
-				  <div class="form-check">
-					<img width="80" src="image/diamante.svg" alt="selo sobre revista diamante">
-					<input type="checkbox" value="" id="flexCheckChecked" checked>
-				  </div>			  
+					<img width="80" src="image/indicios.svg">
+					<input type="checkbox" id="checkPredatoria" name="checkPredatoria" form="buscar-form">
+				</div>
+				<div class="form-check">
+					<img width="80" src="image/aberto.svg">
+					<input type="checkbox" id="checkAcessoAberto" name="checkAcessoAberto" form="buscar-form">
+				</div>
+				<div class="form-check">
+					<img width="80" src="image/diamante.svg">
+					<input type="checkbox" id="checkDiamante" name="checkDiamante" form="buscar-form">
+				</div>			  
 			</div>
 		</div>
-		-->
+	</form>
 	</div>
 </div>
 
