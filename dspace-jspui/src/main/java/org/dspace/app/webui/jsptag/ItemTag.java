@@ -453,6 +453,7 @@ public class ItemTag extends TagSupport {
             boolean isDisplay = false;
             boolean isLinkSearch = false;
             boolean isSearchTitle = false;
+            boolean isThermometer = false;
 
             String style = null;
             Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
@@ -473,6 +474,7 @@ public class ItemTag extends TagSupport {
 
             // Find out if the field should rendered with a particular style
             if (style != null) {
+            	isThermometer = style.contains("thermometer");
             	isSearchTitle = style.contains("searchTitle");
                 isLinkSearch = style.contains("linkSearch");
                 isDate = style.contains("date");
@@ -590,6 +592,14 @@ public class ItemTag extends TagSupport {
                             String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
 
                             out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+                        } 
+                        else if (isThermometer) 
+                        {
+                        	String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
+                            String valor = Utils.addEntities(val.getValue());
+                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+
+                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "% </a>");
                         } 
                         else if (isLink) 
                         {
