@@ -102,7 +102,6 @@
 		<div class="col elevation">
 			<div class="contentChip">
 				<div class="square"></div>
-				<a href="#" class="chipBeta">beta</a>				
 				<div class="contentChipText">
 					<h2>Prezado usuário,</h2>
 					<p>O Miguilim foi disponibilizado à comunidade externa a partir do dia 05/01/2023. Desde então sua equipe gestora tem trabalhado para corrigir falhas pontuais que o sistema possa apresentar. Contamos também com a colaboração de nossos usuários, que podem se sentir a vontade para entrar em contato com a equipe Miguilim e sugerir modificações/correções que julguem oportunas.
