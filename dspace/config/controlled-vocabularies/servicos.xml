@@ -56,7 +56,7 @@
 	<node label="Current Work in the History of Medicine" id="00055"></node>
 	<node label="Dairy Science Abstracts" id="00056"></node>
 	<node label="DARE Data Bank" id="00057"></node>
-	<node label="Diadorim" id="00058"></node>
+	<node label="Diadorim (Diretório de políticas editoriais das revistas científicas brasileiras)" id="00058"></node>
 	<node label="DIALNET" id="00059"></node>
 	<node label="DOAJ (Directory of Open Access Journals)" id="00060"></node>
 	<node label="e-Journal" id="00061"></node>
@@ -69,7 +69,7 @@
 	<node label="Engineering Index" id="00068"></node>
 	<node label="Entomology Abstracts" id="00069"></node>
 	<node label="ERIC (Education Resources Information Center)" id="00070"></node>
-	<node label="ERIH (European Reference Index for the Humanities)" id="00071"></node>
+	<node label="European Reference Index for the Humanities (ERIH PLUS)" id="00071"></node>
 	<node label="EZB Electronic Journals Library" id="00072"></node>
 	<node label="Field Crop Abstracts" id="00073"></node>
 	<node label="Food Science and Technology Abstracts" id="00074"></node>
@@ -115,7 +115,6 @@
 	<node label="LA Referencia" id="00114"></node>
 	<node label="LAMJOL (Latin American Journals Online)" id="00115"></node>
 	<node label="Latin American Periodicals Table of Contents" id="00116"></node>
-	<node label="Latindex-Catálogo" id="00117"></node>
 	<node label="Latindex-Catálogo 2.0" id="00118"></node>
 	<node label="Latindex-Directorio" id="00119"></node>
 	<node label="Library Literature Full Text" id="00120"></node>
@@ -129,7 +128,7 @@
 	<node label="Meteorological and Geoastrophysical Abstracts" id="00128"></node>
 	<node label="MIAR (Information Matrix for the Analysis of Journals)" id="00129"></node>
 	<node label="Microbiological Abstracts" id="00130"></node>
-	<node label="Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras)" id="00131"></node>
+	<node label="Miguilim (Diretório das revistas científicas eletrônicas brasileiras)" id="00131"></node>
 	<node label="MLA International Bibliography" id="00132"></node>
 	<node label="Neuroscience Citation Index" id="00133"></node>
 	<node label="Nutrition Abstracts and Reviews. Serie A: Human and Experimental" id="00134"></node>
