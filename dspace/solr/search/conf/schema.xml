@@ -464,6 +464,17 @@
       </analyzer>
     </fieldType>
 
+    <fieldType name="diadorim" class="solr.TextField" sortMissingLast="true" omitNorms="true">
+      <analyzer>
+        <!-- KeywordTokenizer does no actual tokenizing, so the entire
+             input string is preserved as a single token
+          -->
+        <tokenizer class="solr.KeywordTokenizerFactory" />
+        <!-- The TrimFilter removes any leading or trailing whitespace -->
+        <filter class="solr.TrimFilterFactory" />
+      </analyzer>
+    </fieldType>
+
     <!-- This field is used for store metadatavalue (with authority, prefered label, variants and 
     	 language) to use in projection  -->
     <fieldType name="dspaceMetadataProjection" class="solr.TextField" sortMissingLast="true"
@@ -619,24 +630,24 @@
 
     <!-- custom fields for Vufind Diadorim -->
     <field name="dc.publisher.name" type="text" indexed="true" stored="true" multiValued="true" />
-    <field name="dc.publisher.name.facet" type="lowerCaseSort" indexed="true" stored="false"
+    <field name="dc.publisher.name.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
     <field name="cnpq" type="text" indexed="true" stored="true" multiValued="true" />
-    <field name="cnpq.facet" type="lowerCaseSort" indexed="true" stored="false"
+    <field name="cnpq.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
     <field name="dc.rights.sealcolor" type="text" indexed="true" stored="true" multiValued="true" />
-    <field name="dc.rights.sealcolor.facet" type="lowerCaseSort" indexed="true" stored="false"
+    <field name="dc.rights.sealcolor.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
     <field name="dc.rights.access" type="text" indexed="true" stored="true" multiValued="true" />
-    <field name="dc.rights.access.facet" type="lowerCaseSort" indexed="true" stored="false"
+    <field name="dc.rights.access.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
     <field name="dc.rights.creativecommons" type="text" indexed="true" stored="true"
       multiValued="true" />
-    <field name="dc.rights.creativecommons.facet" type="lowerCaseSort" indexed="true" stored="false"
+    <field name="dc.rights.creativecommons.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
 
