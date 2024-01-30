@@ -86,6 +86,7 @@
 		        <input type="hidden" name="step" value="<%= MyDSpaceServlet.MAIN_PAGE %>" />
                 <input class="btn btn-success" type="submit" name="submit_new" value="<fmt:message key="jsp.mydspace.main.start.button"/>" />
                 <input class="btn btn-info" type="submit" name="submit_own" value="<fmt:message key="jsp.mydspace.main.view.button"/>" />
+                <input class="btn btn-warning" type="submit" name="submit_permissions" value="<fmt:message key="jsp.mydspace.main.view.permissions"/>" />
 		    </form>
 		
 		
