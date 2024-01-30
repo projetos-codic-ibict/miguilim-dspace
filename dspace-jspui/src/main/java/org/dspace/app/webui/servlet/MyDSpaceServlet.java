@@ -349,6 +349,11 @@ public class MyDSpaceServlet extends DSpaceServlet
                 ok = true;
             }
         }
+        else if (buttonPressed.equals("submit_permissions"))
+        {
+            showMyPermissionsItems(context, request, response);
+            ok = true;
+        }
 
         if (!ok)
         {
@@ -966,5 +971,15 @@ public class MyDSpaceServlet extends DSpaceServlet
         request.setAttribute("items", subList);
 
         JSPManager.showJSP(request, response, "/mydspace/own-submissions.jsp");
+    }
+
+    private void showMyPermissionsItems(Context context, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException, AuthorizeException
+    {
+        List<Item> items = itemService.findMyPermissionsItems(context, context.getCurrentUser());
+
+        request.setAttribute("user", context.getCurrentUser());
+        request.setAttribute("items", items);
+
+        JSPManager.showJSP(request, response, "/mydspace/own-permissions.jsp");
     }
 }

@@ -44,6 +44,9 @@ public class InstallItemServiceImpl implements InstallItemService
     final String REVISTAS = "miguilim/2";
     final String LANGUAGE_BR = "pt_BR";
 
+    private static final String VALOR_DIADORIM = "Diadorim (Diretório de políticas editoriais das revistas científicas brasileiras)";
+    private static final String VALOR_MIGUILIM = "Miguilim (Diretório das revistas científicas eletrônicas brasileiras)";
+
     @Autowired(required = true)
     protected ContentServiceFactory contentServiceFactory;
     @Autowired(required = true)
@@ -245,10 +248,23 @@ public class InstallItemServiceImpl implements InstallItemService
         try
         {
         	boolean isItemDaColecaoRevista = itemCollection.getHandle().equals(REVISTAS);
-        	
-        	if(!possuiMetadadoDeTermometro(item) && isItemDaColecaoRevista)
+
+            if(isItemDaColecaoRevista)
             {
-        		itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+                if (!possuiMetadadoDeTermometro(item))
+                {
+                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, CalculadoraTermometro.calcularPorcentagemPontuacao(item));
+                }
+
+                if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_DIADORIM))
+                {
+                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_DIADORIM);
+                }
+
+                if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_MIGUILIM))
+                {
+                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_MIGUILIM);
+                }
             }
                 
             if(suppliedHandle == null || itemService.existeMetadadoNoItem(item, "update"))
@@ -345,6 +361,17 @@ public class InstallItemServiceImpl implements InstallItemService
             .filter(i -> i.getMetadataField().getQualifier().equals("thermometer"))
             .collect(Collectors.toList())
             .size() > 0;
-        
+    }
+
+    private boolean possuiValorDeMetadadoDeServico(Item item, String metadado, String valor) {
+        return item
+                .getMetadata()
+                .stream()
+                .filter(i -> i.getMetadataField().getQualifier() != null)
+                .filter(i -> i.getMetadataField().getQualifier().equals(metadado))
+                .filter(i -> i.getValue().equals(valor))
+                .collect(Collectors.toList())
+                .size() > 0;
+
     }
 }

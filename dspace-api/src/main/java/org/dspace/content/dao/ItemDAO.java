@@ -7,18 +7,18 @@
  */
 package org.dspace.content.dao;
 
-import java.sql.SQLException;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
-import java.util.UUID;
-
 import org.dspace.content.Collection;
 import org.dspace.content.Community;
 import org.dspace.content.Item;
 import org.dspace.content.MetadataField;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+import java.util.UUID;
 
 /**
  * Database Access Object interface class for the Item object.
@@ -123,4 +123,6 @@ public interface ItemDAO extends DSpaceObjectLegacySupportDAO<Item>
     Iterator<Item> findAllByCollectionWhithoutThermometer(Context context, Collection collection) throws SQLException;
     
     List<Item> findAllLastModified(Context context) throws SQLException;
+
+    List<Item> findMyPermissionsItems(Context context, EPerson ePerson) throws SQLException;
 }
