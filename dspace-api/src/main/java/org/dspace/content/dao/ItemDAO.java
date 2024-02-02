@@ -124,5 +124,5 @@ public interface ItemDAO extends DSpaceObjectLegacySupportDAO<Item>
     
     List<Item> findAllLastModified(Context context) throws SQLException;
 
-    List<Item> findMyPermissionsItems(Context context, EPerson ePerson) throws SQLException;
+    List<Item> findMyPermissionsItems(Context context, List<UUID> groupIds) throws SQLException;
 }

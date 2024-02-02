@@ -7,7 +7,6 @@
  */
 package org.dspace.content;
 
-import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.dspace.app.util.AuthorizeUtil;
@@ -39,6 +38,8 @@ import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.*;
 import java.util.stream.Collectors;
+
+import static org.apache.commons.collections.CollectionUtils.isNotEmpty;
 
 /**
  * Service implementation for the Item object.
@@ -99,7 +100,7 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
         Bitstream thumbBitstream;
         List<Bundle> originalBundles = getBundles(item, "ORIGINAL");
         Bitstream primaryBitstream = null;
-        if(CollectionUtils.isNotEmpty(originalBundles))
+        if(isNotEmpty(originalBundles))
         {
             primaryBitstream = originalBundles.get(0).getPrimaryBitstream();
         }
@@ -870,7 +871,7 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
     public boolean hasUploadedFiles(Item item) throws SQLException {
         List<Bundle> bundles = getBundles(item, "ORIGINAL");
         for (Bundle bundle : bundles) {
-            if (CollectionUtils.isNotEmpty(bundle.getBitstreams())) {
+            if (isNotEmpty(bundle.getBitstreams())) {
                 return true;
             }
         }
@@ -1034,7 +1035,7 @@ prevent the generation of resource policy entry values with null dspace_object a
         Community community = null;
         if (collection != null)
         {
-            if(CollectionUtils.isNotEmpty(collection.getCommunities()))
+            if(isNotEmpty(collection.getCommunities()))
             {
                 community = collection.getCommunities().get(0);
             }
@@ -1305,7 +1306,19 @@ prevent the generation of resource policy entry values with null dspace_object a
 
     @Override
     public List<Item> findMyPermissionsItems(Context context, EPerson ePerson) throws SQLException {
-        return itemDAO.findMyPermissionsItems(context, ePerson);
+        List<Item> items = new ArrayList<>();
+
+        List<UUID> ids = ePerson.getGroups()
+                .stream()
+                .map(Group::getID)
+                .collect(Collectors.toList());
+
+        if(isNotEmpty(ids))
+        {
+            items = itemDAO.findMyPermissionsItems(context, ids);
+        }
+
+        return items;
     }
 
 }
