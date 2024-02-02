@@ -16,7 +16,6 @@ import org.dspace.content.dao.ItemDAO;
 import org.dspace.core.AbstractHibernateDSODAO;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
-import org.dspace.eperson.Group;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.criterion.*;
@@ -345,19 +344,14 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
 	}
 
     @Override
-    public List<Item> findMyPermissionsItems(Context context, EPerson ePerson) throws SQLException {
+    public List<Item> findMyPermissionsItems(Context context, List<UUID> groupIds) throws SQLException {
         StringBuilder builder = new StringBuilder();
         builder.append("SELECT i FROM Item i WHERE i.id IN ( ");
         builder.append("SELECT r.dSpaceObject FROM ResourcePolicy r WHERE r.epersonGroup.id IN (:groupIds) ");
         builder.append(")");
 
-        List<UUID> ids = ePerson.getGroups()
-                .stream()
-                .map(Group::getID)
-                .collect(Collectors.toList());
-
         Query query = createQuery(context, builder.toString());
-        query.setParameterList("groupIds", ids);
+        query.setParameterList("groupIds", groupIds);
 
         return query.list();
     }
