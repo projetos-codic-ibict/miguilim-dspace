@@ -154,6 +154,7 @@
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
 				<ref bean="searchFilterCep" />
+                <ref bean="searchFilterRegion" />
 				<ref bean="searchFilterState" />
 				<ref bean="searchFilterCity" />
 				<ref bean="searchFilterNeighborhood" />
@@ -316,11 +317,8 @@
 				<ref bean="searchFilterReferenceGuidelines" />
 				<ref bean="searchFilterCodeofethics" />
 				<ref bean="searchFilterInformationServices" />
-
 				<ref bean="searchdescriptionsocialnetworks" />
 				<ref bean="searchpublisherlegalnature" />
-
-
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -351,6 +349,7 @@
 				<ref bean="searchFilterIdentifierEditor" />
 				<ref bean="searchFilterEmail" />
 				<ref bean="searchFilterCep" />
+                <ref bean="searchFilterRegion" />
 				<ref bean="searchFilterState" />
 				<ref bean="searchFilterCity" />
 				<ref bean="searchFilterNeighborhood" />
@@ -391,16 +390,12 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
-
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
-
                 <ref bean="searchFilterPredatoryJournal" />
                 <ref bean="searchFilterOpenAccessSeal" />
                 <ref bean="searchFilterThermometer" />
-                
                 <ref bean="searchFilterUpdate" />
-
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -1471,6 +1466,18 @@
         <property name="metadataFields">
             <list>
                 <value>dc.date.update</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterRegion" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="region"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.region</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
