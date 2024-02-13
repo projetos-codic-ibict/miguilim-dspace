@@ -98,7 +98,6 @@
         
         <property name="sidebarFacets">
             <list>
-                
                 <ref bean="searchFilterQualisArea" />
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
@@ -116,6 +115,8 @@
                 <ref bean="searchFilterSituation" />
                 <ref bean="searchFilterPublicationFees" />
                 <ref bean="searchFilterAccess" />
+                <ref bean="searchFilterRegion" />
+                <ref bean="searchFilterState" />
             </list>
         </property>
         <property name="sidebarFacetsPortais">
@@ -123,6 +124,8 @@
                 <ref bean="searchdescriptionstate" />
                 <ref bean="searchFilterPublisherName" />
                 <ref bean="searchFilterSubordinate" />
+                <ref bean="searchFilterRegion" />
+                <ref bean="searchFilterState" />
             </list>
         </property>
        
@@ -195,16 +198,12 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
-
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchpublisherlegalnature" />
-
                 <ref bean="searchFilterPredatoryJournal" />
                 <ref bean="searchFilterOpenAccessSeal" />
                 <ref bean="searchFilterThermometer" />
-                
                 <ref bean="searchFilterUpdate" />
-
             </list>
         </property>
 
