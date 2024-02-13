@@ -1186,18 +1186,6 @@
                     <required></required>
                 </field>
 
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>identifier</dc-element>
-                    <dc-qualifier>predatoryjournal</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Indícios de revista predatória?:</label>
-                    <input-type value-pairs-name="common_identifier_predatoryjournal">dropdown</input-type>
-                    <hint>Após a avaliação realizada, a revista apresenta indícios de ser predatória?</hint>
-                    <required></required>
-                    <visibility>workflow</visibility>
-                </field>
-
             </page>
 
         </form>
@@ -2678,17 +2666,6 @@
             <pair>
                 <displayed-value>Agência 2</displayed-value>
                 <stored-value>Agência 2</stored-value>
-            </pair>
-        </value-pairs>
-
-        <value-pairs value-pairs-name="common_identifier_predatoryjournal" dc-term="common_identifier_predatoryjournal">
-            <pair>
-                <displayed-value>A revista apresenta indícios de ser predatória</displayed-value>
-                <stored-value>A revista apresenta indícios de ser predatória</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>A revista não apresenta indícios de ser predatória</displayed-value>
-                <stored-value>A revista não apresenta indícios de ser predatória</stored-value>
             </pair>
         </value-pairs>
 

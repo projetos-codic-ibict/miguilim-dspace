@@ -795,15 +795,9 @@ public class DiscoverUtility
     }
 
 	private static void aplicarFiltroDosSelos(HttpServletRequest request, List<String[]> appliedFilters) {
-		String checkPredatoria = request.getParameter("checkPredatoria");
 	    String checkAcessoAberto = request.getParameter("checkAcessoAberto");
 	    String checkDiamante = request.getParameter("checkDiamante");
 	        
-		if(checkPredatoria != null)
-        {
-        	appliedFilters.add(new String[] { "predatoryjournal", "equals", "A revista apresenta indícios de ser predatória" });
-        }
-       
         if(checkAcessoAberto != null && checkAcessoAberto != "")
         {
         	appliedFilters.add(new String[] { "access", "equals", "Acesso aberto imediato" });
