@@ -317,6 +317,8 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchdescriptionsocialnetworks" />
 				<ref bean="searchpublisherlegalnature" />
+                <ref bean="searchFilterRegion" />
+                <ref bean="searchFilterState" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
