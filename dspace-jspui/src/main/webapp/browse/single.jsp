@@ -85,7 +85,13 @@
 	// prepare the next and previous links
 	String next = sharedLink;
 	String prev = sharedLink;
-	
+
+	if (!bi.hasItemFocus() && bi.hasFocus())
+	{
+		next += "&amp;starts_with=" + bi.getFocus();
+		prev += "&amp;starts_with=" + bi.getFocus();
+	}
+
 	if (bi.hasNextPage())
     {
         next = next + "&amp;offset=" + bi.getNextOffset();
