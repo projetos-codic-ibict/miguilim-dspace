@@ -191,10 +191,6 @@
 		<div class="stamp-checkbox">
 			<div class="click-stamp">
 				<div class="form-check">
-					<img width="80" src="image/indicios.svg">
-					<input type="checkbox" id="checkPredatoria" name="checkPredatoria" form="buscar-form">
-				</div>
-				<div class="form-check">
 					<img width="80" src="image/aberto.svg">
 					<input type="checkbox" id="checkAcessoAberto" name="checkAcessoAberto" form="buscar-form">
 				</div>
@@ -381,16 +377,13 @@
 				
 				String porcentagemPontuacaoTermometro = termometroService.calcularPorcentagemPontuacao(item);
 				 
-				List<MetadataValue> predatoryValues = itemService.getMetadata(item, "dc", "identifier", "predatoryjournal", Item.ANY);
 				List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
 				List<MetadataValue> feesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
 		
-				boolean possuiSeloRevistaPredatoria = predatoryValues.size() != 0 && predatoryValues.get(0).getValue().equals("A revista apresenta indícios de ser predatória");
 				boolean possuiSeloCienciaAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
 				boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") 
 				    		&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
 			
-				String displaySeloRevistaPredatoria = possuiSeloRevistaPredatoria ? "" : "d-hide";
 				String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "" : "d-hide";
 	            String displaySeloDiamante = possuiSeloDiamante ? "" : "d-hide";
 		%>
@@ -402,11 +395,6 @@
 				<a class="tooltips-wrapper">
 					<div class="tooltips <%= displaySeloAcessoAberto %>" tooltipbtn="Práticas de Ciência Aberta">
 						<img width="128" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
-					</div>
-				</a>
-				<a class="tooltips-wrapper">
-					<div class="tooltips <%= displaySeloRevistaPredatoria %>" tooltipbtn="Indícios predatórios">
-						<img width="128"  src="image/indicios.svg" alt="selo sobre indícios de revista predatória">
 					</div>
 				</a>
 				<a class="tooltips-wrapper">
