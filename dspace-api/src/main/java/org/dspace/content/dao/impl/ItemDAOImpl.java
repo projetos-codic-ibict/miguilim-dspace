@@ -338,7 +338,7 @@ public class ItemDAOImpl extends AbstractHibernateDSODAO<Item> implements ItemDA
 	    builder.append("ORDER BY i.lastModified DESC");
 	        
 	    Query query = createQuery(context, builder.toString());
-		query.setMaxResults(15);
+		query.setMaxResults(20);
 		 
 		return query.list();
 	}
