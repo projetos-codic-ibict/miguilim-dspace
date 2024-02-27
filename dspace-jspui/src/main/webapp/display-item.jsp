@@ -279,7 +279,6 @@
                     String displaySeloDiamante = possuiSeloDiamante ? "block" : "none";
                 %>
             
-            
                 <a class="tooltips-wrapper">
                     <div class="tooltips" tooltipbtn="Práticas de Ciência Aberta" style="display: <%= displaySeloAcessoAberto %>;">
                         <img height="80" src="../../image/aberto.svg" alt="selo sobre prática de ciência aberta">
@@ -290,7 +289,10 @@
                         <img height="80" src="../../image/diamante.svg" alt="selo sobre revista diamante">
                     </div>
                 </a>	
-        
+            </div>
+
+            <div class="content-home">
+                <h2><b><%= title %></b></h2>
             </div>
 
             <ul class="nav nav-pills">
