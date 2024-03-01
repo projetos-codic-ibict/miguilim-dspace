@@ -251,6 +251,10 @@
         %>
 
 		<div class="search-filter">
+            <div class="content-home">
+                <h2><b><%= title %></b></h2>
+            </div>
+
             <%
             if (pendingReview) 
             {
@@ -289,10 +293,6 @@
                         <img height="80" src="../../image/diamante.svg" alt="selo sobre revista diamante">
                     </div>
                 </a>	
-            </div>
-
-            <div class="content-home">
-                <h2><b><%= title %></b></h2>
             </div>
 
             <ul class="nav nav-pills">
