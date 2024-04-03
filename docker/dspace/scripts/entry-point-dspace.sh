@@ -133,24 +133,31 @@ function habilita_solr_para_acesso_remoto() {
   sed -i 's/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>true<\/param-value>/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>false<\/param-value>/g' /opt/apache-tomcat-8.5.51/webapps/solr/WEB-INF/web.xml
 }
 
-
+# Função para adicionar o código XML no server.xml do Tomcat
 function habilitar_acesso_ao_solr_somente_ips_internos() {
+# Caminho do arquivo server.xml
   arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
+  # Código XML a ser adicionado
   codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\.0\.0\.1|172\.16\.16\.d+\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
-  
+  # Verifica se o arquivo existe
   if [ ! -f "$arquivo_server_xml" ]; then
     echo "Erro: O arquivo $arquivo_server_xml não existe."
     return 1
   fi
-
+  # Verifica se o código já está presente
   if grep -q "$codigo_xml" "$arquivo_server_xml"; then
     echo "O código XML já está presente no arquivo $arquivo_server_xml."
     return 1
   fi
-  
-  cp -f "$arquivo_server_xml" "$arquivo_server_xml.bak"  
-  echo "$codigo_xml" >> "$arquivo_server_xml"
-  echo "XML code added (or overwritten) to $arquivo_server_xml."
+  # Cria um backup do arquivo server.xml
+  timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+  arquivo_backup="$arquivo_server_xml.bak.$timestamp"
+  cp "$arquivo_server_xml" "$arquivo_backup"
+  # Localiza a tag </Host>
+  linha_host=$(grep -n "</Host>" "$arquivo_server_xml" | head -n 1 | cut -d ':' -f 1)
+  # Insere o código XML antes da tag </Host>
+  sed -i "${linha_host}i ${codigo_xml}" "$arquivo_server_xml"
+  echo "O código XML foi adicionado ao arquivo $arquivo_server_xml com sucesso."
 }
 
 
