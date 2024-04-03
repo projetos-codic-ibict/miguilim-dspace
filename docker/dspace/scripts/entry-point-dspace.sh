@@ -133,6 +133,20 @@ function habilita_solr_para_acesso_remoto() {
   sed -i 's/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>true<\/param-value>/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>false<\/param-value>/g' /opt/apache-tomcat-8.5.51/webapps/solr/WEB-INF/web.xml
 }
 
+
+function habilitar_acesso_ao_solr_somente_ips_internos() {
+  arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
+  codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\.0\.0\.1|172\.16\.16\.d+\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
+  if grep -q "$codigo_xml" "$arquivo_server_xml"; then
+    echo "O código XML já está presente no arquivo $arquivo_server_xml."
+    return 1
+  fi
+  cp -f "$arquivo_server_xml" "$arquivo_server_xml.bak"  
+  echo "$codigo_xml" >> "$arquivo_server_xml"
+  echo "XML code added (or overwritten) to $arquivo_server_xml."
+}
+
+
 function habilita_debug_remoto() {
   echo 'JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=2234,server=y,suspend=n"' >${TOMCAT_HOME}/bin/setenv.sh
   echo 'CATALINA_OPTS="-Xdebug -Xrunjdwp:transport=dt_socket,address=2234,server=y,suspend=n"' >>${TOMCAT_HOME}/bin/setenv.sh
@@ -142,6 +156,7 @@ function habilita_debug_remoto() {
 function verfica_e_trata_ambiente_de_desenvolvimento() {
   if [ -n "${ENVIRONMENT}" ]; then
     habilita_solr_para_acesso_remoto
+    habilitar_acesso_ao_solr_somente_ips_internos
     habilita_debug_remoto
   fi
 }
