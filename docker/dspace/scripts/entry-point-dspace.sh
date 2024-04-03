@@ -138,7 +138,7 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
 # Caminho do arquivo server.xml
   arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
   # Código XML a ser adicionado
-  codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\.0\\.0\\.1|200\\.130\\.0\\.12|172\\.16\\.16\\.d+\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
+  codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\\.0\\.0\\\.1|200\\\.130\\\.0\\\.12|172\\\.16\\\.16\\\.d+\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
   # Verifica se o arquivo existe
   if [ ! -f "$arquivo_server_xml" ]; then
     echo "Erro: O arquivo $arquivo_server_xml não existe."
