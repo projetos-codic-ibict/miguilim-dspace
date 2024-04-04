@@ -156,9 +156,11 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
     timestamp=$(date +%Y-%m-%d_%H-%M-%S)
     arquivo_backup="$arquivo_server_xml.bak.$timestamp"
     cp "$arquivo_server_xml" "$arquivo_backup"
+    echo "Criando backup $arquivo_backup"
   else
     arquivo_backup="$arquivo_server_xml.default"
     cp "$arquivo_server_xml" "$arquivo_backup"
+    echo "Criando backup $arquivo_backup"
   fi
 
   # Localiza a tag </Host>
