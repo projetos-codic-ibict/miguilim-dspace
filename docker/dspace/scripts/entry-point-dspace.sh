@@ -149,10 +149,18 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
     echo "O código XML já está presente no arquivo $arquivo_server_xml."
     return 1
   fi
+
+
   # Cria um backup do arquivo server.xml
-  timestamp=$(date +%Y-%m-%d_%H-%M-%S)
-  arquivo_backup="$arquivo_server_xml.bak.$timestamp"
-  cp "$arquivo_server_xml" "$arquivo_backup"
+  if [ ! -f "$arquivo_server_xml.default" ]; then
+    timestamp=$(date +%Y-%m-%d_%H-%M-%S)
+    arquivo_backup="$arquivo_server_xml.bak.$timestamp"
+    cp "$arquivo_server_xml" "$arquivo_backup"
+  else
+    arquivo_backup="$arquivo_server_xml.default"
+    cp "$arquivo_server_xml" "$arquivo_backup"
+  fi
+
   # Localiza a tag </Host>
   linha_host=$(grep -n "</Host>" "$arquivo_server_xml" | head -n 1 | cut -d ':' -f 1)
   # Insere o código XML antes da tag </Host>
