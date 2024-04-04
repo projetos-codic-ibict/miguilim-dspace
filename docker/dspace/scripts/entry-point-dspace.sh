@@ -133,25 +133,17 @@ function habilita_solr_para_acesso_remoto() {
   sed -i 's/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>true<\/param-value>/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>false<\/param-value>/g' /opt/apache-tomcat-8.5.51/webapps/solr/WEB-INF/web.xml
 }
 
-# Função para adicionar o código XML no server.xml do Tomcat
 function habilitar_acesso_ao_solr_somente_ips_internos() {
-# Caminho do arquivo server.xml
   arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
-  # Código XML a ser adicionado
   codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\\.0\\\.0\\\.1|200\\\.130\\\.0\\\.12|172\\\.16\\\.16\\\.112\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
-  # Verifica se o arquivo existe
   if [ ! -f "$arquivo_server_xml" ]; then
     echo "Erro: O arquivo $arquivo_server_xml não existe."
     return 1
   fi
-  # Verifica se o código já está presente
   if grep -q "$codigo_xml" "$arquivo_server_xml"; then
     echo "O código XML já está presente no arquivo $arquivo_server_xml."
     return 1
   fi
-
-
-  # Cria um backup do arquivo server.xml
   if [ ! -f "$arquivo_server_xml.default" ]; then
     timestamp=$(date +%Y-%m-%d_%H-%M-%S)
     arquivo_backup="$arquivo_server_xml.bak.$timestamp"
@@ -162,12 +154,38 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
     cp "$arquivo_server_xml" "$arquivo_backup"
     echo "Criando backup $arquivo_backup"
   fi
-
   # Localiza a tag </Host>
   linha_host=$(grep -n "</Host>" "$arquivo_server_xml" | head -n 1 | cut -d ':' -f 1)
   # Insere o código XML antes da tag </Host>
   sed -i "${linha_host}i ${codigo_xml}" "$arquivo_server_xml"
   echo "O código XML foi adicionado ao arquivo $arquivo_server_xml com sucesso."
+}
+
+function teste() {
+  # Caminho do arquivo server.xml e backup
+  arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
+  arquivo_backup_server_xml="$arquivo_server_xml.bak"
+
+  # Verificar se o arquivo server.xml existe
+  if [ ! -f "$arquivo_server_xml" ]; then
+    echo "Erro: O arquivo $arquivo_server_xml não existe."
+    exit 1
+  fi
+
+  # Verificar se o backup server.xml.bak existe
+  if [ ! -f "$arquivo_backup_server_xml" ]; then
+    echo "Erro: O arquivo de backup $arquivo_backup_server_xml não existe."
+    exit 1
+  fi
+
+  # Remover o arquivo server.xml
+  rm "$arquivo_server_xml"
+
+  # Renomear server.xml.bak para server.xml
+  cp "$arquivo_backup_server_xml" "$arquivo_server_xml"
+
+  echo "O arquivo $arquivo_server_xml foi removido com sucesso e o backup $arquivo_backup_server_xml foi renomeado para $arquivo_server_xml."
+
 }
 
 
@@ -210,7 +228,8 @@ if [[ ! -f "/opt/docker-build-complete" ]]; then
   remove_arquivos_instalacao
   cria_arquivo_indicador_conclusao_build
   verfica_e_trata_ambiente_de_desenvolvimento
-  habilitar_acesso_ao_solr_somente_ips_internos
+  # habilitar_acesso_ao_solr_somente_ips_internos
+  teste
 else
   prepara_ambiente_rede
   prepara_tomcat
@@ -220,7 +239,8 @@ else
   instala_dspace_ou_atualiza_dspace
   remove_arquivos_instalacao
   verfica_e_trata_ambiente_de_desenvolvimento
-  habilitar_acesso_ao_solr_somente_ips_internos
+  # habilitar_acesso_ao_solr_somente_ips_internos
+  teste
 fi
 
 inicia_servicos
