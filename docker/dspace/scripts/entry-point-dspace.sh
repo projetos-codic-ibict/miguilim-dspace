@@ -135,24 +135,22 @@ function habilita_solr_para_acesso_remoto() {
 
 function habilitar_acesso_ao_solr_somente_ips_internos() {
   arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
+  arquivo_server_xml_default="$arquivo_server_xml.default"
+  
   codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\\.0\\\.0\\\.1|200\\\.130\\\.0\\\.12|172\\\.16\\\.16\\\.112\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
+  
   if [ ! -f "$arquivo_server_xml" ]; then
     echo "Erro: O arquivo $arquivo_server_xml não existe."
     return 1
   fi
-  if grep -q "$codigo_xml" "$arquivo_server_xml"; then
-    echo "O código XML já está presente no arquivo $arquivo_server_xml."
-    return 1
-  fi
-  if [ ! -f "$arquivo_server_xml.default" ]; then
-    timestamp=$(date +%Y-%m-%d_%H-%M-%S)
-    arquivo_backup="$arquivo_server_xml.bak.$timestamp"
-    cp "$arquivo_server_xml" "$arquivo_backup"
-    echo "Criando backup $arquivo_backup"
+  if [ ! -f "$arquivo_server_xml_default" ]; then
+    cp "$arquivo_server_xml" "$arquivo_server_xml_default"
+    echo "Criando backup $arquivo_server_xml_default"
   else
-    arquivo_backup="$arquivo_server_xml.default"
-    cp "$arquivo_server_xml" "$arquivo_backup"
-    echo "Criando backup $arquivo_backup"
+    # Remover o arquivo server.xml
+    rm "$arquivo_server_xml"
+    # Copia server.xml.default para server.xml
+    cp "$arquivo_server_xml_default" "$arquivo_server_xml"
   fi
   # Localiza a tag </Host>
   linha_host=$(grep -n "</Host>" "$arquivo_server_xml" | head -n 1 | cut -d ':' -f 1)
@@ -161,7 +159,7 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
   echo "O código XML foi adicionado ao arquivo $arquivo_server_xml com sucesso."
 }
 
-function teste() {
+function voltaArquivo() {
   # Caminho do arquivo server.xml e backup
   arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
   arquivo_backup_server_xml="$arquivo_server_xml.bak"
@@ -228,8 +226,8 @@ if [[ ! -f "/opt/docker-build-complete" ]]; then
   remove_arquivos_instalacao
   cria_arquivo_indicador_conclusao_build
   verfica_e_trata_ambiente_de_desenvolvimento
-  # habilitar_acesso_ao_solr_somente_ips_internos
-  teste
+  habilitar_acesso_ao_solr_somente_ips_internos
+  # teste
 else
   prepara_ambiente_rede
   prepara_tomcat
@@ -239,8 +237,8 @@ else
   instala_dspace_ou_atualiza_dspace
   remove_arquivos_instalacao
   verfica_e_trata_ambiente_de_desenvolvimento
-  # habilitar_acesso_ao_solr_somente_ips_internos
-  teste
+  habilitar_acesso_ao_solr_somente_ips_internos
+  # teste
 fi
 
 inicia_servicos
