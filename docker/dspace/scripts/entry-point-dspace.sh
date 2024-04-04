@@ -129,12 +129,8 @@ function prepara_tomcat() {
   chmod 775 /opt/apache-tomcat-8.5.51/bin/*
 }
 
-function habilita_solr_para_acesso_remoto() {
-  sed -i 's/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>true<\/param-value>/<param-name>LocalHostRestrictionFilter.localhost<\/param-name><param-value>false<\/param-value>/g' /opt/apache-tomcat-8.5.51/webapps/solr/WEB-INF/web.xml
-}
-
 function habilitar_acesso_ao_solr_somente_ips_internos() {
-  arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
+  arquivo_server_xml="$TOMCAT_HOME/conf/server.xml"
   arquivo_server_xml_default="$arquivo_server_xml.default"
   
   codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\\.0\\\.0\\\.1|200\\\.130\\\.0\\\.12|172\\\.16\\\.16\\\.112\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
@@ -159,33 +155,6 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
   echo "O código XML foi adicionado ao arquivo $arquivo_server_xml com sucesso."
 }
 
-function voltaArquivo() {
-  # Caminho do arquivo server.xml e backup
-  arquivo_server_xml="/opt/apache-tomcat-8.5.51/conf/server.xml"
-  arquivo_backup_server_xml="$arquivo_server_xml.bak"
-
-  # Verificar se o arquivo server.xml existe
-  if [ ! -f "$arquivo_server_xml" ]; then
-    echo "Erro: O arquivo $arquivo_server_xml não existe."
-    exit 1
-  fi
-
-  # Verificar se o backup server.xml.bak existe
-  if [ ! -f "$arquivo_backup_server_xml" ]; then
-    echo "Erro: O arquivo de backup $arquivo_backup_server_xml não existe."
-    exit 1
-  fi
-
-  # Remover o arquivo server.xml
-  rm "$arquivo_server_xml"
-
-  # Renomear server.xml.bak para server.xml
-  cp "$arquivo_backup_server_xml" "$arquivo_server_xml"
-
-  echo "O arquivo $arquivo_server_xml foi removido com sucesso e o backup $arquivo_backup_server_xml foi renomeado para $arquivo_server_xml."
-
-}
-
 
 function habilita_debug_remoto() {
   echo 'JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=2234,server=y,suspend=n"' >${TOMCAT_HOME}/bin/setenv.sh
@@ -195,7 +164,6 @@ function habilita_debug_remoto() {
 
 function verfica_e_trata_ambiente_de_desenvolvimento() {
   if [ -n "${ENVIRONMENT}" ]; then
-    habilita_solr_para_acesso_remoto
     habilita_debug_remoto
   fi
 }
@@ -227,7 +195,6 @@ if [[ ! -f "/opt/docker-build-complete" ]]; then
   cria_arquivo_indicador_conclusao_build
   verfica_e_trata_ambiente_de_desenvolvimento
   habilitar_acesso_ao_solr_somente_ips_internos
-  # teste
 else
   prepara_ambiente_rede
   prepara_tomcat
@@ -238,7 +205,6 @@ else
   remove_arquivos_instalacao
   verfica_e_trata_ambiente_de_desenvolvimento
   habilitar_acesso_ao_solr_somente_ips_internos
-  # teste
 fi
 
 inicia_servicos
