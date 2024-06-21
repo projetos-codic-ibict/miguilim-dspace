@@ -37,9 +37,9 @@
                     <label>Título:</label>
                     <input-type>onebox</input-type>
                     <hint>O campo "Título" deve ser preenchido da mesma forma que o campo "Key
-                        title", presente no registro da revista na rede ISSN. Essa informação pode ser verificada no
-                        link: &lt;a href="https://portal.issn.org/" target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                        title", presente no registro da revista na rede ISSN. Essa informação pode
+                        ser verificada no link: &lt;a href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o titulo.</required>
                 </field>
 
@@ -50,11 +50,11 @@
                     <repeatable>false</repeatable>
                     <label>Título abreviado:</label>
                     <input-type>onebox</input-type>
-                    <hint>O campo "Título abreviado" deve ser preenchido da mesma forma que o
-                        campo "Abbreviated key title", presente no registro da revista na rede ISSN. Em alguns casos,
-                        essa informação pode ser verificada no link: &lt;a href="https://portal.issn.org/"
-                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>O campo "Título abreviado" deve ser preenchido da mesma forma que o campo
+                        "Abbreviated key title", presente no registro da revista na rede ISSN. Em
+                        alguns casos, essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -65,11 +65,11 @@
                     <repeatable>false</repeatable>
                     <label>Título próprio:</label>
                     <input-type>onebox</input-type>
-                    <hint>O campo "Título próprio" deve ser preenchido da mesma forma que o
-                        campo "Title proper", presente no registro da revista na rede ISSN.
-                        Em alguns casos, essa informação pode ser verificada no link: &lt;a
-                        href="https://portal.issn.org/" target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>O campo "Título próprio" deve ser preenchido da mesma forma que o campo
+                        "Title proper", presente no registro da revista na rede ISSN. Em alguns
+                        casos, essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -80,11 +80,11 @@
                     <repeatable>false</repeatable>
                     <label>Outros títulos:</label>
                     <input-type>onebox</input-type>
-                    <hint>O campo "Outros títulos" pode ser preenchido da mesma forma que os
-                        campos "Other title" ou "Variant title", presentes no registro da revista
-                        na rede ISSN. Em alguns casos, essas informações podem ser verificadas no link: &lt;a
-                        href="https://portal.issn.org/" target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>O campo "Outros títulos" pode ser preenchido da mesma forma que os campos
+                        "Other title" ou "Variant title", presentes no registro da revista na rede
+                        ISSN. Em alguns casos, essas informações podem ser verificadas no link:
+                        &lt;a href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -95,12 +95,12 @@
                     <repeatable>false</repeatable>
                     <label>Título anterior:</label>
                     <input-type>onebox</input-type>
-                    <hint>Caso a revista tenha descendido de outro título, indique-o, de
-                        acordo com o campo "Key title", presente no registro da revista na
-                        rede ISSN. O ISSN do título anterior deve ser colocado neste campo, ao final, entre colchetes.
-                        Em alguns casos, essa informação pode ser verificada no link: &lt;a
-                        href="https://portal.issn.org/" target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>Caso a revista tenha descendido de outro título, indique-o, de acordo com
+                        o campo "Key title", presente no registro da revista na rede ISSN. O ISSN do
+                        título anterior deve ser colocado neste campo, ao final, entre colchetes. Em
+                        alguns casos, essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -111,12 +111,13 @@
                     <repeatable>false</repeatable>
                     <label>Título posterior:</label>
                     <input-type>onebox</input-type>
-                    <hint>Caso a revista deixe de ser publicada com o título original, mas
-                        continue sendo com outro título, indique-o, de acordo com o campo "Key title",
-                        presente no registro da revista na rede ISSN. O ISSN do título posterior deve ser colocado neste
-                        campo, ao final, entre colchetes. Em alguns casos, essa informação pode ser verificada no link:
-                        &lt;a href="https://portal.issn.org/" target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>Caso a revista deixe de ser publicada com o título original, mas continue
+                        sendo com outro título, indique-o, de acordo com o campo "Key title",
+                        presente no registro da revista na rede ISSN. O ISSN do título posterior
+                        deve ser colocado neste campo, ao final, entre colchetes. Em alguns casos,
+                        essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -127,10 +128,10 @@
                     <repeatable>false</repeatable>
                     <label>ISSN:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o número de ISSN conforme consta no registro da revista na
-                        rede ISSN. Essa informação pode ser verificada no link: &lt;a href="https://portal.issn.org/"
-                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>Informe o número de ISSN conforme consta no registro da revista na rede
+                        ISSN. Essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o ISSN.</required>
                 </field>
 
@@ -141,10 +142,10 @@
                     <repeatable>false</repeatable>
                     <label>ISSN-L:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o número de ISSN- L conforme consta no registro da revista
-                        na rede ISSN. Essa informação pode ser verificada no link: &lt;a href="https://portal.issn.org/"
-                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
+                    <hint>Informe o número de ISSN- L conforme consta no registro da revista na rede
+                        ISSN. Essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o ISSN-L.</required>
                 </field>
 
@@ -155,12 +156,8 @@
                     <repeatable>false</repeatable>
                     <label>Situação:</label>
                     <input-type value-pairs-name="relation_situation">dropdown</input-type>
-                    <hint>Indique se a revista se encontra vigente ou se deixou de ser
-                        publicada.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe a situação
-                        da revista.
-                    </required>
+                    <hint>Indique se a revista se encontra vigente ou se deixou de ser publicada. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe a situação da revista. </required>
                 </field>
 
                 <field>
@@ -170,14 +167,12 @@
                     <repeatable>false</repeatable>
                     <label>Ano de início de publicação:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o ano de início da publicação de acordo com o campo "Dates
-                        of publication", conforme consta no registro da revista na rede ISSN. Em alguns casos,
-                        essa informação pode ser verificada no link: &lt;a href="https://portal.issn.org/"
-                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt;
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o ano de
-                        publicação.
-                    </required>
+                    <hint>Informe o ano de início da publicação de acordo com o campo "Dates of
+                        publication", conforme consta no registro da revista na rede ISSN. Em alguns
+                        casos, essa informação pode ser verificada no link: &lt;a
+                        href="https://portal.issn.org/"
+                        target="_blank"&gt;https://portal.issn.org/&lt;/a&gt; </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o ano de publicação. </required>
                 </field>
 
                 <field>
@@ -187,9 +182,8 @@
                     <repeatable>false</repeatable>
                     <label>Ano de finalização de publicação:</label>
                     <input-type>onebox</input-type>
-                    <hint>Caso a revista tenha deixado de ser publicada, informe o ano de
-                        publicação do último número, fascículo ou artigo.
-                    </hint>
+                    <hint>Caso a revista tenha deixado de ser publicada, informe o ano de publicação
+                        do último número, fascículo ou artigo. </hint>
                     <required></required>
                 </field>
 
@@ -211,16 +205,14 @@
                     <repeatable>true</repeatable>
                     <label>Protocolo de interoperabilidade:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a URL do protocolo de interoperabilidade utilizado pela
-                        revista para coleta dos seus documentos por outros sistemas de distribuição.
-                        Caso a revista utilize o software OJS, o protocolo de interoperabilidade padrão é o OAI-PMH.
-                        Para obtê-lo, basta digitar, ao final da URL, a expressão "/oai". Caso a revista não seja
-                        editada em OJS, não esteja
-                        com o OAI-PMH habilitado ou utilize outro protocolo de interoperabilidade, sugerimos entrar em
-                        contato com o suporte técnico da revista. Por fim, caso a revista não utilize nenhum protocolo
-                        de interoperabilidade,
-                        deixe a questão em branco.
-                    </hint>
+                    <hint>Indique a URL do protocolo de interoperabilidade utilizado pela revista
+                        para coleta dos seus documentos por outros sistemas de distribuição. Caso a
+                        revista utilize o software OJS, o protocolo de interoperabilidade padrão é o
+                        OAI-PMH. Para obtê-lo, basta digitar, ao final da URL, a expressão "/oai".
+                        Caso a revista não seja editada em OJS, não esteja com o OAI-PMH habilitado
+                        ou utilize outro protocolo de interoperabilidade, sugerimos entrar em
+                        contato com o suporte técnico da revista. Por fim, caso a revista não
+                        utilize nenhum protocolo de interoperabilidade, deixe a questão em branco. </hint>
                     <required></required>
                 </field>
 
@@ -231,13 +223,12 @@
                     <repeatable>true</repeatable>
                     <label>Identificador persistente:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o link do identificador persistente atribuído à revista.
-                        Caso a revista não utilize nenhum identificador persistente, deixe a questão em branco.
-                        Identificador persistente é um identificador único de longa duração de um recurso na Internet
-                        que se mantém válido mesmo que a tecnologia de acesso ou a localização física do recurso
-                        identificado se modifique no tempo.
-                        Exemplos: DOI (Digital Object Identifier), Handle, URN, PURL, ARK.
-                    </hint>
+                    <hint>Indique o link do identificador persistente atribuído à revista. Caso a
+                        revista não utilize nenhum identificador persistente, deixe a questão em
+                        branco. Identificador persistente é um identificador único de longa duração
+                        de um recurso na Internet que se mantém válido mesmo que a tecnologia de
+                        acesso ou a localização física do recurso identificado se modifique no
+                        tempo. Exemplos: DOI (Digital Object Identifier), Handle, URN, PURL, ARK. </hint>
                     <required></required>
                 </field>
 
@@ -246,18 +237,23 @@
                     <dc-element>language</dc-element>
                     <dc-qualifier></dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Idioma de publicação:
-                    </label>
+                    <label>Idioma de publicação: </label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Selecione o(s) idioma(s) aceito(s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Para indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à direita do preenchimento.
-                    </hint>
+                    <hint> Selecione o(s) idioma(s) aceito(s) pela revista para submissão de
+                        documentos. Indique a resposta de acordo com as opções descritas na aba
+                        "Opções de resposta". Caso as opções listadas não se adequem à realidade da
+                        revista, indique a resposta manualmente na caixa de texto. Para indicar mais
+                        de uma resposta clique no botão “Adicionar”, que se encontra à direita do
+                        preenchimento. </hint>
                     <hint-edit>
-                        Selecione o (s) idioma (s) aceito (s) pela revista para submissão de documentos. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.
+                        Selecione o (s) idioma (s) aceito (s) pela revista para submissão de
+                        documentos. Indique a resposta de acordo com as opções descritas. Caso as
+                        opções listadas não se adequem à realidade da revista, indique a resposta
+                        manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra
+                        à direita do preenchimento. Para esse campo é possível marcar mais de uma
+                        resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Informe o idioma
-                        da revista.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Informe o idioma da revista. </required>
                     <vocabulary>idioma</vocabulary>
                 </field>
 
@@ -271,18 +267,25 @@
                     <dc-element>subject</dc-element>
                     <dc-qualifier>cnpq</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Áreas do conhecimento:
-                    </label>
+                    <label>Áreas do conhecimento: </label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Selecione as principais áreas do conhecimento em que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Por favor, selecione apenas as áreas de conhecimento de maior ênfase da revista em suas publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à direita do preenchimento.
-                    </hint>
+                    <hint> Selecione as principais áreas do conhecimento em que a revista publica
+                        seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta
+                        de acordo com as opções descritas na aba "Opções de resposta". Por favor,
+                        selecione apenas as áreas de conhecimento de maior ênfase da revista em suas
+                        publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para
+                        indicar mais de uma resposta clique no botão “Adicionar”, que se encontra à
+                        direita do preenchimento. </hint>
                     <hint-edit>
-                        Selecione as principais áreas do conhecimento em que a revista publica seus conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Por favor, selecione apenas as áreas de conhecimento de maior ênfase da revista em suas publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para esse campo é possível marcar mais de uma resposta.
+                        Selecione as principais áreas do conhecimento em que a revista publica seus
+                        conteúdos, de acordo com a tabela de áreas do CNPq. Indique a resposta de
+                        acordo com as opções descritas na aba "Opções de resposta". Por favor,
+                        selecione apenas as áreas de conhecimento de maior ênfase da revista em suas
+                        publicações. Desaconselha-se a inserção de mais do que cinco entradas. Para
+                        esse campo é possível marcar mais de uma resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Selecione a(s)
-                        área(s) de conhecimento correspondente(s), de acordo com tabela do CNPq.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Selecione a(s) área(s) de conhecimento
+                        correspondente(s), de acordo com tabela do CNPq. </required>
                     <vocabulary closed="true">cnpq</vocabulary>
                 </field>
 
@@ -291,20 +294,17 @@
                     <dc-element>publisher</dc-element>
                     <dc-qualifier>name</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Instituição editora:
-                    </label>
+                    <label>Instituição editora: </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o nome completo, por extenso, da instituição responsável pela edição da revista,
-                        seguido pela sigla entre parênteses. A responsabilidade pela edição da revista deverá
-                        levar em consideração o nível hierárquico de afiliação mais alto. Por exemplo,
-                        uma universidade, e não seus departamentos, faculdades ou institutos.
-                        Todos esses organismos subordinados podem ser descritos no campo "Organismo subordinado".
-                        Caso a revista não possua instituição responsável pela edição, indique “Publicação independente”.
-                        Exemplo de preenchimento: Universidade de Brasília (UnB).
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o nome da
-                        Instituição Editora
-                    </required>
+                    <hint>Informe o nome completo, por extenso, da instituição responsável pela
+                        edição da revista, seguido pela sigla entre parênteses. A responsabilidade
+                        pela edição da revista deverá levar em consideração o nível hierárquico de
+                        afiliação mais alto. Por exemplo, uma universidade, e não seus
+                        departamentos, faculdades ou institutos. Todos esses organismos subordinados
+                        podem ser descritos no campo "Organismo subordinado". Caso a revista não
+                        possua instituição responsável pela edição, indique “Publicação
+                        independente”. Exemplo de preenchimento: Universidade de Brasília (UnB). </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o nome da Instituição Editora </required>
                 </field>
 
                 <field>
@@ -312,15 +312,13 @@
                     <dc-element>publisher</dc-element>
                     <dc-qualifier>subordinate</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Organismo subordinado:
-                    </label>
+                    <label>Organismo subordinado: </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o nome completo, por extenso, do organismo subordinado à instituição
-                        editora que atua diretamente na publicação da revista,
-                        seguido pela sigla entre parênteses. Considere como organismos subordinados:
-                        departamentos, faculdades, coordenações, institutos etc. Exemplo de preenchimento:
-                        Programa de Pós-Graduação em História (PPGHIS).
-                    </hint>
+                    <hint>Informe o nome completo, por extenso, do organismo subordinado à
+                        instituição editora que atua diretamente na publicação da revista, seguido
+                        pela sigla entre parênteses. Considere como organismos subordinados:
+                        departamentos, faculdades, coordenações, institutos etc. Exemplo de
+                        preenchimento: Programa de Pós-Graduação em História (PPGHIS). </hint>
                     <required></required>
                 </field>
 
@@ -331,14 +329,16 @@
                     <repeatable>true</repeatable>
                     <label>Identificador da instituição editora:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a URL do cadastro da instituição editora em plataformas que geram um identificador único para instituição,
-                        como as plataformas GRID, ROR, ISNI e CADI por exemplo. Os endereços das plataformas indicadas são respectivamente:
-                        &lt;a href="https://www.grid.ac/" target="_blank"&gt;http://www.grid.ac/&lt;/a&gt;,
-                        &lt;a href="https://ror.org/" target="_blank"&gt;https://ror.org/&lt;/a&gt;,
-                        &lt;a href="http://www.isni.org/" target="_blank"&gt;https://www.isni.org/&lt;/a&gt; e &lt;a
-                        href="http://di.cnpq.br/di/cadi/consultaInst.do" target="_blank"&gt;http://di.cnpq.br/di/cadi/consultaInst.do&lt;/a&gt;
-
-                    </hint>
+                    <hint>Indique a URL do cadastro da instituição editora em plataformas que geram
+                        um identificador único para instituição, como as plataformas GRID, ROR, ISNI
+                        e CADI por exemplo. Os endereços das plataformas indicadas são
+                        respectivamente: &lt;a href="https://www.grid.ac/"
+                        target="_blank"&gt;http://www.grid.ac/&lt;/a&gt;, &lt;a
+                        href="https://ror.org/" target="_blank"&gt;https://ror.org/&lt;/a&gt;, &lt;a
+                        href="http://www.isni.org/"
+                        target="_blank"&gt;https://www.isni.org/&lt;/a&gt; e &lt;a
+                        href="http://di.cnpq.br/di/cadi/consultaInst.do"
+                        target="_blank"&gt;http://di.cnpq.br/di/cadi/consultaInst.do&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -350,9 +350,7 @@
                     <label>Natureza jurídica da instituição editora:</label>
                     <input-type value-pairs-name="common_publisher_legalnature">dropdown</input-type>
                     <hint>Indique a natureza jurídica da instituição editora da revista.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe a natureza
-                        jurídica da instituição
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Informe a natureza jurídica da instituição </required>
                 </field>
 
                 <field>
@@ -360,16 +358,12 @@
                     <dc-element>contributor</dc-element>
                     <dc-qualifier>editor</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Editor responsável:
-                    </label>
+                    <label>Editor responsável: </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe, por extenso, o nome do principal editor responsável pela
-                        revista. O nome do editor responsável deve ser preenchido, preferencialmente, da mesma forma que
-                        o campo "Nome" do curriculo Lattes.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o nome do
-                        editor-responsável.
-                    </required>
+                    <hint>Informe, por extenso, o nome do principal editor responsável pela revista.
+                        O nome do editor responsável deve ser preenchido, preferencialmente, da
+                        mesma forma que o campo "Nome" do curriculo Lattes. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o nome do editor-responsável. </required>
                 </field>
 
                 <field>
@@ -379,12 +373,12 @@
                     <repeatable>true</repeatable>
                     <label>Identificador do editor responsável:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o código identificador do editor responsável em plataformas
-                        que geram um identificador único, como o currículo Lattes e ORCid. Os
-                        endereços das plataformas Lattes e ORCid são, respectivamente: &lt;a
-                        href="http://lattes.cnpq.br/" target="_blank"&gt;http://lattes.cnpq.br/&lt;/a&gt; e &lt;a
-                        href="https://orcid.org/" target="_blank"&gt;https://orcid.org/&lt;/a&gt;
-                    </hint>
+                    <hint>Indique o código identificador do editor responsável em plataformas que
+                        geram um identificador único, como o currículo Lattes e ORCid. Os endereços
+                        das plataformas Lattes e ORCid são, respectivamente: &lt;a
+                        href="http://lattes.cnpq.br/"
+                        target="_blank"&gt;http://lattes.cnpq.br/&lt;/a&gt; e &lt;a
+                        href="https://orcid.org/" target="_blank"&gt;https://orcid.org/&lt;/a&gt; </hint>
                     <required></required>
                 </field>
 
@@ -395,13 +389,10 @@
                     <repeatable>true</repeatable>
                     <label>E-mail:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o endereço de e-mail utilizado pela revista. Deve ser
-                        indicado o endereço de e-mail próprio da revista, evitando, portanto, e-mails pessoais, já
-                        que a mudança de editor pode acarretar perda do contato.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o endereço
-                        de e-mail.
-                    </required>
+                    <hint>Informe o endereço de e-mail utilizado pela revista. Deve ser indicado o
+                        endereço de e-mail próprio da revista, evitando, portanto, e-mails pessoais,
+                        já que a mudança de editor pode acarretar perda do contato. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o endereço de e-mail. </required>
                 </field>
 
                 <field>
@@ -409,15 +400,11 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>cep</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Código Postal (CEP):
-                    </label>
+                    <label>Código Postal (CEP): </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o código postal do local de contato da revista.
-                        Preenchimento: 99999-999.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o código
-                        postal.
-                    </required>
+                    <hint>Informe o código postal do local de contato da revista. Preenchimento:
+                        99999-999. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o código postal. </required>
                 </field>
 
                 <field>
@@ -469,8 +456,7 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>street</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Rua/Quadra ou similar:
-                    </label>
+                    <label>Rua/Quadra ou similar: </label>
                     <input-type>onebox</input-type>
                     <hint>Informe a rua, quadra ou similar de acordo com código postal.</hint>
                     <required></required>
@@ -495,10 +481,8 @@
                     <label>Telefone:</label>
                     <input-type>onebox</input-type>
                     <hint>Informe o telefone de contato da revista. Deve ser indicado telefone
-                        próprio da revista, evitando, portanto, telefones pessoais, já que a mudança de editor pode
-                        acarretar
-                        perda do contato. Preenchimento: (99) 99999-9999.
-                    </hint>
+                        próprio da revista, evitando, portanto, telefones pessoais, já que a mudança
+                        de editor pode acarretar perda do contato. Preenchimento: (99) 99999-9999. </hint>
                     <required></required>
                 </field>
 
@@ -507,23 +491,19 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>modalityofpublication</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Modalidade de
-                        publicação:
-                    </label>
+                    <label>Modalidade de publicação: </label>
                     <input-type value-pairs-name="common_description_modalityofpublication">dropdown</input-type>
-                    <hint>Indique a modalidade de publicação adotada pela revista.&lt;br&gt;Tradicional: o
-                        editor espera a data final de publicação do fascículo para publicá-lo por completo, com todos os
-                        artigos.&lt;br&gt;Ahead of print:
-                        os artigos são publicados à medida que passam pelo processo de avaliação, fechando-se o
-                        fascículo quando
-                        se atinge a data final de publicação.&lt;br&gt;Fluxo contínuo:
-                        os artigos são publicados à medida que passam pelo processo de avaliação, o fluxo contínuo não
-                        prevê uma periodicidade, de modo que não se exige uma data final para para o fechamento ou
-                        publicação do fascículo.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a
-                        modalidade de publicação adotada pela revista.
-                    </required>
+                    <hint>Indique a modalidade de publicação adotada pela
+                        revista.&lt;br&gt;Tradicional: o editor espera a data final de publicação do
+                        fascículo para publicá-lo por completo, com todos os artigos.&lt;br&gt;Ahead
+                        of print: os artigos são publicados à medida que passam pelo processo de
+                        avaliação, fechando-se o fascículo quando se atinge a data final de
+                        publicação.&lt;br&gt;Fluxo contínuo: os artigos são publicados à medida que
+                        passam pelo processo de avaliação, o fluxo contínuo não prevê uma
+                        periodicidade, de modo que não se exige uma data final para para o
+                        fechamento ou publicação do fascículo. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a modalidade de publicação adotada pela
+                        revista. </required>
                 </field>
 
             </page>
@@ -537,14 +517,11 @@
                     <repeatable>false</repeatable>
                     <label>Periodicidade do fascículo:</label>
                     <input-type value-pairs-name="common_description_periodicity">dropdown</input-type>
-                    <hint>&lt;br&gt;Indique a periodicidade de publicação dos
-                        fascículos. Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que publica
-                        de forma
-                        contínua.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a indique
-                        a periodicidade de publicação dos fascículos.
-                    </required>
+                    <hint>&lt;br&gt;Indique a periodicidade de publicação dos fascículos. Caso a
+                        revista publique na modalidade Fluxo contínuo esta deve indicar que publica
+                        de forma contínua. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a indique a periodicidade de publicação dos
+                        fascículos. </required>
                 </field>
 
                 <field>
@@ -554,17 +531,18 @@
                     <repeatable>true</repeatable>
                     <label>Mês de publicação do fascículo:</label>
                     <input-type value-pairs-name="common_date_monthofpublication">dropdown</input-type>
-                    <hint>Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado
-                        (s). Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que publica de forma
-                        contínua. Para marcar mais de uma opção mantenha pressionada a tecla “Control” (Ctrl) e
-                        selecione as opções desejadas.
-                    </hint>
+                    <hint>Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s).
+                        Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que
+                        publica de forma contínua. Para marcar mais de uma opção mantenha
+                        pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas. </hint>
                     <hint-edit>
-                        Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s). Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que publica de forma contínua. Para esse campo é possível marcar mais de uma resposta.
+                        Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s).
+                        Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que
+                        publica de forma contínua. Para esse campo é possível marcar mais de uma
+                        resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique o (s) mês
-                        (es) em que é (são) publicado (s).
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Indique o (s) mês (es) em que é (são) publicado
+                        (s). </required>
                 </field>
 
                 <field>
@@ -573,15 +551,14 @@
                     <dc-qualifier>editorialboardperiodicity</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Periodicidade de publicação do expediente:</label>
-                    <input-type value-pairs-name="common_description_editorialboardperiodicity">dropdown</input-type>
+                    <input-type value-pairs-name="common_description_editorialboardperiodicity">
+                        dropdown</input-type>
                     <hint>Caso a revista publique na modalidade Fluxo contínuo indique a
-                        periodicidade de publicação do expediente da revista. A publicação periódica do expediente, para
-                        publicações
-                        que atuam sob essa modalidade se faz essencial, pois, este indica quem são os responsáveis pelo
-                        processo de publicação dos artigos em determinado período. Caso a revista não publique em Fluxo
-                        continuo
-                        indique a resposta “Em branco”.
-                    </hint>
+                        periodicidade de publicação do expediente da revista. A publicação periódica
+                        do expediente, para publicações que atuam sob essa modalidade se faz
+                        essencial, pois, este indica quem são os responsáveis pelo processo de
+                        publicação dos artigos em determinado período. Caso a revista não publique
+                        em Fluxo continuo indique a resposta “Em branco”. </hint>
                     <required></required>
                 </field>
 
@@ -591,17 +568,19 @@
                     <dc-qualifier>editorialboardmonthofpublication</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Mês de publicação do expediente:</label>
-                    <input-type value-pairs-name="common_date_editorialboardmonthofpublication">dropdown</input-type>
-                    <hint>Caso a revista publique modalidade Fluxo contínuo indique o (s) mês
-                        (es) em que é (são) publicado (s) o expediente. Para marcar mais de uma opção mantenha
-                        pressionada a
-                        tecla “Control” (Ctrl) e selecione as opções desejadas. Para desmarcar as opções mantenha
-                        pressionada a tecla “Control” (Ctrl) e selecione as opções que deseja desmarcar. Caso a revista
-                        não publique em
-                        Fluxo continuo deixe a questão em branco.
-                    </hint>
+                    <input-type value-pairs-name="common_date_editorialboardmonthofpublication">
+                        dropdown</input-type>
+                    <hint>Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es)
+                        em que é (são) publicado (s) o expediente. Para marcar mais de uma opção
+                        mantenha pressionada a tecla “Control” (Ctrl) e selecione as opções
+                        desejadas. Para desmarcar as opções mantenha pressionada a tecla “Control”
+                        (Ctrl) e selecione as opções que deseja desmarcar. Caso a revista não
+                        publique em Fluxo continuo deixe a questão em branco. </hint>
                     <hint-edit>
-                        Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es) em que é (são) publicado (s) o expediente. Caso a revista não publique em Fluxo continuo deixe a questão em branco. Para esse campo é possível marcar mais de uma resposta.
+                        Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es) em
+                        que é (são) publicado (s) o expediente. Caso a revista não publique em Fluxo
+                        continuo deixe a questão em branco. Para esse campo é possível marcar mais
+                        de uma resposta.
                     </hint-edit>
                     <required></required>
                 </field>
@@ -613,27 +592,30 @@
                     <repeatable>true</repeatable>
                     <label>Modalidade de avaliação por pares:</label>
                     <input-type value-pairs-name="common_description_peerreview">dropdown</input-type>
-                    <hint>Informe o (s) modelo (s) de revisão por pares adotado (s) pela
-                        revista. Para marcar mais de uma opção mantenha pressionada a tecla “Control” (Ctrl) e selecione
-                        as opções desejadas. Para desmarcar as opções mantenha pressionada a tecla “Control” (Ctrl) e
-                        selecione as opções que deseja desmarcar. &lt;br&gt;Avaliação aberta:
-                        as identidades dos autores e dos avaliadores são reveladas para ambos durante o processo de
-                        avaliação.&lt;br&gt;Avaliação duplo-cega:
-                        as identidades dos autores e dos avaliadores não são reveladas para ambos durante o processo de
-                        avaliação.&lt;br&gt;Avaliação simples-cega:
-                        as identidades dos autores são reveladas para os avaliadores, mas as dos avaliadores são
-                        mantidas em
-                        sigilo para os autores durante o processo de avaliação.
-                    </hint>
+                    <hint>Informe o (s) modelo (s) de revisão por pares adotado (s) pela revista.
+                        Para marcar mais de uma opção mantenha pressionada a tecla “Control” (Ctrl)
+                        e selecione as opções desejadas. Para desmarcar as opções mantenha
+                        pressionada a tecla “Control” (Ctrl) e selecione as opções que deseja
+                        desmarcar. &lt;br&gt;Avaliação aberta: as identidades dos autores e dos
+                        avaliadores são reveladas para ambos durante o processo de
+                        avaliação.&lt;br&gt;Avaliação duplo-cega: as identidades dos autores e dos
+                        avaliadores não são reveladas para ambos durante o processo de
+                        avaliação.&lt;br&gt;Avaliação simples-cega: as identidades dos autores são
+                        reveladas para os avaliadores, mas as dos avaliadores são mantidas em sigilo
+                        para os autores durante o processo de avaliação. </hint>
                     <hint-edit>
-                        Informe o (s) modelo (s) de revisão por pares adotado (s) pela revista. Para esse campo é possível marcar mais de uma resposta.
-                        &lt;br&gt;Avaliação aberta: as identidades dos autores e dos avaliadores são reveladas para ambos durante o processo de avaliação.
-                        &lt;br&gt;Avaliação duplo-cega: as identidades dos autores e dos avaliadores não são reveladas para ambos durante o processo de avaliação.
-                        &lt;br&gt;Avaliação simples-cega: as identidades dos autores são reveladas para os avaliadores, mas as dos avaliadores são mantidas em sigilo para os autores durante o processo de avaliação.
+                        Informe o (s) modelo (s) de revisão por pares adotado (s) pela revista. Para
+                        esse campo é possível marcar mais de uma resposta.
+                        &lt;br&gt;Avaliação aberta: as identidades dos autores e dos avaliadores são
+                        reveladas para ambos durante o processo de avaliação.
+                        &lt;br&gt;Avaliação duplo-cega: as identidades dos autores e dos avaliadores
+                        não são reveladas para ambos durante o processo de avaliação.
+                        &lt;br&gt;Avaliação simples-cega: as identidades dos autores são reveladas
+                        para os avaliadores, mas as dos avaliadores são mantidas em sigilo para os
+                        autores durante o processo de avaliação.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Informe o modelo
-                        de revisão por pares adotado pela revista.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Informe o modelo de revisão por pares adotado pela
+                        revista. </required>
                 </field>
 
                 <field>
@@ -644,9 +626,8 @@
                     <label>Publicação dos avaliadores:</label>
                     <input-type value-pairs-name="common_description_reviewerspublication">dropdown</input-type>
                     <hint>Indique em que situação o nome dos avaliadores podem ser publicados.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique em que
-                        situação o nome dos avaliadores podem ser publicados.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Indique em que situação o nome dos avaliadores
+                        podem ser publicados. </required>
                 </field>
 
                 <field>
@@ -655,18 +636,19 @@
                     <dc-qualifier>reviewerstypeofpublication</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Forma de publicação do nome dos avaliadores:</label>
-                    <input-type value-pairs-name="common_description_reviewerstypeofpublication">dropdown</input-type>
-                    <hint>Indique a forma que se publica ou disponibiliza o nome dos
-                        avaliadores responsáveis pela revisão dos artigos submetidos à revista. Para marcar mais de uma
-                        opção mantenha
-                        pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas.
-                    </hint>
+                    <input-type value-pairs-name="common_description_reviewerstypeofpublication">
+                        dropdown</input-type>
+                    <hint>Indique a forma que se publica ou disponibiliza o nome dos avaliadores
+                        responsáveis pela revisão dos artigos submetidos à revista. Para marcar mais
+                        de uma opção mantenha pressionada a tecla “Control” (Ctrl) e selecione as
+                        opções desejadas. </hint>
                     <hint-edit>
-                        Indique a forma que se publica ou disponibiliza o nome dos avaliadores responsáveis pela revisão dos artigos submetidos à revista. Para esse campo é possível marcar mais de uma resposta.
+                        Indique a forma que se publica ou disponibiliza o nome dos avaliadores
+                        responsáveis pela revisão dos artigos submetidos à revista. Para esse campo
+                        é possível marcar mais de uma resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique a forma
-                        que se publica ou disponibiliza o nome dos avaliadores.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Indique a forma que se publica ou disponibiliza o
+                        nome dos avaliadores. </required>
                 </field>
 
                 <field>
@@ -675,17 +657,16 @@
                     <dc-qualifier>reviewersperiodicityofpublication</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Periodicidade de publicação dos avaliadores:</label>
-                    <input-type value-pairs-name="common_description_reviewersperiodicityofpublication">dropdown
-                    </input-type>
+                    <input-type
+                        value-pairs-name="common_description_reviewersperiodicityofpublication">
+                        dropdown </input-type>
                     <hint>Caso a revista publique os avaliadores via expediente, indique a
-                        periodicidade de publicação da lista de avaliadores que atuaram na revista. A periodicidade de
-                        publicação
-                        dos avaliadores não precisa, necessariamente, ser igual à periodicidade dos fascículos ou dos
-                        expedientes. A revista pode, por exemplo, publicar seus fascículos semestralmente e publicar os
-                        avaliadores
-                        via expediente a cada 2, 3 ou 4 fascículos. Caso a revista não publique seus avaliadores indique
-                        a resposta “Em branco”.
-                    </hint>
+                        periodicidade de publicação da lista de avaliadores que atuaram na revista.
+                        A periodicidade de publicação dos avaliadores não precisa, necessariamente,
+                        ser igual à periodicidade dos fascículos ou dos expedientes. A revista pode,
+                        por exemplo, publicar seus fascículos semestralmente e publicar os
+                        avaliadores via expediente a cada 2, 3 ou 4 fascículos. Caso a revista não
+                        publique seus avaliadores indique a resposta “Em branco”. </hint>
                     <required></required>
                 </field>
 
@@ -696,15 +677,15 @@
                     <repeatable>false</repeatable>
                     <label>Externalidade da avaliação por pares:</label>
                     <input-type value-pairs-name="common_description_peerreviewexternality">dropdown</input-type>
-                    <hint>Indique se a avaliação por pares adotada pela revista considera agentes externos, internos ou ambos.                                                                                              Opções de resposta:
-                        &lt;br&gt;1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista.
-                        &lt;br&gt;2. A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista.
-                        &lt;br&gt;3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista.
-
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a
-                        avaliação por pares adotada pela revista.
-                    </required>
+                    <hint>Indique se a avaliação por pares adotada pela revista considera agentes
+                        externos, internos ou ambos. Opções de resposta: &lt;br&gt;1. A avaliação
+                        por pares é realizada, exclusivamente, por pesquisadores da instituição que
+                        edita a revista. &lt;br&gt;2. A avaliação por pares é realizada por
+                        pesquisadores da instituição que edita a revista e por pesquisadores que são
+                        externos à instituição que edita a revista. &lt;br&gt;3. A avaliação por
+                        pares é realizada, exclusivamente, por pesquisadores que são externos à
+                        instituição que edita a revista. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a avaliação por pares adotada pela revista. </required>
                 </field>
 
                 <field>
@@ -712,18 +693,26 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>peerreviewdocuments</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Documentos avaliados:
-                    </label>
+                    <label>Documentos avaliados: </label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Indique as seções ou tipos de documentos publicados pela revista que passam pela avaliação por pares. Exemplos: Artigo original, Artigo de revisão,  Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.  Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
-                    </hint>
+                    <hint> Indique as seções ou tipos de documentos publicados pela revista que
+                        passam pela avaliação por pares. Exemplos: Artigo original, Artigo de
+                        revisão, Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de
+                        experiência. Indique a resposta de acordo com as opções descritas na aba
+                        "Opções de resposta". Caso as opções listadas não se adequem à realidade da
+                        revista, indique a resposta manualmente na caixa de texto. </hint>
                     <hint-edit>
-                        Indique as seções ou tipos de documentos publicados pela revista que passam pela avaliação por pares. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.  Exemplos: Artigo original, Artigo de revisão,  Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de experiência.
+                        Indique as seções ou tipos de documentos publicados pela revista que passam
+                        pela avaliação por pares. Indique a resposta de acordo com as opções
+                        descritas. Caso as opções listadas não se adequem à realidade da revista,
+                        indique a resposta manualmente na caixa de texto e clique no botão
+                        “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é
+                        possível marcar mais de uma resposta. Exemplos: Artigo original, Artigo de
+                        revisão, Dados de pesquisa, Resenha, Dossiê, Tradução, Relato de
+                        experiência.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique as seções
-                        ou os tipos de documentos publicados pela revista que passam por avaliação por pares.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Indique as seções ou os tipos de documentos
+                        publicados pela revista que passam por avaliação por pares. </required>
                     <vocabulary>documentos</vocabulary>
                 </field>
 
@@ -734,16 +723,25 @@
                     <repeatable>false</repeatable>
                     <label>Responsável pela decisão de publicação:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Indique a instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que passam pelo processo de avaliação por pares.  Exemplos: Avaliador (es), Editor responsável, Editor de seção, Editor executivo. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
-                    </hint>
+                    <hint> Indique a instância responsável pela decisão final de publicar ou não o
+                        (s) documento (s) depois que passam pelo processo de avaliação por pares.
+                        Exemplos: Avaliador (es), Editor responsável, Editor de seção, Editor
+                        executivo. Indique a resposta de acordo com as opções descritas na aba
+                        "Opções de resposta". Caso as opções listadas não se adequem à realidade da
+                        revista, indique a resposta manualmente na caixa de texto. </hint>
                     <hint-edit>
-                        Indique a instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que passam pelo processo de avaliação por pares. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento.   Exemplos: Avaliador (es), Editor responsável, Editor de seção, Editor executivo.  Indique a resposta de acordo com as opções descritas.
+                        Indique a instância responsável pela decisão final de publicar ou não o (s)
+                        documento (s) depois que passam pelo processo de avaliação por pares.
+                        Indique a resposta de acordo com as opções descritas. Caso as opções
+                        listadas não se adequem à realidade da revista, indique a resposta
+                        manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra
+                        à direita do preenchimento. Exemplos: Avaliador (es), Editor responsável,
+                        Editor de seção, Editor executivo. Indique a resposta de acordo com as
+                        opções descritas.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique a
-                        instância responsável pela decisão final de publicar ou não o (s) documento (s) depois que
-                        passam pelo processo de avaliação por pares.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Indique a instância responsável pela decisão final
+                        de publicar ou não o (s) documento (s) depois que passam pelo processo de
+                        avaliação por pares. </required>
                     <vocabulary>publicacao</vocabulary>
                 </field>
 
@@ -754,16 +752,14 @@
                     <repeatable>false</repeatable>
                     <label>Permissão de submissão de preprint:</label>
                     <input-type value-pairs-name="common_rights_preprintsubmission">dropdown</input-type>
-                    <hint>Informe se a revista aceita ou não a submissão de preprints que já
-                        se encontrem armazenados em plataformas de preprint. Preprint é a versão do documento (artigo
-                        original,
-                        artigo de revisão, tradução etc) que não passou por avaliação por pares e que, neste caso, foi
-                        previamente depositada em outras plataformas, antes mesmo de ser submetida à revista.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a
-                        revista aceita ou não a submissão de pré-prints que já se encontram armazenados em repositórios
-                        institucionais/digitais.
-                    </required>
+                    <hint>Informe se a revista aceita ou não a submissão de preprints que já se
+                        encontrem armazenados em plataformas de preprint. Preprint é a versão do
+                        documento (artigo original, artigo de revisão, tradução etc) que não passou
+                        por avaliação por pares e que, neste caso, foi previamente depositada em
+                        outras plataformas, antes mesmo de ser submetida à revista. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista aceita ou não a submissão de
+                        pré-prints que já se encontram armazenados em repositórios
+                        institucionais/digitais. </required>
                 </field>
 
                 <field>
@@ -771,20 +767,17 @@
                     <dc-element>rights</dc-element>
                     <dc-qualifier>preprint</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Permissão de armazenamento e acesso à versão
-                        preprint:
-                    </label>
+                    <label>Permissão de armazenamento e acesso à versão preprint: </label>
                     <input-type value-pairs-name="common_rights_preprint">dropdown</input-type>
-                    <hint>Informe se a revista permite ou não o armazenamento e acesso à
-                        versão preprint do documento submetido a revista em repositórios institucionais/digitais.
-                        Diferentemente da questão anterior nesta questão deve-se indicar se a revista permite ou não que
-                        a versão preprint de um documento aceito pela revista possa ser armazenado
-                        e acessado em repositórios institucionais/digitais.&lt;br&gt;
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a
-                        revista aceita ou não a submissão de pré-prints que já se encontram armazenados em repositórios
-                        institucionais/digitais.
-                    </required>
+                    <hint>Informe se a revista permite ou não o armazenamento e acesso à versão
+                        preprint do documento submetido a revista em repositórios
+                        institucionais/digitais. Diferentemente da questão anterior nesta questão
+                        deve-se indicar se a revista permite ou não que a versão preprint de um
+                        documento aceito pela revista possa ser armazenado e acessado em
+                        repositórios institucionais/digitais.&lt;br&gt; </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista aceita ou não a submissão de
+                        pré-prints que já se encontram armazenados em repositórios
+                        institucionais/digitais. </required>
                 </field>
 
                 <field>
@@ -792,20 +785,16 @@
                     <dc-element>rights</dc-element>
                     <dc-qualifier>authorpostprint</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Permissão de armazenamento e acesso à versão
-                        pós-print do autor:
-                    </label>
+                    <label>Permissão de armazenamento e acesso à versão pós-print do autor: </label>
                     <input-type value-pairs-name="common_rights_authorpostprint">dropdown</input-type>
-                    <hint>Informe se a revista permite ou não o armazenamento e acesso à
-                        versão pós-print do autor em repositórios institucionais/digitais. Entende-se por pós-print do
-                        autor a versão
-                        do documento (artigo original, Artigo de revisão, dados de pesquisa, tradução etc) que já foi
-                        avaliada e aceita pela revista e corrigida pelo autor, mas que ainda não foi publicada.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a
-                        revista permite ou não o armazenamento e acesso à versão pós-print do autor em repositórios
-                        institucionais/digitais.
-                    </required>
+                    <hint>Informe se a revista permite ou não o armazenamento e acesso à versão
+                        pós-print do autor em repositórios institucionais/digitais. Entende-se por
+                        pós-print do autor a versão do documento (artigo original, Artigo de
+                        revisão, dados de pesquisa, tradução etc) que já foi avaliada e aceita pela
+                        revista e corrigida pelo autor, mas que ainda não foi publicada. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista permite ou não o armazenamento
+                        e acesso à versão pós-print do autor em repositórios
+                        institucionais/digitais. </required>
                 </field>
 
                 <field>
@@ -813,21 +802,16 @@
                     <dc-element>rights</dc-element>
                     <dc-qualifier>journalpostprint</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Permissão de armazenamento e acesso à versão
-                        pós-prints da revista:
-                    </label>
+                    <label>Permissão de armazenamento e acesso à versão pós-prints da revista: </label>
                     <input-type value-pairs-name="common_rights_journalpostprint">dropdown</input-type>
                     <hint>Informe se a revista permite ou não armazenamento e acesso à versão
-                        pós-print da revista em repositórios institucionais/digitais. Entende-se por pós-print da
-                        revista a
-                        versão do documento (artigo original, artigo de revisão, dados de pesquisa, tradução etc) que já
-                        foi avaliada, aceita e publicada pela revista. Diz respeito, portanto, à versão final do
-                        documento.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a
-                        revista permite ou não armazenamento e acesso à versão pós-prints da revista em repositórios
-                        institucionais/digitais.
-                    </required>
+                        pós-print da revista em repositórios institucionais/digitais. Entende-se por
+                        pós-print da revista a versão do documento (artigo original, artigo de
+                        revisão, dados de pesquisa, tradução etc) que já foi avaliada, aceita e
+                        publicada pela revista. Diz respeito, portanto, à versão final do documento. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista permite ou não armazenamento e
+                        acesso à versão pós-prints da revista em repositórios
+                        institucionais/digitais. </required>
                 </field>
 
             </page>
@@ -841,22 +825,21 @@
                     <repeatable>false</repeatable>
                     <label>Selo de armazenamento e acesso:</label>
                     <input-type value-pairs-name="common_rights_sealcolor">dropdown</input-type>
-                    <hint>&lt;br&gt;De acordo com as respostas dadas nas quatro últimas
-                        questões acerca das permissões estabelecidas para as diferentes
-                        versões dos documentos para armazenamento e acesso em repositórios institucionais/digitais,
-                        atribua um selo/cor que resuma a política da revista.&lt;br&gt;Opções de resposta:&lt;br&gt;1. Amarela:
-                        permite o armazenamento e acesso das versões preprint dos documentos em repositórios
-                        institucionais/digitais.&lt;br&gt;2. Azul: permite
-                        o armazenamento e acesso das versões pós-print dos documentos em repositórios
-                        institucionais/digitais.&lt;br&gt;3. Branca:
-                        apresenta restrições para o armazenamento e acesso das versões preprint e pós-print dos
-                        documentos em repositórios institucionais/digitais.&lt;br&gt;4. Verde:
-                        permite o armazenamento e acesso das versões preprint e pós-print dos documentos em repositórios
-                        institucionais/digitais.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o selo/cor
-                        que resuma a política da revista.
-                    </required>
+                    <hint>&lt;br&gt;De acordo com as respostas dadas nas quatro últimas questões
+                        acerca das permissões estabelecidas para as diferentes versões dos
+                        documentos para armazenamento e acesso em repositórios
+                        institucionais/digitais, atribua um selo/cor que resuma a política da
+                        revista.&lt;br&gt;Opções de resposta:&lt;br&gt;1. Amarela: permite o
+                        armazenamento e acesso das versões preprint dos documentos em repositórios
+                        institucionais/digitais.&lt;br&gt;2. Azul: permite o armazenamento e acesso
+                        das versões pós-print dos documentos em repositórios
+                        institucionais/digitais.&lt;br&gt;3. Branca: apresenta restrições para o
+                        armazenamento e acesso das versões preprint e pós-print dos documentos em
+                        repositórios institucionais/digitais.&lt;br&gt;4. Verde: permite o
+                        armazenamento e acesso das versões preprint e pós-print dos documentos em
+                        repositórios institucionais/digitais. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o selo/cor que resuma a política da
+                        revista. </required>
                 </field>
 
                 <field>
@@ -866,13 +849,10 @@
                     <repeatable>false</repeatable>
                     <label>Prazo para disponibilização de documentos:</label>
                     <input-type value-pairs-name="common_rights_time">dropdown</input-type>
-                    <hint>Informe quando os documentos poderão ser disponibilizados em acesso
-                        aberto em repositórios institucionais/digitais.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe quando os
-                        documentos poderam ser disponibilizados em acesso aberto em repositórios
-                        institucionais/digitais.
-                    </required>
+                    <hint>Informe quando os documentos poderão ser disponibilizados em acesso aberto
+                        em repositórios institucionais/digitais. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe quando os documentos poderam ser
+                        disponibilizados em acesso aberto em repositórios institucionais/digitais. </required>
                 </field>
 
                 <field>
@@ -883,12 +863,10 @@
                     <label>Tipo de acesso:</label>
                     <input-type value-pairs-name="common_rights_access">dropdown</input-type>
                     <hint>Selecione o tipo de acesso permitido por sua instituição editora aos
-                        documentos da revista. A opção "Acesso híbrido" se refere a permissão de armazenamento
-                        e acesso somente a parte dos documentos da revista.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o tipo de
-                        acesso permitido por sua instituição editora aos documentos da revista.
-                    </required>
+                        documentos da revista. A opção "Acesso híbrido" se refere a permissão de
+                        armazenamento e acesso somente a parte dos documentos da revista. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o tipo de acesso permitido por sua
+                        instituição editora aos documentos da revista. </required>
                 </field>
 
                 <field>
@@ -896,13 +874,11 @@
                     <dc-element>rights</dc-element>
                     <dc-qualifier>embargedtime</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Período de embargo:
-                    </label>
+                    <label>Período de embargo: </label>
                     <input-type>onebox</input-type>
                     <hint>Caso tenha marcado a opção “Acesso aberto após período de embargo”,
-                        informe, em meses, o tempo que os documentos não estarão disponíveis para acesso. Exemplo: 12
-                        meses.
-                    </hint>
+                        informe, em meses, o tempo que os documentos não estarão disponíveis para
+                        acesso. Exemplo: 12 meses. </hint>
                     <required></required>
                 </field>
 
@@ -911,27 +887,31 @@
                     <dc-element>rights</dc-element>
                     <dc-qualifier>creativecommons</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Licença Creative
-                        Commons:
-                    </label>
+                    <label>Licença Creative Commons: </label>
                     <input-type value-pairs-name="common_rights_creativecommons">dropdown</input-type>
-                    <hint>Selecione, entre as licenças Licenças Creative Commons, aquela que
-                        define as condições estabelecidas pela revista para uso, adaptação e redistribuição dos
-                        conteúdos publicados.
-                        O conteúdo completo das Licenças Creative Commons pode ser acessado pelo link: &lt;a
-                        href="https://br.creativecommons.org/licencas/" target="_blank"&gt;https://br.creativecommons.org/licencas/&lt;/a&gt;&lt;br&gt;Opções de resposta:&lt;br&gt;1.Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para
-                        fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY).&lt;br&gt;2.Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para
-                        fins comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas
-                        criações utilizem a mesma licença da obra original (CC BY-SA).&lt;br&gt;3.Permite redistribuição, comercial ou não comercial, desde que a obra não seja
-                        modificada e que seja atribuído o crédito ao autor (CC BY-ND).&lt;br&gt;4.Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o
-                        crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC).&lt;br&gt;5.Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais,
-                        desde que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a
-                        mesma licença da obra original (CC BY-NC-SA).&lt;br&gt;6.Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e
-                        que a obra não seja alterada de nenhuma forma (CC BY-NC-ND).&lt;br&gt;
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe as
-                        licenças.
-                    </required>
+                    <hint>Selecione, entre as licenças Licenças Creative Commons, aquela que define
+                        as condições estabelecidas pela revista para uso, adaptação e redistribuição
+                        dos conteúdos publicados. O conteúdo completo das Licenças Creative Commons
+                        pode ser acessado pelo link: &lt;a
+                        href="https://br.creativecommons.org/licencas/"
+                        target="_blank"&gt;https://br.creativecommons.org/licencas/&lt;/a&gt;&lt;br&gt;Opções
+                        de resposta:&lt;br&gt;1.Permite distribuição, remixagem, adaptação e criação
+                        a partir da obra, mesmo para fins comerciais, desde que seja atribuído o
+                        crédito ao autor da obra original (CC BY).&lt;br&gt;2.Permite distribuição,
+                        remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais,
+                        desde que seja atribuído o crédito ao autor da obra original e que as novas
+                        criações utilizem a mesma licença da obra original (CC
+                        BY-SA).&lt;br&gt;3.Permite redistribuição, comercial ou não comercial, desde
+                        que a obra não seja modificada e que seja atribuído o crédito ao autor (CC
+                        BY-ND).&lt;br&gt;4.Permite remixagem, adaptação e criação a partir da obra,
+                        desde que seja atribuído o crédito ao autor e que a nova criação não seja
+                        usada para fins comerciais (CC BY-NC).&lt;br&gt;5.Permite remixagem,
+                        adaptação e criação a partir da obra, para fins não comerciais, desde que
+                        seja atribuído o crédito ao autor da obra original e que as novas criações
+                        utilizem a mesma licença da obra original (CC BY-NC-SA).&lt;br&gt;6.Permite
+                        redistribuição não comercial, desde que seja atribuído o crédito ao autor e
+                        que a obra não seja alterada de nenhuma forma (CC BY-NC-ND).&lt;br&gt; </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as licenças. </required>
                 </field>
 
                 <field>
@@ -939,16 +919,13 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>publicationfees</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Taxas de publicação:
-                    </label>
+                    <label>Taxas de publicação: </label>
                     <input-type value-pairs-name="common_description_publicationfees">dropdown</input-type>
-                    <hint>Informe se a revista cobra algum tipo de taxa para publicação de
-                        artigos. Por taxas de publicação entende-se tanto taxa de submissão quanto taxa de processamento
-                        (APC).
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a
-                        revista cobra algum tipo de taxa para publicação de artigos.
-                    </required>
+                    <hint>Informe se a revista cobra algum tipo de taxa para publicação de artigos.
+                        Por taxas de publicação entende-se tanto taxa de submissão quanto taxa de
+                        processamento (APC). </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista cobra algum tipo de taxa para
+                        publicação de artigos. </required>
                 </field>
 
                 <field>
@@ -958,17 +935,15 @@
                     <repeatable>false</repeatable>
                     <label>Taxa de submissão de artigos:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe, em reais, o valor da Taxa de submissão de artigos.
-                        Entende-se por "Taxa de submissão de artigos" o valor cobrado dos autores para que os trabalhos
-                        submetidos à revista possam ser avaliados. O pagamento da
-                        taxa não é e nem deve ser um condicionante para a aprovação do artigo. Caso a revista cobre a
-                        taxa em outra moeda que não o real, solicita-se que o valor seja convertido para o real. Caso a
-                        revista não cobre a taxa, indique o valor 0 BRL. Exemplo de
-                        preenchimento: 20 BRL.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe em reais,
-                        o valor da Taxa de submissão de artigos.
-                    </required>
+                    <hint>Informe, em reais, o valor da Taxa de submissão de artigos. Entende-se por
+                        "Taxa de submissão de artigos" o valor cobrado dos autores para que os
+                        trabalhos submetidos à revista possam ser avaliados. O pagamento da taxa não
+                        é e nem deve ser um condicionante para a aprovação do artigo. Caso a revista
+                        cobre a taxa em outra moeda que não o real, solicita-se que o valor seja
+                        convertido para o real. Caso a revista não cobre a taxa, indique o valor 0
+                        BRL. Exemplo de preenchimento: 20 BRL. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe em reais, o valor da Taxa de submissão de
+                        artigos. </required>
                 </field>
 
                 <field>
@@ -978,17 +953,15 @@
                     <repeatable>false</repeatable>
                     <label>Taxa de processamento de artigos (APC):</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe, em reais, o valor da Taxa de Processamento de Artigo (APC),
-                        do inglês Article Processing Charges (APC). Entende-se por "Taxa de Processamento de Artigo
-                        (APC)" o valor cobrado dos autores para a publicação de
-                        um artigo que já foi aprovado no processo de avaliação por pares. Caso a revista cobre a taxa em
-                        outra moeda que não o real, solicita-se que o valor seja convertido para o real para
-                        preenchimento do campo. Caso a revista não cobre a taxa indique o
-                        valor 0 BRL. Exemplo de preenchimento: 50 BRL.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe em reais,
-                        o valor da Taxa de Processamento de Artigo (APC), do inglês Article Processing Charges (APC).
-                    </required>
+                    <hint>Informe, em reais, o valor da Taxa de Processamento de Artigo (APC), do
+                        inglês Article Processing Charges (APC). Entende-se por "Taxa de
+                        Processamento de Artigo (APC)" o valor cobrado dos autores para a publicação
+                        de um artigo que já foi aprovado no processo de avaliação por pares. Caso a
+                        revista cobre a taxa em outra moeda que não o real, solicita-se que o valor
+                        seja convertido para o real para preenchimento do campo. Caso a revista não
+                        cobre a taxa indique o valor 0 BRL. Exemplo de preenchimento: 50 BRL. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe em reais, o valor da Taxa de Processamento
+                        de Artigo (APC), do inglês Article Processing Charges (APC). </required>
                 </field>
 
                 <field>
@@ -998,11 +971,17 @@
                     <repeatable>true</repeatable>
                     <label>Código de ética:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Informe a qual (is) Código (s) de ética ou recomendações internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos: COPE, ICJME, BOAI etc.
-                    </hint>
+                    <hint> Informe a qual (is) Código (s) de ética ou recomendações internacionais a
+                        revista faz adesão. Indique a resposta de acordo com as opções descritas na
+                        aba "Opções de resposta". Caso as opções listadas não se adequem à realidade
+                        da revista, indique a resposta manualmente na caixa de texto. Exemplos:
+                        COPE, ICJME, BOAI etc. </hint>
                     <hint-edit>
-                        Informe a qual (is) Código (s) de ética ou recomendações internacionais a revista faz adesão. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Exemplos: COPE, ICJME, BOAI etc.
+                        Informe a qual (is) Código (s) de ética ou recomendações internacionais a
+                        revista faz adesão. Indique a resposta de acordo com as opções descritas.
+                        Caso as opções listadas não se adequem à realidade da revista, indique a
+                        resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se
+                        encontra à direita do preenchimento. Exemplos: COPE, ICJME, BOAI etc.
                     </hint-edit>
                     <required></required>
                     <vocabulary>codigo</vocabulary>
@@ -1015,11 +994,18 @@
                     <repeatable>false</repeatable>
                     <label>Padrão de normalização bibliográfica:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Indique o padrão de normalização bibliográfica adotado pela revista. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Caso a revista adote um Padrão de normalização bibliográfica próprio deixe a questão em branco.
-                    </hint>
+                    <hint> Indique o padrão de normalização bibliográfica adotado pela revista.
+                        Indique a resposta de acordo com as opções descritas na aba "Opções de
+                        resposta". Caso as opções listadas não se adequem à realidade da revista,
+                        indique a resposta manualmente na caixa de texto. Caso a revista adote um
+                        Padrão de normalização bibliográfica próprio deixe a questão em branco. </hint>
                     <hint-edit>
-                        Indique o padrão de normalização bibliográfica adotado pela revista. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Caso a revista adote um Padrão de normalização bibliográfica próprio deixe a questão em branco.
+                        Indique o padrão de normalização bibliográfica adotado pela revista. Indique
+                        a resposta de acordo com as opções descritas. Caso as opções listadas não se
+                        adequem à realidade da revista, indique a resposta manualmente na caixa de
+                        texto e clique no botão “Adicionar”, que se encontra à direita do
+                        preenchimento. Caso a revista adote um Padrão de normalização bibliográfica
+                        próprio deixe a questão em branco.
                     </hint-edit>
                     <required></required>
                     <vocabulary>normalizacao</vocabulary>
@@ -1032,11 +1018,21 @@
                     <repeatable>true</repeatable>
                     <label>Plataforma de detecção de plágio:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Indique o (s) software (s) ou plataforma (s) utilizado (s) para a detecção de plágio. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos de softwares : Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate, Plagiarism.org, Plagius, Turnitin, WriteCheck, Similarity check.
-                    </hint>
+                    <hint> Indique o (s) software (s) ou plataforma (s) utilizado (s) para a
+                        detecção de plágio. Indique a resposta de acordo com as opções descritas na
+                        aba "Opções de resposta". Caso as opções listadas não se adequem à realidade
+                        da revista, indique a resposta manualmente na caixa de texto. Exemplos de
+                        softwares : Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate,
+                        Plagiarism.org, Plagius, Turnitin, WriteCheck, Similarity check. </hint>
                     <hint-edit>
-                        Indique o (s) software (s) ou plataforma (s) utilizado (s) para a detecção de plágio. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Exemplos de softwares : Copia e Cola, Ephorus, Farejador de Plágio, Glatt, iThenticate, Plagiarism.org, Plagius, Turnitin, WriteCheck, Similarity check.
+                        Indique o (s) software (s) ou plataforma (s) utilizado (s) para a detecção
+                        de plágio. Indique a resposta de acordo com as opções descritas. Caso as
+                        opções listadas não se adequem à realidade da revista, indique a resposta
+                        manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra
+                        à direita do preenchimento. Para esse campo é possível marcar mais de uma
+                        resposta. Exemplos de softwares : Copia e Cola, Ephorus, Farejador de
+                        Plágio, Glatt, iThenticate, Plagiarism.org, Plagius, Turnitin, WriteCheck,
+                        Similarity check.
                     </hint-edit>
                     <required></required>
                     <vocabulary>plagio</vocabulary>
@@ -1049,15 +1045,24 @@
                     <repeatable>true</repeatable>
                     <label>Estratégia de preservação digital:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        Indique a estratégia de preservação digital adotada pela revista. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Exemplos: Lockss, CLockss, Pórtico, Archivematica. Caso a revista ainda não adote uma política de preservação indique a opção "Ainda não adota política".
-                    </hint>
+                    <hint> Indique a estratégia de preservação digital adotada pela revista. Indique
+                        a resposta de acordo com as opções descritas na aba "Opções de resposta".
+                        Caso as opções listadas não se adequem à realidade da revista, indique a
+                        resposta manualmente na caixa de texto. Exemplos: Lockss, CLockss, Pórtico,
+                        Archivematica. Caso a revista ainda não adote uma política de preservação
+                        indique a opção "Ainda não adota política". </hint>
                     <hint-edit>
-                        Indique a estratégia de preservação digital adotada pela revista. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Exemplos: Lockss, CLockss, Pórtico, Archivematica. Caso a revista ainda não adote uma política de preservação indique a opção "Ainda não adota política".
+                        Indique a estratégia de preservação digital adotada pela revista. Indique a
+                        resposta de acordo com as opções descritas. Caso as opções listadas não se
+                        adequem à realidade da revista, indique a resposta manualmente na caixa de
+                        texto e clique no botão “Adicionar”, que se encontra à direita do
+                        preenchimento. Para esse campo é possível marcar mais de uma resposta.
+                        Exemplos: Lockss, CLockss, Pórtico, Archivematica. Caso a revista ainda não
+                        adote uma política de preservação indique a opção "Ainda não adota
+                        política".
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Informe a
-                        estratégia de preservação digital adotada pela revista.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Informe a estratégia de preservação digital adotada
+                        pela revista. </required>
                     <vocabulary>preservacao</vocabulary>
                 </field>
 
@@ -1068,15 +1073,16 @@
                     <repeatable>true</repeatable>
                     <label>Exigência de disponibilização de dados de pesquisa:</label>
                     <input-type value-pairs-name="common_rights_researchdata">dropdown</input-type>
-                    <hint>Informe se a revista exige que os autores disponibilizem os dados
-                        que deram origem à pesquisa publicada. Para marcar mais de uma
-                        opção mantenha pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas.
-                    </hint>
+                    <hint>Informe se a revista exige que os autores disponibilizem os dados que
+                        deram origem à pesquisa publicada. Para marcar mais de uma opção mantenha
+                        pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas. </hint>
                     <hint-edit>
-                        Informe se a revista exige que os autores disponibilizem os dados que deram origem à pesquisa publicada. Para esse campo é possível marcar mais de uma resposta.
+                        Informe se a revista exige que os autores disponibilizem os dados que deram
+                        origem à pesquisa publicada. Para esse campo é possível marcar mais de uma
+                        resposta.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Informe se a revista exige que os autores disponibilizem os dados que deram origem à pesquisa publicada.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista exige que os autores
+                        disponibilizem os dados que deram origem à pesquisa publicada. </required>
                 </field>
 
                 <field>
@@ -1084,20 +1090,20 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>qualisarea</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Área de avaliação Qualis-Periódicos:</label>
+                    <label>Área mãe de avaliação Qualis Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisarea">dropdown</input-type>
-                    <hint>Indique a área-mãe de avaliação da revista no estrato
-                        Qualis-Periódicos, de acordo com a classificação mais recente da revista. Caso a revista ainda
-                        não tenha sido avaliada, indique
-                        “Revista não avaliada”. Essa informação pode ser verificada pela busca por número de ISSN da
-                        revista no link: &lt;a
+                    <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos,
+                        de acordo com a classificação mais recente da revista (Quadriênio
+                        2017-2020). Caso a revista ainda não tenha sido avaliada, indique “Revista
+                        não avaliada”. Essa informação pode ser verificada pela busca por número de
+                        ISSN da revista no link: &lt;a
                         href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
-                        target="_blank" &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a área-mãe
-                        de avaliação da revista no estrato Qualis-Periódicos, de acordo com a classificação mais recente
-                        da revista.
-                    </required>
+                        target="_blank"
+                        &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
+                        </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a área-mãe de avaliação da revista no
+                        estrato Qualis-Periódicos, de acordo com a classificação mais recente da
+                        revista. </required>
                 </field>
 
                 <field>
@@ -1107,18 +1113,15 @@
                     <repeatable>false</repeatable>
                     <label>Classificação Qualis-Periódicos:</label>
                     <input-type value-pairs-name="common_description_qualisclassification">dropdown</input-type>
-                    <hint>Indique a classificação mais recente da revista no estrato
-                        Qualis-Periódicos para a área-mãe indicada no campo acima. Caso a revista ainda não tenha sido
-                        avaliada, indique
-                        “Revista não avaliada”. Essa informação pode ser verificada pela busca do ISSN da revista no
-                        link: &lt;a
+                    <hint> Indique a classificação mais recente da revista no estrato
+                        Qualis-Periódicos para a área-mãe indicada no campo acima. Caso a revista
+                        ainda não tenha sido avaliada, indique “Revista não avaliada”. Essa
+                        informação pode ser verificada pela busca do ISSN da revista no link: &lt;a
                         href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
                         target="_blank"&gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a
-                        classificação mais recente da revista no estrato Qualis-Periódicos para a área-mãe indicada no
-                        campo acima.
-                    </required>
+                        </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a classificação mais recente da revista no
+                        estrato Qualis-Periódicos para a área-mãe indicada no campo acima. </required>
                 </field>
 
                 <field>
@@ -1128,11 +1131,17 @@
                     <repeatable>true</repeatable>
                     <label>Redes sociais:</label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        A revista deve indicar o nome da (s) rede (s) social (is)em que está presente. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto.
-                    </hint>
+                    <hint> A revista deve indicar o nome da (s) rede (s) social (is)em que está
+                        presente. Indique a resposta de acordo com as opções descritas na aba
+                        "Opções de resposta". Caso as opções listadas não se adequem à realidade da
+                        revista, indique a resposta manualmente na caixa de texto. </hint>
                     <hint-edit>
-                        A revista deve indicar o nome da (s) rede (s) social (is)em que está presente. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta.
+                        A revista deve indicar o nome da (s) rede (s) social (is)em que está
+                        presente. Indique a resposta de acordo com as opções descritas. Caso as
+                        opções listadas não se adequem à realidade da revista, indique a resposta
+                        manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra
+                        à direita do preenchimento. Para esse campo é possível marcar mais de uma
+                        resposta.
                     </hint-edit>
                     <required></required>
                     <vocabulary>redes</vocabulary>
@@ -1143,18 +1152,30 @@
                     <dc-element>relation</dc-element>
                     <dc-qualifier>informationservices</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Serviços de informação:
-                    </label>
+                    <label>Serviços de informação: </label>
                     <input-type>onebox</input-type>
-                    <hint>
-                        A revista deve indicar os serviços de informação em que está presente.  Como serviços de informação consideram-se bases de dados, índices, indexadores, diretórios e etc. Indique a resposta de acordo com as opções descritas na aba "Opções de resposta". Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto. Caso a revista não faça parte de nenhum serviço de informação indique apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of Science, Scopus, Sumários.org etc.
-                    </hint>
+                    <hint> A revista deve indicar os serviços de informação em que está presente.
+                        Como serviços de informação consideram-se bases de dados, índices,
+                        indexadores, diretórios e etc. Indique a resposta de acordo com as opções
+                        descritas na aba "Opções de resposta". Caso as opções listadas não se
+                        adequem à realidade da revista, indique a resposta manualmente na caixa de
+                        texto. Caso a revista não faça parte de nenhum serviço de informação indique
+                        apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas
+                        Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of
+                        Science, Scopus, Sumários.org etc. </hint>
                     <hint-edit>
-                        A revista deve indicar os serviços de informação em que está presente.  Como serviços de informação consideram-se bases de dados, índices, indexadores, diretórios e etc. Indique a resposta de acordo com as opções descritas. Caso as opções listadas não se adequem à realidade da revista, indique a resposta manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra à direita do preenchimento. Para esse campo é possível marcar mais de uma resposta. Caso a revista não faça parte de nenhum serviço de informação indique apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of Science, Scopus, Sumários.org etc.
+                        A revista deve indicar os serviços de informação em que está presente. Como
+                        serviços de informação consideram-se bases de dados, índices, indexadores,
+                        diretórios e etc. Indique a resposta de acordo com as opções descritas. Caso
+                        as opções listadas não se adequem à realidade da revista, indique a resposta
+                        manualmente na caixa de texto e clique no botão “Adicionar”, que se encontra
+                        à direita do preenchimento. Para esse campo é possível marcar mais de uma
+                        resposta. Caso a revista não faça parte de nenhum serviço de informação
+                        indique apenas o Miguilim (Diretório de Revistas Científicas Eletrônicas
+                        Brasileiras). Exemplos: Oasisbr, SciELO, Redalyc, Latindex, Diadorim, Web of
+                        Science, Scopus, Sumários.org etc.
                     </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Selecione o
-                        serviço de informação.
-                    </required>
+                    <required>CAMPO OBRIGATÓRIO: Selecione o serviço de informação. </required>
                     <vocabulary>servicos</vocabulary>
                 </field>
 
@@ -1163,14 +1184,12 @@
                     <dc-element>identifier</dc-element>
                     <dc-qualifier>journalsportaluri</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Portal de periódicos:
-                    </label>
+                    <label>Portal de periódicos: </label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o título do portal de periódicos que hospeda a revista.
-                        Portal de periódicos é o portal institucional em que o site oficial da revista se encontra
-                        hospedado. Exemplos: Portal de Periódicos UFSC, Portal de
-                        Periódicos Eletrônicos Científicos da UNICAMP.
-                    </hint>
+                    <hint>Indique o título do portal de periódicos que hospeda a revista. Portal de
+                        periódicos é o portal institucional em que o site oficial da revista se
+                        encontra hospedado. Exemplos: Portal de Periódicos UFSC, Portal de
+                        Periódicos Eletrônicos Científicos da UNICAMP. </hint>
                     <required></required>
                 </field>
 
@@ -1181,7 +1200,10 @@
                     <repeatable>false</repeatable>
                     <label>Revista no portal Oasisbr:</label>
                     <input-type>onebox</input-type>
-                    <hint>Caso a revista seja coletada pelo  &lt;a href="https://oasisbr.ibict.br" target="_blank"&gt;Oasisbr&lt;/a&gt;. Indique a URL do registro da revista no portal, os registros das revistas podem ser encontrados na aba “Fontes Coletadas”.</hint>
+                    <hint>Caso a revista seja coletada pelo &lt;a href="https://oasisbr.ibict.br"
+                        target="_blank"&gt;Oasisbr&lt;/a&gt;. Indique a URL do registro da revista
+                        no portal, os registros das revistas podem ser encontrados na aba “Fontes
+                        Coletadas”.</hint>
                     <!--<visibility>workflow</visibility>-->
                     <required></required>
                 </field>
@@ -1200,11 +1222,8 @@
                     <repeatable>false</repeatable>
                     <label>Nome do portal de revistas:</label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o nome do portal agregador de revistas.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o Nome do
-                        portal de periódicos
-                    </required>
+                    <hint>Indique o nome do portal agregador de revistas. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o Nome do portal de periódicos </required>
                 </field>
 
                 <field>
@@ -1223,20 +1242,15 @@
                     <dc-element>publisher</dc-element>
                     <dc-qualifier>name</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Instituição
-                        responsável:
-                    </label>
+                    <label>Instituição responsável: </label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o nome completo e por extenso da instituição responsável
-                        pelo portal de revistas. A responsabilidade deverá levar em consideração o nível hierárquico
-                        mais alto de afiliação. Por exemplo, uma universidade, e
-                        não seus departamentos, faculdades ou institutos. Todos esses organismos subordinados podem ser
-                        descritos no campo Organismo subordinado. Exemplo de preenchimento: Universidade de Brasília
-                        (UnB).
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o nome da
-                        Instituição responsável.
-                    </required>
+                    <hint>Informe o nome completo e por extenso da instituição responsável pelo
+                        portal de revistas. A responsabilidade deverá levar em consideração o nível
+                        hierárquico mais alto de afiliação. Por exemplo, uma universidade, e não
+                        seus departamentos, faculdades ou institutos. Todos esses organismos
+                        subordinados podem ser descritos no campo Organismo subordinado. Exemplo de
+                        preenchimento: Universidade de Brasília (UnB). </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o nome da Instituição responsável. </required>
                 </field>
 
                 <field>
@@ -1244,15 +1258,13 @@
                     <dc-element>publisher</dc-element>
                     <dc-qualifier>subordinate</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Organismo subordinado:
-                    </label>
+                    <label>Organismo subordinado: </label>
                     <input-type>onebox</input-type>
                     <hint>Caso o portal de revistas se encontre sob a responsabilidade de um
-                        organismo subordinado a instituição principal informe o nome completo e por extenso desse
-                        organismo. Considere como organismos subordinados:
-                        departamentos, faculdades, coordenações, institutos etc. Exemplo de preenchimento: Instituto de
-                        Ciências Humanas (ICH).
-                    </hint>
+                        organismo subordinado a instituição principal informe o nome completo e por
+                        extenso desse organismo. Considere como organismos subordinados:
+                        departamentos, faculdades, coordenações, institutos etc. Exemplo de
+                        preenchimento: Instituto de Ciências Humanas (ICH). </hint>
                     <required></required>
                 </field>
 
@@ -1263,14 +1275,11 @@
                     <repeatable>false</repeatable>
                     <label>Administrador responsável:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe, por extenso, o nome do principal administrador responsável
-                        pelo portal de revistas. O nome do administrador responsável deve ser preenchido,
-                        preferencialmente, da mesma forma que o campo "Nome" do curriculo
-                        Lattes.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o nome do
-                        principal administrador responsável pelo portal de periódicos.
-                    </required>
+                    <hint>Informe, por extenso, o nome do principal administrador responsável pelo
+                        portal de revistas. O nome do administrador responsável deve ser preenchido,
+                        preferencialmente, da mesma forma que o campo "Nome" do curriculo Lattes. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o nome do principal administrador
+                        responsável pelo portal de periódicos. </required>
                 </field>
 
                 <field>
@@ -1281,12 +1290,9 @@
                     <label>E-mail:</label>
                     <input-type>onebox</input-type>
                     <hint>Informe o endereço de e-mail utilizado pelo portal de revistas. Deve ser
-                        indicado o endereço de e-mail próprio do portal, evitando, portanto, e-mails pessoais, já
-                        que a mudança de e-mail pode acarretar perda do contato.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o endereço
-                        de e-mail.
-                    </required>
+                        indicado o endereço de e-mail próprio do portal, evitando, portanto, e-mails
+                        pessoais, já que a mudança de e-mail pode acarretar perda do contato. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o endereço de e-mail. </required>
                 </field>
 
                 <field>
@@ -1294,15 +1300,11 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>cep</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Código Postal (CEP):
-                    </label>
+                    <label>Código Postal (CEP): </label>
                     <input-type>onebox</input-type>
                     <hint>Informe o código postal do local de contato do portal de revistas.
-                        Preenchimento: 99999-999.
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o código
-                        postal.
-                    </required>
+                        Preenchimento: 99999-999. </hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o código postal. </required>
                 </field>
 
                 <field>
@@ -1354,8 +1356,7 @@
                     <dc-element>description</dc-element>
                     <dc-qualifier>street</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Rua/Quadra ou similar:
-                    </label>
+                    <label>Rua/Quadra ou similar: </label>
                     <input-type>onebox</input-type>
                     <hint>Informe a rua, quadra ou similar de acordo com código postal.</hint>
                     <required></required>
@@ -1379,11 +1380,9 @@
                     <repeatable>true</repeatable>
                     <label>Telefone:</label>
                     <input-type>onebox</input-type>
-                    <hint>Informe o telefone de contato do portal de revistas. Deve ser
-                        indicado telefone próprio, evitando, portanto, telefones pessoais, já que a mudança de telefone
-                        pode acarretar perda do contato. Preenchimento:
-                        (99) 99999-9999.
-                    </hint>
+                    <hint>Informe o telefone de contato do portal de revistas. Deve ser indicado
+                        telefone próprio, evitando, portanto, telefones pessoais, já que a mudança
+                        de telefone pode acarretar perda do contato. Preenchimento: (99) 99999-9999. </hint>
                     <required></required>
                 </field>
 
@@ -1392,17 +1391,13 @@
                     <dc-element>identifier</dc-element>
                     <dc-qualifier>journaluri</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Revistas do portal:
-                    </label>
+                    <label>Revistas do portal: </label>
                     <input-type>onebox</input-type>
-                    <hint>Indique o título das revistas hospedadas no portal de revistas. O
-                        campo deve ser preenchido da mesma forma que o campo "Key title", presente no registro da
-                        revista na rede ISSN. Essa informação pode ser verificada
-                        no link: https://portal.issn.org/
-                    </hint>
-                    <required>CAMPO OBRIGATÓRIO: Indique a URI, do
-                        cadastro no Miguilim.
-                    </required>
+                    <hint>Indique o título das revistas hospedadas no portal de revistas. O campo
+                        deve ser preenchido da mesma forma que o campo "Key title", presente no
+                        registro da revista na rede ISSN. Essa informação pode ser verificada no
+                        link: https://portal.issn.org/ </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a URI, do cadastro no Miguilim. </required>
                 </field>
 
             </page>
@@ -1461,9 +1456,10 @@
                 <stored-value>Publicação independente</stored-value>
             </pair>
             <pair>
-                <displayed-value>Sociedade civil organizada (sindicatos, associações, cooperativas etc.)
-                </displayed-value>
-                <stored-value>Sociedade civil organizada (sindicatos, associações, cooperativas etc.)</stored-value>
+                <displayed-value>Sociedade civil organizada (sindicatos, associações, cooperativas
+                    etc.) </displayed-value>
+                <stored-value>Sociedade civil organizada (sindicatos, associações, cooperativas
+                    etc.)</stored-value>
             </pair>
         </value-pairs>
 
@@ -1578,7 +1574,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_modalityofpublication" dc-term="common_description_modalityofpublication">
+        <value-pairs value-pairs-name="common_description_modalityofpublication"
+            dc-term="common_description_modalityofpublication">
             <pair>
                 <displayed-value>Tradicional</displayed-value>
                 <stored-value>Tradicional</stored-value>
@@ -1593,7 +1590,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_periodicity" dc-term="common_description_periodicity">
+        <value-pairs value-pairs-name="common_description_periodicity"
+            dc-term="common_description_periodicity">
             <pair>
                 <displayed-value>Publicação contínua</displayed-value>
                 <stored-value>Publicação contínua</stored-value>
@@ -1652,7 +1650,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_date_monthofpublication" dc-term="common_date_monthofpublication">
+        <value-pairs value-pairs-name="common_date_monthofpublication"
+            dc-term="common_date_monthofpublication">
             <pair>
                 <displayed-value>Publicação contínua</displayed-value>
                 <stored-value>Publicação contínua</stored-value>
@@ -1707,7 +1706,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_editorialboardperiodicity" dc-term="common_description_editorialboardperiodicity">
+        <value-pairs value-pairs-name="common_description_editorialboardperiodicity"
+            dc-term="common_description_editorialboardperiodicity">
             <pair>
                 <displayed-value>Em branco</displayed-value>
                 <stored-value></stored-value>
@@ -1766,7 +1766,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_date_editorialboardmonthofpublication" dc-term="common_date_editorialboardmonthofpublication">
+        <value-pairs value-pairs-name="common_date_editorialboardmonthofpublication"
+            dc-term="common_date_editorialboardmonthofpublication">
             <pair>
                 <displayed-value>Janeiro</displayed-value>
                 <stored-value>Janeiro</stored-value>
@@ -1817,7 +1818,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_peerreview" dc-term="common_description_peerreview">
+        <value-pairs value-pairs-name="common_description_peerreview"
+            dc-term="common_description_peerreview">
             <pair>
                 <displayed-value>Avaliação aberta</displayed-value>
                 <stored-value>Avaliação aberta</stored-value>
@@ -1832,36 +1834,31 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_reviewerspublication" dc-term="common_description_reviewerspublication">
+        <value-pairs value-pairs-name="common_description_reviewerspublication"
+            dc-term="common_description_reviewerspublication">
             <pair>
-                <displayed-value>A revista publica somente o nome de avaliadores que participaram da avaliação de
-                    documentos aprovados para a publicação
-                </displayed-value>
-                <stored-value>A revista publica somente o nome de avaliadores que participaram da avaliação de
-                    documentos aprovados para a publicação
-                </stored-value>
+                <displayed-value>A revista publica somente o nome de avaliadores que participaram da
+                    avaliação de documentos aprovados para a publicação </displayed-value>
+                <stored-value>A revista publica somente o nome de avaliadores que participaram da
+                    avaliação de documentos aprovados para a publicação </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista publica o nome de todos os avaliadores que participaram da avaliação de
-                    documentos por determinado período
-                </displayed-value>
-                <stored-value>A revista publica o nome de todos os avaliadores que participaram da avaliação de
-                    documentos por determinado período
-                </stored-value>
+                <displayed-value>A revista publica o nome de todos os avaliadores que participaram
+                    da avaliação de documentos por determinado período </displayed-value>
+                <stored-value>A revista publica o nome de todos os avaliadores que participaram da
+                    avaliação de documentos por determinado período </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista somente publica avaliadores que concordam com a publicação do seu nome
-                </displayed-value>
-                <stored-value>A revista somente publica avaliadores que concordam com a publicação do seu nome
-                </stored-value>
+                <displayed-value>A revista somente publica avaliadores que concordam com a
+                    publicação do seu nome </displayed-value>
+                <stored-value>A revista somente publica avaliadores que concordam com a publicação
+                    do seu nome </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de
-                    pesquisadores cadastrados como possíveis avaliadores
-                </displayed-value>
-                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores
-                    cadastrados como possíveis avaliadores
-                </stored-value>
+                <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a
+                    lista de pesquisadores cadastrados como possíveis avaliadores </displayed-value>
+                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a
+                    lista de pesquisadores cadastrados como possíveis avaliadores </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não publica nem revela o nome dos avaliadores</displayed-value>
@@ -1869,34 +1866,31 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_reviewerstypeofpublication" dc-term="common_description_reviewerstypeofpublication">
+        <value-pairs value-pairs-name="common_description_reviewerstypeofpublication"
+            dc-term="common_description_reviewerstypeofpublication">
             <pair>
-                <displayed-value>A revista publica, no expediente, a listagem dos avaliadores que realizaram
-                    avaliações
-                </displayed-value>
-                <stored-value>A revista publica, no expediente, a listagem dos avaliadores que realizaram avaliações
-                </stored-value>
+                <displayed-value>A revista publica, no expediente, a listagem dos avaliadores que
+                    realizaram avaliações </displayed-value>
+                <stored-value>A revista publica, no expediente, a listagem dos avaliadores que
+                    realizaram avaliações </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos
-                    avaliadores responsáveis
-                </displayed-value>
-                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por pares, o nome dos avaliadores responsáveis
-                </stored-value>
+                <displayed-value>A revista publica, no corpo do documento aprovado na avaliação por
+                    pares, o nome dos avaliadores responsáveis </displayed-value>
+                <stored-value>A revista publica, no corpo do documento aprovado na avaliação por
+                    pares, o nome dos avaliadores responsáveis </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos
-                    avaliadores
-                </displayed-value>
-                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas com o nome dos avaliadores
-                </stored-value>
+                <displayed-value>A revista publica os pareceres resultantes das avaliações
+                    realizadas com o nome dos avaliadores </displayed-value>
+                <stored-value>A revista publica os pareceres resultantes das avaliações realizadas
+                    com o nome dos avaliadores </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de
-                    pesquisadores cadastrados como possíveis avaliadores
-                </displayed-value>
-                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a lista de pesquisadores cadastrados como possíveis avaliadores
-                </stored-value>
+                <displayed-value>A revista não publica o nome dos avaliadores, mas disponibiliza a
+                    lista de pesquisadores cadastrados como possíveis avaliadores </displayed-value>
+                <stored-value>A revista não publica o nome dos avaliadores, mas disponibiliza a
+                    lista de pesquisadores cadastrados como possíveis avaliadores </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não publica, nem revela o nome dos avaliadores</displayed-value>
@@ -1904,7 +1898,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_reviewersperiodicityofpublication" dc-term="common_description_reviewersperiodicityofpublication">
+        <value-pairs value-pairs-name="common_description_reviewersperiodicityofpublication"
+            dc-term="common_description_reviewersperiodicityofpublication">
             <pair>
                 <displayed-value>Em branco</displayed-value>
                 <stored-value></stored-value>
@@ -1963,135 +1958,122 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_peerreviewexternality" dc-term="common_description_peerreviewexternality">
+        <value-pairs value-pairs-name="common_description_peerreviewexternality"
+            dc-term="common_description_peerreviewexternality">
             <pair>
-                <displayed-value>1. A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista.
-                </displayed-value>
-                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores da instituição que edita a revista
-                </stored-value>
+                <displayed-value>1. A avaliação por pares é realizada, exclusivamente, por
+                    pesquisadores da instituição que edita a revista. </displayed-value>
+                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores
+                    da instituição que edita a revista </stored-value>
             </pair>
             <pair>
-                <displayed-value>2. A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista
-                </displayed-value>
-                <stored-value>A avaliação por pares é realizada por pesquisadores da instituição que edita a revista e por pesquisadores que são externos à instituição que edita a revista
-                </stored-value>
+                <displayed-value>2. A avaliação por pares é realizada por pesquisadores da
+                    instituição que edita a revista e por pesquisadores que são externos à
+                    instituição que edita a revista </displayed-value>
+                <stored-value>A avaliação por pares é realizada por pesquisadores da instituição que
+                    edita a revista e por pesquisadores que são externos à instituição que edita a
+                    revista </stored-value>
             </pair>
             <pair>
-                <displayed-value>3. A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista
-                </displayed-value>
-                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores que são externos à instituição que edita a revista
-                </stored-value>
+                <displayed-value>3. A avaliação por pares é realizada, exclusivamente, por
+                    pesquisadores que são externos à instituição que edita a revista </displayed-value>
+                <stored-value>A avaliação por pares é realizada, exclusivamente, por pesquisadores
+                    que são externos à instituição que edita a revista </stored-value>
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_rights_preprintsubmission" dc-term="common_rights_preprintsubmission">
+        <value-pairs value-pairs-name="common_rights_preprintsubmission"
+            dc-term="common_rights_preprintsubmission">
             <pair>
-                <displayed-value>A revista aceita a submissão de preprints que já se encontram armazenados em outras
-                    plataformas
-                </displayed-value>
-                <stored-value>A revista aceita a submissão de preprints que já se encontram armazenados em outras
-                    plataformas
-                </stored-value>
+                <displayed-value>A revista aceita a submissão de preprints que já se encontram
+                    armazenados em outras plataformas </displayed-value>
+                <stored-value>A revista aceita a submissão de preprints que já se encontram
+                    armazenados em outras plataformas </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista não aceita a submissão de preprints que já se encontram armazenados em outras
-                    plataformas
-                </displayed-value>
-                <stored-value>A revista não aceita a submissão de preprints que já se encontram armazenados em outras
-                    plataformas
-                </stored-value>
+                <displayed-value>A revista não aceita a submissão de preprints que já se encontram
+                    armazenados em outras plataformas </displayed-value>
+                <stored-value>A revista não aceita a submissão de preprints que já se encontram
+                    armazenados em outras plataformas </stored-value>
             </pair>
         </value-pairs>
 
         <value-pairs value-pairs-name="common_rights_preprint" dc-term="common_rights_preprint">
             <pair>
-                <displayed-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão preprint do documento submetido para avaliação
-                </displayed-value>
-                <stored-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão preprint do documento submetido para avaliação
-                </stored-value>
+                <displayed-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão preprint do documento submetido para
+                    avaliação </displayed-value>
+                <stored-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão preprint do documento submetido para
+                    avaliação </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não permite o armazenamento e acesso, em repositórios
-                    institucionais/digitais, da versão preprint do documento submetido para avaliação
-                </displayed-value>
-                <stored-value>A revista não permite o armazenamento e acesso, em repositórios institucionais/digitais,
-                    da versão preprint do documento submetido para avaliação
-                </stored-value>
+                    institucionais/digitais, da versão preprint do documento submetido para
+                    avaliação </displayed-value>
+                <stored-value>A revista não permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão preprint do documento submetido para
+                    avaliação </stored-value>
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_rights_authorpostprint" dc-term="common_rights_authorpostprint">
+        <value-pairs value-pairs-name="common_rights_authorpostprint"
+            dc-term="common_rights_authorpostprint">
             <pair>
-                <displayed-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão pós-print do autor
-                </displayed-value>
-                <stored-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão pós-print do autor
-                </stored-value>
+                <displayed-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print do autor </displayed-value>
+                <stored-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print do autor </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não permite o armazenamento e acesso, em repositórios
-                    institucionais/digitais, da versão pós-print do autor
-                </displayed-value>
-                <stored-value>A revista não permite o armazenamento e acesso, em repositórios institucionais/digitais,
-                    da versão pós-print do autor
-                </stored-value>
+                    institucionais/digitais, da versão pós-print do autor </displayed-value>
+                <stored-value>A revista não permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print do autor </stored-value>
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_rights_journalpostprint" dc-term="common_rights_journalpostprint">
+        <value-pairs value-pairs-name="common_rights_journalpostprint"
+            dc-term="common_rights_journalpostprint">
             <pair>
-                <displayed-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão pós-print da revista
-                </displayed-value>
-                <stored-value>A revista permite o armazenamento e acesso, em repositórios institucionais/digitais, da
-                    versão pós-print da revista
-                </stored-value>
+                <displayed-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print da revista </displayed-value>
+                <stored-value>A revista permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print da revista </stored-value>
             </pair>
             <pair>
                 <displayed-value>A revista não permite o armazenamento e acesso, em repositórios
-                    institucionais/digitais, da versão pós-print da revista
-                </displayed-value>
-                <stored-value>A revista não permite o armazenamento e acesso, em repositórios institucionais/digitais,
-                    da versão pós-print da revista
-                </stored-value>
+                    institucionais/digitais, da versão pós-print da revista </displayed-value>
+                <stored-value>A revista não permite o armazenamento e acesso, em repositórios
+                    institucionais/digitais, da versão pós-print da revista </stored-value>
             </pair>
         </value-pairs>
 
         <value-pairs value-pairs-name="common_rights_sealcolor" dc-term="common_rights_sealcolor">
             <pair>
-                <displayed-value>1. Amarela: permite o armazenamento e acesso das versões preprint dos documentos em
-                    repositórios institucionais/digitais
-                </displayed-value>
-                <stored-value>Amarela: permite o armazenamento e acesso das versões preprint dos documentos em
-                    repositórios institucionais/digitais
-                </stored-value>
+                <displayed-value>1. Amarela: permite o armazenamento e acesso das versões preprint
+                    dos documentos em repositórios institucionais/digitais </displayed-value>
+                <stored-value>Amarela: permite o armazenamento e acesso das versões preprint dos
+                    documentos em repositórios institucionais/digitais </stored-value>
             </pair>
             <pair>
-                <displayed-value>2. Azul: permite o armazenamento e acesso das versões pós-print dos documentos em
-                    repositórios institucionais/digitais
-                </displayed-value>
-                <stored-value>Azul: permite o armazenamento e acesso das versões pós-print dos documentos em
-                    repositórios institucionais/digitais
-                </stored-value>
+                <displayed-value>2. Azul: permite o armazenamento e acesso das versões pós-print dos
+                    documentos em repositórios institucionais/digitais </displayed-value>
+                <stored-value>Azul: permite o armazenamento e acesso das versões pós-print dos
+                    documentos em repositórios institucionais/digitais </stored-value>
             </pair>
             <pair>
-                <displayed-value>3. Branca: apresenta restrições para o armazenamento e acesso das versões preprint e
-                    pós-print dos documentos em repositórios institucionais/digitais
-                </displayed-value>
-                <stored-value>Branca: apresenta restrições para o armazenamento e acesso das versões preprint e
-                    pós-print dos documentos em repositórios institucionais/digitais
-                </stored-value>
+                <displayed-value>3. Branca: apresenta restrições para o armazenamento e acesso das
+                    versões preprint e pós-print dos documentos em repositórios
+                    institucionais/digitais </displayed-value>
+                <stored-value>Branca: apresenta restrições para o armazenamento e acesso das versões
+                    preprint e pós-print dos documentos em repositórios institucionais/digitais </stored-value>
             </pair>
             <pair>
-                <displayed-value>4. Verde: permite o armazenamento e acesso das versões preprint e pós-print dos
-                    documentos em repositórios institucionais/digitais
-                </displayed-value>
-                <stored-value>Verde: permite o armazenamento e acesso das versões preprint e pós-print dos documentos em
-                    repositórios institucionais/digitais
-                </stored-value>
+                <displayed-value>4. Verde: permite o armazenamento e acesso das versões preprint e
+                    pós-print dos documentos em repositórios institucionais/digitais </displayed-value>
+                <stored-value>Verde: permite o armazenamento e acesso das versões preprint e
+                    pós-print dos documentos em repositórios institucionais/digitais </stored-value>
             </pair>
         </value-pairs>
 
@@ -2133,61 +2115,59 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_rights_creativecommons" dc-term="common_rights_creativecommons">
+        <value-pairs value-pairs-name="common_rights_creativecommons"
+            dc-term="common_rights_creativecommons">
             <pair>
-                <displayed-value>
-                    1. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY).
-                </displayed-value>
-                <stored-value>
-                    Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra original (CC BY)
-                </stored-value>
+                <displayed-value> 1. Permite distribuição, remixagem, adaptação e criação a partir
+                    da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor
+                    da obra original (CC BY). </displayed-value>
+                <stored-value> Permite distribuição, remixagem, adaptação e criação a partir da
+                    obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da
+                    obra original (CC BY) </stored-value>
             </pair>
             <pair>
-                <displayed-value>
-                    2. Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins
-                    comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações
-                    utilizem a mesma licença da obra original (CC BY-SA).
-                </displayed-value>
-                <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra, mesmo para fins
-                    comerciais, desde que seja atribuído o crédito ao autor da obra original e que as novas criações
-                    utilizem a mesma licença da obra original (CC BY-SA)
-                </stored-value>
+                <displayed-value> 2. Permite distribuição, remixagem, adaptação e criação a partir
+                    da obra, mesmo para fins comerciais, desde que seja atribuído o crédito ao autor
+                    da obra original e que as novas criações utilizem a mesma licença da obra
+                    original (CC BY-SA). </displayed-value>
+                <stored-value>Permite distribuição, remixagem, adaptação e criação a partir da obra,
+                    mesmo para fins comerciais, desde que seja atribuído o crédito ao autor da obra
+                    original e que as novas criações utilizem a mesma licença da obra original (CC
+                    BY-SA) </stored-value>
             </pair>
             <pair>
-                <displayed-value>
-                    3. Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND).
-                </displayed-value>
-                <stored-value>Permite redistribuição, comercial ou não comercial, desde que a obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)</stored-value>
+                <displayed-value> 3. Permite redistribuição, comercial ou não comercial, desde que a
+                    obra não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND). </displayed-value>
+                <stored-value>Permite redistribuição, comercial ou não comercial, desde que a obra
+                    não seja modificada e que seja atribuído o crédito ao autor (CC BY-ND)</stored-value>
             </pair>
             <pair>
-                <displayed-value>4. Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o
-                    crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC).
-                </displayed-value>
-                <stored-value>Permite remixagem, adaptação e criação a partir da obra, desde que seja atribuído o
-                    crédito ao autor e que a nova criação não seja usada para fins comerciais (CC BY-NC)
-                </stored-value>
+                <displayed-value>4. Permite remixagem, adaptação e criação a partir da obra, desde
+                    que seja atribuído o crédito ao autor e que a nova criação não seja usada para
+                    fins comerciais (CC BY-NC). </displayed-value>
+                <stored-value>Permite remixagem, adaptação e criação a partir da obra, desde que
+                    seja atribuído o crédito ao autor e que a nova criação não seja usada para fins
+                    comerciais (CC BY-NC) </stored-value>
             </pair>
             <pair>
-                <displayed-value>5. Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde
-                    que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma
-                    licença da obra original (CC BY-NC-SA).
-                </displayed-value>
-                <stored-value>Permite remixagem, adaptação e criação a partir da obra, para fins não comerciais, desde
-                    que seja atribuído o crédito ao autor da obra original e que as novas criações utilizem a mesma
-                    licença da obra original (CC BY-NC-SA)
-                </stored-value>
+                <displayed-value>5. Permite remixagem, adaptação e criação a partir da obra, para
+                    fins não comerciais, desde que seja atribuído o crédito ao autor da obra
+                    original e que as novas criações utilizem a mesma licença da obra original (CC
+                    BY-NC-SA). </displayed-value>
+                <stored-value>Permite remixagem, adaptação e criação a partir da obra, para fins não
+                    comerciais, desde que seja atribuído o crédito ao autor da obra original e que
+                    as novas criações utilizem a mesma licença da obra original (CC BY-NC-SA) </stored-value>
             </pair>
             <pair>
-                <displayed-value>6. Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a
-                    obra não seja alterada de nenhuma forma (CC BY-NC-ND).
-                </displayed-value>
-                <stored-value>Permite redistribuição não comercial, desde que seja atribuído o crédito ao autor e que a
-                    obra não seja alterada de nenhuma forma (CC BY-NC-ND)
-                </stored-value>
+                <displayed-value>6. Permite redistribuição não comercial, desde que seja atribuído o
+                    crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND). </displayed-value>
+                <stored-value>Permite redistribuição não comercial, desde que seja atribuído o
+                    crédito ao autor e que a obra não seja alterada de nenhuma forma (CC BY-NC-ND) </stored-value>
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_publicationfees" dc-term="common_description_publicationfees">
+        <value-pairs value-pairs-name="common_description_publicationfees"
+            dc-term="common_description_publicationfees">
             <pair>
                 <displayed-value>A revista cobra taxa de submissão de artigos</displayed-value>
                 <stored-value>A revista cobra taxa de submissão de artigos</stored-value>
@@ -2206,29 +2186,30 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_rights_researchdata" dc-term="common_rights_researchdata">
+        <value-pairs value-pairs-name="common_rights_researchdata"
+            dc-term="common_rights_researchdata">
             <pair>
-                <displayed-value>A revista exige que os autores publiquem os dados que deram origem à pesquisa em
-                    repositórios e/ou revistas de dados
-                </displayed-value>
-                <stored-value>A revista exige que os autores publiquem os dados que deram origem à pesquisa em
-                    repositórios e/ou revistas de dados
-                </stored-value>
+                <displayed-value>A revista exige que os autores publiquem os dados que deram origem
+                    à pesquisa em repositórios e/ou revistas de dados </displayed-value>
+                <stored-value>A revista exige que os autores publiquem os dados que deram origem à
+                    pesquisa em repositórios e/ou revistas de dados </stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista publica os dados que deram origem à pesquisa na própria revista
-                </displayed-value>
-                <stored-value>A revista publica os dados que deram origem à pesquisa na própria revista</stored-value>
+                <displayed-value>A revista publica os dados que deram origem à pesquisa na própria
+                    revista </displayed-value>
+                <stored-value>A revista publica os dados que deram origem à pesquisa na própria
+                    revista</stored-value>
             </pair>
             <pair>
-                <displayed-value>A revista não exige que os autores publiquem os dados que deram origem à pesquisa
-                </displayed-value>
-                <stored-value>A revista não exige que os autores publiquem os dados que deram origem à pesquisa
-                </stored-value>
+                <displayed-value>A revista não exige que os autores publiquem os dados que deram
+                    origem à pesquisa </displayed-value>
+                <stored-value>A revista não exige que os autores publiquem os dados que deram origem
+                    à pesquisa </stored-value>
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_qualisarea" dc-term="common_description_qualisarea">
+        <value-pairs value-pairs-name="common_description_qualisarea"
+            dc-term="common_description_qualisarea">
             <pair>
                 <displayed-value>Revista não avaliada</displayed-value>
                 <stored-value>Revista não avaliada</stored-value>
@@ -2431,7 +2412,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_qualisclassification" dc-term="common_description_qualisclassification">
+        <value-pairs value-pairs-name="common_description_qualisclassification"
+            dc-term="common_description_qualisclassification">
             <pair>
                 <displayed-value>Revista não avaliada</displayed-value>
                 <stored-value>Revista não avaliada</stored-value>
@@ -2669,7 +2651,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_identifier_openaccessseal" dc-term="common_identifier_openaccessseal">
+        <value-pairs value-pairs-name="common_identifier_openaccessseal"
+            dc-term="common_identifier_openaccessseal">
             <pair>
                 <displayed-value>Foi atribuído à revista o selo de acesso aberto</displayed-value>
                 <stored-value>Foi atribuído à revista o selo de acesso aberto</stored-value>
@@ -2680,7 +2663,8 @@
             </pair>
         </value-pairs>
 
-        <value-pairs value-pairs-name="common_description_region" dc-term="common_description_region">
+        <value-pairs value-pairs-name="common_description_region"
+            dc-term="common_description_region">
             <pair>
                 <displayed-value>Centro-Oeste</displayed-value>
                 <stored-value>Centro-Oeste</stored-value>
