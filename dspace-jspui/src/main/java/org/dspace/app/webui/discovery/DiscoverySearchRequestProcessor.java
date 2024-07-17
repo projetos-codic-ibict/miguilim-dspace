@@ -441,16 +441,9 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             {
                 try 
                 {
-                    if (authorizeService.isAdmin(context)) 
-                    {
-                        exportMetadata(context, response, resultsListItem);
-                    }
-                    else 
-                    {
-                        JSPManager.showJSP(request, response, "/error/authorize.jsp");
-                    }
+                    exportMetadata(context, response, resultsListItem);
                 }
-                catch (SQLException e)
+                catch (Exception e)
                 {
                     throw new SearchProcessorException(e.getMessage(), e);
                 }

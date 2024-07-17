@@ -637,12 +637,7 @@
                         <div>
                             <input class="button-main-outline" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
 
-                            <%
-                                if (admin_button)
-                                {
-                            %><input type="submit" class="button-main" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" /><%
-                            }
-                        %>
+                            <input type="submit" class="button-main" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
                         </div>
 
                     </div>
