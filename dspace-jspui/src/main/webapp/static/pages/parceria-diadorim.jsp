@@ -79,7 +79,7 @@
     <p>
         O Miguilim foi criado com o intuito de agregar, em um único local, informações sobre as revistas científicas editadas e publicadas no Brasil que se encontravam dispersas em diferentes plataformas.
         <br><br>
-        Antes da criação do Miguilim, o Ibict já possuía um diretório de revistas sob sua responsabilidade, o <a href="https://diadorim.ibict.br/vufind" target="_blank">Diretório de políticas editoriais das revistas científicas brasileiras (Diadorim)</a>.
+        Antes da criação do Miguilim, o Ibict já possuía um diretório de revistas sob sua responsabilidade, o <a href="https://diadorim.ibict.br/vufind" title="link do Diadorim" target="_blank">Diretório de políticas editoriais das revistas científicas brasileiras (Diadorim)</a>.
         <br><br>
         Os serviços são complementares, mas possuem suas especificidades. Por conta disso, optou-se por manter os dois ativos. Para isso, foi feita uma atualização no Diadorim para que os editores brasileiros não precisem registrar suas revistas em dois locais distintos, evitando o retrabalho.
         <br><br>
