@@ -131,7 +131,6 @@
                     <li>Ter o Brasil como país de publicação na rede ISSN;</li>  
                     <li>Ser eletrônica e estar disponível online;</li>
                     <li>Manter conexão permanente e estável com a internet;</li>
-                    <li>Não apresentar comportamentos típicos de publicações predatórias (a avaliação será realizada pela equipe do Miguilim);</li>
                     <li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
                     <ul>
                         <li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
