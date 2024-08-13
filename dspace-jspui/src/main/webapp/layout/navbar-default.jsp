@@ -142,6 +142,7 @@
                 <li class="<%= currentPage.endsWith("/como-cadastro") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/como-cadastro.jsp"><fmt:message key="jsp.layout.navbar.miguilim.howregister"/></a></li>
                 <li class="<%= currentPage.endsWith("/como-atualizar-cadastro") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/como-atualizar-cadastro.jsp"><fmt:message key="jsp.layout.navbar.miguilim.howupdateregisgter"/></a></li>
                 <li class="<%= currentPage.endsWith("/documentos") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/documentos.jsp"><fmt:message key="jsp.layout.navbar.miguilim.docs"/></a></li>
+                <li class="<%= currentPage.endsWith("/logomarcas") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/logomarcas.jsp"><fmt:message key="jsp.layout.navbar.miguilim.logos"/></a></li>
                 <li class="<%= currentPage.endsWith("/parceria-diadorim") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/parceria-diadorim.jsp"><fmt:message key="jsp.layout.navbar.miguilim.diadorim-partnership"/></a></li>
             </ul>
         </li>

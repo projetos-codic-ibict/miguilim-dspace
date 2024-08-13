@@ -1,0 +1,121 @@
+:root {
+  --light-gray: #E1E5E9;
+  --dark-blue: #04132A;
+}
+
+.logos-section {
+  background: var(--light-gray);
+  padding: 0.5rem;
+}
+
+.descriptions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.descriptions-container:first-of-type {
+  gap: 60px;
+  margin: 60px 0;
+}
+
+.description {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+p.logo-description {
+  margin: 0;
+  font-size: 14px;
+}
+
+.logo-image {
+  max-width: 40%;
+}
+
+.title-logo {
+  margin: 2rem 0;
+}
+
+a.download-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  min-width: max-content;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--dark-blue);
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 24px;
+}
+
+a.download-icon span {
+  /* bug do bootstrap, o ícone fica por padrão um pouco fora do centro */
+  top: -1px;
+  left: 1px;
+}
+
+.download-icon:hover {
+  color: white !important;
+  border-color: var(--dark-blue) !important;
+  background: var(--dark-blue) !important;
+}
+
+a.download-icon, a.download-icon:hover {
+  text-decoration: none;
+  color: var(--dark-blue);
+}
+
+.btn-download-all {
+  display: block;
+  margin: 4% 0 4% auto;
+  width: 150px;
+  border: 2px solid var(--dark-blue);
+  color: var(--dark-blue);
+  border-radius: 4px;
+}
+
+.btn-download-all:hover {
+  background-color: var(--dark-blue);
+  color: var(--light-gray);
+}
+
+@media screen and (max-width: 768px) {
+  .description {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .description img {
+    margin-bottom: 0;
+  }
+
+  .description .logo-description {
+    order: 3;
+  }
+
+  .description .download-icon {
+    order: 2;
+    margin: 0;
+  }
+
+  .btn-download-all {
+    margin: 4% auto;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .download-icon {
+    max-width: 10%;
+  }
+}
+
+@media screen and (max-width: 980px) {
+  .download-icon {
+    max-width: 5%;
+  }
+}
