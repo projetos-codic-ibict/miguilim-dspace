@@ -317,6 +317,9 @@
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchdescriptionsocialnetworks" />
 				<ref bean="searchpublisherlegalnature" />
+				<ref bean="searchFilterSituation" />
+				<ref bean="searchFilterStartyear" />
+				<ref bean="searchFilterEndyear" />
                 <ref bean="searchFilterRegion" />
                 <ref bean="searchFilterState" />
             </list>
