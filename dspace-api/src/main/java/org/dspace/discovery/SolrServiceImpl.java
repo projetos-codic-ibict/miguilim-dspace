@@ -215,9 +215,7 @@ public class SolrServiceImpl implements SearchService, IndexingService {
             {
                 case Constants.ITEM:
                     Item item = (Item) dso;
-                    boolean hasVersionHandle = handle.matches(".*/\\d+\\.\\d+$");
-
-                    if (!hasVersionHandle && (item.isArchived() || item.isWithdrawn()))
+                    if (item.isArchived() || item.isWithdrawn())
                     {
                         /**
                          * If the item is in the repository now, add it to the index
