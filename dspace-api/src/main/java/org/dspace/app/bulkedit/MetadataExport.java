@@ -9,7 +9,7 @@ package org.dspace.app.bulkedit;
 
 import com.google.common.collect.Iterators;
 import org.apache.commons.cli.*;
-import org.apache.log4j.Logger;
+
 import org.dspace.content.*;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
@@ -156,13 +156,6 @@ public class MetadataExport
             while (toExport.hasNext())
             {
                 Item item = toExport.next();
-
-                try {
-                    item.updateMetadadosComputados(context);
-                } catch (Exception e) {
-                    Logger.getLogger(getClass()).error("Ocorreu um erro ao atualizar os metadados computados para exportação:", e);
-                }
-
                 csv.addItem(item);
                 context.uncacheEntity(item);
             }
