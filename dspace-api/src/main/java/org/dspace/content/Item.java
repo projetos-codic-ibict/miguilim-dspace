@@ -7,6 +7,7 @@
  */
 package org.dspace.content;
 
+import org.apache.log4j.Logger;
 import org.dspace.content.comparator.NameAscendingComparator;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
@@ -18,6 +19,7 @@ import org.hibernate.annotations.SortType;
 import org.hibernate.proxy.HibernateProxyHelper;
 
 import javax.persistence.*;
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -368,6 +370,88 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
     public String getName()
     {
         return getItemService().getMetadataFirstValue(this, MetadataSchema.DC_SCHEMA, "title", null, Item.ANY);
+    }
+
+    public void updateMetadadosComputados(Context context) throws SQLException {
+        updateReferenciaBibliografica(context, "pt_BR");
+    }
+
+    private void updateReferenciaBibliografica(Context context, String idioma) throws SQLException {
+        ItemService itemService = getItemService();
+        itemService.clearMetadata(context, this, "dc", "description", "bibliographicreference", idioma);
+
+        final String REVISTAS = "miguilim/2";
+        boolean pertenceARevistasCientificas = getCollections()
+                .stream()
+                .anyMatch(c -> c.getHandle() != null && c.getHandle().equals(REVISTAS));
+
+        if (!pertenceARevistasCientificas) {
+            return;
+        }
+
+        String referencia = computaReferenciaBibliografica(idioma);
+        itemService.addMetadata(context, this, "dc", "description", "bibliographicreference", idioma, referencia);
+    }
+
+    private String computaReferenciaBibliografica(String idioma) {
+        ItemService itemService = getItemService();
+
+        String title = itemService.getMetadataFirstValue(this, "dc", "title", null, idioma);
+        String city = itemService.getMetadataFirstValue(this, "dc", "description", "city", idioma);
+        String publisherName = itemService.getMetadataFirstValue(this, "dc", "publisher", "name", idioma);
+        String startyear = itemService.getMetadataFirstValue(this, "dc", "date", "startyear", idioma);
+        String endyear = itemService.getMetadataFirstValue(this, "dc", "date", "endyear", idioma);
+        String issn = itemService.getMetadataFirstValue(this, "dc", "identifier", "issn", idioma);
+
+        String titleSufixo = ". ";
+        String citySufixo = ": ";
+        String publisherSufixo = ", ";
+        String yearSufixo = ". ";
+        String issnSufixo = ".";
+        String referenciaBibliografica = "";
+
+        if (title != null)
+        {
+            referenciaBibliografica = title.toUpperCase() + titleSufixo;
+        }
+
+        if (city != null)
+        {
+            referenciaBibliografica += city + citySufixo;
+        }
+
+        if (publisherName != null)
+        {
+            referenciaBibliografica += publisherName + publisherSufixo;
+        }
+
+        if (startyear != null)
+        {
+            referenciaBibliografica += startyear;
+
+            if (endyear != null)
+            {
+                referenciaBibliografica += " - " + endyear;
+            }
+
+            referenciaBibliografica += yearSufixo;
+        }
+
+        if (issn != null)
+        {
+            referenciaBibliografica += "ISSN " + issn + issnSufixo;
+        }
+
+        String[] sufixos = { titleSufixo, citySufixo, publisherSufixo, yearSufixo, issnSufixo };
+
+        for (String sufixo : sufixos) {
+            if (referenciaBibliografica.endsWith(sufixo)) {
+                referenciaBibliografica = referenciaBibliografica.substring(0, referenciaBibliografica.length() - sufixo.length()) + ".";
+                break;
+            }
+        }
+
+        return referenciaBibliografica == "" ? null : referenciaBibliografica;
     }
 
     @Override

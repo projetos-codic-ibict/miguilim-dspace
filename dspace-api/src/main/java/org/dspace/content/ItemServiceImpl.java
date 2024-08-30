@@ -437,6 +437,13 @@ public class ItemServiceImpl extends DSpaceObjectServiceImpl<Item> implements It
         }
 
         log.info(LogManager.getHeader(context, "update_item", "item_id=" + item.getID()));
+
+        try {
+            item.updateMetadadosComputados(context);
+        } catch (Exception e) {
+            Logger.getLogger(getClass()).error("Ocorreu um erro ao atualizar os metadados computados:", e);
+        }
+
         super.update(context, item);
 
         // Set sequence IDs for bitstreams in item

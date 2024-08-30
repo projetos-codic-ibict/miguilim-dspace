@@ -30,6 +30,7 @@
 
 <%@taglib uri="http://www.dspace.org/dspace-tags.tld" prefix="dspace" %>
 
+<%@page import="org.apache.log4j.Logger" %>
 <%@page import="org.dspace.content.Collection" %>
 <%@page import="org.dspace.content.Item" %>
 <%@page import="org.dspace.core.ConfigurationManager" %>
@@ -79,6 +80,12 @@
     // get the handle if the item has one yet
     String handle = item.getHandle();
     Context context = UIUtil.obtainContext(request);
+
+    try {
+        item.updateMetadadosComputados(context);
+    } catch (Exception e) {
+        Logger.getLogger(getClass()).error("Ocorreu um erro ao atualizar os metadados computados para visualização:", e);
+    }
 
     // get the doi if the item has one
     String doi = (String) request.getAttribute("doi");
