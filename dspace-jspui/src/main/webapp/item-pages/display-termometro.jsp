@@ -97,7 +97,7 @@
                 </div>
 
                 <div>
-                    <h3>O que é o termômetro de Acesso Aberto?</h3>
+                    <h3>O que é o termômetro de Acesso Aberto e de Ciência Aberta?</h3>
 
                     <div class="descricao-termometro">
                         <p>Este termômetro tem como objetivo identificar o alinhamento das revistas científicas
@@ -110,8 +110,8 @@
                         </p>
                         <p>
                             As revistas que indicarem a resposta “Acesso aberto imediato” no campo “Tipo de acesso” e
-                            cumprirem ao menos 80% dos critérios de abertura definidos pela Equipe Miguilim receberão um
-                            selo de publicação em Acesso Aberto, que reconhece os esforços realizados pela revista para
+                            cumprirem ao menos 80% dos critérios de abertura definidos pela Equipe Miguilim receberão o
+                            selo "Práticas de Ciência Aberta", que reconhece os esforços realizados pela revista para
                             colocar a Ciência ao alcance de todos.
                         </p>
 

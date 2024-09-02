@@ -90,7 +90,7 @@
 	        <a href="#DeOndeVieramAsInformacoes">De onde vieram as informações dos primeiros registros do Miguilim?</a>
 	        <a href="#EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</a>
 	        <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
-	        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</a>
+	        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto e de Ciência Aberta?</a>
 	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
@@ -246,12 +246,12 @@
 					Os dados atualizados ficam pendentes de aceite, cabendo à equipe gestora posterior verificação dos dados informados e realização de correções, se necessário…
 				</p>
             
-            <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto?</h2>
+            <h2 id="OqueEoTermometro">O que é o Termômetro de Acesso Aberto e de Ciência Aberta?</h2>
     
-                <p id="margem-unica">O termômetro de Acesso Aberto tem como objetivo identificar o alinhamento das revistas científicas brasileiras cadastradas no Miguilim aos 
+                <p id="margem-unica">O termômetro de Acesso Aberto e de Ciência Aberta tem como objetivo identificar o alinhamento das revistas científicas brasileiras cadastradas no Miguilim aos 
                 Movimentos de Acesso Aberto e de Ciência Aberta. Para medir esse alinhamento o termômetro utiliza como parâmetro as respostas dadas pelo editor da revista a uma 
                 série de metadados, sendo possível criar uma escala que mede o quão alinhada a revista está a estes Movimentos.	As revistas que indicarem "Acesso aberto imediato" no campo 
-		"Tipo de acesso" e cumprirem ao menos 80% dos critérios de abertura definidos pela Equipe Miguilim receberão um selo de publicação em Acesso Aberto, que reconhece os esforços realizados pela revista para 
+                "Tipo de acesso" e cumprirem ao menos 80% dos critérios de abertura definidos pela Equipe Miguilim receberão o selo "Práticas de Ciência Aberta", que reconhece os esforços realizados pela revista para 
                 colocar a Ciência ao alcance de todos.</p>
     
                 <p id="margem-unica">A pontuação indicada no termômetro leva em consideração as respostas dadas a 22 campos do registro da revista. Estes campos dizem respeito à abertura do
