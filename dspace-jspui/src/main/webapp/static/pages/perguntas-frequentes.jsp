@@ -43,6 +43,17 @@
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 
+<c:set var="dspace.layout.head.last" scope="request">
+    <style>
+        /* os estilos em dspace-theme.scss não funcionam especificamente com este elemento */
+        #OqueEoSeloRevistadiamante {
+            font-size: 18px !important;
+            font-family: "Open Sans", sans-serif !important;
+            margin: 24px 0 16px 0 !important;
+        }
+    </style>
+</c:set>
+
 <%
     List<Community> communities = (List<Community>) request.getAttribute("communities");
 
@@ -91,6 +102,7 @@
 	        <a href="#EmQualSoftware">Em qual software foi desenvolvido o Miguilim?</a>
 	        <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
 	        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto e de Ciência Aberta?</a>
+	        <a href="#OqueEoSeloRevistadiamante">O que é o selo “Revista diamante?”</a>
 	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
@@ -259,6 +271,14 @@
                 ética, dentre outros. Para cada um dos 22 campos a revista pode pontuar entre 0 (zero), 1 (um) ou 2 (dois) pontos, sendo 2 (dois) a pontuação máxima para cada um. 
                 Deste modo, ao pontuar 2 (dois) em cada um dos 22 campos a revista atinge a pontuação máxima de 44 pontos, ou 100%. O selo será atribuído àquelas revistas que marcarem 36 
                 pontos ou mais, que corresponde a 80% da pontuação máxima.</p>
+
+            <h2 id="OqueEoSeloRevistadiamante">O que é o selo “Revista diamante?”</h2>
+
+                <p id="margem-unica">O selo “Revista Diamante” foi criado para identificar as revistas que são de acesso aberto e não cobram qualquer tipo de taxa, seja ela de submissão, processamento ou publicação.</p>
+
+                <p id="margem-unica">Essas revistas oferecem acesso gratuito e irrestrito a seus conteúdos, promovendo a disseminação do conhecimento científico sem onerar os pesquisadores ou os leitores.</p>
+
+                <p id="margem-unica">O termo "Revista Diamante" tem sido cada vez mais adotado por especialistas em Ciência Aberta no mundo para se referir às revistas que adotam este modelo de publicação.</p>
 		
             <h2 id="PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</h2>
     
