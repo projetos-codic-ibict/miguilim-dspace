@@ -35,6 +35,7 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
       - SMTP_HOST_IP=${SMTP_HOST_IP}
+      - ENVIRONMENT=${ENVIRONMENT}
     container_name: dspace_miguilim
     ports:
     - "80:8080"

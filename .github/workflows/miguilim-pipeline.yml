@@ -12,6 +12,8 @@ env:
 jobs:
   HML:
     runs-on: [self-hosted, linux, x64, runner-hml]
+    env:
+      ENVIRONMENT: HML
     environment:
       name: HML
       url: 'http://172.16.21.20'
@@ -23,6 +25,8 @@ jobs:
 
   PRD:
     runs-on: [self-hosted, linux, x64, runner-prd]
+    env:
+      ENVIRONMENT: PRD
     environment: 
       name: PRD
       url: 'https://miguilim.ibict.br/'

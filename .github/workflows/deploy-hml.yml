@@ -6,6 +6,7 @@ on:
 env:
   SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
   SMTP_HOST_IP: ${{ secrets.SMTP_HOST_IP }}
+  ENVIRONMENT: HML
 
 jobs:
   deploy:

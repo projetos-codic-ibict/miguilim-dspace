@@ -163,7 +163,7 @@ function habilita_debug_remoto() {
 }
 
 function verfica_e_trata_ambiente_de_desenvolvimento() {
-  if [ -n "${ENVIRONMENT}" ]; then
+  if [ "${ENVIRONMENT}" = "HML" ]; then
     habilita_debug_remoto
   fi
 }
