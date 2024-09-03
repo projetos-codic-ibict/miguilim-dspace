@@ -133,7 +133,13 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
   arquivo_server_xml="$TOMCAT_HOME/conf/server.xml"
   arquivo_server_xml_default="$arquivo_server_xml.default"
   
-  codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n        <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"127\\\.0\\\.0\\\.1|172\\\.16\\\.16\\\.225|172\\\.16\\\.16\\\.112\"/>\n        <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
+  if [ "${ENVIRONMENT}" = "HML" ]; then
+    ips_permitidos="\.*"
+  else
+    ips_permitidos="127\\\.0\\\.0\\\.1|172\\\.16\\\.16\\\.225|172\\\.16\\\.16\\\.112"
+  fi
+
+  codigo_xml="<Context path=\"/solr\" reloadable=\"true\">\n <Valve className=\"org.apache.catalina.valves.RemoteAddrValve\" allow=\"${ips_permitidos}\"/>\n <Parameter name=\"LocalHostRestrictionFilter.localhost\" value=\"false\" override=\"false\" />\n</Context>"
 
   if [ ! -f "$arquivo_server_xml" ]; then
     echo "Erro: O arquivo $arquivo_server_xml não existe."
