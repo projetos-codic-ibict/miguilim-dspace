@@ -84,16 +84,16 @@
 
     <h2><strong class="titulo-medio">Revistas científicas</strong></h2>
     <p>
-        O Padrão de metadados do Diretório das revistas científicas eletrônicas brasileiras (MRE-BR) foi desenvolvido com o objetivo de traçar um perfil abrangente das revistas científicas eletrônicas no Brasil.
+        O Padrão de metadados do Diretório das revistas científicas eletrônicas brasileiras (MRC-BR) foi desenvolvido com o objetivo de traçar um perfil abrangente das revistas científicas eletrônicas no Brasil.
         <br><br>
-        A sigla MRE refere-se à “Metadados para revistas eletrônicas”, enquanto o sufixo “BR” designa referir-se às revistas brasileiras.
+        A sigla MRC refere-se à “Metadados para revistas científicas”, enquanto o sufixo “BR” designa referir-se às revistas brasileiras.
         <br><br>
-        Além das informações básicas sobre as revistas, como título, instituição editora, editor responsável e tipo de acesso, o MRE-BR visa aprofundar o conhecimento sobre as práticas de Acesso Aberto e Ciência Aberta adotadas pelas revistas.
+        Além das informações básicas sobre as revistas, como título, instituição editora, editor responsável e tipo de acesso, o MRC-BR visa aprofundar o conhecimento sobre as práticas de Acesso Aberto e Ciência Aberta adotadas pelas revistas.
         <br><br>
         Para atingir esses objetivos, foram considerados diversos serviços de informação sobre revistas científicas, incluindo o <a href="https://doaj.org/">Directory of Open Access Journals (DOAJ)</a>, o <a href="https://www.redalyc.org/home.oa">Sistema de Información Científica Redalyc</a> e a <a href="https://www.scielo.br/">Scientific Electronic Library Online (SciELO Brasil)</a>.
     </p>
 
-    <a href="<%= request.getContextPath()%>/static/pages/MRE-BR-VERSAO-1.pdf" target="_blank" title="Padrão MRE-BR versão 1">» MRE-BR-VERSAO-1</a>
+    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-1.pdf" target="_blank" title="Padrão MRC-BR versão 1">» MRC-BR-VERSAO-1</a>
 
     <h2><strong class="titulo-medio">Portais de revistas</strong></h2>
     <p>
