@@ -1,0 +1,27 @@
+#!/bin/bash
+
+##############################################
+############ Limpeza de logs #################
+##############################################
+
+## Este script remove arquivos de log que foram criados com mais de MAX_DAYS dias
+
+set -e
+
+cd /dspace/log
+
+CURRENT_DATE="$(date +'%Y-%m-%d')"
+CURRENT_DATE_SECONDS_SINCE_EPOCH="$(date +%s -d "${CURRENT_DATE}")"
+SECONDS_IN_A_DAY=86400
+MAX_DAYS=30
+LOGFILES="$(ls -Ap -1 | grep -v '/' | grep '\.log\.[0-9]\+-[0-9]\+-[0-9]\+$')"
+
+echo "${LOGFILES}" | while read -r LOGFILE; do
+  LOGFILE_DATE=$(echo "${LOGFILE}" | grep -o '[0-9]\+-[0-9]\+-[0-9]\+$')
+  LOGFILE_DATE_SECONDS_SINCE_EPOCH=$(date +%s -d "${LOGFILE_DATE}")
+  DATE_DIFF_IN_DAYS=$(((CURRENT_DATE_SECONDS_SINCE_EPOCH - LOGFILE_DATE_SECONDS_SINCE_EPOCH) / SECONDS_IN_A_DAY))
+
+  if [ "${DATE_DIFF_IN_DAYS}" -ge "${MAX_DAYS}" ]; then
+    rm "${LOGFILE}"
+  fi
+done
