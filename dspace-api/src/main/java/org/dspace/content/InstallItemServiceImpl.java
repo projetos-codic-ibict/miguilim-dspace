@@ -23,12 +23,17 @@ import org.dspace.content.service.InstallItemService;
 import org.dspace.content.service.ItemService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
+import org.dspace.discovery.IndexingService;
 import org.dspace.embargo.service.EmbargoService;
 import org.dspace.event.Event;
 import org.dspace.handle.service.HandleService;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
 import org.dspace.termometro.util.CalculadoraTermometro;
+import org.dspace.versioning.Version;
+import org.dspace.versioning.VersionHistory;
+import org.dspace.versioning.factory.VersionServiceFactory;
+import org.dspace.versioning.service.VersionHistoryService;
 import org.dspace.versioning.service.VersioningService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -63,6 +68,8 @@ public class InstallItemServiceImpl implements InstallItemService
     protected AuthorizeService authorizeService;
     @Autowired(required = true)
     protected HandleService handleService;
+    @Autowired(required = true)
+    private IndexingService indexer;
 
     protected InstallItemServiceImpl()
     {
@@ -90,6 +97,17 @@ public class InstallItemServiceImpl implements InstallItemService
             {
         		if(CollectionUtils.isNotEmpty(valores))
             	{
+                    Version versaoAnterior = getVersaoAnterior(c, item);
+
+                    if(versaoAnterior != null)
+                    {
+                        int numeroVersaoAnterior = versaoAnterior.getVersionNumber();
+                        String handleCanonico = item.getHandle().split("\\.")[0];
+                        String handleVersaoAnterior = numeroVersaoAnterior == 1 ? handleCanonico : handleCanonico + "." + numeroVersaoAnterior;
+
+                        indexer.unIndexContent(c, handleVersaoAnterior, true);
+                    }
+
             		Item oldItem = itemService.find(c, UUID.fromString(valores.get(0).getValue()));
             		
             		if(oldItem != null)
@@ -351,6 +369,13 @@ public class InstallItemServiceImpl implements InstallItemService
         }
 
         return myMessage.toString();
+    }
+
+    private Version getVersaoAnterior(Context c, Item item) throws SQLException {
+        VersionHistoryService versionHistoryService = VersionServiceFactory.getInstance().getVersionHistoryService();
+        VersionHistory historico = versionHistoryService.findByItem(c, item);
+        Version ultimaVersao = versionHistoryService.getLatestVersion(c, historico);
+        return versionHistoryService.getPrevious(c, historico, ultimaVersao);
     }
 
     private boolean possuiMetadadoDeTermometro(Item item) {
