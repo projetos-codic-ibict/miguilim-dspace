@@ -29,7 +29,6 @@ import org.dspace.event.Event;
 import org.dspace.handle.service.HandleService;
 import org.dspace.identifier.IdentifierException;
 import org.dspace.identifier.service.IdentifierService;
-import org.dspace.termometro.util.CalculadoraTermometro;
 import org.dspace.versioning.Version;
 import org.dspace.versioning.VersionHistory;
 import org.dspace.versioning.factory.VersionServiceFactory;
@@ -263,48 +262,36 @@ public class InstallItemServiceImpl implements InstallItemService
         
         Collection itemCollection = collectionService.find(c, collection.getID());
       
-        try
+        boolean isItemDaColecaoRevista = itemCollection.getHandle().equals(REVISTAS);
+
+        if(isItemDaColecaoRevista)
         {
-        	boolean isItemDaColecaoRevista = itemCollection.getHandle().equals(REVISTAS);
-
-            if(isItemDaColecaoRevista)
+            if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_DIADORIM))
             {
-                if (!possuiMetadadoDeTermometro(item))
-                {
-                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "identifier", "thermometer", LANGUAGE_BR, CalculadoraTermometro.calcularPorcentagemPontuacao(item));
-                }
-
-                if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_DIADORIM))
-                {
-                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_DIADORIM);
-                }
-
-                if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_MIGUILIM))
-                {
-                    itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_MIGUILIM);
-                }
+                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_DIADORIM);
             }
-                
-            if(suppliedHandle == null || itemService.existeMetadadoNoItem(item, "update"))
+
+            if(!possuiValorDeMetadadoDeServico(item, "informationservices", VALOR_MIGUILIM))
             {
-            	String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
-                String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
-                String dataHoraAtualizacao = data + " às " + hora;
-                
-                itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
-                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
-            }
-            else
-            {
-            	itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
-            	
-            	String descricaoDefault = isItemDaColecaoRevista ? "Não atualizada" : "Não atualizado";
-            	itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
+                itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "relation", "informationservices", LANGUAGE_BR, VALOR_MIGUILIM);
             }
         }
-        catch(IOException e)
+            
+        if(suppliedHandle == null || itemService.existeMetadadoNoItem(item, "update"))
         {
-        	throw new RuntimeException("Can't create an Identifier!", e);
+            String data = new SimpleDateFormat("dd/MM/yyyy").format(now.toDate());
+            String hora = new SimpleDateFormat("HH:mm:ss").format(now.toDate());
+            String dataHoraAtualizacao = data + " às " + hora;
+            
+            itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
+        }
+        else
+        {
+            itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
+            
+            String descricaoDefault = isItemDaColecaoRevista ? "Não atualizada" : "Não atualizado";
+            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
         }
     }
 
@@ -376,16 +363,6 @@ public class InstallItemServiceImpl implements InstallItemService
         VersionHistory historico = versionHistoryService.findByItem(c, item);
         Version ultimaVersao = versionHistoryService.getLatestVersion(c, historico);
         return versionHistoryService.getPrevious(c, historico, ultimaVersao);
-    }
-
-    private boolean possuiMetadadoDeTermometro(Item item) {
-        return item
-            .getMetadata()
-            .stream()
-            .filter(i -> i.getMetadataField().getQualifier() != null)
-            .filter(i -> i.getMetadataField().getQualifier().equals("thermometer"))
-            .collect(Collectors.toList())
-            .size() > 0;
     }
 
     private boolean possuiValorDeMetadadoDeServico(Item item, String metadado, String valor) {

@@ -14,13 +14,17 @@ import org.dspace.content.service.ItemService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+import org.dspace.termometro.util.CalculadoraTermometro;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
 import org.hibernate.proxy.HibernateProxyHelper;
 
 import javax.persistence.*;
+
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Class representing an item in DSpace.
@@ -40,6 +44,8 @@ import java.util.*;
 @Table(name="item")
 public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
 {
+    private static final String REVISTAS = "miguilim/2";
+
     /**
      * Wild card for Dublin Core metadata qualifiers/languages
      */
@@ -372,23 +378,26 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         return getItemService().getMetadataFirstValue(this, MetadataSchema.DC_SCHEMA, "title", null, Item.ANY);
     }
 
+    public boolean isItemDaColecao(Collection colecao) {
+        return isItemDaColecao(colecao.getHandle());
+    }
+
+    public boolean isItemDaColecao(String handle) {
+        return getCollections()
+                .stream()
+                .anyMatch(c -> c.getHandle() != null && c.getHandle().equals(handle));
+    }
+
     public void updateMetadadosComputados(Context context) throws SQLException {
-        updateReferenciaBibliografica(context, "pt_BR");
+        if (isItemDaColecao(REVISTAS)) {
+            updateReferenciaBibliografica(context, "pt_BR");
+            updateTermometro(context, "pt_BR");
+        }
     }
 
     private void updateReferenciaBibliografica(Context context, String idioma) throws SQLException {
         ItemService itemService = getItemService();
         itemService.clearMetadata(context, this, "dc", "description", "bibliographicreference", idioma);
-
-        final String REVISTAS = "miguilim/2";
-        boolean pertenceARevistasCientificas = getCollections()
-                .stream()
-                .anyMatch(c -> c.getHandle() != null && c.getHandle().equals(REVISTAS));
-
-        if (!pertenceARevistasCientificas) {
-            return;
-        }
-
         String referencia = computaReferenciaBibliografica(idioma);
         itemService.addMetadata(context, this, "dc", "description", "bibliographicreference", idioma, referencia);
     }
@@ -452,6 +461,16 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         }
 
         return referenciaBibliografica == "" ? null : referenciaBibliografica;
+    }
+
+    private void updateTermometro(Context context, String idioma) throws SQLException {
+        try {
+            String porcentagemPontuacao = CalculadoraTermometro.calcularPorcentagemPontuacao(this);
+            itemService.clearMetadata(context, this, "dc", "identifier", "thermometer", idioma);
+            itemService.addMetadata(context, this, "dc", "identifier", "thermometer", idioma, porcentagemPontuacao);
+        } catch (IOException e) {
+            throw new RuntimeException("Can't create an Identifier!", e);
+        }
     }
 
     @Override
