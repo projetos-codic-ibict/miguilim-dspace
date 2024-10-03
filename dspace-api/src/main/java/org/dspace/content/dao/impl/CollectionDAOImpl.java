@@ -60,9 +60,26 @@ public class CollectionDAOImpl extends AbstractHibernateDSODAO<Collection> imple
     @Override
     public List<Collection> findAll(Context context, MetadataField order, Integer limit, Integer offset) throws SQLException {
         StringBuilder query = new StringBuilder();
-        query.append("SELECT ").append(Collection.class.getSimpleName()).append(" FROM Collection as ").append(Collection.class.getSimpleName()).append(" ");
-        addMetadataLeftJoin(query, Collection.class.getSimpleName(), Arrays.asList(order));
-        addMetadataSortQuery(query, Arrays.asList(order), null);
+
+        // O código original do DSpace 6 tem um bug em que esse método pode
+        // retornar uma lista com alguma coleção duplicada. O motivo é que a
+        // query original não garante que todas as entries sejam distintas. Para
+        // resolver isso, esta query foi adaptada a partir da query do commit
+        // (bc9fc2f066cf934da07d53d77bde5df76ab3ff4c) do DSpace que conserta
+        // esse problema. A adaptação foi necessária para que funcione com a
+        // versão 4 do hibernate.
+        query.append("SELECT c " +
+                                 "FROM Collection c " +
+                                 "LEFT JOIN c.metadata title " +
+                                 "WHERE title.metadataField = :sortField " +
+                                 "AND title.dSpaceObject = c.id " +
+                                 "AND title.place = (" +
+                                 "    SELECT min(internal.place) " +
+                                 "    FROM c.metadata internal " +
+                                 "    WHERE internal.metadataField = :sortField " +
+                                 "    AND internal.dSpaceObject = c.id" +
+                                 ") " +
+                                 "ORDER BY LOWER(title.value)");
 
         Query hibernateQuery = createQuery(context, query.toString());
         if(offset != null)
@@ -72,7 +89,7 @@ public class CollectionDAOImpl extends AbstractHibernateDSODAO<Collection> imple
         if(limit != null){
             hibernateQuery.setMaxResults(limit);
         }
-        hibernateQuery.setParameter(order.toString(), order.getID());
+        hibernateQuery.setParameter("sortField", order);
         return list(hibernateQuery);
     }
 
