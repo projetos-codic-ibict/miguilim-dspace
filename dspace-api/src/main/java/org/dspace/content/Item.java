@@ -11,9 +11,12 @@ import org.apache.log4j.Logger;
 import org.dspace.content.comparator.NameAscendingComparator;
 import org.dspace.content.factory.ContentServiceFactory;
 import org.dspace.content.service.ItemService;
+import org.dspace.content.service.MetadataFieldService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
 import org.dspace.eperson.EPerson;
+import org.dspace.handle.factory.HandleServiceFactory;
+import org.dspace.handle.service.HandleService;
 import org.dspace.termometro.util.CalculadoraTermometro;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
@@ -24,7 +27,10 @@ import javax.persistence.*;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * Class representing an item in DSpace.
@@ -93,7 +99,13 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
     private final List<Bundle> bundles = new ArrayList<>();
 
     @Transient
-    private transient ItemService itemService;
+    private transient ItemService itemService = ContentServiceFactory.getInstance().getItemService();
+
+    @Transient
+    private transient HandleService handleService = HandleServiceFactory.getInstance().getHandleService();
+
+    @Transient
+    private transient MetadataFieldService metadataFieldService = ContentServiceFactory.getInstance().getMetadataFieldService();
 
     /**
      * Protected constructor, create object using:
@@ -392,6 +404,79 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         if (isItemDaColecao(REVISTAS)) {
             updateReferenciaBibliografica(context, "pt_BR");
             updateTermometro(context, "pt_BR");
+        }
+
+        updateRelacionamentos(context);
+    }
+
+    private boolean possuiCampo(String campo) {
+        // return this.getMetadata().stream().anyMatch(mv -> mv.getMetadataField().toString('.').equals(campo));
+        List<MetadataValue> mv = itemService.getMetadataByMetadataString(this, campo);
+        return mv != null && mv.size() > 0;
+    }
+
+    private void updateRelacionamentos(Context context) throws SQLException {
+        final Logger log = Logger.getLogger(getClass());
+        List<Item> itensRelacionados = new ArrayList<Item>();
+        String campoIspartof = "dc.relation.ispartof";
+        String campoHaspart = "dc.relation.haspart";
+        boolean possuiIspartof = possuiCampo(campoIspartof);
+        boolean possuiHaspart = possuiCampo(campoHaspart);
+        String campoEsquerdo;
+        String campoDireito;
+
+        if (!possuiIspartof && !possuiHaspart) {
+            log.info("nao passou");
+            return;
+        }
+
+        log.info("passou");
+
+        campoEsquerdo = possuiIspartof ? campoIspartof : campoHaspart;
+        campoDireito = campoEsquerdo == campoIspartof ? campoHaspart : campoIspartof;
+
+        List<MetadataValue> valoresEsquerdo = itemService.getMetadataByMetadataString(this, campoEsquerdo);
+
+        for (MetadataValue mv : valoresEsquerdo) {
+            String handle = handleService.resolveUrlToHandle(context, mv.getValue());
+
+            if (handle == null) {
+                continue;
+            }
+
+            DSpaceObject dso = handleService.resolveToObject(context, handle);
+
+            if (dso == null || dso.getType() != Constants.ITEM) {
+                continue;
+            }
+
+            itensRelacionados.add((Item) dso);
+        }
+
+        // Sempre o item relacionado deve possuir o outro campo, mas so por garantia...
+        // itensRelacionados = itensRelacionados.stream().filter(item -> item.possuiCampo(campoDireito)).collect(Collectors.toList());
+
+        for (Item itemRelacionado : itensRelacionados) {
+
+            String[] cdPartes = campoDireito.split("\\.");
+            String cdSchema = cdPartes.length >= 1 ? cdPartes[0] : null;
+            String cdElement = cdPartes.length >= 2 ? cdPartes[1] : null;
+            String cdQualifier = cdPartes.length >= 3 ? cdPartes[2] : null;
+            String handleCanonico = getHandle().split("\\.")[0];
+            String uri = handleService.resolveToURL(context, handleCanonico);
+
+            boolean contemUri = itemService.getMetadataByMetadataString(itemRelacionado, campoDireito).stream().anyMatch(mv -> mv.getValue().equals(uri));
+
+            if (contemUri) {
+                continue;
+            }
+
+            itemService.addMetadata(context, itemRelacionado, cdSchema, cdElement, cdQualifier, "pt_BR", uri);
+
+            log.info("--------------------------------------------------------------------------------");
+            log.info(">>> (fcisco) Atualizando metadado " + campoDireito + " do item relacionado " + itemRelacionado.getHandle());
+            log.info(">>> (fcisco) Atualização causada por salvar o item " + getHandle() + " que contem o metadado " + campoEsquerdo);
+            log.info("--------------------------------------------------------------------------------");
         }
     }
 
