@@ -14,6 +14,11 @@ import org.dspace.content.service.ItemService;
 import org.dspace.content.service.MetadataFieldService;
 import org.dspace.core.Constants;
 import org.dspace.core.Context;
+import org.dspace.discovery.DiscoverQuery;
+import org.dspace.discovery.DiscoverResult;
+import org.dspace.discovery.SearchService;
+import org.dspace.discovery.SearchServiceException;
+import org.dspace.discovery.SearchUtils;
 import org.dspace.eperson.EPerson;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
@@ -23,6 +28,7 @@ import org.hibernate.annotations.SortType;
 import org.hibernate.proxy.HibernateProxyHelper;
 
 import javax.persistence.*;
+import javax.servlet.http.HttpServletRequest;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -420,17 +426,16 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         List<Item> itensRelacionados = new ArrayList<Item>();
         String campoIspartof = "dc.relation.ispartof";
         String campoHaspart = "dc.relation.haspart";
+        String campoJournaluri = "dc.identifier.journaluri";
+        String campoJournalsportaluri = "dc.identifier.journalsportaluri";
         boolean possuiIspartof = possuiCampo(campoIspartof);
         boolean possuiHaspart = possuiCampo(campoHaspart);
         String campoEsquerdo;
         String campoDireito;
 
         if (!possuiIspartof && !possuiHaspart) {
-            log.info("nao passou");
             return;
         }
-
-        log.info("passou");
 
         campoEsquerdo = possuiIspartof ? campoIspartof : campoHaspart;
         campoDireito = campoEsquerdo == campoIspartof ? campoHaspart : campoIspartof;
@@ -458,10 +463,11 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
 
         for (Item itemRelacionado : itensRelacionados) {
 
-            String[] cdPartes = campoDireito.split("\\.");
-            String cdSchema = cdPartes.length >= 1 ? cdPartes[0] : null;
-            String cdElement = cdPartes.length >= 2 ? cdPartes[1] : null;
-            String cdQualifier = cdPartes.length >= 3 ? cdPartes[2] : null;
+            MetadataField mfCampoDireito = getCampo(context, campoDireito);
+            String cdSchema = mfCampoDireito.getMetadataSchema().getName();
+            String cdElement = mfCampoDireito.getElement();
+            String cdQualifier = mfCampoDireito.getQualifier();
+
             String handleCanonico = getHandle().split("\\.")[0];
             String uri = handleService.resolveToURL(context, handleCanonico);
 
@@ -471,13 +477,62 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
                 continue;
             }
 
+            MetadataField mfCampoEsquerdo = getCampo(context, campoEsquerdo);
+            String ceSchema = mfCampoEsquerdo.getMetadataSchema().getName();
+            String ceElement = mfCampoEsquerdo.getElement();
+            String ceQualifier = mfCampoEsquerdo.getQualifier();
+
             itemService.addMetadata(context, itemRelacionado, cdSchema, cdElement, cdQualifier, "pt_BR", uri);
+            itemService.clearMetadata(context, itemRelacionado, ceSchema, ceElement, ceQualifier, "pt_BR");
 
             log.info("--------------------------------------------------------------------------------");
             log.info(">>> (fcisco) Atualizando metadado " + campoDireito + " do item relacionado " + itemRelacionado.getHandle());
             log.info(">>> (fcisco) Atualização causada por salvar o item " + getHandle() + " que contem o metadado " + campoEsquerdo);
             log.info("--------------------------------------------------------------------------------");
         }
+    }
+
+    private MetadataField getCampo(Context context, String campo) throws SQLException {
+        String[] partes = campo.split("\\.");
+        String schema = partes.length >= 1 ? partes[0] : null;
+        String element = partes.length >= 2 ? partes[1] : null;
+        String qualifier = partes.length >= 3 ? partes[2] : null;
+        MetadataField mf = metadataFieldService.findByElement(context, schema, element, qualifier);
+
+        return mf;
+    }
+
+    private String getUrlFromTitulo(String titulo, Context context, HttpServletRequest request) throws SQLException {
+        String url = null;
+
+        try {
+            DiscoverQuery queryArgs = new DiscoverQuery();
+            SearchService searchService = SearchUtils.getSearchService();
+            String fq = searchService.toFilterQuery(context, "title", "contains", titulo).getFilterQuery();
+            queryArgs.addFilterQueries(fq);
+            DiscoverResult qResults = searchService.search(context, null, queryArgs);
+
+            List<DSpaceObject> dsoResults = qResults.getDspaceObjects();
+
+            for (DSpaceObject dso : dsoResults) {
+                if (dso.getType() != Constants.ITEM) {
+                    continue;
+                }
+
+                String handle = dso.getHandle();
+
+                if (handle != null) {
+                    url = request.getContextPath() + "/handle/" + handle;
+                }
+
+                break;
+            }
+        } catch (SearchServiceException e) {
+            final Logger log = Logger.getLogger(getClass());
+            log.error(e);
+        }
+
+        return url;
     }
 
     private void updateReferenciaBibliografica(Context context, String idioma) throws SQLException {
