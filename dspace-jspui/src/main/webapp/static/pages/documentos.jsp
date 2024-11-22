@@ -78,7 +78,6 @@
 
     <h2 class="titulo-medio">Documentos úteis</h2>
     <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a><br/>
-    <a href='<%= request.getContextPath()%>/static/pages/DIRETRIZES_REVISTAS_PREDATORIAS.pdf' target="_blank">» Diretrizes para identificação e tratamento de revistas predatórias</a>
 
     
 </div>
