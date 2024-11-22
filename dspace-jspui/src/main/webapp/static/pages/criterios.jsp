@@ -78,20 +78,25 @@
 <h2><strong class="titulo-medio">Critérios básicos para cadastro</strong></h2>
 		<p id="margem-unica">Para que uma revista seja aceita no Miguilim ela deverá cumprir os seguintes requisitos mínimos:</p>
 
-		</ol>
+		<ol>
 			<li>Ter registro de ISSN para o suporte eletrônico;</li>
-			<li>Ter o Brasil como país de publicação na rede ISSN;</li>  
-                        <li>Ser eletrônica e estar disponível online;</li>
-                        <li>Manter conexão permanente e estável com a internet;</li>
-            		<li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li> 
-			<ul>
-				
-				<li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
-                		<li>Ter corpo editorial composto por pesquisadores especialistas na área de atuação da revista.</li>
-			</ul>
-		</ul>
+			<li>Ter o Brasil como país de publicação na rede ISSN;</li>
+			<li>Ser eletrônica e estar disponível online;</li>
+			<li>Manter conexão permanente e estável com a internet;</li>
+			<li>Ser de caráter acadêmico-científico, levando em consideração os seguintes requisitos:</li>
+				<ol type="a">
+					<li>Publicar artigos originais e que tenham sido previamente submetidos à revisão por pares;</li>
+					<li>Ter corpo editorial composto por pesquisadores especialistas na área de atuação da revista.</li>
+				</ol>
+			<li>Caso a revista cobre algum tipo de taxa de avaliação, submissão, publicação e afins, sua aprovação no Diretório estará condicionada a:</li>
+				<ol type="a">
+					<li>Indexação na seção Catálogo 2.0 do <a href="https://www.latindex.org/latindex/inicio">Latindex</a> e/ou</li>
+					<li>Indexação no Directory of <a href="https://doaj.org/">Open Access Journals (DOAJ)</a></li>
+				</ol>
+			<li>Não ter como publisher instituição que conste na lista <a href="https://predatoryjournals.org/publisher-list-1">Predatory Publishers</a></li>
+		</ol>
 		
-		<p id="margem-unica">O Miguilim também aceita o cadastro de portais de revistas, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima.  </p>
+	<p id="margem-unica">O Miguilim também aceita o cadastro de Portais de revistas, os quais devem ser integrados por revistas científicas que cumpram os requisitos indicados acima.</p>
 		<p id="margem-unica">Todas as revistas científicas e portais de revistas que realizarem o cadastro no Miguilim serão avaliados segundo estes critérios. Caso o responsável queira solicitar uma avaliação prévia deve enviar e-mail para miguilim@ibict.br. </p>
 </div>
 </dspace:layout>
