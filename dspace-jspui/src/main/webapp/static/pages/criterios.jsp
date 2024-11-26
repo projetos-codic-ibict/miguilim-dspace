@@ -92,6 +92,7 @@
 				<ol type="a">
 					<li>Indexação na seção Catálogo 2.0 do <a href="https://www.latindex.org/latindex/inicio">Latindex</a> e/ou</li>
 					<li>Indexação no Directory of <a href="https://doaj.org/">Open Access Journals (DOAJ)</a></li>
+					<li>Indexação na coleção da <a href="https://www.scielo.br/">Scientific Electronic Library Online Brasil (SciELO Brasil)</a></li>
 				</ol>
 			<li>Não ter como publisher instituição que conste na lista <a href="https://predatoryjournals.org/publisher-list-1">Predatory Publishers</a></li>
 		</ol>
