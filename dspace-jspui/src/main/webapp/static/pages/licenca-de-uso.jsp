@@ -43,6 +43,10 @@
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 
+<c:set var="dspace.layout.head.last" scope="request">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/licenca.css" type="text/css" />
+</c:set>
+
 <%
     List<Community> communities = (List<Community>) request.getAttribute("communities");
 
@@ -83,6 +87,8 @@
         <br><br>
         Os dados do Miguilim podem ser usados, compartilhados e modificados para fins científicos ou correlatos, desde que sem finalidades comerciais ou com fins de lucro.
     </p>
+
+    <img class="logo-licenca" src="<%= request.getContextPath() %>/image/licenca.png" alt="Logotipo da Licença">
 </div>
 </dspace:layout>
 
