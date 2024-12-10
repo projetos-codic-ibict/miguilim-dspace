@@ -78,6 +78,10 @@
 
     <h2 class="titulo-medio">Documentos úteis</h2>
     <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a><br/>
+    <a href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">» Cadastro de revistas e portais</a><br/>
+    <a href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">» Criar login no miguilim</a><br/>
+    <a href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">» Etapas para solicitar permissao</a><br/>
+    <a href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">» Quem pode atualizar</a><br/>
 
     
 </div>
