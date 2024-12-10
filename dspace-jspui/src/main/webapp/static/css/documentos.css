@@ -1,0 +1,20 @@
+.document-preview-image {
+  width: 100%;
+}
+
+.document-container {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.document-preview-image-link {
+  max-width: 50%;
+}
+
+@media screen and (max-width: 630px) {
+  .document-container {
+    flex-direction: column;
+  }
+}
