@@ -43,6 +43,10 @@
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
 
+<c:set var="dspace.layout.head.last" scope="request">
+    <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/documentos.css" type="text/css" />
+</c:set>
+
 <%
     List<Community> communities = (List<Community>) request.getAttribute("communities");
 
@@ -77,24 +81,35 @@
 <div class="espacamento minus-space breath-element">
 
     <h2 class="titulo-medio">Documentos úteis</h2>
-    <div>
-        <img class="logo-image" src="<%= request.getContextPath() %>/image/documentos/Documento-de-apoio.png">
-        <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a><br/>
+    <div class="sla">
+        <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">
+            <img class="preview-image" src="<%= request.getContextPath() %>/image/documentos/Documento-de-apoio.png">
+        // <a href='<%= request.getContextPath()%>/static/pages/Documento-de-apoio.pdf' target="_blank">» Documento de apoio ao Miguilim</a><br/>
+            <p>» Documento de apoio ao Miguilim</p>
+        </a>
     </div>
-    <div>
-        <img class="logo-image" src="<%= request.getContextPath() %>/image/documentos/Cadastro_de_revistas_e_portais.png">
+    <div class="sla">
+        <a href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">
+            <img class="preview-image" src="<%= request.getContextPath() %>/image/documentos/Cadastro_de_revistas_e_portais.png">
+        </a>
         <a href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">» Cadastro de revistas e portais</a><br/>
     </div>
-    <div>
-        <img class="logo-image" src="<%= request.getContextPath() %>/image/documentos/Criar_login_no_Miguilim.png">
+    <div class="sla">
+        <a href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">
+            <img class="preview-image" src="<%= request.getContextPath() %>/image/documentos/Criar_login_no_Miguilim.png">
+        </a>
         <a href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">» Criar login no miguilim</a><br/>
     </div>
-    <div>
-        <img class="logo-image" src="<%= request.getContextPath() %>/image/documentos/Etapas_para_solicitar_permissao.png">
+    <div class="sla">
+        <a href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">
+            <img class="preview-image" src="<%= request.getContextPath() %>/image/documentos/Etapas_para_solicitar_permissao.png">
+        </a>
         <a href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">» Etapas para solicitar permissao</a><br/>
     </div>
-    <div>
-        <img class="logo-image" src="<%= request.getContextPath() %>/image/documentos/Quem_pode_atualizar.png">
+    <div class="sla">
+        <a href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">
+            <img class="preview-image" src="<%= request.getContextPath() %>/image/documentos/Quem_pode_atualizar.png">
+        </a>
         <a href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">» Quem pode atualizar</a><br/>
     </div>
 
