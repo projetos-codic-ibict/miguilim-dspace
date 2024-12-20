@@ -91,25 +91,25 @@
         <a class="document-preview-image-link" href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">
             <img class="document-preview-image" src="<%= request.getContextPath() %>/image/documentos/Cadastro_de_revistas_e_portais.png">
         </a>
-        <a href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">» Cadastro de revistas e portais</a><br/>
+        <a href='<%= request.getContextPath()%>/static/pages/Cadastro_de_revistas_e_portais.pdf' target="_blank">» Cadastro de revistas científicas e portais de revistas</a><br/>
     </div>
     <div class="document-container">
         <a class="document-preview-image-link" href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">
             <img class="document-preview-image" src="<%= request.getContextPath() %>/image/documentos/Criar_login_no_Miguilim.png">
         </a>
-        <a href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">» Criar login no miguilim</a><br/>
+        <a href='<%= request.getContextPath()%>/static/pages/Criar_login_no_Miguilim.pdf' target="_blank">» Criar login no Miguilim</a><br/>
     </div>
     <div class="document-container">
         <a class="document-preview-image-link" href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">
             <img class="document-preview-image" src="<%= request.getContextPath() %>/image/documentos/Etapas_para_solicitar_permissao.png">
         </a>
-        <a href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">» Etapas para solicitar permissao</a><br/>
+        <a href='<%= request.getContextPath()%>/static/pages/Etapas_para_solicitar_permissao.pdf' target="_blank">» Etapas para solicitar permissão de edição de registro</a><br/>
     </div>
     <div class="document-container">
         <a class="document-preview-image-link" href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">
             <img class="document-preview-image" src="<%= request.getContextPath() %>/image/documentos/Quem_pode_atualizar.png">
         </a>
-        <a href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">» Quem pode atualizar</a><br/>
+        <a href='<%= request.getContextPath()%>/static/pages/Quem_pode_atualizar.pdf' target="_blank">» Quem pode atualizar registros no Miguilim</a><br/>
     </div>
 
     
