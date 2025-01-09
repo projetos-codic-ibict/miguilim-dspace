@@ -1200,9 +1200,7 @@ public class CustomEditItemServlet extends DSpaceServlet
 	}
 	
 	private boolean registroJaPossuiEdicaoPendente(Context context, Item item) throws SQLException, AuthorizeException, IOException {
-		Iterator<Item> valores = itemService
-				.findByMetadataField(context,  MetadataSchema.DC_SCHEMA, "identifier", "previousitem", item.getID().toString(), Boolean.FALSE);
-		return valores.hasNext();
+        return itemService.existeMetadadoNoItem(item, "pendingreview");
 	}
     
 }
