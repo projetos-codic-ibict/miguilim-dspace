@@ -111,6 +111,7 @@
                 <ref bean="searchFilterReferenceGuidelines" />
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchFilterSealColor" />
+                <ref bean="searchFilterAbecBrasil" />
                 <ref bean="searchFilterInformationServices" />
                 <ref bean="searchFilterSituation" />
                 <ref bean="searchFilterPublicationFees" />
@@ -181,6 +182,7 @@
 				<ref bean="searchFilterAuthorPostPrint" />
 				<ref bean="searchFilterJournalPostPrint" />
 				<ref bean="searchFilterSealColor" />
+                                <ref bean="searchFilterAbecBrasil" />
 				<ref bean="searchFilterTime" />
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterEmbargedTime" />
@@ -310,6 +312,7 @@
 				<ref bean="searchFilterPublicationFees" />
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterSealColor" />
+                                <ref bean="searchFilterAbecBrasil" />
 				<ref bean="searchFilterLanguage" />
 				<ref bean="searchFilterModalityOfPublication" />
 				<ref bean="searchFilterReferenceGuidelines" />
@@ -376,6 +379,7 @@
 				<ref bean="searchFilterAuthorPostPrint" />
 				<ref bean="searchFilterJournalPostPrint" />
 				<ref bean="searchFilterSealColor" />
+                                <ref bean="searchFilterAbecBrasil" />
 				<ref bean="searchFilterTime" />
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterEmbargedTime" />
@@ -1119,6 +1123,18 @@
         <property name="metadataFields">
             <list>
                 <value>dc.rights.sealcolor</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+	<bean id="searchFilterAbecBrasil" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="abecbrasil"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.abecbrasil</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>

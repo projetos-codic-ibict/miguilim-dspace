@@ -650,7 +650,6 @@
     <field name="dc.rights.creativecommons.facet" type="diadorim" indexed="true" stored="false"
       multiValued="true" required="false" />
 
-
     <copyField source="dc.publisher.name" dest="dc.publisher.name.facet" />
     <copyField source="cnpq" dest="cnpq.facet" />
     <copyField source="dc.rights.sealcolor" dest="dc.rights.sealcolor.facet" />

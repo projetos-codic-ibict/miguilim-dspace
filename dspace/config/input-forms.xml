@@ -506,6 +506,16 @@
                         revista. </required>
                 </field>
 
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>abecbrasil</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>A revista é associada à Associação Brasileira de Editores Científicos (ABEC Brasil)?</label>
+                    <input-type value-pairs-name="common_identifier_abecbrasil">dropdown</input-type>
+                    <hint>Informe se a revista possui associação com a ABEC Brasil.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista possui associação com a ABEC Brasil.</required>
+                </field>
             </page>
 
             <page number="3">
@@ -2660,6 +2670,18 @@
             <pair>
                 <displayed-value>Não foi atribuído à revista o selo de acesso aberto</displayed-value>
                 <stored-value>Não foi atribuído à revista o selo de acesso aberto</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_identifier_abecbrasil"
+            dc-term="common_identifier_abecbrasil">
+            <pair>
+                <displayed-value>A revista é associada à ABEC Brasil</displayed-value>
+                <stored-value>A revista é associada à ABEC Brasil</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A revista não é associada à ABEC Brasil</displayed-value>
+                <stored-value>A revista não é associada à ABEC Brasil</stored-value>
             </pair>
         </value-pairs>
 
