@@ -797,6 +797,7 @@ public class DiscoverUtility
 	private static void aplicarFiltroDosSelos(HttpServletRequest request, List<String[]> appliedFilters) {
 	    String checkAcessoAberto = request.getParameter("checkAcessoAberto");
 	    String checkDiamante = request.getParameter("checkDiamante");
+	    String checkAbec = request.getParameter("checkAbec");
 	        
         if(checkAcessoAberto != null && checkAcessoAberto != "")
         {
@@ -811,6 +812,11 @@ public class DiscoverUtility
         else if(checkDiamante != null)
         {
         	appliedFilters.add(new String[] { "publicationfees", "equals", "A revista não cobra qualquer taxa de publicação" });
+        }
+
+        if(checkAbec != null)
+        {
+        	appliedFilters.add(new String[] { "abecbrasil", "equals", "A revista é associada à ABEC Brasil" });
         }
 	}
 

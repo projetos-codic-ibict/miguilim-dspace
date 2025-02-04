@@ -140,10 +140,12 @@
 
     List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
     List<MetadataValue> feesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
+    List<MetadataValue> abecValues = itemService.getMetadata(item, "dc", "identifier", "abecbrasil", Item.ANY);
 
     boolean possuiSeloCienciaAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
     boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") 
     		&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
+    boolean possuiSeloAbec = abecValues.size() != 0 && abecValues.get(0).getValue().equals("A revista é associada à ABEC Brasil");
     
     Boolean pendingReview = (Boolean) (request.getAttribute("pending_review") != null ? request.getAttribute("pending_review") : false);
 %>
@@ -288,6 +290,7 @@
 				<% 
 					String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "block" : "none";
                     String displaySeloDiamante = possuiSeloDiamante ? "block" : "none";
+                    String displaySeloAbec = possuiSeloAbec ? "block" : "none";
                 %>
             
                 <a class="tooltips-wrapper">
@@ -300,6 +303,11 @@
                         <img height="80" src="../../image/diamante.svg" alt="selo sobre revista diamante">
                     </div>
                 </a>	
+                <a class="tooltips-wrapper">
+                    <div class="tooltips" tooltipbtn="Revista associada à ABEC Brasil" style="display: <%= displaySeloAbec %>;">
+                        <img height="80" src="../../image/abec.svg" alt="selo sobre revista abec">
+                    </div>
+                </a>
             </div>
 
             <ul class="nav nav-pills">

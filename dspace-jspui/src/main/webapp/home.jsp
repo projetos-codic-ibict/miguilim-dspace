@@ -198,6 +198,10 @@
 						<img width="80" src="image/diamante.svg">
 						<input type="checkbox" id="checkDiamante" name="checkDiamante" form="buscar-form">
 					</div>
+					<div class="form-check">
+						<img width="80" src="image/abec.svg">
+						<input type="checkbox" id="checkAbec" name="checkAbec" form="buscar-form">
+					</div>
 				</div>
 			</div>
 			</form>
@@ -379,27 +383,36 @@
 
 					List<MetadataValue> openAccessValues = itemService.getMetadata(item, "dc", "rights", "access", Item.ANY);
 					List<MetadataValue> feesValues = itemService.getMetadata(item, "dc", "description", "publicationfees", Item.ANY);
+					List<MetadataValue> abecValues = itemService.getMetadata(item, "dc", "identifier", "abecbrasil", Item.ANY);
 
 					boolean possuiSeloCienciaAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato") && Integer.parseInt(porcentagemPontuacaoTermometro) >= 80;
 					boolean possuiSeloDiamante = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato")
 							&& feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
+					boolean possuiSeloAbec = abecValues.size() != 0 && abecValues.get(0).getValue().equals("A revista é associada à ABEC Brasil");
 
 					String displaySeloAcessoAberto = possuiSeloCienciaAberto ? "" : "d-hide";
 					String displaySeloDiamante = possuiSeloDiamante ? "" : "d-hide";
+					String displaySeloAbec = possuiSeloAbec ? "" : "d-hide";
+					int selosWidth = possuiSeloCienciaAberto && possuiSeloDiamante && possuiSeloAbec ? 85 : 128;
 			%>
 
 			<div style="cursor:pointer; <%= iteratorRecent > 1 ? "" : "display:flex" %>"  onclick="location.href = '<%= request.getContextPath() %>/handle/<%= item.getHandle() %>'"  carousel="<%= iteratorRecent %>"
 					<%= iteratorRecent > 1 ? "class=\"d-hide\"" : ""%>>
 
-				<div class="wrapper-stamp">
+				<div class="wrapper-stamp align-items-center">
 					<a class="tooltips-wrapper">
 						<div class="tooltips <%= displaySeloAcessoAberto %>" tooltipbtn="Práticas de Ciência Aberta">
-							<img width="128" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
+							<img width="<%= selosWidth %>" src="image/aberto.svg" alt="selo sobre prática de ciência aberta">
 						</div>
 					</a>
 					<a class="tooltips-wrapper">
 						<div class="tooltips <%= displaySeloDiamante %>" tooltipbtn="Revista diamante">
-							<img width="128"  src="image/diamante.svg" alt="selo sobre revista diamante">
+							<img width="<%= selosWidth %>"  src="image/diamante.svg" alt="selo sobre revista diamante">
+						</div>
+					</a>
+					<a class="tooltips-wrapper">
+						<div class="tooltips <%= displaySeloAbec %>" tooltipbtn="Revista associada à ABEC">
+							<img width="<%= selosWidth %>"  src="image/abec.svg" alt="selo sobre revista associada à ABEC">
 						</div>
 					</a>
 				</div>
