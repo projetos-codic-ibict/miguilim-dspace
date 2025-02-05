@@ -120,6 +120,38 @@
                         <span class="glyphicon glyphicon-download-alt" />
                     </a>
                 </div>
+
+                <div class="description">
+                    <img class="logo-image" src="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec.png" alt="Logotipo do Miguilim com selo ABEC Brasil">
+                    <p class="logo-description">Miguilim com selo "ABEC Brasil"</p>
+                    <a href="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec.png" download title="Baixar logotipo do Miguilim com selo ABEC Brasil" class="download-icon">
+                        <span class="glyphicon glyphicon-download-alt" />
+                    </a>
+                </div>
+
+                <div class="description">
+                    <img class="logo-image" src="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-ca.png" alt="Logotipo do Miguilim com selo de práticas para ciências abertas e selo ABEC Brasil">
+                    <p class="logo-description">Miguilim com os selos "Práticas de Ciência Aberta" e "ABEC Brasil"</p>
+                    <a href="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-ca.png" download title="Baixar logotipo do Miguilim com selo de práticas para ciências abertas e selo ABEC Brasil" class="download-icon">
+                        <span class="glyphicon glyphicon-download-alt" />
+                    </a>
+                </div>
+
+                <div class="description">
+                    <img class="logo-image" src="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-diamante.png" alt="Logotipo do Miguilim com selo diamante e selo ABEC Brasil">
+                    <p class="logo-description">Miguilim com os selos "Revista diamante" e "ABEC Brasil"</p>
+                    <a href="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-diamante.png" download title="Baixar logotipo do Miguilim com selo diamante e selo ABEC Brasil" class="download-icon">
+                        <span class="glyphicon glyphicon-download-alt" />
+                    </a>
+                </div>
+
+                <div class="description">
+                    <img class="logo-image" src="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-ca-diamante.png" alt="Logotipo do Miguilim com selo de práticas para ciências abertas, selo diamante e selo ABEC Brasil">
+                    <p class="logo-description">Miguilim com os selos "Práticas de Ciência Aberta" e "Revista diamante" e "ABEC Brasil"</p>
+                    <a href="<%= request.getContextPath() %>/image/logomarcas/miguilim-abec-ca-diamante.png" download title="Baixar logotipo do Miguilim com selo de práticas para ciências abertas, selo diamante e selo ABEC Brasil" class="download-icon">
+                        <span class="glyphicon glyphicon-download-alt" />
+                    </a>
+                </div>
             </div>
 
             <h4 class="title-logo">Outras opções de logotipos também estão disponíveis para uso das revistas:</h4>
