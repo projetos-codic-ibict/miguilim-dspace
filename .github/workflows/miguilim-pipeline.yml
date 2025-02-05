@@ -14,6 +14,7 @@ jobs:
     runs-on: [self-hosted, linux, x64, runner-hml]
     env:
       ENVIRONMENT: HML
+      DSPACE_URL: https://homologacaomiguilim.ibict.br
     environment:
       name: HML
       url: 'http://172.16.21.20'
@@ -27,6 +28,7 @@ jobs:
     runs-on: [self-hosted, linux, x64, runner-prd]
     env:
       ENVIRONMENT: PRD
+      DSPACE_URL: https://miguilim.ibict.br
     environment: 
       name: PRD
       url: 'https://miguilim.ibict.br/'
