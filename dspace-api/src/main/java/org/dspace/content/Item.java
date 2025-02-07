@@ -22,6 +22,8 @@ import org.dspace.discovery.SearchUtils;
 import org.dspace.eperson.EPerson;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
+import org.dspace.termometro.factory.TermometroServiceFactory;
+import org.dspace.termometro.service.TermometroService;
 import org.dspace.termometro.util.CalculadoraTermometro;
 import org.hibernate.annotations.Sort;
 import org.hibernate.annotations.SortType;
@@ -112,6 +114,9 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
 
     @Transient
     private transient MetadataFieldService metadataFieldService = ContentServiceFactory.getInstance().getMetadataFieldService();
+
+    @Transient
+    private transient TermometroService termometroService = TermometroServiceFactory.getInstance().getTermometroService();
 
     /**
      * Protected constructor, create object using:
@@ -410,6 +415,8 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         if (isItemDaColecao(REVISTAS)) {
             updateReferenciaBibliografica(context, "pt_BR");
             updateTermometro(context, "pt_BR");
+            updateSeloCienciaAberta(context, "pt_BR");
+            updateSeloDiamante(context, "pt_BR");
         }
 
         updateRelacionamentos(context);
@@ -609,6 +616,43 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
         } catch (IOException e) {
             throw new RuntimeException("Can't create an Identifier!", e);
         }
+    }
+
+    private void updateSeloCienciaAberta(Context context, String idioma) throws SQLException {
+        List<MetadataValue> openAccessValues = itemService.getMetadata(this, "dc", "rights", "access", Item.ANY);
+
+        int porcentagemPontuacaoTermometro = Integer.parseInt(itemService.getMetadataFirstValue(this, "dc", "identifier", "thermometer", Item.ANY));
+        boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato");
+        boolean possuiSeloCienciaAberta = possuiAcessoAberto && porcentagemPontuacaoTermometro >= 80;
+        String valor;
+
+        if (possuiSeloCienciaAberta) {
+            valor = "Foi atribuído à revista o selo \"Práticas de Ciência Aberta\"";
+        } else {
+            valor = "Não foi atribuído à revista o selo \"Práticas de Ciência Aberta\"";
+        }
+
+        itemService.clearMetadata(context, this, "dc", "identifier", "openscienceseal", idioma);
+        itemService.addMetadata(context, this, "dc", "identifier", "openscienceseal", idioma, valor);
+    }
+
+    private void updateSeloDiamante(Context context, String idioma) throws SQLException {
+        List<MetadataValue> openAccessValues = itemService.getMetadata(this, "dc", "rights", "access", Item.ANY);
+        List<MetadataValue> feesValues = itemService.getMetadata(this, "dc", "description", "publicationfees", Item.ANY);
+
+        boolean possuiAcessoAberto = openAccessValues.size() != 0 && openAccessValues.get(0).getValue().equals("Acesso aberto imediato");
+        boolean naoCobraTaxa = feesValues.size() != 0 && feesValues.get(0).getValue().equals("A revista não cobra qualquer taxa de publicação");
+        boolean possuiSeloDiamante = possuiAcessoAberto && naoCobraTaxa;
+        String valor;
+
+        if (possuiSeloDiamante) {
+            valor = "Foi atribuído à revista o selo \"Revista diamante\"";
+        } else {
+            valor = "Não foi atribuído à revista o selo \"Revista diamante\"";
+        }
+
+        itemService.clearMetadata(context, this, "dc", "identifier", "diamondjournalseal", idioma);
+        itemService.addMetadata(context, this, "dc", "identifier", "diamondjournalseal", idioma, valor);
     }
 
     @Override
