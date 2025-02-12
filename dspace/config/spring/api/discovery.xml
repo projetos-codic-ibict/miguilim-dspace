@@ -113,6 +113,7 @@
                 <ref bean="searchFilterSealColor" />
                 <ref bean="searchFilterAbecBrasil" />
                 <ref bean="searchFilterCienciaAberta" />
+                <ref bean="searchFilterDiamante" />
                 <ref bean="searchFilterInformationServices" />
                 <ref bean="searchFilterSituation" />
                 <ref bean="searchFilterPublicationFees" />
@@ -185,6 +186,7 @@
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
                                 <ref bean="searchFilterCienciaAberta" />
+                                <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterTime" />
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterEmbargedTime" />
@@ -316,6 +318,7 @@
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
                                 <ref bean="searchFilterCienciaAberta" />
+                                <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterLanguage" />
 				<ref bean="searchFilterModalityOfPublication" />
 				<ref bean="searchFilterReferenceGuidelines" />
@@ -384,6 +387,7 @@
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
                                 <ref bean="searchFilterCienciaAberta" />
+                                <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterTime" />
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterEmbargedTime" />
@@ -1158,6 +1162,17 @@
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
 
+    <bean id="searchFilterDiamante" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="diamondjournalseal"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.identifier.diamondjournalseal</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
 	
 	<bean id="searchFilterTime" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="time"/>
