@@ -319,10 +319,17 @@
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-data-full"><fmt:message
                             key="webui.displayitem.tab.itemdata.complete"></fmt:message> </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#" destiny="#metadataservices"><fmt:message
-                            key="webui.displayitem.tab.metadataservices"></fmt:message> </a>
-                </li>
+                <%
+                    if (collections.get(0).getHandle().equals(REVISTAS)) 
+                    {
+                %>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#" destiny="#metadataservices"><fmt:message
+                                    key="webui.displayitem.tab.metadataservices"></fmt:message> </a>
+                        </li>
+                <%
+                    }
+                %>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-statistics"><fmt:message
                             key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
