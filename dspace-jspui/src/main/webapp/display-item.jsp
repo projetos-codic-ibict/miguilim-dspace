@@ -320,6 +320,10 @@
                             key="webui.displayitem.tab.itemdata.complete"></fmt:message> </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="#" destiny="#metadataservices"><fmt:message
+                            key="webui.displayitem.tab.metadataservices"></fmt:message> </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="#" destiny="#item-statistics"><fmt:message
                             key="webui.displayitem.tab.itemdata.stats"></fmt:message> </a>
                 </li>
@@ -370,6 +374,10 @@
                 <dspace:item-preview item="<%= item %>"/>
                 <dspace:item item="<%= item %>" collections="<%= collections %>" style="full"/>
 
+            </div>
+
+            <div id="metadataservices" tabcontent class="d-hide">
+                <dspace:item item="<%= item %>" style="metadataservices" />
             </div>
 
             <div id="item-statistics" tabcontent >
