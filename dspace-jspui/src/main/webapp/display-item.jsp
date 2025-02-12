@@ -377,6 +377,7 @@
             </div>
 
             <div id="metadataservices" tabcontent class="d-hide">
+                <dspace:item-preview item="<%= item %>"/>
                 <dspace:item item="<%= item %>" style="metadataservices" />
             </div>
 

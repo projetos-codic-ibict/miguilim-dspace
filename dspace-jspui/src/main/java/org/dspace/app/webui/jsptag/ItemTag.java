@@ -888,16 +888,11 @@ public class ItemTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext
                 .getRequest();
 
-        out.print("<div class=\"panel panel-info\">");
-        out.println("<div class=\"panel-heading\">"
-                + LocaleSupport.getLocalizedMessage(pageContext,
-                        "org.dspace.app.webui.jsptag.ItemTag.files")
-                + "</div>");
+        boolean filesExist = false;
+        List<Bundle> bundles;
 
         try {
-            List<Bundle> bundles = itemService.getBundles(item, "ORIGINAL");
-
-            boolean filesExist = false;
+            bundles = itemService.getBundles(item, "ORIGINAL");
 
             for (Bundle bnd : bundles) {
                 filesExist = bnd.getBitstreams().size() > 0;
@@ -905,7 +900,21 @@ public class ItemTag extends TagSupport {
                     break;
                 }
             }
+        } catch (SQLException sqle) {
+            throw new IOException(sqle.getMessage(), sqle);
+        }
 
+        if (!filesExist) {
+            return;
+        }
+
+        out.print("<div class=\"panel panel-info\">");
+        out.println("<div class=\"panel-heading\">"
+                + LocaleSupport.getLocalizedMessage(pageContext,
+                        "org.dspace.app.webui.jsptag.ItemTag.files")
+                + "</div>");
+
+        try {
             // if user already has uploaded at least one file
             if (!filesExist) {
                 out.println("<div class=\"panel-body\">"
