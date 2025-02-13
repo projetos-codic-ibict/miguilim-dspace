@@ -85,6 +85,7 @@
 
     DiscoverQuery qArgs = (DiscoverQuery) request.getAttribute("queryArgs");
     String sortedBy = qArgs.getSortField();
+    sortedBy = "dc.date.accessioned_dt";
     String order = qArgs.getSortOrder().toString();
     String ascSelected = (SortOption.ASCENDING.equalsIgnoreCase(order) ? "selected=\"selected\"" : "");
     String descSelected = (SortOption.DESCENDING.equalsIgnoreCase(order) ? "selected=\"selected\"" : "");
