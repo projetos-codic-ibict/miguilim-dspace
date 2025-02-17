@@ -926,6 +926,17 @@
 
                 <field>
                     <dc-schema>dc</dc-schema>
+                    <dc-element>rights</dc-element>
+                    <dc-qualifier>copyrightholders</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Detentor dos direitos autorais</label>
+                    <input-type value-pairs-name="common_rights_copyrightholders">dropdown</input-type>
+                    <hint>Indique a pessoa física ou jurídica que mantém ou detém os direitos autorais após a publicação na revista.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a pessoa física ou jurídica que mantém ou detém os direitos autorais após a publicação na revista.</required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
                     <dc-qualifier>publicationfees</dc-qualifier>
                     <repeatable>false</repeatable>
@@ -1192,6 +1203,87 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>relation</dc-element>
+                    <dc-qualifier>oasisbr</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no portal Oasisbr:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista seja coletada pelo &lt;a href="https://oasisbr.ibict.br"
+                        target="_blank"&gt;Oasisbr&lt;/a&gt;, indique a URL do registro da revista
+                        no portal. Os registros das revistas podem ser encontrados na aba &lt;a href="https://oasisbr.ibict.br/vufind/datasources/home" target="_blank"&gt;"Fontes
+                        Coletadas"&lt;/a&gt;.</hint>
+                    <!--<visibility>workflow</visibility>-->
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>openalex</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista na OpenAlex:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada na OpenAlex, indique a URL do registro correspondente na plataforma.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>scielo</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista na SciELO:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada na SciELO, indique a URL do registro correspondente na plataforma.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>scopus</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista na Scopus:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada na Scopus, indique a URL do registro correspondente na base de dados.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>doaj</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no DOAJ:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada no DOAJ, indique a URL do registro correspondente no diretório.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>latindex</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no Latindex:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada no Latindex, indique a URL do registro correspondente na plataforma.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>redalyc</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no Redalyc:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada no Redalyc, indique a URL do registro correspondente na base de dados.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
                     <dc-qualifier>ispartof</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Portal de periódicos: </label>
@@ -1200,22 +1292,6 @@
                         hospeda a revista. </hint>
                     <required></required>
                 </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>relation</dc-element>
-                    <dc-qualifier>oasisbr</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Revista no portal Oasisbr:</label>
-                    <input-type>onebox</input-type>
-                    <hint>Caso a revista seja coletada pelo &lt;a href="https://oasisbr.ibict.br"
-                        target="_blank"&gt;Oasisbr&lt;/a&gt;. Indique a URL do registro da revista
-                        no portal, os registros das revistas podem ser encontrados na aba “Fontes
-                        Coletadas”.</hint>
-                    <!--<visibility>workflow</visibility>-->
-                    <required></required>
-                </field>
-
             </page>
 
         </form>
@@ -2702,6 +2778,22 @@
             <pair>
                 <displayed-value>Sul</displayed-value>
                 <stored-value>Sul</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_rights_copyrightholders"
+            dc-term="common_rights_copyrightholders">
+            <pair>
+                <displayed-value>Os direitos autorais são mantidos pelos autores após a publicação</displayed-value>
+                <stored-value>Os direitos autorais são mantidos pelos autores após a publicação</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Os direitos autorais são detidos pela revista após a publicação</displayed-value>
+                <stored-value>Os direitos autorais são detidos pela revista após a publicação</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Os direitos autorais são detidos pela instituição editora após a publicação</displayed-value>
+                <stored-value>Os direitos autorais são detidos pela instituição editora após a publicação</stored-value>
             </pair>
         </value-pairs>
 
