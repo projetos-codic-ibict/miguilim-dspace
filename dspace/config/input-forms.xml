@@ -835,19 +835,11 @@
                     <repeatable>false</repeatable>
                     <label>Selo de armazenamento e acesso:</label>
                     <input-type value-pairs-name="common_rights_sealcolor">dropdown</input-type>
-                    <hint>&lt;br&gt;De acordo com as respostas dadas nas quatro últimas questões
+                    <hint>De acordo com as respostas dadas nas quatro últimas questões
                         acerca das permissões estabelecidas para as diferentes versões dos
                         documentos para armazenamento e acesso em repositórios
                         institucionais/digitais, atribua um selo/cor que resuma a política da
-                        revista.&lt;br&gt;Opções de resposta:&lt;br&gt;1. Amarela: permite o
-                        armazenamento e acesso das versões preprint dos documentos em repositórios
-                        institucionais/digitais.&lt;br&gt;2. Azul: permite o armazenamento e acesso
-                        das versões pós-print dos documentos em repositórios
-                        institucionais/digitais.&lt;br&gt;3. Branca: apresenta restrições para o
-                        armazenamento e acesso das versões preprint e pós-print dos documentos em
-                        repositórios institucionais/digitais.&lt;br&gt;4. Verde: permite o
-                        armazenamento e acesso das versões preprint e pós-print dos documentos em
-                        repositórios institucionais/digitais. </hint>
+                        revista.</hint>
                     <required>CAMPO OBRIGATÓRIO: Informe o selo/cor que resuma a política da
                         revista. </required>
                 </field>
