@@ -1286,10 +1286,11 @@
                     <dc-element>relation</dc-element>
                     <dc-qualifier>ispartof</dc-qualifier>
                     <repeatable>true</repeatable>
-                    <label>Portal de periódicos: </label>
+                    <label>Portal de revistas: </label>
                     <input-type>onebox</input-type>
-                    <hint>Indique a URI do registro no Miguilim do portal de periódicos que
-                        hospeda a revista. </hint>
+                    <hint>Indique a URI do registro no Miguilim do portal de revistas que
+                        hospeda a revista.</hint>
+
                     <required></required>
                 </field>
             </page>
