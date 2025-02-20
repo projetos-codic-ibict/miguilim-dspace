@@ -443,39 +443,6 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>neighborhood</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Bairro:</label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe bairro de acordo com o código postal.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o bairro.</required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>street</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Rua/Quadra ou similar: </label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe a rua, quadra ou similar de acordo com código postal.</hint>
-                    <required></required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>building</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Casa/Prédio/ Sala ou similar:</label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe casa, prédio, sala ou similar de acordo com o código postal.</hint>
-                    <required></required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
                     <dc-qualifier>phone</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Telefone:</label>
@@ -1415,39 +1382,6 @@
                     <input-type>onebox</input-type>
                     <hint>Informe a cidade de acordo com o código postal.</hint>
                     <required>CAMPO OBRIGATÓRIO: Informe a cidade.</required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>neighborhood</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Bairro/Setor:</label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe bairro ou setor de acordo código postal.</hint>
-                    <required>CAMPO OBRIGATÓRIO: Informe o bairro ou setor.</required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>street</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Rua/Quadra ou similar: </label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe a rua, quadra ou similar de acordo com código postal.</hint>
-                    <required></required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
-                    <dc-qualifier>building</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Casa/Prédio/ Sala ou similar:</label>
-                    <input-type>onebox</input-type>
-                    <hint>Informe casa, prédio, sala ou similar de acordo com o código postal.</hint>
-                    <required></required>
                 </field>
 
                 <field>

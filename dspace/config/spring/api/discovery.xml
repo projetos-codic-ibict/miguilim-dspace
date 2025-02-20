@@ -163,9 +163,6 @@
                 <ref bean="searchFilterRegion" />
 				<ref bean="searchFilterState" />
 				<ref bean="searchFilterCity" />
-				<ref bean="searchFilterNeighborhood" />
-				<ref bean="searchFilterStreet" />
-				<ref bean="searchFilterBuilding" />
 				<ref bean="searchFilterPhone" />
 				<ref bean="searchFilterModalityOfPublication" />
 				<ref bean="searchFilterPeriodicity" />
@@ -364,9 +361,6 @@
                 <ref bean="searchFilterRegion" />
 				<ref bean="searchFilterState" />
 				<ref bean="searchFilterCity" />
-				<ref bean="searchFilterNeighborhood" />
-				<ref bean="searchFilterStreet" />
-				<ref bean="searchFilterBuilding" />
 				<ref bean="searchFilterPhone" />
 				<ref bean="searchFilterModalityOfPublication" />
 				<ref bean="searchFilterPeriodicity" />
@@ -879,42 +873,6 @@
         <property name="metadataFields">
             <list>
                 <value>dc.description.city</value>
-            </list>
-        </property>
-		<property name="facetLimit" value="10"/>
-        <property name="sortOrderSidebar" value="COUNT"/>
-        <property name="sortOrderFilterPage" value="COUNT"/>
-    </bean>
-	
-	<bean id="searchFilterNeighborhood" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="neighborhood"/>
-        <property name="metadataFields">
-            <list>
-                <value>dc.description.neighborhood</value>
-            </list>
-        </property>
-		<property name="facetLimit" value="10"/>
-        <property name="sortOrderSidebar" value="COUNT"/>
-        <property name="sortOrderFilterPage" value="COUNT"/>
-    </bean>
-	
-	<bean id="searchFilterStreet" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="street"/>
-        <property name="metadataFields">
-            <list>
-                <value>dc.description.street</value>
-            </list>
-        </property>
-		<property name="facetLimit" value="10"/>
-        <property name="sortOrderSidebar" value="COUNT"/>
-        <property name="sortOrderFilterPage" value="COUNT"/>
-    </bean>
-	
-	<bean id="searchFilterBuilding" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="building"/>
-        <property name="metadataFields">
-            <list>
-                <value>dc.description.building</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>
