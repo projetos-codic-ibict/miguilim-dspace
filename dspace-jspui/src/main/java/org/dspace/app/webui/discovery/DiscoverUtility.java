@@ -35,6 +35,8 @@ import org.dspace.discovery.configuration.DiscoverySortConfiguration;
 import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
+import org.dspace.services.ConfigurationService;
+import org.dspace.services.factory.DSpaceServicesFactory;
 
 public class DiscoverUtility
 {
@@ -368,8 +370,9 @@ public class DiscoverUtility
                 .getSearchSortConfiguration();
         if (sortBy == null)
         {
-            // Attempt to find the default one, if none found we use SCORE
-            sortBy = "score";
+            ConfigurationService config = DSpaceServicesFactory.getInstance().getConfigurationService();
+            sortBy = config.getProperty("discovery.sort.default.metadataField");
+
             if (searchSortConfiguration != null)
             {
                 for (DiscoverySortFieldConfiguration sortFieldConfiguration : searchSortConfiguration
