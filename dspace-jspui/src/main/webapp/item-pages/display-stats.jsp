@@ -1,11 +1,38 @@
+<%@page import="org.dspace.content.Collection" %>
+<%@page import="java.util.List" %>
+<%@page import="org.dspace.content.Item" %>
+
 <%@page contentType="text/html;charset=UTF-8" %>
 
 	<%
 	    Boolean isItem = true;
+
+		List<Collection> collections = (List<Collection>) request.getAttribute("collections");
+		Item item = (Item) request.getAttribute("item");
+		String REVISTAS = "miguilim/2";
 	%>
 
 	<div class="row-after-navbar page-content-fallback">
 	
+		<br/>
+
+		<%
+			if (collections.get(0).getHandle().equals(REVISTAS))
+			{
+		%>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<span>
+						<strong>
+							<fmt:message key="jsp.statistics.heading.completion-percentage" />
+						</strong>
+					</span>
+				</li>
+			</ul>
+		<%
+			}
+		%>
+
 		<br/>
 	
 		<ul class="list-group">
