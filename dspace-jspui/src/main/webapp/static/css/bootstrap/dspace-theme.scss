@@ -227,6 +227,7 @@ body {
    //justify-content: space-between;
    gap:24px;
    margin:32px 0 32px 0;
+   flex-wrap: wrap;
    .number {
 	background-color: $white-lightest;
 	border: 1px solid #F2F2F2;
@@ -245,12 +246,6 @@ body {
 	   @include for-size(tablet-landscape-up) { 
 		width: 100%;
 	   }
-	   &:first-child:hover {
-		background-color: rgba($red-lght,.2);
-	   }
-	   &:hover {
-		background-color: rgba($yellow,.2);
-	   }
 	   span {
 		font-weight: 600;
 	   }
@@ -258,7 +253,6 @@ body {
 		width: 32px;
 		height: 32px;
 		border-radius: 50px;
-		background: $yellow;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -269,7 +263,32 @@ body {
 	   .red {
 		background:$red-lght;
 	}		   
+	.blue {
+	   background: $blue;
+	}
+	.yellow {
+	    background: $yellow;
+	}
    }
+
+	.card-revistas-vigentes {
+		&:hover {
+			background-color: rgba($red-lght,.2);
+		}
+	}
+
+	.card-revistas-descontinuadas {
+		&:hover {
+			background-color: rgba($blue,.2);
+		}
+	}
+
+	.card-portais {
+		&:hover {
+			background-color: rgba($yellow,.2);
+		}
+	}
+
    .line {
 		display: none;
 	   width: 1px;
@@ -281,7 +300,7 @@ body {
 .globe {
    display: flex;
    //width: 80%;
-   width: 80%;
+   width: 70%;
    margin-top: 0px;
    //padding: 54px;
    pointer-events: none;
