@@ -1,0 +1,74 @@
+:root {
+    --tooltip-background-color: #04132A;
+    --tooltip-foreground-color: #FFFFFF;
+    --bar-background-color: #F6F6F6;
+    --bar-border-radius: 50px;
+}
+
+.item-completion-stats {
+    display: flex;
+    height: 200px;
+    justify-content: flex-end;
+    align-items: center;
+    flex-direction: column;
+}
+
+.item-completion-stats > p {
+    padding: 0.25rem;
+    text-align: center;
+}
+
+.item-completion-bar-container {
+    background-color: var(--bar-background-color);
+    max-width: 600px;
+    width: 80%;
+    height: 40px;
+    padding: 0.25rem;
+    margin: 1rem;
+}
+
+.item-completion-bar-container, .item-completion-bar > svg {
+    border-radius: var(--bar-border-radius);
+}
+
+.item-completion-bar {
+    width: 100%;
+    height: 100%;
+}
+
+.item-completion-tooltip {
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    white-space: nowrap;
+    transform: translate(-50%, -150%);
+}
+
+.item-completion-tooltip .item-completion-tooltip-text {
+    background-color: var(--tooltip-background-color);
+    color: var(--tooltip-foreground-color);
+    text-align: center;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.item-completion-tooltip .item-completion-tooltip-arrow {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-1px);
+}
+
+.item-completion-tooltip-text {
+    margin: 0;
+}
+
+.item-completion-description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

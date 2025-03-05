@@ -22,6 +22,7 @@ import org.dspace.discovery.SearchUtils;
 import org.dspace.eperson.EPerson;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
+import org.dspace.preenchimento.util.CalculadoraPreenchimento;
 import org.dspace.termometro.factory.TermometroServiceFactory;
 import org.dspace.termometro.service.TermometroService;
 import org.dspace.termometro.util.CalculadoraTermometro;
@@ -419,10 +420,11 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
             updateSeloDiamante(context, "pt_BR");
         }
 
+        updatePercentualDePreenchimento(context, "pt_BR");
         updateRelacionamentos(context);
     }
 
-    private boolean possuiCampo(String campo) {
+    public boolean possuiCampo(String campo) {
         List<MetadataValue> mv = itemService.getMetadataByMetadataString(this, campo);
         return mv != null && mv.size() > 0;
     }
@@ -613,6 +615,16 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
             String porcentagemPontuacao = CalculadoraTermometro.calcularPorcentagemPontuacao(this);
             itemService.clearMetadata(context, this, "dc", "identifier", "thermometer", idioma);
             itemService.addMetadata(context, this, "dc", "identifier", "thermometer", idioma, porcentagemPontuacao);
+        } catch (IOException e) {
+            throw new RuntimeException("Can't create an Identifier!", e);
+        }
+    }
+
+    private void updatePercentualDePreenchimento(Context context, String idioma) throws SQLException {
+        try {
+            String porcentagemPreenchimento = CalculadoraPreenchimento.calcularPorcentagemPontuacao(this);
+            itemService.clearMetadata(context, this, "dc", "identifier", "percentage", idioma);
+            itemService.addMetadata(context, this, "dc", "identifier", "percentage", idioma, porcentagemPreenchimento);
         } catch (IOException e) {
             throw new RuntimeException("Can't create an Identifier!", e);
         }
