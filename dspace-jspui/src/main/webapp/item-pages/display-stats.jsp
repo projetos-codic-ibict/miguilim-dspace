@@ -1,10 +1,57 @@
 <%@page contentType="text/html;charset=UTF-8" %>
+<%@page import="org.dspace.preenchimento.util.CalculadoraPreenchimento" %>
+
+<link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/porcentagem-item.css">
 
 	<%
 	    Boolean isItem = true;
+		Boolean isItemDaColecaoRevista = collections.get(0).getHandle().equals(REVISTAS);
+		String pontuacaoMaximaRevistas = null;
+		String pontuacaoItem = null;
+		String pontuacaoPorcentagem = null;
+
+		if (isItemDaColecaoRevista) {
+			pontuacaoMaximaRevistas = CalculadoraPreenchimento.getPontuacaoMaximaRevistas();
+			pontuacaoItem = CalculadoraPreenchimento.calcularPontuacaoTotalDoItem(item);
+			pontuacaoPorcentagem = CalculadoraPreenchimento.getPorcentagemPontuacaoFromMetadado(item);
+		}
+
+		pontuacaoMaximaRevistas = pontuacaoMaximaRevistas == null ? "0" : pontuacaoMaximaRevistas;
+		pontuacaoItem = pontuacaoItem == null ? "0" : pontuacaoItem;
+		pontuacaoPorcentagem = pontuacaoPorcentagem == null ? "0" : pontuacaoPorcentagem;
 	%>
 
 	<div class="row-after-navbar page-content-fallback">
+		<br>
+
+		<%
+			if (isItemDaColecaoRevista)
+			{
+		%>
+			<div class="panel panel-primary">
+				<div class="panel-heading font-weight-bold">
+					<fmt:message key="jsp.statistics.heading.completion-percentage" />
+				</div>
+
+				<div class="panel-body">
+					<div class="item-completion-stats">
+						<div class="item-completion-bar-container">
+							<div class="item-completion-bar"></div>
+						</div>
+
+						<p>
+							Metadados Preenchidos: <%= pontuacaoItem %>/<%= pontuacaoMaximaRevistas %><br>
+							Veja: <a href="<%= request.getContextPath() %> /static/pages/padroes-de-metadados.jsp">Padrões de Metadados</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		<%
+			}
+		%>
+
+		<br/>
+
 	
 		<br/>
 	
@@ -297,4 +344,70 @@
 
     </script>
 
+	<% 
+		if (isItemDaColecaoRevista) {
+	%>
+		<script type="text/javascript" src="<%= request.getContextPath() %>/static/js/progressbar/progressbar.js"></script>
 
+		<script>
+			const createElementFromHTML = (htmlString) => {
+				var div = document.createElement("div");
+				div.innerHTML = htmlString.trim();
+				return div.firstChild;
+			}
+
+			const createBar = (maxPercentage) => {
+				const container = document.querySelector(".item-completion-bar");
+				const tooltipTextClassName = "item-completion-tooltip-text";
+				const tooltipArrowClassName = "item-completion-tooltip-arrow";
+				const colors = ["#F5560C", "#FE8B34", "#FFD221", "#16A8A8"];
+				let defaultPercentage = 0;
+
+				const bar = new ProgressBar.Line(container, {
+					easing: "linear",
+					duration: 2000 * (maxPercentage / 100),
+					trailColor: "transparent",
+					svgStyle: { width: "100%", height: "100%" },
+					step: (state, bar) => {
+						const percentage = Math.round(bar.value() * 100);
+
+						if (bar.text) {
+							const tooltipText = document.createElement("p");
+							tooltipText.classList.add(tooltipTextClassName);
+							tooltipText.textContent = percentage + " %";
+
+							const tooltipArrow = createElementFromHTML(`
+							<svg width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.06208 5C5.29228 6.33333 3.36778 6.33333 2.59798 5L-9.85265e-05 0.499999L8.66016 0.5L6.06208 5Z" fill="#04132A"/>
+							</svg>
+							`);
+
+							tooltipArrow.classList.add(tooltipArrowClassName);
+							bar.text.replaceChildren(tooltipText, tooltipArrow);
+
+							bar.text.style.left = percentage + "%";
+						}
+
+						const color = colors[Math.round((percentage / 100) * (colors.length - 1))]
+						bar.path.setAttribute("stroke", color);
+					},
+					text: {
+						value: defaultPercentage,
+						className: "item-completion-tooltip",
+						// Reseta os estilos da biblioteca para só aplicar os estilos
+						// customizados
+						style: {},
+					},
+					autoStyleContainer: false,
+				});
+
+				return bar;
+			}
+
+		const maxPercentage = <%= pontuacaoPorcentagem %>;
+		const bar = createBar(maxPercentage);
+		bar.set(maxPercentage / 100);
+		</script>
+	<% 
+		}
+	%>
