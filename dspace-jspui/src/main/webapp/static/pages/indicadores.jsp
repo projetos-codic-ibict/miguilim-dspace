@@ -34,6 +34,7 @@
 <%@ page import="org.dspace.content.Item" %>
 <%@ page import="org.dspace.services.ConfigurationService" %>
 <%@ page import="org.dspace.services.factory.DSpaceServicesFactory" %>
+<%@ page import="org.dspace.core.ConfigurationManager" %>
 
 <%
     List<Community> communities = (List<Community>) request.getAttribute("communities");
@@ -58,6 +59,7 @@
     RecentSubmissions submissions = (RecentSubmissions) request.getAttribute("recent.submissions");
     ItemService itemService = ContentServiceFactory.getInstance().getItemService();
     CommunityService communityService = ContentServiceFactory.getInstance().getCommunityService();
+	String indicadoresUrl = ConfigurationManager.getProperty("dspace.indicadores.url");
 %>
 
 <dspace:layout locbar="nolink" titlekey="jsp.home.title" feedData="<%= feedData %>">
@@ -65,7 +67,7 @@
 	<div class="espacamento"> 
 		<h2><strong class="titulo-medio">Indicadores</strong></h2>
 	        
-	    <iframe src="https://indicadoresmiguilim.ibict.br/indicadores-miguilim/" frameborder="0" style="width:100%;height:8735px;"> </iframe>
+	    <iframe src="<%= indicadoresUrl %>" frameborder="0" style="width:100%;height:8735px;"> </iframe>
 	</div>
 	
 </dspace:layout>

@@ -37,6 +37,7 @@ services:
       - SMTP_HOST_IP=${SMTP_HOST_IP}
       - ENVIRONMENT=${ENVIRONMENT}
       - DSPACE_URL=${DSPACE_URL}
+      - INDICADORES_URL=${INDICADORES_URL}
     container_name: dspace_miguilim
     ports:
     - "80:8080"

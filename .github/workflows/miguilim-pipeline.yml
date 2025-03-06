@@ -15,6 +15,7 @@ jobs:
     env:
       ENVIRONMENT: HML
       DSPACE_URL: https://homologacaomiguilim.ibict.br
+      INDICADORES_URL: https://indicadoreshomologacaomiguilim.ibict.br
     environment:
       name: HML
       url: 'http://172.16.21.20'
@@ -29,6 +30,7 @@ jobs:
     env:
       ENVIRONMENT: PRD
       DSPACE_URL: https://miguilim.ibict.br
+      INDICADORES_URL: https://indicadoresmiguilim.ibict.br/indicadores-miguilim
     environment: 
       name: PRD
       url: 'https://miguilim.ibict.br/'

@@ -8,6 +8,7 @@ env:
   SMTP_HOST_IP: ${{ secrets.SMTP_HOST_IP }}
   ENVIRONMENT: HML
   DSPACE_URL: https://homologacaomiguilim.ibict.br
+  INDICADORES_URL: https://indicadoreshomologacaomiguilim.ibict.br
 
 jobs:
   deploy:
