@@ -1048,6 +1048,18 @@
 
                 <field>
                     <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>software</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Software utilizado:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Indique o nome do software utilizado para a criação, gerenciamento e publicação da revista.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique o nome do software utilizado para a criação, gerenciamento e publicação da revista.</required>
+                    <vocabulary>software</vocabulary>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
                     <dc-element>rights</dc-element>
                     <dc-qualifier>researchdata</dc-qualifier>
                     <repeatable>true</repeatable>
