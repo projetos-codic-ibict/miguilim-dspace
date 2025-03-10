@@ -1210,11 +1210,44 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>relation</dc-element>
+                    <dc-qualifier>diadorim</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no Diadorim:</label>
+                    <input-type>onebox</input-type>
+                    <hint>O link do registro da revista no Diadorim será posteriormente incluído pela equipe técnica do Miguilim</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
                     <dc-qualifier>doaj</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Revista no DOAJ:</label>
                     <input-type>onebox</input-type>
                     <hint>Caso a revista esteja indexada no DOAJ, indique a URL do registro correspondente no diretório.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>relation</dc-element>
+                    <dc-qualifier>googlescholar</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Revista no Google Scholar:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada no Google Scholar, indique a URL do registro correspondente.</hint>
+                    <required></required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>h5index</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Índice H5 no Google Scholar:</label>
+                    <input-type>onebox</input-type>
+                    <hint>Caso a revista esteja indexada no Google Scholar, indique seu índice H5.</hint>
                     <required></required>
                 </field>
 
