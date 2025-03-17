@@ -596,6 +596,12 @@
     <field name="handle" type="string" indexed="true" stored="true" omitNorms="true"
       docValues="true" />
 
+    <!-- Campo para armazenar a parte numérica do handle do item (sem
+    considerar versões), dessa forma o Diadorim não depende do resourceid, que
+    muda toda vez que o item é atualizado -->
+    <field name="id" type="int" indexed="true" stored="true" omitNorms="true"
+      docValues="true" />
+
     <field name="withdrawn" type="string" indexed="true" stored="true" omitNorms="true"
       docValues="true" />
 

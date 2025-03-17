@@ -963,6 +963,18 @@ public class SolrServiceImpl implements SearchService, IndexingService {
 
         log.debug("Building Item: " + handle);
 
+        String handleId = item.getHandle();
+
+        if (handleId != null) {
+            String[] tokens = handleId.split("/");
+            handleId = tokens[tokens.length - 1];
+        }
+
+        if (handleId != null) {
+            handleId = handleId.split("\\.")[0];
+        }
+
+        doc.addField("id", Integer.parseInt(handleId));
         doc.addField("archived", item.isArchived());
         doc.addField("withdrawn", item.isWithdrawn());
         doc.addField("discoverable", item.isDiscoverable());
