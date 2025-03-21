@@ -596,6 +596,13 @@
     <field name="handle" type="string" indexed="true" stored="true" omitNorms="true"
       docValues="true" />
 
+    <!-- Campo criado para que o Diadorim possa usar nas URLs, pois o campo
+    "resourceid" muda a cada alteração feita no item e o campo "handle" não
+    pode ser usado pois seria necessário alterar as configurações do Diadorim.
+    Esse id é configurado em solrconfig.xml para ser extraído automaticamente a
+    partir do handle no momento da indexação -->
+    <field name="id" type="string" />
+
     <field name="withdrawn" type="string" indexed="true" stored="true" omitNorms="true"
       docValues="true" />
 

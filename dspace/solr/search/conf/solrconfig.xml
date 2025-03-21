@@ -1021,6 +1021,9 @@
          <str name="update.chain">dedupe</str>
        </lst>
        -->
+    <lst name="defaults">
+      <str name="update.chain">extraiIdDoHandle</str>
+    </lst>
   </requestHandler>
 
   <!-- for back compat with clients using /update/json and /update/csv -->  
@@ -1767,6 +1770,21 @@
        http://wiki.apache.org/solr/UpdateRequestProcessor
 
     --> 
+  <updateRequestProcessorChain name="extraiIdDoHandle">
+    <processor class="solr.CloneFieldUpdateProcessorFactory">
+      <str name="source">handle</str>
+      <str name="dest">id</str>
+    </processor>
+    <processor class="solr.processor.RegexReplaceProcessorFactory">
+      <str name="fieldName">id</str>
+      <str name="pattern">.*/(\d+)</str>
+      <str name="replacement">$1</str>
+      <bool name="literalReplacement">false</bool>
+    </processor>
+    <processor class="solr.LogUpdateProcessorFactory" />
+    <processor class="solr.RunUpdateProcessorFactory" />
+  </updateRequestProcessorChain>
+
   <!-- Deduplication
 
        An example dedup update processor that creates the "id" field
