@@ -1773,10 +1773,10 @@
   <updateRequestProcessorChain name="extraiIdDoHandle">
     <processor class="solr.CloneFieldUpdateProcessorFactory">
       <str name="source">handle</str>
-      <str name="dest">id</str>
+      <str name="dest">handleId</str>
     </processor>
     <processor class="solr.processor.RegexReplaceProcessorFactory">
-      <str name="fieldName">id</str>
+      <str name="fieldName">handleId</str>
       <str name="pattern">.*/(\d+)</str>
       <str name="replacement">$1</str>
       <bool name="literalReplacement">false</bool>
