@@ -291,6 +291,18 @@
 
                 <field>
                     <dc-schema>dc</dc-schema>
+                    <dc-element>subject</dc-element>
+                    <dc-qualifier>keywords</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Palavras-chave: </label>
+                    <input-type>onebox</input-type>
+                    <hint>Informe até 5 palavras-chave que represente o escopo temático da revista.</hint>
+                    <repeat-limit>5</repeat-limit>
+                    <required>CAMPO OBRIGATÓRIO: Informe as palavras-chave.</required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
                     <dc-element>publisher</dc-element>
                     <dc-qualifier>name</dc-qualifier>
                     <repeatable>false</repeatable>
