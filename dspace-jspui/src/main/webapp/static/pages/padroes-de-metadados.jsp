@@ -93,7 +93,8 @@
         Para atingir esses objetivos, foram considerados diversos serviços de informação sobre revistas científicas, incluindo o <a href="https://doaj.org/">Directory of Open Access Journals (DOAJ)</a>, o <a href="https://www.redalyc.org/home.oa">Sistema de Información Científica Redalyc</a> e a <a href="https://www.scielo.br/">Scientific Electronic Library Online (SciELO Brasil)</a>.
     </p>
 
-    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-1.pdf" target="_blank" title="Padrão MRC-BR versão 1">» MRC-BR-VERSAO-1</a>
+    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-1.pdf" target="_blank" title="Padrão MRC-BR versão 1">» MRC-BR-VERSAO-1</a><br>
+    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-2.pdf" target="_blank" title="Padrão MRC-BR versão 2">» MRC-BR-VERSAO-2</a>
 
     <h2><strong class="titulo-medio">Portais de revistas</strong></h2>
     <p>
