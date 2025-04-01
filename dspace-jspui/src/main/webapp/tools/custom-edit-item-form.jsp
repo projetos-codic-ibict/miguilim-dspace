@@ -496,7 +496,7 @@
                                             rows="3">${metadataValue.value}</textarea>
                                             <c:if test="${values.count > 1}">
                                                 <button type="button"
-                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
+                                                        onclick="removeElement('${keyValue.concat(values.index)}', event, '${fieldInputForm.repeatLimit}')"
                                                         class="btn btn-danger">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                     <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
@@ -506,7 +506,12 @@
                                     </c:forEach>
                                 </div>
                                 <c:if test="${fieldInputForm.repeatable}">
-                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                    <button
+                                        type="button"
+                                        id="btn-add-${keyValue}"
+                                        onclick="addElement('${keyValue}', '${fieldInputForm.repeatLimit}')"
+                                        class="btn btn-default"
+                                    >
                                         <span class="glyphicon glyphicon-plus"></span>
                                         <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
                                     </button>
@@ -584,7 +589,7 @@
                                             />
                                             <c:if test="${values.count > 1}">
                                                 <button type="button"
-                                                        onclick="removeElement('${keyValue.concat(values.index)}', event)"
+                                                        onclick="removeElement('${keyValue.concat(values.index)}', event, '${fieldInputForm.repeatLimit}')"
                                                         class="btn btn-danger">
                                                     <span class="glyphicon glyphicon-trash"></span>
                                                     <fmt:message key="jsp.dspace-admin.metadataimport.remove"/>
@@ -594,7 +599,12 @@
                                     </c:forEach>
                                 </div>
                                 <c:if test="${fieldInputForm.repeatable}">
-                                    <button type="button" onclick="addElement('${keyValue}')" class="btn btn-default">
+                                    <button
+                                        type="button"
+                                        id="btn-add-${keyValue}"
+                                        onclick="addElement('${keyValue}', '${fieldInputForm.repeatLimit}')"
+                                        class="btn btn-default"
+                                    >
                                         <span class="glyphicon glyphicon-plus"></span>
                                         <fmt:message key="jsp.dspace-admin.metadataimport.add"/>
                                     </button>

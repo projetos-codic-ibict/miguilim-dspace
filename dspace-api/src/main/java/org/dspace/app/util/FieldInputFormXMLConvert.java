@@ -71,6 +71,15 @@ public class FieldInputFormXMLConvert {
 									{
 										field.setHintEdit(fields.get(k).get("hint-edit").asText());
 									}
+
+									if (fields.get(k).get("repeat-limit") != null) 
+									{
+										int repeatLimit = fields.get(k).get("repeat-limit").asInt();
+
+										if (repeatLimit > 0) {
+											field.setRepeatLimit(repeatLimit);
+										}
+									}
 									
 									if (fields.get(k).get("vocabulary") != null) 
 									{

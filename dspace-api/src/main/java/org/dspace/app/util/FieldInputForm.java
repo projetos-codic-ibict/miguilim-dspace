@@ -17,6 +17,8 @@ public class FieldInputForm {
     private String qualifier;
     @JsonProperty("repeatable")
     private boolean repeatable;
+    @JsonProperty("repeatLimit")
+    private int repeatLimit = -1;
     @JsonProperty("label")
     private String label;
     @JsonProperty("hint")
@@ -63,6 +65,14 @@ public class FieldInputForm {
 
     public void setQualifier(String qualifier) {
         this.qualifier = qualifier;
+    }
+
+    public int getRepeatLimit() {
+        return repeatLimit;
+    }
+
+    public void setRepeatLimit(int repeatLimit) {
+        this.repeatLimit = repeatLimit;
     }
 
     public boolean getRepeatable() {

@@ -1,12 +1,28 @@
+function getNumberOfElements(id) {
+    return document.querySelectorAll(`[id^=${id}]`).length;
+}
 
-function removeElement(id, event){
+function removeElement(id, event, limit) {
+    if (typeof limit !== "number") {
+        limit = -1;
+    }
+
     const element = document.querySelector('#'+id);
     element.parentNode.removeChild(element);
     const btnElement = event.target;
     btnElement.parentNode.removeChild(btnElement);
+
+    if (getNumberOfElements() < limit) {
+        document.querySelector(`btn-add-${id}`)?.setAttribute("hidden", false);
+    }
 }
 
-function addElement(id){
+function addElement(id, limit) {
+    if (typeof limit !== "number") {
+        limit = -1;
+    }
+
+    limit = limit ?? -1;
     const element = document.querySelector('#'+id);
     let lastElement = element.cloneNode(true);
     let count = 0;
@@ -31,6 +47,10 @@ function addElement(id){
     </button>`
     div.innerHTML = div.innerHTML + html;
     element.parentElement.parentElement.appendChild(div);
+
+    if (getNumberOfElements() >= limit) {
+        document.querySelector(`btn-add-${id}`)?.setAttribute("hidden", true);
+    }
 }
 
 function getSequence(num){
