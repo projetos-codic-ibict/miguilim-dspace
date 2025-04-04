@@ -112,6 +112,7 @@
                 <ref bean="searchdescriptionsocialnetworks" />
                 <ref bean="searchFilterSealColor" />
                 <ref bean="searchFilterAbecBrasil" />
+                <ref bean="searchFilterKeywords" />
                 <ref bean="searchFilterCienciaAberta" />
                 <ref bean="searchFilterDiamante" />
                 <ref bean="searchFilterInformationServices" />
@@ -182,6 +183,7 @@
 				<ref bean="searchFilterJournalPostPrint" />
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
+                                <ref bean="searchFilterKeywords" />
                                 <ref bean="searchFilterCienciaAberta" />
                                 <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterTime" />
@@ -314,6 +316,7 @@
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
+                                <ref bean="searchFilterKeywords" />
                                 <ref bean="searchFilterCienciaAberta" />
                                 <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterLanguage" />
@@ -380,6 +383,7 @@
 				<ref bean="searchFilterJournalPostPrint" />
 				<ref bean="searchFilterSealColor" />
                                 <ref bean="searchFilterAbecBrasil" />
+                                <ref bean="searchFilterKeywords" />
                                 <ref bean="searchFilterCienciaAberta" />
                                 <ref bean="searchFilterDiamante" />
 				<ref bean="searchFilterTime" />
@@ -1101,6 +1105,18 @@
         <property name="metadataFields">
             <list>
                 <value>dc.identifier.abecbrasil</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+	<bean id="searchFilterKeywords" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="keywords"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.subject.keywords</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>
