@@ -26,7 +26,9 @@
 				<div class="panel-body">
 					<div class="item-completion-stats">
 						<div class="item-completion-bar-container">
-							<div class="item-completion-bar"></div>
+							<div class="tooltips" tooltipbtn="O objetivo da ferramenta não é exigir 100% de preenchimento, pois nem todos os campos se aplicam a todas as revistas. Espera-se, no mínimo, o preenchimento dos 48 campos obrigatórios. Assim, revistas com mais de 62% de preenchimento já apresentam bom nível de completude">
+								<div class="item-completion-bar"></div>
+							</div>
 						</div>
 
 						<div class="item-completion-description-container">
