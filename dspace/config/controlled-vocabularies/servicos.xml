@@ -150,7 +150,7 @@
 	<node label="PSICODOC" id="00148"></node>
 	<node label="PsycINFO" id="00149"></node>
 	<node label="PubMed" id="00150"></node>
-	<node label="Qualis-Periódicos" id="00151"></node>
+	<node label="Qualis Periódicos (2017-2020)" id="00151"></node>
 	<node label="RCAAP (Repositórios Científicos de Acesso Aberto de Portugal)" id="00152"></node>
 	<node label="Redalyc" id="00153"></node>
 	<node label="REDIB (Red Iberoamericana de Innovación y Conocimiento Científico)" id="00154"></node>
