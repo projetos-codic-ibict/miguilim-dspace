@@ -1,0 +1,4 @@
+a[data-toggle="popover"]{
+    cursor: pointer;
+    outline: none;
+}

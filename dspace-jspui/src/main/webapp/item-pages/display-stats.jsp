@@ -1,7 +1,12 @@
 <%@page contentType="text/html;charset=UTF-8" %>
 <%@page import="org.dspace.preenchimento.util.CalculadoraPreenchimento" %>
 
+<c:set var="dspace.layout.head.last" scope="request">
+	<script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
+</c:set>
+
 <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/porcentagem-item.css">
+<link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/display-stats.css">
 
 	<%
 	    Boolean isItem = true;
@@ -31,7 +36,13 @@
 
 						<div class="item-completion-description-container">
 							<p class="item-completion-description-details">
-								Total de metadados preenchidos: <%= pontuacaoDoItem %>/<%= pontuacaoMaximaDoItem %>
+								Total de metadados preenchidos: <%= pontuacaoDoItem %>/<%= pontuacaoMaximaDoItem %>&nbsp;
+								<a data-container="body" role="button"
+									data-toggle="popover" data-placement="top"
+									data-html="true" data-trigger="focus" tabindex="0"
+									data-content='O objetivo da ferramenta não é exigir 100% de preenchimento, pois nem todos os campos se aplicam a todas as revistas. Espera-se, no mínimo, o preenchimento dos 48 campos obrigatórios. Assim, revistas com mais de 62% de preenchimento já apresentam bom nível de completude'>
+									<span class="glyphicon glyphicon-question-sign"></span>
+								</a>
 							</p>
 							<%
 								if (isItemDaColecaoRevista)
