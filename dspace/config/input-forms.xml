@@ -1506,8 +1506,12 @@
 
         <value-pairs value-pairs-name="common_publisher_legalnature" dc-term="initials">
             <pair>
-                <displayed-value>Instituição privada</displayed-value>
-                <stored-value>Instituição privada</stored-value>
+                <displayed-value>Instituição privada com fins lucrativos</displayed-value>
+                <stored-value>Instituição privada com fins lucrativos</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Instituição privada sem fins lucrativos</displayed-value>
+                <stored-value>Instituição privada sem fins lucrativos</stored-value>
             </pair>
             <pair>
                 <displayed-value>Instituição pública</displayed-value>
