@@ -778,6 +778,10 @@ main {
    colgroup {
 	   @include for-size(tablet-landscape-up) { 
 		   display: none;
+
+		   .itemDisplayTable & {
+		      display: table-cell !important;
+		   }
 	   }
    }
    tbody {
@@ -979,6 +983,11 @@ main {
 		   }
 	   }
    }
+   }
+
+   th {
+      text-align: center;
+      background-color: #D9EAD3;
    }
 }
 

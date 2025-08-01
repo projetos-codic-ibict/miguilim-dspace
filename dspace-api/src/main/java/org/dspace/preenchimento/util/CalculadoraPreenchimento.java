@@ -11,7 +11,10 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.dspace.content.DSpaceObject;
@@ -21,6 +24,7 @@ import org.dspace.content.service.ItemService;
 import org.dspace.services.factory.DSpaceServicesFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class CalculadoraPreenchimento {
@@ -81,15 +85,35 @@ public class CalculadoraPreenchimento {
 
     private static Map<String, String[]> carregarCamposPontuacao() throws IOException {
         String jsonCampos = obterArquivoCampos();
-        return new ObjectMapper().readValue(jsonCampos, new TypeReference<Map<String, String[]>>(){});
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(jsonCampos);
+
+        Map<String, String[]> result = new HashMap<>();
+
+        JsonNode revistasNode = root.get("revistas");
+        List<String> allRevistasFields = new ArrayList<>();
+        for (JsonNode classBlock : revistasNode) {
+            for (JsonNode field : classBlock.get("fields")) {
+                allRevistasFields.add(field.asText());
+            }
+        }
+        result.put("revistas", allRevistasFields.toArray(new String[0]));
+
+        List<String> portaisFields = new ArrayList<>();
+        for (JsonNode field : root.get("portais")) {
+            portaisFields.add(field.asText());
+        }
+        result.put("portais", portaisFields.toArray(new String[0]));
+
+        return result;
     }
 
     private static String obterArquivoCampos() throws IOException {
-        String PONTUACAO_JSON_FILE = "pontuacao-preenchimento-mapping.json";
+        String CAMPOS_JSON_FILE = "padrao-metadados.json";
         String CONFIG_DIRECTORY = "config";
 
         String jsonPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
-                + File.separator + CONFIG_DIRECTORY + File.separator + PONTUACAO_JSON_FILE;
+                + File.separator + CONFIG_DIRECTORY + File.separator + CAMPOS_JSON_FILE;
         File xmlFile = new File(jsonPath);
 
         return new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
