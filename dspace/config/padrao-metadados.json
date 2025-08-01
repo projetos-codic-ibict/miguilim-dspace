@@ -1,0 +1,142 @@
+{
+  "revistas": [
+    {
+      "class": "DADOS BIBLIOGRÁFICOS E DE IDENTIFICAÇÃO",
+      "fields": [
+        "dc.description.abstract",
+        "dc.title",
+        "dc.title.abbreviated",
+        "dc.title.proper",
+        "dc.title.other",
+        "dc.title.previous",
+        "dc.title.later",
+        "dc.identifier.issn",
+        "dc.identifier.issnl",
+        "dc.description.situation",
+        "dc.date.startyear",
+        "dc.date.endyear",
+        "dc.identifier.url",
+        "dc.identifier.persistentidentifier",
+        "dc.identifier.abecbrasil"
+      ]
+    },
+    {
+      "class": "EDIÇÃO E INSTITUIÇÃO RESPONSÁVEL",
+      "fields": [
+        "dc.publisher.name",
+        "dc.publisher.subordinate",
+        "dc.identifier.publisher",
+        "dc.publisher.legalnature",
+        "dc.contributor.editor",
+        "dc.identifier.editor",
+        "dc.identifier.email",
+        "dc.description.cep",
+        "dc.description.region",
+        "dc.description.state",
+        "dc.description.city",
+        "dc.description.phone"
+      ]
+    },
+    {
+      "class": "CARACTERÍSTICAS DA PUBLICAÇÃO",
+      "fields": [
+        "dc.description.modalityofpublication",
+        "dc.description.periodicity",
+        "dc.date.monthofpublication",
+        "dc.description.editorialboardperiodicity",
+        "dc.date.editorialboardmonthofpublication",
+        "dc.language",
+        "dc.subject.cnpq",
+        "dc.subject.keywords",
+        "dc.description.qualisarea",
+        "dc.description.qualisclassification"
+      ]
+    },
+    {
+      "class": "POLÍTICA EDITORIAL E AVALIAÇÃO POR PARES",
+      "fields": [
+        "dc.description.peerreview",
+        "dc.description.reviewerspublication",
+        "dc.description.reviewerstypeofpublication",
+        "dc.description.reviewersperiodicityofpublication",
+        "dc.description.peerreviewexternality",
+        "dc.rights.researchdata",
+        "dc.description.peerreviewdocuments",
+        "dc.contributor.publishingresponsable"
+      ]
+    },
+    {
+      "class": "POLÍTICA DE ACESSO E LICENCIAMENTO",
+      "fields": [
+        "dc.rights.access",
+        "dc.rights.embargedtime",
+        "dc.rights.creativecommons",
+        "dc.rights.copyrightholders",
+        "dc.rights.preprintsubmission",
+        "dc.rights.preprint",
+        "dc.rights.authorpostprint",
+        "dc.rights.journalpostprint",
+        "dc.rights.sealcolor",
+        "dc.rights.time"
+      ]
+    },
+    {
+      "class": "TAXAS E CUSTOS",
+      "fields": [
+        "dc.description.publicationfees",
+        "dc.description.submissionfees",
+        "dc.description.apc"
+      ]
+    },
+    {
+      "class": "PADRÕES E INFRAESTRUTURA TECNOLÓGICA",
+      "fields": [
+        "dc.identifier.interoperabilityprotocol",
+        "dc.description.codeofethics",
+        "dc.description.referenceguidelines",
+        "dc.description.plagiarismdetection",
+        "dc.description.digitalpreservation",
+        "dc.description.software"
+      ]
+    },
+    {
+      "class": "REDES SOCIAIS",
+      "fields": [
+        "dc.description.socialnetworks"
+      ]
+    },
+    {
+      "class": "BASES DE DADOS",
+      "fields": [
+        "dc.identifier.journalsportaluri",
+        "dc.relation.informationservices",
+        "dc.relation.openalex",
+        "dc.relation.scielo",
+        "dc.relation.scopus",
+        "dc.relation.diadorim",
+        "dc.relation.doaj",
+        "dc.relation.googlescholar",
+        "dc.identifier.h5index",
+        "dc.relation.latindex",
+        "dc.relation.oasisbr",
+        "dc.relation.redalyc"
+      ]
+    }
+  ],
+  "portais": [
+    "dc.title.journalsportalname",
+    "dc.identifier.url",
+    "dc.publisher.name",
+    "dc.publisher.subordinate",
+    "dc.contributor.administrator",
+    "dc.identifier.email",
+    "dc.description.cep",
+    "dc.description.state",
+    "dc.description.city",
+    "dc.description.neighborhood",
+    "dc.description.street",
+    "dc.description.building",
+    "dc.description.phone",
+    "dc.identifier.journaluri"
+  ]
+}

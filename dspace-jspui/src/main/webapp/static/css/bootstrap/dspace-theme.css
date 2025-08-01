@@ -1487,6 +1487,10 @@ main {
   }
 }
 @media (max-width: 920px) {
+  .itemDisplayTable.table tbody tr th {
+    display: table-cell !important;
+  }
+
   .table tbody tr th {
     display: none;
   }
@@ -1664,6 +1668,11 @@ main {
   .grid-colsecond {
     grid-template-columns: 1fr;
   }
+}
+
+.itemDisplayTable th {
+  text-align: center;
+  background-color: #D9EAD3;
 }
 
 @media (max-width: 920px) {
