@@ -1777,7 +1777,7 @@
     </processor>
     <processor class="solr.processor.RegexReplaceProcessorFactory">
       <str name="fieldName">handleId</str>
-      <str name="pattern">.*/(\d+)</str>
+      <str name="pattern">.*/(\d+)(?:\..*)?$</str>
       <str name="replacement">$1</str>
       <bool name="literalReplacement">false</bool>
     </processor>
