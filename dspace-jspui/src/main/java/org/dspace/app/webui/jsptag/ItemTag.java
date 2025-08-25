@@ -468,13 +468,51 @@ public class ItemTag extends TagSupport {
             metadataFields = ordenarMetadataFields(metadataFields).toArray(new String[0]);
             List<String[]> classesWithMetadataFields = getClassesWithMetadataFields(metadataFields);
 
-            for (String[] f : classesWithMetadataFields) {
-                out.print("<th colspan='2'>");
-                out.print(f[0]);
-                out.println("</th>");
+            for (String[] classesWithFields : classesWithMetadataFields) {
+                boolean cond = Arrays.stream(classesWithFields, 1, classesWithFields.length).filter(
+                        cf -> {
+                            try {
+                                boolean ret = !metadataExposureService.isHidden(
+                                    context,
+                                    cf.split("\\.").length > 0 ? cf.split("\\.")[0] : null,
+                                    cf.split("\\.").length > 1 ? cf.split("\\.")[1] : null,
+                                    cf.split("\\.").length > 2 ? cf.split("\\.")[2] : null
+                                );
 
-                for (int i = 1; i < f.length; i++) {
-                    handleFieldDisplay(f[i], collection, out, request, context, sessionLocale);
+                                if (ret) {
+                                    log.info("schema: " + (cf.split("\\.").length > 0 ? cf.split("\\.")[0] : "null"));
+                                    log.info("elemento: " + (cf.split("\\.").length > 1 ? cf.split("\\.")[1] : "null"));
+                                    log.info("qualifier: " + (cf.split("\\.").length > 2 ? cf.split("\\.")[2] : "null"));
+                                }
+
+                                return ret;
+                            } catch (SQLException e) {
+                                return false;
+                            }
+                        }
+                    ).count() > 1
+                    ;
+
+                log.info("classesWithFields[0]: " + classesWithFields[0]);
+                log.info("Cond: " + (cond ? "true" : "false"));
+
+                if (cond) {
+                    out.print("<tr><th colspan='2'>");
+                    out.print(classesWithFields[0]);
+                    out.println("</th></tr>");
+
+                    for (int i = 1; i < classesWithFields.length; i++) {
+                        log.info("metadado: " + classesWithFields[i]);
+                        boolean hidden = !metadataExposureService.isHidden(
+                            context,
+                            cf.split("\\.").length > 0 ? cf.split("\\.")[0] : null,
+                            cf.split("\\.").length > 1 ? cf.split("\\.")[1] : null,
+                            cf.split("\\.").length > 2 ? cf.split("\\.")[2] : null
+                        );
+                        log.info("metadado hidden? " + (hidden ? "true" : "false"));
+
+                        handleFieldDisplay(classesWithFields[i], collection, out, request, context, sessionLocale);
+                    }
                 }
             }
         } else {
@@ -571,6 +609,7 @@ public class ItemTag extends TagSupport {
 
         // check for hidden field, even if it's configured..
         if (metadataExposureService.isHidden(context, schema, element, qualifier)) {
+            log.info("escondido");
             return;
         }
 

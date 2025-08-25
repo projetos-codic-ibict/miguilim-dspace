@@ -1672,7 +1672,8 @@ main {
 
 .itemDisplayTable th {
   text-align: center;
-  background-color: #D9EAD3;
+  color: #fff;
+  background-color: #04132A;
 }
 
 @media (max-width: 920px) {
