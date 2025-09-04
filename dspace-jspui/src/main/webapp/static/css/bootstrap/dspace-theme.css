@@ -1487,6 +1487,10 @@ main {
   }
 }
 @media (max-width: 920px) {
+  .itemDisplayTable.table tbody tr th.metadata-header {
+    display: table-cell !important;
+  }
+
   .table tbody tr th {
     display: none;
   }
@@ -1664,6 +1668,12 @@ main {
   .grid-colsecond {
     grid-template-columns: 1fr;
   }
+}
+
+.itemDisplayTable th.metadata-header {
+  text-align: center;
+  color: #fff;
+  background-color: #04132A;
 }
 
 @media (max-width: 920px) {

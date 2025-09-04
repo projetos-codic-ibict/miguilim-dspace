@@ -7,19 +7,26 @@
  */
 package org.dspace.app.webui.jsptag;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.MissingResourceException;
 import java.util.Optional;
+import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.jsp.JspException;
@@ -71,8 +78,12 @@ import org.dspace.eperson.factory.EPersonServiceFactory;
 import org.dspace.eperson.service.GroupService;
 import org.dspace.handle.factory.HandleServiceFactory;
 import org.dspace.handle.service.HandleService;
+import org.dspace.services.factory.DSpaceServicesFactory;
 import org.dspace.workflow.WorkflowItemService;
 import org.dspace.workflow.factory.WorkflowServiceFactory;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * <P>
@@ -418,6 +429,24 @@ public class ItemTag extends TagSupport {
         collections = null;
     }
 
+    private String[] splitField(String field) {
+        // Get the separate schema + element + qualifier
+        String[] eq = field.split("\\.");
+        String schema = eq[0];
+        String element = eq[1];
+        String qualifier = null;
+        if (eq.length > 2 && eq[2].equals("*")) 
+        {
+            qualifier = Item.ANY;
+        } 
+        else if (eq.length > 2) 
+        {
+            qualifier = eq[2];
+        }
+
+        return new String[] { schema, element, qualifier };
+    }
+
     /**
      * Render an item in the given style
      */
@@ -431,9 +460,16 @@ public class ItemTag extends TagSupport {
         Collection collection = Optional
             .ofNullable(item.getOwningCollection())
             .orElse(collections != null ? collections.get(0) : null);
+        String nomeDaColecao;
+
+        if (collection != null && collection.getName().startsWith(PORTAIS)) {
+            nomeDaColecao = "portais";
+        } else {
+            nomeDaColecao = "revistas";
+        }
+
         
-        if (collection != null && collection.getName().startsWith(PORTAIS)) 
-        {
+        if (nomeDaColecao == "portais") {
             metadataFields = styleSelection.getConfigurationForStyle("portais");
         } 
         else 
@@ -447,277 +483,25 @@ public class ItemTag extends TagSupport {
 
         out.println("<table class=\"table itemDisplayTable\">");
 
-        /*
-         * Break down the configuration into fields and display them
-         * 
-         * FIXME?: it may be more efficient to do some processing once, perhaps
-         * to a more efficient intermediate class, but then it would become more
-         * difficult to reload the configuration "on the fly".
-         */
-        for (String field : metadataFields) {
-            field = field.trim();
-            boolean isDate = false;
-            boolean isLink = false;
-            boolean isResolver = false;
-            boolean isNoBreakLine = false;
-            boolean isDisplay = false;
-            boolean isLinkSearch = false;
-            boolean isJournalTitle = false;
-            boolean isSearchTitle = false;
-            boolean isJournalsPortalUri = false;
-            boolean isMiguilimUri = false;
-            boolean isThermometer = false;
+        if (nomeDaColecao == "revistas") {
+            if (style == "default") {
+                for (String[] cf : getClassesWithMetadataFields(context, metadataFields)) {
+                    out.print("<tr><th colspan='2' class='metadata-header'>");
+                    out.print(cf[0]);
+                    out.println("</th></tr>");
 
-            String style = null;
-            Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
-            if (fieldStyleMatcher.matches()) {
-                style = fieldStyleMatcher.group(1);
-            }
-
-            String browseIndex;
-            try 
-            {
-                browseIndex = getBrowseField(field);
-            } 
-            catch (BrowseException e) 
-            {
-                log.error(e);
-                browseIndex = null;
-            }
-
-            // Find out if the field should rendered with a particular style
-            if (style != null) {
-            	isThermometer = style.contains("thermometer");
-            	isSearchTitle = style.contains("searchTitle");
-                isJournalTitle = style.contains("journalTitle");
-                isJournalsPortalUri = style.contains("journalsPortalUri");
-                isMiguilimUri = style.contains("miguilimUri");
-                isLinkSearch = style.contains("linkSearch");
-                isDate = style.contains("date");
-                isLink = style.contains("link");
-                isNoBreakLine = style.contains("nobreakline");
-                isDisplay = style.equals("inputform");
-                isResolver = style.contains("resolver") || urn2baseurl.keySet().contains(style);
-                field = field.replaceAll("\\(" + style + "\\)", "");
-            }
-
-            // Get the separate schema + element + qualifier
-            String[] eq = field.split("\\.");
-            String schema = eq[0];
-            String element = eq[1];
-            String qualifier = null;
-            if (eq.length > 2 && eq[2].equals("*")) 
-            {
-                qualifier = Item.ANY;
-            } 
-            else if (eq.length > 2) 
-            {
-                qualifier = eq[2];
-            }
-
-            // check for hidden field, even if it's configured..
-            if (metadataExposureService.isHidden(context, schema, element, qualifier)) {
-                continue;
-            }
-
-            // FIXME: Still need to fix for metadata language?
-            List<MetadataValue> values = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
-
-            if (values != null && values.size() > 0) {
-                // Create CSS class to identify fields by their metadata name.
-                // We use underscore as separator and no wildcard qualifier
-                // because dots and asterisks are forbidden as CSS class names.
-                String metadataNameClass = "";
-                if (qualifier == null || Item.ANY.equals(qualifier) || qualifier.isEmpty()) {
-                    metadataNameClass = schema + "_" + element;
-                } else {
-                    metadataNameClass = schema + "_" + element + "_" + qualifier;
-                }
-
-                out.print("<tr><td class=\"metadataFieldLabel1 " + metadataNameClass + "\">");
-
-                String label = null;
-                try 
-                {
-                	if(collection != null && collection.getName().startsWith(PORTAIS)) 
-                	{
-                		label = I18nUtil.getMessage("metadata.portais." + field, context);
-                	}
-                	else
-                	{
-                		label = I18nUtil.getMessage("metadata." + ("default".equals(this.style) ? "" : this.style + ".") + field, context);
-                	}
-                } 
-                catch (MissingResourceException e) 
-                {
-                    // if there is not a specific translation for the style we use the default one
-                    label = LocaleSupport.getLocalizedMessage(pageContext, "metadata." + field);
-                }
-
-                out.print(label);
-                out.print(":&nbsp;</td><td class=\"metadataFieldValue " + metadataNameClass + "\">");
-
-                // If the values are in controlled vocabulary and the display value should be
-                // shown
-                if (isDisplay) {
-                    List<String> displayValues = new ArrayList<>();
-
-                    displayValues = Util.getControlledVocabulariesDisplayValueLocalized(item, values, schema, element,
-                            qualifier, sessionLocale);
-
-                    if (displayValues != null && !displayValues.isEmpty()) {
-                        for (int d = 0; d < displayValues.size(); d++) {
-                            out.print(displayValues.get(d));
-                            if (d < displayValues.size() - 1)
-                                out.print(" <br/>");
-
-                        }
-                    }
-                    out.print("</td>");
-                    continue;
-                }
-                int j = 0;
-                for (MetadataValue val : values) {
-                    if (val != null && val.getValue() != null) {
-                        if (j > 0) {
-                            if (isNoBreakLine) {
-                                String separator = ConfigurationManager
-                                        .getProperty("webui.itemdisplay.nobreakline.separator");
-                                if (separator == null) {
-                                    separator = ";&nbsp;";
-                                }
-                                out.print(separator);
-                            } else {
-                                out.print("<br />");
-                            }
-                        }
-                        j++;
-
-                        if(isSearchTitle)
-                        {
-                        	String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?filter_field_1=title&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
-
-                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
-
-                        }
-                        else if (isJournalTitle || isJournalsPortalUri) {
-                            String valor = val.getValue();
-                            String url = getUrlFromTitulo(valor, context, request);
-
-                            if (url == null) {
-                                // Usa página de pesquisa como fallback
-                                url = request.getContextPath()
-                                        + "/simple-search?filter_field_1=title&filter_type_1=contains&filter_value_1="
-                                        + valor.replaceAll(":", " ");
-                            }
-
-                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(valor) + "</a>");
-                        }
-                        else if (isMiguilimUri) {
-                            String valor = val.getValue();
-                            String handle = handleService.resolveUrlToHandle(context, valor);
-                            String titulo = null;
-
-                            if (handle != null) {
-                                DSpaceObject dso = handleService.resolveToObject(context, handle);
-
-                                if (dso != null) {
-                                    titulo = dso.getName();
-                                }
-                            }
-
-                            out.print("<a href=\"" + valor + "\">" + Utils.addEntities(titulo == null ? valor : titulo) + "</a>");
-                        }
-                        else if (isLinkSearch) 
-                        {
-                        	String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
-                            String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
-
-                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
-                        } 
-                        else if (isThermometer) 
-                        {
-                        	String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
-                            String valor = Utils.addEntities(val.getValue());
-                            String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
-
-                            out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "% </a>");
-                        } 
-                        else if (isLink) 
-                        {
-                            out.print("<a href=\"" + val.getValue() + "\" target=\"_blank\">" + Utils.addEntities(val.getValue()) + "</a>");
-                        } 
-                        else if (isDate) 
-                        {
-                            DCDate dd = new DCDate(val.getValue());
-
-                            // Parse the date
-                            out.print(UIUtil.displayDate(dd, false, false,
-                                    (HttpServletRequest) pageContext.getRequest()));
-                        } else if (isResolver) {
-                            String value = val.getValue();
-                            if (value.startsWith("http://")
-                                    || value.startsWith("https://")
-                                    || value.startsWith("ftp://")
-                                    || value.startsWith("ftps://")) {
-                                // Already a URL, print as if it was a regular link
-                                out.print("<a href=\"" + value + "\">"
-                                        + Utils.addEntities(value) + "</a>");
-                            } else {
-                                String foundUrn = null;
-                                if (!"resolver".equals(style)) {
-                                    foundUrn = style;
-                                } else {
-                                    for (String checkUrn : urn2baseurl.keySet()) {
-                                        if (value.startsWith(checkUrn)) {
-                                            foundUrn = checkUrn;
-                                        }
-                                    }
-                                }
-
-                                if (foundUrn != null) {
-
-                                    if (value.startsWith(foundUrn + ":")) {
-                                        value = value.substring(foundUrn.length() + 1);
-                                    }
-
-                                    String url = urn2baseurl.get(foundUrn);
-                                    out.print("<a href=\"" + url
-                                            + value + "\">"
-                                            + Utils.addEntities(val.getValue())
-                                            + "</a>");
-                                } else {
-                                    out.print(value);
-                                }
-                            }
-
-                        } else if (browseIndex != null) {
-                            String argument, value;
-                            MetadataField metadataField = val.getMetadataField();
-                            if (val.getAuthority() != null &&
-                                    val.getConfidence() >= metadataAuthorityService
-                                            .getMinConfidence(metadataField)) {
-                                argument = "authority";
-                                value = val.getAuthority();
-                            } else {
-                                argument = "value";
-                                value = val.getValue();
-                            }
-                            out.print("<a class=\"" + ("authority".equals(argument) ? "authority " : "") + browseIndex
-                                    + "\""
-                                    + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;"
-                                    + argument + "="
-                                    + URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(val.getValue())
-                                    + "</a>");
-                        } else {
-                            out.print(Utils.addEntities(val.getValue()));
-                        }
+                    for (int i = 1; i < cf.length; i++) {
+                        handleFieldDisplay(cf[i], collection, out, request, context, sessionLocale);
                     }
                 }
-
-                out.println("</td></tr>");
+            } else {
+                for (String mf : metadataFields) {
+                    handleFieldDisplay(mf, collection, out, request, context, sessionLocale);
+                }
+            }
+        } else {
+            for (String field : metadataFields) {
+                handleFieldDisplay(field, collection, out, request, context, sessionLocale);
             }
         }
 
@@ -734,6 +518,334 @@ public class ItemTag extends TagSupport {
             out.println("<br/><br/>");
             showLicence();
         }
+    }
+
+    private static String obterArquivoCampos() throws IOException {
+        String CAMPOS_JSON_FILE = "padrao-metadados.json";
+        String CONFIG_DIRECTORY = "config";
+        String jsonPath = DSpaceServicesFactory.getInstance().getConfigurationService().getProperty("dspace.dir")
+                + File.separator + CONFIG_DIRECTORY + File.separator + CAMPOS_JSON_FILE;
+        File xmlFile = new File(jsonPath);
+
+        return new String(Files.readAllBytes(xmlFile.toPath()), StandardCharsets.UTF_8);
+    }
+
+    private void handleFieldDisplay(String field, Collection collection, JspWriter out, HttpServletRequest request, Context context, Locale sessionLocale) throws IOException, SQLException, DCInputsReaderException {
+        field = field.trim();
+        boolean isDate = false;
+        boolean isLink = false;
+        boolean isResolver = false;
+        boolean isNoBreakLine = false;
+        boolean isDisplay = false;
+        boolean isLinkSearch = false;
+        boolean isJournalTitle = false;
+        boolean isSearchTitle = false;
+        boolean isJournalsPortalUri = false;
+        boolean isMiguilimUri = false;
+        boolean isThermometer = false;
+
+        String style = null;
+        Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
+        if (fieldStyleMatcher.matches()) {
+            style = fieldStyleMatcher.group(1);
+        }
+
+        String browseIndex;
+        try 
+        {
+            browseIndex = getBrowseField(field);
+        } 
+        catch (BrowseException e) 
+        {
+            log.error(e);
+            browseIndex = null;
+        }
+
+        // Find out if the field should rendered with a particular style
+        if (style != null) {
+            isThermometer = style.contains("thermometer");
+            isSearchTitle = style.contains("searchTitle");
+            isJournalTitle = style.contains("journalTitle");
+            isJournalsPortalUri = style.contains("journalsPortalUri");
+            isMiguilimUri = style.contains("miguilimUri");
+            isLinkSearch = style.contains("linkSearch");
+            isDate = style.contains("date");
+            isLink = style.contains("link");
+            isNoBreakLine = style.contains("nobreakline");
+            isDisplay = style.equals("inputform");
+            isResolver = style.contains("resolver") || urn2baseurl.keySet().contains(style);
+            field = removeStyleFromField(field);
+        }
+
+        String[] eq = splitField(field);
+        String schema = eq[0];
+        String element = eq[1];
+        String qualifier = eq[2];
+
+        // check for hidden field, even if it's configured..
+        if (metadataExposureService.isHidden(context, schema, element, qualifier)) {
+            return;
+        }
+
+        // FIXME: Still need to fix for metadata language?
+        List<MetadataValue> values = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
+
+        if (values != null && values.size() > 0) {
+            // Create CSS class to identify fields by their metadata name.
+            // We use underscore as separator and no wildcard qualifier
+            // because dots and asterisks are forbidden as CSS class names.
+            String metadataNameClass = "";
+            if (qualifier == null || Item.ANY.equals(qualifier) || qualifier.isEmpty()) {
+                metadataNameClass = schema + "_" + element;
+            } else {
+                metadataNameClass = schema + "_" + element + "_" + qualifier;
+            }
+
+            out.print("<tr><td class=\"metadataFieldLabel1 " + metadataNameClass + "\">");
+
+            String label = null;
+            try 
+            {
+                    if(collection != null && collection.getName().startsWith(PORTAIS)) 
+                    {
+                            label = I18nUtil.getMessage("metadata.portais." + field, context);
+                    }
+                    else
+                    {
+                            label = I18nUtil.getMessage("metadata." + ("default".equals(this.style) ? "" : this.style + ".") + field, context);
+                    }
+            } 
+            catch (MissingResourceException e) 
+            {
+                // if there is not a specific translation for the style we use the default one
+                label = LocaleSupport.getLocalizedMessage(pageContext, "metadata." + field);
+            }
+
+            out.print(label);
+            out.print(":&nbsp;</td><td class=\"metadataFieldValue " + metadataNameClass + "\">");
+
+            // If the values are in controlled vocabulary and the display value should be
+            // shown
+            if (isDisplay) {
+                List<String> displayValues = new ArrayList<>();
+
+                displayValues = Util.getControlledVocabulariesDisplayValueLocalized(item, values, schema, element,
+                        qualifier, sessionLocale);
+
+                if (displayValues != null && !displayValues.isEmpty()) {
+                    for (int d = 0; d < displayValues.size(); d++) {
+                        out.print(displayValues.get(d));
+                        if (d < displayValues.size() - 1)
+                            out.print(" <br/>");
+
+                    }
+                }
+                out.print("</td>");
+                return;
+            }
+            int j = 0;
+            for (MetadataValue val : values) {
+                if (val != null && val.getValue() != null) {
+                    if (j > 0) {
+                        if (isNoBreakLine) {
+                            String separator = ConfigurationManager
+                                    .getProperty("webui.itemdisplay.nobreakline.separator");
+                            if (separator == null) {
+                                separator = ";&nbsp;";
+                            }
+                            out.print(separator);
+                        } else {
+                            out.print("<br />");
+                        }
+                    }
+                    j++;
+
+                    if(isSearchTitle)
+                    {
+                            String valor = Utils.addEntities(val.getValue());
+                        String url = request.getContextPath() + "/simple-search?filter_field_1=title&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+
+                        out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+
+                    }
+                    else if (isJournalTitle || isJournalsPortalUri) {
+                        String valor = val.getValue();
+                        String url = getUrlFromTitulo(valor, context, request);
+
+                        if (url == null) {
+                            // Usa página de pesquisa como fallback
+                            url = request.getContextPath()
+                                    + "/simple-search?filter_field_1=title&filter_type_1=contains&filter_value_1="
+                                    + valor.replaceAll(":", " ");
+                        }
+
+                        out.print("<a href=\"" + url + "\">" + Utils.addEntities(valor) + "</a>");
+                    }
+                    else if (isMiguilimUri) {
+                        String valor = val.getValue();
+                        String handle = handleService.resolveUrlToHandle(context, valor);
+                        String titulo = null;
+
+                        if (handle != null) {
+                            DSpaceObject dso = handleService.resolveToObject(context, handle);
+
+                            if (dso != null) {
+                                titulo = dso.getName();
+                            }
+                        }
+
+                        out.print("<a href=\"" + valor + "\">" + Utils.addEntities(titulo == null ? valor : titulo) + "</a>");
+                    }
+                    else if (isLinkSearch) 
+                    {
+                            String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
+                        String valor = Utils.addEntities(val.getValue());
+                        String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+
+                        out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "</a>");
+                    } 
+                    else if (isThermometer) 
+                    {
+                            String metadadoPesquisa = adequarValorParaPesquisa(qualifier != null ? qualifier : element);
+                        String valor = Utils.addEntities(val.getValue());
+                        String url = request.getContextPath() + "/simple-search?filter_field_1=" + metadadoPesquisa + "&filter_type_1=contains&filter_value_1=" + valor.replaceAll(":", " ");
+
+                        out.print("<a href=\"" + url + "\">" + Utils.addEntities(val.getValue()) + "% </a>");
+                    } 
+                    else if (isLink) 
+                    {
+                        out.print("<a href=\"" + val.getValue() + "\" target=\"_blank\">" + Utils.addEntities(val.getValue()) + "</a>");
+                    } 
+                    else if (isDate) 
+                    {
+                        DCDate dd = new DCDate(val.getValue());
+
+                        // Parse the date
+                        out.print(UIUtil.displayDate(dd, false, false,
+                                (HttpServletRequest) pageContext.getRequest()));
+                    } else if (isResolver) {
+                        String value = val.getValue();
+                        if (value.startsWith("http://")
+                                || value.startsWith("https://")
+                                || value.startsWith("ftp://")
+                                || value.startsWith("ftps://")) {
+                            // Already a URL, print as if it was a regular link
+                            out.print("<a href=\"" + value + "\">"
+                                    + Utils.addEntities(value) + "</a>");
+                        } else {
+                            String foundUrn = null;
+                            if (!"resolver".equals(style)) {
+                                foundUrn = style;
+                            } else {
+                                for (String checkUrn : urn2baseurl.keySet()) {
+                                    if (value.startsWith(checkUrn)) {
+                                        foundUrn = checkUrn;
+                                    }
+                                }
+                            }
+
+                            if (foundUrn != null) {
+
+                                if (value.startsWith(foundUrn + ":")) {
+                                    value = value.substring(foundUrn.length() + 1);
+                                }
+
+                                String url = urn2baseurl.get(foundUrn);
+                                out.print("<a href=\"" + url
+                                        + value + "\">"
+                                        + Utils.addEntities(val.getValue())
+                                        + "</a>");
+                            } else {
+                                out.print(value);
+                            }
+                        }
+
+                    } else if (browseIndex != null) {
+                        String argument, value;
+                        MetadataField metadataField = val.getMetadataField();
+                        if (val.getAuthority() != null &&
+                                val.getConfidence() >= metadataAuthorityService
+                                        .getMinConfidence(metadataField)) {
+                            argument = "authority";
+                            value = val.getAuthority();
+                        } else {
+                            argument = "value";
+                            value = val.getValue();
+                        }
+                        out.print("<a class=\"" + ("authority".equals(argument) ? "authority " : "") + browseIndex
+                                + "\""
+                                + "href=\"" + request.getContextPath() + "/browse?type=" + browseIndex + "&amp;"
+                                + argument + "="
+                                + URLEncoder.encode(value, "UTF-8") + "\">" + Utils.addEntities(val.getValue())
+                                + "</a>");
+                    } else {
+                        out.print(Utils.addEntities(val.getValue()));
+                    }
+                }
+            }
+
+            out.println("</td></tr>");
+        }
+    }
+
+    private String removeStyleFromField(String field) {
+        String style = null;
+        Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
+
+        if (fieldStyleMatcher.matches()) {
+            style = fieldStyleMatcher.group(1);
+        }
+
+        return field.replaceAll("\\(" + style + "\\)", "");
+    }
+
+    private List<String[]> getClassesWithMetadataFields(Context context, String[] metadataFields) throws IOException, SQLException {
+        String jsonCampos = obterArquivoCampos();
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(jsonCampos);
+        List<String[]> result = new ArrayList<String[]>();
+        Set<String> metadataSet = new HashSet<>(Arrays.asList(metadataFields));
+
+        for (JsonNode node : root.get("revistas")) {
+            JsonNode fields = node.get("fields");
+            List<String> classWithFields = new ArrayList<String>();
+            classWithFields.add(node.get("class").asText());
+
+            for (JsonNode fieldNode : fields) {
+                String jsonField = fieldNode.asText();
+                String styledField = Arrays.stream(metadataFields).filter(mf -> jsonField.equals(removeStyleFromField(mf))).findFirst().orElse(null);
+                String[] eq = splitField(jsonField);
+
+                List<MetadataValue> values = itemService.getMetadata(item, eq[0], eq[1], eq[2], Item.ANY);
+
+                if (styledField != null
+                        && !metadataExposureService.isHidden(context, eq[0], eq[1], eq[2])
+                        && values != null && values.size() > 0) {
+                    classWithFields.add(jsonField);
+                    metadataSet.remove(styledField);
+                }
+            }
+
+            if (classWithFields.size() > 1) {
+                result.add(classWithFields.toArray(new String[0]));
+            }
+        }
+
+        List<String> classWithFields = new ArrayList<String>();
+
+        classWithFields.add("OUTROS");
+
+        for (String mf : metadataSet) {
+            String[] eq = splitField(mf);
+            List<MetadataValue> values = itemService.getMetadata(item, eq[0], eq[1], eq[2], Item.ANY);
+            classWithFields.add(mf);
+        }
+
+        if (classWithFields.size() > 1) {
+            result.add(classWithFields.toArray(new String[0]));
+        }
+
+        return result;
     }
 
     /**
@@ -773,22 +885,12 @@ public class ItemTag extends TagSupport {
                 + "</th></tr>");
 
         for (String field : metadataFields) {
-            String style = null;
-            Matcher fieldStyleMatcher = fieldStylePatter.matcher(field);
-            if (fieldStyleMatcher.matches()) {
-                style = fieldStyleMatcher.group(1);
-            }
-            field = field.replaceAll("\\(" + style + "\\)", "");
+            field = removeStyleFromField(field);
 
-            String[] eq = field.split("\\.");
+            String[] eq = splitField(field);
             String schema = eq[0];
             String element = eq[1];
             String qualifier = null;
-            if (eq.length > 2 && eq[2].equals("*")) {
-                qualifier = Item.ANY;
-            } else if (eq.length > 2) {
-                qualifier = eq[2];
-            }
 
             List<MetadataValue> displayValues = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
             if (displayValues != null && !displayValues.isEmpty()) {
