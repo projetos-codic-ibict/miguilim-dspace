@@ -821,7 +821,7 @@ public class ItemTag extends TagSupport {
                 if (styledField != null
                         && !metadataExposureService.isHidden(context, eq[0], eq[1], eq[2])
                         && values != null && values.size() > 0) {
-                    classWithFields.add(jsonField);
+                    classWithFields.add(styledField);
                     metadataSet.remove(styledField);
                 }
             }
