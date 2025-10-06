@@ -890,7 +890,7 @@ public class ItemTag extends TagSupport {
             String[] eq = splitField(field);
             String schema = eq[0];
             String element = eq[1];
-            String qualifier = null;
+            String qualifier = eq[2];
 
             List<MetadataValue> displayValues = itemService.getMetadata(item, schema, element, qualifier, Item.ANY);
             if (displayValues != null && !displayValues.isEmpty()) {
