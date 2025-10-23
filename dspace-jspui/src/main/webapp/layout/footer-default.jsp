@@ -48,7 +48,10 @@
         </svg></a>
     </div> 
     <footer class="section-footer">
-        <span><img height="100" src="<%= request.getContextPath() %>/image/footer-logo.png" alt="icone de 60 anos do ibict e governo federal"></span>
+        <div style="display: flex; gap: 10px;">
+            <span><img style="padding: 1.5rem;" height="100" src="<%= request.getContextPath() %>/image/logo-ibict.png" alt="icone de 60 anos do ibict"></span>
+            <span><img style="padding: 1rem;" height="100" src="<%= request.getContextPath() %>/image/logo-gov.png" alt="icone do governo federal"></span>
+        </div>
         <span><p class="footer-adress">Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br> SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF</p></span>
     </footer>
 
