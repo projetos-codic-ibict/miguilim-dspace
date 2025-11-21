@@ -137,6 +137,7 @@
             <ul class="dropdown-menu">
                 <li><a href="<%= request.getContextPath() %>/static/pages/miguilim.jsp"><fmt:message key="jsp.layout.navbar.miguilim.about"/></a></li>
                 <li class="divider"></li>
+                <li class="<%= currentPage.endsWith("/bibliografia-relacionada") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/bibliografia-relacionada.jsp"><fmt:message key="jsp.layout.navbar.miguilim.relatedbibliography"/></a></li>
                 <li class="<%= currentPage.endsWith("/criterios") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/criterios.jsp"><fmt:message key="jsp.layout.navbar.miguilim.criteria"/></a></li>
                 <li class="<%= currentPage.endsWith("/criacao-login") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/criacao-login.jsp"><fmt:message key="jsp.layout.navbar.miguilim.login"/></a></li>
                 <li class="<%= currentPage.endsWith("/como-cadastro") ? "active" : "" %>"><a href="<%= request.getContextPath() %>/static/pages/como-cadastro.jsp"><fmt:message key="jsp.layout.navbar.miguilim.howregister"/></a></li>
