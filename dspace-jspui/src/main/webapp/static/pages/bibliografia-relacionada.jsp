@@ -88,45 +88,27 @@
 <h2><strong class="titulo-medio">Bibliografia Relacionada</strong></h2>
 	<ul>
 		<li class="item-bibliografia">
-			AMARO, Bianca. CAMPOS, Fhillipe de Freitas. VILAS BOAS, Raphael Faria. Manuelzão e Miguilim: iniciativas do Ibict para os editores e revistas científicas brasileiras. In: ABEC MEETING, 2022, virtual. Anais […]. São Paulo, SP: ABEC Brasil, 2022. DOI: 10.21452/abecmeeting2022.148
-			<br>
-			<a src="https://doi.org/10.21452/abecmeeting2022.148">https://doi.org/10.21452/abecmeeting2022.148</a>
-			<br><br>
+		<p>AMARO, Bianca. CAMPOS, Fhillipe de Freitas. VILAS BOAS, Raphael Faria. Manuelzão e Miguilim: iniciativas do Ibict para os editores e revistas científicas brasileiras. In: ABEC MEETING, 2022, virtual. Anais […]. São Paulo, SP: ABEC Brasil, 2022. DOI: <a href="https://doi.org/10.21452/abecmeeting2022.148" target="_blank">Manuelzão e Miguilim: iniciativas do Ibict para os editores e revistas científicas brasileiras</a></p>
 		</li>
 
 		<li class="item-bibliografia">
-			ANDRADE, Denise Aparecida Freitas; CAMPOS, Fhillipe de Freitas; SILVA, Janinne Barcelos de Morais; SENA, Priscila Machado Borges. Práticas inovadoras em revistas científicas: estudo exploratório sob a ótica da Ciência Aberta a partir do Diretório Miguilim. Ciência da Informação, Brasília, v. 54, n. 2., 2025. DOI:10.18225/ci.inf.v54i2.7217
-			<br>
-			<a src="https://doi.org/10.18225/ci.inf.v54i2.7217">https://doi.org/10.18225/ci.inf.v54i2.7217</a>
-			<br><br>
+		<p>ANDRADE, Denise Aparecida Freitas; CAMPOS, Fhillipe de Freitas; SILVA, Janinne Barcelos de Morais; SENA, Priscila Machado Borges. Práticas inovadoras em revistas científicas: estudo exploratório sob a ótica da Ciência Aberta a partir do Diretório Miguilim. Ciência da Informação, Brasília, v. 54, n. 2., 2025. DOI: <a href="https://doi.org/10.18225/ci.inf.v54i2.7217" target="_blank">Práticas Inovadora em Revistas Científicas: estudo exploratório sob a ótica da Ciência Aberta a partir do Diretório Miguilim</a></p>
 		</li>
 
 		<li class="item-bibliografia">
-			CAMPOS, Fhillipe de Freitas; ANDRADE, Denise Aparecida Freitas de; AMARO, Bianca; CANTO, Fábio Lorensi do; CARVALHO, Francisco da Costa. Directorio de las revistas científicas electrónicas brasileñas (Miguilim): desarrollo, curaduría, funcionalidades y perspectivas futuras. Revista Interamericana de Bibliotecología, [S. l.], v. 48, n. 2, 2025. DOI: 10.17533/udea.rib.v48n2e357709.
-			<br>
-			<a src="https://doi.org/10.17533/udea.rib.v48n2e357709">https://doi.org/10.17533/udea.rib.v48n2e357709</a>
-			<br><br>
+		<p>CAMPOS, Fhillipe de Freitas; ANDRADE, Denise Aparecida Freitas de; AMARO, Bianca; CANTO, Fábio Lorensi do; CARVALHO, Francisco da Costa. Directorio de las revistas científicas electrónicas brasileñas (Miguilim): desarrollo, curaduría, funcionalidades y perspectivas futuras. Revista Interamericana de Bibliotecología, [S. l.], v. 48, n. 2, 2025. DOI: <a href="https://doi.org/10.17533/udea.rib.v48n2e357709" target="_blank">Directorio de las revistas científicas electrónicas brasileñas (Miguilim): Desarrollo, curaduría, funcionalidades y perspectivas futuras | Revista Interamericana de Bibliotecología</a></p>
 		</li>
 
 		<li class="item-bibliografia">
-			CRUZ, Gabriela Garibaldi da. Justiça Informacional como prática de Ciência Aberta: uma análise das revistas científicas do diretório Miguilim. 2025. Dissertação (Programa de Pós-Graduação em Gestão da Informação) - Udesc, Florianópolis, 2025. Disponível em: https://repositorio.udesc.br/handle/UDESC/22724. Acesso em: insira aqui a data de acesso ao material. Ex: 18 fev. 2025.
-			<br>
-			<a src="https://repositorio.udesc.br/handle/UDESC/22724">https://repositorio.udesc.br/handle/UDESC/22724</a>
-			<br><br>
+		<p>CRUZ, Gabriela Garibaldi da. Justiça Informacional como prática de Ciência Aberta: uma análise das revistas científicas do diretório Miguilim. 2025. Dissertação (Programa de Pós-Graduação em Gestão da Informação) - Udesc, Florianópolis, 2025. Disponível em: <a href="https://repositorio.udesc.br/entities/publication/268e67cc-829f-43d9-975b-d9c597900e9e" target="_blank"></a>. Acesso em: 11 nov. 2025.</p>
 		</li>
 
 		<li class="item-bibliografia">
-			MAIA, Maria Aniolly Queiroz;  MARQUES, Clediane de Araújo Guedes; PAIVA, Monica Lima de; ARAÚJO, Rita de Cássia Pereira de; CAMPOS, Fhillipe de Freitas. Portal de Periódicos eletrônicos da UFRN: análise das práticas de Acesso Aberto e de Ciência Aberta a partir do Diretório Miguilim. Ciência da Informação, Brasília, v. 54, n. 2, 2025. DOI: 10.18225/ci.inf.v54i2.7234.
-			<br>
-			<a src="https://doi.org/10.18225/ci.inf.v54i2.7234">https://doi.org/10.18225/ci.inf.v54i2.7234</a>
-			<br><br>
+		<p>MAIA, Maria Aniolly Queiroz;  MARQUES, Clediane de Araújo Guedes; PAIVA, Monica Lima de; ARAÚJO, Rita de Cássia Pereira de; CAMPOS, Fhillipe de Freitas. Portal de Periódicos eletrônicos da UFRN: análise das práticas de Acesso Aberto e de Ciência Aberta a partir do Diretório Miguilim. Ciência da Informação, Brasília, v. 54, n. 2, 2025. DOI: <a href="https://doi.org/10.18225/ci.inf.v54i2.7234" target="_blank">Portal de Periódicos eletrônicos da UFRN:  análise das práticas de Acesso Aberto e de Ciência Aberta a partir do Diretório Miguilim</a></p>
 		</li>
 
 		<li class="item-bibliografia">
-			SENA, Priscila; CAMPOS, Fhillipe de Freitas; BARCELOS, Janinne; ARAÚJO, Ronaldo Ferreira de; ANDRADE, Denise Aparecida Freitas de. Revistas con sello de prácticas de ciencia abierta en el directorio Miguilim: análisis de su presencia digital. In: ARAÚJO, Ronaldo Ferreira de; ARAÚJO, Kizi Mendonça de (org.). Reflexiones contemporáneas sobre la producción y comunicación de información en ciencia, tecnología e innovación. Brasília: Ibict, 2024. p. 427-443. DOI: 10.22477.9788570132437
-			<br>
-			<a src="https://omp-editora.prd.ibict.br/index.php/edibict/catalog/book/376">https://omp-editora.prd.ibict.br/index.php/edibict/catalog/book/376</a>
-			<br><br>
+		<p>SENA, Priscila; CAMPOS, Fhillipe de Freitas; BARCELOS, Janinne; ARAÚJO, Ronaldo Ferreira de; ANDRADE, Denise Aparecida Freitas de. Revistas con sello de prácticas de ciencia abierta en el directorio Miguilim: análisis de su presencia digital. In: ARAÚJO, Ronaldo Ferreira de; ARAÚJO, Kizi Mendonça de (org.). Reflexiones contemporáneas sobre la producción y comunicación de información en ciencia, tecnología e innovación. Brasília: Ibict, 2024. p. 427-443. Disponível em: <a href="https://omp-editora.prd.ibict.br/index.php/edibict/catalog/book/376" target="_blank">Reflexiones contemporáneas sobre la producción y comunicación de información en ciencia, tecnología e innovación</a>. Acesso em: 11 nov. 2025.</p>
 		</li>
 	</ul>
 </div>
