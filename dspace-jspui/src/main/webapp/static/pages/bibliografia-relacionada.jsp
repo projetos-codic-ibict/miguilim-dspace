@@ -100,7 +100,7 @@
 		</li>
 
 		<li class="item-bibliografia">
-		<p>CRUZ, Gabriela Garibaldi da. Justiça Informacional como prática de Ciência Aberta: uma análise das revistas científicas do diretório Miguilim. 2025. Dissertação (Programa de Pós-Graduação em Gestão da Informação) - Udesc, Florianópolis, 2025. Disponível em: <a href="https://repositorio.udesc.br/entities/publication/268e67cc-829f-43d9-975b-d9c597900e9e" target="_blank"></a>. Acesso em: 11 nov. 2025.</p>
+		<p>CRUZ, Gabriela Garibaldi da. Justiça Informacional como prática de Ciência Aberta: uma análise das revistas científicas do diretório Miguilim. 2025. Dissertação (Programa de Pós-Graduação em Gestão da Informação) - Udesc, Florianópolis, 2025. Disponível em: <a href="https://repositorio.udesc.br/entities/publication/268e67cc-829f-43d9-975b-d9c597900e9e" target="_blank">Justiça Informacional como prática de Ciência Aberta: uma análise das revistas científicas do diretório Miguilim</a>. Acesso em: 16 dez. 2025.</p>
 		</li>
 
 		<li class="item-bibliografia">
