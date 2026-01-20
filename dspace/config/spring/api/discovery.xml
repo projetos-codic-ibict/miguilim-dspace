@@ -1293,10 +1293,10 @@
     </bean>
 	
 	<bean id="searchFilterQualisArea" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="qualisarea"/>
+        <property name="indexFieldName" value="qualisarea2017_2020"/>
         <property name="metadataFields">
             <list>
-                <value>dc.description.qualisarea</value>
+                <value>dc.description.qualisarea2017-2020</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>

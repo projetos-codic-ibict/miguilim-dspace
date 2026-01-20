@@ -1092,7 +1092,7 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>qualisarea</dc-qualifier>
+                    <dc-qualifier>qualisarea2017-2020</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Área mãe de avaliação Qualis Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisarea">dropdown</input-type>
