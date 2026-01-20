@@ -1305,10 +1305,10 @@
     </bean>
 	
 	<bean id="searchFilterQualisClassification" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
-        <property name="indexFieldName" value="qualisclassification"/>
+        <property name="indexFieldName" value="qualisclassification2017_2020"/>
         <property name="metadataFields">
             <list>
-                <value>dc.description.qualisclassification</value>
+                <value>dc.description.qualisclassification2017-2020</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>

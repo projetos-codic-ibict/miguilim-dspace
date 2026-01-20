@@ -1113,9 +1113,9 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>qualisclassification</dc-qualifier>
+                    <dc-qualifier>qualisclassification2017-2020</dc-qualifier>
                     <repeatable>false</repeatable>
-                    <label>Classificação Qualis-Periódicos:</label>
+                    <label>Classificação Qualis-Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisclassification">dropdown</input-type>
                     <hint> Indique a classificação mais recente da revista no estrato
                         Qualis-Periódicos para a área-mãe indicada no campo acima. Caso a revista
