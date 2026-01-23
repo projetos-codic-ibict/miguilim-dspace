@@ -99,6 +99,7 @@
         <property name="sidebarFacets">
             <list>
                 <ref bean="searchFilterQualisArea" />
+                <ref bean="searchFilterQualisArea2021_2024" />
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
                 <ref bean="searchFilterCodeofethics" />
@@ -199,6 +200,7 @@
 				<ref bean="searchFilterDigitalPreservation" />
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterQualisClassification" />
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
@@ -312,6 +314,7 @@
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterQualisClassification" />
 				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterPublicationFees" />
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterSealColor" />
@@ -399,6 +402,7 @@
 				<ref bean="searchFilterDigitalPreservation" />
 				<ref bean="searchFilterResearchData" />
 				<ref bean="searchFilterQualisArea" />
+				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterQualisClassification" />
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
@@ -1303,6 +1307,19 @@
         <property name="sortOrderSidebar" value="COUNT"/>
         <property name="sortOrderFilterPage" value="COUNT"/>
     </bean>
+
+	<bean id="searchFilterQualisArea2021_2024" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="qualisarea2021_2024"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.qualisarea2021-2024</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
 	
 	<bean id="searchFilterQualisClassification" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
         <property name="indexFieldName" value="qualisclassification2017_2020"/>

@@ -1097,16 +1097,16 @@
                     <label>Área mãe de avaliação Qualis Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisarea">dropdown</input-type>
                     <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos,
-                        de acordo com a classificação mais recente da revista (Quadriênio
-                        2017-2020). Caso a revista ainda não tenha sido avaliada, indique “Revista
-                        não avaliada”. Essa informação pode ser verificada pela busca por número de
-                        ISSN da revista no link: &lt;a
+                        de acordo com a classificação da revista (Quadriênio 2017-2020). Caso a
+                        revista ainda não tenha sido avaliada, indique “Revista não avaliada”.
+                        Essa informação pode ser verificada pela busca por número de ISSN da
+                        revista no link: &lt;a
                         href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
                         target="_blank"
                         &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
                         </hint>
                     <required>CAMPO OBRIGATÓRIO: Indique a área-mãe de avaliação da revista no
-                        estrato Qualis-Periódicos, de acordo com a classificação mais recente da
+                        estrato Qualis-Periódicos, de acordo com a classificação da
                         revista. </required>
                 </field>
 
@@ -1126,6 +1126,26 @@
                         </hint>
                     <required>CAMPO OBRIGATÓRIO: Indique a classificação mais recente da revista no
                         estrato Qualis-Periódicos para a área-mãe indicada no campo acima. </required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>qualisarea2021_2024</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Área mãe de avaliação Qualis Periódicos (2021-2024):</label>
+                    <input-type value-pairs-name="common_description_qualisarea2021_2024">dropdown</input-type>
+                    <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos no
+                        quadriênio 2021-2024. Caso a revista não tenha sido avaliada no quadriênio,
+                        indique “Revista não avaliada”. Essa informação pode ser verificada pela busca
+                        por número de ISSN da revista no link: &lt;a
+                        href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
+                        target="_blank"
+                        &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
+                        </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a área-mãe de avaliação da revista no
+                        estrato Qualis-Periódicos, de acordo com a classificação mais recente da
+                        revista. </required>
                 </field>
 
                 <field>
@@ -2455,6 +2475,210 @@
             <pair>
                 <displayed-value>Planejamento urbano e regional / Demografia</displayed-value>
                 <stored-value>Planejamento urbano e regional / Demografia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Psicologia</displayed-value>
+                <stored-value>Psicologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Química</displayed-value>
+                <stored-value>Química</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Saúde coletiva</displayed-value>
+                <stored-value>Saúde coletiva</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Serviço social</displayed-value>
+                <stored-value>Serviço social</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Sociologia</displayed-value>
+                <stored-value>Sociologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Zootecnia / Recursos pesqueiros</displayed-value>
+                <stored-value>Zootecnia / Recursos pesqueiros</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_qualisarea2021_2024"
+            dc-term="common_description_qualisarea2021_2024">
+            <pair>
+                <displayed-value>Administração pública e de empresas, Ciências contábeis e Turismo</displayed-value>
+                <stored-value>Administração pública e de empresas, Ciências contábeis e Turismo</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Antropologia / Arqueologia</displayed-value>
+                <stored-value>Antropologia / Arqueologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Arquitetura, Urbanismo e Design</displayed-value>
+                <stored-value>Arquitetura, Urbanismo e Design</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Artes</displayed-value>
+                <stored-value>Artes</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Astronomia / Física</displayed-value>
+                <stored-value>Astronomia / Física</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Biodiversidade</displayed-value>
+                <stored-value>Biodiversidade</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Biotecnologia</displayed-value>
+                <stored-value>Biotecnologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciência de Alimentos</displayed-value>
+                <stored-value>Ciência de Alimentos</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciência política e Relações internacionais</displayed-value>
+                <stored-value>Ciência política e Relações internacionais</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências agrárias I</displayed-value>
+                <stored-value>Ciências agrárias I</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências ambientais</displayed-value>
+                <stored-value>Ciências ambientais</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências biológicas I</displayed-value>
+                <stored-value>Ciências biológicas I</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências biológicas II</displayed-value>
+                <stored-value>Ciências biológicas II</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências biológicas III</displayed-value>
+                <stored-value>Ciências biológicas III</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências da religião e Teologia</displayed-value>
+                <stored-value>Ciências da religião e Teologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ciências e humanidades para a educação básica</displayed-value>
+                <stored-value>Ciências e humanidades para a educação básica</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Computação</displayed-value>
+                <stored-value>Computação</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Comunicação e Informação e Museologia</displayed-value>
+                <stored-value>Comunicação e Informação e Museologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Direito</displayed-value>
+                <stored-value>Direito</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Economia</displayed-value>
+                <stored-value>Economia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Educação</displayed-value>
+                <stored-value>Educação</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Educação Física, Fisioterapia, Fonoaudiologia e Terapia Ocupacional</displayed-value>
+                <stored-value>Educação Física, Fisioterapia, Fonoaudiologia e Terapia Ocupacional</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Enfermagem</displayed-value>
+                <stored-value>Enfermagem</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Engenharias I</displayed-value>
+                <stored-value>Engenharias I</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Engenharias II</displayed-value>
+                <stored-value>Engenharias II</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Engenharias III</displayed-value>
+                <stored-value>Engenharias III</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Engenharias IV</displayed-value>
+                <stored-value>Engenharias IV</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Ensino</displayed-value>
+                <stored-value>Ensino</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Farmácia</displayed-value>
+                <stored-value>Farmácia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Filosofia</displayed-value>
+                <stored-value>Filosofia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Geociências</displayed-value>
+                <stored-value>Geociências</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Geografia</displayed-value>
+                <stored-value>Geografia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>História</displayed-value>
+                <stored-value>História</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Interdisciplinar</displayed-value>
+                <stored-value>Interdisciplinar</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Linguística e Literatura</displayed-value>
+                <stored-value>Linguística e Literatura</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Matemática / Probabilidade e Estatística</displayed-value>
+                <stored-value>Matemática / Probabilidade e Estatística</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Materiais</displayed-value>
+                <stored-value>Materiais</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Medicina I</displayed-value>
+                <stored-value>Medicina I</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Medicina II</displayed-value>
+                <stored-value>Medicina II</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Medicina III</displayed-value>
+                <stored-value>Medicina III</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Medicina veterinária</displayed-value>
+                <stored-value>Medicina veterinária</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Nutrição</displayed-value>
+                <stored-value>Nutrição</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Odontologia</displayed-value>
+                <stored-value>Odontologia</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Planejamento Urbano e Regional / Demografia</displayed-value>
+                <stored-value>Planejamento Urbano e Regional / Demografia</stored-value>
             </pair>
             <pair>
                 <displayed-value>Psicologia</displayed-value>
