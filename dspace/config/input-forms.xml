@@ -1151,6 +1151,25 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
+                    <dc-qualifier>qualisclassification2021-2024</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Classificação Qualis-Periódicos (2021-2024):</label>
+                    <input-type value-pairs-name="common_description_qualisclassification2021_2024">dropdown</input-type>
+                    <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos no
+                        quadriênio 2021-2024. Caso a revista não tenha sido avaliada no quadriênio,
+                        indique “Revista não avaliada”. Essa informação pode ser verificada pela busca
+                        por número de ISSN da revista no link: &lt;a
+                        href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
+                        target="_blank"
+                        &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
+                        </hint>
+                    <required>CAMPO OBRIGATÓRIO: Indique a classificação mais recente da revista no
+                        estrato Qualis-Periódicos para a área-mãe indicada no campo acima. </required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
                     <dc-qualifier>socialnetworks</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Redes sociais:</label>
@@ -2712,6 +2731,46 @@
                 <displayed-value>Revista não avaliada</displayed-value>
                 <stored-value>Revista não avaliada</stored-value>
             </pair>
+            <pair>
+                <displayed-value>A1</displayed-value>
+                <stored-value>A1</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A2</displayed-value>
+                <stored-value>A2</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A3</displayed-value>
+                <stored-value>A3</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A4</displayed-value>
+                <stored-value>A4</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>B1</displayed-value>
+                <stored-value>B1</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>B2</displayed-value>
+                <stored-value>B2</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>B3</displayed-value>
+                <stored-value>B3</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>B4</displayed-value>
+                <stored-value>B4</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>C</displayed-value>
+                <stored-value>C</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_qualisclassification2021_2024"
+            dc-term="common_description_qualisclassification2021_2024">
             <pair>
                 <displayed-value>A1</displayed-value>
                 <stored-value>A1</stored-value>

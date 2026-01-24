@@ -102,6 +102,7 @@
                 <ref bean="searchFilterQualisArea2021_2024" />
                 <ref bean="searchFilterCNPq" /> 
                 <ref bean="searchFilterQualisClassification" />
+                <ref bean="searchFilterQualisClassification2021_2024" />
                 <ref bean="searchFilterCodeofethics" />
                 <ref bean="searchFilterResearchData" />
                 <ref bean="searchFilterLanguage" />
@@ -202,6 +203,7 @@
 				<ref bean="searchFilterQualisArea" />
 				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterQualisClassification" />
+                <ref bean="searchFilterQualisClassification2021_2024" />
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
@@ -313,6 +315,7 @@
 				<ref bean="searchFilterCreativecommons" />
 				<ref bean="searchFilterAccess" />
 				<ref bean="searchFilterQualisClassification" />
+                <ref bean="searchFilterQualisClassification2021_2024" />
 				<ref bean="searchFilterQualisArea" />
 				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterPublicationFees" />
@@ -404,6 +407,7 @@
 				<ref bean="searchFilterQualisArea" />
 				<ref bean="searchFilterQualisArea2021_2024" />
 				<ref bean="searchFilterQualisClassification" />
+                <ref bean="searchFilterQualisClassification2021_2024" />
 				<ref bean="searchFilterInformationServices" />
 				<ref bean="searchFilterJournalsPortalUri" />
 				<ref bean="searchFilterOasisbr" />
@@ -1326,6 +1330,18 @@
         <property name="metadataFields">
             <list>
                 <value>dc.description.qualisclassification2017-2020</value>
+            </list>
+        </property>
+		<property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+	<bean id="searchFilterQualisClassification2021_2024" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="qualisclassification2021_2024"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.description.qualisclassification2021-2024</value>
             </list>
         </property>
 		<property name="facetLimit" value="10"/>
