@@ -1116,10 +1116,11 @@
                     <repeatable>false</repeatable>
                     <label>Classificação Qualis-Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisclassification">dropdown</input-type>
-                    <hint> Indique a classificação mais recente da revista no estrato
-                        Qualis-Periódicos para a área-mãe indicada no campo acima. Caso a revista
-                        ainda não tenha sido avaliada, indique “Revista não avaliada”. Essa
-                        informação pode ser verificada pela busca do ISSN da revista no link: &lt;a
+                    <hint> Indique a classificação da revista no estrato Qualis-Periódicos
+                        no quadriênio 2017-2020. Caso a revista não tenha sido avaliada no
+                        quadriênio, indique “Revista não avaliada”. Essa informação pode
+                        ser verificada pela busca do ISSN da revista no
+                        link: &lt;a
                         href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
                         target="_blank"&gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
                         </hint>
