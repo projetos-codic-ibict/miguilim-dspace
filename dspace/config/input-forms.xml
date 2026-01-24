@@ -1096,11 +1096,10 @@
                     <repeatable>false</repeatable>
                     <label>Área mãe de avaliação Qualis Periódicos (2017-2020):</label>
                     <input-type value-pairs-name="common_description_qualisarea">dropdown</input-type>
-                    <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos,
-                        de acordo com a classificação da revista (Quadriênio 2017-2020). Caso a
-                        revista ainda não tenha sido avaliada, indique “Revista não avaliada”.
-                        Essa informação pode ser verificada pela busca por número de ISSN da
-                        revista no link: &lt;a
+                    <hint> Indique a área-mãe de avaliação da revista no estrato Qualis-Periódicos
+                        no quadriênio 2017-2020. Caso a revista não tenha sido avaliada no
+                        quadriênio, indique “Revista não avaliada”. Essa informação pode ser
+                        verificada pela busca por número de ISSN da revista no link: &lt;a
                         href="https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
                         target="_blank"
                         &gt;https://sucupira.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf&lt;/a&gt;
