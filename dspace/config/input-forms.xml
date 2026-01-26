@@ -1131,7 +1131,7 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>qualisarea2021_2024</dc-qualifier>
+                    <dc-qualifier>qualisarea2021-2024</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Área mãe de avaliação Qualis Periódicos (2021-2024):</label>
                     <input-type value-pairs-name="common_description_qualisarea2021_2024">dropdown</input-type>
