@@ -1131,7 +1131,7 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>qualisarea2021_2024</dc-qualifier>
+                    <dc-qualifier>qualisarea2021-2024</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Área mãe de avaliação Qualis Periódicos (2021-2024):</label>
                     <input-type value-pairs-name="common_description_qualisarea2021_2024">dropdown</input-type>
@@ -2524,6 +2524,10 @@
         <value-pairs value-pairs-name="common_description_qualisarea2021_2024"
             dc-term="common_description_qualisarea2021_2024">
             <pair>
+                <displayed-value>Revista não avaliada</displayed-value>
+                <stored-value>Revista não avaliada</stored-value>
+            </pair>
+            <pair>
                 <displayed-value>Administração pública e de empresas, Ciências contábeis e Turismo</displayed-value>
                 <stored-value>Administração pública e de empresas, Ciências contábeis e Turismo</stored-value>
             </pair>
@@ -2771,6 +2775,10 @@
 
         <value-pairs value-pairs-name="common_description_qualisclassification2021_2024"
             dc-term="common_description_qualisclassification2021_2024">
+            <pair>
+                <displayed-value>Revista não avaliada</displayed-value>
+                <stored-value>Revista não avaliada</stored-value>
+            </pair>
             <pair>
                 <displayed-value>A1</displayed-value>
                 <stored-value>A1</stored-value>
