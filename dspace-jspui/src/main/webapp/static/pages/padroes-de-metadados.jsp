@@ -94,7 +94,7 @@
     </p>
 
     <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-1.pdf" target="_blank" title="Padrão MRC-BR versão 1">» MRC-BR-VERSAO-1</a><br>
-    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-2.pdf" target="_blank" title="Padrão MRC-BR versão 2">» MRC-BR-VERSAO-2</a>
+    <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-2.pdf" target="_blank" title="Padrão MRC-BR versão 2">» MRC-BR-VERSAO-2</a><br>
     <a href="<%= request.getContextPath()%>/static/pages/MRC-BR-VERSAO-3.pdf" target="_blank" title="Padrão MRC-BR versão 3">» MRC-BR-VERSAO-3</a>
 
     <h2><strong class="titulo-medio">Portais de revistas</strong></h2>
