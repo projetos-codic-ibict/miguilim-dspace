@@ -1458,6 +1458,10 @@
            "qualisarea2021-2024".equals(dcQualifier) ||
            "qualisclassification2021-2024".equals(dcQualifier)
        );
+
+       if (isQualisField && !isAdmin) {
+           continue;
+       }
        
        String fieldName;
        int fieldCountIncr;
@@ -1467,11 +1471,6 @@
 	   
        vocabulary = inputs[z].getVocabulary();
        required = inputs[z].isRequired();
-
-       if (isQualisField && !isAdmin) {
-           readonly = true;
-           required = false;
-       }
        
        if (dcQualifier != null && !dcQualifier.equals("*"))
           fieldName = dcSchema + "_" + dcElement + '_' + dcQualifier;
