@@ -1459,7 +1459,7 @@
            "qualisclassification2021-2024".equals(dcQualifier)
        );
 
-       if (isQualisField && !isAdmin) {
+       if (isQualisField) {
            continue;
        }
        
