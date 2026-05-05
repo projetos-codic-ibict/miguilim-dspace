@@ -449,6 +449,17 @@
 
         String key = dcv.get(i).getMetadataField().toString();
 
+        boolean isQualisField =
+        "dc.description.qualisarea2017-2020".equals(key) ||
+        "dc.description.qualisclassification2017-2020".equals(key) ||
+        "dc.description.qualisarea2021-2024".equals(key) ||
+        "dc.description.qualisclassification2021-2024".equals(key);
+
+        if (isQualisField && !isAdmin)
+        {
+            continue;
+        }
+
         Integer count = dcCounter.get(key);
         if (count == null)
         {

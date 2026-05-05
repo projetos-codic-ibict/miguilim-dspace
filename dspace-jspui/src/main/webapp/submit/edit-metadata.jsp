@@ -1448,20 +1448,6 @@
        String dcQualifier = inputs[z].getQualifier();
        String dcSchema = inputs[z].getSchema();
        boolean language = inputs[z].getLanguage();
-
-       Boolean admin = (Boolean) request.getAttribute("is.admin");
-       boolean isAdmin = (admin == null ? false : admin.booleanValue());
-
-       boolean isQualisField = "dc".equals(dcSchema) && "description".equals(dcElement) && (
-           "qualisarea2017-2020".equals(dcQualifier) ||
-           "qualisclassification2017-2020".equals(dcQualifier) ||
-           "qualisarea2021-2024".equals(dcQualifier) ||
-           "qualisclassification2021-2024".equals(dcQualifier)
-       );
-
-       if (isQualisField) {
-           continue;
-       }
        
        String fieldName;
        int fieldCountIncr;
