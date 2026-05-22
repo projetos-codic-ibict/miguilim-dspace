@@ -333,6 +333,23 @@
                     String collectionName = item.getOwningCollection() != null ? item.getOwningCollection().getName() : collections.get(0).getName();
                     List<MetadataValue> metadataValueList = ContentServiceFactory.getInstance().getItemService().getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
                     List<FieldInputForm> fieldInputFormList = FieldInputFormXMLConvert.getListOfFieldInputForm(context, collectionName);
+
+                    if (!isAdmin) {
+                        fieldInputFormList = fieldInputFormList
+                            .stream()
+                            .filter(f -> !(
+                                "dc".equals(f.getSchema()) &&
+                                "description".equals(f.getElement()) &&
+                                (
+                                    "qualisarea2017-2020".equals(f.getQualifier()) ||
+                                    "qualisclassification2017-2020".equals(f.getQualifier()) ||
+                                    "qualisarea2021-2024".equals(f.getQualifier()) ||
+                                    "qualisclassification2021-2024".equals(f.getQualifier())
+                                )
+                            ))
+                            .collect(Collectors.toList());
+                    }
+
                     FieldInputFormUtils fieldInputFormUtils = new FieldInputFormUtils(fieldInputFormList, metadataValueList);
                     Map<String, Integer> dcCounter = new HashMap<String, Integer>();
 
