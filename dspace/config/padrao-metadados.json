@@ -62,6 +62,7 @@
         "dc.description.reviewerstypeofpublication",
         "dc.description.reviewersperiodicityofpublication",
         "dc.description.peerreviewexternality",
+        "dc.description.timepublication",
         "dc.rights.researchdata",
         "dc.description.peerreviewdocuments",
         "dc.contributor.publishingresponsable"
