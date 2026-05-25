@@ -515,27 +515,6 @@
 
                 <field>
                     <dc-schema>dc</dc-schema>
-                    <dc-element>date</dc-element>
-                    <dc-qualifier>monthofpublication</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Mês de publicação do fascículo:</label>
-                    <input-type value-pairs-name="common_date_monthofpublication">dropdown</input-type>
-                    <hint>Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s).
-                        Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que
-                        publica de forma contínua. Para marcar mais de uma opção mantenha
-                        pressionada a tecla “Control” (Ctrl) e selecione as opções desejadas. </hint>
-                    <hint-edit>
-                        Indique o (s) mês (es) em que o (s) fascículo (s) é (são) publicado (s).
-                        Caso a revista publique na modalidade Fluxo contínuo esta deve indicar que
-                        publica de forma contínua. Para esse campo é possível marcar mais de uma
-                        resposta.
-                    </hint-edit>
-                    <required>CAMPO OBRIGATÓRIO: Indique o (s) mês (es) em que é (são) publicado
-                        (s). </required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
                     <dc-qualifier>editorialboardperiodicity</dc-qualifier>
                     <repeatable>false</repeatable>
@@ -1771,62 +1750,6 @@
             <pair>
                 <displayed-value>Trimestral</displayed-value>
                 <stored-value>Trimestral</stored-value>
-            </pair>
-        </value-pairs>
-
-        <value-pairs value-pairs-name="common_date_monthofpublication"
-            dc-term="common_date_monthofpublication">
-            <pair>
-                <displayed-value>Publicação contínua</displayed-value>
-                <stored-value>Publicação contínua</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Janeiro</displayed-value>
-                <stored-value>Janeiro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Fevereiro</displayed-value>
-                <stored-value>Fevereiro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Março</displayed-value>
-                <stored-value>Março</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Abril</displayed-value>
-                <stored-value>Abril</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Maio</displayed-value>
-                <stored-value>Maio</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Junho</displayed-value>
-                <stored-value>Junho</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Julho</displayed-value>
-                <stored-value>Julho</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Agosto</displayed-value>
-                <stored-value>Agosto</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Setembro</displayed-value>
-                <stored-value>Setembro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Outubro</displayed-value>
-                <stored-value>Outubro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Novembro</displayed-value>
-                <stored-value>Novembro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Dezembro</displayed-value>
-                <stored-value>Dezembro</stored-value>
             </pair>
         </value-pairs>
 
