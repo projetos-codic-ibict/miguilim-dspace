@@ -515,29 +515,6 @@
 
                 <field>
                     <dc-schema>dc</dc-schema>
-                    <dc-element>date</dc-element>
-                    <dc-qualifier>editorialboardmonthofpublication</dc-qualifier>
-                    <repeatable>true</repeatable>
-                    <label>Mês de publicação do expediente:</label>
-                    <input-type value-pairs-name="common_date_editorialboardmonthofpublication">
-                        dropdown</input-type>
-                    <hint>Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es)
-                        em que é (são) publicado (s) o expediente. Para marcar mais de uma opção
-                        mantenha pressionada a tecla “Control” (Ctrl) e selecione as opções
-                        desejadas. Para desmarcar as opções mantenha pressionada a tecla “Control”
-                        (Ctrl) e selecione as opções que deseja desmarcar. Caso a revista não
-                        publique em Fluxo continuo deixe a questão em branco. </hint>
-                    <hint-edit>
-                        Caso a revista publique modalidade Fluxo contínuo indique o (s) mês (es) em
-                        que é (são) publicado (s) o expediente. Caso a revista não publique em Fluxo
-                        continuo deixe a questão em branco. Para esse campo é possível marcar mais
-                        de uma resposta.
-                    </hint-edit>
-                    <required></required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
                     <dc-qualifier>peerreview</dc-qualifier>
                     <repeatable>true</repeatable>
@@ -1733,58 +1710,6 @@
             <pair>
                 <displayed-value>Trimestral</displayed-value>
                 <stored-value>Trimestral</stored-value>
-            </pair>
-        </value-pairs>
-
-        <value-pairs value-pairs-name="common_date_editorialboardmonthofpublication"
-            dc-term="common_date_editorialboardmonthofpublication">
-            <pair>
-                <displayed-value>Janeiro</displayed-value>
-                <stored-value>Janeiro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Fevereiro</displayed-value>
-                <stored-value>Fevereiro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Março</displayed-value>
-                <stored-value>Março</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Abril</displayed-value>
-                <stored-value>Abril</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Maio</displayed-value>
-                <stored-value>Maio</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Junho</displayed-value>
-                <stored-value>Junho</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Julho</displayed-value>
-                <stored-value>Julho</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Agosto</displayed-value>
-                <stored-value>Agosto</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Setembro</displayed-value>
-                <stored-value>Setembro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Outubro</displayed-value>
-                <stored-value>Outubro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Novembro</displayed-value>
-                <stored-value>Novembro</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Dezembro</displayed-value>
-                <stored-value>Dezembro</stored-value>
             </pair>
         </value-pairs>
 
