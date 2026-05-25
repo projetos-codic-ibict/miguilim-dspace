@@ -582,25 +582,6 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
-                    <dc-qualifier>reviewersperiodicityofpublication</dc-qualifier>
-                    <repeatable>false</repeatable>
-                    <label>Periodicidade de publicação dos avaliadores:</label>
-                    <input-type
-                        value-pairs-name="common_description_reviewersperiodicityofpublication">
-                        dropdown </input-type>
-                    <hint>Caso a revista publique os avaliadores via expediente, indique a
-                        periodicidade de publicação da lista de avaliadores que atuaram na revista.
-                        A periodicidade de publicação dos avaliadores não precisa, necessariamente,
-                        ser igual à periodicidade dos fascículos ou dos expedientes. A revista pode,
-                        por exemplo, publicar seus fascículos semestralmente e publicar os
-                        avaliadores via expediente a cada 2, 3 ou 4 fascículos. Caso a revista não
-                        publique seus avaliadores indique a resposta “Em branco”. </hint>
-                    <required></required>
-                </field>
-
-                <field>
-                    <dc-schema>dc</dc-schema>
-                    <dc-element>description</dc-element>
                     <dc-qualifier>peerreviewexternality</dc-qualifier>
                     <repeatable>false</repeatable>
                     <label>Externalidade da avaliação por pares:</label>
@@ -1790,66 +1771,6 @@
             <pair>
                 <displayed-value>A revista não publica, nem revela o nome dos avaliadores</displayed-value>
                 <stored-value>A revista não publica, nem revela o nome dos avaliadores</stored-value>
-            </pair>
-        </value-pairs>
-
-        <value-pairs value-pairs-name="common_description_reviewersperiodicityofpublication"
-            dc-term="common_description_reviewersperiodicityofpublication">
-            <pair>
-                <displayed-value>Em branco</displayed-value>
-                <stored-value></stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Anual</displayed-value>
-                <stored-value>Anual</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Bianual</displayed-value>
-                <stored-value>Bianual</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Bimestral</displayed-value>
-                <stored-value>Bimestral</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Diária</displayed-value>
-                <stored-value>Diária</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Mensal</displayed-value>
-                <stored-value>Mensal</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Quadrienal</displayed-value>
-                <stored-value>Quadrienal</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Quadrimestral</displayed-value>
-                <stored-value>Quadrimestral</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Quinquenal</displayed-value>
-                <stored-value>Quinquenal</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Quinzenal</displayed-value>
-                <stored-value>Quinzenal</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Semanal</displayed-value>
-                <stored-value>Semanal</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Semestral</displayed-value>
-                <stored-value>Semestral</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Trianual</displayed-value>
-                <stored-value>Trianual</stored-value>
-            </pair>
-            <pair>
-                <displayed-value>Trimestral</displayed-value>
-                <stored-value>Trimestral</stored-value>
             </pair>
         </value-pairs>
 
