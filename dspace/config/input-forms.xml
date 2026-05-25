@@ -680,6 +680,21 @@
                 <field>
                     <dc-schema>dc</dc-schema>
                     <dc-element>description</dc-element>
+                    <dc-qualifier>timepublication</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Tempo médio para publicação:</label>
+                    <input-type>textarea</input-type>
+                    <hint>Informe, em semanas, o tempo médio para a publicação de um trabalho na revista.
+                        Considere o tempo médio desde a submissão até a publicação. O campo deve ser
+                        preenchido em semanas, por exemplo: 1 semana, 2 semanas, 3 semanas [...] 36
+                        semanas, 40 semanas [...]. O mínimo deve ser "1 semana" e o máximo deve ser "100
+                        semanas"</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o tempo médio para publicação na revista.</required>
+                </field>
+
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
                     <dc-qualifier>peerreviewdocuments</dc-qualifier>
                     <repeatable>true</repeatable>
                     <label>Documentos avaliados: </label>
