@@ -42,7 +42,6 @@
       "fields": [
         "dc.description.modalityofpublication",
         "dc.description.periodicity",
-        "dc.date.monthofpublication",
         "dc.description.editorialboardperiodicity",
         "dc.date.editorialboardmonthofpublication",
         "dc.language",
