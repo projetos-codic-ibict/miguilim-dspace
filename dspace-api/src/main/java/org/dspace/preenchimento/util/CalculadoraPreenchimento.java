@@ -74,7 +74,7 @@ public class CalculadoraPreenchimento {
     }
 
     public static String getPorcentagemPontuacaoFromMetadado(Item item) {
-        return itemService.getMetadataFirstValue(item, "dc", "identifier", "percentage", Item.ANY);
+        return itemService.getMetadataFirstValue(item, "dc", "identifier", "recordcompleteness", Item.ANY);
     }
 
     private static int calcularPontuacao(Item item) throws IOException {

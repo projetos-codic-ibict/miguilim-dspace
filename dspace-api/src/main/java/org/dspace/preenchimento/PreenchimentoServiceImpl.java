@@ -51,7 +51,7 @@ public class PreenchimentoServiceImpl implements PreenchimentoService {
         {
             Item item = items.next();
             String pontuacao = calcularPorcentagemPontuacao(item) + "%";
-            itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "percentage", "pt_BR", pontuacao);
+            itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "identifier", "recordcompleteness", "pt_BR", pontuacao);
             count++;
         }
 

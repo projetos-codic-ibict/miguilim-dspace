@@ -623,8 +623,8 @@ public class Item extends DSpaceObject implements DSpaceObjectLegacySupport
     private void updatePercentualDePreenchimento(Context context, String idioma) throws SQLException {
         try {
             String porcentagemPreenchimento = CalculadoraPreenchimento.calcularPorcentagemPontuacao(this);
-            itemService.clearMetadata(context, this, "dc", "identifier", "percentage", idioma);
-            itemService.addMetadata(context, this, "dc", "identifier", "percentage", idioma, porcentagemPreenchimento);
+            itemService.clearMetadata(context, this, "dc", "identifier", "recordcompleteness", idioma);
+            itemService.addMetadata(context, this, "dc", "identifier", "recordcompleteness", idioma, porcentagemPreenchimento);
         } catch (IOException e) {
             throw new RuntimeException("Can't create an Identifier!", e);
         }
