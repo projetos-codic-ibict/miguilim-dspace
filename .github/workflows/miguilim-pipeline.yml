@@ -11,21 +11,6 @@ env:
   SMTP_HOST_IP: ${{ secrets.SMTP_HOST_IP }}
 
 jobs:
-  HML:
-    runs-on: [self-hosted, linux, x64, runner-hml]
-    env:
-      ENVIRONMENT: HML
-      DSPACE_URL: https://homologacaomiguilim.ibict.br
-      INDICADORES_URL: https://indicadoreshomologacaomiguilim.ibict.br
-    environment:
-      name: HML
-      url: 'http://172.16.21.20'
-    
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          sh docker/dspace/build-dspace.sh
-
   PRD:
     runs-on: [self-hosted, linux, x64, runner-prd]
     env:
@@ -35,7 +20,6 @@ jobs:
     environment: 
       name: PRD
       url: 'https://miguilim.ibict.br/'
-    needs: HML
 
     steps:
       - uses: actions/checkout@v3
