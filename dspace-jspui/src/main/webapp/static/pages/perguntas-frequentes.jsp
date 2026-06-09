@@ -103,6 +103,7 @@
 	        <a href="#ComoFuncionaOformulario">Como funciona o formulário de atualização do Miguilim?</a>
 	        <a href="#OqueEoTermometro">O que é o Termômetro de Acesso Aberto e de Ciência Aberta?</a>
 	        <a href="#OqueEoSeloRevistadiamante">O que é o selo “Revista diamante?”</a>
+	        <a href="#OqueEoSeloABECBrasil">O que é o selo ABEC Brasil?</a>
 	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
         </div>
         <div class="espacamento minus-space">
@@ -279,6 +280,16 @@
                 <p id="margem-unica">Essas revistas oferecem acesso gratuito e irrestrito a seus conteúdos, promovendo a disseminação do conhecimento científico sem onerar os pesquisadores ou os leitores.</p>
 
                 <p id="margem-unica">O termo "Revista Diamante" tem sido cada vez mais adotado por especialistas em Ciência Aberta no mundo para se referir às revistas que adotam este modelo de publicação.</p>
+
+            <h2 id="OqueEoSeloABECBrasil">O que é o selo ABEC Brasil?</h2>
+
+                <p id="margem-unica">O selo ABEC Brasil é uma iniciativa desenvolvida em parceria entre o Diretório Miguilim e a Associação Brasileira de Editores Científicos (ABEC Brasil). Seu objetivo é identificar, no Diretório, as revistas afiliadas à ABEC Brasil.</p>
+
+                <p id="margem-unica">A atribuição do selo é realizada pela equipe do Miguilim durante o processo de validação dos registros, não sendo necessária qualquer ação por parte dos editores ou das equipes editoriais no momento do cadastro ou da atualização das informações da revista.</p>
+
+                <p id="margem-unica">A verificação da afiliação é feita com base na relação oficial de revistas associadas fornecida pela própria ABEC Brasil. Essa relação é atualizada anualmente, geralmente no mês de março.</p>
+
+                <p id="margem-unica">É importante destacar que o selo é atribuído apenas aos registros de revistas que tenham sido atualizados pelos editores no Miguilim. Como nem todas as revistas cadastradas no Diretório estão com seus registros atualizados, uma revista afiliada à ABEC Brasil poderá não exibir o selo caso seu registro no Miguilim ainda não tenha sido atualizado pela equipe editorial.</p>
 		
             <h2 id="PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</h2>
     
