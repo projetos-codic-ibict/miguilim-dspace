@@ -21,6 +21,7 @@ import org.dspace.content.service.ItemService;
 import org.dspace.content.service.MetadataFieldService;
 import org.dspace.content.service.MetadataSchemaService;
 import org.dspace.content.authority.Choices;
+import org.dspace.core.ConfigurationManager;
 import org.dspace.core.Context;
 import org.dspace.services.factory.DSpaceServicesFactory;
 
@@ -447,10 +448,13 @@ public class DSpaceCSV implements Serializable
 
             // Add the language if there is one (schema.element.qualifier[langauge])
             //if ((value.language != null) && (!"".equals(value.language)))
-            if (value.getLanguage() != null)
-            {
-                key = key + "[" + value.getLanguage() + "]";
+            String language = value.getLanguage();
+
+            if (language == null) {
+                language = ConfigurationManager.getProperty("default.language");
             }
+
+            key = key + "[" + language + "]";
 
             // Store the item
             if (exportAll || okToExport(metadataField))
