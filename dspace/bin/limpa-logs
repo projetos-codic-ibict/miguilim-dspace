@@ -20,7 +20,7 @@ limpa_logs() {
   CURRENT_DATE="$(date +'%Y-%m-%d')"
   CURRENT_DATE_SECONDS_SINCE_EPOCH="$(date +%s -d "${CURRENT_DATE}")"
   SECONDS_IN_A_DAY=86400
-  MAX_DAYS=30
+  MAX_DAYS=7
   LOGFILES="$(ls -Ap -1 | grep -v '/' | grep "$LOGFILE_PATTERN")"
 
   echo "${LOGFILES}" | while read -r LOGFILE; do
