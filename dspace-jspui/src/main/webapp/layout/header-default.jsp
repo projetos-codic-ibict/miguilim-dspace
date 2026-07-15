@@ -102,6 +102,7 @@
   <script src="<%= request.getContextPath() %>/static/js/html5shiv.js"></script>
   <script src="<%= request.getContextPath() %>/static/js/respond.min.js"></script>
 <![endif]-->
+<meta name="google-site-verification" content="O4MlrfmxB744id4GdcKmv79sPQNLIjWzEB_VV9o1byw" />
     </head>
 
     <%-- HACK: leftmargin, topmargin: for non-CSS compliant Microsoft IE browser --%>
@@ -136,7 +137,6 @@
     <%
         }
     %>
-        <meta name="google-site-verification" content="O4MlrfmxB744id4GdcKmv79sPQNLIjWzEB_VV9o1byw" />
     </header>
 
 <main id="content" role="main">
