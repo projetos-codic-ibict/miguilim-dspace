@@ -978,6 +978,7 @@ public class CustomEditItemServlet extends DSpaceServlet
         itemService.update(context, item);
         
         atualizarMetadadoUpdate(context, item);
+        atualizarMetadadoUpdateStatus(context, item);
         atualizarMetadadoThermomether(context, itemOriginal, item);
         
         if (button.equals("submit_addcc"))
@@ -1189,6 +1190,11 @@ public class CustomEditItemServlet extends DSpaceServlet
             
         itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
         itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "update", "pt_BR", dataHoraAtualizacao);
+	}
+
+	private void atualizarMetadadoUpdateStatus(Context context, Item item) throws SQLException {
+        itemService.clearMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", Item.ANY);
+        itemService.addMetadata(context, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", "pt_BR", "Registro atualizado");
 	}
 	
 	private void atualizarMetadadoThermomether(Context context, Item itemOriginal, Item item) throws IOException, SQLException {

@@ -124,6 +124,7 @@
                 <ref bean="searchFilterAccess" />
                 <ref bean="searchFilterRegion" />
                 <ref bean="searchFilterState" />
+                <ref bean="searchFilterUpdateStatus" />
             </list>
         </property>
         <property name="sidebarFacetsPortais">
@@ -214,6 +215,7 @@
                 <ref bean="searchFilterOpenAccessSeal" />
                 <ref bean="searchFilterThermometer" />
                 <ref bean="searchFilterUpdate" />
+                <ref bean="searchFilterUpdateStatus" />
             </list>
         </property>
 
@@ -340,6 +342,7 @@
 				<ref bean="searchFilterEndyear" />
                 <ref bean="searchFilterRegion" />
                 <ref bean="searchFilterState" />
+                <ref bean="searchFilterUpdateStatus" />
             </list>
         </property>
         <!-- Set TagCloud configuration per discovery configuration -->
@@ -420,6 +423,7 @@
                 <ref bean="searchFilterOpenAccessSeal" />
                 <ref bean="searchFilterThermometer" />
                 <ref bean="searchFilterUpdate" />
+                <ref bean="searchFilterUpdateStatus" />
             </list>
         </property>
         <!--The sort filters for the discovery search (same as defaultConfiguration above)-->
@@ -1527,6 +1531,18 @@
         <property name="metadataFields">
             <list>
                 <value>dc.date.update</value>
+            </list>
+        </property>
+        <property name="facetLimit" value="10"/>
+        <property name="sortOrderSidebar" value="COUNT"/>
+        <property name="sortOrderFilterPage" value="COUNT"/>
+    </bean>
+
+    <bean id="searchFilterUpdateStatus" class="org.dspace.discovery.configuration.DiscoverySearchFilterFacet">
+        <property name="indexFieldName" value="updatestatus"/>
+        <property name="metadataFields">
+            <list>
+                <value>dc.date.updatestatus</value>
             </list>
         </property>
         <property name="facetLimit" value="10"/>
