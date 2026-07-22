@@ -835,13 +835,28 @@ public class ItemTag extends TagSupport {
 
         classWithFields.add("OUTROS");
 
+        String updatestatus = null;
+
         for (String mf : metadataSet) {
+            if (mf.equals("dc.date.updatestatus"))
+            {
+                updatestatus = mf;
+                continue;
+            }
             String[] eq = splitField(mf);
+
             List<MetadataValue> values = itemService.getMetadata(item, eq[0], eq[1], eq[2], Item.ANY);
             classWithFields.add(mf);
         }
 
         if (classWithFields.size() > 1) {
+            if (updatestatus != null) {
+                int index = classWithFields.indexOf("dc.date.update");
+                if (index != -1) {
+                    classWithFields.add(index, updatestatus);
+                }
+            }
+
             result.add(classWithFields.toArray(new String[0]));
         }
 
