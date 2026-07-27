@@ -290,7 +290,7 @@ public class InstallItemServiceImpl implements InstallItemService
         {
             itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
             
-            String descricaoDefault = isItemDaColecaoRevista ? "Não atualizada" : "Não atualizado";
+            String descricaoDefault = "Registro desatualizado";
             itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
         }
     }
