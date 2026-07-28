@@ -285,6 +285,9 @@ public class InstallItemServiceImpl implements InstallItemService
             
             itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", Item.ANY);
             itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, dataHoraAtualizacao);
+
+            itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", Item.ANY);
+            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", LANGUAGE_BR, "Registro atualizado");
         }
         else
         {
@@ -292,6 +295,9 @@ public class InstallItemServiceImpl implements InstallItemService
             
             String descricaoDefault = "Registro desatualizado";
             itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "update", LANGUAGE_BR, descricaoDefault);
+
+            itemService.clearMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", Item.ANY);
+            itemService.addMetadata(c, item, MetadataSchema.DC_SCHEMA, "date", "updatestatus", LANGUAGE_BR, descricaoDefault);
         }
     }
 
