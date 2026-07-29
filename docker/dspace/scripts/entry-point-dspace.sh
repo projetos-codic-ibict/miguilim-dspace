@@ -161,6 +161,82 @@ function habilitar_acesso_ao_solr_somente_ips_internos() {
   echo "O código XML foi adicionado ao arquivo $arquivo_server_xml com sucesso."
 }
 
+function habilitar_autenticacao_em_homologacao() {
+  if [ "${ENVIRONMENT}" != "HML" ]; then
+    return
+  fi
+
+  arquivo_tomcat_users_xml="$TOMCAT_HOME/conf/tomcat-users.xml"
+  arquivo_tomcat_users_xml_default="${arquivo_tomcat_users_xml}.default"
+
+  if [ ! -f "$arquivo_tomcat_users_xml" ]; then
+    echo "Erro: O arquivo $arquivo_tomcat_users_xml não existe."
+    return 1
+  fi
+
+  if [ ! -f "$arquivo_tomcat_users_xml_default" ]; then
+    echo "Criando backup $arquivo_tomcat_users_xml_default"
+    cp "$arquivo_tomcat_users_xml" "$arquivo_tomcat_users_xml_default"
+  fi
+
+  if grep -q '<user username="admin"' "$arquivo_tomcat_users_xml"; then
+    echo "O código XML de usuário de homologação já está presente no arquivo $arquivo_tomcat_users_xml."
+  else
+    # OBS.: o usuário e a senha são propositalmente óbvios porque a
+    # autenticação está sendo usada apenas para:
+    #   1. Prevenir usuários de confundirem o ambiente de homologação com o de produção.
+    #   2. Dificultar que motores de busca indexem páginas do ambiente de homologação.
+    codigo_xml="<role rolename=\"hml\"/>\n\
+    <user username=\"admin\" password=\"admin\" roles=\"hml\" />"
+
+    linha_tomcat_users=$(grep -n "</tomcat-users>" "$arquivo_tomcat_users_xml" | head -n 1 | cut -d ':' -f 1)
+    # Insere o código XML antes da tag </tomcat-users>
+    sed -i "${linha_tomcat_users}i ${codigo_xml}" "$arquivo_tomcat_users_xml"
+    echo "O código XML de usuário de homologação foi adicionado ao arquivo $arquivo_tomcat_users_xml com sucesso."
+  fi
+
+  arquivo_web_xml="$DSPACE_DIR/webapps/jspui/WEB-INF/web.xml"
+  arquivo_web_xml_default="${arquivo_web_xml}.default"
+
+  if [ ! -f "$arquivo_web_xml" ]; then
+    echo "Erro: O arquivo $arquivo_web_xml não existe."
+    return 1
+  fi
+
+  if [ ! -f "$arquivo_web_xml_default" ]; then
+    echo "Criando backup $arquivo_web_xml_default"
+    cp "$arquivo_web_xml" "$arquivo_web_xml_default"
+  fi
+
+  if grep -q 'Miguilim Homologacao' "$arquivo_web_xml"; then
+    echo "O código XML para autenticação em homologação já está presente no arquivo $arquivo_web_xml."
+  else
+    codigo_xml="<security-constraint>\n\
+    <web-resource-collection>\n\
+        <web-resource-name>Miguilim Homologacao</web-resource-name>\n\
+        <url-pattern>/*</url-pattern>\n\
+    </web-resource-collection>\n\
+\n\
+    <auth-constraint>\n\
+        <role-name>hml</role-name>\n\
+    </auth-constraint>\n\
+  </security-constraint>\n\
+\n\
+  <login-config>\n\
+      <auth-method>BASIC</auth-method>\n\
+      <realm-name>Miguilim Homologacao</realm-name>\n\
+  </login-config>\n\
+\n\
+  <security-role>\n\
+      <role-name>hml</role-name>\n\
+  </security-role>"
+
+    linha_web_app=$(grep -n "</web-app>" "$arquivo_web_xml" | head -n 1 | cut -d ':' -f 1)
+    # Insere o código XML antes da tag </web-app>
+    sed -i "${linha_web_app}i ${codigo_xml}" "$arquivo_web_xml"
+    echo "O código XML para autenticação em homologação foi adicionado ao arquivo $arquivo_web_xml com sucesso."
+  fi
+}
 
 function habilita_debug_remoto() {
   echo 'JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=2234,server=y,suspend=n"' >${TOMCAT_HOME}/bin/setenv.sh
@@ -201,6 +277,7 @@ if [[ ! -f "/opt/docker-build-complete" ]]; then
   cria_arquivo_indicador_conclusao_build
   verfica_e_trata_ambiente_de_desenvolvimento
   habilitar_acesso_ao_solr_somente_ips_internos
+  habilitar_autenticacao_em_homologacao
 else
   prepara_ambiente_rede
   prepara_tomcat
@@ -211,6 +288,7 @@ else
   remove_arquivos_instalacao
   verfica_e_trata_ambiente_de_desenvolvimento
   habilitar_acesso_ao_solr_somente_ips_internos
+  habilitar_autenticacao_em_homologacao
 fi
 
 inicia_servicos
