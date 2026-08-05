@@ -45,8 +45,8 @@
 
 <c:set var="dspace.layout.head.last" scope="request">
     <style>
-        /* os estilos em dspace-theme.scss não funcionam especificamente com este elemento */
-        #OqueEoSeloRevistadiamante {
+        /* os estilos em dspace-theme.scss não funcionam especificamente com estes elementos */
+        #OqueEoSeloRevistadiamante, #OqueEoSeloABECBrasil, #AltereiInformacoesDeRevistasMasNaoForamValidadas {
             font-size: 18px !important;
             font-family: "Open Sans", sans-serif !important;
             margin: 24px 0 16px 0 !important;
@@ -105,6 +105,7 @@
 	        <a href="#OqueEoSeloRevistadiamante">O que é o selo “Revista diamante?”</a>
 	        <a href="#OqueEoSeloABECBrasil">O que é o selo ABEC Brasil?</a>
 	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
+            <a href="#AltereiInformacoesDeRevistasMasNaoForamValidadas">Alterei algumas informações do registro da revista no Miguilim mas elas não foram validadas. Por que isso aconteceu?</a>
         </div>
         <div class="espacamento minus-space">
     
@@ -305,6 +306,46 @@
                 portais com o intuito de aumentar a visibilidade dessas plataformas. Como tem propósitos mais básicos, o cadastro de portais de revistas possui apenas 14 (quatorze)
                 campos.</p>
     
+            <h2 id="AltereiInformacoesDeRevistasMasNaoForamValidadas">Alterei algumas
+            informações do registro da revista no Miguilim mas elas não foram validadas.
+            Por que isso aconteceu?</h2>
+
+                <p id="margem-unica">
+                Alguns dados e informações da revista têm como referência seu registro
+                oficial da <a href="https://portal.issn.org/" target="_blank">Rede ISSN</a>. Essa
+                padronização garante a correta identificação da publicação, a
+                consistência dos metadados e a interoperabilidade entre o Miguilim e
+                outros sistemas de informação que utilizam os dados da Rede ISSN.
+                </p>
+
+                <p id="margem-unica">
+                Por esse motivo, os campos <b>Títulos, Situação, Ano de início de
+                publicação, Ano de finalização de publicação e Instituição editora</b>,
+                são padronizados de acordo com o registro oficial da Rede ISSN.
+                </p>
+
+                <p id="margem-unica">
+                Caso alguma dessas informações esteja incorreta ou desatualizada, a
+                revista deverá solicitar primeiramente a atualização do seu registro
+                junto à Rede ISSN. Após a correção do registro oficial, as informações
+                poderão ser atualizadas no Miguilim de acordo com os dados constantes no
+                Portal ISSN.
+                </p>
+
+                <p id="margem-unica">
+                O <a href="https://cbissn.ibict.br/" target="_blank">Centro Brasileiro do ISSN
+                (CBISSN)</a> atende pelo seguinte e-mail de contato: <a
+                href="mailto:cbissn@ibict.br" target="_blank">cbissn@ibict.br</a>
+                </p>
+
+                <p id="margem-unica">
+                Além disso, os campos <b>Classificação Qualis-Periódicos</b>
+                (2017-2020 e 2021-2024) e <b>Área mãe de avaliação Qualis
+                </b>(2017-2020 e 2021-2024) são padronizados conforme os
+                dados disponíveis na <a href="https://sucupira-legado.capes.gov.br/sucupira/public/consultas/coleta/veiculoPublicacaoQualis/listaConsultaGeralPeriodicos.jsf"
+                target="_blank">Plataforma Sucupira</a>.
+                </p>
+
                 <a class="button-top" title="ir para o topo" tooltipBtn="ir para o topo" href="#TopoPerguntasFrequentes">
                     <span>ir para o topo</span>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
