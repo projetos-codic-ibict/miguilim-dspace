@@ -454,6 +454,17 @@
 		</a>
 	</div>
 
+	<div class="alert alert-info" role="alert" style="font-size: 1rem;">
+		<p><span class="glyphicon glyphicon-info-sign"></span> <b>Importante</b></p>
+		<p style="color: #333;">
+		O Miguilim reúne e dá visibilidade a informações sobre revistas científicas
+		brasileiras e suas políticas editoriais. O cadastro não constitui
+		certificação, recomendação ou atestado de qualidade editorial pelo Ibict.
+		Recomenda-se que pesquisadores e autores avaliem previamente a revista e suas
+		práticas editoriais antes de submeter seus trabalhos.
+		</p>
+	</div>
+
 	<!-- brands -->
 	<div class="group-brands">
 		<div class="d-flex brand-space">

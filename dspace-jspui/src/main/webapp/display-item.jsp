@@ -281,6 +281,23 @@
                     <fmt:message key="jsp.display-item.identifier"/>
                     <code style="padding:5px 2px 2px 5px;"><%= preferredIdentifier %></code>
                 </div>
+                <div class="alert alert-info" role="alert">
+                    <p><span class="glyphicon glyphicon-info-sign"></span> <b>Importante</b></p>
+                    <p style="color: #333;">
+                    A presença desta revista no Diretório Miguilim indica que há
+                    informações sobre suas características e políticas editoriais
+                    cadastradas na plataforma. Os campos “Status de atualização do
+                    registro” e “Data de atualização do registro” informam quando
+                    os dados foram atualizados e ajudam a contextualizar a
+                    atualidade das informações disponíveis. O cadastro não
+                    constitui certificação, recomendação ou atestado de qualidade
+                    editorial pelo Ibict, nem significa que suas práticas
+                    editoriais tenham sido avaliadas ou aprovadas pelo Instituto.
+                    Recomenda-se que pesquisadores e autores avaliem previamente a
+                    revista e suas práticas editoriais antes de submeter seus
+                    trabalhos.
+                    </p>
+                </div>
             <%
             }
             %>
