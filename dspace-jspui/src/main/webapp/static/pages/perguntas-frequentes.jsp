@@ -46,7 +46,10 @@
 <c:set var="dspace.layout.head.last" scope="request">
     <style>
         /* os estilos em dspace-theme.scss não funcionam especificamente com estes elementos */
-        #OqueEoSeloRevistadiamante, #OqueEoSeloABECBrasil, #AltereiInformacoesDeRevistasMasNaoForamValidadas {
+        #OqueEoSeloRevistadiamante,
+        #OqueEoSeloABECBrasil,
+        #AltereiInformacoesDeRevistasMasNaoForamValidadas,
+        #ComoOMiguilimPodeMeAjudarAAvaliarUmaRevista {
             font-size: 18px !important;
             font-family: "Open Sans", sans-serif !important;
             margin: 24px 0 16px 0 !important;
@@ -106,6 +109,7 @@
 	        <a href="#OqueEoSeloABECBrasil">O que é o selo ABEC Brasil?</a>
 	        <a href="#PorQueUmaColecaoDePortais">Por que existe uma coleção de portais de revistas?</a>
             <a href="#AltereiInformacoesDeRevistasMasNaoForamValidadas">Alterei algumas informações do registro da revista no Miguilim mas elas não foram validadas. Por que isso aconteceu?</a>
+            <a href="#ComoOMiguilimPodeMeAjudarAAvaliarUmaRevista">Como o Miguilim pode me ajudar a avaliar uma revista antes de submeter meu trabalho?</a>
         </div>
         <div class="espacamento minus-space">
     
@@ -352,6 +356,35 @@
                     <path class="color-arrow" fill-rule="evenodd" clip-rule="evenodd" d="M11.2929 8.29289C11.6834 7.90237 12.3166 7.90237 12.7071 8.29289L18.7071 14.2929C19.0976 14.6834 19.0976 15.3166 18.7071 15.7071C18.3166 16.0976 17.6834 16.0976 17.2929 15.7071L12 10.4142L6.70711 15.7071C6.31658 16.0976 5.68342 16.0976 5.29289 15.7071C4.90237 15.3166 4.90237 14.6834 5.29289 14.2929L11.2929 8.29289Z" fill="color-arrow"/>
                     </svg>
                 </a>      
+            <h2 id="ComoOMiguilimPodeMeAjudarAAvaliarUmaRevista">Como o Miguilim pode me ajudar a avaliar
+                uma revista antes de submeter meu trabalho?</h2>
+
+                <p id="margem-unica">
+                O Diretório Miguilim reúne, em um único local, informações
+                sobre as políticas editoriais de revistas científicas
+                brasileiras, como dados sobre o corpo editorial, processo de
+                avaliação por pares, periodicidade, acesso aos artigos,
+                políticas de direitos autorais e outras informações editoriais.
+                Esses dados podem auxiliar pesquisadores e autores na análise
+                das características da revista e na tomada de decisão sobre
+                onde submeter seus trabalhos.
+                </p>
+
+                <p id="margem-unica">
+                Para complementar essa análise, recomenda-se também consultar
+                ferramentas e recursos desenvolvidos para orientar
+                pesquisadores na identificação de boas práticas editoriais,
+                como o <a
+                href="https://thinkchecksubmit.org/journals/portugese/"
+                target="_blank">Think. Check. Submit.</a>, que disponibiliza um
+                checklist para apoiar a escolha de revistas.
+                </p>
+
+                <p id="margem-unica">
+                A análise conjunta dessas informações permite ao pesquisador
+                realizar uma avaliação mais criteriosa da revista antes de
+                submeter seu trabalho.
+                </p>
         </div>
     </div>
 
