@@ -61,6 +61,16 @@ import org.dspace.discovery.configuration.DiscoverySearchFilter;
 import org.dspace.discovery.configuration.DiscoverySearchFilterFacet;
 import org.dspace.discovery.configuration.DiscoverySortFieldConfiguration;
 import org.w3c.dom.Document;
+import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+
+import org.dspace.content.MetadataField;
+import org.dspace.content.MetadataValue;
+import org.dspace.content.authority.Choices;
+
+import org.dspace.app.util.factory.UtilServiceFactory;
+import org.dspace.app.util.service.MetadataExposureService;
 
 public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
 {
@@ -423,6 +433,136 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
             request.setAttribute("pagefirst", new Long(pageFirst));
             request.setAttribute("spellcheck", qResults.getSpellCheckQuery());
             request.setAttribute("queryresults", qResults);
+
+            String returnSearchData = request.getParameter("returnSearchData");
+
+            if (Boolean.parseBoolean(returnSearchData))
+            {
+                // JsonArray itemsJson = new JsonArray();
+                //
+                // for (Item item : resultsListItem)
+                // {
+                //     JsonObject itemJson = new JsonObject();
+                //
+                //     itemJson.addProperty("id", item.getID().toString());
+                //     itemJson.addProperty("handle", item.getHandle());
+                //
+                //     itemsJson.add(itemJson);
+                // }
+
+                JsonArray itemsJson = new JsonArray();
+
+                String valueSeparator = ConfigurationManager.getProperty("bulkedit.valueseparator");
+                if (valueSeparator == null || valueSeparator.trim().isEmpty())
+                {
+                    valueSeparator = "||";
+                }
+                else
+                {
+                    valueSeparator = valueSeparator.trim();
+                }
+
+                String authoritySeparator = ConfigurationManager.getProperty("bulkedit.authorityseparator");
+                if (authoritySeparator == null || authoritySeparator.trim().isEmpty())
+                {
+                    authoritySeparator = "::";
+                }
+                else
+                {
+                    authoritySeparator = authoritySeparator.trim();
+                }
+
+                for (Item item : resultsListItem)
+                {
+                    JsonObject itemJson = new JsonObject();
+
+                    itemJson.addProperty("id", item.getID().toString());
+                    itemJson.addProperty("handle", item.getHandle());
+
+                    JsonArray collectionsJson = new JsonArray();
+                    for (Collection collection : item.getCollections())
+                    {
+                        collectionsJson.add(collection.getHandle());
+                    }
+                    itemJson.add("collections", collectionsJson);
+
+                    JsonArray metadataJson = new JsonArray();
+
+                    List<MetadataValue> metadataValues =
+                            ContentServiceFactory.getInstance()
+                                    .getItemService()
+                                    .getMetadata(item, Item.ANY, Item.ANY, Item.ANY, Item.ANY);
+
+                    MetadataExposureService metadataExposureService =
+                        UtilServiceFactory.getInstance().getMetadataExposureService();
+
+                    for (MetadataValue metadataValue : metadataValues)
+                    {
+                        MetadataField field = metadataValue.getMetadataField();
+
+                        try
+                        {
+                            if (metadataExposureService.isHidden(
+                                    context,
+                                    field.getMetadataSchema().getName(),
+                                    field.getElement(),
+                                    field.getQualifier()))
+                            {
+                                continue;
+                            }
+                        }
+                        catch (SQLException e)
+                        {
+                            throw new SearchProcessorException(e.getMessage(), e);
+                        }
+
+                        String fieldName = field.getMetadataSchema().getName()
+                                + "." + field.getElement();
+
+                        if (field.getQualifier() != null)
+                        {
+                            fieldName += "." + field.getQualifier();
+                        }
+
+                        String language = metadataValue.getLanguage();
+                        if (language == null)
+                        {
+                            language = ConfigurationManager.getProperty("default.language");
+                        }
+
+                        fieldName += "[" + language + "]";
+
+                        JsonObject metadataJsonValue = new JsonObject();
+                        metadataJsonValue.addProperty("field", fieldName);
+                        metadataJsonValue.addProperty("value", metadataValue.getValue());
+                        metadataJsonValue.addProperty("authority", metadataValue.getAuthority());
+                        metadataJsonValue.addProperty(
+                                "confidence",
+                                metadataValue.getConfidence() != -1
+                                        ? metadataValue.getConfidence()
+                                        : Choices.CF_ACCEPTED);
+
+                        metadataJson.add(metadataJsonValue);
+                    }
+
+                    itemJson.add("metadata", metadataJson);
+                    itemsJson.add(itemJson);
+                }
+
+                JsonObject responseJson = new JsonObject();
+                responseJson.addProperty("total", qResults.getTotalSearchResults());
+                responseJson.addProperty("start", qResults.getStart());
+                responseJson.addProperty("maxResults", qResults.getMaxResults());
+                responseJson.addProperty("valueSeparator", valueSeparator);
+                responseJson.addProperty("authoritySeparator", authoritySeparator);
+                responseJson.addProperty("acceptedConfidence", Choices.CF_ACCEPTED);
+
+                responseJson.add("items", itemsJson);
+                response.setContentType("application/json");
+                response.setCharacterEncoding("UTF-8");
+                response.getWriter().write(new Gson().toJson(responseJson));
+                return;
+            }
 
             try
             {

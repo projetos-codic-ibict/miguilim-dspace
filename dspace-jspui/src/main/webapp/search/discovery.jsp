@@ -175,6 +175,35 @@
             return document.getElementById("filterquery").value.length > 0;
         }
     </script>
+
+    <style>
+        #export-search-csv {
+            position: relative;
+        }
+
+        #export-search-csv.is-loading .csv-export-label {
+            visibility: hidden;
+        }
+
+        .csv-export-spinner {
+            position: absolute;
+            inset: 0;
+            margin: auto;
+            display: inline-block;
+            width: 0.85em;
+            height: 0.85em;
+            border: 2px solid currentColor;
+            border-right-color: transparent;
+            border-radius: 50%;
+            animation: csv-export-spin 0.7s linear infinite;
+        }
+
+        @keyframes csv-export-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </c:set>
 
 <dspace:layout titlekey="jsp.search.title">
@@ -637,7 +666,11 @@
                         <div>
                             <input class="button-main-outline" type="submit" name="submit_search" value="<fmt:message key="search.update" />" />
 
-                            <input type="submit" class="button-main" name="submit_export_metadata" value="<fmt:message key="jsp.general.metadataexport.button"/>" />
+                            <button type="button" class="button-main" id="export-search-csv">
+                                <span class="csv-export-label">
+                                    <fmt:message key="jsp.general.metadataexport.button"/>
+                                </span>
+                            </button>
                         </div>
 
                     </div>
@@ -1070,4 +1103,162 @@
     selectField.onmouseover = showDiv;
     selectField.onmouseleave = hideDiv;
     
+</script>
+
+<script src="<%= request.getContextPath() %>/static/js/csv-stringify-sync.js"></script>
+
+<script>
+    document.getElementById("export-search-csv").addEventListener("click", async function () {
+        const baseUrl = new URL(window.location.href);
+        baseUrl.searchParams.set("returnSearchData", "true");
+        baseUrl.searchParams.set("start", "0");
+
+        const button = this;
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        button.disabled = true;
+        button.setAttribute("aria-busy", "true");
+        button.classList.add("is-loading");
+
+        const spinner = document.createElement("span");
+        spinner.className = "csv-export-spinner";
+        spinner.setAttribute("aria-hidden", "true");
+
+        button.appendChild(spinner);
+
+        try {
+            const items = [];
+            let exportData;
+            let total = Infinity;
+            let nextStart = 0;
+
+            while (nextStart < total) {
+                const pageUrl = new URL(baseUrl);
+                pageUrl.searchParams.set("start", String(nextStart));
+
+                const response = await fetch(pageUrl);
+
+                if (!response.ok) {
+                    throw new Error("HTTP " + response.status);
+                }
+
+                const data = await response.json();
+
+                if (exportData === undefined) {
+                    exportData = data;
+                    total = Number(data.total);
+
+                    if (!Number.isFinite(total) || total < 0) {
+                        throw new Error("Total de resultados inválido");
+                    }
+                }
+
+                items.push(...data.items);
+
+                const pageStart = Number(data.start);
+                const pageSize = Number(data.maxResults);
+                const followingStart = pageStart + pageSize;
+
+                if (
+                    !Number.isFinite(pageStart) ||
+                    !Number.isFinite(pageSize) ||
+                    pageSize <= 0 ||
+                    followingStart <= nextStart
+                ) {
+                    throw new Error("Paginação inválida");
+                }
+
+                nextStart = followingStart;
+            }
+
+            const metadataFields = Array.from(new Set(
+                items.flatMap(item =>
+                    item.metadata.map(metadata => metadata.field)
+                )
+            )).sort();
+
+            const columns = [
+                { key: "id", header: "id" },
+                { key: "handle", header: "handle" },
+                { key: "collection", header: "collection" },
+                ...metadataFields.map((field, index) => ({
+                    key: `metadata_${index}`,
+                    header: field
+                }))
+            ];
+
+            const fieldIndexes = new Map(
+                metadataFields.map((field, index) => [field, index])
+            );
+
+            const records = items.map(item => {
+                const record = {
+                    id: item.id,
+                    handle: item.handle,
+                    collection: (item.collections || [])
+                        .join(exportData.valueSeparator)
+                };
+
+                const valuesByField = new Map();
+
+                for (const metadata of item.metadata) {
+                    let value = metadata.value == null
+                        ? ""
+                        : String(metadata.value);
+
+                    if (metadata.authority) {
+                        value += exportData.authoritySeparator
+                            + metadata.authority
+                            + exportData.authoritySeparator
+                            + metadata.confidence;
+                    }
+
+                    if (!valuesByField.has(metadata.field)) {
+                        valuesByField.set(metadata.field, []);
+                    }
+
+                    valuesByField.get(metadata.field).push(value);
+                }
+
+                for (const [field, index] of fieldIndexes) {
+                    record[`metadata_${index}`] = (
+                        valuesByField.get(field) || []
+                    ).join(exportData.valueSeparator);
+                }
+
+                return record;
+            });
+
+            const csv = csv_stringify_sync.stringify(records, {
+                columns,
+                header: true,
+                bom: true,
+                record_delimiter: "\r\n",
+                escape_formulas: true,
+            });
+
+            const blob = new Blob([csv], {
+                type: "text/csv;charset=utf-8;"
+            });
+
+            const downloadUrl = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+
+            link.href = downloadUrl;
+            link.download = "search-results.csv";
+
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+
+            setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+        } catch (error) {
+            console.error("Erro ao exportar os resultados:", error);
+        } finally {
+            spinner.remove();
+            button.classList.remove("is-loading");
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+        }
+    });
 </script>
