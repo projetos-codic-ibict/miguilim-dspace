@@ -438,18 +438,6 @@ public class DiscoverySearchRequestProcessor implements SearchRequestProcessor
 
             if (Boolean.parseBoolean(returnSearchData))
             {
-                // JsonArray itemsJson = new JsonArray();
-                //
-                // for (Item item : resultsListItem)
-                // {
-                //     JsonObject itemJson = new JsonObject();
-                //
-                //     itemJson.addProperty("id", item.getID().toString());
-                //     itemJson.addProperty("handle", item.getHandle());
-                //
-                //     itemsJson.add(itemJson);
-                // }
-
                 JsonArray itemsJson = new JsonArray();
 
                 String valueSeparator = ConfigurationManager.getProperty("bulkedit.valueseparator");
