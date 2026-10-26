@@ -1285,6 +1285,108 @@
                 </field>
             </page>
 
+            <page number="5">
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aipolicy</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Política de inteligência artificial (IA)</label>
+                    <input-type value-pairs-name="common_description_aipolicy">dropdown</input-type>
+                    <hint>Indica se a revista possui política, diretriz ou orientação publicada no site sobre o uso de inteligência artificial (IA) e/ou ferramentas automatizadas no processo de publicação científica.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe se a revista possui política de inteligência artificial publicada.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>identifier</dc-element>
+                    <dc-qualifier>urlaipolicy</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>URL de acesso à política de inteligência artificial (IA)</label>
+                    <input-type>onebox</input-type>
+                    <hint>Indica a URL de acesso à política de inteligência artificial (IA) da revista.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe a URL de acesso à política de inteligência artificial (IA).</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aipolicycoverage</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Aplicabilidade da política de inteligência artificial (IA)</label>
+                    <input-type value-pairs-name="common_description_aipolicycoverage">dropdown</input-type>
+                    <hint>Indica quais agentes do processo de editoração são abrangidos pela política de IA.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe os agentes abrangidos pela política de IA.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aiauthoruse</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Condições para uso de IA por autores</label>
+                    <input-type value-pairs-name="common_description_aiauthoruse">dropdown</input-type>
+                    <hint>Indica a condição estabelecida pela política da revista para o uso de ferramentas de inteligência artificial por autores na elaboração, redação ou publicação de manuscritos.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as condições para uso de IA por autores, se aplicável.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>airevieweruse</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Condições para uso de IA por pareceristas</label>
+                    <input-type value-pairs-name="common_description_airevieweruse">dropdown</input-type>
+                    <hint>Indica a condição estabelecida pela política da revista para o uso de ferramentas de inteligência artificial por pareceristas na realização e elaboração de avaliações de manuscritos.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as condições para uso de IA por pareceristas, se aplicável.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aieditoruse</dc-qualifier>
+                    <repeatable>false</repeatable>
+                    <label>Condições para uso de IA por editores</label>
+                    <input-type value-pairs-name="common_description_aieditoruse">dropdown</input-type>
+                    <hint>Indica a condição estabelecida pela política da revista para o uso de ferramentas de inteligência artificial por editores na avaliação, gestão e tomada de decisões relacionadas aos manuscritos.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as condições para uso de IA por editores, se aplicável.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aideclarationrequirements</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Informações exigidas com relação ao uso de IA</label>
+                    <input-type value-pairs-name="common_description_aideclarationrequirements">dropdown</input-type>
+                    <hint>Indica quais informações a política da revista exige que sejam declaradas sobre o uso de ferramentas de inteligência artificial.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as informações exigidas para a declaração de uso de IA, se aplicável.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aipolicyalloweduses</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Finalidades de uso de IA contempladas pela política</label>
+                    <input-type value-pairs-name="common_description_aipolicyalloweduses">dropdown</input-type>
+                    <hint>Indica quais finalidades de uso de ferramentas de inteligência artificial são contempladas pela política da revista.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as finalidades de uso de IA contempladas pela política, se aplicável.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aiusage</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Uso de IA pela revista</label>
+                    <input-type value-pairs-name="common_description_aiusage">dropdown</input-type>
+                    <hint>Uso de IA pela própria revista no processo editorial.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe o uso de IA pela revista ou selecione uma opção correspondente à ausência de informação ou de uso.</required>
+                </field>
+                <field>
+                    <dc-schema>dc</dc-schema>
+                    <dc-element>description</dc-element>
+                    <dc-qualifier>aiconfidentiality</dc-qualifier>
+                    <repeatable>true</repeatable>
+                    <label>Confidencialidade</label>
+                    <input-type value-pairs-name="common_description_aiconfidentiality">dropdown</input-type>
+                    <hint>Indica as orientações estabelecidas pela política da revista para a proteção de informações confidenciais no uso de ferramentas de inteligência artificial.</hint>
+                    <required>CAMPO OBRIGATÓRIO: Informe as orientações sobre confidencialidade, se aplicável.</required>
+                </field>
+            </page>
         </form>
 
         <form name="portais">
@@ -2783,6 +2885,244 @@
             </pair>
         </value-pairs>
 
+        <value-pairs value-pairs-name="common_description_aipolicy" dc-term="common_description_aipolicy">
+            <pair>
+                <displayed-value>Possui política publicada</displayed-value>
+                <stored-value>Possui política publicada</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não possui política publicada</displayed-value>
+                <stored-value>Não possui política publicada</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aipolicycoverage" dc-term="common_description_aipolicycoverage">
+            <pair>
+                <displayed-value>A política de IA contempla a utilização por autores</displayed-value>
+                <stored-value>A política de IA contempla a utilização por autores</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A política de IA contempla a utilização por pareceristas</displayed-value>
+                <stored-value>A política de IA contempla a utilização por pareceristas</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A política de IA contempla a utilização por editores</displayed-value>
+                <stored-value>A política de IA contempla a utilização por editores</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aiauthoruse" dc-term="common_description_aiauthoruse">
+            <pair>
+                <displayed-value>Permitido, sem restrições</displayed-value>
+                <stored-value>Permitido, sem restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Permitido, com restrições</displayed-value>
+                <stored-value>Permitido, com restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não permitido</displayed-value>
+                <stored-value>Não permitido</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_airevieweruse" dc-term="common_description_airevieweruse">
+            <pair>
+                <displayed-value>Permitido, sem restrições</displayed-value>
+                <stored-value>Permitido, sem restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Permitido, com restrições</displayed-value>
+                <stored-value>Permitido, com restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não permitido</displayed-value>
+                <stored-value>Não permitido</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aieditoruse" dc-term="common_description_aieditoruse">
+            <pair>
+                <displayed-value>Permitido, sem restrições</displayed-value>
+                <stored-value>Permitido, sem restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Permitido, com restrições</displayed-value>
+                <stored-value>Permitido, com restrições</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não permitido</displayed-value>
+                <stored-value>Não permitido</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aideclarationrequirements" dc-term="common_description_aideclarationrequirements">
+            <pair>
+                <displayed-value>Nome da ferramenta</displayed-value>
+                <stored-value>Nome da ferramenta</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Versão</displayed-value>
+                <stored-value>Versão</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Finalidade do uso</displayed-value>
+                <stored-value>Finalidade do uso</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Etapa da pesquisa</displayed-value>
+                <stored-value>Etapa da pesquisa</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Conteúdo produzido ou modificado</displayed-value>
+                <stored-value>Conteúdo produzido ou modificado</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Data de uso</displayed-value>
+                <stored-value>Data de uso</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aipolicyalloweduses" dc-term="common_description_aipolicyalloweduses">
+            <pair>
+                <displayed-value>Revisão linguística</displayed-value>
+                <stored-value>Revisão linguística</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Tradução</displayed-value>
+                <stored-value>Tradução</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Geração ou revisão de texto</displayed-value>
+                <stored-value>Geração ou revisão de texto</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Busca ou síntese bibliográfica</displayed-value>
+                <stored-value>Busca ou síntese bibliográfica</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Programação</displayed-value>
+                <stored-value>Programação</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Análise de dados</displayed-value>
+                <stored-value>Análise de dados</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Geração de imagens ou figuras</displayed-value>
+                <stored-value>Geração de imagens ou figuras</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Produção de dados</displayed-value>
+                <stored-value>Produção de dados</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Outras</displayed-value>
+                <stored-value>Outras</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aiusage" dc-term="common_description_aiusage">
+            <pair>
+                <displayed-value>Triagem inicial de submissões</displayed-value>
+                <stored-value>Triagem inicial de submissões</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Verificação de conformidade</displayed-value>
+                <stored-value>Verificação de conformidade</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Detecção de similaridade</displayed-value>
+                <stored-value>Detecção de similaridade</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Apoio à seleção de pareceristas</displayed-value>
+                <stored-value>Apoio à seleção de pareceristas</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Apoio à avaliação editorial</displayed-value>
+                <stored-value>Apoio à avaliação editorial</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Revisão linguística</displayed-value>
+                <stored-value>Revisão linguística</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Produção de metadados</displayed-value>
+                <stored-value>Produção de metadados</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Produção de resumos ou conteúdos derivados</displayed-value>
+                <stored-value>Produção de resumos ou conteúdos derivados</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Tradução</displayed-value>
+                <stored-value>Tradução</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Produção editorial</displayed-value>
+                <stored-value>Produção editorial</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Outro</displayed-value>
+                <stored-value>Outro</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>A revista declara não utilizar IA</displayed-value>
+                <stored-value>A revista declara não utilizar IA</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não informado</displayed-value>
+                <stored-value>Não informado</stored-value>
+            </pair>
+        </value-pairs>
+
+        <value-pairs value-pairs-name="common_description_aiconfidentiality" dc-term="common_description_aiconfidentiality">
+            <pair>
+                <displayed-value>Proíbe a inserção de manuscritos ou conteúdos confidenciais em ferramentas externas de IA</displayed-value>
+                <stored-value>Proíbe a inserção de manuscritos ou conteúdos confidenciais em ferramentas externas de IA</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Permite somente em ferramentas que assegurem confidencialidade e proteção dos dados</displayed-value>
+                <stored-value>Permite somente em ferramentas que assegurem confidencialidade e proteção dos dados</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Exige autorização prévia para utilização</displayed-value>
+                <stored-value>Exige autorização prévia para utilização</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não estabelece orientação sobre confidencialidade</displayed-value>
+                <stored-value>Não estabelece orientação sobre confidencialidade</stored-value>
+            </pair>
+            <pair>
+                <displayed-value>Não aplicável</displayed-value>
+                <stored-value>Não aplicável</stored-value>
+            </pair>
+        </value-pairs>
     </form-value-pairs>
 
 </input-forms>
