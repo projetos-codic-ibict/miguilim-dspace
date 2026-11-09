@@ -115,6 +115,7 @@
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/popover.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/addAndRemove.js'></script>
     <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/cnpq.js'></script>
+    <script type='text/javascript' src='<%= request.getContextPath() %>/static/js/miguilim-ai-metadata.js'></script>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/slimselect.min.css" type="text/css"/>
     <link rel="stylesheet" href="<%= request.getContextPath() %>/static/css/edit-form.css" type="text/css"/>
 </c:set>

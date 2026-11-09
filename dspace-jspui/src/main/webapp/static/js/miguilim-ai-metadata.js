@@ -51,7 +51,10 @@
         // Ao exibir erros de validação, o Miguilim insere uma tag <a> vazia
         // com o mesmo `name` do campo (aparentemente essa inserção é um bug).
         // Então excluímos elementos <a> para selecionar o controle real.
-        const control = form.querySelector(`[name="${name}"]:not(a)`);
+        const control =
+            form.querySelector(`[name="${name}"]:not(a)`) ??
+            form.querySelector(`[id="${name}"]`) ??
+            form.querySelector(`[name^="value_${name}_"]:not(a)`);
 
         if (!control) {
             return null;
@@ -79,6 +82,18 @@
         };
     }
 
+    function refreshSlimSelect(control) {
+        const slim = control.slim;
+
+        if (!slim) {
+            return;
+        }
+
+        slim.data.parseSelectData();
+        slim.data.setSelectedFromSelect();
+        slim.render();
+    }
+
     function setNotApplicable(control) {
         if (control.tagName !== 'SELECT') {
             control.value = NOT_APPLICABLE;
@@ -91,13 +106,17 @@
             return;
         }
 
-        option.hidden = false;
+        option.hidden = true;
+        option.style.display = 'none';
         option.disabled = false;
 
         // O valor técnico deve ser a única seleção do campo.
         Array.from(control.options).forEach((thisOption) => {
             thisOption.selected = thisOption === option;
         });
+
+        control.dispatchEvent(new Event('change', { bubbles: true }));
+        refreshSlimSelect(control);
     }
 
     function removeNotApplicable(control) {
@@ -139,6 +158,10 @@
         option.selected = false;
         option.disabled = true;
         option.hidden = true;
+        option.style.display = 'none';
+
+        control.dispatchEvent(new Event('change', { bubbles: true }));
+        refreshSlimSelect(control);
     }
 
     function setApplicable(field, applicable) {
@@ -196,34 +219,46 @@
             return;
         }
 
+        let updating = false;
+
         function updateConditionalFields() {
-            const policyPublished =
-                fields.policy.control.value === POLICY_PUBLISHED;
+            if (updating) {
+                return;
+            }
 
-            setApplicable(fields.policyUrl, policyPublished);
-            setApplicable(fields.policyCoverage, policyPublished);
-            setApplicable(fields.declarationRequirements, policyPublished);
-            setApplicable(fields.allowedUses, policyPublished);
-            setApplicable(fields.confidentiality, policyPublished);
+            updating = true;
 
-            const coverage = policyPublished
-                ? getSelectedValues(fields.policyCoverage)
-                : [];
+            try {
+                const policyPublished =
+                    fields.policy.control.value === POLICY_PUBLISHED;
 
-            setApplicable(
-                fields.authorUse,
-                policyPublished && coverage.includes(COVERAGE_VALUES.author)
-            );
+                setApplicable(fields.policyUrl, policyPublished);
+                setApplicable(fields.policyCoverage, policyPublished);
+                setApplicable(fields.declarationRequirements, policyPublished);
+                setApplicable(fields.allowedUses, policyPublished);
+                setApplicable(fields.confidentiality, policyPublished);
 
-            setApplicable(
-                fields.reviewerUse,
-                policyPublished && coverage.includes(COVERAGE_VALUES.reviewer)
-            );
+                const coverage = policyPublished
+                    ? getSelectedValues(fields.policyCoverage)
+                    : [];
 
-            setApplicable(
-                fields.editorUse,
-                policyPublished && coverage.includes(COVERAGE_VALUES.editor)
-            );
+                setApplicable(
+                    fields.authorUse,
+                    policyPublished && coverage.includes(COVERAGE_VALUES.author)
+                );
+
+                setApplicable(
+                    fields.reviewerUse,
+                    policyPublished && coverage.includes(COVERAGE_VALUES.reviewer)
+                );
+
+                setApplicable(
+                    fields.editorUse,
+                    policyPublished && coverage.includes(COVERAGE_VALUES.editor)
+                );
+            } finally {
+                updating = false;
+            }
         }
 
         fields.policy.control.addEventListener(
