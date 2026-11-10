@@ -1112,6 +1112,7 @@
         const baseUrl = new URL(window.location.href);
         baseUrl.searchParams.set("returnSearchData", "true");
         baseUrl.searchParams.set("start", "0");
+        baseUrl.searchParams.set("rpp", "100");
 
         const button = this;
         button.disabled = true;
